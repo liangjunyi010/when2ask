@@ -97,6 +97,6 @@ python scripts/secret_scan.py
 
 ## 限制与下一阶段
 
-这三个最终样本只用于工程验收。v2 提示是在 validation 诊断后明确的；没有对 held-out test 调参，也没有用这些数字做统计检验。pilot 在线样本属于 dev 偏好家族。本轮不构成正式 Dev/Test 实验。
+这三个最终样本只用于工程验收。v2 提示是在 validation 诊断后明确的；没有对 held-out test 调参，也没有用这些数字做统计检验。两个在线 pilot 样本分别来自 dev 与 test 偏好家族；每组只有一个实例，本轮不构成正式 Dev/Test 实验。
 下一阶段先冻结公开任务契约、提示、模型版本和恢复规则。在新的 Dev groups 上选择 Jev threshold，再锁定配置。Test groups 必须与 Dev 在归一化任务家族层面隔离，并增加布局/任务模板家族；覆盖 0/1/2/3 未知偏好、不同先可执行子目标及冲突修复。
 预先规定新的调用预算与失败处理规则，逐样本三方法配对并报告不确定性。保留 backend 分别的 token、真实 latency、usage 缺失计数和控制器失败。需要时按供应商实际账单口径另算货币成本。当前 constraint 辅助抓取、固定几何和未校准 Noul 阈值仍是限制。

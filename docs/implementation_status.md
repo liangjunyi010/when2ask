@@ -33,7 +33,8 @@ Not completed: a formal independent Dev/Test study, threshold calibration, broad
 layout/task distributions, real hardware or friction-only grasping, MP4, training
 or 1,800-episode benchmark. Final online coverage is 0/2/3 unknown preferences;
 1-unknown was validated offline/oracle only after the prompt revision, to respect
-the total episode cap. Current online pilot cases are dev-family cases. The
+the total episode cap. Online pilot cases include one dev-family and one
+test-family instance, too few for a formal Dev/Test conclusion. The
 public fixed-preference contract was clarified uniformly after validation
 diagnostics; no statistical significance is claimed. DeepSeek reports an alias,
 not an immutable backend build. A first-discovery audit restart bug was repaired
