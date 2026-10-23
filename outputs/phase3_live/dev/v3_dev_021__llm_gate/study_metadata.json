@@ -1,0 +1,15 @@
+{
+  "job": {
+    "run_id": "v3_dev_021__llm_gate",
+    "sample_id": "v3_dev_021",
+    "group_id": "place_into_selected_containers:layout_e4a219b5d0977883",
+    "template_id": "place_into_selected_containers",
+    "missing_preferences": 1,
+    "scene_seed": 502450727,
+    "method": "llm_gate",
+    "threshold": 0.5,
+    "condition": "llm_gate"
+  },
+  "plan_sha256": "12db2fdcee3c4baf5cd88532caa3c26539705fd78dd304ed92000d027da1daff",
+  "completed_at": "2026-10-23T08:58:59.114713+00:00"
+}

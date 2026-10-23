@@ -1,0 +1,145 @@
+{
+  "plan_sha256": "12db2fdcee3c4baf5cd88532caa3c26539705fd78dd304ed92000d027da1daff",
+  "started_at": "2026-10-23T08:54:27.844318+00:00",
+  "full_episodes": 0,
+  "results": {
+    "deepseek": {
+      "success": true,
+      "catalog": [
+        {
+          "id": "deepseek-flash",
+          "object": "model",
+          "owned_by": "deepseek",
+          "name": "DeepSeek-V4.1-Flash",
+          "context_window": 1048576,
+          "max_output_tokens": 393216,
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "effort": {
+            "supported_levels": [
+              "low",
+              "high",
+              "max"
+            ],
+            "default_level": "high"
+          },
+          "api_capabilities": {
+            "anthropic_messages": {
+              "system_prompt_update": "in-history",
+              "tool_update": "addition-only"
+            }
+          }
+        },
+        {
+          "id": "deepseek-v4-pro",
+          "object": "model",
+          "owned_by": "deepseek",
+          "name": "DeepSeek-V4-Pro",
+          "context_window": 1048576,
+          "max_output_tokens": 393216,
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "effort": {
+            "supported_levels": [
+              "low",
+              "high",
+              "max"
+            ],
+            "default_level": "high"
+          },
+          "api_capabilities": {
+            "anthropic_messages": {
+              "system_prompt_update": "leading-only",
+              "tool_update": "leading-only"
+            }
+          }
+        }
+      ],
+      "gate": {
+        "decision": "ASK",
+        "p_ask": null
+      },
+      "returned_model": "deepseek-flash",
+      "input_tokens": 1146,
+      "output_tokens": 5,
+      "latency_ms": 522.1828339854255,
+      "schema_valid": true
+    },
+    "jev": {
+      "success": true,
+      "catalog": [
+        {
+          "name": "jev-latest",
+          "description": "The latest iteration of TypeSafe's System One Model: Jev",
+          "release_date": "2026-09-10T18:38:01.391457+00:00"
+        },
+        {
+          "name": "jev-preview",
+          "description": "A preview version of `jev-latest`: should be better in most ways",
+          "release_date": "2026-09-10T18:39:06.057655+00:00"
+        }
+      ],
+      "gate": {
+        "decision": "ASK",
+        "p_ask": 0.97
+      },
+      "returned_model": "jev-1.14.0",
+      "input_tokens": 1673,
+      "output_tokens": 24,
+      "latency_ms": 253.4373749513179,
+      "schema_valid": true
+    }
+  },
+  "physical_world_unchanged": true,
+  "cost": {
+    "deepseek": {
+      "attempts": 2,
+      "input_tokens": 1146,
+      "unknown_input_tokens_attempts": 1,
+      "output_tokens": 5,
+      "unknown_output_tokens_attempts": 1,
+      "latency_ms": 775.4577499581501,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 2,
+      "input_tokens": 1673,
+      "unknown_input_tokens_attempts": 1,
+      "output_tokens": 24,
+      "unknown_output_tokens_attempts": 1,
+      "latency_ms": 520.3852079575881,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 4,
+    "api_latency_ms": 1295.8429579157382,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "session": {
+    "attempts": 4,
+    "episodes": 0,
+    "backends": {
+      "deepseek": {
+        "consecutive_errors": 0,
+        "blocked": false
+      },
+      "jev": {
+        "consecutive_errors": 0,
+        "blocked": false
+      }
+    },
+    "policy": "phase3_dev",
+    "max_attempts": 600,
+    "max_episodes": 40
+  }
+}

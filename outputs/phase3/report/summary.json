@@ -1,0 +1,415 @@
+{
+  "study_id": "phase3_dev_calibration_v1",
+  "evidence": "real API + real PyBullet; no mock rows",
+  "plan_sha256": "12db2fdcee3c4baf5cd88532caa3c26539705fd78dd304ed92000d027da1daff",
+  "episodes": 40,
+  "independent_groups": 8,
+  "aggregate": [
+    {
+      "condition": "llm_gate",
+      "successes": 7,
+      "episodes": 8,
+      "independent_groups": 8,
+      "success_rate": 0.875,
+      "success_interval_group_wilson95": [
+        0.5291118177871464,
+        0.9775825085499433
+      ],
+      "burden": 12,
+      "ask_turns": 6,
+      "deepseek_input_tokens": 97812,
+      "deepseek_output_tokens": 1222,
+      "jev_input_tokens": null,
+      "jev_output_tokens": null,
+      "api_latency_ms": 58213.12420791946,
+      "wall_time_s": 90.26029678981286,
+      "api_attempts": 68,
+      "retries": 0,
+      "schema_errors": 0,
+      "api_errors": 0,
+      "physical_failures": 0,
+      "repeated_requests": 0,
+      "redundant_requests": 1,
+      "early_asks": 1,
+      "blocked_continues": 2,
+      "complete_asks": 0,
+      "mean_burden": 1.5
+    },
+    {
+      "condition": "llm_noask",
+      "successes": 5,
+      "episodes": 8,
+      "independent_groups": 8,
+      "success_rate": 0.625,
+      "success_interval_group_wilson95": [
+        0.30574239460262737,
+        0.8631557141764026
+      ],
+      "burden": 0,
+      "ask_turns": 0,
+      "deepseek_input_tokens": 41354,
+      "deepseek_output_tokens": 668,
+      "jev_input_tokens": null,
+      "jev_output_tokens": null,
+      "api_latency_ms": 24350.076332921162,
+      "wall_time_s": 44.6798137902515,
+      "api_attempts": 28,
+      "retries": 0,
+      "schema_errors": 0,
+      "api_errors": 0,
+      "physical_failures": 0,
+      "repeated_requests": 0,
+      "redundant_requests": 0,
+      "early_asks": 0,
+      "blocked_continues": 19,
+      "complete_asks": 0,
+      "mean_burden": 0.0
+    },
+    {
+      "condition": "jev_gate@0.7",
+      "successes": 6,
+      "episodes": 8,
+      "independent_groups": 8,
+      "success_rate": 0.75,
+      "success_interval_group_wilson95": [
+        0.40927543031016883,
+        0.9285207872478909
+      ],
+      "burden": 7,
+      "ask_turns": 3,
+      "deepseek_input_tokens": 46150,
+      "deepseek_output_tokens": 809,
+      "jev_input_tokens": 58204,
+      "jev_output_tokens": 720,
+      "api_latency_ms": 35820.79429249279,
+      "wall_time_s": 55.94246712408494,
+      "api_attempts": 61,
+      "retries": 1,
+      "schema_errors": 2,
+      "api_errors": 0,
+      "physical_failures": 0,
+      "repeated_requests": 0,
+      "redundant_requests": 0,
+      "early_asks": 0,
+      "blocked_continues": 8,
+      "complete_asks": 0,
+      "mean_burden": 0.875
+    },
+    {
+      "condition": "jev_gate@0.5",
+      "successes": 7,
+      "episodes": 8,
+      "independent_groups": 8,
+      "success_rate": 0.875,
+      "success_interval_group_wilson95": [
+        0.5291118177871464,
+        0.9775825085499433
+      ],
+      "burden": 11,
+      "ask_turns": 5,
+      "deepseek_input_tokens": 49801,
+      "deepseek_output_tokens": 947,
+      "jev_input_tokens": 65360,
+      "jev_output_tokens": 792,
+      "api_latency_ms": 39658.44766423106,
+      "wall_time_s": 60.34008845908102,
+      "api_attempts": 66,
+      "retries": 0,
+      "schema_errors": 0,
+      "api_errors": 0,
+      "physical_failures": 0,
+      "repeated_requests": 0,
+      "redundant_requests": 0,
+      "early_asks": 0,
+      "blocked_continues": 2,
+      "complete_asks": 0,
+      "mean_burden": 1.375
+    },
+    {
+      "condition": "jev_gate@0.3",
+      "successes": 7,
+      "episodes": 8,
+      "independent_groups": 8,
+      "success_rate": 0.875,
+      "success_interval_group_wilson95": [
+        0.5291118177871464,
+        0.9775825085499433
+      ],
+      "burden": 11,
+      "ask_turns": 5,
+      "deepseek_input_tokens": 49801,
+      "deepseek_output_tokens": 947,
+      "jev_input_tokens": 65360,
+      "jev_output_tokens": 792,
+      "api_latency_ms": 40306.508751004,
+      "wall_time_s": 60.93232908088248,
+      "api_attempts": 66,
+      "retries": 0,
+      "schema_errors": 0,
+      "api_errors": 0,
+      "physical_failures": 0,
+      "repeated_requests": 0,
+      "redundant_requests": 0,
+      "early_asks": 0,
+      "blocked_continues": 2,
+      "complete_asks": 0,
+      "mean_burden": 1.375
+    }
+  ],
+  "threshold_selection": {
+    "selected_threshold": 0.5,
+    "default_threshold": 0.5,
+    "rule": {
+      "default_threshold": 0.5,
+      "unit": "independent physical layout group; 8 paired groups, one sample each",
+      "priority": [
+        "task_success",
+        "clarification_burden",
+        "api_latency_ms",
+        "separate_backend_tokens"
+      ],
+      "bootstrap_seed": 4278,
+      "bootstrap_draws": 20000,
+      "paired_interval": [
+        0.0125,
+        0.9875
+      ],
+      "rule": "Compare 0.3 and 0.7 against 0.5 with paired group bootstrap intervals (97.5%, Bonferroni for two alternatives). Change default only if lower SR-difference bound > 0; or all 8 paired success outcomes are identical and lower burden-saving bound > 0; or success AND burden vectors are identical and latency savings >=10% with lower bound >0. Among eligible alternatives rank SR, mean burden, latency, then distance to default. Never pool backend tokens as dollars. Incomplete pairing or no clear eligible alternative keeps 0.5.",
+      "limitation": "Exploratory engineering Dev calibration; intervals at 8 groups are unstable, not a confirmatory claim."
+    },
+    "reason": "No adequately supported alternative; retain predeclared default.",
+    "comparisons": {
+      "0.3": {
+        "groups": [
+          "pack_and_cover:layout_18c7c887e58a1f9a",
+          "pack_and_cover:layout_1eff016f08c16c21",
+          "pack_and_cover:layout_43469905d9edebbd",
+          "pack_and_cover:layout_eefb9a2482cec408",
+          "place_into_selected_containers:layout_4a09a6bd6b9107e8",
+          "place_into_selected_containers:layout_ac4e33f56a9a5820",
+          "place_into_selected_containers:layout_b02188e014e9561a",
+          "place_into_selected_containers:layout_e4a219b5d0977883"
+        ],
+        "success_diff": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "success_diff_interval": [
+          0.0,
+          0.0
+        ],
+        "burden_saving": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "burden_saving_interval": [
+          0.0,
+          0.0
+        ],
+        "latency_saving_ms": [
+          17.503958893939853,
+          176.63495487067848,
+          9.677166119217873,
+          77.23266840912402,
+          -419.48341811075807,
+          -277.07308414392173,
+          -96.93033376242965,
+          -135.62299904879183
+        ],
+        "latency_saving_interval_ms": [
+          -231.91622986632865,
+          54.60655799834058
+        ],
+        "relative_latency_saving": -0.0163410603526331,
+        "eligible": false,
+        "reason": null
+      },
+      "0.7": {
+        "groups": [
+          "pack_and_cover:layout_18c7c887e58a1f9a",
+          "pack_and_cover:layout_1eff016f08c16c21",
+          "pack_and_cover:layout_43469905d9edebbd",
+          "pack_and_cover:layout_eefb9a2482cec408",
+          "place_into_selected_containers:layout_4a09a6bd6b9107e8",
+          "place_into_selected_containers:layout_ac4e33f56a9a5820",
+          "place_into_selected_containers:layout_b02188e014e9561a",
+          "place_into_selected_containers:layout_e4a219b5d0977883"
+        ],
+        "success_diff": [
+          0,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "success_diff_interval": [
+          -0.375,
+          0.0
+        ],
+        "burden_saving": [
+          0,
+          2,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        "burden_saving_interval": [
+          0.0,
+          1.25
+        ],
+        "latency_saving_ms": [
+          425.7473759353161,
+          2478.4452471649274,
+          -619.6132927434519,
+          -260.09320677258074,
+          1682.8972059302032,
+          403.55874807573855,
+          -427.44466569274664,
+          154.15595984086394
+        ],
+        "latency_saving_interval_ms": [
+          -220.04908897743005,
+          1318.7431981250506
+        ],
+        "relative_latency_saving": 0.09676761441168422,
+        "eligible": false,
+        "reason": null
+      }
+    }
+  },
+  "returned_models": {
+    "deepseek": [
+      "deepseek-flash"
+    ],
+    "jev": [
+      "jev-1.14.0"
+    ]
+  },
+  "session": {
+    "attempts": 293,
+    "episodes": 40,
+    "backends": {
+      "deepseek": {
+        "consecutive_errors": 0,
+        "blocked": false
+      },
+      "jev": {
+        "consecutive_errors": 0,
+        "blocked": false
+      }
+    },
+    "policy": "phase3_dev",
+    "max_attempts": 600,
+    "max_episodes": 40,
+    "episode_ids": [
+      "v3_dev_016__llm_gate__20261023T085446829857Z",
+      "v3_dev_005__llm_noask__20261023T085506754471Z",
+      "v3_dev_015__jev_gate__20261023T085513450256Z",
+      "v3_dev_010__llm_noask__20261023T085522864969Z",
+      "v3_dev_000__jev_gate__20261023T085529581605Z",
+      "v3_dev_010__jev_gate__20261023T085537539226Z",
+      "v3_dev_016__llm_noask__20261023T085544193714Z",
+      "v3_dev_015__jev_gate__20261023T085549081761Z",
+      "v3_dev_031__jev_gate__20261023T085557847220Z",
+      "v3_dev_031__llm_gate__20261023T085604546796Z",
+      "v3_dev_026__llm_noask__20261023T085612926291Z",
+      "v3_dev_026__llm_gate__20261023T085617046709Z",
+      "v3_dev_026__jev_gate__20261023T085625890269Z",
+      "v3_dev_010__jev_gate__20261023T085632777225Z",
+      "v3_dev_005__jev_gate__20261023T085642581748Z",
+      "v3_dev_000__jev_gate__20261023T085650750161Z",
+      "v3_dev_000__llm_noask__20261023T085658354704Z",
+      "v3_dev_021__jev_gate__20261023T085705142024Z",
+      "v3_dev_026__jev_gate__20261023T085711982961Z",
+      "v3_dev_016__jev_gate__20261023T085719253601Z",
+      "v3_dev_031__llm_noask__20261023T085725026972Z",
+      "v3_dev_005__jev_gate__20261023T085729393245Z",
+      "v3_dev_015__jev_gate__20261023T085737606362Z",
+      "v3_dev_021__jev_gate__20261023T085746405322Z",
+      "v3_dev_010__llm_gate__20261023T085753080630Z",
+      "v3_dev_005__jev_gate__20261023T085805390089Z",
+      "v3_dev_005__llm_gate__20261023T085813883407Z",
+      "v3_dev_021__llm_noask__20261023T085824298779Z",
+      "v3_dev_031__jev_gate__20261023T085828961498Z",
+      "v3_dev_021__jev_gate__20261023T085835910288Z",
+      "v3_dev_000__jev_gate__20261023T085842884119Z",
+      "v3_dev_021__llm_gate__20261023T085850831336Z",
+      "v3_dev_000__llm_gate__20261023T085859114985Z",
+      "v3_dev_016__jev_gate__20261023T085908941534Z",
+      "v3_dev_015__llm_noask__20261023T085914190752Z",
+      "v3_dev_016__jev_gate__20261023T085920746403Z",
+      "v3_dev_026__jev_gate__20261023T085926109331Z",
+      "v3_dev_010__jev_gate__20261023T085931197787Z",
+      "v3_dev_031__jev_gate__20261023T085940803050Z",
+      "v3_dev_015__llm_gate__20261023T085947149025Z"
+    ]
+  },
+  "global_audit": {
+    "attempts": 293,
+    "session_ids_contiguous_unique": true,
+    "statuses": {
+      "ok": 291,
+      "schema_error": 2
+    },
+    "unknown_inference_usage": 0
+  },
+  "dataset": {
+    "dev": {
+      "samples": 32,
+      "groups": 8,
+      "templates": {
+        "pack_and_cover": 16,
+        "place_into_selected_containers": 16
+      },
+      "missing": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8
+      },
+      "orders": {
+        "independent": 12,
+        "cup_first": 10,
+        "block_first": 10
+      }
+    },
+    "test": {
+      "samples": 128,
+      "groups": 16,
+      "templates": {
+        "pack_and_cover": 64,
+        "place_into_selected_containers": 64
+      },
+      "missing": {
+        "0": 32,
+        "1": 32,
+        "2": 32,
+        "3": 32
+      },
+      "orders": {
+        "independent": 42,
+        "cup_first": 44,
+        "block_first": 42
+      }
+    }
+  },
+  "test_api_episodes": 0
+}

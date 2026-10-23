@@ -8,7 +8,7 @@ from when2ask.benchmark import Sample, find_sample
 from when2ask.config import ROOT
 from when2ask.diverse_world import DiverseEnvironment
 from when2ask.protocol import public_payload
-from when2ask.study_data import StudySample, check_study, load_study, read_sample
+from when2ask.study_data import StudySample, check_study, generate_study, load_study, read_sample, sha256
 from when2ask.study_protocol import StudyQuestion, disclosed_choices, observe, role_candidates
 from when2ask.user_simulator import PreferenceResolver
 
@@ -26,6 +26,15 @@ def test_v3_scene_groups_cover_both_templates_and_all_disclosures():
             group = [s for s in samples if s.template_id == template]
             assert len({tuple(s.theta_star.values()) for s in group}) > 1
     assert not {s.group_id for s in dev} & {s.group_id for s in test}
+
+
+def test_v3_generation_reproduces_frozen_data_without_overwriting(tmp_path):
+    regenerated = generate_study(tmp_path, seed=4278)
+    frozen = json.loads((ROOT / "data/phase3/manifest.json").read_text())
+    assert regenerated["dataset_hashes"] == frozen["dataset_hashes"]
+    assert regenerated["scene_hashes"] == frozen["scene_hashes"]
+    with pytest.raises(FileExistsError, match="Frozen data"):
+        generate_study(tmp_path, seed=4278)
 
 
 def test_v3_groups_are_independent_of_truth_aliases_and_wording():

@@ -6,6 +6,30 @@ from .study_data import generate_study
 from .study_oracle import run_oracle
 from .study_reporting import dev_report, freeze_test
 from .study_validation import validate_study
+from .config import ROOT
+
+
+def stable_dev_report():
+    """Preserve a frozen report's byte identity on equivalent regeneration.
+
+    Dict/set iteration order must not invalidate a frozen manifest's file hash.
+    Changed metrics require a separately named report, never silent replacement.
+    This affects artifact writing only, not inference or threshold calculations.
+    """
+    summary = ROOT / "outputs/phase3/report/summary.json"
+    frozen_path = ROOT / "configs/frozen_test.yaml"
+    previous = summary.read_bytes() if frozen_path.exists() and summary.exists() else None
+    if previous is not None:
+        from .study_data import sha256
+        frozen = json.loads(frozen_path.read_text())
+        if frozen["dev_report_sha256"] != sha256(summary):
+            raise ValueError("Frozen report was modified; restore it before regeneration")
+    result = dev_report()
+    if previous is not None:
+        summary.write_bytes(previous)
+        if json.loads(previous) != result:
+            raise ValueError("Regenerated metrics differ from frozen evidence; use a new report version")
+    return result
 
 
 def main(argv=None):
@@ -41,7 +65,7 @@ def main(argv=None):
     elif args.command == "dev":
         result = run_dev(record_first=args.record_first)
     elif args.command == "report":
-        result = dev_report()
+        result = stable_dev_report()
     else:
         result = freeze_test()
     # Do not emit entire large manifests or raw HTTP content to the console.

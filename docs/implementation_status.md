@@ -1,5 +1,46 @@
 # Implementation and validation status
 
+## Phase 3 current status (2026-10-23)
+
+| Stage | Implemented and actually verified |
+|---|---|
+| Preservation | Started from `3bc24b2`; old 66 tests passed; 194 historical artifact hashes unchanged; PR #1 remains OPEN |
+| Branch | `feat/devtest-calibration`, based on `feat/benchmark-apis` |
+| Versioned grouping | Schema 3 explicit template/layout/group/seed/sample/partition; physical base groups replace truth grouping for new data; legacy reader retained |
+| Dataset | Dev 32 samples/8 groups; Test 128/16; each half per template and balanced 0/1/2/3 unknown counts |
+| Split checks | Alias/truth/style/jitter variants grouped together; held-out physical container arrangements; minimum cross-split matched-container distance 101.1 mm |
+| New task | Two real five-piece containers, cup target preference reused to infer other block target, public order variants |
+| Physical oracle | Dev 32/32, Test 128/128; pack/cover 80/80, two-container 80/80; separate all-pairs initial geometry checks passed |
+| Controller regression | Final code passed old 25/25 oracle again; original motor/IK, proximity guards, release and full-geometry evaluators retained |
+| Models | Live revalidation successful; configured/returned DeepSeek `deepseek-flash`; Jev `jev-latest` / `jev-1.14.0`; real usage/latency |
+| Pre-registration | Source commit `9cefbd3`, 20 runtime/analysis source hashes, prompts, data, 40 randomized jobs, retry policy and selection rules committed before authenticated calls |
+| Real Dev | 40 independent fresh episodes, 8 scene groups ×5 conditions; 293/600 authenticated requests including discovery/revalidation/retry; 40/40 episode cap exhausted |
+| Dev scores | NoAsk 5/8 B0; LLM-Gate 7/8 B12; Jev .3 7/8 B11, .5 7/8 B11, .7 6/8 B7 |
+| Physics vs task | 99/99 executed physical skills succeeded; wrong preferences and malformed model actions still fail task; all failures retained |
+| API failures | 2 schema-error attempts in one episode, 1 retry, no network/auth/API errors; inference usage present for every attempt |
+| Threshold | Default 0.5 retained by predeclared paired-group rule; no supported advantage for alternative; uncertainty preserved |
+| Public boundary | Paired initial payloads identical; no private metadata in any model state; ASK freezes full Bullet state; Gate before Planner; NoAsk no Gate |
+| Analysis | Raw-backed CSV/JSON/Markdown, 8-group pairing/intervals, error/timing cases, token costs separate; frozen report byte identity preserved on equivalent regeneration |
+| Test freeze | `configs/frozen_test.yaml` plus manifest; hashes, models, threshold, parameters, code and budgets; **0 Test API episodes**, live Test blocked in Phase 3 |
+| Recording | New live two-container episode, 315 real TinyRenderer GIF frames; per-episode initial/final PNG and trajectory; GIF ignored |
+| Tests | **96 passed**, including original 66; offline network guard; final JUnit and evidence saved under outputs/phase3 |
+
+Current report: [Dev calibration](phase3/dev_report.md),
+[design and pre-registration](phase3/design_and_preregistration.md),
+`outputs/phase3/report/`, `outputs/phase3_live/`, `configs/frozen_test.yaml`.
+
+Unresolved: the 8-group online selection covers only two preference triples per
+template (all selected blocks green, pack lids black, cup destinations container_b).
+Full Dev/Test each cover all eight triples per template. The limitation was found
+in the coverage audit, disclosed, and not repaired by post-hoc replacement runs.
+Future independent Dev replication should stratify truth jointly with layout and
+disclosure before calls. This small exploratory study does not prove Jev superiority
+or a uniquely optimal threshold. Formal Test remains unrun; 384 paired fresh episodes
+are planned under a separately authorized cap. Model alias drift, conservative
+primitive scenes, constraint-assisted grasp and lack of hardware remain limitations.
+
+The historical Phase 2 and Phase 1 records below retain their original scope.
+
 ## Phase 2 current status (2026-10-23)
 
 | Stage | Implemented and actually verified |

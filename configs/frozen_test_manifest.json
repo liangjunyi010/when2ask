@@ -1,0 +1,8 @@
+{
+  "config_path": "configs/frozen_test.yaml",
+  "config_sha256": "897968817e70f47f16c0d75a2911c635a44722535a7093f8e4f9be608d90bcc0",
+  "frozen_data_sha256": "519c002eeb4587ea69a00aae1f416f299b9e822c2b65c5e29dd55d8b101fb5c1",
+  "code_commit": "9cefbd3905cc9f3fcdfef23244de0eba8f08d693",
+  "test_dataset_sha256": "e44b6dfc1980014ddf8628fafdde099cbc968d18e62e6618d62d0385cd7bcccb",
+  "status": "NOT_RUN"
+}

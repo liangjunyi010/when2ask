@@ -1,0 +1,154 @@
+{
+  "full_dev": {
+    "pack_and_cover": {
+      "samples": 16,
+      "combinations": {
+        "green_block/red_cup/black_lid": 2,
+        "green_block/red_cup/white_lid": 3,
+        "yellow_block/red_cup/black_lid": 2,
+        "yellow_block/red_cup/white_lid": 3,
+        "green_block/blue_cup/black_lid": 2,
+        "green_block/blue_cup/white_lid": 1,
+        "yellow_block/blue_cup/black_lid": 2,
+        "yellow_block/blue_cup/white_lid": 1
+      },
+      "slots": {
+        "block_choice": {
+          "green_block": 8,
+          "yellow_block": 8
+        },
+        "cup_choice": {
+          "red_cup": 10,
+          "blue_cup": 6
+        },
+        "lid_choice": {
+          "black_lid": 8,
+          "white_lid": 8
+        }
+      }
+    },
+    "place_into_selected_containers": {
+      "samples": 16,
+      "combinations": {
+        "green_block/red_cup/container_b": 2,
+        "yellow_block/red_cup/container_a": 3,
+        "yellow_block/red_cup/container_b": 2,
+        "green_block/blue_cup/container_a": 3,
+        "green_block/blue_cup/container_b": 2,
+        "yellow_block/blue_cup/container_a": 1,
+        "yellow_block/blue_cup/container_b": 2,
+        "green_block/red_cup/container_a": 1
+      },
+      "slots": {
+        "block_choice": {
+          "green_block": 8,
+          "yellow_block": 8
+        },
+        "cup_choice": {
+          "red_cup": 8,
+          "blue_cup": 8
+        },
+        "cup_destination_choice": {
+          "container_b": 8,
+          "container_a": 8
+        }
+      }
+    }
+  },
+  "full_test": {
+    "pack_and_cover": {
+      "samples": 64,
+      "combinations": {
+        "green_block/red_cup/black_lid": 8,
+        "green_block/red_cup/white_lid": 8,
+        "yellow_block/red_cup/black_lid": 8,
+        "yellow_block/red_cup/white_lid": 8,
+        "green_block/blue_cup/black_lid": 8,
+        "green_block/blue_cup/white_lid": 8,
+        "yellow_block/blue_cup/black_lid": 8,
+        "yellow_block/blue_cup/white_lid": 8
+      },
+      "slots": {
+        "block_choice": {
+          "green_block": 32,
+          "yellow_block": 32
+        },
+        "cup_choice": {
+          "red_cup": 32,
+          "blue_cup": 32
+        },
+        "lid_choice": {
+          "black_lid": 32,
+          "white_lid": 32
+        }
+      }
+    },
+    "place_into_selected_containers": {
+      "samples": 64,
+      "combinations": {
+        "green_block/red_cup/container_b": 8,
+        "yellow_block/red_cup/container_a": 8,
+        "yellow_block/red_cup/container_b": 8,
+        "green_block/blue_cup/container_a": 8,
+        "green_block/blue_cup/container_b": 8,
+        "yellow_block/blue_cup/container_a": 8,
+        "yellow_block/blue_cup/container_b": 8,
+        "green_block/red_cup/container_a": 8
+      },
+      "slots": {
+        "block_choice": {
+          "green_block": 32,
+          "yellow_block": 32
+        },
+        "cup_choice": {
+          "red_cup": 32,
+          "blue_cup": 32
+        },
+        "cup_destination_choice": {
+          "container_b": 32,
+          "container_a": 32
+        }
+      }
+    }
+  },
+  "online_selected_dev": {
+    "pack_and_cover": {
+      "samples": 4,
+      "combinations": {
+        "green_block/red_cup/black_lid": 2,
+        "green_block/blue_cup/black_lid": 2
+      },
+      "slots": {
+        "block_choice": {
+          "green_block": 4
+        },
+        "cup_choice": {
+          "red_cup": 2,
+          "blue_cup": 2
+        },
+        "lid_choice": {
+          "black_lid": 4
+        }
+      }
+    },
+    "place_into_selected_containers": {
+      "samples": 4,
+      "combinations": {
+        "green_block/red_cup/container_b": 2,
+        "green_block/blue_cup/container_b": 2
+      },
+      "slots": {
+        "block_choice": {
+          "green_block": 4
+        },
+        "cup_choice": {
+          "red_cup": 2,
+          "blue_cup": 2
+        },
+        "cup_destination_choice": {
+          "container_b": 4
+        }
+      }
+    }
+  }
+}

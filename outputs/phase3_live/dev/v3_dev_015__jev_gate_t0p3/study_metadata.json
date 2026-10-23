@@ -1,0 +1,15 @@
+{
+  "job": {
+    "run_id": "v3_dev_015__jev_gate_t0p3",
+    "sample_id": "v3_dev_015",
+    "group_id": "pack_and_cover:layout_43469905d9edebbd",
+    "template_id": "pack_and_cover",
+    "missing_preferences": 3,
+    "scene_seed": 1391429909,
+    "method": "jev_gate",
+    "threshold": 0.3,
+    "condition": "jev_gate@0.3"
+  },
+  "plan_sha256": "12db2fdcee3c4baf5cd88532caa3c26539705fd78dd304ed92000d027da1daff",
+  "completed_at": "2026-10-23T08:55:57.846958+00:00"
+}

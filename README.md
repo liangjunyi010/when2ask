@@ -1,12 +1,60 @@
 # When2Ask — Clarification Timing for Robotic Task Execution
 
-真实 PyBullet / Franka Panda 的澄清时机研究工程。保留 Phase 1 Scripted MVP，并在 Phase 2 实现共享 DeepSeek Planner、DeepSeek Gate 与 Jev Noul Gate 的真实 API benchmark。没有模型训练。
+真实 PyBullet / Franka Panda 的澄清时机研究工程。保留 Scripted MVP、共享 DeepSeek Planner 与 DeepSeek/Jev Gate；Phase 3 增加场景分组的 Dev/Test、双容器任务和真实 Dev 阈值校准。没有模型训练。
 
 ![真实 PyBullet 初始场景](outputs/ask_demo/scene.png)
 
+## Phase 3：独立 Dev/Test 与 Dev 校准
+
+新增 `place_into_selected_containers`：杯子进入用户选择的开放容器，方块进入另一个容器；同一目标偏好回答供两个动作复用。两种模板均有独立、杯先、块先三类公开顺序。场景组由基础物理布局决定，隐藏偏好、别名、改写及毫米扰动保持同一 split；旧 schema 和 Demo 保留。
+
+| Partition | Samples | 基础布局 groups | 未知偏好 0/1/2/3 |
+|---|---:|---:|---|
+| Dev | 32 | 8 | 8/8/8/8 |
+| Test | 128 | 16 | 32/32/32/32 |
+
+所有 **160/160** 场景已通过真实 Panda oracle，两种模板各 **80/80**；独立全配对穿透、私有隔离和跨 split 布局检查通过。旧 25 场景在扩展后再次 **25/25**。最终测试 **96 passed**，离线 pytest 禁止网络。Phase 2 原始数据及报告哈希保持不变。
+
+预注册 8 个 Dev groups ×5 配置，随机交错完成 **40 episodes /293 authenticated requests**。以下是每种配置 8 次真实执行的累计值：
+
+| Method / threshold | Success | Burden | DeepSeek tokens | Jev tokens | API latency 秒 |
+|---|---:|---:|---:|---:|---:|
+| LLM-NoAsk | 5/8 | 0 | 42,022 | — | 24.350 |
+| LLM-Gate | 7/8 | 12 | 99,034 | — | 58.213 |
+| Jev 0.3 | 7/8 | 11 | 50,748 | 66,152 | 40.307 |
+| Jev 0.5 | 7/8 | 11 | 50,748 | 66,152 | 39.658 |
+| Jev 0.7 | 6/8 | 7 | 46,959 | 58,924 | 35.821 |
+
+按预先规则保留 **0.5**。0.3 与 0.5 的配对成功/burden 相同，0.7 少一次成功；没有足够证据宣布最优阈值或 Jev 优势。Tokens 是各后端真实 input+output，不能等同美元成本。99/99 实际技能成功，1 个 episode 因两次非法动作 schema 输出终止；失败和重试计入统计。
+
+在线子集的隐藏组合覆盖不足：每个模板仅 2 种组合，方块/盖子真值固定为绿/黑，可能影响 NoAsk 默认猜测结果。完整 Dev/Test 每个模板各覆盖 8 种组合。这个抽样缺陷和小样本不确定性完整记录在报告中，没有换样或补跑。
+
+[完整 Dev 报告](docs/phase3/dev_report.md) · [分组与预注册规则](docs/phase3/design_and_preregistration.md) · [逐 episode CSV](outputs/phase3/report/episodes.csv) · [真实汇总 CSV](outputs/phase3/report/summary.csv) · [审计证据](outputs/phase3/evidence.json) · [冻结 Test 配置](configs/frozen_test.yaml)
+
+![真实双容器任务执行后](outputs/phase3_live/dev/v3_dev_016__llm_gate/final.png)
+
+```bash
+source .venv/bin/activate
+python -m when2ask study oracle --partition dev
+python -m when2ask study oracle --partition test  # 仅物理 oracle，无 API
+python -m when2ask study check-data
+python -m when2ask study freeze-data
+python -m when2ask study plan
+python -m when2ask study smoke --live
+python -m when2ask study dev --live --record-first
+python -m when2ask study report
+python -m when2ask study freeze-test
+python scripts/build_phase3_report.py
+python scripts/verify_phase3.py
+```
+
+当前 40-episode session 已完成；smoke/dev 重跑会复用匹配的已有记录，不新增调用。`study generate --seed 4278` 已执行一次，现拒绝覆盖冻结数据。实际双容器 GIF 位于 `outputs/phase3_live/dev/v3_dev_016__llm_gate/demo.gif`（315 个真实 TinyRenderer 帧，约 5 MB，本地保留、不提交）；每个 live episode 有 PNG、JSON 和 API JSONL。
+
+正式 Test 为 **FROZEN_NOT_RUN**，本轮 **0 Test API episodes**。冻结文件采用 JSON 语法（合法 YAML 1.2），记录模型、阈值、提示/数据/源码哈希与预算。未来 128×3=384 次 Test 执行需新的有界 session；Dev 均值估计约 2,592 次 episode 请求，建议另行约定 5,000 次总上限，失败时停止。精确底层 DeepSeek build 无法从返回的别名锁定；当前抓取仍为 constraint 辅助，场景为保守 primitive 布局。
+
 ## Phase 2：真实 API Benchmark
 
-本地配置已完成，`.env` 为 0600 且不进入 Git；仓库仅有安全占位 `.env.example`。使用原有安装脚本即可安装当前 0.2.0 包，无新增第三方依赖。
+本地配置已完成，`.env` 为 0600 且不进入 Git；仓库仅有安全占位 `.env.example`。Phase 2 当时使用 0.2.0；当前 0.3.0 沿用相同第三方依赖和安装脚本。
 
 ```bash
 source .venv/bin/activate

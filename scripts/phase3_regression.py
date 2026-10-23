@@ -3,6 +3,7 @@ import hashlib
 import json
 import subprocess
 import sys
+import argparse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -19,8 +20,8 @@ def historical_hashes():
             for p in paths.splitlines() if p.startswith(("data/", "scenes/", "outputs/", "docs/phase2/"))}
 
 
-def main():
-    out = ROOT / "outputs/phase3/baseline"
+def main(output_dir=None):
+    out = Path(output_dir) if output_dir else ROOT / "outputs/phase3/baseline"
     out.mkdir(parents=True, exist_ok=True)
     before = historical_hashes()
     rows = []
@@ -45,4 +46,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--output-dir")
+    main(parser.parse_args().output_dir)
