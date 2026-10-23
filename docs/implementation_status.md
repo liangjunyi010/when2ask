@@ -23,7 +23,7 @@
 | Final v2 | Nine real paired episodes: NoAsk 1/3, LLM-Gate 3/3, Jev-Gate 3/3; burden totals 0/5/5; all 27 physical skills succeed |
 | Fair comparison | Initial payload, Planner configuration and prompt hashes match across each paired sample; mixed-cohort reports rejected |
 | Tests/evidence | **66 passed in 34.61 s**, no skips; offline pytest blocks network; evidence/GIF/attempt sequence checks pass |
-| Publication | Feature branch `feat/benchmark-apis`; source/data/tests/sanitized records prepared; private push/PR checked at publication, no auto-merge |
+| Publication | `feat/benchmark-apis` pushed; repository `isPrivate=true`; [PR #1](https://github.com/liangjunyi010/when2ask/pull/1) is OPEN against main, not merged; remote commit checked |
 
 Current details: [real experiment report](phase2/experiment_report.md),
 [interfaces and commands](phase2/interfaces.md), `outputs/phase2/evidence.json`,

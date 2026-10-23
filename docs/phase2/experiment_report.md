@@ -1,5 +1,9 @@
 # When2Ask Phase 2 Engineering Pilot
 
+代码与脱敏证据已 push 到 Private 仓库的 `feat/benchmark-apis`，
+[PR #1](https://github.com/liangjunyi010/when2ask/pull/1) 指向 `main`，保持 OPEN，未合并。
+已核对仓库 `isPrivate=true` 与远端 commit。
+
 本报告只陈述真实 API 与真实 PyBullet 执行结果。离线 adapter 测试使用显式 test doubles，未计入下列表格。样本量很小，不作统计显著性或泛化结论。
 
 ## 实验范围与版本

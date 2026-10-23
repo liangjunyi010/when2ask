@@ -174,6 +174,8 @@ Phase 2 的拆分接口已在 `agents.py`、`research_runner.py` 和 `protocol.p
 
 ## GitHub 发布
 
+Phase 2 已推送到 `feat/benchmark-apis`：[PR #1](https://github.com/liangjunyi010/when2ask/pull/1)，指向 `main`，未自动合并。已验证仓库 `isPrivate=true` 与远端 commit。
+
 目标仓库为 **Private**。虚拟环境、`.env`、密钥、缓存、GIF/MP4 和批量回归轨迹不会提交。复现发布检查：
 
 ```bash
