@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "pptx_sha256": "8ac3b269f346b3fe595bcb38a716c0a14d1d89f458894753d3afcb90478e048b",
+  "pptx_sha256": "de440deae54b5bfcdf38aea79795bf3c720b18086458acb54937e8ec392a6bc0",
   "slide_count": 2,
   "dimensions_emu": [
     18288000,
@@ -9,8 +9,9 @@
   "aspect": "16:9",
   "embedded_video_byte_identical": true,
   "embedded_animated_gif_byte_identical": true,
-  "embedded_gif_frames": 287,
+  "embedded_gif_frames": 356,
   "autoplay_timing_declared": true,
+  "loop_playback_declared": true,
   "slide_2_table_editable": true,
   "table_rows_verified_from_raw_episodes": [
     {
@@ -70,6 +71,8 @@
   "oracle_passed": 160,
   "oracle_total": 160,
   "speaker_notes_embedded": true,
+  "speaker_notes_match_user_script": true,
+  "revision": "script-matched-v2",
   "render_engine": "Local LibreOfficeDev 26.8 headless PDF + Poppler PNG, 1920x1080",
   "rendered_slides": [
     "slide_previews/slide-rendered-1.png",

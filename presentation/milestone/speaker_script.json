@@ -1,0 +1,16 @@
+{
+  "revision": "script-matched-v2",
+  "source": "User-provided English milestone script, preserved verbatim without Markdown emphasis",
+  "slides": [
+    {
+      "title": "When2Ask: System & Real Demo",
+      "target_seconds": [55, 60],
+      "script": "Hi everyone. Our project is When2Ask, and we're studying a simple question: when should a robot ask for clarification, and when should it continue acting?\n\nImagine being told to pack a cup, a block, and a lid, but only the cup choice is specified. Asking everything immediately may interrupt the user, while guessing could lead to mistakes.\n\nHere is our working PyBullet Panda demo.\n\nJev first gives a clarification score of 0.14, so the robot continues and packs the known cup.\n\nAfter that, the score rises to 0.70, so the robot asks which block and lid to use before finishing the task.\n\nThe flowchart on the right follows the robot's actual execution, showing how decisions and physical actions are connected."
+    },
+    {
+      "title": "Benchmark & Preliminary Results",
+      "target_seconds": [60, 65],
+      "script": "Beyond the demo, we've built a procedurally generated benchmark with two robotic task types: packing and covering, and placing objects into selected containers.\n\nWe currently have 32 development samples and 128 held-out test samples. All 160 passed physical feasibility checks, and 96 automated tests passed.\n\nWe've also integrated DeepSeek and Jev, and compared three methods: NoAsk, LLM-Gate, and Jev-Gate.\n\nIn our preliminary evaluation on eight development scenarios, NoAsk succeeded in five, while both gate methods succeeded in seven.\n\nJev achieved similar clarification burden, with lower total API latency: about 40 seconds, compared with 58 seconds for LLM-Gate.\n\nThese are still preliminary results. Our next step is to evaluate all three methods on the held-out test set and analyze their clarification timing.\n\nThank you!"
+    }
+  ]
+}

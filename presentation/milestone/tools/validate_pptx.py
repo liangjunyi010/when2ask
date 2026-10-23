@@ -29,13 +29,14 @@ def main() -> None:
         assert len(slide1.findall(".//p:pic", NS)) == 2
         assert len(slide1.findall(".//a:videoFile", NS)) == 1
         assert len(slide1.findall(".//p:video/p:cMediaNode", NS)) == 1
+        assert slide1.find('.//p:video/p:cMediaNode/p:cTn',NS).get('repeatCount')=='indefinite'
         assert slide1.find(".//p:video/p:cMediaNode/p:cTn/p:stCondLst/p:cond", NS).get("delay") == "0"
         for ext in ("gif", "mp4"):
             embedded = z.read(f"ppt/media/when2ask-replay.{ext}")
             standalone = (BASE / f"media/when2ask_milestone_highlight.{ext}").read_bytes()
             assert embedded == standalone
         gif = Image.open(io.BytesIO(z.read("ppt/media/when2ask-replay.gif")))
-        assert gif.n_frames == 287 and gif.size == (1280, 720)
+        assert gif.n_frames > 100 and gif.size == (1280, 720)
         table = slide2.find(".//a:tbl", NS)
         assert table is not None
         rows = [["".join(c.itertext()) for c in r.findall("a:tc", NS)] for r in table.findall("a:tr", NS)]
@@ -57,8 +58,16 @@ def main() -> None:
                            "source_files": [str(f.relative_to(ROOT)) for f in paths]})
         notes = [ET.fromstring(z.read(f"ppt/notesSlides/notesSlide{i}.xml")) for i in (1, 2)]
         assert all(len("".join(n.itertext()).split()) > 100 for n in notes)
+        script=json.loads((BASE/'speaker_script.json').read_text())
+        for i,(slide,note) in enumerate(zip([slide1,slide2],notes)):
+            assert script['slides'][i]['title'] in ' '.join(slide.itertext())
+            # Paragraph separation can change in OOXML, so compare words.
+            expected=' '.join(script['slides'][i]['script'].split())
+            actual=' '.join(' '.join(note.itertext()).split())
+            assert expected in actual, f'Slide {i+1} notes differ from user script'
+        assert all(p in ' '.join(slide1.itertext()) for p in ['0.14','0.70'])
         all_text = " ".join(slide2.itertext())
-        for claim in ["32 Dev / 128 held-out Test samples", "160/160 physical oracle validation",
+        for claim in ["32 Dev / 128 held-out Test samples", "160/160 physical feasibility checks",
                       "96 automated tests passed", "Formal Test has not run."]:
             assert claim in all_text
     audit = json.loads((ROOT / "outputs/phase3/data_validation.json").read_text())
@@ -78,10 +87,11 @@ def main() -> None:
         "passed": True, "pptx_sha256": hashlib.sha256(deck.read_bytes()).hexdigest(),
         "slide_count": 2, "dimensions_emu": [18288000, 10287000], "aspect": "16:9",
         "embedded_video_byte_identical": True, "embedded_animated_gif_byte_identical": True,
-        "embedded_gif_frames": 287, "autoplay_timing_declared": True,
+        "embedded_gif_frames": gif.n_frames, "autoplay_timing_declared": True, "loop_playback_declared": True,
         "slide_2_table_editable": True, "table_rows_verified_from_raw_episodes": totals,
         "benchmark_tests_at_milestone": 96, "current_tests_including_replay": 102,
         "oracle_passed": 160, "oracle_total": 160, "speaker_notes_embedded": True,
+        "speaker_notes_match_user_script": True, "revision": script['revision'],
         "render_engine": "Local LibreOfficeDev 26.8 headless PDF + Poppler PNG, 1920x1080",
         "rendered_slides": [str(p.relative_to(BASE)) for p in previews],
         "visual_review": "Both slides individually inspected. Final fallback image visible. No title/table/text clipping.",

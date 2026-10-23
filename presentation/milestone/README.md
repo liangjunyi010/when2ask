@@ -7,26 +7,29 @@ This delivery replays **preserved live-model / real PyBullet evidence**. It make
 | File | Purpose |
 |---|---|
 | [When2Ask_Milestone_Presentation.pptx](When2Ask_Milestone_Presentation.pptx) | Exactly two editable 16:9 slides. Slide 1 contains the actual animated GIF **and embedded H.264 MP4**. Slide 2 has an editable results table. |
-| [media/when2ask_milestone_highlight.mp4](media/when2ask_milestone_highlight.mp4) | 19.17 s, 1280×720, entire synchronized HTML, under 1 MB. Preferred standalone playback fallback. |
-| [media/when2ask_milestone_highlight.gif](media/when2ask_milestone_highlight.gif) | 19.14 s, 1280×720, 287 animated frames, 2.83 MB. |
+| [media/when2ask_milestone_highlight.mp4](media/when2ask_milestone_highlight.mp4) | 11.88 s, 1280×720 at 60 fps, entire synchronized HTML, under 1 MB. Preferred standalone playback fallback. |
+| [media/when2ask_milestone_highlight.gif](media/when2ask_milestone_highlight.gif) | 11.86 s, 1280×720 at 30 fps, 356 animated frames, 3.27 MB. |
 | [media/when2ask_full_replay.mp4](media/when2ask_full_replay.mp4) | 49.20 s, 1920×1080, complete original display timeline at 1×. |
-| [speaker_notes.md](speaker_notes.md) | 294 spoken English words, approximately 114–126 s at 140–155 words/minute. Also embedded in the PPT notes. |
+| [speaker_notes.md](speaker_notes.md) | User's exact 243-word script, targeting 55–60 s for Slide 1 and 60–65 s for Slide 2. Also embedded in the PPT notes. |
+| [speaker_script.json](speaker_script.json) | Authoritative user-provided script and titles, checked against the embedded PPT notes. |
 | [slide_previews/When2Ask_Milestone_Presentation.pdf](slide_previews/When2Ask_Milestone_Presentation.pdf) | Static preview only. The PPT and independent MP4 contain the animation. |
 | [web/index.html](web/index.html) | Offline replay app, served locally as described below. No CDN, fonts, cloud media or API credentials. |
 
-Use PowerPoint Slide Show for the deck. The MP4 has slide-entry playback timing and a click-to-play media action. A complete animated GIF sits beneath it as a fallback, including for viewers that omit video objects. Neither embedded asset is just a first-frame screenshot. Both media streams contain robot and flow together, so presentation software cannot desynchronize the two halves.
+Use PowerPoint Slide Show for the deck. The MP4 declares slide-entry playback with looping, matching the GIF's repeat behavior during the spoken demo. It also has a click-to-play media action. A complete animated GIF sits beneath it as a fallback, including for viewers that omit video objects. Neither embedded asset is just a first-frame screenshot. Both media streams contain robot and flow together, so presentation software cannot desynchronize the two halves.
+
+The current script-matched revision uses **When2Ask: System & Real Demo** and **Benchmark & Preliminary Results** as its two titles. It highlights the real 0.14 CONTINUE / 0.70 ASK sequence, names both task types, and retains the exact Dev table while summarizing 39.66 s and 58.21 s as approximately 40 s and 58 s, as in the script. The previous 19.16 s highlight/deck remain recoverable in commit `b80b0be`. The full 49.2 s movie and all original experimental records remain unchanged.
 
 **Validation boundary:** final slides were rendered by local LibreOfficeDev 26.8 to PDF and then 1920×1080 PNGs, and individually inspected. The first render exposed an omitted video poster; the final deck fixes that with the GIF fallback. Microsoft PowerPoint opening via AppleEvents timed out (`-1712`), and desktop Computer Use permissions remained pending. Native PowerPoint Slide Show autoplay could therefore not be observed. Actual media bytes, animation frames, autoplay declaration, relationships, notes and standalone playback assets were independently verified. The independent MP4 is ready if a presentation viewer disables embedded media.
 
 ## Open the HTML
 
-Already tested locally at <http://127.0.0.1:8765/>. From the project root the equivalent command is:
+Fast script-matched preview: <http://127.0.0.1:8765/?view=highlight&autoplay=1>. The full original playback remains at <http://127.0.0.1:8765/>. From the project root the equivalent server command is:
 
 ```bash
 .venv/bin/python -m http.server 8765 --bind 127.0.0.1 --directory presentation/milestone/web
 ```
 
-The default page has Play/Pause, Restart, seek, 1×/2×/3× and an episode selector. `?presentation=1` hides controls for presentation. `?episode=llm_containers` selects the real two-container episode. `?export=1&view=highlight` is the deterministic export surface; the export tool supplies its compressed frame schedule rather than reconstructing inference time. Normal interactive playback follows the full source timeline.
+The default page has Play/Pause, Restart, seek, 1×/2×/3× and an episode selector. `?presentation=1` hides controls for presentation. `?episode=llm_containers` selects the real two-container episode. `?view=highlight` uses exactly the accelerated export intervals in the interactive master clock; add `&autoplay=1` to start it. `?export=1&view=highlight` hides controls for deterministic capture. With no highlight parameter, interactive playback follows the full source timeline.
 
 The delivered web directory is self-contained. A fresh clone can play it using only HTTP and a modern browser, without the original ignored GIFs or Python simulation. The original 640×480 renderer resolution remains visible when enlarged; no generated robot imagery or sharpening is substituted.
 
@@ -82,12 +85,14 @@ All requested six stages passed, with additional transport and cover checks:
 
 Each browser check verifies displayed source pixels by SHA-256, actual frame index and step, DOM node, action/question/answer and gate. All **762 source frames** across both cases passed pixel and flow checks. Pause, seek, replay, episode switching and 1×/2×/3× were exercised, including physical transport and the ASK→USER boundary. Console errors, failed loads and external network requests: **0**.
 
+The accelerated interactive mode additionally passed all **447** main-episode source frames, exact export-interval matching, and ASK→USER transitions at each playback speed. [revision_validation.json](revision_validation.json) verifies the shorter duration, identical source-frame order, unchanged full MP4 and exact supplied script provenance.
+
 Screenshots are in [screenshots/](screenshots/). Machine-readable results:
 
 - [mapping_validation.json](mapping_validation.json): browser + independent original JSON/GIF checks.
 - [export_schedule.json](export_schedule.json): all exported frame timings, source indices and screenshot hashes.
 - [media_validation.json](media_validation.json): codecs, dimensions, duration and 16 decoded MP4 checkpoint comparisons.
-- [pptx_validation.json](pptx_validation.json): embedded media hashes, 287 GIF frames, two slides, native table, notes and raw-data verification.
+- [pptx_validation.json](pptx_validation.json): embedded media hashes, 356 GIF frames, two slides, native table, exact script/title matching and raw-data verification.
 - [source_preservation.json](source_preservation.json): SHA-256 of 847 protected original files, all unchanged.
 - [pytest.xml](pytest.xml): **102 passed** (preserved 96 benchmark tests + 6 new replay tests). No paid network calls.
 
@@ -95,7 +100,7 @@ Screenshots are in [screenshots/](screenshots/). Machine-readable results:
 
 The browser exports every logical frame as a whole-page screenshot using `window.replay.renderFrame(index)`. These ignored `.build/` images are then encoded by FFmpeg. No screen-recording delay estimates are involved.
 
-Full MP4 uses every original display duration at 1×. Highlight physical intervals use 3.5× compression, while initial / ASK / answer / evaluation holds use 900 / 1800 / 2000 / 1800 ms. Both left and right come from the **same captured image** for each interval. Total planned highlight duration is 19.157 s. H.264 is sampled at 30 fps, GIF at 15 fps, so output lengths differ by under 30 ms and some short compressed source frames are resampled. Source order, decisions, questions, object identities and outcome remain unchanged. The page visibly labels compression.
+Full MP4 uses every original display duration at 1× and remains unchanged. Highlight physical intervals now use 6× compression, while initial / ASK / answer / evaluation holds use 500 / 1400 / 1600 / 1000 ms. Both left and right come from the **same captured image** for each interval. Total planned highlight duration is 11.883 s, about 38% shorter than the previous 19.157 s. Highlight H.264 is sampled at 60 fps and GIF at 30 fps (full movie remains 30 fps). Output lengths differ by under 30 ms and some short compressed source frames are resampled. Source order, decisions, questions, object identities and outcome remain unchanged. The page visibly labels compression.
 
 ## Reproduce offline
 
@@ -115,6 +120,7 @@ REPLAY_NODE="$HOME/.cache/codex-runtimes/codex-primary-runtime/dependencies/node
 .venv/bin/python presentation/milestone/tools/validate_sources.py
 "$REPLAY_NODE" presentation/milestone/tools/capture_export.mjs
 .venv/bin/python presentation/milestone/tools/encode_media.py
+# Add --highlight-only to these two commands to preserve the existing full export.
 .venv/bin/python presentation/milestone/tools/validate_encoded_media.py
 
 # Author fresh drafts with editable text/table, then add actual media.

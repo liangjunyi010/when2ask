@@ -8,7 +8,14 @@ const manifest=JSON.parse(await fs.readFile(path.join(BASE,'web/timeline.json'),
 const episode=manifest.episodes.find(e=>e.episode_key==='jev_pack');
 const browser=await chromium.launch({executablePath:process.env.WHEN2ASK_CHROME||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true});
 const errors=[];const exports=[];
-for(const view of ['full','highlight']){
+const highlightOnly=process.argv.includes('--highlight-only');
+if(highlightOnly){
+ const previous=JSON.parse(await fs.readFile(path.join(BASE,'export_schedule.json'),'utf8'));
+ assert.equal(previous.source_episode,episode.source_episode);
+ exports.push(previous.exports.find(e=>e.view==='full'));
+ assert(exports[0],'Full replay schedule must already exist');
+}
+for(const view of (highlightOnly?['highlight']:['full','highlight'])){
  const dimensions=view==='full'?{width:1920,height:1080}:{width:1280,height:720};
  const page=await browser.newPage({viewport:dimensions,deviceScaleFactor:1});
  page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
@@ -31,12 +38,12 @@ for(const view of ['full','highlight']){
   start+=duration;
   if(f.frame_index%100===0)console.log(`${view}: ${f.frame_index+1}/${episode.frames.length} actual HTML screenshots`);
  }
- let concat=rows.map((f,i)=>`file '${path.join(directory,String(i).padStart(4,'0')+'.jpg')}'\nduration ${(f.duration_ms/1000).toFixed(9)}\n`).join('');
- concat+=`file '${path.join(directory,String(rows.length-1).padStart(4,'0')+'.jpg')}'\n`;
+ let concat=rows.map((f,i)=>`file '${path.join(directory,String(i).padStart(4,'0')+'.jpg')}'\noption framerate 1000\nduration ${(f.duration_ms/1000).toFixed(9)}\n`).join('');
+ concat+=`file '${path.join(directory,String(rows.length-1).padStart(4,'0')+'.jpg')}'\noption framerate 1000\n`;
  await fs.writeFile(path.join(BUILD,`${view}.concat.txt`),concat);
  exports.push({view,viewport:dimensions,duration_ms:start,source_duration_ms:episode.duration_ms,
   action_speed:view==='highlight'?manifest.highlight.action_speed:1,
-  timing_note:view==='highlight'?'All physical frames compressed uniformly 3.5x; specified recorded decision/answer holds expanded. Same source frame controls both sides.':'Original recorder display intervals, no wall-time inference reconstruction.',
+  timing_note:view==='highlight'?`All physical frames compressed uniformly ${manifest.highlight.action_speed}x; readable recorded decision/answer holds. Same source frame controls both sides.`:'Original recorder display intervals, no wall-time inference reconstruction.',
   frames:rows});
  await page.close();
 }

@@ -10,6 +10,7 @@ from copy import deepcopy
 from pathlib import Path
 from zipfile import ZipFile, ZIP_DEFLATED
 from xml.etree import ElementTree as ET
+from PIL import Image
 
 BASE = Path(__file__).resolve().parents[1]
 NS = {
@@ -31,6 +32,8 @@ def main() -> None:
     target = BASE / ".build/slides-with-media.pptx"
     with ZipFile(source) as z:
         parts = {name: z.read(name) for name in z.namelist()}
+    with Image.open(BASE / 'media/when2ask_milestone_highlight.gif') as gif:
+        gif_frames=gif.n_frames
     slide = ET.fromstring(parts["ppt/slides/slide1.xml"])
     pics = slide.findall(".//p:pic", NS)
     assert len(pics) == 1, "Expected exactly the replay poster"
@@ -43,7 +46,7 @@ def main() -> None:
     all_ids = [int(x.attrib["id"]) for x in slide.findall(".//p:cNvPr", NS)]
     fallback_props.set("id", str(max(all_ids) + 1))
     fallback_props.set("name", "When2Ask synchronized replay (animated GIF fallback)")
-    fallback_props.set("descr", "Full 287-frame synchronized HTML animation, not a static first frame.")
+    fallback_props.set("descr", f"Full {gif_frames}-frame synchronized HTML animation, not a static first frame.")
     fallback.find("p:blipFill/a:blip", NS).set(q("r", "embed"), "rIdReplayAnimatedPoster")
     tree = slide.find("p:cSld/p:spTree", NS)
     assert tree is not None
@@ -72,7 +75,7 @@ def main() -> None:
                          q("p", "cTn"), {"id": "1", "dur": "indefinite", "restart": "never", "nodeType": "tmRoot"})
     video = ET.SubElement(ET.SubElement(root, q("p", "childTnLst")), q("p", "video"))
     media_node = ET.SubElement(video, q("p", "cMediaNode"), {"vol": "0", "numSld": "1", "showWhenStopped": "1"})
-    time_node = ET.SubElement(media_node, q("p", "cTn"), {"id": "2", "fill": "hold", "display": "0"})
+    time_node = ET.SubElement(media_node, q("p", "cTn"), {"id": "2", "fill": "hold", "display": "0", "repeatCount": "indefinite"})
     ET.SubElement(ET.SubElement(time_node, q("p", "stCondLst")), q("p", "cond"), {"delay": "0"})
     ET.SubElement(ET.SubElement(media_node, q("p", "tgtEl")), q("p", "spTgt"), {"spid": shape_id})
     parts["ppt/slides/slide1.xml"] = ET.tostring(slide, encoding="utf-8", xml_declaration=True)

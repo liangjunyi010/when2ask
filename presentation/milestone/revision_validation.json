@@ -1,0 +1,17 @@
+{
+  "revision": "script-matched-v2",
+  "previous_commit": "b80b0be",
+  "previous_highlight_ms": 19157.14285714302,
+  "current_highlight_ms": 11883.333333333274,
+  "duration_reduction_percent": 37.96917723092304,
+  "physical_speed": 6,
+  "same_ordered_source_frames": true,
+  "full_replay_byte_unchanged": true,
+  "full_replay_sha256": "10677a5c6002083acba9caebcce727730705bd5d15362dce72c7be6dba99d9b9",
+  "user_script_sha256": "399166e5cc134814726e98ef38373af8fe7a2a7e60f4858ab86c8e9fcd23c397",
+  "speaker_words": [
+    120,
+    123
+  ],
+  "new_model_api_requests": 0
+}

@@ -89,11 +89,39 @@ assert.equal((await page.evaluate(()=>window.replay.snapshot())).episode,'llm_co
 await page.selectOption('#episode-select','jev_pack');await page.waitForTimeout(100);
 const overflow=await page.evaluate(()=>Array.from(document.querySelectorAll('h1,#instruction,#known-preferences,#planner-line,#answer-line,#outcome-line')).filter(e=>e.scrollWidth>e.clientWidth+1).map(e=>e.id||e.tagName));
 assert.deepEqual(overflow,[]);assert.deepEqual(errors,[]);assert.deepEqual(failed,[]);assert.deepEqual(external,[]);
+// The interactive highlight uses the same retimed frame intervals as the export.
+const fast=await browser.newPage({viewport:{width:1920,height:1080},deviceScaleFactor:1});
+fast.on('pageerror',e=>errors.push(e.message));fast.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+await fast.route('**/*',route=>{const url=new URL(route.request().url());if(!['127.0.0.1','localhost'].includes(url.hostname)){external.push(url.href);return route.abort();}return route.continue();});
+await fast.goto('http://127.0.0.1:8765/?presentation=1&view=highlight',{waitUntil:'networkidle'});
+await fast.evaluate(()=>window.replayReady);
+const fastFrames=await fast.evaluate(()=>window.replay.playbackFrames.map(f=>({frame_index:f.frame_index,start_ms:f.start_ms,end_ms:f.end_ms})));
+const exported=JSON.parse(await fs.readFile(path.join(BASE,'export_schedule.json'),'utf8')).exports.find(e=>e.view==='highlight');
+assert(Math.abs((await fast.evaluate(()=>window.replay.playbackDuration))-exported.duration_ms)<.001);
+for(const f of main.frames){
+ const state=await fast.evaluate(i=>window.replay.renderFrame(i),f.frame_index);
+ assert.equal(state.dom_frame,f.frame_index);assert.equal(state.dom_node,f.active_flow_node);
+ assert.equal(state.simulation_step,f.simulation_step);
+ assert.equal(await fast.evaluate(()=>window.replay.pixelHash()),f.source_pixel_sha256);
+ assert(Math.abs(fastFrames[f.frame_index].start_ms-exported.frames[f.frame_index].start_ms)<.001);
+}
+const fastControls=[];
+for(const speed of [1,2,3]){
+ const start=fastFrames[143].end_ms-80;
+ await fast.evaluate(async ({s,t})=>{await window.replay.seek(t);await window.replay.setSpeed(s);window.replay.play();},{s:speed,t:start});
+ await fast.waitForTimeout(180);
+ const state=await fast.evaluate(async()=>{await window.replay.pause();return window.replay.snapshot();});
+ assert.equal(state.frame_index,144);assert.equal(state.dom_node,'user_simulator');
+ assert.equal(await fast.evaluate(()=>window.replay.pixelHash()),main.frames[144].source_pixel_sha256);
+ fastControls.push({speed,ask_to_user_boundary_synchronized:true});
+}
+assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
 const report={schema_version:1,browser:await browser.version(),viewport:{width:1920,height:1080},
  source_episode:main.source_episode,source_gif_sha256:main.source_files['demo.gif'].sha256,
  checkpoint_count:checks.length,checkpoints:checks,all_source_frames_pixel_verified:allPixels,
  equal_step_ask_user_preserved:checks.find(c=>c.label==='03_ask').simulation_step===checks.find(c=>c.label==='04_user_answer').simulation_step&&checks.find(c=>c.label==='03_ask').frame_index!==checks.find(c=>c.label==='04_user_answer').frame_index,
  controls:{paused_state_unchanged:true,seek_restart_episode_switch_passed:true,speeds:controls},
+ accelerated_preview:{duration_ms:exported.duration_ms,source_frames_pixel_verified:main.frames.length,export_intervals_match:true,controls:fastControls},
  console_errors:errors,failed_requests:failed,external_requests:external,text_horizontal_overflow:overflow,
  inference_wall_time_reconstruction:false,passed:true};
 await fs.writeFile(path.join(BASE,'mapping_validation.json'),JSON.stringify(report,null,2)+'\n');

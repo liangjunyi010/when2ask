@@ -6,7 +6,7 @@ if(params.has('presentation')||params.has('export'))stage.classList.add('present
 const highlight=params.get('view')==='highlight';
 function resize(){const s=Math.min(innerWidth/1920,innerHeight/1080);stage.style.transform=`scale(${s})`;stage.style.left=`${(innerWidth-1920*s)/2}px`;stage.style.top=`${(innerHeight-1080*s)/2}px`;}
 addEventListener('resize',resize);resize();
-let manifest,episode,frame,time=0,speed=1,playing=false,anchorWall=0,anchorSource=0,renderSerial=0,raf;
+let manifest,episode,frame,playbackFrames=[],playbackDuration=0,time=0,speed=1,playing=false,anchorWall=0,anchorSource=0,renderSerial=0,raf;
 const cache=new Map();
 const phaseNames=['approach','grasp','lift','transport','lower','release','settle'];
 const stageNames={gate_result:'Gate decision',question:'Clarification',user_answer:'User answer',execution:'Robot execution',evaluation:'Evaluation'};
@@ -17,7 +17,7 @@ function atlas(url){
   return entry;
 }
 function frameAt(ms){
-  const fs=episode.frames;let lo=0,hi=fs.length-1;
+  const fs=playbackFrames;let lo=0,hi=fs.length-1;
   while(lo<hi){const mid=Math.floor((lo+hi+1)/2);if(fs[mid].start_ms<=ms)lo=mid;else hi=mid-1;}
   return fs[lo];
 }
@@ -72,13 +72,13 @@ function updateDOM(f){
     const last=f.completed_actions.at(-1);$('outcome-line').textContent=`Last result: ${last.object_name} ${last.success?'placed successfully':'failed'}${f.stage==='execution'?' · current action in progress':''}`;
   }else $('outcome-line').textContent=f.stage==='execution'?'Physical result: in progress':'Public observation + instruction + history';
   $('evidence-label').textContent=`${episode.sample_id} · ${episode.method} · source frame ${f.source_gif_frame_index+1}/${episode.encoded_gif_frame_count}`;
-  $('time-compression').textContent=highlight?'Milestone highlight · actions 3.5× · clarification holds expanded':'Source display timeline · inference instants not recorded';
+  $('time-compression').textContent=highlight?`Milestone highlight · actions ${manifest.highlight.action_speed}× · readable clarification holds`:'Source display timeline · inference instants not recorded';
   $('replay-kind').textContent=highlight?'COMPRESSED RECORDED EXECUTION':'RECORDED EPISODE';
-  $('seek').value=Math.round(time);$('time-label').textContent=`${(time/1000).toFixed(1)} / ${(episode.duration_ms/1000).toFixed(1)} s`;
+  $('seek').value=Math.round(time);$('time-label').textContent=`${(time/1000).toFixed(1)} / ${(playbackDuration/1000).toFixed(1)} s`;
 }
 async function renderAt(ms){
-  time=Math.max(0,Math.min(ms,episode.duration_ms));const f=frameAt(time);const serial=++renderSerial;
-  if(frame?.frame_index===f.frame_index&&canvas.dataset.episode===episode.episode_key){$('seek').value=Math.round(time);$('time-label').textContent=`${(time/1000).toFixed(1)} / ${(episode.duration_ms/1000).toFixed(1)} s`;return f;}
+  time=Math.max(0,Math.min(ms,playbackDuration));const f=frameAt(time);const serial=++renderSerial;
+  if(frame?.frame_index===f.frame_index&&canvas.dataset.episode===episode.episode_key){$('seek').value=Math.round(time);$('time-label').textContent=`${(time/1000).toFixed(1)} / ${(playbackDuration/1000).toFixed(1)} s`;return f;}
   const im=await atlas(f.asset.url);if(serial!==renderSerial)return null;
   const [x,y,w,h]=f.asset.rect;ctx.drawImage(im,x,y,w,h,0,0,canvas.width,canvas.height);
   canvas.dataset.sourceFrame=f.source_gif_frame_index;canvas.dataset.logicalFrame=f.frame_index;canvas.dataset.episode=episode.episode_key;
@@ -86,21 +86,26 @@ async function renderAt(ms){
   const next=episode.frames.find(r=>r.frame_index>f.frame_index&&r.asset.url!==f.asset.url);if(next)atlas(next.asset.url).catch(fail);
   return f;
 }
-function currentTime(){return playing?Math.min(episode.duration_ms,anchorSource+(performance.now()-anchorWall)*speed):time;}
+function currentTime(){return playing?Math.min(playbackDuration,anchorSource+(performance.now()-anchorWall)*speed):time;}
 function fail(error){pause();$('load-error').style.display='block';$('load-error').textContent=error.message;console.error(error);}
 function pause(){if(playing)time=currentTime();playing=false;cancelAnimationFrame(raf);$('play').textContent='Play';return renderAt(time);}
-function tick(){if(!playing)return;const ms=currentTime();renderAt(ms).catch(fail);if(ms>=episode.duration_ms){playing=false;$('play').textContent='Play';return;}raf=requestAnimationFrame(tick);}
-function play(){if(time>=episode.duration_ms)time=0;playing=true;anchorSource=time;anchorWall=performance.now();$('play').textContent='Pause';cancelAnimationFrame(raf);raf=requestAnimationFrame(tick);}
+function tick(){if(!playing)return;const ms=currentTime();renderAt(ms).catch(fail);if(ms>=playbackDuration){playing=false;$('play').textContent='Play';return;}raf=requestAnimationFrame(tick);}
+function play(){if(time>=playbackDuration)time=0;playing=true;anchorSource=time;anchorWall=performance.now();$('play').textContent='Pause';cancelAnimationFrame(raf);raf=requestAnimationFrame(tick);}
 async function seek(ms,{keepPlaying=false}={}){const wasPlaying=playing;await pause();await renderAt(ms);if(keepPlaying&&wasPlaying)play();return snapshot();}
 function setSpeed(value){if(![1,2,3].includes(Number(value)))throw Error('Invalid speed');time=currentTime();speed=Number(value);anchorSource=time;anchorWall=performance.now();$('speed').value=speed;return renderAt(time);}
-async function selectEpisode(key){if(episode)await pause();episode=manifest.episodes.find(e=>e.episode_key===key);if(!episode)throw Error('Unknown episode');frame=null;time=0;cache.clear();$('episode-select').value=key;$('seek').max=episode.duration_ms;await renderAt(0);return snapshot();}
+async function selectEpisode(key){
+ if(episode)await pause();episode=manifest.episodes.find(e=>e.episode_key===key);if(!episode)throw Error('Unknown episode');
+ let start=0;
+ playbackFrames=episode.frames.map(f=>{const duration=highlight?(manifest.highlight.holds_ms[f.stage]??f.duration_ms/manifest.highlight.action_speed):f.duration_ms;const row={...f,source_start_ms:f.start_ms,source_duration_ms:f.duration_ms,start_ms:start,end_ms:start+duration,duration_ms:duration};start+=duration;return row;});
+ playbackDuration=start;frame=null;time=0;cache.clear();$('episode-select').value=key;$('seek').max=playbackDuration;await renderAt(0);return snapshot();
+}
 function snapshot(){return {episode:episode?.episode_key,time_ms:time,playing,speed,frame_index:frame?.frame_index,source_frame:Number(canvas.dataset.sourceFrame),simulation_step:frame?.simulation_step,round:frame?.round,stage:frame?.stage,active_flow_node:frame?.active_flow_node,physical_phase:frame?.physical_phase,gate:frame?.gate,action:frame?.action,question:frame?.question,user_answer:frame?.user_answer,public_preferences:frame?.public_preferences,evaluation:frame?.evaluation,dom_frame:Number(stage.dataset.frameIndex),dom_step:Number(stage.dataset.simulationStep),dom_node:stage.dataset.activeNode};}
 $('play').onclick=()=>playing?pause():play();$('restart').onclick=async()=>{await seek(0);play();};
 $('seek').oninput=()=>seek(Number($('seek').value),{keepPlaying:true}).catch(fail);
 $('speed').onchange=()=>setSpeed($('speed').value);$('episode-select').onchange=()=>selectEpisode($('episode-select').value).catch(fail);
 window.replay={seek,play,pause,setSpeed,selectEpisode,snapshot,frameAt:ms=>frameAt(ms),
-  async renderFrame(index){await pause();return seek(episode.frames[index].start_ms);},
+  async renderFrame(index){await pause();return seek(playbackFrames[index].start_ms);},
   async pixelHash(){const data=ctx.getImageData(0,0,canvas.width,canvas.height).data;const hash=await crypto.subtle.digest('SHA-256',data);return Array.from(new Uint8Array(hash),b=>b.toString(16).padStart(2,'0')).join('');},
-  get manifest(){return manifest;},get episode(){return episode;}};
-window.replayReady=(async()=>{const response=await fetch('timeline.json');if(!response.ok)throw Error('Timeline failed to load');manifest=await response.json();await selectEpisode(params.get('episode')||manifest.default_episode);return snapshot();})();
+  get manifest(){return manifest;},get episode(){return episode;},get playbackFrames(){return playbackFrames;},get playbackDuration(){return playbackDuration;}};
+window.replayReady=(async()=>{const response=await fetch('timeline.json');if(!response.ok)throw Error('Timeline failed to load');manifest=await response.json();await selectEpisode(params.get('episode')||manifest.default_episode);if(params.get('autoplay')==='1')play();return snapshot();})();
 window.replayReady.catch(fail);

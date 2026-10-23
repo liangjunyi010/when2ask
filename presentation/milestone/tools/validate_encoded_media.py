@@ -45,7 +45,7 @@ def main() -> None:
                            "mean_absolute_rgb_error": round(mae, 4), "passed": True})
     report = json.loads((BASE / "media_validation.json").read_text())
     report["decoded_video_checkpoint_checks"] = checks
-    report["encoding_note"] = "Whole HTML encoded atomically. MP4 30 fps and GIF 15 fps resample source display intervals; no independent left/right resampling."
+    report["encoding_note"] = "Whole HTML encoded atomically. Full MP4 30 fps, accelerated highlight MP4 60 fps and GIF 30 fps. No independent left/right resampling."
     (BASE / "media_validation.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps({"passed": True, "decoded_video_checks": len(checks), "maximum_rgb_error": max(x["mean_absolute_rgb_error"] for x in checks)}))
 

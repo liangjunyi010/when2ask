@@ -2,7 +2,7 @@
 
 真实 PyBullet / Franka Panda 的澄清时机研究工程。保留 Scripted MVP、共享 DeepSeek Planner 与 DeepSeek/Jev Gate；Phase 3 增加场景分组的 Dev/Test、双容器任务和真实 Dev 阈值校准。没有模型训练。
 
-新增 [Milestone 同步回放与两页演示 PPT](presentation/milestone/README.md)：真实轨迹驱动 HTML、49.2 秒完整 MP4、约 19 秒同步 GIF/MP4、英文讲稿及逐帧映射验证。所有媒体已随仓库交付，本阶段没有新的模型 API 调用，也未修改冻结 Benchmark。
+新增 [Milestone 同步回放与两页演示 PPT](presentation/milestone/README.md)：真实轨迹驱动 HTML、49.2 秒完整 MP4、加速至约 12 秒的同步 GIF/MP4、与讲稿匹配的两页 PPT 及逐帧映射验证。所有媒体已随仓库交付，本阶段没有新的模型 API 调用，也未修改冻结 Benchmark。
 
 ![真实 PyBullet 初始场景](outputs/ask_demo/scene.png)
 

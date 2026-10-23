@@ -16,7 +16,7 @@ def main():
     episodes=[convert_episode(ROOT/ref,output,key,repository_root=ROOT) for key,ref in sources]
     manifest=dict(schema_version=1,default_episode="jev_pack",episodes=episodes,
                   clock="One display clock selects a frame and its flow state atomically.",
-                  highlight=dict(action_speed=3.5,holds_ms=dict(gate_result=900,question=1800,user_answer=2000,evaluation=1800)))
+                  highlight=dict(action_speed=6,holds_ms=dict(gate_result=500,question=1400,user_answer=1600,evaluation=1000)))
     (output/"timeline.json").write_text(json.dumps(manifest,separators=(",",":"))+"\n")
     print(json.dumps([dict(episode=e["episode_key"],frames=len(e["frames"]),duration_ms=e["duration_ms"]) for e in episodes]))
 
