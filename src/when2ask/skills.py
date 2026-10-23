@@ -127,7 +127,11 @@ class RobotSkills:
 
         lo, hi = env.bounds(object_id)
         center = np.array(env.body_pose(object_id)[0])
-        grip = np.array([center[0], center[1], hi[2] + .018])
+        # Regrasping a short packed object needs the wider hand above the rim.
+        # Its fingertips remain within the same 40 mm proximity requirement.
+        inside = ("box" in env.objects and env.objects[object_id].category in ("cup", "block")
+                  and env.containment(object_id)["inside"])
+        grip = np.array([center[0], center[1], hi[2] + (.035 if inside else .018)])
         env.command_fingers(.04)
         phase("approach")
         current = np.array(env.ee_pose()[0])
@@ -157,7 +161,8 @@ class RobotSkills:
         try:
             if object_id not in env.objects:
                 raise SkillFailure("unknown_object")
-            if env.objects[object_id].category not in ("cup", "block"):
+            category = env.objects[object_id].category
+            if category not in ("cup", "block") and not (category == "lid" and target_id == "table"):
                 raise SkillFailure("object_is_not_packable")
             if target_id == "box" and relation == "inside" and "box" in env.objects:
                 is_cup = env.objects[object_id].category == "cup"
@@ -167,14 +172,17 @@ class RobotSkills:
                                env.FLOOR_Z + half_height + .004)
             elif target_id == "table" and relation == "on":
                 half_height = env.objects[object_id].half_extents[2]
-                destination = (.57, .10, env.TABLE_Z + half_height + .004)
+                xy = env.home_positions[object_id][:2] if "box" in env.objects else (.57, .10)
+                destination = (*xy, env.TABLE_Z + half_height + .004)
             else:
                 raise SkillFailure("unsupported_target")
             self._transfer(object_id, destination)
             lo, hi = env.bounds(object_id)
             ok = (env.containment(object_id)["inside"] if target_id == "box" else
-                  bool(.53 < lo[0] and hi[0] < .61 and .06 < lo[1] and hi[1] < .14
-                       and abs(lo[2] - env.TABLE_Z) < .005))
+                  (bool(env.outside_box(object_id)["outside"] and abs(lo[2] - env.TABLE_Z) < .005)
+                   if "box" in env.objects else
+                   bool(.53 < lo[0] and hi[0] < .61 and .06 < lo[1] and hi[1] < .14
+                        and abs(lo[2] - env.TABLE_Z) < .005)))
             reason = "placed" if ok else "placement_geometry_failed"
         except (SkillFailure, p.error) as exc:
             ok, reason = False, str(exc)

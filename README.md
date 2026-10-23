@@ -1,8 +1,40 @@
 # When2Ask — Clarification Timing for Robotic Task Execution
 
-真实 PyBullet / Franka Panda 的 Pack and Cover MVP。机器人先执行已知的蓝杯装箱，再决定询问偏好或按公开默认策略继续。全项目不调用 LLM / Jev API，不训练模型。
+真实 PyBullet / Franka Panda 的澄清时机研究工程。保留 Phase 1 Scripted MVP，并在 Phase 2 实现共享 DeepSeek Planner、DeepSeek Gate 与 Jev Noul Gate 的真实 API benchmark。没有模型训练。
 
 ![真实 PyBullet 初始场景](outputs/ask_demo/scene.png)
+
+## Phase 2：真实 API Benchmark
+
+本地配置已完成，`.env` 为 0600 且不进入 Git；仓库仅有安全占位 `.env.example`。使用原有安装脚本即可安装当前 0.2.0 包，无新增第三方依赖。
+
+```bash
+source .venv/bin/activate
+python -m when2ask doctor                  # 离线，不消耗 API
+python -m when2ask doctor --live           # 真实两家 API smoke，计入 session 预算
+python -m when2ask generate --split pilot --count 20 --seed 42
+python -m when2ask validate --split pilot --oracle
+python -m when2ask run --sample validation_002 --method llm_noask --live
+python -m when2ask run --sample validation_002 --method llm_gate --live
+python -m when2ask run --sample validation_002 --method jev_gate --live
+python -m when2ask report --run-dir outputs/phase2_live/paired_v2
+```
+
+实际完成：5 validation + 20 pilot，oracle **25/25**，pytest **66 passed**。在线共 **12 episodes / 95 API attempts**；其中先前诊断 3 次单独保留，最终统一提示版本有 9 次配对执行：
+
+| 方法 | Task Success | Burden 总计 | DeepSeek tokens | Jev tokens | API latency 秒 |
+|---|---:|---:|---:|---:|---:|
+| llm_noask | 1/3 | 0 | 16,842 | — | 10.409 |
+| llm_gate | 3/3 | 5 | 38,359 | — | 22.129 |
+| jev_gate | 3/3 | 5 | 20,267 | 27,455 | 17.641 |
+
+这里只是 Engineering Pilot，不能作为统计显著性或正式论文实验结论。模型实际返回 `deepseek-flash` 与 `jev-1.14.0`。最终样本覆盖 0/2/3 个未知偏好；1 未知已做 oracle/离线验证，本轮未在线配对。不同提示版本禁止合并统计。
+
+[完整真实实验报告](docs/phase2/experiment_report.md) · [接口与预算](docs/phase2/interfaces.md) · [最终汇总 CSV](outputs/phase2_live/paired_v2/summary.csv) · [逐 episode CSV](outputs/phase2_live/paired_v2/episodes.csv) · [全局审计证据](outputs/phase2/evidence.json)
+
+`Gate` 只决定 ASK/CONTINUE；共享 Planner 生成问题、动作及 DONE。所有方法使用相同公开 payload、Planner 配置和技能，评分只读取真实几何、接触与执行事件。`python scripts/verify_phase2.py` 和 `python scripts/secret_scan.py` 可离线核对证据。当前 session 已达到 12-episode 上限；`run_pilot.py --live` 会复用匹配的已有结果。
+
+以下保留 Phase 1 独立 Scripted Demo 的命令与验收记录；它不调用模型 API。
 
 ## 在本机观看
 
@@ -134,9 +166,9 @@ python scripts/verify_artifacts.py
 
 ## 范围与后续
 
-这是 scripted baseline 的工程 MVP。LLM-NoAsk、LLM-Gate、Jev-Gate 均未接入；没有模型推理成本或正式 benchmark 结论。夹爪使用 constraint 辅助，不是经力闭合验证的摩擦抓取；当前 IK 路线只验证了这个桌面布局与小幅扰动，尚无通用碰撞路径规划、任意形状处理或硬件验证。GIF 已实现，MP4 未实现。
+这一节描述 Phase 1 scripted baseline。Phase 2 已接入三种真实模型方法及真实成本记录，详见上面的实验报告；当前仍没有正式 benchmark 统计结论。夹爪使用 constraint 辅助，不是经力闭合验证的摩擦抓取；当前 IK 路线只验证了这个桌面布局与小幅扰动，尚无通用碰撞路径规划、任意形状处理或硬件验证。GIF 已实现，MP4 未实现。
 
-下一阶段在 `scripted_agent.py` 的 `decide(PublicState) -> Decision` 接口替换策略，由 gate 先选择 ASK/CONTINUE，再由规划器产生结构化输出。继续共用 runner、UserSimulator、skills 与 Evaluator，校验 slot/物体 ID/动作预算；另行记录模型 token 和 latency。Jev 阈值应在单独的开发集上确定，正式比较需要新的任务集及种子划分。
+Phase 2 的拆分接口已在 `agents.py`、`research_runner.py` 和 `protocol.py` 实现。下一阶段应冻结任务契约与提示，在独立 Dev groups 上确定 Jev 阈值，再以新的 Test groups 正式评估。模型 token 和 latency 已逐次记录。
 
 实现与验证细节见 [implementation_status.md](docs/implementation_status.md)，引用与资产许可见 [sources.md](docs/sources.md)。
 

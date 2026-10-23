@@ -1,8 +1,16 @@
 import pytest
+import urllib.request
 
 from when2ask.environment import Environment
 from when2ask.runner import run_episode
 from when2ask.task import PrivateTaskSpec
+
+
+@pytest.fixture(autouse=True)
+def offline_tests_never_send_network(monkeypatch):
+    def blocked(*args, **kwargs):
+        raise AssertionError("Offline pytest must never contact a live API")
+    monkeypatch.setattr(urllib.request, "urlopen", blocked)
 
 
 @pytest.fixture

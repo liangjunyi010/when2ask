@@ -1,0 +1,108 @@
+{
+  "kind": "Engineering Pilot",
+  "episodes": 9,
+  "methods": [
+    {
+      "method": "llm_noask",
+      "episodes": 3,
+      "scored_episodes": 3,
+      "successful_episodes": 1,
+      "success_rate": 0.3333333333333333,
+      "clarification_burden": 0,
+      "deepseek_input_tokens": 16586,
+      "deepseek_output_tokens": 256,
+      "deepseek_tokens": 16842,
+      "jev_input_tokens": null,
+      "jev_output_tokens": null,
+      "jev_tokens": null,
+      "api_latency_ms": 10409.313374664634,
+      "api_attempts": 12,
+      "retries": 0,
+      "schema_errors": 0,
+      "api_errors": 0,
+      "deepseek_unknown_usage_attempts": 0,
+      "jev_unknown_usage_attempts": 0
+    },
+    {
+      "method": "llm_gate",
+      "episodes": 3,
+      "scored_episodes": 3,
+      "successful_episodes": 3,
+      "success_rate": 1.0,
+      "clarification_burden": 5,
+      "deepseek_input_tokens": 37906,
+      "deepseek_output_tokens": 453,
+      "deepseek_tokens": 38359,
+      "jev_input_tokens": null,
+      "jev_output_tokens": null,
+      "jev_tokens": null,
+      "api_latency_ms": 22129.22179303132,
+      "api_attempts": 28,
+      "retries": 0,
+      "schema_errors": 0,
+      "api_errors": 0,
+      "deepseek_unknown_usage_attempts": 0,
+      "jev_unknown_usage_attempts": 0
+    },
+    {
+      "method": "jev_gate",
+      "episodes": 3,
+      "scored_episodes": 3,
+      "successful_episodes": 3,
+      "success_rate": 1.0,
+      "clarification_burden": 5,
+      "deepseek_input_tokens": 19908,
+      "deepseek_output_tokens": 359,
+      "deepseek_tokens": 20267,
+      "jev_input_tokens": 27119,
+      "jev_output_tokens": 336,
+      "jev_tokens": 27455,
+      "api_latency_ms": 17641.258872812614,
+      "api_attempts": 28,
+      "retries": 0,
+      "schema_errors": 0,
+      "api_errors": 0,
+      "deepseek_unknown_usage_attempts": 0,
+      "jev_unknown_usage_attempts": 0
+    }
+  ],
+  "paired_checks": [
+    {
+      "sample_id": "pilot_000",
+      "methods": [
+        "jev_gate",
+        "llm_gate",
+        "llm_noask"
+      ],
+      "all_three_methods": true,
+      "same_initial_public_payload": true,
+      "same_planner_configuration": true,
+      "same_prompts": true
+    },
+    {
+      "sample_id": "pilot_007",
+      "methods": [
+        "jev_gate",
+        "llm_gate",
+        "llm_noask"
+      ],
+      "all_three_methods": true,
+      "same_initial_public_payload": true,
+      "same_planner_configuration": true,
+      "same_prompts": true
+    },
+    {
+      "sample_id": "validation_002",
+      "methods": [
+        "jev_gate",
+        "llm_gate",
+        "llm_noask"
+      ],
+      "all_three_methods": true,
+      "same_initial_public_payload": true,
+      "same_planner_configuration": true,
+      "same_prompts": true
+    }
+  ],
+  "caveat": "Tiny controlled sample; no statistical significance or generalization claim. Token sums are observed usage, with unknown-attempt counts; backend tokens are not dollar equivalents."
+}

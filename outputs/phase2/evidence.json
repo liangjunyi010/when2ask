@@ -1,0 +1,80 @@
+{
+  "verified": true,
+  "online_api_attempts": 95,
+  "online_episodes": 12,
+  "diagnostic_v1_episodes": 3,
+  "final_v2_episodes": 9,
+  "oracle": {
+    "validation": {
+      "successes": 5,
+      "total": 5
+    },
+    "pilot": {
+      "successes": 20,
+      "total": 20
+    }
+  },
+  "groups": {
+    "groups": 8,
+    "partitions": {
+      "dev": 1,
+      "test": 2,
+      "validation": 5
+    }
+  },
+  "pytest": {
+    "tests": 66,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "models": {
+    "deepseek": [
+      "deepseek-flash"
+    ],
+    "jev": [
+      "jev-1.14.0"
+    ]
+  },
+  "non_ok_attempts": 0,
+  "unknown_inference_usage_attempts": 0,
+  "recordings": [
+    {
+      "path": "outputs/phase2_live/paired_v2/validation_002/llm_gate/demo.gif",
+      "frames": 447,
+      "bytes": 7586040,
+      "sha256": "4db30b6eb683c3eea4d88581b7a1ef2977ce78653c284e7e08940d57bf8e26b8"
+    },
+    {
+      "path": "outputs/phase2_live/paired_v2/validation_002/jev_gate/demo.gif",
+      "frames": 447,
+      "bytes": 7586040,
+      "sha256": "4db30b6eb683c3eea4d88581b7a1ef2977ce78653c284e7e08940d57bf8e26b8"
+    },
+    {
+      "path": "outputs/phase2_live/paired_v2/validation_002/llm_noask/demo.gif",
+      "frames": 444,
+      "bytes": 7664638,
+      "sha256": "61f71b798008288be5f35dda70d629c7b4770f9f16bf4b74a4ca4d1fe470b3f7"
+    },
+    {
+      "path": "outputs/phase2_live/paired/validation_002/llm_gate/demo.gif",
+      "frames": 444,
+      "bytes": 7664638,
+      "sha256": "61f71b798008288be5f35dda70d629c7b4770f9f16bf4b74a4ca4d1fe470b3f7"
+    },
+    {
+      "path": "outputs/phase2_live/paired/validation_002/jev_gate/demo.gif",
+      "frames": 444,
+      "bytes": 7664638,
+      "sha256": "61f71b798008288be5f35dda70d629c7b4770f9f16bf4b74a4ca4d1fe470b3f7"
+    },
+    {
+      "path": "outputs/phase2_live/paired/validation_002/llm_noask/demo.gif",
+      "frames": 444,
+      "bytes": 7664638,
+      "sha256": "61f71b798008288be5f35dda70d629c7b4770f9f16bf4b74a4ca4d1fe470b3f7"
+    }
+  ],
+  "note": "No paid requests made by this verifier. v1 and v2 are reported separately."
+}

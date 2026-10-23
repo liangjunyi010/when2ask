@@ -1,0 +1,31 @@
+{
+  "kind": "Final Engineering Pilot v2; initial diagnostic cohort retained separately",
+  "reason": "Uniformly state that all three fixed user preferences exist; unstated is unknown, not arbitrary permission.",
+  "experiment_b": "validation_002",
+  "experiment_c": [
+    "pilot_000",
+    "pilot_007"
+  ],
+  "methods": [
+    "llm_noask",
+    "llm_gate",
+    "jev_gate"
+  ],
+  "threshold": 0.5,
+  "total_online_episode_cap_including_v1": 12,
+  "v1_episodes": 3,
+  "v2_episodes": 9,
+  "max_session_api_attempts": 200,
+  "per_episode": {
+    "max_rounds": 20,
+    "max_robot_actions": 12,
+    "max_slot_requests": 12,
+    "max_api_attempts": 64
+  },
+  "prompt_hashes": {
+    "action": "85846a1643017089968cc92435ad9c5ba386b4ad7fc9f112ad9ed985cf38bcd1",
+    "question": "d04150d62560cfb51b56340b28a65843d56ae6156155fe98985878fae781781b",
+    "gate_rules": "a471ae5cbff09e788707f0476a1d052340856885c92516cb6338cc180ee3ab02"
+  },
+  "coverage_note": "C uses 0 and 3 missing preferences and different canonical block/lid truth, within the remaining six episodes."
+}

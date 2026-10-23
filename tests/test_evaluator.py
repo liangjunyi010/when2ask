@@ -67,10 +67,12 @@ def test_lid_above_opening_without_support_is_rejected(env):
     assert not details["covered"]
 
 
-def test_real_success_requires_release_order_and_completed_execution(packed_world):
+def test_real_success_requires_release_order_but_is_independent_of_termination(packed_world):
     env, actions = packed_world
     assert score(env, actions=actions)["task_success"]
-    assert not score(env, "skill_failed:grasp_out_of_range", actions)["task_success"]
+    outcome = score(env, "skill_failed:grasp_out_of_range", actions)
+    assert outcome["task_success"]
+    assert outcome["termination_reason"] == "skill_failed:grasp_out_of_range"
     original = env.events
     try:
         # Keep final physics unchanged; remove the sensor evidence of prior packing.

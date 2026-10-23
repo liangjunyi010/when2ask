@@ -1,5 +1,50 @@
 # Implementation and validation status
 
+## Phase 2 current status (2026-10-23)
+
+| Stage | Implemented and actually verified |
+|---|---|
+| Stable baseline | Original 26 tests passed before branching; original Scripted entry points and evidence retained |
+| Credentials | Both configured locally; ignored `.env` is 0600; exact-value/pattern scans pass |
+| DeepSeek | Real model discovery and JSON completions, non-thinking; returned `deepseek-flash`; actual usage and latency |
+| Jev | Real `/v1/models` and `/v1/systemone` Noul; configured `jev-latest`, returned `jev-1.14.0`; threshold remains 0.5 |
+| Agent split | Gate only ASK/CONTINUE, always before shared Planner; Planner alone returns DONE; NoAsk never calls a gate |
+| Public boundary | Same projection for all methods; changed hidden truth leaves payload unchanged; no private keys in recorded turns |
+| Benchmark | 5 crafted validation + 20 pilot samples; all 0/1/2/3 disclosure levels; varied IDs/order/truth; 8 intent groups isolated across partitions |
+| Physical oracle | Current validation 5/5 and pilot 20/20 real successes; initial red-cup collision failures retained separately |
+| Questions | select/confirm/all_preferences, private unified resolver, only requested hidden keys read; distinct-slot burden/repeats verified |
+| ASK freeze | Every actual ASK has unchanged complete physical state and step count |
+| Recovery | Real uncover/table-return/replace/recover test passed; inside regrasp clearance fixed while retaining proximity guards |
+| Evaluator | Original geometry/contact/release checks retained; latest relevant real DAG event allows corrections; success independent of DONE/termination |
+| Budgets/errors | Locked persisted counters, finite retries/format repair, auth/three-error circuits; actual 12/12 episodes and 95/200 authenticated requests |
+| Costs | Each attempt has model/stage/usage-or-null/latency; backend tokens separate; simulator/generation/oracle costs separate |
+| CLI | doctor/live, generate, validate/oracle, run/live and report executed against real local package/providers |
+| Diagnostic v1 | Three genuine episodes: physical skills succeed but task scores all fail; raw results retained, never pooled with v2 |
+| Final v2 | Nine real paired episodes: NoAsk 1/3, LLM-Gate 3/3, Jev-Gate 3/3; burden totals 0/5/5; all 27 physical skills succeed |
+| Fair comparison | Initial payload, Planner configuration and prompt hashes match across each paired sample; mixed-cohort reports rejected |
+| Tests/evidence | **66 passed in 34.61 s**, no skips; offline pytest blocks network; evidence/GIF/attempt sequence checks pass |
+| Publication | Feature branch `feat/benchmark-apis`; source/data/tests/sanitized records prepared; private push/PR checked at publication, no auto-merge |
+
+Current details: [real experiment report](phase2/experiment_report.md),
+[interfaces and commands](phase2/interfaces.md), `outputs/phase2/evidence.json`,
+`outputs/phase2_live/paired_v2/` (final), `outputs/phase2_live/paired/` (diagnostic).
+
+Not completed: a formal independent Dev/Test study, threshold calibration, broad
+layout/task distributions, real hardware or friction-only grasping, MP4, training
+or 1,800-episode benchmark. Final online coverage is 0/2/3 unknown preferences;
+1-unknown was validated offline/oracle only after the prompt revision, to respect
+the total episode cap. Current online pilot cases are dev-family cases. The
+public fixed-preference contract was clarified uniformly after validation
+diagnostics; no statistical significance is claimed. DeepSeek reports an alias,
+not an immutable backend build. A first-discovery audit restart bug was repaired
+from actual terminal evidence with an explicit recovery note and preserved
+high-water count; all 95 attempt IDs are now continuous and unique.
+
+## Phase 1 historical acceptance record
+
+The following is the original Phase 1 record at stable commit `442efa4`; its
+unimplemented-model notes describe that historical scope, superseded above.
+
 Validation date: 2026-10-23. This is a scripted engineering MVP, not a formal
 LLM-NoAsk / LLM-Gate / Jev-Gate evaluation.
 

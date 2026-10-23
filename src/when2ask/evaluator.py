@@ -22,25 +22,31 @@ class Evaluator:
         released = bool(env.released() and not any(contacts.values()))
         covers = [e for e in env.events if e["kind"] == "cover_started"]
         packing_before_cover = []
-        for event in covers:
+        relevant = [e for e in covers if e["lid_id"] == lid
+                    and any(r["kind"] == "release" and r["object_id"] == lid
+                            and r["step"] >= e["step"] for r in env.events)]
+        # Earlier mistakes can be undone physically. Judge the latest released
+        # placement of the correct lid, not every historic cover attempt.
+        for event in relevant[-1:]:
             completed_before = {e["object_id"] for e in env.events
                                 if e["kind"] == "skill_result" and e["skill"] == "pick_place"
-                                and e["success"] and e["end_step"] <= event["step"]}
+                                and e["target_id"] == "box" and e["end_step"] <= event["step"]
+                                and any(r["kind"] == "release" and r["object_id"] == e["object_id"]
+                                        and e["start_step"] <= r["step"] <= e["end_step"]
+                                        for r in env.events)}
             packing_before_cover.append(
                 {cup, block}.issubset(event["contents_before"])
                 and {cup, block}.issubset(completed_before) and event["released_before"])
-        order_ok = bool(covers and all(packing_before_cover))
+        order_ok = bool(relevant and all(packing_before_cover))
         conditions = dict(correct_cup_inside=cup_details["inside"],
                           correct_block_inside=block_details["inside"],
                           correct_lid_covers=lid_details["covered"],
                           unselected_objects_outside=all(d["outside"] for d in outside.values()),
-                          robot_released=released, packing_before_cover=order_ok,
-                          execution_completed=termination == "done" and len(actions) >= 3)
+                          robot_released=released, packing_before_cover=order_ok)
         success = all(conditions.values())
-        reason = ("success" if success else
-                  "conditions_not_satisfied" if termination == "done" else termination)
-        return dict(task_success=success, termination_reason=reason,
+        return dict(task_success=success, termination_reason=termination,
                     execution_termination=termination, conditions=conditions,
+                    execution_completed=termination == "done",
                     details=dict(expected_objects=dict(cup=cup, block=block, lid=lid),
                                  cup=cup_details, block=block_details, lid=lid_details,
                                  unselected=outside, robot_contact_counts=contacts,

@@ -1,0 +1,157 @@
+{
+  "split": "pilot",
+  "total": 20,
+  "successes": 20,
+  "groups": {
+    "groups": 8,
+    "partitions": {
+      "dev": 1,
+      "test": 2,
+      "validation": 5
+    }
+  },
+  "runs": [
+    {
+      "sample_id": "pilot_000",
+      "scene_seed": 582513,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 0
+    },
+    {
+      "sample_id": "pilot_001",
+      "scene_seed": 312819,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 1
+    },
+    {
+      "sample_id": "pilot_002",
+      "scene_seed": 278586,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 2
+    },
+    {
+      "sample_id": "pilot_003",
+      "scene_seed": 550530,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 3
+    },
+    {
+      "sample_id": "pilot_004",
+      "scene_seed": 484727,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 0
+    },
+    {
+      "sample_id": "pilot_005",
+      "scene_seed": 366878,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 1
+    },
+    {
+      "sample_id": "pilot_006",
+      "scene_seed": 434692,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 2
+    },
+    {
+      "sample_id": "pilot_007",
+      "scene_seed": 749048,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 3
+    },
+    {
+      "sample_id": "pilot_008",
+      "scene_seed": 366189,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 0
+    },
+    {
+      "sample_id": "pilot_009",
+      "scene_seed": 269740,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 1
+    },
+    {
+      "sample_id": "pilot_010",
+      "scene_seed": 781234,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 2
+    },
+    {
+      "sample_id": "pilot_011",
+      "scene_seed": 716388,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 3
+    },
+    {
+      "sample_id": "pilot_012",
+      "scene_seed": 334874,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 0
+    },
+    {
+      "sample_id": "pilot_013",
+      "scene_seed": 196146,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 1
+    },
+    {
+      "sample_id": "pilot_014",
+      "scene_seed": 469612,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 2
+    },
+    {
+      "sample_id": "pilot_015",
+      "scene_seed": 385635,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 3
+    },
+    {
+      "sample_id": "pilot_016",
+      "scene_seed": 632053,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 0
+    },
+    {
+      "sample_id": "pilot_017",
+      "scene_seed": 19789,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 1
+    },
+    {
+      "sample_id": "pilot_018",
+      "scene_seed": 573142,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 2
+    },
+    {
+      "sample_id": "pilot_019",
+      "scene_seed": 488090,
+      "task_success": true,
+      "physical_actions_succeeded": 3,
+      "missing_preferences": 3
+    }
+  ],
+  "generation_api_cost": null,
+  "note": "Offline physical feasibility; no model quality or inference-cost claim"
+}

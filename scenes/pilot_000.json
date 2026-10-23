@@ -1,0 +1,27 @@
+{
+  "geometry_version": "panda_pack_v2_safe_cup",
+  "jitter_max_m": 0.004,
+  "source_xy_overrides": {
+    "red_cup": [
+      0.38,
+      -0.12
+    ]
+  },
+  "object_id_map": {
+    "red_cup": "obj_49de237877ef",
+    "blue_cup": "obj_327e2c79ea22",
+    "green_block": "obj_723f74f4374d",
+    "yellow_block": "obj_1ca42947c16b",
+    "black_lid": "obj_21af785a4951",
+    "white_lid": "obj_5d073a879335"
+  },
+  "object_order": [
+    "obj_5d073a879335",
+    "obj_327e2c79ea22",
+    "obj_21af785a4951",
+    "obj_1ca42947c16b",
+    "obj_723f74f4374d",
+    "box",
+    "obj_49de237877ef"
+  ]
+}

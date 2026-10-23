@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import copy
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 INSTRUCTION = (
     "Put one cup and one block in the box, then cover it. Use the blue cup. "
@@ -21,12 +21,13 @@ class PrivateTaskSpec:
     cup_choice: str = "blue_cup"
     block_choice: str = "green_block"
     lid_choice: str = "black_lid"
+    candidate_registry: dict | None = field(default=None, repr=False)
 
     def __post_init__(self):
-        for slot, options in SLOT_OPTIONS.items():
+        for slot, options in (self.candidate_registry or SLOT_OPTIONS).items():
             if getattr(self, slot) not in options:
                 raise ValueError(f"Invalid {slot}")
-        if self.cup_choice != "blue_cup":
+        if self.candidate_registry is None and self.cup_choice != "blue_cup":
             raise ValueError("This fixed task publicly specifies the blue cup")
 
 
@@ -37,9 +38,9 @@ class PublicState:
     history: tuple[dict, ...]
 
     @classmethod
-    def build(cls, observation: dict, history: list[dict]):
+    def build(cls, observation: dict, history: list[dict], instruction=INSTRUCTION):
         # No PrivateTaskSpec argument, evaluator labels, or simulator reference.
-        return cls(INSTRUCTION, copy.deepcopy(observation), tuple(copy.deepcopy(history)))
+        return cls(instruction, copy.deepcopy(observation), tuple(copy.deepcopy(history)))
 
     def disclosed_preferences(self):
         result = {}

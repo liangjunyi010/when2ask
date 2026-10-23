@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Callable
 
@@ -35,7 +35,7 @@ class Environment:
     RIM_Z = TABLE_Z + .124
 
     def __init__(self, seed: int = 0, gui: bool = False, minimal: bool = False,
-                 realtime: bool = True):
+                 realtime: bool = True, scene_spec: dict | None = None):
         self.client = p.connect(p.GUI if gui else p.DIRECT)
         if self.client < 0:
             raise RuntimeError("PyBullet connection failed")
@@ -47,6 +47,7 @@ class Environment:
         self.grasp_constraint: int | None = None
         self.frame_callback: Callable[[], None] | None = None
         self.rng = np.random.default_rng(seed)
+        self.source_xy_overrides = (scene_spec or {}).get("source_xy_overrides", {})
         p.setAdditionalSearchPath(pybullet_data.getDataPath(), physicsClientId=self.client)
         p.setGravity(0, 0, -9.81, physicsClientId=self.client)
         p.setRealTimeSimulation(0, physicsClientId=self.client)
@@ -66,12 +67,23 @@ class Environment:
         self.command_joints(self.HOME)
         self.command_fingers(.04)
         self._build_scene(minimal)
+        if scene_spec:
+            aliases = scene_spec.get("object_id_map", {})
+            if set(aliases) != set(self.objects) - {"box"} or len(set(aliases.values())) != len(aliases):
+                raise ValueError("Scene must bijectively rename the six movable objects")
+            renamed = {aliases.get(key, key): replace(obj, object_id=aliases.get(key, key))
+                       for key, obj in self.objects.items()}
+            order = scene_spec.get("object_order", list(renamed))
+            if set(order) != set(renamed) or len(order) != len(renamed):
+                raise ValueError("Scene object order is not a permutation")
+            self.objects = {key: renamed[key] for key in order}
         if gui:
             p.configureDebugVisualizer(p.COV_ENABLE_GUI, 0, physicsClientId=self.client)
             p.resetDebugVisualizerCamera(1.65, 48, -40, (.38, .02, .60),
                                          physicsClientId=self.client)
         self.step(240)
         self.initial_step = self.step_count
+        self.home_positions = {key: self.body_pose(key)[0] for key in self.objects if key != "box"}
 
     def _box(self, half, position, color, mass=.06):
         collision = p.createCollisionShape(p.GEOM_BOX, halfExtents=half,
@@ -133,7 +145,7 @@ class Environment:
     def _add_cup(self, key, xy, color, name):
         # Hollow low-poly cup: cylindrical bottom + 12 thin radial wall panels.
         # It is a single dynamic compound rigid body, not a solid cylinder.
-        xy = np.asarray(xy) + self.rng.uniform(-.004, .004, 2)
+        xy = np.asarray(self.source_xy_overrides.get(key, xy)) + self.rng.uniform(-.004, .004, 2)
         n, radius = 12, .027
         positions = [(0, 0, -.027)]
         half = [(radius, radius, .003)]

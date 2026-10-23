@@ -1,0 +1,163 @@
+{
+  "live": true,
+  "credentials": {
+    "deepseek": true,
+    "jev": true
+  },
+  "env_mode": "0o600",
+  "configuration": {
+    "deepseek_model": "deepseek-flash",
+    "jev_model": "jev-latest",
+    "jev_threshold": 0.5,
+    "timeout_s": 40,
+    "max_retries": 1,
+    "max_tokens": 500,
+    "thinking": "disabled",
+    "response_format": "json_object"
+  },
+  "packages": {
+    "pybullet": "3.2.7",
+    "numpy": "2.4.6",
+    "pillow": "13.0.0",
+    "pytest": "9.1.1"
+  },
+  "backends": {
+    "deepseek": {
+      "models": [
+        {
+          "id": "deepseek-flash",
+          "object": "model",
+          "owned_by": "deepseek",
+          "name": "DeepSeek-V4.1-Flash",
+          "context_window": 1048576,
+          "max_output_tokens": 393216,
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "effort": {
+            "supported_levels": [
+              "low",
+              "high",
+              "max"
+            ],
+            "default_level": "high"
+          },
+          "api_capabilities": {
+            "anthropic_messages": {
+              "system_prompt_update": "in-history",
+              "tool_update": "addition-only"
+            }
+          }
+        },
+        {
+          "id": "deepseek-v4-pro",
+          "object": "model",
+          "owned_by": "deepseek",
+          "name": "DeepSeek-V4-Pro",
+          "context_window": 1048576,
+          "max_output_tokens": 393216,
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "effort": {
+            "supported_levels": [
+              "low",
+              "high",
+              "max"
+            ],
+            "default_level": "high"
+          },
+          "api_capabilities": {
+            "anthropic_messages": {
+              "system_prompt_update": "leading-only",
+              "tool_update": "leading-only"
+            }
+          }
+        }
+      ],
+      "success": true,
+      "schema_valid": true,
+      "value": {
+        "ok": true
+      },
+      "configured_model": "deepseek-flash",
+      "returned_model": "deepseek-flash",
+      "input_tokens": 49,
+      "output_tokens": 5,
+      "usage_present": true,
+      "latency_ms": 828.3600839786232
+    },
+    "jev": {
+      "models": [
+        {
+          "name": "jev-latest",
+          "description": "The latest iteration of TypeSafe's System One Model: Jev",
+          "release_date": "2026-09-10T18:38:01.391457+00:00"
+        },
+        {
+          "name": "jev-preview",
+          "description": "A preview version of `jev-latest`: should be better in most ways",
+          "release_date": "2026-09-10T18:39:06.057655+00:00"
+        }
+      ],
+      "success": true,
+      "schema_valid": true,
+      "value": 0.42,
+      "configured_model": "jev-latest",
+      "returned_model": "jev-1.14.0",
+      "input_tokens": 320,
+      "output_tokens": 24,
+      "usage_present": true,
+      "latency_ms": 263.31216702237725
+    }
+  },
+  "cost": {
+    "deepseek": {
+      "attempts": 3,
+      "input_tokens": 49,
+      "unknown_input_tokens_attempts": 2,
+      "output_tokens": 5,
+      "unknown_output_tokens_attempts": 2,
+      "latency_ms": 1235.468250932172,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 2,
+      "input_tokens": 320,
+      "unknown_input_tokens_attempts": 1,
+      "output_tokens": 24,
+      "unknown_output_tokens_attempts": 1,
+      "latency_ms": 521.9789169495925,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 5,
+    "api_latency_ms": 1757.4471678817645,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "session": {
+    "attempts": 5,
+    "episodes": 0,
+    "backends": {
+      "deepseek": {
+        "consecutive_errors": 0,
+        "blocked": false
+      },
+      "jev": {
+        "consecutive_errors": 0,
+        "blocked": false
+      }
+    },
+    "max_attempts": 200,
+    "max_episodes": 12
+  },
+  "audit_recovery": "First discovery attempt restored from actual terminal output; session high-water mark was preserved."
+}
