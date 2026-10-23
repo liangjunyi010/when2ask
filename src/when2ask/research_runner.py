@@ -33,6 +33,21 @@ def run_sample(sample, method, output_dir=None, *, live=False, config=None,
     if live and test_components is not None:
         raise ValueError("A live result may not use test doubles")
     config, limits = config or Config.load(), limits or Limits()
+    version3 = getattr(sample, "schema_version", None) == 3
+    if live and version3 and sample.partition != "dev":
+        raise ValueError("Phase 3 permits live Dev episodes only; frozen Test requires a separately authorized study")
+    world_class, skills_class = Environment, RobotSkills
+    get_state, parse_question, get_disclosed = observe, Question.parse, disclosed_choices
+    make_components = components
+    prompts = (("action", ACTION_PROMPT), ("question", QUESTION_PROMPT), ("gate_rules", GATE_RULES))
+    if version3:
+        from . import study_agents, study_protocol
+        from .diverse_world import DiverseEnvironment, DiverseSkills
+        world_class, skills_class = DiverseEnvironment, DiverseSkills
+        get_state, parse_question = study_protocol.observe, study_protocol.StudyQuestion.parse
+        get_disclosed, make_components = study_protocol.disclosed_choices, study_agents.components
+        prompts = (("action", study_agents.ACTION_PROMPT), ("question", study_agents.QUESTION_PROMPT),
+                   ("gate_rules", study_agents.GATE_RULES))
     if live and (limits.max_rounds > 20 or limits.max_api_attempts > 64):
         raise ValueError("Online safety ceiling: 20 rounds / 64 API attempts")
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
@@ -42,11 +57,12 @@ def run_sample(sample, method, output_dir=None, *, live=False, config=None,
         raise FileExistsError("Refusing to overwrite an existing episode/audit; choose a fresh output directory")
     out.mkdir(parents=True, exist_ok=True)
     if live:
-        session = session or SessionLedger(ROOT / "outputs/phase2_live")
+        session = session or (SessionLedger(ROOT / "outputs/phase3_live", 600, 40, policy="phase3_dev")
+                              if version3 else SessionLedger(ROOT / "outputs/phase2_live"))
         session.start_episode(episode_id)
     audit = Audit(episode_id, config, session if live else None, out / "api_attempts.jsonl",
                   limits.max_api_attempts)
-    gate, planner = (components(method, DeepSeekClient(config, audit), JevClient(config, audit), config.threshold)
+    gate, planner = (make_components(method, DeepSeekClient(config, audit), JevClient(config, audit), config.threshold)
                      if live else test_components)
     if method == "llm_noask" and gate is not None:
         raise ValueError("NoAsk must have no gate")
@@ -62,16 +78,19 @@ def run_sample(sample, method, output_dir=None, *, live=False, config=None,
                    evidence_kind="live_model_and_physics" if live else "offline_test_double_with_real_physics",
                    planner_configuration=config.public_config(), budgets=asdict(limits),
                    prompt_hashes={name: hashlib.sha256(text.encode()).hexdigest() for name, text in
-                                  (("action", ACTION_PROMPT), ("question", QUESTION_PROMPT), ("gate_rules", GATE_RULES))},
+                                  prompts},
                    scene_seed=sample.scene_seed, instruction=sample.u0)
+    if version3:
+        episode.update(schema_version=3, layout_family_id=sample.layout_family_id, template_id=sample.template_id,
+                       dataset_version=sample.dataset_version)
 
     def say(text):
         if not quiet:
             print(text, flush=True)
 
     try:
-        env = Environment(seed=sample.scene_seed, scene_spec=sample.scene(), gui=gui)
-        skills = RobotSkills(env)
+        env = world_class(seed=sample.scene_seed, scene_spec=sample.scene(), gui=gui)
+        skills = skills_class(env)
         recorder = Recorder(env) if record else None
 
         def tick():
@@ -90,7 +109,7 @@ def run_sample(sample, method, output_dir=None, *, live=False, config=None,
                 termination = "robot_action_limit"
                 break
             audit.round = round_index
-            state = observe(env, sample.u0, history)
+            state = get_state(env, sample.u0, history)
             payload = public_payload(state)
             turn = dict(round=round_index, public_payload=payload, payload_sha256=payload_hash(payload))
             turns.append(turn)
@@ -103,7 +122,7 @@ def run_sample(sample, method, output_dir=None, *, live=False, config=None,
                     raise BudgetExceeded("slot_request_limit")
                 before = env.snapshot()
                 question = planner.generate_question(state)
-                question = Question.parse(question.to_dict(), state)
+                question = parse_question(question.to_dict(), state)
                 routing = resolver.resolve(question)
                 requested_roles = question.roles()
                 request_count = len(set(routing.values()))
@@ -116,7 +135,7 @@ def run_sample(sample, method, output_dir=None, *, live=False, config=None,
                 assert charged == request_count
                 burden += charged
                 repeated += len(requested_roles & previously_requested)
-                redundant += len(requested_roles & set(disclosed_choices(state)))
+                redundant += len(requested_roles & set(get_disclosed(state)))
                 previously_requested.update(requested_roles)
                 history.extend([dict(kind="ask", question=question.to_dict(), simulation_step=env.step_count),
                                 dict(kind="user_answer", response=response, simulation_step=env.step_count)])
@@ -171,8 +190,13 @@ def run_sample(sample, method, output_dir=None, *, live=False, config=None,
     finally:
         if env is not None:
             try:
-                episode["evaluation"] = Evaluator().evaluate(env, sample.private_spec(),
-                    clarification_burden=burden, actions=actions, termination=termination)
+                if version3:
+                    from .study_evaluator import evaluate_study
+                    episode["evaluation"] = evaluate_study(env, sample, clarification_burden=burden,
+                                                           actions=actions, termination=termination)
+                else:
+                    episode["evaluation"] = Evaluator().evaluate(env, sample.private_spec(),
+                        clarification_burden=burden, actions=actions, termination=termination)
                 episode.update(final_observation=env.snapshot(), execution_log=env.events)
                 env.save_scene(out / "final.png")
                 if recorder:

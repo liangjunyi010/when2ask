@@ -35,11 +35,16 @@ class SessionLedger:
     The file lock prevents concurrent CLI invocations from bypassing the ceiling.
     Never resets itself; a new study needs a deliberately separate session directory.
     """
-    def __init__(self, directory: Path, max_attempts=200, max_episodes=12):
+    def __init__(self, directory: Path, max_attempts=200, max_episodes=12, *, policy="phase2"):
         self.directory = Path(directory)
         self.directory.mkdir(parents=True, exist_ok=True)
         self.path = self.directory / "session_budget.json"
-        self.max_attempts, self.max_episodes = min(max_attempts, 200), min(max_episodes, 12)
+        policies = {"phase2": (200, 12), "phase3_dev": (600, 40)}
+        if policy not in policies:
+            raise ValueError("Unknown bounded study policy")
+        self.policy, self.ceilings = policy, policies[policy]
+        self.max_attempts = min(max_attempts, self.ceilings[0])
+        self.max_episodes = min(max_episodes, self.ceilings[1])
 
     @contextmanager
     def _state(self):
@@ -49,8 +54,11 @@ class SessionLedger:
             handle.seek(0)
             raw = handle.read()
             state = json.loads(raw) if raw else dict(attempts=0, episodes=0, backends={})
-            state["max_attempts"] = min(state.get("max_attempts", 200), self.max_attempts)
-            state["max_episodes"] = min(state.get("max_episodes", 12), self.max_episodes)
+            if state.get("policy", self.policy) != self.policy:
+                raise ValueError("Cannot reuse a session across study policies")
+            state["policy"] = self.policy
+            state["max_attempts"] = min(state.get("max_attempts", self.ceilings[0]), self.max_attempts)
+            state["max_episodes"] = min(state.get("max_episodes", self.ceilings[1]), self.max_episodes)
             try:
                 yield state
             finally:

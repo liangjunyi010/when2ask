@@ -1,5 +1,6 @@
 import argparse
 import json
+import sys
 from pathlib import Path
 
 from .accounting import Limits, SessionLedger
@@ -11,6 +12,9 @@ from .research_runner import METHODS, run_sample
 
 
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] == "study":
+        from .study_cli import main as study_main
+        return study_main(sys.argv[2:])
     parser = argparse.ArgumentParser(prog="python -m when2ask")
     sub = parser.add_subparsers(dest="command", required=True)
     p = sub.add_parser("doctor")

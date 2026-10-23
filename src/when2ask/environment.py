@@ -69,8 +69,11 @@ class Environment:
         self._build_scene(minimal)
         if scene_spec:
             aliases = scene_spec.get("object_id_map", {})
-            if set(aliases) != set(self.objects) - {"box"} or len(set(aliases.values())) != len(aliases):
-                raise ValueError("Scene must bijectively rename the six movable objects")
+            # Version 3 scenes may also alias multiple containers. Legacy maps
+            # still rename exactly the six movable objects.
+            required = set(self.objects) if scene_spec.get("schema_version") == 3 else set(self.objects) - {"box"}
+            if set(aliases) != required or len(set(aliases.values())) != len(aliases):
+                raise ValueError("Scene must bijectively rename its declared objects")
             renamed = {aliases.get(key, key): replace(obj, object_id=aliases.get(key, key))
                        for key, obj in self.objects.items()}
             order = scene_spec.get("object_order", list(renamed))

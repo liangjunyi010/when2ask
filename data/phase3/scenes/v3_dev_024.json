@@ -1,0 +1,81 @@
+{
+  "schema_version": 3,
+  "geometry_version": "panda_diverse_v3.1",
+  "template_id": "place_into_selected_containers",
+  "jitter_max_m": 0.004,
+  "containers": [
+    {
+      "id": "container_a",
+      "xy": [
+        0.53,
+        -0.16
+      ],
+      "half_xy": [
+        0.09,
+        0.08
+      ],
+      "wall_height": 0.09,
+      "color": "orange",
+      "rgba": [
+        0.95,
+        0.45,
+        0.12,
+        1
+      ]
+    },
+    {
+      "id": "container_b",
+      "xy": [
+        0.5700000000000001,
+        0.19999999999999998
+      ],
+      "half_xy": [
+        0.09,
+        0.08
+      ],
+      "wall_height": 0.09,
+      "color": "purple",
+      "rgba": [
+        0.55,
+        0.25,
+        0.8,
+        1
+      ]
+    }
+  ],
+  "sources": {
+    "red_cup": [
+      0.34,
+      -0.136
+    ],
+    "blue_cup": [
+      0.26999999999999996,
+      -0.26
+    ],
+    "green_block": [
+      0.29,
+      0.05500000000000001
+    ],
+    "yellow_block": [
+      0.29,
+      0.26
+    ]
+  },
+  "object_id_map": {
+    "container_a": "item_0413225ca44f",
+    "container_b": "item_9475b0844d3f",
+    "red_cup": "item_d194b497ab39",
+    "blue_cup": "item_096928d58dfc",
+    "green_block": "item_c800bf4c68a0",
+    "yellow_block": "item_2494181cbb9a"
+  },
+  "object_order": [
+    "item_c800bf4c68a0",
+    "item_9475b0844d3f",
+    "item_0413225ca44f",
+    "item_096928d58dfc",
+    "item_d194b497ab39",
+    "item_2494181cbb9a"
+  ],
+  "layout_fingerprint": "4a09a6bd6b9107e89430bc65ae0ec122998e63d9872661872ac8c65a1234e98d"
+}

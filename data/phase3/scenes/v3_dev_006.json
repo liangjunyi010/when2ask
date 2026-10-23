@@ -1,0 +1,72 @@
+{
+  "schema_version": 3,
+  "geometry_version": "panda_diverse_v3.1",
+  "template_id": "pack_and_cover",
+  "jitter_max_m": 0.004,
+  "containers": [
+    {
+      "id": "box",
+      "xy": [
+        0.595,
+        0.08
+      ],
+      "half_xy": [
+        0.14,
+        0.12
+      ],
+      "wall_height": 0.11,
+      "color": "brown",
+      "rgba": [
+        0.63,
+        0.4,
+        0.2,
+        1
+      ]
+    }
+  ],
+  "sources": {
+    "red_cup": [
+      0.383,
+      -0.13
+    ],
+    "blue_cup": [
+      0.322,
+      -0.22799999999999998
+    ],
+    "green_block": [
+      0.302,
+      0.153
+    ],
+    "yellow_block": [
+      0.296,
+      -0.011000000000000001
+    ],
+    "black_lid": [
+      0.62,
+      -0.34800000000000003
+    ],
+    "white_lid": [
+      0.288,
+      0.39
+    ]
+  },
+  "object_id_map": {
+    "box": "box",
+    "red_cup": "item_4abe39ff958c",
+    "blue_cup": "item_25033b59408e",
+    "green_block": "item_9065999737be",
+    "yellow_block": "item_75e7c6dced89",
+    "black_lid": "item_745bcd044dad",
+    "white_lid": "item_d2997fee2f53"
+  },
+  "object_order": [
+    "item_d2997fee2f53",
+    "item_75e7c6dced89",
+    "box",
+    "item_25033b59408e",
+    "item_9065999737be",
+    "item_745bcd044dad",
+    "item_4abe39ff958c"
+  ],
+  "layout_fingerprint": "eefb9a2482cec408f54937221151af1bab8a064b053877b7e1a2ad7af74142a8"
+}

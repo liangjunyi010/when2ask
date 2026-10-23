@@ -129,8 +129,10 @@ class RobotSkills:
         center = np.array(env.body_pose(object_id)[0])
         # Regrasping a short packed object needs the wider hand above the rim.
         # Its fingertips remain within the same 40 mm proximity requirement.
-        inside = ("box" in env.objects and env.objects[object_id].category in ("cup", "block")
-                  and env.containment(object_id)["inside"])
+        inside = (any(env.containment(object_id, key)["inside"] for key in env.container_ids)
+                  if hasattr(env, "container_ids") and env.objects[object_id].category in ("cup", "block")
+                  else ("box" in env.objects and env.objects[object_id].category in ("cup", "block")
+                        and env.containment(object_id)["inside"]))
         grip = np.array([center[0], center[1], hi[2] + (.035 if inside else .018)])
         env.command_fingers(.04)
         phase("approach")
