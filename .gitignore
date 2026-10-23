@@ -17,3 +17,4 @@ outputs/seed_checks/
 outputs/gui_checks/
 *.log
 presentation/milestone/.build/
+~$*
