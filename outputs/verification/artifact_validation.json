@@ -1,0 +1,57 @@
+{
+  "artifacts_valid": true,
+  "demos": {
+    "ask": {
+      "task_success": true,
+      "successful_actions": 3,
+      "clarification_burden": 2,
+      "steps": 10888,
+      "screenshot_size": [
+        960,
+        720
+      ],
+      "gif_frames": 447,
+      "gif_duration_ms": 49200,
+      "gif_bytes": 7465229,
+      "gif_sha256": "18b335073152d38051d5227e385fdeb40fed07de1e982ce6e71deb6e685bc924"
+    },
+    "noask": {
+      "task_success": false,
+      "successful_actions": 3,
+      "clarification_burden": 0,
+      "steps": 10843,
+      "screenshot_size": [
+        960,
+        720
+      ],
+      "gif_frames": 443,
+      "gif_duration_ms": 46600,
+      "gif_bytes": 7393066,
+      "gif_sha256": "376c39eb06aa867e7078a813ba679547cb984d7cb51f8df3f82eaa525af7d0e7"
+    }
+  },
+  "gui": {
+    "ask": {
+      "task_success": true,
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "physical_actions": 3
+    },
+    "noask": {
+      "task_success": false,
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "physical_actions": 3
+    }
+  },
+  "pytest": {
+    "tests": 26,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  }
+}

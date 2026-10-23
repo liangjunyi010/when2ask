@@ -1,0 +1,9 @@
+# Validated on CPython 3.11.16, macOS arm64. Build tooling is in setup_env.sh.
+pybullet==3.2.7
+numpy==2.4.6
+pillow==13.0.0
+pytest==9.1.1
+iniconfig==2.3.1
+packaging==26.3
+pluggy==1.7.0
+pygments==2.21.0

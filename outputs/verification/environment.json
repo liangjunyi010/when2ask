@@ -1,0 +1,12 @@
+{
+  "python": "3.11.16",
+  "machine": "arm64",
+  "macos": "26.6.2",
+  "bullet_api_version": 202010061,
+  "packages": {
+    "pybullet": "3.2.7",
+    "numpy": "2.4.6",
+    "pillow": "13.0.0",
+    "pytest": "9.1.1"
+  }
+}

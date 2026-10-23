@@ -1,0 +1,11 @@
+{
+  "mode": "DIRECT",
+  "steps": 60,
+  "position": [
+    0.0,
+    0.0,
+    0.690582573386861
+  ],
+  "tiny_renderer": true,
+  "clean_disconnect": true
+}

@@ -1,0 +1,94 @@
+{
+  "task_success": false,
+  "termination_reason": "conditions_not_satisfied",
+  "execution_termination": "done",
+  "conditions": {
+    "correct_cup_inside": true,
+    "correct_block_inside": false,
+    "correct_lid_covers": true,
+    "unselected_objects_outside": false,
+    "robot_released": true,
+    "packing_before_cover": false,
+    "execution_completed": true
+  },
+  "details": {
+    "expected_objects": {
+      "cup": "blue_cup",
+      "block": "green_block",
+      "lid": "black_lid"
+    },
+    "cup": {
+      "inside": true,
+      "full_xy_inside": true,
+      "full_z_inside": true,
+      "supported_by_box": true,
+      "stable": true,
+      "aabb_min": [
+        0.4907528769536607,
+        0.017850995663083694,
+        0.4339854215398658
+      ],
+      "aabb_max": [
+        0.5449310165611634,
+        0.07203353562334093,
+        0.4939936840436185
+      ]
+    },
+    "block": {
+      "inside": false,
+      "full_xy_inside": false,
+      "full_z_inside": false,
+      "supported_by_box": false,
+      "stable": true,
+      "aabb_min": [
+        0.26050402091463726,
+        -0.048697946046009064,
+        0.41998802437948224
+      ],
+      "aabb_max": [
+        0.30450622348231543,
+        -0.004697682770834145,
+        0.46399026839720514
+      ]
+    },
+    "lid": {
+      "covered": true,
+      "all_mouth_corners_covered": true,
+      "height_ok": true,
+      "flat": true,
+      "normal_z": 0.9999999999381044,
+      "rim_supported": true,
+      "support_contact_count": 10,
+      "stable": true
+    },
+    "unselected": {
+      "red_cup": {
+        "outside": true,
+        "footprint_disjoint": true,
+        "stable": true
+      },
+      "yellow_block": {
+        "outside": false,
+        "footprint_disjoint": false,
+        "stable": true
+      },
+      "white_lid": {
+        "outside": true,
+        "footprint_disjoint": true,
+        "stable": true
+      }
+    },
+    "robot_contact_counts": {
+      "green_block": 0,
+      "blue_cup": 0,
+      "black_lid": 0
+    },
+    "cover_order_checks": [
+      false
+    ]
+  },
+  "clarification_burden": 0,
+  "action_count": 3,
+  "successful_action_count": 3,
+  "simulation_steps": 10843
+}
