@@ -6,6 +6,7 @@ media, which that authoring API does not expose. It never changes source logs.
 from __future__ import annotations
 
 import json
+import math
 from copy import deepcopy
 from pathlib import Path
 from zipfile import ZipFile, ZIP_DEFLATED
@@ -67,17 +68,15 @@ def main() -> None:
     assert blip is not None
     blip.set(q("r", "embed"), "rIdReplayAnimatedPoster")
 
-    # One media node on the slide timeline, beginning at slide entry.
-    # CommonMediaNode/Video follow ISO/IEC 29500 (Microsoft Learn reference).
+    # PowerPoint needs an actual media-call command, not only a video node.
+    # This native timing structure starts playFrom(0.0) with the slide and
+    # retains the normal on-click pause/resume interaction.
     assert slide.find("p:timing", NS) is None
-    timing = ET.SubElement(slide, q("p", "timing"))
-    root = ET.SubElement(ET.SubElement(ET.SubElement(timing, q("p", "tnLst")), q("p", "par")),
-                         q("p", "cTn"), {"id": "1", "dur": "indefinite", "restart": "never", "nodeType": "tmRoot"})
-    video = ET.SubElement(ET.SubElement(root, q("p", "childTnLst")), q("p", "video"))
-    media_node = ET.SubElement(video, q("p", "cMediaNode"), {"vol": "0", "numSld": "1", "showWhenStopped": "1"})
-    time_node = ET.SubElement(media_node, q("p", "cTn"), {"id": "2", "fill": "hold", "display": "0", "repeatCount": "indefinite"})
-    ET.SubElement(ET.SubElement(time_node, q("p", "stCondLst")), q("p", "cond"), {"delay": "0"})
-    ET.SubElement(ET.SubElement(media_node, q("p", "tgtEl")), q("p", "spTgt"), {"spid": shape_id})
+    metadata=json.loads((BASE/'media_validation.json').read_text())
+    seconds=next(m['duration_s'] for m in metadata['media'] if m['file']=='when2ask_milestone_highlight.mp4')
+    template=Path(__file__).with_name('media_timing.xml').read_text()
+    template=template.replace('__SHAPE_ID__',shape_id).replace('__DURATION_MS__',str(math.ceil(seconds*1000)))
+    slide.append(ET.fromstring(template))
     parts["ppt/slides/slide1.xml"] = ET.tostring(slide, encoding="utf-8", xml_declaration=True)
 
     rel_ns = "http://schemas.openxmlformats.org/package/2006/relationships"

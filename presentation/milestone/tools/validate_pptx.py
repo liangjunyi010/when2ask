@@ -30,7 +30,9 @@ def main() -> None:
         assert len(slide1.findall(".//a:videoFile", NS)) == 1
         assert len(slide1.findall(".//p:video/p:cMediaNode", NS)) == 1
         assert slide1.find('.//p:video/p:cMediaNode/p:cTn',NS).get('repeatCount')=='indefinite'
-        assert slide1.find(".//p:video/p:cMediaNode/p:cTn/p:stCondLst/p:cond", NS).get("delay") == "0"
+        assert slide1.find('.//p:cmd[@cmd="playFrom(0.0)"]',NS) is not None
+        assert slide1.find('.//p:cTn[@presetClass="mediacall"]',NS).get('nodeType')=='withEffect'
+        assert slide1.find('.//p:cTn[@nodeType="mainSeq"]/p:childTnLst/p:par/p:cTn/p:stCondLst/p:cond',NS).get('delay')=='0'
         for ext in ("gif", "mp4"):
             embedded = z.read(f"ppt/media/when2ask-replay.{ext}")
             standalone = (BASE / f"media/when2ask_milestone_highlight.{ext}").read_bytes()
@@ -83,6 +85,11 @@ def main() -> None:
     previews = [BASE / f"slide_previews/slide-rendered-{i}.png" for i in (1, 2)]
     for p in previews:
         assert Image.open(p).size == (1920, 1080)
+    native_path=BASE/'native_powerpoint_validation.json'
+    native=json.loads(native_path.read_text()) if native_path.exists() else None
+    if native:
+        assert native['pptx_sha256']==hashlib.sha256(deck.read_bytes()).hexdigest()
+        assert native['autoplay_confirmed'] and native['loop_confirmed']
     report = {
         "passed": True, "pptx_sha256": hashlib.sha256(deck.read_bytes()).hexdigest(),
         "slide_count": 2, "dimensions_emu": [18288000, 10287000], "aspect": "16:9",
@@ -95,8 +102,9 @@ def main() -> None:
         "render_engine": "Local LibreOfficeDev 26.8 headless PDF + Poppler PNG, 1920x1080",
         "rendered_slides": [str(p.relative_to(BASE)) for p in previews],
         "visual_review": "Both slides individually inspected. Final fallback image visible. No title/table/text clipping.",
-        "native_powerpoint_slideshow_verified": False,
-        "limitation": "Microsoft PowerPoint AppleEvent opening timed out (-1712); desktop Computer Use permissions pending. Automatic playback in native Slide Show could not be observed. Actual embedded H.264 video and full animated GIF independently decoded and verified. Standalone MP4 provided.",
+        "native_powerpoint_slideshow_verified": bool(native),
+        "native_powerpoint_evidence": native_path.name if native else None,
+        "limitation": "Native PowerPoint autoplay and looping verified through live player positions. Slide visual inspection used LibreOffice-rendered PNGs, not native screen capture." if native else "Native playback has not been checked for these bytes; embedded media and PNG rendering verified.",
         "new_model_api_requests": 0,
     }
     (BASE / "pptx_validation.json").write_text(json.dumps(report, indent=2) + "\n")

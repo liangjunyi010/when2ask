@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "pptx_sha256": "de440deae54b5bfcdf38aea79795bf3c720b18086458acb54937e8ec392a6bc0",
+  "pptx_sha256": "3491cb7ca02f49e0b9202a5f10384adb86ee4218e731bfb47a3633e8b5302b26",
   "slide_count": 2,
   "dimensions_emu": [
     18288000,
@@ -79,7 +79,8 @@
     "slide_previews/slide-rendered-2.png"
   ],
   "visual_review": "Both slides individually inspected. Final fallback image visible. No title/table/text clipping.",
-  "native_powerpoint_slideshow_verified": false,
-  "limitation": "Microsoft PowerPoint AppleEvent opening timed out (-1712); desktop Computer Use permissions pending. Automatic playback in native Slide Show could not be observed. Actual embedded H.264 video and full animated GIF independently decoded and verified. Standalone MP4 provided.",
+  "native_powerpoint_slideshow_verified": true,
+  "native_powerpoint_evidence": "native_powerpoint_validation.json",
+  "limitation": "Native PowerPoint autoplay and looping verified through live player positions. Slide visual inspection used LibreOffice-rendered PNGs, not native screen capture.",
   "new_model_api_requests": 0
 }

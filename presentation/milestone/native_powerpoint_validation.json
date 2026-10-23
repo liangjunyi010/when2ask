@@ -1,0 +1,24 @@
+{
+  "application": "Microsoft PowerPoint",
+  "version": "16.114.1",
+  "pptx_sha256": "3491cb7ca02f49e0b9202a5f10384adb86ee4218e731bfb47a3633e8b5302b26",
+  "byte_identical_verification_copy": true,
+  "slide_count": 2,
+  "play_on_entry_recognized": true,
+  "loop_until_stopped_recognized": true,
+  "scheduled_sample_seconds": [
+    2,
+    4,
+    14
+  ],
+  "native_media_positions_ms": [
+    2012,
+    4023,
+    2128
+  ],
+  "autoplay_confirmed": true,
+  "loop_confirmed": true,
+  "slideshow_exited_cleanly": true,
+  "method": "Native PowerPoint slide show and stable AppleScript Player object; current position queried after real waiting. No simulated player values.",
+  "visual_screenshots": "Final slides separately rendered via LibreOffice to PNG; native screen pixels were not captured."
+}
