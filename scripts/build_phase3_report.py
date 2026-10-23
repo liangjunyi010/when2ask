@@ -225,6 +225,16 @@ def main():
         "- CSV/JSON metrics and paired differences: outputs/phase3/report/.",
         f"- Actual two-container GIF: outputs/phase3_live/dev/v3_dev_016__llm_gate/demo.gif ({recording['encoded_frame_count']} encoded TinyRenderer frames, local/ignored).",
         "- Existing `python demo.py --mode ask --gui` and `--mode noask --gui` remain available.", ""]
+    publication = ROOT / "outputs/phase3/publication.json"
+    if publication.exists():
+        receipt = json.loads(publication.read_text())
+        lines += ["## GitHub publication", "",
+            f"[Phase 3 PR #2]({receipt['phase3_pr']['url']}) is {receipt['phase3_pr']['state']} against "
+            f"`{receipt['phase3_pr']['baseRefName']}`. Repository privacy was verified as "
+            f"isPrivate={str(receipt['repository']['isPrivate']).lower()}. "
+            f"The verified uploaded experiment payload is `{receipt['verified_experiment_payload_commit']}`; "
+            "later publication-only documentation commits are checked again after push. "
+            "Original PR #1 remains OPEN with its original head. No PR was merged or force-pushed.", ""]
     target = ROOT / "docs/phase3/dev_report.md"
     target.write_text("\n".join(lines))
     print("Built",target)

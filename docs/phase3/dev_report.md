@@ -130,3 +130,7 @@ Generation was run once with seed 4278; `study generate --seed 4278` now refuses
 - CSV/JSON metrics and paired differences: outputs/phase3/report/.
 - Actual two-container GIF: outputs/phase3_live/dev/v3_dev_016__llm_gate/demo.gif (315 encoded TinyRenderer frames, local/ignored).
 - Existing `python demo.py --mode ask --gui` and `--mode noask --gui` remain available.
+
+## GitHub publication
+
+[Phase 3 PR #2](https://github.com/liangjunyi010/when2ask/pull/2) is OPEN against `feat/benchmark-apis`. Repository privacy was verified as isPrivate=true. The verified uploaded experiment payload is `10ce0c8a5d77da65f61cf801e18b09a1dd78bae0`; later publication-only documentation commits are checked again after push. Original PR #1 remains OPEN with its original head. No PR was merged or force-pushed.

@@ -24,6 +24,7 @@
 | Test freeze | `configs/frozen_test.yaml` plus manifest; hashes, models, threshold, parameters, code and budgets; **0 Test API episodes**, live Test blocked in Phase 3 |
 | Recording | New live two-container episode, 315 real TinyRenderer GIF frames; per-episode initial/final PNG and trajectory; GIF ignored |
 | Tests | **96 passed**, including original 66; offline network guard; final JUnit and evidence saved under outputs/phase3 |
+| Publication | Private repository verified; `feat/devtest-calibration` pushed; [PR #2](https://github.com/liangjunyi010/when2ask/pull/2) OPEN against `feat/benchmark-apis`; original PR #1 head/state unchanged; receipt in outputs/phase3/publication.json |
 
 Current report: [Dev calibration](phase3/dev_report.md),
 [design and pre-registration](phase3/design_and_preregistration.md),
