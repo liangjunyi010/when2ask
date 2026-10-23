@@ -1,0 +1,181 @@
+{
+  "media": [
+    {
+      "file": "when2ask_full_replay.mp4",
+      "bytes": 2702651,
+      "duration_s": 49.2,
+      "width": 1920,
+      "height": 1080,
+      "codec": "h264",
+      "source": "Deterministic whole-HTML Chromium screenshots",
+      "frame_rate": "30/1"
+    },
+    {
+      "file": "when2ask_milestone_highlight.mp4",
+      "bytes": 957705,
+      "duration_s": 19.166667,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "source": "Deterministic whole-HTML Chromium screenshots",
+      "frame_rate": "30/1"
+    },
+    {
+      "file": "when2ask_milestone_highlight.gif",
+      "bytes": 2831545,
+      "duration_s": 19.14,
+      "width": 1280,
+      "height": 720,
+      "frames": 287,
+      "source": "Same deterministic whole-HTML screenshots, palette encoded"
+    }
+  ],
+  "all_durations_match_schedule": true,
+  "decoded_video_checkpoint_checks": [
+    {
+      "media": "when2ask_full_replay.mp4",
+      "checkpoint": "01_initial",
+      "export_time_s": 0.35,
+      "requested_source_frame": 0,
+      "matched_source_frame": 0,
+      "mean_absolute_rgb_error": 0.7587,
+      "passed": true
+    },
+    {
+      "media": "when2ask_full_replay.mp4",
+      "checkpoint": "02_pick_cup",
+      "export_time_s": 4.65,
+      "requested_source_frame": 40,
+      "matched_source_frame": 40,
+      "mean_absolute_rgb_error": 0.7226,
+      "passed": true
+    },
+    {
+      "media": "when2ask_full_replay.mp4",
+      "checkpoint": "02b_cup_transport",
+      "export_time_s": 6.85,
+      "requested_source_frame": 62,
+      "matched_source_frame": 62,
+      "mean_absolute_rgb_error": 0.7225,
+      "passed": true
+    },
+    {
+      "media": "when2ask_full_replay.mp4",
+      "checkpoint": "03_ask",
+      "export_time_s": 15.5,
+      "requested_source_frame": 143,
+      "matched_source_frame": 143,
+      "mean_absolute_rgb_error": 0.7118,
+      "passed": true
+    },
+    {
+      "media": "when2ask_full_replay.mp4",
+      "checkpoint": "04_user_answer",
+      "export_time_s": 16.7,
+      "requested_source_frame": 144,
+      "matched_source_frame": 144,
+      "mean_absolute_rgb_error": 0.7334,
+      "passed": true
+    },
+    {
+      "media": "when2ask_full_replay.mp4",
+      "checkpoint": "05_robot_continue",
+      "export_time_s": 23.65,
+      "requested_source_frame": 208,
+      "matched_source_frame": 208,
+      "mean_absolute_rgb_error": 0.6949,
+      "passed": true
+    },
+    {
+      "media": "when2ask_full_replay.mp4",
+      "checkpoint": "05b_cover",
+      "export_time_s": 39.75,
+      "requested_source_frame": 369,
+      "matched_source_frame": 369,
+      "mean_absolute_rgb_error": 0.6697,
+      "passed": true
+    },
+    {
+      "media": "when2ask_full_replay.mp4",
+      "checkpoint": "06_evaluation",
+      "export_time_s": 48.3,
+      "requested_source_frame": 446,
+      "matched_source_frame": 446,
+      "mean_absolute_rgb_error": 0.6771,
+      "passed": true
+    },
+    {
+      "media": "when2ask_milestone_highlight.mp4",
+      "checkpoint": "01_initial",
+      "export_time_s": 0.45,
+      "requested_source_frame": 0,
+      "matched_source_frame": 0,
+      "mean_absolute_rgb_error": 0.8404,
+      "passed": true
+    },
+    {
+      "media": "when2ask_milestone_highlight.mp4",
+      "checkpoint": "02_pick_cup",
+      "export_time_s": 2.028571428571432,
+      "requested_source_frame": 40,
+      "matched_source_frame": 41,
+      "mean_absolute_rgb_error": 0.8415,
+      "passed": true
+    },
+    {
+      "media": "when2ask_milestone_highlight.mp4",
+      "checkpoint": "02b_cup_transport",
+      "export_time_s": 2.657142857142858,
+      "requested_source_frame": 62,
+      "matched_source_frame": 63,
+      "mean_absolute_rgb_error": 1.1085,
+      "passed": true
+    },
+    {
+      "media": "when2ask_milestone_highlight.mp4",
+      "checkpoint": "03_ask",
+      "export_time_s": 5.857142857142848,
+      "requested_source_frame": 143,
+      "matched_source_frame": 143,
+      "mean_absolute_rgb_error": 0.8399,
+      "passed": true
+    },
+    {
+      "media": "when2ask_milestone_highlight.mp4",
+      "checkpoint": "04_user_answer",
+      "export_time_s": 7.757142857142847,
+      "requested_source_frame": 144,
+      "matched_source_frame": 144,
+      "mean_absolute_rgb_error": 0.9132,
+      "passed": true
+    },
+    {
+      "media": "when2ask_milestone_highlight.mp4",
+      "checkpoint": "05_robot_continue",
+      "export_time_s": 10.571428571428612,
+      "requested_source_frame": 208,
+      "matched_source_frame": 209,
+      "mean_absolute_rgb_error": 1.0489,
+      "passed": true
+    },
+    {
+      "media": "when2ask_milestone_highlight.mp4",
+      "checkpoint": "05b_cover",
+      "export_time_s": 15.171428571428736,
+      "requested_source_frame": 369,
+      "matched_source_frame": 370,
+      "mean_absolute_rgb_error": 1.0245,
+      "passed": true
+    },
+    {
+      "media": "when2ask_milestone_highlight.mp4",
+      "checkpoint": "06_evaluation",
+      "export_time_s": 18.25714285714302,
+      "requested_source_frame": 446,
+      "matched_source_frame": 446,
+      "mean_absolute_rgb_error": 0.7614,
+      "passed": true
+    }
+  ],
+  "encoding_note": "Whole HTML encoded atomically. MP4 30 fps and GIF 15 fps resample source display intervals; no independent left/right resampling."
+}

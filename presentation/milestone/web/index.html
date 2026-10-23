@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>When2Ask | Recorded Robot Execution</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="stage" aria-label="When2Ask synchronized recorded execution">
+  <header>
+    <h1>When2Ask: Knowing When to Ask in Robotic Tasks</h1>
+    <p>Real PyBullet Execution × Jev/DeepSeek Clarification Decisions</p>
+    <div id="replay-kind">RECORDED EPISODE</div>
+  </header>
+  <section class="main-grid">
+    <div class="robot-column">
+      <div class="camera" id="camera">
+        <canvas id="robot-frame" width="640" height="480" aria-label="Actual recorded PyBullet frame"></canvas>
+      </div>
+      <div class="action-line"><strong id="action-title">Loading recorded evidence…</strong><span id="step-label"></span></div>
+      <div class="phases" aria-label="Physical phases from execution log">
+        <span data-phase="approach">Approach</span><span data-phase="grasp">Grasp</span>
+        <span data-phase="lift">Lift</span><span data-phase="transport">Transport</span>
+        <span data-phase="lower">Lower</span><span data-phase="release">Release</span>
+        <span data-phase="settle">Settle</span>
+      </div>
+    </div>
+    <div class="flow-column">
+      <div class="flow-heading"><span>CLARIFICATION & EXECUTION LOOP</span><strong id="round-stage"></strong></div>
+      <div id="flow">
+        <svg viewBox="0 0 812 650" aria-label="Repeated clarification and action loop">
+          <defs>
+            <marker id="arrow-idle" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#c8d3df"/></marker>
+            <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#2175bf"/></marker>
+            <marker id="arrow-orange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#db852b"/></marker>
+            <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#2b8b67"/></marker>
+          </defs>
+          <g class="edges">
+            <path data-edge="instruction-observation" d="M406 46 V64"/>
+            <path data-edge="observation-gate" d="M406 112 V130"/>
+            <path data-edge="gate-ask" d="M406 194 V220 H204 V257"/>
+            <path data-edge="gate-continue" d="M406 194 V220 H608 V257"/>
+            <path data-edge="ask-question_planner" d="M204 257 V271"/>
+            <path data-edge="continue-action_planner" d="M608 257 V271"/>
+            <path data-edge="question_planner-user_simulator" d="M204 325 V349"/>
+            <path data-edge="action_planner-execution" d="M608 325 V349"/>
+            <path data-edge="user_simulator-history" d="M204 403 V427"/>
+            <path data-edge="execution-new_observation" d="M608 403 V427"/>
+            <path data-edge="history-loop" d="M204 481 V508 H286"/>
+            <path data-edge="new_observation-loop" d="M608 481 V508 H526"/>
+            <path data-edge="loop-observation" d="M526 508 H790 V88 H624"/>
+            <path data-edge="action_planner-done" d="M762 298 H774 V565 H510"/>
+            <path data-edge="done-evaluator" d="M406 585 V606"/>
+          </g>
+          <text x="265" y="244" class="branch-label ask-label">ASK</text>
+          <text x="476" y="244" class="branch-label continue-label">CONTINUE</text>
+          <text x="727" y="544" class="small-label">DONE</text>
+          <g class="node" data-node="instruction"><rect x="190" y="2" width="432" height="44" rx="8"/><text x="406" y="30">User Instruction</text></g>
+          <g class="node" data-node="observation"><rect x="190" y="64" width="432" height="48" rx="8"/><text x="406" y="95">Public State / Observation</text></g>
+          <g class="node gate" data-node="gate"><rect x="150" y="130" width="512" height="64" rx="8"/><text id="gate-name" x="406" y="157">Clarification Gate · Jev Noul</text><text id="gate-probability" x="406" y="181" class="gate-value"></text></g>
+          <g class="node" data-node="question_planner"><rect x="40" y="271" width="328" height="54" rx="8"/><text x="204" y="305">Question Planner</text></g>
+          <g class="node" data-node="action_planner"><rect x="444" y="271" width="318" height="54" rx="8"/><text x="603" y="305">Action Planner</text></g>
+          <g class="node" data-node="user_simulator"><rect x="40" y="349" width="328" height="54" rx="8"/><text x="204" y="383">User Simulator</text></g>
+          <g class="node" data-node="execution"><rect x="444" y="349" width="318" height="54" rx="8"/><text x="603" y="383">PyBullet Skills</text></g>
+          <g class="node" data-node="history"><rect x="40" y="427" width="328" height="54" rx="8"/><text x="204" y="461">Updated History</text></g>
+          <g class="node" data-node="new_observation"><rect x="444" y="427" width="318" height="54" rx="8"/><text x="603" y="461">New Observation</text></g>
+          <g class="node loop-node" data-node="loop"><rect x="286" y="489" width="240" height="38" rx="8"/><text x="406" y="514">Next decision</text></g>
+          <g class="node" data-node="done"><rect x="302" y="545" width="208" height="40" rx="8"/><text x="406" y="572">Planner: DONE</text></g>
+          <g class="node" data-node="evaluator"><rect x="198" y="606" width="416" height="42" rx="8"/><text id="evaluator-text" x="406" y="634">Independent Evaluator</text></g>
+        </svg>
+      </div>
+    </div>
+  </section>
+  <section class="io-panel">
+    <div class="input-panel"><div class="section-label">PUBLIC INPUT</div><div id="instruction"></div><div id="known-preferences"></div></div>
+    <div class="output-panel"><div class="section-label" id="output-heading">RECORDED DECISION</div><div id="decision-line"></div><div id="planner-line"></div><div id="answer-line"></div><div id="outcome-line"></div></div>
+  </section>
+  <div class="footer"><span id="evidence-label"></span><span id="time-compression">Source display timeline · inference instants not recorded</span></div>
+  <nav class="controls" aria-label="Replay controls">
+    <button id="play" type="button">Play</button><button id="restart" type="button">Restart</button>
+    <input id="seek" type="range" min="0" max="49200" value="0" step="1" aria-label="Seek timeline">
+    <span id="time-label"></span>
+    <label>Speed <select id="speed" aria-label="Playback speed"><option value="1">1×</option><option value="2">2×</option><option value="3">3×</option></select></label>
+    <select id="episode-select" aria-label="Recorded episode"><option value="jev_pack">Pack & cover · Jev-Gate</option><option value="llm_containers">Two containers · LLM-Gate</option></select>
+  </nav>
+  <div id="load-error" role="alert"></div>
+</main>
+<script type="module" src="replay.js"></script>
+</body>
+</html>

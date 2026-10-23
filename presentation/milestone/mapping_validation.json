@@ -1,0 +1,438 @@
+{
+  "schema_version": 1,
+  "browser": "156.0.8078.47",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "source_episode": "outputs/phase2_live/paired_v2/validation_002/jev_gate/episode.json",
+  "source_gif_sha256": "4db30b6eb683c3eea4d88581b7a1ef2977ce78653c284e7e08940d57bf8e26b8",
+  "checkpoint_count": 8,
+  "checkpoints": [
+    {
+      "label": "01_initial",
+      "frame_index": 0,
+      "source_gif_frame_index": 0,
+      "simulation_step": 240,
+      "start_ms": 0,
+      "end_ms": 700,
+      "round": 0,
+      "active_flow_node": "gate",
+      "physical_phase": null,
+      "gate": {
+        "backend": "jev",
+        "decision": "CONTINUE",
+        "p_ask": 0.14
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "obj_953ec2bc502c",
+        "target_id": "box",
+        "relation": "inside"
+      },
+      "question": null,
+      "user_answer": null,
+      "pixel_sha256": "c23b9cac1d1409cd273caf721bfc085a17ec1f7c3d6f62de558f3f1a1b57a9aa",
+      "screenshot": "screenshots/01_initial.png",
+      "passed": true
+    },
+    {
+      "label": "02_pick_cup",
+      "frame_index": 40,
+      "source_gif_frame_index": 40,
+      "simulation_step": 1200,
+      "start_ms": 4600,
+      "end_ms": 4700,
+      "round": 0,
+      "active_flow_node": "execution",
+      "physical_phase": "grasp",
+      "gate": {
+        "backend": "jev",
+        "decision": "CONTINUE",
+        "p_ask": 0.14
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "obj_953ec2bc502c",
+        "target_id": "box",
+        "relation": "inside"
+      },
+      "question": null,
+      "user_answer": null,
+      "pixel_sha256": "22f61b09755ea58b9fd8342f75e1a1f7bcbbf1e2e5eff5f54c712c0e2ad41e98",
+      "screenshot": "screenshots/02_pick_cup.png",
+      "passed": true
+    },
+    {
+      "label": "02b_cup_transport",
+      "frame_index": 62,
+      "source_gif_frame_index": 62,
+      "simulation_step": 1728,
+      "start_ms": 6800,
+      "end_ms": 6900,
+      "round": 0,
+      "active_flow_node": "execution",
+      "physical_phase": "transport",
+      "gate": {
+        "backend": "jev",
+        "decision": "CONTINUE",
+        "p_ask": 0.14
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "obj_953ec2bc502c",
+        "target_id": "box",
+        "relation": "inside"
+      },
+      "question": null,
+      "user_answer": null,
+      "pixel_sha256": "f10357b6fce25f51aa7a3985d267d557d2ef500a993475e14809af65c4a23112",
+      "screenshot": "screenshots/02b_cup_transport.png",
+      "passed": true
+    },
+    {
+      "label": "03_ask",
+      "frame_index": 143,
+      "source_gif_frame_index": 143,
+      "simulation_step": 3663,
+      "start_ms": 14900,
+      "end_ms": 16100,
+      "round": 1,
+      "active_flow_node": "question_planner",
+      "physical_phase": null,
+      "gate": {
+        "backend": "jev",
+        "decision": "ASK",
+        "p_ask": 0.7
+      },
+      "action": null,
+      "question": {
+        "type": "select",
+        "text": "Which block and lid should I use?",
+        "requests": [
+          {
+            "role": "block",
+            "candidate_ids": [
+              "obj_8d8186068e18",
+              "obj_afe2911d864a"
+            ]
+          },
+          {
+            "role": "lid",
+            "candidate_ids": [
+              "obj_e11446631ffd",
+              "obj_0be290c367ca"
+            ]
+          }
+        ]
+      },
+      "user_answer": null,
+      "pixel_sha256": "d2871fdb048cfc40a0dedafe1d2adda18779d6fb76c1ab536b08f9c37460e58c",
+      "screenshot": "screenshots/03_ask.png",
+      "passed": true
+    },
+    {
+      "label": "04_user_answer",
+      "frame_index": 144,
+      "source_gif_frame_index": 144,
+      "simulation_step": 3663,
+      "start_ms": 16100,
+      "end_ms": 17300,
+      "round": 1,
+      "active_flow_node": "user_simulator",
+      "physical_phase": null,
+      "gate": {
+        "backend": "jev",
+        "decision": "ASK",
+        "p_ask": 0.7
+      },
+      "action": null,
+      "question": {
+        "type": "select",
+        "text": "Which block and lid should I use?",
+        "requests": [
+          {
+            "role": "block",
+            "candidate_ids": [
+              "obj_8d8186068e18",
+              "obj_afe2911d864a"
+            ]
+          },
+          {
+            "role": "lid",
+            "candidate_ids": [
+              "obj_e11446631ffd",
+              "obj_0be290c367ca"
+            ]
+          }
+        ]
+      },
+      "user_answer": {
+        "choices": {
+          "block": "obj_afe2911d864a",
+          "lid": "obj_0be290c367ca"
+        }
+      },
+      "pixel_sha256": "abedbf080033f2e6488ceff89228a68f0962f2a1b5916b5442baaae48eda1297",
+      "screenshot": "screenshots/04_user_answer.png",
+      "passed": true
+    },
+    {
+      "label": "05_robot_continue",
+      "frame_index": 208,
+      "source_gif_frame_index": 208,
+      "simulation_step": 5184,
+      "start_ms": 23600,
+      "end_ms": 23700,
+      "round": 2,
+      "active_flow_node": "execution",
+      "physical_phase": "transport",
+      "gate": {
+        "backend": "jev",
+        "decision": "CONTINUE",
+        "p_ask": 0.09
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "obj_afe2911d864a",
+        "target_id": "box",
+        "relation": "inside"
+      },
+      "question": null,
+      "user_answer": null,
+      "pixel_sha256": "13f88813e2eb9aca07652825e91daf4f22378a43772baa65486e8ef75f1c93c2",
+      "screenshot": "screenshots/05_robot_continue.png",
+      "passed": true
+    },
+    {
+      "label": "05b_cover",
+      "frame_index": 369,
+      "source_gif_frame_index": 369,
+      "simulation_step": 9048,
+      "start_ms": 39700,
+      "end_ms": 39800,
+      "round": 3,
+      "active_flow_node": "execution",
+      "physical_phase": "transport",
+      "gate": {
+        "backend": "jev",
+        "decision": "CONTINUE",
+        "p_ask": 0.15
+      },
+      "action": {
+        "kind": "cover",
+        "object_id": "obj_0be290c367ca",
+        "target_id": "box",
+        "relation": "covers"
+      },
+      "question": null,
+      "user_answer": null,
+      "pixel_sha256": "248cb9bbe096e00fd163ce9ffd8d5c22242fe7c38e1d9410b83b1c0610c3c281",
+      "screenshot": "screenshots/05b_cover.png",
+      "passed": true
+    },
+    {
+      "label": "06_evaluation",
+      "frame_index": 446,
+      "source_gif_frame_index": 446,
+      "simulation_step": 10877,
+      "start_ms": 47400,
+      "end_ms": 49200,
+      "round": 4,
+      "active_flow_node": "evaluator",
+      "physical_phase": null,
+      "gate": {
+        "backend": "jev",
+        "decision": "CONTINUE",
+        "p_ask": 0.03
+      },
+      "action": {
+        "kind": "DONE",
+        "object_id": null,
+        "target_id": null,
+        "relation": "inside"
+      },
+      "question": null,
+      "user_answer": null,
+      "pixel_sha256": "1af8a6df113d124270d7aa2790244019dd828aa44d6b354a550b8987cfb6fb30",
+      "screenshot": "screenshots/06_evaluation.png",
+      "passed": true
+    }
+  ],
+  "all_source_frames_pixel_verified": 762,
+  "equal_step_ask_user_preserved": true,
+  "controls": {
+    "paused_state_unchanged": true,
+    "seek_restart_episode_switch_passed": true,
+    "speeds": [
+      {
+        "speed": 1,
+        "start_ms": 0,
+        "time_ms": 243.30000007152557,
+        "frame_index": 0,
+        "stage": "gate_result",
+        "synchronized": true
+      },
+      {
+        "speed": 1,
+        "start_ms": 6800,
+        "time_ms": 7043,
+        "frame_index": 64,
+        "stage": "execution",
+        "synchronized": true
+      },
+      {
+        "speed": 1,
+        "start_ms": 15950,
+        "time_ms": 16193.200000047684,
+        "frame_index": 144,
+        "stage": "user_answer",
+        "synchronized": true
+      },
+      {
+        "speed": 2,
+        "start_ms": 0,
+        "time_ms": 487.2000000476837,
+        "frame_index": 0,
+        "stage": "gate_result",
+        "synchronized": true
+      },
+      {
+        "speed": 2,
+        "start_ms": 6800,
+        "time_ms": 7284.799999952316,
+        "frame_index": 66,
+        "stage": "execution",
+        "synchronized": true
+      },
+      {
+        "speed": 2,
+        "start_ms": 15950,
+        "time_ms": 16437.400000095367,
+        "frame_index": 144,
+        "stage": "user_answer",
+        "synchronized": true
+      },
+      {
+        "speed": 3,
+        "start_ms": 0,
+        "time_ms": 729.8999998569489,
+        "frame_index": 1,
+        "stage": "execution",
+        "synchronized": true
+      },
+      {
+        "speed": 3,
+        "start_ms": 6800,
+        "time_ms": 7529.600000143051,
+        "frame_index": 69,
+        "stage": "execution",
+        "synchronized": true
+      },
+      {
+        "speed": 3,
+        "start_ms": 15950,
+        "time_ms": 16677.5,
+        "frame_index": 144,
+        "stage": "user_answer",
+        "synchronized": true
+      }
+    ]
+  },
+  "console_errors": [],
+  "failed_requests": [],
+  "external_requests": [],
+  "text_horizontal_overflow": [],
+  "inference_wall_time_reconstruction": false,
+  "passed": true,
+  "independent_raw_episode_and_gif_checks": {
+    "passed": true,
+    "protected_files_unchanged": 847,
+    "source_files_sha256_match": true,
+    "no_model_wall_time_invented": true,
+    "same_step_frame_order_verified": true
+  },
+  "original_http_response_checks": [
+    {
+      "episode": "jev_pack",
+      "round": 0,
+      "gate_backend": "jev",
+      "decision": "CONTINUE",
+      "p_ask": 0.14,
+      "planner_stage": "action",
+      "matched_original_http_responses": true
+    },
+    {
+      "episode": "jev_pack",
+      "round": 1,
+      "gate_backend": "jev",
+      "decision": "ASK",
+      "p_ask": 0.7,
+      "planner_stage": "question",
+      "matched_original_http_responses": true
+    },
+    {
+      "episode": "jev_pack",
+      "round": 2,
+      "gate_backend": "jev",
+      "decision": "CONTINUE",
+      "p_ask": 0.09,
+      "planner_stage": "action",
+      "matched_original_http_responses": true
+    },
+    {
+      "episode": "jev_pack",
+      "round": 3,
+      "gate_backend": "jev",
+      "decision": "CONTINUE",
+      "p_ask": 0.15,
+      "planner_stage": "action",
+      "matched_original_http_responses": true
+    },
+    {
+      "episode": "jev_pack",
+      "round": 4,
+      "gate_backend": "jev",
+      "decision": "CONTINUE",
+      "p_ask": 0.03,
+      "planner_stage": "action",
+      "matched_original_http_responses": true
+    },
+    {
+      "episode": "llm_containers",
+      "round": 0,
+      "gate_backend": "deepseek",
+      "decision": "ASK",
+      "p_ask": null,
+      "planner_stage": "question",
+      "matched_original_http_responses": true
+    },
+    {
+      "episode": "llm_containers",
+      "round": 1,
+      "gate_backend": "deepseek",
+      "decision": "CONTINUE",
+      "p_ask": null,
+      "planner_stage": "action",
+      "matched_original_http_responses": true
+    },
+    {
+      "episode": "llm_containers",
+      "round": 2,
+      "gate_backend": "deepseek",
+      "decision": "CONTINUE",
+      "p_ask": null,
+      "planner_stage": "action",
+      "matched_original_http_responses": true
+    },
+    {
+      "episode": "llm_containers",
+      "round": 3,
+      "gate_backend": "deepseek",
+      "decision": "CONTINUE",
+      "p_ask": null,
+      "planner_stage": "action",
+      "matched_original_http_responses": true
+    }
+  ]
+}
