@@ -18,3 +18,4 @@ outputs/gui_checks/
 *.log
 presentation/milestone/.build/
 ~$*
+outputs/local_console/

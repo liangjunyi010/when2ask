@@ -161,3 +161,13 @@ python scripts/verify_artifacts.py
 The setup script uses uv when available and standard venv/pip otherwise. The
 uv path is the path exercised on this machine. The fallback is provided but was
 not separately tested in a second environment.
+
+## Local task console — 2026-11-03
+
+- Added an independent browser controller and authenticated HTTP execution worker. One process per real Bullet world; three concurrent tasks by default. Original skill/evaluator sources, frozen data/prompts and historical results are unchanged.
+- Supports both templates, all three real API methods, explicitly labelled offline scripted policies, automatic structured replies and human candidate selections. Unknown human choices define interactive intent and are logged separately from fixed-hidden-preference evaluation.
+- Real browser/physics verification passed: independent processes, queue/cancel, ASK snapshot equality, progress in other worlds, refresh/reconnect, duplicate answer handling, frame SHA/step equality, full-view camera and no JavaScript errors.
+- Three real-model pack-and-cover executions completed with 9/9 physical skill successes. Final task scores were NoAsk false, LLM-Gate true, Jev-Gate false; genuine preference errors are retained. This single-instance smoke is not a benchmark ranking.
+- Dedicated live session used 24 authenticated requests (2 discovery, 22 inference), 3 live episodes, no API/schema errors or retries. No held-out Test API episodes ran.
+- Full offline pytest: **126 passed** (original 102 plus 24 console tests). Actual artifacts and model versions: [console evidence](../outputs/console_evidence/README.md). Usage: [local console guide](local_console.md).
+- Not yet verified: two physical computers over VPN. Not implemented: resuming an active physical world after controller/worker crash. Browser reconnect is verified; saved logs and budget persist across restart, task cards do not.

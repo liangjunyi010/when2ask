@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "evidence_kind": "scripted_policy_with_real_pybullet",
+  "task_ids": [
+    "ad06e33c486b457f",
+    "8391d34fc00149f2",
+    "932a910832c94345"
+  ],
+  "independent_worker_pids": [
+    11430,
+    11432,
+    11434
+  ],
+  "queue_limit_verified": true,
+  "queued_cancel_verified": true,
+  "ask_fresh_worker_observations_equal": true,
+  "ask_simulation_step": 3461,
+  "browser_reconnect_preserved_question": true,
+  "other_tasks_progress_during_ask": true,
+  "duplicate_answer_ignored": true,
+  "manual_choices": {
+    "block": "item_751f8535aeed",
+    "lid": "item_456f6e4286d9"
+  },
+  "manual_success": true,
+  "dual_container_success": true,
+  "noask_actual_success": false,
+  "new_model_api_attempts": 0,
+  "frame_checks": [
+    {
+      "task_id": "ad06e33c486b457f",
+      "sha256": "cdfb94b4257e7e0d63f88786ceb2a0333dd9d424eb3a93b845794598dd51ce3f",
+      "simulation_step": 10643,
+      "frame_matches_metadata": true
+    },
+    {
+      "task_id": "8391d34fc00149f2",
+      "sha256": "88e819100d0a5cd15a872638ce9bacfd7c52b3d051ec7f3641a75a2f73f33bb8",
+      "simulation_step": 7245,
+      "frame_matches_metadata": true
+    },
+    {
+      "task_id": "932a910832c94345",
+      "sha256": "9e6829349ee9fa8ba12a84493d3058df089da1d258f85748a3576cdd39e1d7a4",
+      "simulation_step": 10873,
+      "frame_matches_metadata": true
+    }
+  ],
+  "console_errors": [],
+  "external_requests": []
+}

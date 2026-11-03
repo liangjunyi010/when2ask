@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>When2Ask · Live Console</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/style.css"></head>
+<body><main>
+<header><div><span class="eyebrow">WHEN2ASK / REMOTE ROBOT EXECUTION</span><h1>实时任务控制台</h1><p>启动独立的 Panda 任务，观看真实 PyBullet 全景，在需要时回答澄清问题。</p></div><span id="connection" class="connection">正在连接…</span></header>
+<section class="launcher"><form id="launch">
+<label>任务类型<select id="template" name="template"><option value="pack_and_cover">Pack and Cover · 装箱盖盒</option><option value="place_into_selected_containers">Two Containers · 双容器放置</option></select></label>
+<label>决策方法<select id="method" name="method"><optgroup label="真实模型 API"><option value="llm_noask">LLM-NoAsk</option><option value="llm_gate">LLM-Gate · DeepSeek</option><option value="jev_gate">Jev-Gate · Jev + DeepSeek</option></optgroup><optgroup label="离线真实物理测试"><option value="scripted_ask" selected>Scripted ASK · 不调用 API</option><option value="scripted_noask">Scripted NoAsk · 不调用 API</option></optgroup></select></label>
+<label>回答方式<select id="answer-mode" name="answer_mode"><option value="auto">自动 · User Simulator</option><option value="manual">手动 · 我来回答</option></select></label>
+<button id="start" type="submit">＋ 启动新任务</button></form>
+<div class="launch-info"><span id="method-note">Scripted 是明确标注的规则策略，执行真实物理动作，不生成模型实验结果。</span><span id="worker-info">执行器连接中</span></div></section>
+<div class="overview"><div><h2>任务实例 <span id="task-count">0</span></h2><span>每个任务拥有独立的物理世界、历史和问答</span><button id="restore" class="stop" type="button" hidden>显示已收起</button></div><span id="budget">API 预算加载中</span></div>
+<div id="notice" role="status" hidden></div>
+<section id="tasks" class="tasks"><div id="empty" class="empty"><h3>准备好开始第一个任务</h3><p>先选 Scripted ASK 验证执行链路，或选择真实 API 方法运行模型决策。<br>手动模式会在 ASK 时等待你的回答，其他任务继续独立执行。</p></div></section>
+<footer>全景来自执行器实时 TinyRenderer。自动回复使用结构化偏好模拟器。交互演示与冻结 Benchmark 分开记录。</footer>
+</main><dialog id="focus"><div class="focus-head"><strong id="focus-title"></strong><button id="focus-close" class="stop" type="button">关闭</button></div><img id="focus-image" alt="放大的实时全景"><div id="focus-meta"></div></dialog><script src="/app.js"></script></body></html>
