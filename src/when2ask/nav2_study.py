@@ -23,8 +23,9 @@ from .nav2_world import World
 class Ledger(SessionLedger):
     def __init__(self,directory,stage):
         cfg=settings()['study_limits'];self.stage=stage
+        self.prior_attempts=settings().get('prior_authenticated_requests',0)
         self.stage_limit=cfg['ablation_requests' if stage=='ablation' else 'episode_requests']
-        super().__init__(directory,cfg['authenticated_requests'],cfg['online_episodes'])
+        super().__init__(directory,cfg['authenticated_requests']-self.prior_attempts,cfg['online_episodes'])
     def reserve(self,backend):
         with self._state() as state:
             used=state.setdefault('stage_attempts',{}).get(self.stage,0)
@@ -32,7 +33,7 @@ class Ledger(SessionLedger):
             circuit=state['backends'].get(backend,{})
             if circuit.get('blocked'):raise BackendBlocked(f'{backend}: blocked by circuit breaker')
             state['attempts']+=1;state['stage_attempts'][self.stage]=used+1
-            return state['attempts']
+            return state['attempts']+self.prior_attempts
 
 
 def source_hashes():
@@ -82,6 +83,7 @@ def prepare(output):
         threshold='Fixed 0.5, not calibrated to increase asks',
         reference='Offline DP over public prior and nominal costs only; never serialized to Gate/Planner; not physical optimality labels',
         no_test_calls=True,retry_policy='One retry; permanent API errors or three consecutive errors block backend; all attempts debit shared cap',
+        amendment='Technical JSON-mode marker fix only; 48 gate-only cases retained unchanged. Prior run: 54 requests, 12 aborted launches, zero robot actions. New valid run capped at 12 launches; combined registered launches may reach 24, completed navigation episodes at most 12. Global request limit stays 200.',
         schedule='48 seeded-shuffled state/contract/summary/backend jobs (four initial regimes and two normal-speed post-negative states), then four cost-cell batches with three concurrently run independent methods')
     write_json(output/'plan.json',plan);return plan
 
@@ -92,6 +94,11 @@ def check(output):
     for name in ('dataset','snapshots'):
         if plan[f'{name}_sha256']!=hashlib.sha256((output/f'{name}.json').read_bytes()).hexdigest():raise ValueError('Preregistered data changed')
     if plan['models']!=Config.load().public_config():raise ValueError('Model configuration changed')
+    prior=plan['settings'].get('prior_authenticated_requests',0)
+    if prior:
+        old=ROOT/plan['settings']['protocol_incident_run']
+        records=[json.loads(s) for p in list((old/'ablation').glob('gate_*.jsonl'))+list((old/'episodes').glob('*/api_attempts.jsonl')) for s in p.read_text().splitlines() if s]
+        if len(records)!=prior:raise ValueError('Prior incident request accounting changed')
     return plan
 
 

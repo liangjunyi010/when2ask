@@ -33,14 +33,14 @@ CONTINUE when useful autonomous exploration or a known-location action is availa
 or task complete. Prefer a plausible useful search while confidence is adequate.
 Do not assume one failed search mandates ASK. Reuse earlier location answers.
 '''
-ACTION=CONTEXT+'''Shared ACTION planner: return exactly {"kind":"search","location_id":"known station ID"}
+ACTION=CONTEXT+'''Shared ACTION planner: return one JSON object, exactly {"kind":"search","location_id":"known station ID"}
 or {"kind":"DONE"}. This action stage cannot ask. Use an observed or reliably disclosed
 location first; otherwise search unchecked stations according to public probability
 and travel/time cost. Avoid unnecessary repeats. DONE requires measured completion.
 No question, explanation or extra keys.
 '''
 QUESTION=CONTEXT+'''Shared QUESTION planner: ask one short natural question for the
-knife's location. Return only {"type":"select","text":"Where is the knife?","requests":[
+knife's location. Return one JSON object only: {"type":"select","text":"Where is the knife?","requests":[
 {"role":"target_location","candidate_ids":["kitchen_counter","kitchen_shelf","living_cabinet","living_table","study_desk","study_shelf"]}]}.
 '''
 CRITERIA={

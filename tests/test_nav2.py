@@ -121,13 +121,27 @@ def test_exclusive_criteria_are_cost_comparison_not_search_existence():
     assert 'useful autonomous' not in CRITERIA['cost_exclusive']['false'].lower()
 
 
-def test_stage_and_global_request_budgets(tmp_path):
+def test_stage_and_global_request_budgets(tmp_path,monkeypatch):
+    import when2ask.nav2_study as study
+    from when2ask.nav2_task import settings
+    cfg=settings();cfg['prior_authenticated_requests']=0;monkeypatch.setattr(study,'settings',lambda:cfg)
     a=Ledger(tmp_path,'ablation');b=Ledger(tmp_path,'episodes')
     for _ in range(60):a.reserve('deepseek')
     with pytest.raises(BudgetExceeded):a.reserve('deepseek')
     for _ in range(140):b.reserve('jev')
     with pytest.raises(BudgetExceeded):b.reserve('jev')
     assert b.snapshot()['attempts']==200
+
+
+def test_json_object_mode_prompts_have_required_marker():
+    from when2ask.nav2_agents import ACTION,QUESTION
+    assert 'json' in ACTION.lower() and 'json' in QUESTION.lower()
+
+
+def test_prior_attempts_reduce_remaining_budget(tmp_path):
+    ledger=Ledger(tmp_path,'episodes')
+    assert ledger.snapshot()['max_attempts']==146
+    assert ledger.reserve('deepseek')==55
 
 
 def test_episode_budget_never_exceeds_twelve(tmp_path):

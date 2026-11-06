@@ -1,5 +1,7 @@
 {
-  "version": "navigation_dev_v2.0",
+  "version": "navigation_dev_v2.0.1",
+  "prior_authenticated_requests": 54,
+  "protocol_incident_run": "outputs/navigation_dev_v2/study_v1",
   "partition": "dev_only",
   "gate_threshold": 0.5,
   "speed_factors": [1.0, 0.5],

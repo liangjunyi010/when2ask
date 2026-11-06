@@ -54,6 +54,8 @@ def report(output):
             same_planner=len({json.dumps(e['prompt_hashes'],sort_keys=True) for e in es})==1))
     for p in (output/'ablation').glob('gate_*.jsonl'):
         attempts.extend(json.loads(s) for s in p.read_text().splitlines() if s)
+    incident=output/'incident_api_attempts.jsonl'
+    if incident.exists():attempts.extend(json.loads(s) for s in incident.read_text().splitlines() if s)
     methods=[]
     for method in ('llm_noask','llm_gate','jev_gate'):
         rs=[r for r in rows if r['method']==method]
@@ -67,7 +69,8 @@ def report(output):
             **{f'{b}_{k}':total(f'{b}_{k}') for b in ('deepseek','jev') for k in ('input_tokens','output_tokens')}))
     budget=Ledger(output/'inference','episodes').snapshot()
     numbers=[a['session_attempt'] for a in attempts]
-    assert len(numbers)==len(set(numbers)) and len(numbers)==budget['attempts'],'Missing or duplicate paid attempts'
+    prior=plan['settings'].get('prior_authenticated_requests',0)
+    assert len(numbers)==len(set(numbers)) and len(numbers)==budget['attempts']+prior,'Missing or duplicate paid attempts'
     assert sorted(numbers)==list(range(1,len(numbers)+1))
     assert all(r['initial_public_identical'] and r['same_planner'] for r in fairness)
     summary=dict(version=plan['version'],ablations=ablation_rows,methods=methods,episodes=rows,fairness=fairness,budget=budget,
@@ -76,6 +79,9 @@ def report(output):
         unknown_usage_attempts=sum(a.get('input_tokens') is None or a.get('output_tokens') is None for a in attempts),
         interpretation=plan['independence'],gate_threshold=plan['settings']['gate_threshold'],
         reference_warning='Reference matches/regret are conditional on approximate nominal public costs, not physical optimality or independent test labels')
+    summary['protocol_incident']=dict(prior_requests=prior,aborted_launches=12 if prior else 0,prior_physical_actions=0,
+        correction='Add required literal JSON to action/question format declarations; gate rules/threshold unchanged',
+        ablation_reused_without_new_calls=True,combined_registered_launches=budget['episodes']+(12 if prior else 0))
     write_json(output/'summary.json',summary)
     for filename,data in (('ablation.csv',ablation_rows),('episodes.csv',rows),('methods.csv',methods)):
         if data:
@@ -83,6 +89,7 @@ def report(output):
                 writer=csv.DictWriter(handle,fieldnames=list(data[0]),lineterminator='\n');writer.writeheader();writer.writerows(data)
     text='# Navigation Dev v2 — actual API and physical pilot\n\n'+plan['independence']+'.\n\n'
     text+=f"{len(ablations)} gate-only ablation cases; {len(rows)} end-to-end model episodes; {len(attempts)}/200 authenticated requests. Threshold fixed at 0.5. Gate-only calls are not complete robot episodes.\n\n"
+    text+='Technical incident: the first run registered 12 launches, all aborted before any robot action after a DeepSeek JSON-mode HTTP 400. Its 54 requests (48 successful ablations plus six launch-stage attempts) remain counted and its raw files unchanged. Only the JSON format marker was fixed; gates/cost rules were not tuned. The 48 gate cases are reused. This amended run allows 12 valid navigation launches, so combined registrations can reach 24 while completed physical episodes remain capped at 12. Total requests remain capped at 200.\n\n'
     text+='Operational seconds = simulated physical motion + actual answer waiting + 5s × requested slots. API latency and backend tokens stay separate. Actual physics is paced at 1× for online episodes.\n\n'
     text+='## Three methods\n\n'+table(methods,['method','successes','episodes','mean_burden','mean_operational_s','total_api_latency_s','deepseek_input_tokens','deepseek_output_tokens','jev_input_tokens','jev_output_tokens'])
     text+='\n\n## Gate-only 2×2 ablation\n\nThe overlap control uses v1-style decision logic with the same new factual context; it is not a rerun of frozen v1 prompts. Raw and summary use the same underlying public facts; summary adds deterministic derived costs/beliefs. No reference decision/cost-to-go is given to any agent.\n\n'
