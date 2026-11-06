@@ -1,0 +1,49 @@
+{
+  "tests_passed": 152,
+  "tests_total": 152,
+  "live_episodes_this_delivery": 6,
+  "authenticated_attempts_this_delivery": 44,
+  "final_group_id": "4f3f8a60d186453e",
+  "verified_session_budget": {
+    "attempts": 22,
+    "episodes": 3,
+    "backends": {
+      "jev": {
+        "consecutive_errors": 0,
+        "blocked": false
+      },
+      "deepseek": {
+        "consecutive_errors": 0,
+        "blocked": false
+      }
+    },
+    "policy": "phase2",
+    "max_attempts": 60,
+    "max_episodes": 6,
+    "episode_ids": [
+      "d583d79a31a74a2a",
+      "d2dcad69b09d452a",
+      "07b67d8cd7cb4aa4"
+    ]
+  },
+  "provider_totals_including_development_repeat": {
+    "deepseek": {
+      "attempts": 36,
+      "input_tokens": 55370,
+      "output_tokens": 758,
+      "latency_ms": 29248.21345496457
+    },
+    "jev": {
+      "attempts": 8,
+      "input_tokens": 15718,
+      "output_tokens": 192,
+      "latency_ms": 2536.583583045285
+    }
+  },
+  "physical_skills_succeeded": 18,
+  "formal_test_episodes": 0,
+  "retries": 0,
+  "api_errors": 0,
+  "schema_errors": 0,
+  "browser_passed": true
+}

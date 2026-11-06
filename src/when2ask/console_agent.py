@@ -26,6 +26,7 @@ def run_agent(manager, task):
             if task.cancel:
                 raise Cancelled('cancelled_by_user')
             task.status = status
+            manager.log(task, 'status', status=status)
             manager.publish(task)
 
     def state():
@@ -57,9 +58,11 @@ def run_agent(manager, task):
             decision = result.decision if result else 'CONTINUE'
             with manager.changed:
                 task.gate = dict(decision=decision, p_ask=result.p_ask if result else None,
+                    round=round_index,
                     called=gate is not None, backend=('jev' if task.method == 'jev_gate' else
                         'deepseek' if task.method == 'llm_gate' else 'scripted' if gate else 'none'))
                 turn['gate'] = copy.deepcopy(task.gate)
+                manager.log(task, 'gate_decision', gate=copy.deepcopy(task.gate))
                 manager.publish(task)
             if decision == 'ASK':
                 if task.burden >= 12:
@@ -80,10 +83,15 @@ def run_agent(manager, task):
                 with manager.changed:
                     task._question, task._question_state = question, current
                     task.pending = dict(question.to_dict(), id=question_id, requests=requests,
-                        candidates=names, known_choices=disclosed_choices(current), simulation_step=current.observation['simulation_step'])
+                        candidates=names, known_choices=disclosed_choices(current), simulation_step=current.observation['simulation_step'],
+                        created=time.time(), requested_slot_count=charge)
+                    task.burden += charge
+                    turn.update(question=question.to_dict(), question_id=question_id)
+                    history.append(dict(kind='ask', question=question.to_dict(), question_id=question_id,
+                                        simulation_step=current.observation['simulation_step']))
                     task.status = 'waiting_answer'
+                    manager.log(task, 'question', question_id=question_id, text=question.text, charged_slots=charge)
                     manager.publish(task)
-                turn.update(question=question.to_dict(), question_id=question_id)
                 if task.answer_mode == 'auto':
                     manager.answer(task.id, question_id, source='auto')
                 manager.wait(task, lambda: question_id in task.answers, timeout=1800)
@@ -93,11 +101,8 @@ def run_agent(manager, task):
                 with manager.changed:
                     if task.observation != before:
                         raise RuntimeError('Physics changed while awaiting a clarification')
-                    task.burden += charge
-                    history.extend([dict(kind='ask', question=question.to_dict(), question_id=question_id,
-                                         simulation_step=before['simulation_step']),
-                                    dict(kind='user_answer', response=response, source=answer['source'],
-                                         question_id=question_id, simulation_step=before['simulation_step'])])
+                    history.append(dict(kind='user_answer', response=response, source=answer['source'],
+                                        question_id=question_id, simulation_step=before['simulation_step']))
                     if answer['source'] == 'human':
                         disclosed = disclosed_choices(PublicState.build(before, history, task.sample.u0))
                         for role, slot in routing.items():
@@ -113,6 +118,8 @@ def run_agent(manager, task):
                 wire = {'kind': 'DONE'} if proposed.kind == 'DONE' else proposed.to_dict()
                 action = StudyAction.parse(wire, current)
                 turn['action'] = action.to_dict()
+                with manager.changed:
+                    manager.log(task, 'planned_action', action=action.to_dict())
                 if action.kind == 'DONE':
                     if api.records:
                         api.records[-1]['completion_kind'] = 'DONE'
@@ -139,6 +146,7 @@ def run_agent(manager, task):
     finally:
         with manager.changed:
             task.pending = None
+            task.termination_reason = termination
             task.status = 'finalizing'
             manager.publish(task)
         manager.command(task, 'finalize', termination=termination, clarification_burden=task.burden,
@@ -154,6 +162,8 @@ def run_agent(manager, task):
                 task.finalization['evaluation']['clarification_burden'] = task.burden
             episode = dict(schema_version='interactive_console_v1', episode_id=task.id, task_template=task.template,
                 method=task.method, answer_mode=task.answer_mode, source_sample_id=task.sample.sample_id,
+                comparison_id=task.comparison_id, unknown_preferences=task.unknown_preferences,
+                public_instruction=task.sample.u0, trace=task.trace,
                 partition='interactive_demo', evidence_kind=task.public()['evidence_kind'],
                 planner_configuration=manager.config.public_config() if task.method in LIVE_METHODS else None,
                 evaluation_protocol=task.public()['evaluation_protocol'], prompt_hashes=prompt_hashes() if task.method in LIVE_METHODS else None,

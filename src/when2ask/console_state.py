@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import copy
+import csv
 import hashlib
 import json
 import queue
@@ -12,7 +13,7 @@ from collections import deque
 from contextlib import contextmanager
 from pathlib import Path
 
-from .accounting import Audit, SessionLedger
+from .accounting import Audit, BudgetExceeded, SessionLedger
 from .config import Config
 from .console_samples import TEMPLATES, catalogue, demo_sample
 from .study_protocol import disclosed_choices, public_roles, role_candidates
@@ -43,6 +44,18 @@ class ConsoleLedger(SessionLedger):
             with super()._state() as state:
                 yield state
 
+    def start_batch(self, episode_ids):
+        """Reserve all paired episodes atomically before publishing any tasks."""
+        with self._state() as state:
+            if state['episodes'] + len(episode_ids) > state['max_episodes']:
+                raise BudgetExceeded('Comparison needs three remaining live episode slots')
+            if state['attempts'] >= state['max_attempts']:
+                raise BudgetExceeded('session_api_attempt_limit')
+            if any(v.get('blocked') for v in state['backends'].values()):
+                raise Conflict('A model backend is blocked in this session')
+            state['episodes'] += len(episode_ids)
+            state.setdefault('episode_ids', []).extend(episode_ids)
+
 
 class Task:
     def __init__(self, options, output, config):
@@ -50,8 +63,16 @@ class Task:
         self.template = options['template']
         self.method = options['method']
         self.answer_mode = options['answer_mode']
-        self.sample = demo_sample(self.template)
+        self.sample = demo_sample(self.template, options.get('unknown_preferences'))
+        self.unknown_preferences = len(self.sample.slots) - len(self.sample.initial_disclosed_slots)
+        self.comparison_id = None
         self.created = time.time()
+        self.clock_start = time.monotonic()
+        self.started = None
+        self.finished = None
+        self.answer_wait_s = 0
+        self.trace = []
+        self._last_phase = None
         self.status = 'queued'
         self.error = None
         self.worker_id = None
@@ -85,6 +106,14 @@ class Task:
             method=self.method, answer_mode=self.answer_mode, status=self.status, created=self.created,
             evidence_kind='live_models_real_pybullet' if self.method in LIVE_METHODS else 'scripted_policy_real_pybullet',
             round=self.round, gate=self.gate, frame=self.frame, question=self.pending,
+            instruction=self.sample.u0, unknown_preferences=self.unknown_preferences,
+            comparison_id=self.comparison_id, trace=self.trace[-60:],
+            timing=dict(created=self.created, started=self.started, finished=self.finished,
+                wall_time_s=(self.finished or time.time()) - self.created,
+                answer_wait_s=self.answer_wait_s,
+                queue_time_s=(self.started or self.finished or time.time()) - self.created),
+            ask_turns=sum('question' in t for t in self.turns),
+            returned_models=sorted({r['returned_model'] for r in self.audit.records if r.get('returned_model')}),
             history=self.history[-8:], actions=self.actions, burden=self.burden, cost=self.audit.summary(),
             evaluation=self.finalization.get('evaluation') if self.finalization else None,
             error=self.error, worker_id=self.worker_id, worker_pid=self.worker_pid, version=self.version,
@@ -103,6 +132,8 @@ class TaskManager:
         self.tasks = {}
         self.workers = {}
         self.create_keys = {}
+        self.comparisons = {}
+        self.comparison_keys = {}
         self.sequence = 0
         self.stream = deque(maxlen=100)
         self.closed = False
@@ -113,21 +144,42 @@ class TaskManager:
     def metadata(self):
         return dict(templates=catalogue(), methods=list(METHODS), live_enabled=self.allow_live,
                     concurrency=self.capacity, budget=self.ledger.snapshot(),
-                    models=self.config.public_config(), protocol_version=1)
+                    models=self.config.public_config(), protocol_version=2)
+
+    def log(self, task, kind, **data):
+        task.trace.append(dict(seq=len(task.trace) + 1, kind=kind,
+            elapsed_ms=round((time.monotonic() - task.clock_start) * 1000),
+            round=task.round, simulation_step=(task.frame or {}).get('simulation_step'), **data))
 
     def publish(self, task):
         # Call with the condition lock held. Frame and its physical metadata
         # are stored in one object, never pieced together by browser timers.
+        if task.status in TERMINAL and task.finished is None:
+            task.finished = time.time()
         task.version += 1
         self.sequence += 1
         self.stream.append(dict(id=self.sequence, type='task', task=task.public()))
         self.changed.notify_all()
+        if task.comparison_id and task.status in TERMINAL:
+            self.persist_comparison(task.comparison_id)
 
-    def create(self, options, key):
-        if not isinstance(options, dict) or set(options) != {'template', 'method', 'answer_mode'}:
+    @staticmethod
+    def validate_options(options):
+        if not isinstance(options, dict) or not {'template', 'method', 'answer_mode'} <= set(options) or set(options) - {'template', 'method', 'answer_mode', 'unknown_preferences'}:
             raise ValueError('Choose a template, method and answer mode')
         if options['template'] not in TEMPLATES or options['method'] not in METHODS or options['answer_mode'] not in ('auto', 'manual'):
             raise ValueError('Invalid task options')
+        if 'unknown_preferences' in options and (type(options['unknown_preferences']) is not int or not 0 <= options['unknown_preferences'] <= 3):
+            raise ValueError('Unknown preferences must be an integer from 0 to 3')
+
+    def check_live(self, methods):
+        if not self.allow_live:
+            raise Conflict('Live API execution is disabled on this server')
+        if not self.config.deepseek_key or ('jev_gate' in methods and not self.config.typesafe_key):
+            raise Conflict('Required backend is not configured')
+
+    def create(self, options, key):
+        self.validate_options(options)
         if not isinstance(key, str) or not 8 <= len(key) <= 100:
             raise ValueError('A request ID is required')
         signature = json.dumps(options, sort_keys=True)
@@ -140,10 +192,7 @@ class TaskManager:
             if len(self.tasks) >= 100 or sum(t.status == 'queued' for t in self.tasks.values()) >= 20:
                 raise Conflict('Task queue is full')
             if options['method'] in LIVE_METHODS:
-                if not self.allow_live:
-                    raise Conflict('Live API execution is disabled on this server')
-                if not self.config.deepseek_key or (options['method'] == 'jev_gate' and not self.config.typesafe_key):
-                    raise Conflict('Required backend is not configured')
+                self.check_live([options['method']])
             task = Task(options, self.output, self.config)
             if task.method in LIVE_METHODS:
                 self.ledger.start_episode(task.id)
@@ -152,6 +201,98 @@ class TaskManager:
             self.create_keys[key] = (signature, task.id)
             self.publish(task)
             return task.public()
+
+    def create_comparison(self, options, key):
+        if not isinstance(options, dict) or set(options) != {'template', 'unknown_preferences'}:
+            raise ValueError('Comparison requires template and unknown_preferences')
+        self.validate_options(dict(options, method='llm_noask', answer_mode='auto'))
+        if not isinstance(key, str) or not 8 <= len(key) <= 100:
+            raise ValueError('A request ID is required')
+        signature = json.dumps(options, sort_keys=True)
+        with self.changed:
+            if key in self.comparison_keys:
+                previous, cid = self.comparison_keys[key]
+                if previous != signature:
+                    raise Conflict('Request ID already used for a different comparison')
+                return self.comparison(cid)
+            self.check_live(LIVE_METHODS)
+            if len(self.tasks) + 3 > 100 or sum(t.status == 'queued' for t in self.tasks.values()) + 3 > 20:
+                raise Conflict('Not enough queue capacity for all three methods')
+            tasks = [Task(dict(options, method=method, answer_mode='auto'), self.output, self.config) for method in LIVE_METHODS]
+            try:
+                self.ledger.start_batch([t.id for t in tasks])
+            except Exception:
+                for t in tasks:
+                    t.output.rmdir()  # No tasks were published and no calls were made.
+                raise
+            cid = uuid.uuid4().hex[:16]
+            from .study_agents import prompt_hashes
+            sample = tasks[0].sample
+            group = dict(id=cid, created=time.time(), options=copy.deepcopy(options),
+                task_ids=[t.id for t in tasks], partition='interactive_demo_on_dev_layout',
+                source_sample_id=sample.sample_id, scene_seed=sample.scene_seed,
+                public_scene_sha256=hashlib.sha256(json.dumps(dict(scene=sample.scene(), instruction=sample.u0), sort_keys=True).encode()).hexdigest(),
+                planner_configuration=self.config.public_config(), prompt_hashes=prompt_hashes(),
+                physics_signature=self.physics_signature, answer_mode='auto',
+                evaluation_protocol='fixed_demo_preferences', note='One paired interactive instance; not a benchmark ranking.')
+            self.comparisons[cid] = group
+            self.comparison_keys[key] = (signature, cid)
+            for task in tasks:
+                task.comparison_id = cid
+                task.audit.session = self.ledger
+                self.tasks[task.id] = task
+                self.log(task, 'queued', comparison_id=cid)
+            path = self.output / 'comparisons'
+            path.mkdir(exist_ok=True)
+            (path / f'{cid}.manifest.json').write_text(json.dumps(group, indent=2) + '\n')
+            for task in tasks:
+                self.publish(task)
+            self.sequence += 1
+            self.stream.append(dict(id=self.sequence, type='comparison', comparison=self.comparison(cid)))
+            self.changed.notify_all()
+            return self.comparison(cid)
+
+    def comparison(self, cid):
+        with self.lock:
+            group = self.comparisons[cid]
+            rows = []
+            for tid in group['task_ids']:
+                task = self.tasks[tid]
+                evaluation = (task.finalization or {}).get('evaluation')
+                rows.append(dict(task_id=tid, method=task.method, status=task.status,
+                    task_success=evaluation['task_success'] if evaluation else None,
+                    burden=task.burden, ask_turns=sum('question' in t for t in task.turns),
+                    robot_actions=len(task.actions), physical_successes=sum(a['success'] for a in task.actions),
+                    cost=task.audit.summary(), wall_time_s=(task.finished or time.time()) - task.created,
+                    queue_time_s=(task.started or task.finished or time.time()) - task.created,
+                    returned_models=sorted({a['returned_model'] for a in task.audit.records if a.get('returned_model')}),
+                    termination_reason=task.termination_reason if hasattr(task, 'termination_reason') else None,
+                    error=task.error))
+            return dict(group, rows=rows, status='complete' if all(r['status'] in TERMINAL for r in rows) else 'running')
+
+    def persist_comparison(self, cid):
+        result = self.comparison(cid)
+        if result['status'] != 'complete':
+            return
+        path = self.output / 'comparisons'
+        (path / f'{cid}.json').write_text(json.dumps(self.config.sanitize(result), indent=2) + '\n')
+        with (path / f'{cid}.csv').open('w', newline='') as handle:
+            writer = csv.DictWriter(handle, fieldnames=['method', 'status', 'task_success', 'burden', 'ask_turns', 'robot_actions',
+                'api_latency_ms', 'wall_time_s', 'deepseek_input_tokens', 'deepseek_output_tokens', 'jev_input_tokens', 'jev_output_tokens', 'api_attempts'], lineterminator='\n')
+            writer.writeheader()
+            for row in result['rows']:
+                cost = row['cost']
+                writer.writerow({**{k: row[k] for k in ('method', 'status', 'task_success', 'burden', 'ask_turns', 'robot_actions', 'wall_time_s')},
+                    'api_latency_ms': cost['api_latency_ms'], 'api_attempts': cost['api_attempts'],
+                    **{f'{b}_{k}': cost[b][k] for b in ('deepseek', 'jev') for k in ('input_tokens', 'output_tokens')}})
+        self.sequence += 1
+        self.stream.append(dict(id=self.sequence, type='comparison', comparison=result))
+
+    def clarifications(self):
+        with self.lock:
+            return sorted([dict(task_id=t.id, method=t.method, template=t.template,
+                question=copy.deepcopy(t.pending), answer_mode=t.answer_mode) for t in self.tasks.values()
+                if t.status == 'waiting_answer' and t.pending], key=lambda q: q['question'].get('created', 0))
 
     def claim(self, worker_id, capacity):
         if not isinstance(worker_id, str) or not 1 <= len(worker_id) <= 100:
@@ -167,11 +308,13 @@ class TaskManager:
             if task is None:
                 return None
             task.worker_id, task.status = worker_id, 'initializing'
+            task.started = time.time()
+            self.log(task, 'initializing', worker_id=worker_id)
             self.publish(task)
             from .console_agent import run_agent
             threading.Thread(target=run_agent, args=(self, task), name='agent-' + task.id, daemon=True).start()
             scene = task.sample.scene()
-            return dict(task_id=task.id, template=task.template, source_sample_id=task.sample.sample_id,
+            return dict(task_id=task.id, template=task.template, unknown_preferences=task.unknown_preferences, source_sample_id=task.sample.sample_id,
                         physics_signature=self.physics_signature,
                         scene_sha256=hashlib.sha256(json.dumps(scene, sort_keys=True).encode()).hexdigest())
 
@@ -205,12 +348,18 @@ class TaskManager:
                 if kind == 'action_result':
                     task.results[data['command_id']] = data
                     task.actions.append(data['result'])
+                    self.log(task, 'action_result', result=data['result'])
                 if kind == 'finalized':
                     task.finalization = data
                 if kind == 'inspection':
                     task.inspections[data['command_id']] = data
                 if kind == 'frame' and task.status not in TERMINAL and not task.cancel:
                     task.status = 'executing'
+                    phase = task.frame.get('phase')
+                    signature = (phase, json.dumps(task.frame.get('action'), sort_keys=True))
+                    if signature != task._last_phase:
+                        self.log(task, 'physical_phase', phase=phase, action=task.frame.get('action'))
+                        task._last_phase = signature
             elif kind == 'worker_error':
                 task.error = self.config.sanitize(data.get('error', 'Execution worker failed'))
             else:
@@ -273,6 +422,8 @@ class TaskManager:
                     raise Conflict('This task uses automatic responses')
                 self.validate_answer(task, response)
             task.answers[question_id] = dict(response=copy.deepcopy(response), source=source)
+            task.answer_wait_s += max(0, time.time() - task.pending.get('created', time.time()))
+            self.log(task, 'answer_received', question_id=question_id, source=source)
             task.pending = None
             task.status = 'answer_received'
             self.publish(task)

@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "method": "llm_noask",
+      "score": false,
+      "probability_hidden": true,
+      "p_value": "",
+      "raw_probability": null,
+      "evaluator_failed": true,
+      "evaluator_success": false,
+      "step_matches": true
+    },
+    {
+      "method": "llm_gate",
+      "score": true,
+      "probability_hidden": true,
+      "p_value": "",
+      "raw_probability": null,
+      "evaluator_failed": false,
+      "evaluator_success": true,
+      "step_matches": true
+    },
+    {
+      "method": "jev_gate",
+      "score": false,
+      "probability_hidden": false,
+      "p_value": "0.06",
+      "raw_probability": 0.06,
+      "evaluator_failed": true,
+      "evaluator_success": false,
+      "step_matches": true
+    }
+  ],
+  "deep_link_and_reload_verified": true,
+  "console_errors": [],
+  "new_api_attempts": 0
+}

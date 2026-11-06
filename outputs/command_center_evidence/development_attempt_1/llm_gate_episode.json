@@ -1,0 +1,3042 @@
+{
+  "schema_version": "interactive_console_v1",
+  "episode_id": "e03d5377c9db46d1",
+  "task_template": "pack_and_cover",
+  "method": "llm_gate",
+  "answer_mode": "auto",
+  "source_sample_id": "v3_dev_010",
+  "comparison_id": "0ba960e2808a4ed6",
+  "unknown_preferences": 2,
+  "public_instruction": "Pack exactly one cup and one block into the box, then cover it with one lid. Place the cup before the block. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use item_7cb1afc1c4fd.",
+  "trace": [
+    {
+      "seq": 1,
+      "kind": "queued",
+      "elapsed_ms": 2,
+      "round": 0,
+      "simulation_step": null,
+      "comparison_id": "0ba960e2808a4ed6"
+    },
+    {
+      "seq": 2,
+      "kind": "initializing",
+      "elapsed_ms": 279,
+      "round": 0,
+      "simulation_step": null,
+      "worker_id": "worker-14572252b683"
+    },
+    {
+      "seq": 3,
+      "kind": "status",
+      "elapsed_ms": 527,
+      "round": 0,
+      "simulation_step": 240,
+      "status": "gate"
+    },
+    {
+      "seq": 4,
+      "kind": "gate_decision",
+      "elapsed_ms": 1486,
+      "round": 0,
+      "simulation_step": 240,
+      "gate": {
+        "decision": "ASK",
+        "p_ask": null,
+        "round": 0,
+        "called": true,
+        "backend": "deepseek"
+      }
+    },
+    {
+      "seq": 5,
+      "kind": "status",
+      "elapsed_ms": 1486,
+      "round": 0,
+      "simulation_step": 240,
+      "status": "planning_question"
+    },
+    {
+      "seq": 6,
+      "kind": "question",
+      "elapsed_ms": 2189,
+      "round": 0,
+      "simulation_step": 240,
+      "question_id": "79e8913297044e13",
+      "text": "Which block and which lid should be packed?",
+      "charged_slots": 2
+    },
+    {
+      "seq": 7,
+      "kind": "answer_received",
+      "elapsed_ms": 2189,
+      "round": 0,
+      "simulation_step": 240,
+      "question_id": "79e8913297044e13",
+      "source": "auto"
+    },
+    {
+      "seq": 8,
+      "kind": "status",
+      "elapsed_ms": 2189,
+      "round": 1,
+      "simulation_step": 240,
+      "status": "gate"
+    },
+    {
+      "seq": 9,
+      "kind": "gate_decision",
+      "elapsed_ms": 2967,
+      "round": 1,
+      "simulation_step": 240,
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 1,
+        "called": true,
+        "backend": "deepseek"
+      }
+    },
+    {
+      "seq": 10,
+      "kind": "status",
+      "elapsed_ms": 2967,
+      "round": 1,
+      "simulation_step": 240,
+      "status": "planning_action"
+    },
+    {
+      "seq": 11,
+      "kind": "planned_action",
+      "elapsed_ms": 3800,
+      "round": 1,
+      "simulation_step": 240,
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_7cb1afc1c4fd",
+        "target_id": "box",
+        "relation": "inside"
+      }
+    },
+    {
+      "seq": 12,
+      "kind": "status",
+      "elapsed_ms": 3800,
+      "round": 1,
+      "simulation_step": 240,
+      "status": "dispatching"
+    },
+    {
+      "seq": 13,
+      "kind": "physical_phase",
+      "elapsed_ms": 3871,
+      "round": 1,
+      "simulation_step": 264,
+      "phase": "approach",
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_7cb1afc1c4fd",
+        "target_id": "box",
+        "relation": "inside"
+      }
+    },
+    {
+      "seq": 14,
+      "kind": "physical_phase",
+      "elapsed_ms": 5067,
+      "round": 1,
+      "simulation_step": 1128,
+      "phase": "grasp",
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_7cb1afc1c4fd",
+        "target_id": "box",
+        "relation": "inside"
+      }
+    },
+    {
+      "seq": 15,
+      "kind": "physical_phase",
+      "elapsed_ms": 5202,
+      "round": 1,
+      "simulation_step": 1224,
+      "phase": "lift",
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_7cb1afc1c4fd",
+        "target_id": "box",
+        "relation": "inside"
+      }
+    },
+    {
+      "seq": 16,
+      "kind": "physical_phase",
+      "elapsed_ms": 5736,
+      "round": 1,
+      "simulation_step": 1608,
+      "phase": "transport",
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_7cb1afc1c4fd",
+        "target_id": "box",
+        "relation": "inside"
+      }
+    },
+    {
+      "seq": 17,
+      "kind": "physical_phase",
+      "elapsed_ms": 6271,
+      "round": 1,
+      "simulation_step": 1992,
+      "phase": "lower",
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_7cb1afc1c4fd",
+        "target_id": "box",
+        "relation": "inside"
+      }
+    },
+    {
+      "seq": 18,
+      "kind": "physical_phase",
+      "elapsed_ms": 7201,
+      "round": 1,
+      "simulation_step": 2664,
+      "phase": "release",
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_7cb1afc1c4fd",
+        "target_id": "box",
+        "relation": "inside"
+      }
+    },
+    {
+      "seq": 19,
+      "kind": "physical_phase",
+      "elapsed_ms": 8002,
+      "round": 1,
+      "simulation_step": 3240,
+      "phase": "settle",
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_7cb1afc1c4fd",
+        "target_id": "box",
+        "relation": "inside"
+      }
+    },
+    {
+      "seq": 20,
+      "kind": "action_result",
+      "elapsed_ms": 8306,
+      "round": 1,
+      "simulation_step": 3461,
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_7cb1afc1c4fd",
+        "target_id": "box",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3461,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "seq": 21,
+      "kind": "status",
+      "elapsed_ms": 8306,
+      "round": 2,
+      "simulation_step": 3461,
+      "status": "gate"
+    },
+    {
+      "seq": 22,
+      "kind": "gate_decision",
+      "elapsed_ms": 8979,
+      "round": 2,
+      "simulation_step": 3461,
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 2,
+        "called": true,
+        "backend": "deepseek"
+      }
+    },
+    {
+      "seq": 23,
+      "kind": "status",
+      "elapsed_ms": 8980,
+      "round": 2,
+      "simulation_step": 3461,
+      "status": "planning_action"
+    },
+    {
+      "seq": 24,
+      "kind": "planned_action",
+      "elapsed_ms": 9725,
+      "round": 2,
+      "simulation_step": 3461,
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_eb4044b3cc21",
+        "target_id": "box",
+        "relation": "inside"
+      }
+    },
+    {
+      "seq": 25,
+      "kind": "status",
+      "elapsed_ms": 9725,
+      "round": 2,
+      "simulation_step": 3461,
+      "status": "dispatching"
+    },
+    {
+      "seq": 26,
+      "kind": "physical_phase",
+      "elapsed_ms": 9783,
+      "round": 2,
+      "simulation_step": 3480,
+      "phase": "approach",
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_eb4044b3cc21",
+        "target_id": "box",
+        "relation": "inside"
+      }
+    },
+    {
+      "seq": 27,
+      "kind": "physical_phase",
+      "elapsed_ms": 11122,
+      "round": 2,
+      "simulation_step": 4440,
+      "phase": "grasp",
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_eb4044b3cc21",
+        "target_id": "box",
+        "relation": "inside"
+      }
+    },
+    {
+      "seq": 28,
+      "kind": "physical_phase",
+      "elapsed_ms": 11258,
+      "round": 2,
+      "simulation_step": 4536,
+      "phase": "lift",
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_eb4044b3cc21",
+        "target_id": "box",
+        "relation": "inside"
+      }
+    },
+    {
+      "seq": 29,
+      "kind": "physical_phase",
+      "elapsed_ms": 11917,
+      "round": 2,
+      "simulation_step": 5016,
+      "phase": "transport",
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_eb4044b3cc21",
+        "target_id": "box",
+        "relation": "inside"
+      }
+    },
+    {
+      "seq": 30,
+      "kind": "physical_phase",
+      "elapsed_ms": 12598,
+      "round": 2,
+      "simulation_step": 5496,
+      "phase": "lower",
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_eb4044b3cc21",
+        "target_id": "box",
+        "relation": "inside"
+      }
+    },
+    {
+      "seq": 31,
+      "kind": "physical_phase",
+      "elapsed_ms": 13519,
+      "round": 2,
+      "simulation_step": 6168,
+      "phase": "release",
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_eb4044b3cc21",
+        "target_id": "box",
+        "relation": "inside"
+      }
+    },
+    {
+      "seq": 32,
+      "kind": "physical_phase",
+      "elapsed_ms": 14453,
+      "round": 2,
+      "simulation_step": 6840,
+      "phase": "settle",
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_eb4044b3cc21",
+        "target_id": "box",
+        "relation": "inside"
+      }
+    },
+    {
+      "seq": 33,
+      "kind": "action_result",
+      "elapsed_ms": 14656,
+      "round": 2,
+      "simulation_step": 6984,
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_eb4044b3cc21",
+        "target_id": "box",
+        "success": true,
+        "reason": "placed",
+        "start_step": 3461,
+        "end_step": 6984,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "seq": 34,
+      "kind": "status",
+      "elapsed_ms": 14657,
+      "round": 3,
+      "simulation_step": 6984,
+      "status": "gate"
+    },
+    {
+      "seq": 35,
+      "kind": "gate_decision",
+      "elapsed_ms": 15816,
+      "round": 3,
+      "simulation_step": 6984,
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 3,
+        "called": true,
+        "backend": "deepseek"
+      }
+    },
+    {
+      "seq": 36,
+      "kind": "status",
+      "elapsed_ms": 15817,
+      "round": 3,
+      "simulation_step": 6984,
+      "status": "planning_action"
+    },
+    {
+      "seq": 37,
+      "kind": "planned_action",
+      "elapsed_ms": 16872,
+      "round": 3,
+      "simulation_step": 6984,
+      "action": {
+        "kind": "cover",
+        "object_id": "item_0d69ed108440",
+        "target_id": "box",
+        "relation": "covers"
+      }
+    },
+    {
+      "seq": 38,
+      "kind": "status",
+      "elapsed_ms": 16872,
+      "round": 3,
+      "simulation_step": 6984,
+      "status": "dispatching"
+    },
+    {
+      "seq": 39,
+      "kind": "physical_phase",
+      "elapsed_ms": 16943,
+      "round": 3,
+      "simulation_step": 7008,
+      "phase": "approach",
+      "action": {
+        "kind": "cover",
+        "object_id": "item_0d69ed108440",
+        "target_id": "box",
+        "relation": "covers"
+      }
+    },
+    {
+      "seq": 40,
+      "kind": "physical_phase",
+      "elapsed_ms": 18846,
+      "round": 3,
+      "simulation_step": 8376,
+      "phase": "lift",
+      "action": {
+        "kind": "cover",
+        "object_id": "item_0d69ed108440",
+        "target_id": "box",
+        "relation": "covers"
+      }
+    },
+    {
+      "seq": 41,
+      "kind": "physical_phase",
+      "elapsed_ms": 19648,
+      "round": 3,
+      "simulation_step": 8952,
+      "phase": "transport",
+      "action": {
+        "kind": "cover",
+        "object_id": "item_0d69ed108440",
+        "target_id": "box",
+        "relation": "covers"
+      }
+    },
+    {
+      "seq": 42,
+      "kind": "physical_phase",
+      "elapsed_ms": 20479,
+      "round": 3,
+      "simulation_step": 9552,
+      "phase": "lower",
+      "action": {
+        "kind": "cover",
+        "object_id": "item_0d69ed108440",
+        "target_id": "box",
+        "relation": "covers"
+      }
+    },
+    {
+      "seq": 43,
+      "kind": "physical_phase",
+      "elapsed_ms": 21274,
+      "round": 3,
+      "simulation_step": 10128,
+      "phase": "release",
+      "action": {
+        "kind": "cover",
+        "object_id": "item_0d69ed108440",
+        "target_id": "box",
+        "relation": "covers"
+      }
+    },
+    {
+      "seq": 44,
+      "kind": "physical_phase",
+      "elapsed_ms": 21940,
+      "round": 3,
+      "simulation_step": 10608,
+      "phase": "settle",
+      "action": {
+        "kind": "cover",
+        "object_id": "item_0d69ed108440",
+        "target_id": "box",
+        "relation": "covers"
+      }
+    },
+    {
+      "seq": 45,
+      "kind": "action_result",
+      "elapsed_ms": 22243,
+      "round": 3,
+      "simulation_step": 10814,
+      "result": {
+        "skill": "cover",
+        "object_id": "item_0d69ed108440",
+        "target_id": "box",
+        "success": true,
+        "reason": "covered",
+        "start_step": 6984,
+        "end_step": 10814,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "seq": 46,
+      "kind": "status",
+      "elapsed_ms": 22244,
+      "round": 4,
+      "simulation_step": 10814,
+      "status": "gate"
+    },
+    {
+      "seq": 47,
+      "kind": "gate_decision",
+      "elapsed_ms": 23127,
+      "round": 4,
+      "simulation_step": 10814,
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 4,
+        "called": true,
+        "backend": "deepseek"
+      }
+    },
+    {
+      "seq": 48,
+      "kind": "status",
+      "elapsed_ms": 23128,
+      "round": 4,
+      "simulation_step": 10814,
+      "status": "planning_action"
+    },
+    {
+      "seq": 49,
+      "kind": "planned_action",
+      "elapsed_ms": 23596,
+      "round": 4,
+      "simulation_step": 10814,
+      "action": {
+        "kind": "DONE",
+        "object_id": null,
+        "target_id": null,
+        "relation": "inside"
+      }
+    }
+  ],
+  "partition": "interactive_demo",
+  "evidence_kind": "live_models_real_pybullet",
+  "planner_configuration": {
+    "deepseek_model": "deepseek-flash",
+    "jev_model": "jev-latest",
+    "jev_threshold": 0.5,
+    "timeout_s": 40,
+    "max_retries": 1,
+    "max_tokens": 500,
+    "thinking": "disabled",
+    "response_format": "json_object"
+  },
+  "evaluation_protocol": "fixed_demo_preferences",
+  "prompt_hashes": {
+    "action": "155bd6f9d28a17c5fcbeaf778930b948224bbf95d2d1086aee7202c20c6a47cc",
+    "question": "ba06051f9cdf69b47e0d274deb69aded451b1c38f7f6f98a371ab97e8454f4ae",
+    "gate_rules": "50189f5c46e3baa30212875e355fa68ff189b938511069b9e91ec3230f7738ca"
+  },
+  "turns": [
+    {
+      "round": 0,
+      "public_payload": {
+        "instruction": "Pack exactly one cup and one block into the box, then cover it with one lid. Place the cup before the block. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use item_7cb1afc1c4fd.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_751f8535aeed",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.29851,
+                -0.02787,
+                0.44199
+              ],
+              "aabb_min": [
+                0.27651,
+                -0.04987,
+                0.41999
+              ],
+              "aabb_max": [
+                0.32051,
+                -0.00587,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_456f6e4286d9",
+              "category": "lid",
+              "color": "white",
+              "position": [
+                0.29955,
+                0.39062,
+                0.42599
+              ],
+              "aabb_min": [
+                0.14555,
+                0.25661,
+                0.41999
+              ],
+              "aabb_max": [
+                0.45356,
+                0.52462,
+                0.43199
+              ]
+            },
+            {
+              "object_id": "item_eb4044b3cc21",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.2908,
+                0.16316,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26879,
+                0.14116,
+                0.41999
+              ],
+              "aabb_max": [
+                0.3128,
+                0.18516,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_7cb1afc1c4fd",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.37844,
+                -0.13728,
+                0.44999
+              ],
+              "aabb_min": [
+                0.35135,
+                -0.16436,
+                0.41999
+              ],
+              "aabb_max": [
+                0.40552,
+                -0.1102,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_0d69ed108440",
+              "category": "lid",
+              "color": "black",
+              "position": [
+                0.61185,
+                -0.35357,
+                0.42599
+              ],
+              "aabb_min": [
+                0.45784,
+                -0.48758,
+                0.41999
+              ],
+              "aabb_max": [
+                0.76585,
+                -0.21957,
+                0.43199
+              ]
+            },
+            {
+              "object_id": "item_ab1aa01412af",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.33571,
+                -0.23977,
+                0.44999
+              ],
+              "aabb_min": [
+                0.30862,
+                -0.26685,
+                0.41998
+              ],
+              "aabb_max": [
+                0.36279,
+                -0.21268,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "box",
+              "category": "container",
+              "color": "brown",
+              "position": [
+                0.57,
+                0.115,
+                0.42
+              ],
+              "aabb_min": [
+                0.43,
+                -0.005,
+                0.42
+              ],
+              "aabb_max": [
+                0.71,
+                0.235,
+                0.544
+              ]
+            }
+          ],
+          "simulation_step": 240,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "box": []
+            },
+            "covering_containers": {
+              "box": []
+            },
+            "outside_all_containers": [
+              "item_751f8535aeed",
+              "item_456f6e4286d9",
+              "item_eb4044b3cc21",
+              "item_7cb1afc1c4fd",
+              "item_0d69ed108440",
+              "item_ab1aa01412af"
+            ]
+          }
+        },
+        "history": []
+      },
+      "payload_sha256": "61175d33f8bdef154b3fae90d976a5af4065f2b058c37a8e19206a2a74cc256a",
+      "gate": {
+        "decision": "ASK",
+        "p_ask": null,
+        "round": 0,
+        "called": true,
+        "backend": "deepseek"
+      },
+      "question": {
+        "type": "select",
+        "text": "Which block and which lid should be packed?",
+        "requests": [
+          {
+            "role": "block",
+            "candidate_ids": [
+              "item_751f8535aeed",
+              "item_eb4044b3cc21"
+            ]
+          },
+          {
+            "role": "lid",
+            "candidate_ids": [
+              "item_456f6e4286d9",
+              "item_0d69ed108440"
+            ]
+          }
+        ]
+      },
+      "question_id": "79e8913297044e13",
+      "user_answer": {
+        "choices": {
+          "block": "item_eb4044b3cc21",
+          "lid": "item_0d69ed108440"
+        }
+      },
+      "answer_source": "auto",
+      "ask_check": {
+        "before_step": 240,
+        "after_step": 240,
+        "state_unchanged": true,
+        "charged_slots": 2
+      }
+    },
+    {
+      "round": 1,
+      "public_payload": {
+        "instruction": "Pack exactly one cup and one block into the box, then cover it with one lid. Place the cup before the block. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use item_7cb1afc1c4fd.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_751f8535aeed",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.29851,
+                -0.02787,
+                0.44199
+              ],
+              "aabb_min": [
+                0.27651,
+                -0.04987,
+                0.41999
+              ],
+              "aabb_max": [
+                0.32051,
+                -0.00587,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_456f6e4286d9",
+              "category": "lid",
+              "color": "white",
+              "position": [
+                0.29955,
+                0.39062,
+                0.42599
+              ],
+              "aabb_min": [
+                0.14555,
+                0.25661,
+                0.41999
+              ],
+              "aabb_max": [
+                0.45356,
+                0.52462,
+                0.43199
+              ]
+            },
+            {
+              "object_id": "item_eb4044b3cc21",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.2908,
+                0.16316,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26879,
+                0.14116,
+                0.41999
+              ],
+              "aabb_max": [
+                0.3128,
+                0.18516,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_7cb1afc1c4fd",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.37844,
+                -0.13728,
+                0.44999
+              ],
+              "aabb_min": [
+                0.35135,
+                -0.16436,
+                0.41999
+              ],
+              "aabb_max": [
+                0.40552,
+                -0.1102,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_0d69ed108440",
+              "category": "lid",
+              "color": "black",
+              "position": [
+                0.61185,
+                -0.35357,
+                0.42599
+              ],
+              "aabb_min": [
+                0.45784,
+                -0.48758,
+                0.41999
+              ],
+              "aabb_max": [
+                0.76585,
+                -0.21957,
+                0.43199
+              ]
+            },
+            {
+              "object_id": "item_ab1aa01412af",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.33571,
+                -0.23977,
+                0.44999
+              ],
+              "aabb_min": [
+                0.30862,
+                -0.26685,
+                0.41998
+              ],
+              "aabb_max": [
+                0.36279,
+                -0.21268,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "box",
+              "category": "container",
+              "color": "brown",
+              "position": [
+                0.57,
+                0.115,
+                0.42
+              ],
+              "aabb_min": [
+                0.43,
+                -0.005,
+                0.42
+              ],
+              "aabb_max": [
+                0.71,
+                0.235,
+                0.544
+              ]
+            }
+          ],
+          "simulation_step": 240,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "box": []
+            },
+            "covering_containers": {
+              "box": []
+            },
+            "outside_all_containers": [
+              "item_751f8535aeed",
+              "item_456f6e4286d9",
+              "item_eb4044b3cc21",
+              "item_7cb1afc1c4fd",
+              "item_0d69ed108440",
+              "item_ab1aa01412af"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which block and which lid should be packed?",
+              "requests": [
+                {
+                  "role": "block",
+                  "candidate_ids": [
+                    "item_751f8535aeed",
+                    "item_eb4044b3cc21"
+                  ]
+                },
+                {
+                  "role": "lid",
+                  "candidate_ids": [
+                    "item_456f6e4286d9",
+                    "item_0d69ed108440"
+                  ]
+                }
+              ]
+            },
+            "question_id": "79e8913297044e13",
+            "simulation_step": 240
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "block": "item_eb4044b3cc21",
+                "lid": "item_0d69ed108440"
+              }
+            },
+            "source": "auto",
+            "question_id": "79e8913297044e13",
+            "simulation_step": 240
+          }
+        ]
+      },
+      "payload_sha256": "87c971dfac0ca9d2ae8e43732bb33699b39e3c6100d7727300bed56b28425a3b",
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 1,
+        "called": true,
+        "backend": "deepseek"
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_7cb1afc1c4fd",
+        "target_id": "box",
+        "relation": "inside"
+      },
+      "physical_result": {
+        "skill": "pick_place",
+        "object_id": "item_7cb1afc1c4fd",
+        "target_id": "box",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3461,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 2,
+      "public_payload": {
+        "instruction": "Pack exactly one cup and one block into the box, then cover it with one lid. Place the cup before the block. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use item_7cb1afc1c4fd.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_751f8535aeed",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.29851,
+                -0.02787,
+                0.44199
+              ],
+              "aabb_min": [
+                0.27651,
+                -0.04987,
+                0.41999
+              ],
+              "aabb_max": [
+                0.32051,
+                -0.00587,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_456f6e4286d9",
+              "category": "lid",
+              "color": "white",
+              "position": [
+                0.29962,
+                0.39067,
+                0.42599
+              ],
+              "aabb_min": [
+                0.14556,
+                0.2566,
+                0.41999
+              ],
+              "aabb_max": [
+                0.45368,
+                0.52473,
+                0.43199
+              ]
+            },
+            {
+              "object_id": "item_eb4044b3cc21",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.2908,
+                0.16316,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26879,
+                0.14116,
+                0.41999
+              ],
+              "aabb_max": [
+                0.3128,
+                0.18516,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_7cb1afc1c4fd",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.51801,
+                0.07998,
+                0.46399
+              ],
+              "aabb_min": [
+                0.49091,
+                0.05288,
+                0.43398
+              ],
+              "aabb_max": [
+                0.5451,
+                0.10708,
+                0.49399
+              ]
+            },
+            {
+              "object_id": "item_0d69ed108440",
+              "category": "lid",
+              "color": "black",
+              "position": [
+                0.61191,
+                -0.35352,
+                0.42599
+              ],
+              "aabb_min": [
+                0.45785,
+                -0.48759,
+                0.41999
+              ],
+              "aabb_max": [
+                0.76597,
+                -0.21945,
+                0.43199
+              ]
+            },
+            {
+              "object_id": "item_ab1aa01412af",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.33571,
+                -0.23977,
+                0.44999
+              ],
+              "aabb_min": [
+                0.30863,
+                -0.26686,
+                0.41998
+              ],
+              "aabb_max": [
+                0.3628,
+                -0.21268,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "box",
+              "category": "container",
+              "color": "brown",
+              "position": [
+                0.57,
+                0.115,
+                0.42
+              ],
+              "aabb_min": [
+                0.43,
+                -0.005,
+                0.42
+              ],
+              "aabb_max": [
+                0.71,
+                0.235,
+                0.544
+              ]
+            }
+          ],
+          "simulation_step": 3461,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "box": [
+                "item_7cb1afc1c4fd"
+              ]
+            },
+            "covering_containers": {
+              "box": []
+            },
+            "outside_all_containers": [
+              "item_751f8535aeed",
+              "item_456f6e4286d9",
+              "item_eb4044b3cc21",
+              "item_0d69ed108440",
+              "item_ab1aa01412af"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which block and which lid should be packed?",
+              "requests": [
+                {
+                  "role": "block",
+                  "candidate_ids": [
+                    "item_751f8535aeed",
+                    "item_eb4044b3cc21"
+                  ]
+                },
+                {
+                  "role": "lid",
+                  "candidate_ids": [
+                    "item_456f6e4286d9",
+                    "item_0d69ed108440"
+                  ]
+                }
+              ]
+            },
+            "question_id": "79e8913297044e13",
+            "simulation_step": 240
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "block": "item_eb4044b3cc21",
+                "lid": "item_0d69ed108440"
+              }
+            },
+            "source": "auto",
+            "question_id": "79e8913297044e13",
+            "simulation_step": 240
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_7cb1afc1c4fd",
+              "target_id": "box",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3461,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "payload_sha256": "92b14293e4acc41b72a2aeb094a22f38649c4228f0113952be4a0317e1ce95ef",
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 2,
+        "called": true,
+        "backend": "deepseek"
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_eb4044b3cc21",
+        "target_id": "box",
+        "relation": "inside"
+      },
+      "physical_result": {
+        "skill": "pick_place",
+        "object_id": "item_eb4044b3cc21",
+        "target_id": "box",
+        "success": true,
+        "reason": "placed",
+        "start_step": 3461,
+        "end_step": 6984,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 3,
+      "public_payload": {
+        "instruction": "Pack exactly one cup and one block into the box, then cover it with one lid. Place the cup before the block. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use item_7cb1afc1c4fd.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_751f8535aeed",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.29851,
+                -0.02787,
+                0.44199
+              ],
+              "aabb_min": [
+                0.27651,
+                -0.04987,
+                0.41999
+              ],
+              "aabb_max": [
+                0.32051,
+                -0.00587,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_456f6e4286d9",
+              "category": "lid",
+              "color": "white",
+              "position": [
+                0.29969,
+                0.39072,
+                0.42599
+              ],
+              "aabb_min": [
+                0.14557,
+                0.25658,
+                0.41999
+              ],
+              "aabb_max": [
+                0.45381,
+                0.52486,
+                0.43199
+              ]
+            },
+            {
+              "object_id": "item_eb4044b3cc21",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.62212,
+                0.15002,
+                0.45599
+              ],
+              "aabb_min": [
+                0.60011,
+                0.12802,
+                0.43399
+              ],
+              "aabb_max": [
+                0.64412,
+                0.17203,
+                0.47799
+              ]
+            },
+            {
+              "object_id": "item_7cb1afc1c4fd",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.51796,
+                0.07995,
+                0.46399
+              ],
+              "aabb_min": [
+                0.49084,
+                0.05283,
+                0.43398
+              ],
+              "aabb_max": [
+                0.54508,
+                0.10707,
+                0.49399
+              ]
+            },
+            {
+              "object_id": "item_0d69ed108440",
+              "category": "lid",
+              "color": "black",
+              "position": [
+                0.61199,
+                -0.35347,
+                0.42599
+              ],
+              "aabb_min": [
+                0.45787,
+                -0.4876,
+                0.41999
+              ],
+              "aabb_max": [
+                0.76611,
+                -0.21933,
+                0.43199
+              ]
+            },
+            {
+              "object_id": "item_ab1aa01412af",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.33572,
+                -0.23977,
+                0.44999
+              ],
+              "aabb_min": [
+                0.30863,
+                -0.26687,
+                0.41998
+              ],
+              "aabb_max": [
+                0.36282,
+                -0.21267,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "box",
+              "category": "container",
+              "color": "brown",
+              "position": [
+                0.57,
+                0.115,
+                0.42
+              ],
+              "aabb_min": [
+                0.43,
+                -0.005,
+                0.42
+              ],
+              "aabb_max": [
+                0.71,
+                0.235,
+                0.544
+              ]
+            }
+          ],
+          "simulation_step": 6984,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "box": [
+                "item_eb4044b3cc21",
+                "item_7cb1afc1c4fd"
+              ]
+            },
+            "covering_containers": {
+              "box": []
+            },
+            "outside_all_containers": [
+              "item_751f8535aeed",
+              "item_456f6e4286d9",
+              "item_0d69ed108440",
+              "item_ab1aa01412af"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which block and which lid should be packed?",
+              "requests": [
+                {
+                  "role": "block",
+                  "candidate_ids": [
+                    "item_751f8535aeed",
+                    "item_eb4044b3cc21"
+                  ]
+                },
+                {
+                  "role": "lid",
+                  "candidate_ids": [
+                    "item_456f6e4286d9",
+                    "item_0d69ed108440"
+                  ]
+                }
+              ]
+            },
+            "question_id": "79e8913297044e13",
+            "simulation_step": 240
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "block": "item_eb4044b3cc21",
+                "lid": "item_0d69ed108440"
+              }
+            },
+            "source": "auto",
+            "question_id": "79e8913297044e13",
+            "simulation_step": 240
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_7cb1afc1c4fd",
+              "target_id": "box",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3461,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_eb4044b3cc21",
+              "target_id": "box",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3461,
+              "end_step": 6984,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "payload_sha256": "5f88f21dfe39107e8dbc71ca764478d64e66fe99e4f3f3eb37f3adb2f63a6b8d",
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 3,
+        "called": true,
+        "backend": "deepseek"
+      },
+      "action": {
+        "kind": "cover",
+        "object_id": "item_0d69ed108440",
+        "target_id": "box",
+        "relation": "covers"
+      },
+      "physical_result": {
+        "skill": "cover",
+        "object_id": "item_0d69ed108440",
+        "target_id": "box",
+        "success": true,
+        "reason": "covered",
+        "start_step": 6984,
+        "end_step": 10814,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 4,
+      "public_payload": {
+        "instruction": "Pack exactly one cup and one block into the box, then cover it with one lid. Place the cup before the block. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use item_7cb1afc1c4fd.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_751f8535aeed",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.29851,
+                -0.02787,
+                0.44199
+              ],
+              "aabb_min": [
+                0.27651,
+                -0.04987,
+                0.41999
+              ],
+              "aabb_max": [
+                0.32051,
+                -0.00587,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_456f6e4286d9",
+              "category": "lid",
+              "color": "white",
+              "position": [
+                0.29977,
+                0.39078,
+                0.42599
+              ],
+              "aabb_min": [
+                0.14558,
+                0.25657,
+                0.41999
+              ],
+              "aabb_max": [
+                0.45395,
+                0.52499,
+                0.43199
+              ]
+            },
+            {
+              "object_id": "item_eb4044b3cc21",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.62212,
+                0.15002,
+                0.45599
+              ],
+              "aabb_min": [
+                0.60011,
+                0.12802,
+                0.43399
+              ],
+              "aabb_max": [
+                0.64412,
+                0.17203,
+                0.47799
+              ]
+            },
+            {
+              "object_id": "item_7cb1afc1c4fd",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.51791,
+                0.07992,
+                0.46399
+              ],
+              "aabb_min": [
+                0.49074,
+                0.05274,
+                0.43398
+              ],
+              "aabb_max": [
+                0.54507,
+                0.10709,
+                0.49399
+              ]
+            },
+            {
+              "object_id": "item_0d69ed108440",
+              "category": "lid",
+              "color": "black",
+              "position": [
+                0.57003,
+                0.11498,
+                0.54999
+              ],
+              "aabb_min": [
+                0.41588,
+                -0.01919,
+                0.54399
+              ],
+              "aabb_max": [
+                0.72417,
+                0.24914,
+                0.55599
+              ]
+            },
+            {
+              "object_id": "item_ab1aa01412af",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.33573,
+                -0.23977,
+                0.44999
+              ],
+              "aabb_min": [
+                0.30863,
+                -0.26687,
+                0.41998
+              ],
+              "aabb_max": [
+                0.36283,
+                -0.21267,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "box",
+              "category": "container",
+              "color": "brown",
+              "position": [
+                0.57,
+                0.115,
+                0.42
+              ],
+              "aabb_min": [
+                0.43,
+                -0.005,
+                0.42
+              ],
+              "aabb_max": [
+                0.71,
+                0.235,
+                0.544
+              ]
+            }
+          ],
+          "simulation_step": 10814,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "box": [
+                "item_eb4044b3cc21",
+                "item_7cb1afc1c4fd"
+              ]
+            },
+            "covering_containers": {
+              "box": [
+                "item_0d69ed108440"
+              ]
+            },
+            "outside_all_containers": [
+              "item_751f8535aeed",
+              "item_456f6e4286d9",
+              "item_ab1aa01412af"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which block and which lid should be packed?",
+              "requests": [
+                {
+                  "role": "block",
+                  "candidate_ids": [
+                    "item_751f8535aeed",
+                    "item_eb4044b3cc21"
+                  ]
+                },
+                {
+                  "role": "lid",
+                  "candidate_ids": [
+                    "item_456f6e4286d9",
+                    "item_0d69ed108440"
+                  ]
+                }
+              ]
+            },
+            "question_id": "79e8913297044e13",
+            "simulation_step": 240
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "block": "item_eb4044b3cc21",
+                "lid": "item_0d69ed108440"
+              }
+            },
+            "source": "auto",
+            "question_id": "79e8913297044e13",
+            "simulation_step": 240
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_7cb1afc1c4fd",
+              "target_id": "box",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3461,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_eb4044b3cc21",
+              "target_id": "box",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3461,
+              "end_step": 6984,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "cover",
+              "object_id": "item_0d69ed108440",
+              "target_id": "box",
+              "success": true,
+              "reason": "covered",
+              "start_step": 6984,
+              "end_step": 10814,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "payload_sha256": "f6b9a15077f9376dc892b6e9696590f5791df9e97b809a6db3255d1034ca9313",
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 4,
+        "called": true,
+        "backend": "deepseek"
+      },
+      "action": {
+        "kind": "DONE",
+        "object_id": null,
+        "target_id": null,
+        "relation": "inside"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "skill": "pick_place",
+      "object_id": "item_7cb1afc1c4fd",
+      "target_id": "box",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3461,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "pick_place",
+      "object_id": "item_eb4044b3cc21",
+      "target_id": "box",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3461,
+      "end_step": 6984,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "cover",
+      "object_id": "item_0d69ed108440",
+      "target_id": "box",
+      "success": true,
+      "reason": "covered",
+      "start_step": 6984,
+      "end_step": 10814,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "public_history": [
+    {
+      "kind": "ask",
+      "question": {
+        "type": "select",
+        "text": "Which block and which lid should be packed?",
+        "requests": [
+          {
+            "role": "block",
+            "candidate_ids": [
+              "item_751f8535aeed",
+              "item_eb4044b3cc21"
+            ]
+          },
+          {
+            "role": "lid",
+            "candidate_ids": [
+              "item_456f6e4286d9",
+              "item_0d69ed108440"
+            ]
+          }
+        ]
+      },
+      "question_id": "79e8913297044e13",
+      "simulation_step": 240
+    },
+    {
+      "kind": "user_answer",
+      "response": {
+        "choices": {
+          "block": "item_eb4044b3cc21",
+          "lid": "item_0d69ed108440"
+        }
+      },
+      "source": "auto",
+      "question_id": "79e8913297044e13",
+      "simulation_step": 240
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_7cb1afc1c4fd",
+        "target_id": "box",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3461,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_eb4044b3cc21",
+        "target_id": "box",
+        "success": true,
+        "reason": "placed",
+        "start_step": 3461,
+        "end_step": 6984,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "cover",
+        "object_id": "item_0d69ed108440",
+        "target_id": "box",
+        "success": true,
+        "reason": "covered",
+        "start_step": 6984,
+        "end_step": 10814,
+        "grasp_mode": "constraint"
+      }
+    }
+  ],
+  "worker_events": [
+    {
+      "kind": "ready",
+      "seq": 1,
+      "step": 240,
+      "command_id": null
+    },
+    {
+      "kind": "frame",
+      "seq": 2,
+      "step": 264,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 3,
+      "step": 360,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 4,
+      "step": 456,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 5,
+      "step": 552,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 6,
+      "step": 648,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 7,
+      "step": 744,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 8,
+      "step": 840,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 9,
+      "step": 936,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 10,
+      "step": 1032,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 11,
+      "step": 1128,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 12,
+      "step": 1224,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 13,
+      "step": 1320,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 14,
+      "step": 1416,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 15,
+      "step": 1512,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 16,
+      "step": 1608,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 17,
+      "step": 1704,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 18,
+      "step": 1800,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 19,
+      "step": 1896,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 20,
+      "step": 1992,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 21,
+      "step": 2088,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 22,
+      "step": 2184,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 23,
+      "step": 2280,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 24,
+      "step": 2376,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 25,
+      "step": 2472,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 26,
+      "step": 2568,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 27,
+      "step": 2664,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 28,
+      "step": 2760,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 29,
+      "step": 2856,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 30,
+      "step": 2952,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 31,
+      "step": 3048,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 32,
+      "step": 3144,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 33,
+      "step": 3240,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 34,
+      "step": 3336,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 35,
+      "step": 3432,
+      "command_id": 1
+    },
+    {
+      "kind": "action_result",
+      "seq": 36,
+      "step": 3461,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 37,
+      "step": 3480,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 38,
+      "step": 3576,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 39,
+      "step": 3672,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 40,
+      "step": 3768,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 41,
+      "step": 3864,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 42,
+      "step": 3960,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 43,
+      "step": 4056,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 44,
+      "step": 4152,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 45,
+      "step": 4248,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 46,
+      "step": 4344,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 47,
+      "step": 4440,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 48,
+      "step": 4536,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 49,
+      "step": 4632,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 50,
+      "step": 4728,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 51,
+      "step": 4824,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 52,
+      "step": 4920,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 53,
+      "step": 5016,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 54,
+      "step": 5112,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 55,
+      "step": 5208,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 56,
+      "step": 5304,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 57,
+      "step": 5400,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 58,
+      "step": 5496,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 59,
+      "step": 5592,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 60,
+      "step": 5688,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 61,
+      "step": 5784,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 62,
+      "step": 5880,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 63,
+      "step": 5976,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 64,
+      "step": 6072,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 65,
+      "step": 6168,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 66,
+      "step": 6264,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 67,
+      "step": 6360,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 68,
+      "step": 6456,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 69,
+      "step": 6552,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 70,
+      "step": 6648,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 71,
+      "step": 6744,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 72,
+      "step": 6840,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 73,
+      "step": 6936,
+      "command_id": 2
+    },
+    {
+      "kind": "action_result",
+      "seq": 74,
+      "step": 6984,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 75,
+      "step": 7008,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 76,
+      "step": 7104,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 77,
+      "step": 7200,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 78,
+      "step": 7296,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 79,
+      "step": 7392,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 80,
+      "step": 7488,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 81,
+      "step": 7584,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 82,
+      "step": 7680,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 83,
+      "step": 7776,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 84,
+      "step": 7896,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 85,
+      "step": 7992,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 86,
+      "step": 8088,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 87,
+      "step": 8184,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 88,
+      "step": 8280,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 89,
+      "step": 8376,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 90,
+      "step": 8472,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 91,
+      "step": 8568,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 92,
+      "step": 8664,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 93,
+      "step": 8760,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 94,
+      "step": 8856,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 95,
+      "step": 8952,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 96,
+      "step": 9048,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 97,
+      "step": 9168,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 98,
+      "step": 9264,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 99,
+      "step": 9360,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 100,
+      "step": 9456,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 101,
+      "step": 9552,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 102,
+      "step": 9648,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 103,
+      "step": 9744,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 104,
+      "step": 9840,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 105,
+      "step": 9936,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 106,
+      "step": 10032,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 107,
+      "step": 10128,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 108,
+      "step": 10224,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 109,
+      "step": 10320,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 110,
+      "step": 10416,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 111,
+      "step": 10512,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 112,
+      "step": 10608,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 113,
+      "step": 10704,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 114,
+      "step": 10800,
+      "command_id": 3
+    },
+    {
+      "kind": "action_result",
+      "seq": 115,
+      "step": 10814,
+      "command_id": 3
+    },
+    {
+      "kind": "finalized",
+      "seq": 116,
+      "step": 10814,
+      "command_id": null
+    }
+  ],
+  "execution_log": [
+    {
+      "kind": "placement_started",
+      "object_id": "item_7cb1afc1c4fd",
+      "target_id": "box",
+      "step": 240,
+      "contents_before": {
+        "box": []
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_7cb1afc1c4fd",
+      "step": 240,
+      "end_effector": [
+        0.428022563457489,
+        3.169046749462723e-06,
+        0.859183669090271
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_7cb1afc1c4fd",
+      "step": 1071,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004141528859359451,
+      "closest_hand_distance_m": 0.019068764250462465
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_7cb1afc1c4fd",
+      "step": 1131,
+      "end_effector": [
+        0.3783663511276245,
+        -0.13712473213672638,
+        0.49834007024765015
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_7cb1afc1c4fd",
+      "step": 1600,
+      "end_effector": [
+        0.3784624934196472,
+        -0.1372842788696289,
+        0.8254163861274719
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_7cb1afc1c4fd",
+      "step": 1965,
+      "end_effector": [
+        0.5154882669448853,
+        0.07633550465106964,
+        0.8299092650413513
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_7cb1afc1c4fd",
+      "step": 2593
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_7cb1afc1c4fd",
+      "step": 3221,
+      "end_effector": [
+        0.5179791450500488,
+        0.08021976798772812,
+        0.8262127041816711
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_7cb1afc1c4fd",
+      "target_id": "box",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3461,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_eb4044b3cc21",
+      "target_id": "box",
+      "step": 3461,
+      "contents_before": {
+        "box": [
+          "item_7cb1afc1c4fd"
+        ]
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_eb4044b3cc21",
+      "step": 3461,
+      "end_effector": [
+        0.517956018447876,
+        0.0802169144153595,
+        0.8299846053123474
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_eb4044b3cc21",
+      "step": 4431,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.005905664392510619,
+      "closest_hand_distance_m": 0.023098802742335604
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_eb4044b3cc21",
+      "step": 4491,
+      "end_effector": [
+        0.29024738073349,
+        0.16222378611564636,
+        0.4857299029827118
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_eb4044b3cc21",
+      "step": 4978,
+      "end_effector": [
+        0.29080966114997864,
+        0.16317027807235718,
+        0.8254193067550659
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_eb4044b3cc21",
+      "step": 5446,
+      "end_effector": [
+        0.6164336204528809,
+        0.1491374373435974,
+        0.8297876715660095
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_eb4044b3cc21",
+      "step": 6098
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_eb4044b3cc21",
+      "step": 6744,
+      "end_effector": [
+        0.6212177872657776,
+        0.1489666849374771,
+        0.8261435627937317
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_eb4044b3cc21",
+      "target_id": "box",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3461,
+      "end_step": 6984,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "cover_started",
+      "step": 6984,
+      "contents_before": [
+        "item_eb4044b3cc21",
+        "item_7cb1afc1c4fd"
+      ],
+      "released_before": true,
+      "lid_id": "item_0d69ed108440"
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_0d69ed108440",
+      "step": 6984,
+      "end_effector": [
+        0.6211936473846436,
+        0.14896193146705627,
+        0.8299156427383423
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_0d69ed108440",
+      "step": 8287,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.003778349301548555,
+      "closest_hand_distance_m": 0.013528447486296447
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_0d69ed108440",
+      "step": 8347,
+      "end_effector": [
+        0.6119182109832764,
+        -0.35343435406684875,
+        0.45000210404396057
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_0d69ed108440",
+      "step": 8884,
+      "end_effector": [
+        0.6111082434654236,
+        -0.3529588282108307,
+        0.8249526023864746
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_0d69ed108440",
+      "step": 9548,
+      "end_effector": [
+        0.5703220367431641,
+        0.11053016036748886,
+        0.8299380540847778
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_0d69ed108440",
+      "step": 10052
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_0d69ed108440",
+      "step": 10574,
+      "end_effector": [
+        0.5698807239532471,
+        0.11505574733018875,
+        0.8261908292770386
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "cover",
+      "object_id": "item_0d69ed108440",
+      "target_id": "box",
+      "success": true,
+      "reason": "covered",
+      "start_step": 6984,
+      "end_step": 10814,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "evaluation": {
+    "task_success": true,
+    "termination_reason": "done",
+    "execution_termination": "done",
+    "conditions": {
+      "correct_cup_inside": true,
+      "correct_block_inside": true,
+      "correct_lid_covers": true,
+      "unselected_objects_outside": true,
+      "robot_released": true,
+      "packing_before_cover": true,
+      "declared_dag_order": true
+    },
+    "execution_completed": true,
+    "details": {
+      "expected_objects": {
+        "cup": "item_7cb1afc1c4fd",
+        "block": "item_eb4044b3cc21",
+        "lid": "item_0d69ed108440"
+      },
+      "cup": {
+        "inside": true,
+        "full_xy_inside": true,
+        "full_z_inside": true,
+        "supported_by_box": true,
+        "stable": true,
+        "aabb_min": [
+          0.4907400591448254,
+          0.052744310486438246,
+          0.43398368460811815
+        ],
+        "aabb_max": [
+          0.5450740229426878,
+          0.10708649380833002,
+          0.49399491776381027
+        ]
+      },
+      "block": {
+        "inside": true,
+        "full_xy_inside": true,
+        "full_z_inside": true,
+        "supported_by_box": true,
+        "stable": true,
+        "aabb_min": [
+          0.6001123878778875,
+          0.12802044082504854,
+          0.4339890207068493
+        ],
+        "aabb_max": [
+          0.6441206548983823,
+          0.17202776645562817,
+          0.4779901399506409
+        ]
+      },
+      "lid": {
+        "covered": true,
+        "all_mouth_corners_covered": true,
+        "height_ok": true,
+        "flat": true,
+        "normal_z": 0.9999999999774468,
+        "rim_supported": true,
+        "support_contact_count": 10,
+        "stable": true
+      },
+      "unselected": {
+        "item_751f8535aeed": {
+          "outside": true,
+          "footprint_disjoint": true,
+          "stable": true
+        },
+        "item_456f6e4286d9": {
+          "outside": true,
+          "footprint_disjoint": true,
+          "stable": true
+        },
+        "item_ab1aa01412af": {
+          "outside": true,
+          "footprint_disjoint": true,
+          "stable": true
+        }
+      },
+      "robot_contact_counts": {
+        "item_0d69ed108440": 0,
+        "item_7cb1afc1c4fd": 0,
+        "item_eb4044b3cc21": 0
+      },
+      "cover_order_checks": [
+        true
+      ],
+      "declared_dag": {
+        "placement_events_present": true,
+        "precedence_checks": {
+          "place_cup->place_block": true
+        },
+        "satisfied": true
+      }
+    },
+    "clarification_burden": 2,
+    "action_count": 3,
+    "successful_action_count": 3,
+    "simulation_steps": 10814,
+    "evaluator_version": "full_aabb_contact_dag_v3.1"
+  },
+  "termination_reason": "done",
+  "error": null,
+  "cost": {
+    "deepseek": {
+      "attempts": 10,
+      "input_tokens": 15535,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 201,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 8213.297748938203,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 10,
+    "api_latency_ms": 8213.297748938203,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "wall_time_s": 23.373776332999114
+}

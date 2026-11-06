@@ -85,7 +85,29 @@ class Handler(BaseHTTPRequestHandler):
         if path == '/api/tasks':
             with manager.lock:
                 return self.json_response(dict(tasks=[t.public() for t in manager.tasks.values()]))
+        if path == '/api/comparisons':
+            with manager.lock:
+                return self.json_response(dict(comparisons=[manager.comparison(cid) for cid in manager.comparisons]))
+        if path == '/api/clarifications':
+            return self.json_response(dict(clarifications=manager.clarifications()))
         parts = path.strip('/').split('/')
+        if len(parts) in (3, 4) and parts[:2] == ['api', 'comparisons']:
+            with manager.lock:
+                if parts[2] not in manager.comparisons:
+                    return self.json_response(dict(error='Comparison not found'), 404)
+                if len(parts) == 3:
+                    return self.json_response(manager.comparison(parts[2]))
+                if parts[3] == 'csv':
+                    file = manager.output / 'comparisons' / f'{parts[2]}.csv'
+                    if not file.exists():
+                        return self.json_response(dict(error='Comparison is still running'), 409)
+                    data = file.read_bytes()
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'text/csv; charset=utf-8')
+                    self.send_header('Content-Disposition', f'attachment; filename="comparison-{parts[2]}.csv"')
+                    self.send_header('Content-Length', str(len(data)))
+                    self.end_headers()
+                    return self.wfile.write(data)
         if len(parts) == 3 and parts[:2] == ['api', 'tasks']:
             with manager.lock:
                 task = manager.tasks.get(parts[2])
@@ -111,7 +133,8 @@ class Handler(BaseHTTPRequestHandler):
         try:
             with manager.lock:
                 cursor = manager.sequence
-                initial = dict(type='snapshot', tasks=[t.public() for t in manager.tasks.values()])
+                initial = dict(type='snapshot', tasks=[t.public() for t in manager.tasks.values()],
+                               comparisons=[manager.comparison(cid) for cid in manager.comparisons])
             self.wfile.write(('id: %d\ndata: %s\n\n' % (cursor, json.dumps(initial))).encode())
             self.wfile.flush()
             while not manager.closed:
@@ -120,7 +143,8 @@ class Handler(BaseHTTPRequestHandler):
                     # A slow/reconnected client receives current state, never
                     # replays a robot command or recreates a pending question.
                     if manager.stream and cursor < manager.stream[0]['id'] - 1:
-                        rows = [dict(id=manager.sequence, type='snapshot', tasks=[t.public() for t in manager.tasks.values()])]
+                        rows = [dict(id=manager.sequence, type='snapshot', tasks=[t.public() for t in manager.tasks.values()],
+                                     comparisons=[manager.comparison(cid) for cid in manager.comparisons])]
                     else:
                         rows = [r for r in manager.stream if r['id'] > cursor]
                 if not rows:
@@ -154,6 +178,8 @@ class Handler(BaseHTTPRequestHandler):
             if path == '/api/tasks':
                 result = manager.create(data['options'], data['request_id'])
                 return self.json_response(result, 201)
+            if path == '/api/comparisons':
+                return self.json_response(manager.create_comparison(data['options'], data['request_id']), 201)
             parts = path.strip('/').split('/')
             if len(parts) == 4 and parts[:2] == ['api', 'tasks']:
                 if parts[3] == 'answer':

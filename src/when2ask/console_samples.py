@@ -11,7 +11,7 @@ TEMPLATES = {
 }
 
 
-def demo_sample(template):
+def demo_sample(template, unknown_preferences=None):
     if template not in TEMPLATES:
         raise ValueError('Unknown task template')
     original = next(s for s in load_study('dev') if s.sample_id == TEMPLATES[template][1])
@@ -24,6 +24,11 @@ def demo_sample(template):
     else:
         theta['cup_destination_choice'] = aliases[scene['containers'][0]['id']]
         disclosed.append('cup_destination_choice')
+    if unknown_preferences is not None:
+        if type(unknown_preferences) is not int or not 0 <= unknown_preferences <= 3:
+            raise ValueError('Unknown preferences must be an integer from 0 to 3')
+        order = [s for s in ('cup_choice', 'cup_destination_choice', 'block_choice', 'lid_choice') if s in theta]
+        disclosed = order[:len(order) - unknown_preferences]
     instruction = re.sub(r'For the (?:cup|block|lid|cup_destination), use [A-Za-z0-9_]+\.\s*', '', original.u0).strip()
     for slot in disclosed:
         instruction += f" For the {original.slots[slot]['public_role']}, use {theta[slot]}."

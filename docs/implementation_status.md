@@ -171,3 +171,12 @@ not separately tested in a second environment.
 - Dedicated live session used 24 authenticated requests (2 discovery, 22 inference), 3 live episodes, no API/schema errors or retries. No held-out Test API episodes ran.
 - Full offline pytest: **126 passed** (original 102 plus 24 console tests). Actual artifacts and model versions: [console evidence](../outputs/console_evidence/README.md). Usage: [local console guide](local_console.md).
 - Not yet verified: two physical computers over VPN. Not implemented: resuming an active physical world after controller/worker crash. Browser reconnect is verified; saved logs and budget persist across restart, task cards do not.
+
+## Robot Command Center — 2026-11-06
+
+- Implemented and locally rendered the dark robot wall, selectable 0–3 unknown preferences, one-click three-method comparison, unified clarification queue and real event/phase trace. Camera frames and metadata remain atomic.
+- Paired comparisons enforce identical initial public payload, shared planner/prompts, independent physical resets and automatic fixed-preference replies. Atomic episode reservation and idempotent batch IDs prevent partial or repeated launches. Actual scores, per-backend costs and JSON/CSV exports are available in the UI.
+- Browser/physics checks passed for simultaneous pending questions, draft persistence on switch/reload, exact question routing, duplicate answer handling, queued cancellation, ASK freeze, other-task progress and responsive layouts.
+- Final live comparison: 3 episodes, 22 pre-reserved API attempts, 9/9 physical skills succeeded; task scores NoAsk false, LLM-Gate true, Jev-Gate false. All genuine preference failures remain visible.
+- Development discovered a missing shared-ledger binding in the first paired run. Raw logs were retained, its 22 real requests explicitly reconciled, binding fixed, regression tested and the full comparison rerun. Total work: 6 real-model episodes and 44 authenticated calls, not six independent scenarios.
+- Full offline suite: **152 passed**. No provider network in pytest. [New evidence](../outputs/command_center_evidence/README.md) is separate from frozen data and earlier reports. No held-out Test API experiments and no dual-computer tests were run.

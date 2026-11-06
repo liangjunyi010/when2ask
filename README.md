@@ -4,6 +4,8 @@
 
 新增 [实时任务控制台](docs/local_console.md)：`python console.py --live` 后访问 **http://127.0.0.1:8877/**。可选择任务、NoAsk/LLM-Gate/Jev-Gate 与自动/手动回答，并行观看独立 Panda 场景。控制器与物理 worker 已通过本机 HTTP 联调，双机 VPN 尚未实测。[真实运行证据](outputs/console_evidence/README.md) 独立保存，不修改冻结实验。
 
+控制台现已升级为 **Robot Command Center**：深色实时画面墙、0–3 项未知偏好选择、一键三方法配对对比、统一澄清队列、任务事件流和 JSON/CSV 导出。人工问题可切换处理并保留草稿；对比统一自动回答。[新版本实测与截图](outputs/command_center_evidence/README.md) 包含 152 个通过测试、真实 API/物理结果及开发过程中修复的预算记账问题。
+
 新增 [Milestone 同步回放与两页演示 PPT](presentation/milestone/README.md)：真实轨迹驱动 HTML、49.2 秒完整 MP4、加速至约 12 秒的同步 GIF/MP4、与讲稿匹配的两页 PPT 及逐帧映射验证。所有媒体已随仓库交付，本阶段没有新的模型 API 调用，也未修改冻结 Benchmark。
 
 ![真实 PyBullet 初始场景](outputs/ask_demo/scene.png)

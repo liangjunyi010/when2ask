@@ -1,0 +1,194 @@
+{
+  "passed": true,
+  "evidence_kind": "three_live_model_methods_real_pybullet_browser",
+  "group_id": "4f3f8a60d186453e",
+  "task_ids": [
+    "d583d79a31a74a2a",
+    "d2dcad69b09d452a",
+    "07b67d8cd7cb4aa4"
+  ],
+  "same_initial_public_payload": true,
+  "same_prompt_hashes": true,
+  "independent_worker_pids": [
+    28627,
+    28628,
+    28629
+  ],
+  "results": [
+    {
+      "task_id": "d583d79a31a74a2a",
+      "method": "llm_noask",
+      "status": "done",
+      "task_success": false,
+      "burden": 0,
+      "ask_turns": 0,
+      "robot_actions": 3,
+      "physical_successes": 3,
+      "cost": {
+        "deepseek": {
+          "attempts": 4,
+          "input_tokens": 6071,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 89,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 2818.5900829848833,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 4,
+        "api_latency_ms": 2818.5900829848833,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      },
+      "wall_time_s": 17.857192277908325,
+      "queue_time_s": 0.17948007583618164,
+      "returned_models": [
+        "deepseek-flash"
+      ],
+      "termination_reason": "done",
+      "error": null
+    },
+    {
+      "task_id": "d2dcad69b09d452a",
+      "method": "llm_gate",
+      "status": "done",
+      "task_success": true,
+      "burden": 2,
+      "ask_turns": 1,
+      "robot_actions": 3,
+      "physical_successes": 3,
+      "cost": {
+        "deepseek": {
+          "attempts": 10,
+          "input_tokens": 15551,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 201,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 8572.375082003418,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 10,
+        "api_latency_ms": 8572.375082003418,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      },
+      "wall_time_s": 24.0638587474823,
+      "queue_time_s": 0.39290380477905273,
+      "returned_models": [
+        "deepseek-flash"
+      ],
+      "termination_reason": "done",
+      "error": null
+    },
+    {
+      "task_id": "07b67d8cd7cb4aa4",
+      "method": "jev_gate",
+      "status": "done",
+      "task_success": false,
+      "burden": 0,
+      "ask_turns": 0,
+      "robot_actions": 3,
+      "physical_successes": 3,
+      "cost": {
+        "deepseek": {
+          "attempts": 4,
+          "input_tokens": 6071,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 89,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 3251.1996660614386,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 4,
+          "input_tokens": 7859,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 96,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 1375.4314990364946,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 8,
+        "api_latency_ms": 4626.631165097933,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      },
+      "wall_time_s": 20.072652101516724,
+      "queue_time_s": 0.599999189376831,
+      "returned_models": [
+        "deepseek-flash",
+        "jev-1.14.0"
+      ],
+      "termination_reason": "done",
+      "error": null
+    }
+  ],
+  "new_authenticated_attempts": 22,
+  "budget": {
+    "attempts": 22,
+    "episodes": 3,
+    "backends": {
+      "jev": {
+        "consecutive_errors": 0,
+        "blocked": false
+      },
+      "deepseek": {
+        "consecutive_errors": 0,
+        "blocked": false
+      }
+    },
+    "policy": "phase2",
+    "max_attempts": 60,
+    "max_episodes": 6,
+    "episode_ids": [
+      "d583d79a31a74a2a",
+      "d2dcad69b09d452a",
+      "07b67d8cd7cb4aa4"
+    ]
+  },
+  "frame_checks": [
+    {
+      "task_id": "d583d79a31a74a2a",
+      "simulation_step": 10643,
+      "sha256": "cdfb94b4257e7e0d63f88786ceb2a0333dd9d424eb3a93b845794598dd51ce3f",
+      "metadata_matches": true
+    },
+    {
+      "task_id": "d2dcad69b09d452a",
+      "simulation_step": 10814,
+      "sha256": "f819219e082df3dbf145c4c37d1a12bbd9b848a7a8715d0120e14175004989a7",
+      "metadata_matches": true
+    },
+    {
+      "task_id": "07b67d8cd7cb4aa4",
+      "simulation_step": 10643,
+      "sha256": "cdfb94b4257e7e0d63f88786ceb2a0333dd9d424eb3a93b845794598dd51ce3f",
+      "metadata_matches": true
+    }
+  ],
+  "csv_export_verified": true,
+  "reload_keeps_comparison": true,
+  "formal_test_episodes": 0,
+  "console_errors": [],
+  "external_requests": []
+}

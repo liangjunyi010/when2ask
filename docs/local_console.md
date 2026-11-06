@@ -82,3 +82,29 @@ See [the measured validation report](../outputs/console_evidence/README.md) and 
 The original 102 tests plus 24 new console tests pass. Offline pytest does not call providers. Browser integration scripts are explicit standalone commands; `console_live_check.mjs` additionally requires `--live` and the matching session path.
 
 Browser reconnect is supported. A full controller restart retains files and budget, but does not reload task cards or resume partial grasps. Worker/controller crash recovery, reliable remote reconnection mid-action, and two-computer VPN behavior remain future work. A pending manual question times out after 30 minutes; cancellation during a provider request waits for its bounded timeout. This release does not claim physical fault tolerance.
+
+## Robot Command Center upgrade — 2026-11-06
+
+The same local URL now opens a dark mission-control interface with a robot wall, system overview, task-specific execution trace, real Jev probability display and a unified clarification desk. All semantic transitions come from versioned controller/worker events; camera frames retain the JPEG/step/phase synchronization contract. Failure scores stay visible in red.
+
+**One-click comparison:** choose a task and 0–3 unknown preferences, then click “一键三方法对比”. This creates LLM-NoAsk, LLM-Gate and Jev-Gate with the same physical layout, scene seed, initial instruction, fixed hidden preferences, shared planner configuration and prompt hashes. Each has its own world/history. Replies are always automatic; human intent-setting tasks are launched separately. Comparison metadata and measured JSON/CSV are saved under the session's `comparisons/` directory. Click the CSV/JSON links in the results panel. A `?comparison=<id>` link and browser reload retain the chosen group while the controller is running.
+
+The three live episode slots are reserved atomically. Insufficient budget, missing credentials, a blocked backend or insufficient queue room rejects the group. There is no scripted replacement for a real method. Each model attempt is reserved in the same shared ledger before the network call; retries count normally. A discovered batch-binding bug was fixed and documented in the new evidence rather than hiding its first development run.
+
+**Unified queue:** pending questions from all tasks appear on the right. Click a task to answer its exact question. Candidate selections survive switching and browser reload; submitting uses the captured Task ID + Question ID. “自动回答本次” answers that question only. An accepted duplicate is ignored, and a question from another task is rejected. Only the questioning physical world freezes. Burden is charged when a question is issued, even if it later times out or is cancelled.
+
+**Disclosure profiles:** 0–3 unknown preferences are derived in memory on the two validated Dev layouts, without modifying data files or reading held-out Test. The existing default demo choices remain compatible. Initial disclosed preferences are selected in a deterministic order; these interactive profiles are not claimed to be a new balanced benchmark distribution.
+
+New local API endpoints:
+
+| Endpoint | Purpose |
+|---|---|
+| `POST /api/comparisons` | Atomic three-method launch with an idempotent request ID |
+| `GET /api/comparisons` | Current in-memory comparison groups |
+| `GET /api/comparisons/<id>` | Metadata, real scores and per-backend inference costs |
+| `GET /api/comparisons/<id>/csv` | Completed measured comparison download |
+| `GET /api/clarifications` | Authoritative task-scoped pending questions |
+
+Current browser checks: `node scripts/command_center_check.mjs` (real physics, no provider calls). Paid checks additionally require `--live --session-dir <matching-session>`. The previous browser-check entry points forward to this version and write new evidence under `outputs/command_center_evidence/`; they do not overwrite the published v1 artifacts. `python scripts/report_command_center.py` rebuilds the new report offline. The earlier `report_console.py` remains for the earlier evidence only.
+
+See [new measured results and screenshots](../outputs/command_center_evidence/README.md). Two-computer VPN testing remains deferred.
