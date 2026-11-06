@@ -1,0 +1,16 @@
+{
+  "version": "navigation_dev_v2.0",
+  "partition": "dev_only",
+  "gate_threshold": 0.5,
+  "speed_factors": [1.0, 0.5],
+  "answer_delays_s": [1.0, 30.0],
+  "burden_equivalent_s": 5.0,
+  "failure_penalty_s": 300.0,
+  "seed": 20261106,
+  "limits": {"rounds": 20, "robot_actions": 8, "slot_requests": 4, "episode_api_attempts": 32, "distance_m": 36},
+  "study_limits": {"authenticated_requests": 200, "ablation_requests": 60, "episode_requests": 140, "online_episodes": 12},
+  "full_episode_contract": "cost_exclusive",
+  "full_episode_payload": "summary",
+  "nominal_cost_model": {"linear_speed_m_s": 0.7, "angular_speed_rad_s": 0.9, "waypoint_overhead_s": 0.6, "settle_s": 0.5},
+  "notes": "Public stipulated uniform planning prior, six exhaustive locations, exact reliable simulator hints. One existing map group. No threshold selection or prompt tuning after calls."
+}
