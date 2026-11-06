@@ -1,0 +1,34 @@
+{
+  "attempts": 118,
+  "episodes": 12,
+  "backends": {
+    "jev": {
+      "consecutive_errors": 0,
+      "blocked": false
+    },
+    "deepseek": {
+      "consecutive_errors": 0,
+      "blocked": false
+    }
+  },
+  "policy": "phase2",
+  "max_attempts": 146,
+  "max_episodes": 12,
+  "episode_ids": [
+    "nav2_s100_d30_study_shelf__jev_gate",
+    "nav2_s100_d30_study_shelf__llm_gate",
+    "nav2_s100_d30_study_shelf__llm_noask",
+    "nav2_s050_d01_study_shelf__jev_gate",
+    "nav2_s050_d01_study_shelf__llm_gate",
+    "nav2_s050_d01_study_shelf__llm_noask",
+    "nav2_s050_d30_study_shelf__llm_noask",
+    "nav2_s050_d30_study_shelf__jev_gate",
+    "nav2_s050_d30_study_shelf__llm_gate",
+    "nav2_s100_d01_study_shelf__jev_gate",
+    "nav2_s100_d01_study_shelf__llm_gate",
+    "nav2_s100_d01_study_shelf__llm_noask"
+  ],
+  "stage_attempts": {
+    "episodes": 118
+  }
+}

@@ -213,3 +213,12 @@ not separately tested in a second environment.
 - All 1,148 protected existing tracked files (including the user's already-modified
   PPT) matched their pre-task hashes. No held-out Test API run or frozen-setting change.
 - [Raw logs, automatic CSV/JSON report and preregistration](../outputs/navigation_dev_v1/live_v1/README.md).
+
+## Navigation Dev v2 — independent cost study (2026-11-06)
+
+- Added independent nav2 modules and CLI, preserving all 1,261 protected existing files. Reuses original Husky geometry, local detector and physical evaluator; true wheel motor factors 1/0.5, reply delays 1s/30s, fixed interruption equivalent 5s and Jev threshold 0.5.
+- Physical oracle: 26/26; full offline suite: 226 passed. Public/raw-derived payload isolation, no oracle input, ASK freeze, gate order and shared budget limits verified.
+- 48 real gate-only cases all returned CONTINUE; no decision-level effect observed in the small 2x2 contract/summary ablation.
+- Corrected study: 12/12 valid physical model episodes succeeded, four per method. Mean burden: NoAsk 0, LLM-Gate 0.5, Jev-Gate 0.5. Mean operational cost: 56.37s / 60.63s / 94.48s. Gates asked in half-speed cases; Jev asked after four inspections. Planner path variation prevents attributing all cost differences to timing. One map and one seeded target only.
+- Technical incident preserved separately: the initial JSON-mode Action prompt lacked the required JSON marker. One HTTP 400 led to 12 pre-motion aborted launches. A format-only amendment retained 48 gate results and six launch-stage requests, then allowed 12 valid navigation launches. Combined launch registrations 24, completed physical model episodes 12, total model requests 172/200. No frozen-setting/threshold tuning or Test API run.
+- [Actual report, raw data and full incident accounting](../outputs/navigation_dev_v2/README.md). [Implementation/reproduction](navigation_dev_v2.md). The original HTML controller remains v1; v2 has a separate read-only experiment report.

@@ -1,0 +1,17 @@
+{
+  "desktop": {
+    "width": 1920,
+    "documentWidth": 1920,
+    "images": 12,
+    "tables": 3,
+    "text": true
+  },
+  "mobile": {
+    "width": 390,
+    "documentWidth": 390
+  },
+  "console_errors": [],
+  "external_requests": [],
+  "actual_browser": "Chromium / Google Chrome",
+  "real_final_frames": 12
+}

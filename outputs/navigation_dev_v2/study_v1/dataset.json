@@ -1,0 +1,194 @@
+[
+  {
+    "sample_id": "nav2_s100_d01_kitchen_counter",
+    "target_location": "kitchen_counter",
+    "speed_factor": 1.0,
+    "answer_delay_s": 1.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s100_d01_kitchen_shelf",
+    "target_location": "kitchen_shelf",
+    "speed_factor": 1.0,
+    "answer_delay_s": 1.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s100_d01_living_cabinet",
+    "target_location": "living_cabinet",
+    "speed_factor": 1.0,
+    "answer_delay_s": 1.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s100_d01_living_table",
+    "target_location": "living_table",
+    "speed_factor": 1.0,
+    "answer_delay_s": 1.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s100_d01_study_desk",
+    "target_location": "study_desk",
+    "speed_factor": 1.0,
+    "answer_delay_s": 1.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s100_d01_study_shelf",
+    "target_location": "study_shelf",
+    "speed_factor": 1.0,
+    "answer_delay_s": 1.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s100_d30_kitchen_counter",
+    "target_location": "kitchen_counter",
+    "speed_factor": 1.0,
+    "answer_delay_s": 30.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s100_d30_kitchen_shelf",
+    "target_location": "kitchen_shelf",
+    "speed_factor": 1.0,
+    "answer_delay_s": 30.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s100_d30_living_cabinet",
+    "target_location": "living_cabinet",
+    "speed_factor": 1.0,
+    "answer_delay_s": 30.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s100_d30_living_table",
+    "target_location": "living_table",
+    "speed_factor": 1.0,
+    "answer_delay_s": 30.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s100_d30_study_desk",
+    "target_location": "study_desk",
+    "speed_factor": 1.0,
+    "answer_delay_s": 30.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s100_d30_study_shelf",
+    "target_location": "study_shelf",
+    "speed_factor": 1.0,
+    "answer_delay_s": 30.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s050_d01_kitchen_counter",
+    "target_location": "kitchen_counter",
+    "speed_factor": 0.5,
+    "answer_delay_s": 1.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s050_d01_kitchen_shelf",
+    "target_location": "kitchen_shelf",
+    "speed_factor": 0.5,
+    "answer_delay_s": 1.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s050_d01_living_cabinet",
+    "target_location": "living_cabinet",
+    "speed_factor": 0.5,
+    "answer_delay_s": 1.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s050_d01_living_table",
+    "target_location": "living_table",
+    "speed_factor": 0.5,
+    "answer_delay_s": 1.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s050_d01_study_desk",
+    "target_location": "study_desk",
+    "speed_factor": 0.5,
+    "answer_delay_s": 1.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s050_d01_study_shelf",
+    "target_location": "study_shelf",
+    "speed_factor": 0.5,
+    "answer_delay_s": 1.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s050_d30_kitchen_counter",
+    "target_location": "kitchen_counter",
+    "speed_factor": 0.5,
+    "answer_delay_s": 30.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s050_d30_kitchen_shelf",
+    "target_location": "kitchen_shelf",
+    "speed_factor": 0.5,
+    "answer_delay_s": 30.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s050_d30_living_cabinet",
+    "target_location": "living_cabinet",
+    "speed_factor": 0.5,
+    "answer_delay_s": 30.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s050_d30_living_table",
+    "target_location": "living_table",
+    "speed_factor": 0.5,
+    "answer_delay_s": 30.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s050_d30_study_desk",
+    "target_location": "study_desk",
+    "speed_factor": 0.5,
+    "answer_delay_s": 30.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  },
+  {
+    "sample_id": "nav2_s050_d30_study_shelf",
+    "target_location": "study_shelf",
+    "speed_factor": 0.5,
+    "answer_delay_s": 30.0,
+    "scene_seed": 0,
+    "group_id": "three_room_map_v1"
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "state_id": "s0.5_d30_initial",
+  "backend": "jev",
+  "contract": "overlap_control",
+  "style": "summary",
+  "id": "gate_027",
+  "nominal_reference": {
+    "decision": "ASK",
+    "ask_s": 53.479668935219195,
+    "continue_s": 61.94595102393196,
+    "margin_s": 8.466282088712767,
+    "interpretation": "Expected cost under shared nominal estimates and public prior, not realized hindsight truth"
+  },
+  "decision": "CONTINUE",
+  "p_ask": 0.13,
+  "error": null,
+  "cost": {
+    "deepseek": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 1,
+      "input_tokens": 2454,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 24,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 297.7157499990426,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 1,
+    "api_latency_ms": 297.7157499990426,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  }
+}

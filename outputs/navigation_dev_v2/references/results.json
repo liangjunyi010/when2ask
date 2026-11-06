@@ -1,0 +1,2020 @@
+[
+  {
+    "sample": "nav2_s100_d30_study_shelf",
+    "policy": "never_ask",
+    "success": true,
+    "burden": 0,
+    "distance_m": 13.457940952198921,
+    "motion_sim_s": 38.30833333333333,
+    "modeled_reply_s": 0.0,
+    "modeled_operational_s": 38.30833333333333,
+    "evidence_kind": "unpaid_scripted_policy_real_pybullet_with_modeled_reply_cost",
+    "actual_reply_wait_performed": false,
+    "actions": [
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_cabinet",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 1252,
+        "distance_m": 1.3317,
+        "target_detected": false
+      },
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_table",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 1252,
+        "end_step": 3490,
+        "distance_m": 2.6697,
+        "target_detected": false
+      },
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_desk",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 3490,
+        "end_step": 7162,
+        "distance_m": 6.6779,
+        "target_detected": false
+      },
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 7162,
+        "end_step": 9434,
+        "distance_m": 2.7787,
+        "target_detected": true
+      }
+    ],
+    "public_history": [
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "living_cabinet",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 240,
+          "end_step": 1252,
+          "distance_m": 1.3317,
+          "target_detected": false
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "living_table",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 1252,
+          "end_step": 3490,
+          "distance_m": 2.6697,
+          "target_detected": false
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_desk",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 3490,
+          "end_step": 7162,
+          "distance_m": 6.6779,
+          "target_detected": false
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_shelf",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 7162,
+          "end_step": 9434,
+          "distance_m": 2.7787,
+          "target_detected": true
+        }
+      }
+    ],
+    "evaluation": {
+      "task_success": true,
+      "termination_reason": "scripted_reference_done",
+      "conditions": {
+        "target_locally_detected": true,
+        "physically_within_approach_radius": true,
+        "robot_stopped": true,
+        "no_wall_penetration": true,
+        "distance_budget_respected": true
+      },
+      "clarification_burden": 0,
+      "action_count": 4,
+      "successful_action_count": 4,
+      "details": {
+        "actual_target_position": [
+          4.000364974676378,
+          -2.1501715828793895,
+          0.7150774278510161
+        ],
+        "actual_target_location": "study_shelf",
+        "final_robot_pose": [
+          4.113521587656395,
+          -1.1836380047906603,
+          -1.6905908036004251
+        ],
+        "final_distance_m": 0.9731349221120938,
+        "distance_travelled_m": 13.457940952198921,
+        "checked_locations": [
+          "living_cabinet",
+          "living_table",
+          "study_desk",
+          "study_shelf"
+        ],
+        "detection_model": "range_1.65m_fov90_ray_los",
+        "pickup_or_delivery": false
+      },
+      "evaluator_version": "navigation_geometry_los_v1"
+    }
+  },
+  {
+    "sample": "nav2_s100_d30_study_shelf",
+    "policy": "ask_at_start",
+    "success": true,
+    "burden": 1,
+    "distance_m": 5.5371945753641425,
+    "motion_sim_s": 11.254166666666666,
+    "modeled_reply_s": 30.0,
+    "modeled_operational_s": 46.25416666666666,
+    "evidence_kind": "unpaid_scripted_policy_real_pybullet_with_modeled_reply_cost",
+    "actual_reply_wait_performed": false,
+    "actions": [
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 2941,
+        "distance_m": 5.5372,
+        "target_detected": true
+      }
+    ],
+    "public_history": [
+      {
+        "kind": "ask",
+        "question": {
+          "type": "select",
+          "text": "Where is the knife?",
+          "requests": [
+            {
+              "role": "target_location",
+              "candidate_ids": [
+                "kitchen_counter",
+                "kitchen_shelf",
+                "living_cabinet",
+                "living_table",
+                "study_desk",
+                "study_shelf"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "kind": "user_answer",
+        "response": {
+          "choices": {
+            "target_location": "study_shelf"
+          }
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_shelf",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 240,
+          "end_step": 2941,
+          "distance_m": 5.5372,
+          "target_detected": true
+        }
+      }
+    ],
+    "evaluation": {
+      "task_success": true,
+      "termination_reason": "scripted_reference_done",
+      "conditions": {
+        "target_locally_detected": true,
+        "physically_within_approach_radius": true,
+        "robot_stopped": true,
+        "no_wall_penetration": true,
+        "distance_budget_respected": true
+      },
+      "clarification_burden": 1,
+      "action_count": 1,
+      "successful_action_count": 1,
+      "details": {
+        "actual_target_position": [
+          4.000339950480626,
+          -2.150059049963204,
+          0.715077428463935
+        ],
+        "actual_target_location": "study_shelf",
+        "final_robot_pose": [
+          4.069096006452682,
+          -0.9738127248521994,
+          -1.4922169275603356
+        ],
+        "final_distance_m": 1.1782541375144735,
+        "distance_travelled_m": 5.5371945753641425,
+        "checked_locations": [
+          "study_shelf"
+        ],
+        "detection_model": "range_1.65m_fov90_ray_los",
+        "pickup_or_delivery": false
+      },
+      "evaluator_version": "navigation_geometry_los_v1"
+    }
+  },
+  {
+    "sample": "nav2_s100_d30_study_shelf",
+    "policy": "ask_after_one",
+    "success": true,
+    "burden": 1,
+    "distance_m": 7.995924637165099,
+    "motion_sim_s": 20.579166666666666,
+    "modeled_reply_s": 30.0,
+    "modeled_operational_s": 55.579166666666666,
+    "evidence_kind": "unpaid_scripted_policy_real_pybullet_with_modeled_reply_cost",
+    "actual_reply_wait_performed": false,
+    "actions": [
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_cabinet",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 1252,
+        "distance_m": 1.3317,
+        "target_detected": false
+      },
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 1252,
+        "end_step": 5179,
+        "distance_m": 6.6642,
+        "target_detected": true
+      }
+    ],
+    "public_history": [
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "living_cabinet",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 240,
+          "end_step": 1252,
+          "distance_m": 1.3317,
+          "target_detected": false
+        }
+      },
+      {
+        "kind": "ask",
+        "question": {
+          "type": "select",
+          "text": "Where is the knife?",
+          "requests": [
+            {
+              "role": "target_location",
+              "candidate_ids": [
+                "kitchen_counter",
+                "kitchen_shelf",
+                "living_cabinet",
+                "living_table",
+                "study_desk",
+                "study_shelf"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "kind": "user_answer",
+        "response": {
+          "choices": {
+            "target_location": "study_shelf"
+          }
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_shelf",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 1252,
+          "end_step": 5179,
+          "distance_m": 6.6642,
+          "target_detected": true
+        }
+      }
+    ],
+    "evaluation": {
+      "task_success": true,
+      "termination_reason": "scripted_reference_done",
+      "conditions": {
+        "target_locally_detected": true,
+        "physically_within_approach_radius": true,
+        "robot_stopped": true,
+        "no_wall_penetration": true,
+        "distance_budget_respected": true
+      },
+      "clarification_burden": 1,
+      "action_count": 2,
+      "successful_action_count": 2,
+      "details": {
+        "actual_target_position": [
+          4.000348577354172,
+          -2.1500977834622086,
+          0.7150774282531687
+        ],
+        "actual_target_location": "study_shelf",
+        "final_robot_pose": [
+          4.033223934971977,
+          -1.0235673296742192,
+          -1.4510300285770898
+        ],
+        "final_distance_m": 1.1270100498443978,
+        "distance_travelled_m": 7.995924637165099,
+        "checked_locations": [
+          "living_cabinet",
+          "study_shelf"
+        ],
+        "detection_model": "range_1.65m_fov90_ray_los",
+        "pickup_or_delivery": false
+      },
+      "evaluator_version": "navigation_geometry_los_v1"
+    }
+  },
+  {
+    "sample": "nav2_s100_d30_study_shelf",
+    "policy": "nominal_cost_gate",
+    "success": true,
+    "burden": 0,
+    "distance_m": 13.457940952198921,
+    "motion_sim_s": 38.30833333333333,
+    "modeled_reply_s": 0.0,
+    "modeled_operational_s": 38.30833333333333,
+    "evidence_kind": "unpaid_scripted_policy_real_pybullet_with_modeled_reply_cost",
+    "actual_reply_wait_performed": false,
+    "actions": [
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_cabinet",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 1252,
+        "distance_m": 1.3317,
+        "target_detected": false
+      },
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_table",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 1252,
+        "end_step": 3490,
+        "distance_m": 2.6697,
+        "target_detected": false
+      },
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_desk",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 3490,
+        "end_step": 7162,
+        "distance_m": 6.6779,
+        "target_detected": false
+      },
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 7162,
+        "end_step": 9434,
+        "distance_m": 2.7787,
+        "target_detected": true
+      }
+    ],
+    "public_history": [
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "living_cabinet",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 240,
+          "end_step": 1252,
+          "distance_m": 1.3317,
+          "target_detected": false
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "living_table",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 1252,
+          "end_step": 3490,
+          "distance_m": 2.6697,
+          "target_detected": false
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_desk",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 3490,
+          "end_step": 7162,
+          "distance_m": 6.6779,
+          "target_detected": false
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_shelf",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 7162,
+          "end_step": 9434,
+          "distance_m": 2.7787,
+          "target_detected": true
+        }
+      }
+    ],
+    "evaluation": {
+      "task_success": true,
+      "termination_reason": "scripted_reference_done",
+      "conditions": {
+        "target_locally_detected": true,
+        "physically_within_approach_radius": true,
+        "robot_stopped": true,
+        "no_wall_penetration": true,
+        "distance_budget_respected": true
+      },
+      "clarification_burden": 0,
+      "action_count": 4,
+      "successful_action_count": 4,
+      "details": {
+        "actual_target_position": [
+          4.000364974676378,
+          -2.1501715828793895,
+          0.7150774278510161
+        ],
+        "actual_target_location": "study_shelf",
+        "final_robot_pose": [
+          4.113521587656395,
+          -1.1836380047906603,
+          -1.6905908036004251
+        ],
+        "final_distance_m": 0.9731349221120938,
+        "distance_travelled_m": 13.457940952198921,
+        "checked_locations": [
+          "living_cabinet",
+          "living_table",
+          "study_desk",
+          "study_shelf"
+        ],
+        "detection_model": "range_1.65m_fov90_ray_los",
+        "pickup_or_delivery": false
+      },
+      "evaluator_version": "navigation_geometry_los_v1"
+    }
+  },
+  {
+    "sample": "nav2_s050_d01_study_shelf",
+    "policy": "never_ask",
+    "success": true,
+    "burden": 0,
+    "distance_m": 14.123019075053554,
+    "motion_sim_s": 74.4375,
+    "modeled_reply_s": 0.0,
+    "modeled_operational_s": 74.4375,
+    "evidence_kind": "unpaid_scripted_policy_real_pybullet_with_modeled_reply_cost",
+    "actual_reply_wait_performed": false,
+    "actions": [
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_cabinet",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 2140,
+        "distance_m": 1.4102,
+        "target_detected": false
+      },
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_table",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 2140,
+        "end_step": 6503,
+        "distance_m": 2.7602,
+        "target_detected": false
+      },
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_desk",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 6503,
+        "end_step": 13879,
+        "distance_m": 7.1896,
+        "target_detected": false
+      },
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 13879,
+        "end_step": 18105,
+        "distance_m": 2.7629,
+        "target_detected": true
+      }
+    ],
+    "public_history": [
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "living_cabinet",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 240,
+          "end_step": 2140,
+          "distance_m": 1.4102,
+          "target_detected": false
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "living_table",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 2140,
+          "end_step": 6503,
+          "distance_m": 2.7602,
+          "target_detected": false
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_desk",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 6503,
+          "end_step": 13879,
+          "distance_m": 7.1896,
+          "target_detected": false
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_shelf",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 13879,
+          "end_step": 18105,
+          "distance_m": 2.7629,
+          "target_detected": true
+        }
+      }
+    ],
+    "evaluation": {
+      "task_success": true,
+      "termination_reason": "scripted_reference_done",
+      "conditions": {
+        "target_locally_detected": true,
+        "physically_within_approach_radius": true,
+        "robot_stopped": true,
+        "no_wall_penetration": true,
+        "distance_budget_respected": true
+      },
+      "clarification_burden": 0,
+      "action_count": 4,
+      "successful_action_count": 4,
+      "details": {
+        "actual_target_position": [
+          4.0003983700912,
+          -2.1503226159595235,
+          0.715077427025654
+        ],
+        "actual_target_location": "study_shelf",
+        "final_robot_pose": [
+          4.104290116600094,
+          -1.1411357231626489,
+          -1.6906684519135244
+        ],
+        "final_distance_m": 1.014520418515901,
+        "distance_travelled_m": 14.123019075053554,
+        "checked_locations": [
+          "living_cabinet",
+          "living_table",
+          "study_desk",
+          "study_shelf"
+        ],
+        "detection_model": "range_1.65m_fov90_ray_los",
+        "pickup_or_delivery": false
+      },
+      "evaluator_version": "navigation_geometry_los_v1"
+    }
+  },
+  {
+    "sample": "nav2_s050_d01_study_shelf",
+    "policy": "ask_at_start",
+    "success": true,
+    "burden": 1,
+    "distance_m": 5.662056254685245,
+    "motion_sim_s": 21.795833333333334,
+    "modeled_reply_s": 1.0,
+    "modeled_operational_s": 27.795833333333334,
+    "evidence_kind": "unpaid_scripted_policy_real_pybullet_with_modeled_reply_cost",
+    "actual_reply_wait_performed": false,
+    "actions": [
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 5471,
+        "distance_m": 5.6621,
+        "target_detected": true
+      }
+    ],
+    "public_history": [
+      {
+        "kind": "ask",
+        "question": {
+          "type": "select",
+          "text": "Where is the knife?",
+          "requests": [
+            {
+              "role": "target_location",
+              "candidate_ids": [
+                "kitchen_counter",
+                "kitchen_shelf",
+                "living_cabinet",
+                "living_table",
+                "study_desk",
+                "study_shelf"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "kind": "user_answer",
+        "response": {
+          "choices": {
+            "target_location": "study_shelf"
+          }
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_shelf",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 240,
+          "end_step": 5471,
+          "distance_m": 5.6621,
+          "target_detected": true
+        }
+      }
+    ],
+    "evaluation": {
+      "task_success": true,
+      "termination_reason": "scripted_reference_done",
+      "conditions": {
+        "target_locally_detected": true,
+        "physically_within_approach_radius": true,
+        "robot_stopped": true,
+        "no_wall_penetration": true,
+        "distance_budget_respected": true
+      },
+      "clarification_burden": 1,
+      "action_count": 1,
+      "successful_action_count": 1,
+      "details": {
+        "actual_target_position": [
+          4.000349702814793,
+          -2.150102841362842,
+          0.7150774282256309
+        ],
+        "actual_target_location": "study_shelf",
+        "final_robot_pose": [
+          4.0580639169590516,
+          -0.9626309387398188,
+          -1.508405475550761
+        ],
+        "final_distance_m": 1.1888736055752236,
+        "distance_travelled_m": 5.662056254685245,
+        "checked_locations": [
+          "study_shelf"
+        ],
+        "detection_model": "range_1.65m_fov90_ray_los",
+        "pickup_or_delivery": false
+      },
+      "evaluator_version": "navigation_geometry_los_v1"
+    }
+  },
+  {
+    "sample": "nav2_s050_d01_study_shelf",
+    "policy": "ask_after_one",
+    "success": true,
+    "burden": 1,
+    "distance_m": 8.424866423646419,
+    "motion_sim_s": 39.1,
+    "modeled_reply_s": 1.0,
+    "modeled_operational_s": 45.1,
+    "evidence_kind": "unpaid_scripted_policy_real_pybullet_with_modeled_reply_cost",
+    "actual_reply_wait_performed": false,
+    "actions": [
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_cabinet",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 2140,
+        "distance_m": 1.4102,
+        "target_detected": false
+      },
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 2140,
+        "end_step": 9624,
+        "distance_m": 7.0146,
+        "target_detected": true
+      }
+    ],
+    "public_history": [
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "living_cabinet",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 240,
+          "end_step": 2140,
+          "distance_m": 1.4102,
+          "target_detected": false
+        }
+      },
+      {
+        "kind": "ask",
+        "question": {
+          "type": "select",
+          "text": "Where is the knife?",
+          "requests": [
+            {
+              "role": "target_location",
+              "candidate_ids": [
+                "kitchen_counter",
+                "kitchen_shelf",
+                "living_cabinet",
+                "living_table",
+                "study_desk",
+                "study_shelf"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "kind": "user_answer",
+        "response": {
+          "choices": {
+            "target_location": "study_shelf"
+          }
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_shelf",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 2140,
+          "end_step": 9624,
+          "distance_m": 7.0146,
+          "target_detected": true
+        }
+      }
+    ],
+    "evaluation": {
+      "task_success": true,
+      "termination_reason": "scripted_reference_done",
+      "conditions": {
+        "target_locally_detected": true,
+        "physically_within_approach_radius": true,
+        "robot_stopped": true,
+        "no_wall_penetration": true,
+        "distance_budget_respected": true
+      },
+      "clarification_burden": 1,
+      "action_count": 2,
+      "successful_action_count": 2,
+      "details": {
+        "actual_target_position": [
+          4.000365706728969,
+          -2.1501748830914016,
+          0.7150774278330148
+        ],
+        "actual_target_location": "study_shelf",
+        "final_robot_pose": [
+          3.990175232425765,
+          -1.0617261648931007,
+          -1.450828688000101
+        ],
+        "final_distance_m": 1.0884964207171508,
+        "distance_travelled_m": 8.424866423646419,
+        "checked_locations": [
+          "living_cabinet",
+          "study_shelf"
+        ],
+        "detection_model": "range_1.65m_fov90_ray_los",
+        "pickup_or_delivery": false
+      },
+      "evaluator_version": "navigation_geometry_los_v1"
+    }
+  },
+  {
+    "sample": "nav2_s050_d01_study_shelf",
+    "policy": "nominal_cost_gate",
+    "success": true,
+    "burden": 1,
+    "distance_m": 5.662056254685245,
+    "motion_sim_s": 21.795833333333334,
+    "modeled_reply_s": 1.0,
+    "modeled_operational_s": 27.795833333333334,
+    "evidence_kind": "unpaid_scripted_policy_real_pybullet_with_modeled_reply_cost",
+    "actual_reply_wait_performed": false,
+    "actions": [
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 5471,
+        "distance_m": 5.6621,
+        "target_detected": true
+      }
+    ],
+    "public_history": [
+      {
+        "kind": "ask",
+        "question": {
+          "type": "select",
+          "text": "Where is the knife?",
+          "requests": [
+            {
+              "role": "target_location",
+              "candidate_ids": [
+                "kitchen_counter",
+                "kitchen_shelf",
+                "living_cabinet",
+                "living_table",
+                "study_desk",
+                "study_shelf"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "kind": "user_answer",
+        "response": {
+          "choices": {
+            "target_location": "study_shelf"
+          }
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_shelf",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 240,
+          "end_step": 5471,
+          "distance_m": 5.6621,
+          "target_detected": true
+        }
+      }
+    ],
+    "evaluation": {
+      "task_success": true,
+      "termination_reason": "scripted_reference_done",
+      "conditions": {
+        "target_locally_detected": true,
+        "physically_within_approach_radius": true,
+        "robot_stopped": true,
+        "no_wall_penetration": true,
+        "distance_budget_respected": true
+      },
+      "clarification_burden": 1,
+      "action_count": 1,
+      "successful_action_count": 1,
+      "details": {
+        "actual_target_position": [
+          4.000349702814793,
+          -2.150102841362842,
+          0.7150774282256309
+        ],
+        "actual_target_location": "study_shelf",
+        "final_robot_pose": [
+          4.0580639169590516,
+          -0.9626309387398188,
+          -1.508405475550761
+        ],
+        "final_distance_m": 1.1888736055752236,
+        "distance_travelled_m": 5.662056254685245,
+        "checked_locations": [
+          "study_shelf"
+        ],
+        "detection_model": "range_1.65m_fov90_ray_los",
+        "pickup_or_delivery": false
+      },
+      "evaluator_version": "navigation_geometry_los_v1"
+    }
+  },
+  {
+    "sample": "nav2_s050_d30_study_shelf",
+    "policy": "never_ask",
+    "success": true,
+    "burden": 0,
+    "distance_m": 14.123019075053554,
+    "motion_sim_s": 74.4375,
+    "modeled_reply_s": 0.0,
+    "modeled_operational_s": 74.4375,
+    "evidence_kind": "unpaid_scripted_policy_real_pybullet_with_modeled_reply_cost",
+    "actual_reply_wait_performed": false,
+    "actions": [
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_cabinet",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 2140,
+        "distance_m": 1.4102,
+        "target_detected": false
+      },
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_table",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 2140,
+        "end_step": 6503,
+        "distance_m": 2.7602,
+        "target_detected": false
+      },
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_desk",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 6503,
+        "end_step": 13879,
+        "distance_m": 7.1896,
+        "target_detected": false
+      },
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 13879,
+        "end_step": 18105,
+        "distance_m": 2.7629,
+        "target_detected": true
+      }
+    ],
+    "public_history": [
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "living_cabinet",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 240,
+          "end_step": 2140,
+          "distance_m": 1.4102,
+          "target_detected": false
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "living_table",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 2140,
+          "end_step": 6503,
+          "distance_m": 2.7602,
+          "target_detected": false
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_desk",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 6503,
+          "end_step": 13879,
+          "distance_m": 7.1896,
+          "target_detected": false
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_shelf",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 13879,
+          "end_step": 18105,
+          "distance_m": 2.7629,
+          "target_detected": true
+        }
+      }
+    ],
+    "evaluation": {
+      "task_success": true,
+      "termination_reason": "scripted_reference_done",
+      "conditions": {
+        "target_locally_detected": true,
+        "physically_within_approach_radius": true,
+        "robot_stopped": true,
+        "no_wall_penetration": true,
+        "distance_budget_respected": true
+      },
+      "clarification_burden": 0,
+      "action_count": 4,
+      "successful_action_count": 4,
+      "details": {
+        "actual_target_position": [
+          4.0003983700912,
+          -2.1503226159595235,
+          0.715077427025654
+        ],
+        "actual_target_location": "study_shelf",
+        "final_robot_pose": [
+          4.104290116600094,
+          -1.1411357231626489,
+          -1.6906684519135244
+        ],
+        "final_distance_m": 1.014520418515901,
+        "distance_travelled_m": 14.123019075053554,
+        "checked_locations": [
+          "living_cabinet",
+          "living_table",
+          "study_desk",
+          "study_shelf"
+        ],
+        "detection_model": "range_1.65m_fov90_ray_los",
+        "pickup_or_delivery": false
+      },
+      "evaluator_version": "navigation_geometry_los_v1"
+    }
+  },
+  {
+    "sample": "nav2_s050_d30_study_shelf",
+    "policy": "ask_at_start",
+    "success": true,
+    "burden": 1,
+    "distance_m": 5.662056254685245,
+    "motion_sim_s": 21.795833333333334,
+    "modeled_reply_s": 30.0,
+    "modeled_operational_s": 56.795833333333334,
+    "evidence_kind": "unpaid_scripted_policy_real_pybullet_with_modeled_reply_cost",
+    "actual_reply_wait_performed": false,
+    "actions": [
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 5471,
+        "distance_m": 5.6621,
+        "target_detected": true
+      }
+    ],
+    "public_history": [
+      {
+        "kind": "ask",
+        "question": {
+          "type": "select",
+          "text": "Where is the knife?",
+          "requests": [
+            {
+              "role": "target_location",
+              "candidate_ids": [
+                "kitchen_counter",
+                "kitchen_shelf",
+                "living_cabinet",
+                "living_table",
+                "study_desk",
+                "study_shelf"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "kind": "user_answer",
+        "response": {
+          "choices": {
+            "target_location": "study_shelf"
+          }
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_shelf",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 240,
+          "end_step": 5471,
+          "distance_m": 5.6621,
+          "target_detected": true
+        }
+      }
+    ],
+    "evaluation": {
+      "task_success": true,
+      "termination_reason": "scripted_reference_done",
+      "conditions": {
+        "target_locally_detected": true,
+        "physically_within_approach_radius": true,
+        "robot_stopped": true,
+        "no_wall_penetration": true,
+        "distance_budget_respected": true
+      },
+      "clarification_burden": 1,
+      "action_count": 1,
+      "successful_action_count": 1,
+      "details": {
+        "actual_target_position": [
+          4.000349702814793,
+          -2.150102841362842,
+          0.7150774282256309
+        ],
+        "actual_target_location": "study_shelf",
+        "final_robot_pose": [
+          4.0580639169590516,
+          -0.9626309387398188,
+          -1.508405475550761
+        ],
+        "final_distance_m": 1.1888736055752236,
+        "distance_travelled_m": 5.662056254685245,
+        "checked_locations": [
+          "study_shelf"
+        ],
+        "detection_model": "range_1.65m_fov90_ray_los",
+        "pickup_or_delivery": false
+      },
+      "evaluator_version": "navigation_geometry_los_v1"
+    }
+  },
+  {
+    "sample": "nav2_s050_d30_study_shelf",
+    "policy": "ask_after_one",
+    "success": true,
+    "burden": 1,
+    "distance_m": 8.424866423646419,
+    "motion_sim_s": 39.1,
+    "modeled_reply_s": 30.0,
+    "modeled_operational_s": 74.1,
+    "evidence_kind": "unpaid_scripted_policy_real_pybullet_with_modeled_reply_cost",
+    "actual_reply_wait_performed": false,
+    "actions": [
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_cabinet",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 2140,
+        "distance_m": 1.4102,
+        "target_detected": false
+      },
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 2140,
+        "end_step": 9624,
+        "distance_m": 7.0146,
+        "target_detected": true
+      }
+    ],
+    "public_history": [
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "living_cabinet",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 240,
+          "end_step": 2140,
+          "distance_m": 1.4102,
+          "target_detected": false
+        }
+      },
+      {
+        "kind": "ask",
+        "question": {
+          "type": "select",
+          "text": "Where is the knife?",
+          "requests": [
+            {
+              "role": "target_location",
+              "candidate_ids": [
+                "kitchen_counter",
+                "kitchen_shelf",
+                "living_cabinet",
+                "living_table",
+                "study_desk",
+                "study_shelf"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "kind": "user_answer",
+        "response": {
+          "choices": {
+            "target_location": "study_shelf"
+          }
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_shelf",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 2140,
+          "end_step": 9624,
+          "distance_m": 7.0146,
+          "target_detected": true
+        }
+      }
+    ],
+    "evaluation": {
+      "task_success": true,
+      "termination_reason": "scripted_reference_done",
+      "conditions": {
+        "target_locally_detected": true,
+        "physically_within_approach_radius": true,
+        "robot_stopped": true,
+        "no_wall_penetration": true,
+        "distance_budget_respected": true
+      },
+      "clarification_burden": 1,
+      "action_count": 2,
+      "successful_action_count": 2,
+      "details": {
+        "actual_target_position": [
+          4.000365706728969,
+          -2.1501748830914016,
+          0.7150774278330148
+        ],
+        "actual_target_location": "study_shelf",
+        "final_robot_pose": [
+          3.990175232425765,
+          -1.0617261648931007,
+          -1.450828688000101
+        ],
+        "final_distance_m": 1.0884964207171508,
+        "distance_travelled_m": 8.424866423646419,
+        "checked_locations": [
+          "living_cabinet",
+          "study_shelf"
+        ],
+        "detection_model": "range_1.65m_fov90_ray_los",
+        "pickup_or_delivery": false
+      },
+      "evaluator_version": "navigation_geometry_los_v1"
+    }
+  },
+  {
+    "sample": "nav2_s050_d30_study_shelf",
+    "policy": "nominal_cost_gate",
+    "success": true,
+    "burden": 1,
+    "distance_m": 5.662056254685245,
+    "motion_sim_s": 21.795833333333334,
+    "modeled_reply_s": 30.0,
+    "modeled_operational_s": 56.795833333333334,
+    "evidence_kind": "unpaid_scripted_policy_real_pybullet_with_modeled_reply_cost",
+    "actual_reply_wait_performed": false,
+    "actions": [
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 5471,
+        "distance_m": 5.6621,
+        "target_detected": true
+      }
+    ],
+    "public_history": [
+      {
+        "kind": "ask",
+        "question": {
+          "type": "select",
+          "text": "Where is the knife?",
+          "requests": [
+            {
+              "role": "target_location",
+              "candidate_ids": [
+                "kitchen_counter",
+                "kitchen_shelf",
+                "living_cabinet",
+                "living_table",
+                "study_desk",
+                "study_shelf"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "kind": "user_answer",
+        "response": {
+          "choices": {
+            "target_location": "study_shelf"
+          }
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_shelf",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 240,
+          "end_step": 5471,
+          "distance_m": 5.6621,
+          "target_detected": true
+        }
+      }
+    ],
+    "evaluation": {
+      "task_success": true,
+      "termination_reason": "scripted_reference_done",
+      "conditions": {
+        "target_locally_detected": true,
+        "physically_within_approach_radius": true,
+        "robot_stopped": true,
+        "no_wall_penetration": true,
+        "distance_budget_respected": true
+      },
+      "clarification_burden": 1,
+      "action_count": 1,
+      "successful_action_count": 1,
+      "details": {
+        "actual_target_position": [
+          4.000349702814793,
+          -2.150102841362842,
+          0.7150774282256309
+        ],
+        "actual_target_location": "study_shelf",
+        "final_robot_pose": [
+          4.0580639169590516,
+          -0.9626309387398188,
+          -1.508405475550761
+        ],
+        "final_distance_m": 1.1888736055752236,
+        "distance_travelled_m": 5.662056254685245,
+        "checked_locations": [
+          "study_shelf"
+        ],
+        "detection_model": "range_1.65m_fov90_ray_los",
+        "pickup_or_delivery": false
+      },
+      "evaluator_version": "navigation_geometry_los_v1"
+    }
+  },
+  {
+    "sample": "nav2_s100_d01_study_shelf",
+    "policy": "never_ask",
+    "success": true,
+    "burden": 0,
+    "distance_m": 13.457940952198921,
+    "motion_sim_s": 38.30833333333333,
+    "modeled_reply_s": 0.0,
+    "modeled_operational_s": 38.30833333333333,
+    "evidence_kind": "unpaid_scripted_policy_real_pybullet_with_modeled_reply_cost",
+    "actual_reply_wait_performed": false,
+    "actions": [
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_cabinet",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 1252,
+        "distance_m": 1.3317,
+        "target_detected": false
+      },
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_table",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 1252,
+        "end_step": 3490,
+        "distance_m": 2.6697,
+        "target_detected": false
+      },
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_desk",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 3490,
+        "end_step": 7162,
+        "distance_m": 6.6779,
+        "target_detected": false
+      },
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 7162,
+        "end_step": 9434,
+        "distance_m": 2.7787,
+        "target_detected": true
+      }
+    ],
+    "public_history": [
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "living_cabinet",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 240,
+          "end_step": 1252,
+          "distance_m": 1.3317,
+          "target_detected": false
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "living_table",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 1252,
+          "end_step": 3490,
+          "distance_m": 2.6697,
+          "target_detected": false
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_desk",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 3490,
+          "end_step": 7162,
+          "distance_m": 6.6779,
+          "target_detected": false
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_shelf",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 7162,
+          "end_step": 9434,
+          "distance_m": 2.7787,
+          "target_detected": true
+        }
+      }
+    ],
+    "evaluation": {
+      "task_success": true,
+      "termination_reason": "scripted_reference_done",
+      "conditions": {
+        "target_locally_detected": true,
+        "physically_within_approach_radius": true,
+        "robot_stopped": true,
+        "no_wall_penetration": true,
+        "distance_budget_respected": true
+      },
+      "clarification_burden": 0,
+      "action_count": 4,
+      "successful_action_count": 4,
+      "details": {
+        "actual_target_position": [
+          4.000364974676378,
+          -2.1501715828793895,
+          0.7150774278510161
+        ],
+        "actual_target_location": "study_shelf",
+        "final_robot_pose": [
+          4.113521587656395,
+          -1.1836380047906603,
+          -1.6905908036004251
+        ],
+        "final_distance_m": 0.9731349221120938,
+        "distance_travelled_m": 13.457940952198921,
+        "checked_locations": [
+          "living_cabinet",
+          "living_table",
+          "study_desk",
+          "study_shelf"
+        ],
+        "detection_model": "range_1.65m_fov90_ray_los",
+        "pickup_or_delivery": false
+      },
+      "evaluator_version": "navigation_geometry_los_v1"
+    }
+  },
+  {
+    "sample": "nav2_s100_d01_study_shelf",
+    "policy": "ask_at_start",
+    "success": true,
+    "burden": 1,
+    "distance_m": 5.5371945753641425,
+    "motion_sim_s": 11.254166666666666,
+    "modeled_reply_s": 1.0,
+    "modeled_operational_s": 17.254166666666666,
+    "evidence_kind": "unpaid_scripted_policy_real_pybullet_with_modeled_reply_cost",
+    "actual_reply_wait_performed": false,
+    "actions": [
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 2941,
+        "distance_m": 5.5372,
+        "target_detected": true
+      }
+    ],
+    "public_history": [
+      {
+        "kind": "ask",
+        "question": {
+          "type": "select",
+          "text": "Where is the knife?",
+          "requests": [
+            {
+              "role": "target_location",
+              "candidate_ids": [
+                "kitchen_counter",
+                "kitchen_shelf",
+                "living_cabinet",
+                "living_table",
+                "study_desk",
+                "study_shelf"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "kind": "user_answer",
+        "response": {
+          "choices": {
+            "target_location": "study_shelf"
+          }
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_shelf",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 240,
+          "end_step": 2941,
+          "distance_m": 5.5372,
+          "target_detected": true
+        }
+      }
+    ],
+    "evaluation": {
+      "task_success": true,
+      "termination_reason": "scripted_reference_done",
+      "conditions": {
+        "target_locally_detected": true,
+        "physically_within_approach_radius": true,
+        "robot_stopped": true,
+        "no_wall_penetration": true,
+        "distance_budget_respected": true
+      },
+      "clarification_burden": 1,
+      "action_count": 1,
+      "successful_action_count": 1,
+      "details": {
+        "actual_target_position": [
+          4.000339950480626,
+          -2.150059049963204,
+          0.715077428463935
+        ],
+        "actual_target_location": "study_shelf",
+        "final_robot_pose": [
+          4.069096006452682,
+          -0.9738127248521994,
+          -1.4922169275603356
+        ],
+        "final_distance_m": 1.1782541375144735,
+        "distance_travelled_m": 5.5371945753641425,
+        "checked_locations": [
+          "study_shelf"
+        ],
+        "detection_model": "range_1.65m_fov90_ray_los",
+        "pickup_or_delivery": false
+      },
+      "evaluator_version": "navigation_geometry_los_v1"
+    }
+  },
+  {
+    "sample": "nav2_s100_d01_study_shelf",
+    "policy": "ask_after_one",
+    "success": true,
+    "burden": 1,
+    "distance_m": 7.995924637165099,
+    "motion_sim_s": 20.579166666666666,
+    "modeled_reply_s": 1.0,
+    "modeled_operational_s": 26.579166666666666,
+    "evidence_kind": "unpaid_scripted_policy_real_pybullet_with_modeled_reply_cost",
+    "actual_reply_wait_performed": false,
+    "actions": [
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_cabinet",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 1252,
+        "distance_m": 1.3317,
+        "target_detected": false
+      },
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 1252,
+        "end_step": 5179,
+        "distance_m": 6.6642,
+        "target_detected": true
+      }
+    ],
+    "public_history": [
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "living_cabinet",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 240,
+          "end_step": 1252,
+          "distance_m": 1.3317,
+          "target_detected": false
+        }
+      },
+      {
+        "kind": "ask",
+        "question": {
+          "type": "select",
+          "text": "Where is the knife?",
+          "requests": [
+            {
+              "role": "target_location",
+              "candidate_ids": [
+                "kitchen_counter",
+                "kitchen_shelf",
+                "living_cabinet",
+                "living_table",
+                "study_desk",
+                "study_shelf"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "kind": "user_answer",
+        "response": {
+          "choices": {
+            "target_location": "study_shelf"
+          }
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_shelf",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 1252,
+          "end_step": 5179,
+          "distance_m": 6.6642,
+          "target_detected": true
+        }
+      }
+    ],
+    "evaluation": {
+      "task_success": true,
+      "termination_reason": "scripted_reference_done",
+      "conditions": {
+        "target_locally_detected": true,
+        "physically_within_approach_radius": true,
+        "robot_stopped": true,
+        "no_wall_penetration": true,
+        "distance_budget_respected": true
+      },
+      "clarification_burden": 1,
+      "action_count": 2,
+      "successful_action_count": 2,
+      "details": {
+        "actual_target_position": [
+          4.000348577354172,
+          -2.1500977834622086,
+          0.7150774282531687
+        ],
+        "actual_target_location": "study_shelf",
+        "final_robot_pose": [
+          4.033223934971977,
+          -1.0235673296742192,
+          -1.4510300285770898
+        ],
+        "final_distance_m": 1.1270100498443978,
+        "distance_travelled_m": 7.995924637165099,
+        "checked_locations": [
+          "living_cabinet",
+          "study_shelf"
+        ],
+        "detection_model": "range_1.65m_fov90_ray_los",
+        "pickup_or_delivery": false
+      },
+      "evaluator_version": "navigation_geometry_los_v1"
+    }
+  },
+  {
+    "sample": "nav2_s100_d01_study_shelf",
+    "policy": "nominal_cost_gate",
+    "success": true,
+    "burden": 1,
+    "distance_m": 5.5371945753641425,
+    "motion_sim_s": 11.254166666666666,
+    "modeled_reply_s": 1.0,
+    "modeled_operational_s": 17.254166666666666,
+    "evidence_kind": "unpaid_scripted_policy_real_pybullet_with_modeled_reply_cost",
+    "actual_reply_wait_performed": false,
+    "actions": [
+      {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 2941,
+        "distance_m": 5.5372,
+        "target_detected": true
+      }
+    ],
+    "public_history": [
+      {
+        "kind": "ask",
+        "question": {
+          "type": "select",
+          "text": "Where is the knife?",
+          "requests": [
+            {
+              "role": "target_location",
+              "candidate_ids": [
+                "kitchen_counter",
+                "kitchen_shelf",
+                "living_cabinet",
+                "living_table",
+                "study_desk",
+                "study_shelf"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "kind": "user_answer",
+        "response": {
+          "choices": {
+            "target_location": "study_shelf"
+          }
+        }
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "search",
+          "object_id": "mobile_robot",
+          "target_id": "study_shelf",
+          "success": true,
+          "reason": "inspected",
+          "start_step": 240,
+          "end_step": 2941,
+          "distance_m": 5.5372,
+          "target_detected": true
+        }
+      }
+    ],
+    "evaluation": {
+      "task_success": true,
+      "termination_reason": "scripted_reference_done",
+      "conditions": {
+        "target_locally_detected": true,
+        "physically_within_approach_radius": true,
+        "robot_stopped": true,
+        "no_wall_penetration": true,
+        "distance_budget_respected": true
+      },
+      "clarification_burden": 1,
+      "action_count": 1,
+      "successful_action_count": 1,
+      "details": {
+        "actual_target_position": [
+          4.000339950480626,
+          -2.150059049963204,
+          0.715077428463935
+        ],
+        "actual_target_location": "study_shelf",
+        "final_robot_pose": [
+          4.069096006452682,
+          -0.9738127248521994,
+          -1.4922169275603356
+        ],
+        "final_distance_m": 1.1782541375144735,
+        "distance_travelled_m": 5.5371945753641425,
+        "checked_locations": [
+          "study_shelf"
+        ],
+        "detection_model": "range_1.65m_fov90_ray_los",
+        "pickup_or_delivery": false
+      },
+      "evaluator_version": "navigation_geometry_los_v1"
+    }
+  }
+]

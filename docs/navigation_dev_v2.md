@@ -120,3 +120,28 @@ Future work needs independent maps/target placements, delay and prior sensitivit
 and separate Dev/Test grouping. No simulated number represents a real hardware or
 learned-vision result. Husky/Bullet asset attribution is unchanged from
 [Navigation Dev v1](navigation_dev_v1.md).
+
+## JSON-mode technical correction
+
+The initial run (`study_v1`, code 317ecd9) completed 48 Gate-only calls, but its
+first Action request returned HTTP 400 because the prompt omitted the literal JSON
+marker required by JSON-object mode. The backend circuit breaker stopped further
+DeepSeek requests; all 12 registered launches ended before any physical action.
+All six launch-stage requests and all aborted traces remain preserved.
+
+Code b1d1c62 adds only the required JSON format marker to Action/Question prompts,
+adds regression tests, and registers a separate amended run (`study_v2`). Gate and
+criteria hashes, snapshot/dataset hashes, scene/cost factors, seed and threshold are
+identical. The 48 successful gate cases are copied unchanged and not called again.
+
+The amendment explicitly allows 12 valid physical launches after the 12 pre-motion
+aborts (24 combined registrations). Total authenticated requests across both runs
+remain capped at 200: a 54-request offset leaves at most 146 new attempts, including
+at most 140 for valid episodes. The old ledger and raw logs are never reset or edited.
+The failed launches are reported as a protocol incident separately from valid physical
+method comparisons. This is not a gate/policy tuning round.
+
+Use `--output-dir outputs/navigation_dev_v2/study_v2` when inspecting the corrected
+study; the CLI defaults there. Existing plans/stages intentionally refuse overwrites.
+The read-only report and `ANALYSIS.md` distinguish real model runs, gate-only calls,
+modeled-wait unpaid policy anchors, and the technical incident.

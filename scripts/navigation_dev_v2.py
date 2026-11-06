@@ -10,7 +10,7 @@ from when2ask import nav2_study
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('command',choices=['oracle','prepare','check','ablation','episodes','report'])
-    p.add_argument('--output-dir',default='outputs/navigation_dev_v2/study_v1');p.add_argument('--live',action='store_true')
+    p.add_argument('--output-dir',default='outputs/navigation_dev_v2/study_v2');p.add_argument('--live',action='store_true')
     a=p.parse_args()
     if a.command in ('ablation','episodes') and not a.live:p.error('Paid model calls require --live')
     if a.command=='report':

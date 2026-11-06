@@ -1,0 +1,1838 @@
+{
+  "schema_version": "navigation_dev_v2.0.1",
+  "episode_id": "nav2_s050_d30_study_shelf__llm_noask",
+  "sample_id": "nav2_s050_d30_study_shelf",
+  "group_id": "three_room_map_v1",
+  "partition": "navigation_dev_v2_only",
+  "method": "llm_noask",
+  "evidence_kind": "live_models_real_pybullet",
+  "public_contract": {
+    "speed_factor": 0.5,
+    "answer_delay_s": 30.0,
+    "burden_equivalent_s": 5.0,
+    "failure_penalty_s": 300.0,
+    "reply_reliability": 1.0,
+    "reply_granularity": "exact_station",
+    "target_static": true,
+    "prior": {
+      "kitchen_counter": 0.16666666666666666,
+      "kitchen_shelf": 0.16666666666666666,
+      "living_cabinet": 0.16666666666666666,
+      "living_table": 0.16666666666666666,
+      "study_desk": 0.16666666666666666,
+      "study_shelf": 0.16666666666666666
+    },
+    "exhaustive_candidate_set": [
+      "kitchen_counter",
+      "kitchen_shelf",
+      "living_cabinet",
+      "living_table",
+      "study_desk",
+      "study_shelf"
+    ],
+    "limits": {
+      "rounds": 20,
+      "robot_actions": 8,
+      "slot_requests": 4,
+      "episode_api_attempts": 32,
+      "distance_m": 36
+    },
+    "cost_model": {
+      "linear_speed_m_s": 0.7,
+      "angular_speed_rad_s": 0.9,
+      "waypoint_overhead_s": 0.6,
+      "settle_s": 0.5
+    },
+    "objective": "physical success first; operational seconds = simulated motion + actual reply waiting + burden_equivalent_s * slots",
+    "api_cost": "Measured separately by backend; not folded into operational seconds",
+    "estimates": "Shared nominal kinematic estimates, not hidden-target/oracle rollout costs"
+  },
+  "prompt_hashes": {
+    "action": "e9630cc3c206033b598e0085e8b7957f5410e31505f2d8e1cd9465c534bac6c1",
+    "question": "303406d98a180180015958b4b29c66fd3793ed75091bf6fb6616bde152360fee",
+    "cost_exclusive": "e10c0adbe1b47691abf0b96c64d5f000623d38c95aef9a78b35b4a6ad284c647",
+    "overlap_control": "fc87e880462caaefbaa093496254e3d5f29c73a2be23af0eae91bee360a9b8a8",
+    "criteria": "2e2e8a8c568a0774ff0370f5189ee1cffd7bbed698de14e389aa6b5bfd95a7fd"
+  },
+  "planner_configuration": {
+    "deepseek_model": "deepseek-flash",
+    "jev_model": "jev-latest",
+    "jev_threshold": 0.5,
+    "timeout_s": 40,
+    "max_retries": 1,
+    "max_tokens": 500,
+    "thinking": "disabled",
+    "response_format": "json_object"
+  },
+  "turns": [
+    {
+      "round": 0,
+      "public_payload": {
+        "instruction": "Find the kitchen knife and approach within 1.2 metres; no pickup or delivery. The known map has exactly six possible stations and the static target is at one of them. Use a stipulated uniform planning prior over the six stations, not a kitchen-first assumption. An exhaustive negative station inspection rules out only that station. Location hints from this study user simulator are exact and reliable, but do not count as physical detection. First achieve physical success. Then minimize motion time plus reply waiting plus the declared per-question interruption cost.",
+        "observation": {
+          "simulation_step": 240,
+          "robot_pose": [
+            0.0,
+            0.0,
+            3.1416
+          ],
+          "current_room": "living_room",
+          "known_map": {
+            "version": "three_room_map_v1",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "room": "kitchen",
+                "name": "Kitchen counter",
+                "xy": [
+                  -4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "room": "kitchen",
+                "name": "Kitchen shelf",
+                "xy": [
+                  -4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "room": "living_room",
+                "name": "Living room cabinet",
+                "xy": [
+                  0.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "room": "living_room",
+                "name": "Living room table",
+                "xy": [
+                  0.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "room": "study",
+                "name": "Study desk",
+                "xy": [
+                  4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "room": "study",
+                "name": "Study shelf",
+                "xy": [
+                  4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "detect_target": true,
+              "approach_distance_m": 1.2,
+              "no_pickup_or_delivery": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "search_actions": 8
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {},
+          "target_observation": null,
+          "target_visible_now": false,
+          "distance_to_observed_target_m": null,
+          "robot_stopped": true,
+          "distance_travelled_m": 0.0,
+          "route_distances_m": {
+            "kitchen_counter": 5.1,
+            "kitchen_shelf": 5.1,
+            "living_cabinet": 1.1,
+            "living_table": 1.1,
+            "study_desk": 5.1,
+            "study_shelf": 5.1
+          }
+        },
+        "public_history": [],
+        "cost_contract": {
+          "speed_factor": 0.5,
+          "answer_delay_s": 30.0,
+          "burden_equivalent_s": 5.0,
+          "failure_penalty_s": 300.0,
+          "reply_reliability": 1.0,
+          "reply_granularity": "exact_station",
+          "target_static": true,
+          "prior": {
+            "kitchen_counter": 0.16666666666666666,
+            "kitchen_shelf": 0.16666666666666666,
+            "living_cabinet": 0.16666666666666666,
+            "living_table": 0.16666666666666666,
+            "study_desk": 0.16666666666666666,
+            "study_shelf": 0.16666666666666666
+          },
+          "exhaustive_candidate_set": [
+            "kitchen_counter",
+            "kitchen_shelf",
+            "living_cabinet",
+            "living_table",
+            "study_desk",
+            "study_shelf"
+          ],
+          "limits": {
+            "rounds": 20,
+            "robot_actions": 8,
+            "slot_requests": 4,
+            "episode_api_attempts": 32,
+            "distance_m": 36
+          },
+          "cost_model": {
+            "linear_speed_m_s": 0.7,
+            "angular_speed_rad_s": 0.9,
+            "waypoint_overhead_s": 0.6,
+            "settle_s": 0.5
+          },
+          "objective": "physical success first; operational seconds = simulated motion + actual reply waiting + burden_equivalent_s * slots",
+          "api_cost": "Measured separately by backend; not folded into operational seconds",
+          "estimates": "Shared nominal kinematic estimates, not hidden-target/oracle rollout costs"
+        },
+        "public_cost_summary": {
+          "negative_stations": [],
+          "remaining_locations": [
+            "kitchen_counter",
+            "kitchen_shelf",
+            "living_cabinet",
+            "living_table",
+            "study_desk",
+            "study_shelf"
+          ],
+          "location_claim": null,
+          "supported_location": null,
+          "posterior_from_public_facts": {
+            "kitchen_counter": 0.16666666666666669,
+            "kitchen_shelf": 0.16666666666666669,
+            "living_cabinet": 0.16666666666666669,
+            "living_table": 0.16666666666666669,
+            "study_desk": 0.16666666666666669,
+            "study_shelf": 0.16666666666666669
+          },
+          "target_observation": null,
+          "completion_observed": false,
+          "alternatives": {
+            "kitchen_counter": {
+              "route_distance_m": 5.1,
+              "estimated_motion_s": 20.362
+            },
+            "kitchen_shelf": {
+              "route_distance_m": 5.1,
+              "estimated_motion_s": 20.362
+            },
+            "living_cabinet": {
+              "route_distance_m": 1.1,
+              "estimated_motion_s": 7.734
+            },
+            "living_table": {
+              "route_distance_m": 1.1,
+              "estimated_motion_s": 7.733
+            },
+            "study_desk": {
+              "route_distance_m": 5.1,
+              "estimated_motion_s": 27.343
+            },
+            "study_shelf": {
+              "route_distance_m": 5.1,
+              "estimated_motion_s": 27.343
+            }
+          },
+          "remaining_distance_m": 36.0,
+          "remaining_robot_actions": 8,
+          "previous_location_requests": 0
+        }
+      },
+      "payload_sha256": "39bd6e41bad956cdab7903bced43a272e1251c842141ec8b6e0f747196dc8c9c",
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "called": false
+      },
+      "action": {
+        "kind": "search",
+        "location_id": "living_cabinet"
+      },
+      "physical_result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_cabinet",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 2140,
+        "distance_m": 1.4102,
+        "target_detected": false
+      },
+      "physical_wall_s": 7.9009371669963
+    },
+    {
+      "round": 1,
+      "public_payload": {
+        "instruction": "Find the kitchen knife and approach within 1.2 metres; no pickup or delivery. The known map has exactly six possible stations and the static target is at one of them. Use a stipulated uniform planning prior over the six stations, not a kitchen-first assumption. An exhaustive negative station inspection rules out only that station. Location hints from this study user simulator are exact and reliable, but do not count as physical detection. First achieve physical success. Then minimize motion time plus reply waiting plus the declared per-question interruption cost.",
+        "observation": {
+          "simulation_step": 2140,
+          "robot_pose": [
+            -0.0048,
+            1.0437,
+            1.6907
+          ],
+          "current_room": "living_room",
+          "known_map": {
+            "version": "three_room_map_v1",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "room": "kitchen",
+                "name": "Kitchen counter",
+                "xy": [
+                  -4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "room": "kitchen",
+                "name": "Kitchen shelf",
+                "xy": [
+                  -4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "room": "living_room",
+                "name": "Living room cabinet",
+                "xy": [
+                  0.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "room": "living_room",
+                "name": "Living room table",
+                "xy": [
+                  0.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "room": "study",
+                "name": "Study desk",
+                "xy": [
+                  4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "room": "study",
+                "name": "Study shelf",
+                "xy": [
+                  4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "detect_target": true,
+              "approach_distance_m": 1.2,
+              "no_pickup_or_delivery": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "search_actions": 8
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {
+            "living_cabinet": {
+              "observed_step": 2140,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            }
+          },
+          "target_observation": null,
+          "target_visible_now": false,
+          "distance_to_observed_target_m": null,
+          "robot_stopped": true,
+          "distance_travelled_m": 1.4102,
+          "route_distances_m": {
+            "kitchen_counter": 6.144,
+            "kitchen_shelf": 6.144,
+            "living_cabinet": 0.057,
+            "living_table": 2.144,
+            "study_desk": 6.144,
+            "study_shelf": 6.144
+          }
+        },
+        "public_history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "living_cabinet",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 240,
+              "end_step": 2140,
+              "distance_m": 1.4102,
+              "target_detected": false
+            }
+          }
+        ],
+        "cost_contract": {
+          "speed_factor": 0.5,
+          "answer_delay_s": 30.0,
+          "burden_equivalent_s": 5.0,
+          "failure_penalty_s": 300.0,
+          "reply_reliability": 1.0,
+          "reply_granularity": "exact_station",
+          "target_static": true,
+          "prior": {
+            "kitchen_counter": 0.16666666666666666,
+            "kitchen_shelf": 0.16666666666666666,
+            "living_cabinet": 0.16666666666666666,
+            "living_table": 0.16666666666666666,
+            "study_desk": 0.16666666666666666,
+            "study_shelf": 0.16666666666666666
+          },
+          "exhaustive_candidate_set": [
+            "kitchen_counter",
+            "kitchen_shelf",
+            "living_cabinet",
+            "living_table",
+            "study_desk",
+            "study_shelf"
+          ],
+          "limits": {
+            "rounds": 20,
+            "robot_actions": 8,
+            "slot_requests": 4,
+            "episode_api_attempts": 32,
+            "distance_m": 36
+          },
+          "cost_model": {
+            "linear_speed_m_s": 0.7,
+            "angular_speed_rad_s": 0.9,
+            "waypoint_overhead_s": 0.6,
+            "settle_s": 0.5
+          },
+          "objective": "physical success first; operational seconds = simulated motion + actual reply waiting + burden_equivalent_s * slots",
+          "api_cost": "Measured separately by backend; not folded into operational seconds",
+          "estimates": "Shared nominal kinematic estimates, not hidden-target/oracle rollout costs"
+        },
+        "public_cost_summary": {
+          "negative_stations": [
+            "living_cabinet"
+          ],
+          "remaining_locations": [
+            "kitchen_counter",
+            "kitchen_shelf",
+            "living_table",
+            "study_desk",
+            "study_shelf"
+          ],
+          "location_claim": null,
+          "supported_location": null,
+          "posterior_from_public_facts": {
+            "kitchen_counter": 0.2,
+            "kitchen_shelf": 0.2,
+            "living_cabinet": 0.0,
+            "living_table": 0.2,
+            "study_desk": 0.2,
+            "study_shelf": 0.2
+          },
+          "target_observation": null,
+          "completion_observed": false,
+          "alternatives": {
+            "kitchen_counter": {
+              "route_distance_m": 6.144,
+              "estimated_motion_s": 33.57
+            },
+            "kitchen_shelf": {
+              "route_distance_m": 6.144,
+              "estimated_motion_s": 33.57
+            },
+            "living_cabinet": {
+              "route_distance_m": 0.057,
+              "estimated_motion_s": 1.528
+            },
+            "living_table": {
+              "route_distance_m": 2.144,
+              "estimated_motion_s": 13.95
+            },
+            "study_desk": {
+              "route_distance_m": 6.144,
+              "estimated_motion_s": 33.55
+            },
+            "study_shelf": {
+              "route_distance_m": 6.144,
+              "estimated_motion_s": 33.55
+            }
+          },
+          "remaining_distance_m": 34.59,
+          "remaining_robot_actions": 7,
+          "previous_location_requests": 0
+        }
+      },
+      "payload_sha256": "e2f8fd582a910788fb2c689365a8b6bceb15c31b9b77751b3b830a17f7ddf432",
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "called": false
+      },
+      "action": {
+        "kind": "search",
+        "location_id": "living_table"
+      },
+      "physical_result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_table",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 2140,
+        "end_step": 6503,
+        "distance_m": 2.7602,
+        "target_detected": false
+      },
+      "physical_wall_s": 18.08846541697858
+    },
+    {
+      "round": 2,
+      "public_payload": {
+        "instruction": "Find the kitchen knife and approach within 1.2 metres; no pickup or delivery. The known map has exactly six possible stations and the static target is at one of them. Use a stipulated uniform planning prior over the six stations, not a kitchen-first assumption. An exhaustive negative station inspection rules out only that station. Location hints from this study user simulator are exact and reliable, but do not count as physical detection. First achieve physical success. Then minimize motion time plus reply waiting plus the declared per-question interruption cost.",
+        "observation": {
+          "simulation_step": 6503,
+          "robot_pose": [
+            -0.1088,
+            -1.1632,
+            -1.4509
+          ],
+          "current_room": "living_room",
+          "known_map": {
+            "version": "three_room_map_v1",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "room": "kitchen",
+                "name": "Kitchen counter",
+                "xy": [
+                  -4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "room": "kitchen",
+                "name": "Kitchen shelf",
+                "xy": [
+                  -4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "room": "living_room",
+                "name": "Living room cabinet",
+                "xy": [
+                  0.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "room": "living_room",
+                "name": "Living room table",
+                "xy": [
+                  0.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "room": "study",
+                "name": "Study desk",
+                "xy": [
+                  4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "room": "study",
+                "name": "Study shelf",
+                "xy": [
+                  4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "detect_target": true,
+              "approach_distance_m": 1.2,
+              "no_pickup_or_delivery": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "search_actions": 8
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {
+            "living_cabinet": {
+              "observed_step": 2140,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "living_table": {
+              "observed_step": 6503,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            }
+          },
+          "target_observation": null,
+          "target_visible_now": false,
+          "distance_to_observed_target_m": null,
+          "robot_stopped": true,
+          "distance_travelled_m": 4.1705,
+          "route_distances_m": {
+            "kitchen_counter": 6.268,
+            "kitchen_shelf": 6.268,
+            "living_cabinet": 2.266,
+            "living_table": 0.126,
+            "study_desk": 6.268,
+            "study_shelf": 6.268
+          }
+        },
+        "public_history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "living_cabinet",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 240,
+              "end_step": 2140,
+              "distance_m": 1.4102,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "living_table",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 2140,
+              "end_step": 6503,
+              "distance_m": 2.7602,
+              "target_detected": false
+            }
+          }
+        ],
+        "cost_contract": {
+          "speed_factor": 0.5,
+          "answer_delay_s": 30.0,
+          "burden_equivalent_s": 5.0,
+          "failure_penalty_s": 300.0,
+          "reply_reliability": 1.0,
+          "reply_granularity": "exact_station",
+          "target_static": true,
+          "prior": {
+            "kitchen_counter": 0.16666666666666666,
+            "kitchen_shelf": 0.16666666666666666,
+            "living_cabinet": 0.16666666666666666,
+            "living_table": 0.16666666666666666,
+            "study_desk": 0.16666666666666666,
+            "study_shelf": 0.16666666666666666
+          },
+          "exhaustive_candidate_set": [
+            "kitchen_counter",
+            "kitchen_shelf",
+            "living_cabinet",
+            "living_table",
+            "study_desk",
+            "study_shelf"
+          ],
+          "limits": {
+            "rounds": 20,
+            "robot_actions": 8,
+            "slot_requests": 4,
+            "episode_api_attempts": 32,
+            "distance_m": 36
+          },
+          "cost_model": {
+            "linear_speed_m_s": 0.7,
+            "angular_speed_rad_s": 0.9,
+            "waypoint_overhead_s": 0.6,
+            "settle_s": 0.5
+          },
+          "objective": "physical success first; operational seconds = simulated motion + actual reply waiting + burden_equivalent_s * slots",
+          "api_cost": "Measured separately by backend; not folded into operational seconds",
+          "estimates": "Shared nominal kinematic estimates, not hidden-target/oracle rollout costs"
+        },
+        "public_cost_summary": {
+          "negative_stations": [
+            "living_cabinet",
+            "living_table"
+          ],
+          "remaining_locations": [
+            "kitchen_counter",
+            "kitchen_shelf",
+            "study_desk",
+            "study_shelf"
+          ],
+          "location_claim": null,
+          "supported_location": null,
+          "posterior_from_public_facts": {
+            "kitchen_counter": 0.25,
+            "kitchen_shelf": 0.25,
+            "living_cabinet": 0.0,
+            "living_table": 0.0,
+            "study_desk": 0.25,
+            "study_shelf": 0.25
+          },
+          "target_observation": null,
+          "completion_observed": false,
+          "alternatives": {
+            "kitchen_counter": {
+              "route_distance_m": 6.268,
+              "estimated_motion_s": 33.906
+            },
+            "kitchen_shelf": {
+              "route_distance_m": 6.268,
+              "estimated_motion_s": 33.906
+            },
+            "living_cabinet": {
+              "route_distance_m": 2.266,
+              "estimated_motion_s": 14.289
+            },
+            "living_table": {
+              "route_distance_m": 0.126,
+              "estimated_motion_s": 1.726
+            },
+            "study_desk": {
+              "route_distance_m": 6.268,
+              "estimated_motion_s": 33.491
+            },
+            "study_shelf": {
+              "route_distance_m": 6.268,
+              "estimated_motion_s": 33.491
+            }
+          },
+          "remaining_distance_m": 31.829,
+          "remaining_robot_actions": 6,
+          "previous_location_requests": 0
+        }
+      },
+      "payload_sha256": "aac2b913c8a90ff2034fc9ffb1fa71433f64f3cbba8548bcdf3857ea7b05e1e1",
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "called": false
+      },
+      "action": {
+        "kind": "search",
+        "location_id": "study_desk"
+      },
+      "physical_result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_desk",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 6503,
+        "end_step": 13879,
+        "distance_m": 7.1896,
+        "target_detected": false
+      },
+      "physical_wall_s": 30.71334158402169
+    },
+    {
+      "round": 3,
+      "public_payload": {
+        "instruction": "Find the kitchen knife and approach within 1.2 metres; no pickup or delivery. The known map has exactly six possible stations and the static target is at one of them. Use a stipulated uniform planning prior over the six stations, not a kitchen-first assumption. An exhaustive negative station inspection rules out only that station. Location hints from this study user simulator are exact and reliable, but do not count as physical detection. First achieve physical success. Then minimize motion time plus reply waiting plus the declared per-question interruption cost.",
+        "observation": {
+          "simulation_step": 13879,
+          "robot_pose": [
+            3.9838,
+            1.0726,
+            1.4509
+          ],
+          "current_room": "study",
+          "known_map": {
+            "version": "three_room_map_v1",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "room": "kitchen",
+                "name": "Kitchen counter",
+                "xy": [
+                  -4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "room": "kitchen",
+                "name": "Kitchen shelf",
+                "xy": [
+                  -4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "room": "living_room",
+                "name": "Living room cabinet",
+                "xy": [
+                  0.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "room": "living_room",
+                "name": "Living room table",
+                "xy": [
+                  0.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "room": "study",
+                "name": "Study desk",
+                "xy": [
+                  4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "room": "study",
+                "name": "Study shelf",
+                "xy": [
+                  4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "detect_target": true,
+              "approach_distance_m": 1.2,
+              "no_pickup_or_delivery": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "search_actions": 8
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {
+            "living_cabinet": {
+              "observed_step": 2140,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "living_table": {
+              "observed_step": 6503,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "study_desk": {
+              "observed_step": 13879,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            }
+          },
+          "target_observation": null,
+          "target_visible_now": false,
+          "distance_to_observed_target_m": null,
+          "robot_stopped": true,
+          "distance_travelled_m": 11.3601,
+          "route_distances_m": {
+            "kitchen_counter": 10.173,
+            "kitchen_shelf": 10.173,
+            "living_cabinet": 6.173,
+            "living_table": 6.173,
+            "study_desk": 0.032,
+            "study_shelf": 2.173
+          }
+        },
+        "public_history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "living_cabinet",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 240,
+              "end_step": 2140,
+              "distance_m": 1.4102,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "living_table",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 2140,
+              "end_step": 6503,
+              "distance_m": 2.7602,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "study_desk",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 6503,
+              "end_step": 13879,
+              "distance_m": 7.1896,
+              "target_detected": false
+            }
+          }
+        ],
+        "cost_contract": {
+          "speed_factor": 0.5,
+          "answer_delay_s": 30.0,
+          "burden_equivalent_s": 5.0,
+          "failure_penalty_s": 300.0,
+          "reply_reliability": 1.0,
+          "reply_granularity": "exact_station",
+          "target_static": true,
+          "prior": {
+            "kitchen_counter": 0.16666666666666666,
+            "kitchen_shelf": 0.16666666666666666,
+            "living_cabinet": 0.16666666666666666,
+            "living_table": 0.16666666666666666,
+            "study_desk": 0.16666666666666666,
+            "study_shelf": 0.16666666666666666
+          },
+          "exhaustive_candidate_set": [
+            "kitchen_counter",
+            "kitchen_shelf",
+            "living_cabinet",
+            "living_table",
+            "study_desk",
+            "study_shelf"
+          ],
+          "limits": {
+            "rounds": 20,
+            "robot_actions": 8,
+            "slot_requests": 4,
+            "episode_api_attempts": 32,
+            "distance_m": 36
+          },
+          "cost_model": {
+            "linear_speed_m_s": 0.7,
+            "angular_speed_rad_s": 0.9,
+            "waypoint_overhead_s": 0.6,
+            "settle_s": 0.5
+          },
+          "objective": "physical success first; operational seconds = simulated motion + actual reply waiting + burden_equivalent_s * slots",
+          "api_cost": "Measured separately by backend; not folded into operational seconds",
+          "estimates": "Shared nominal kinematic estimates, not hidden-target/oracle rollout costs"
+        },
+        "public_cost_summary": {
+          "negative_stations": [
+            "living_cabinet",
+            "living_table",
+            "study_desk"
+          ],
+          "remaining_locations": [
+            "kitchen_counter",
+            "kitchen_shelf",
+            "study_shelf"
+          ],
+          "location_claim": null,
+          "supported_location": null,
+          "posterior_from_public_facts": {
+            "kitchen_counter": 0.3333333333333333,
+            "kitchen_shelf": 0.3333333333333333,
+            "living_cabinet": 0.0,
+            "living_table": 0.0,
+            "study_desk": 0.0,
+            "study_shelf": 0.3333333333333333
+          },
+          "target_observation": null,
+          "completion_observed": false,
+          "alternatives": {
+            "kitchen_counter": {
+              "route_distance_m": 10.173,
+              "estimated_motion_s": 45.661
+            },
+            "kitchen_shelf": {
+              "route_distance_m": 10.173,
+              "estimated_motion_s": 45.661
+            },
+            "living_cabinet": {
+              "route_distance_m": 6.173,
+              "estimated_motion_s": 33.633
+            },
+            "living_table": {
+              "route_distance_m": 6.173,
+              "estimated_motion_s": 33.633
+            },
+            "study_desk": {
+              "route_distance_m": 0.032,
+              "estimated_motion_s": 1.457
+            },
+            "study_shelf": {
+              "route_distance_m": 2.173,
+              "estimated_motion_s": 14.022
+            }
+          },
+          "remaining_distance_m": 24.64,
+          "remaining_robot_actions": 5,
+          "previous_location_requests": 0
+        }
+      },
+      "payload_sha256": "3b670f08cb42a3e77456e9c635111855fd2105b7e1addaff69e143bf146fce37",
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "called": false
+      },
+      "action": {
+        "kind": "search",
+        "location_id": "study_shelf"
+      },
+      "physical_result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 13879,
+        "end_step": 18105,
+        "distance_m": 2.7629,
+        "target_detected": true
+      },
+      "physical_wall_s": 17.58275699999649
+    },
+    {
+      "round": 4,
+      "public_payload": {
+        "instruction": "Find the kitchen knife and approach within 1.2 metres; no pickup or delivery. The known map has exactly six possible stations and the static target is at one of them. Use a stipulated uniform planning prior over the six stations, not a kitchen-first assumption. An exhaustive negative station inspection rules out only that station. Location hints from this study user simulator are exact and reliable, but do not count as physical detection. First achieve physical success. Then minimize motion time plus reply waiting plus the declared per-question interruption cost.",
+        "observation": {
+          "simulation_step": 18105,
+          "robot_pose": [
+            4.1043,
+            -1.1411,
+            -1.6907
+          ],
+          "current_room": "study",
+          "known_map": {
+            "version": "three_room_map_v1",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "room": "kitchen",
+                "name": "Kitchen counter",
+                "xy": [
+                  -4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "room": "kitchen",
+                "name": "Kitchen shelf",
+                "xy": [
+                  -4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "room": "living_room",
+                "name": "Living room cabinet",
+                "xy": [
+                  0.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "room": "living_room",
+                "name": "Living room table",
+                "xy": [
+                  0.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "room": "study",
+                "name": "Study desk",
+                "xy": [
+                  4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "room": "study",
+                "name": "Study shelf",
+                "xy": [
+                  4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "detect_target": true,
+              "approach_distance_m": 1.2,
+              "no_pickup_or_delivery": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "search_actions": 8
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {
+            "living_cabinet": {
+              "observed_step": 2140,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "living_table": {
+              "observed_step": 6503,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "study_desk": {
+              "observed_step": 13879,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "study_shelf": {
+              "observed_step": 18105,
+              "target_detected": true,
+              "scope": "local_station_inspection"
+            }
+          },
+          "target_observation": {
+            "object_id": "target_knife",
+            "category": "kitchen_knife",
+            "position": [
+              4.0004,
+              -2.1503,
+              0.7151
+            ],
+            "location_id": "study_shelf",
+            "observed_step": 18105
+          },
+          "target_visible_now": true,
+          "distance_to_observed_target_m": 1.0145,
+          "robot_stopped": true,
+          "distance_travelled_m": 14.123,
+          "route_distances_m": {
+            "kitchen_counter": 10.246,
+            "kitchen_shelf": 10.246,
+            "living_cabinet": 6.246,
+            "living_table": 6.246,
+            "study_desk": 2.244,
+            "study_shelf": 0.112
+          }
+        },
+        "public_history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "living_cabinet",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 240,
+              "end_step": 2140,
+              "distance_m": 1.4102,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "living_table",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 2140,
+              "end_step": 6503,
+              "distance_m": 2.7602,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "study_desk",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 6503,
+              "end_step": 13879,
+              "distance_m": 7.1896,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "study_shelf",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 13879,
+              "end_step": 18105,
+              "distance_m": 2.7629,
+              "target_detected": true
+            }
+          }
+        ],
+        "cost_contract": {
+          "speed_factor": 0.5,
+          "answer_delay_s": 30.0,
+          "burden_equivalent_s": 5.0,
+          "failure_penalty_s": 300.0,
+          "reply_reliability": 1.0,
+          "reply_granularity": "exact_station",
+          "target_static": true,
+          "prior": {
+            "kitchen_counter": 0.16666666666666666,
+            "kitchen_shelf": 0.16666666666666666,
+            "living_cabinet": 0.16666666666666666,
+            "living_table": 0.16666666666666666,
+            "study_desk": 0.16666666666666666,
+            "study_shelf": 0.16666666666666666
+          },
+          "exhaustive_candidate_set": [
+            "kitchen_counter",
+            "kitchen_shelf",
+            "living_cabinet",
+            "living_table",
+            "study_desk",
+            "study_shelf"
+          ],
+          "limits": {
+            "rounds": 20,
+            "robot_actions": 8,
+            "slot_requests": 4,
+            "episode_api_attempts": 32,
+            "distance_m": 36
+          },
+          "cost_model": {
+            "linear_speed_m_s": 0.7,
+            "angular_speed_rad_s": 0.9,
+            "waypoint_overhead_s": 0.6,
+            "settle_s": 0.5
+          },
+          "objective": "physical success first; operational seconds = simulated motion + actual reply waiting + burden_equivalent_s * slots",
+          "api_cost": "Measured separately by backend; not folded into operational seconds",
+          "estimates": "Shared nominal kinematic estimates, not hidden-target/oracle rollout costs"
+        },
+        "public_cost_summary": {
+          "negative_stations": [
+            "living_cabinet",
+            "living_table",
+            "study_desk"
+          ],
+          "remaining_locations": [
+            "kitchen_counter",
+            "kitchen_shelf",
+            "study_shelf"
+          ],
+          "location_claim": null,
+          "supported_location": "study_shelf",
+          "posterior_from_public_facts": {
+            "kitchen_counter": 0.0,
+            "kitchen_shelf": 0.0,
+            "living_cabinet": 0.0,
+            "living_table": 0.0,
+            "study_desk": 0.0,
+            "study_shelf": 1.0
+          },
+          "target_observation": {
+            "object_id": "target_knife",
+            "category": "kitchen_knife",
+            "position": [
+              4.0004,
+              -2.1503,
+              0.7151
+            ],
+            "location_id": "study_shelf",
+            "observed_step": 18105
+          },
+          "completion_observed": true,
+          "alternatives": {
+            "kitchen_counter": {
+              "route_distance_m": 10.246,
+              "estimated_motion_s": 45.465
+            },
+            "kitchen_shelf": {
+              "route_distance_m": 10.246,
+              "estimated_motion_s": 45.465
+            },
+            "living_cabinet": {
+              "route_distance_m": 6.246,
+              "estimated_motion_s": 33.436
+            },
+            "living_table": {
+              "route_distance_m": 6.246,
+              "estimated_motion_s": 33.436
+            },
+            "study_desk": {
+              "route_distance_m": 2.244,
+              "estimated_motion_s": 14.225
+            },
+            "study_shelf": {
+              "route_distance_m": 0.112,
+              "estimated_motion_s": 1.687
+            }
+          },
+          "remaining_distance_m": 21.877,
+          "remaining_robot_actions": 4,
+          "previous_location_requests": 0
+        }
+      },
+      "payload_sha256": "ec96136f225370818b58145cebca18adbe856b328c2cf9ceba9c4282083bb175",
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "called": false
+      },
+      "action": {
+        "kind": "DONE"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "living_cabinet",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 240,
+      "end_step": 2140,
+      "distance_m": 1.4102,
+      "target_detected": false
+    },
+    {
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "living_table",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 2140,
+      "end_step": 6503,
+      "distance_m": 2.7602,
+      "target_detected": false
+    },
+    {
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "study_desk",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 6503,
+      "end_step": 13879,
+      "distance_m": 7.1896,
+      "target_detected": false
+    },
+    {
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "study_shelf",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 13879,
+      "end_step": 18105,
+      "distance_m": 2.7629,
+      "target_detected": true
+    }
+  ],
+  "public_history": [
+    {
+      "kind": "action",
+      "result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_cabinet",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 2140,
+        "distance_m": 1.4102,
+        "target_detected": false
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_table",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 2140,
+        "end_step": 6503,
+        "distance_m": 2.7602,
+        "target_detected": false
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_desk",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 6503,
+        "end_step": 13879,
+        "distance_m": 7.1896,
+        "target_detected": false
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 13879,
+        "end_step": 18105,
+        "distance_m": 2.7629,
+        "target_detected": true
+      }
+    }
+  ],
+  "evaluation": {
+    "task_success": true,
+    "termination_reason": "done",
+    "conditions": {
+      "target_locally_detected": true,
+      "physically_within_approach_radius": true,
+      "robot_stopped": true,
+      "no_wall_penetration": true,
+      "distance_budget_respected": true
+    },
+    "clarification_burden": 0,
+    "action_count": 4,
+    "successful_action_count": 4,
+    "details": {
+      "actual_target_position": [
+        4.0003983700912,
+        -2.1503226159595235,
+        0.715077427025654
+      ],
+      "actual_target_location": "study_shelf",
+      "final_robot_pose": [
+        4.104290116600094,
+        -1.1411357231626489,
+        -1.6906684519135244
+      ],
+      "final_distance_m": 1.014520418515901,
+      "distance_travelled_m": 14.123019075053554,
+      "checked_locations": [
+        "living_cabinet",
+        "living_table",
+        "study_desk",
+        "study_shelf"
+      ],
+      "detection_model": "range_1.65m_fov90_ray_los",
+      "pickup_or_delivery": false
+    },
+    "evaluator_version": "navigation_geometry_los_v1"
+  },
+  "execution_log": [
+    {
+      "kind": "phase",
+      "step": 240,
+      "phase": "navigate",
+      "location_id": "living_cabinet"
+    },
+    {
+      "kind": "phase",
+      "step": 1503,
+      "phase": "inspect",
+      "location_id": "living_cabinet"
+    },
+    {
+      "kind": "station_inspected",
+      "step": 2140,
+      "phase": "inspect",
+      "location_id": "living_cabinet",
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 2140,
+      "phase": "idle",
+      "location_id": "living_cabinet"
+    },
+    {
+      "kind": "skill_result",
+      "step": 2140,
+      "phase": "idle",
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "living_cabinet",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 240,
+      "end_step": 2140,
+      "distance_m": 1.4102,
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 2140,
+      "phase": "navigate",
+      "location_id": "living_table"
+    },
+    {
+      "kind": "phase",
+      "step": 5579,
+      "phase": "inspect",
+      "location_id": "living_table"
+    },
+    {
+      "kind": "station_inspected",
+      "step": 6503,
+      "phase": "inspect",
+      "location_id": "living_table",
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 6503,
+      "phase": "idle",
+      "location_id": "living_table"
+    },
+    {
+      "kind": "skill_result",
+      "step": 6503,
+      "phase": "idle",
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "living_table",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 2140,
+      "end_step": 6503,
+      "distance_m": 2.7602,
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 6503,
+      "phase": "navigate",
+      "location_id": "study_desk"
+    },
+    {
+      "kind": "phase",
+      "step": 13131,
+      "phase": "inspect",
+      "location_id": "study_desk"
+    },
+    {
+      "kind": "station_inspected",
+      "step": 13879,
+      "phase": "inspect",
+      "location_id": "study_desk",
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 13879,
+      "phase": "idle",
+      "location_id": "study_desk"
+    },
+    {
+      "kind": "skill_result",
+      "step": 13879,
+      "phase": "idle",
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "study_desk",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 6503,
+      "end_step": 13879,
+      "distance_m": 7.1896,
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 13879,
+      "phase": "navigate",
+      "location_id": "study_shelf"
+    },
+    {
+      "kind": "target_detected",
+      "step": 16200,
+      "phase": "navigate",
+      "location_id": "study_shelf"
+    },
+    {
+      "kind": "phase",
+      "step": 17243,
+      "phase": "inspect",
+      "location_id": "study_shelf"
+    },
+    {
+      "kind": "station_inspected",
+      "step": 18105,
+      "phase": "inspect",
+      "location_id": "study_shelf",
+      "target_detected": true
+    },
+    {
+      "kind": "phase",
+      "step": 18105,
+      "phase": "idle",
+      "location_id": "study_shelf"
+    },
+    {
+      "kind": "skill_result",
+      "step": 18105,
+      "phase": "idle",
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "study_shelf",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 13879,
+      "end_step": 18105,
+      "distance_m": 2.7629,
+      "target_detected": true
+    }
+  ],
+  "termination_reason": "done",
+  "error": null,
+  "clarification_burden": 0,
+  "api_cost": {
+    "deepseek": {
+      "attempts": 5,
+      "input_tokens": 10038,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 54,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 4308.453042001929,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 5,
+    "api_latency_ms": 4308.453042001929,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "operational_cost": {
+    "motion_sim_s": 74.4375,
+    "motion_wall_s": 74.28550116799306,
+    "reply_wait_wall_s": 0.0,
+    "burden_equivalent_s": 0.0,
+    "operational_seconds": 74.4375,
+    "penalized_seconds": 74.4375,
+    "definition": "Physical simulation seconds + actual reply-wait seconds + declared interruption seconds. API time reported separately."
+  },
+  "wall_time_s": 78.70623841602355,
+  "realtime_physics": true
+}

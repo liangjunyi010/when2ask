@@ -257,3 +257,5 @@ Navigation v1 is locally verified: 205 tests, 9/9 scripted/oracle physical check
 and a separate **9 real-model episodes / 65 requests** pilot. All three methods found
 all three placements; neither learned gate asked, so no timing benefit was demonstrated.
 [Actual results, costs and limitations](outputs/navigation_dev_v1/live_v1/README.md).
+
+Navigation Dev v2 is an independent cost-aware pilot with two real motor speeds and two reply delays. It adds a mutually exclusive Gate contract, public cost/belief summaries, a 48-call matched-state ablation and 12 valid real-model physical episodes. [Results, protocol incident and limitations](outputs/navigation_dev_v2/README.md). The frozen studies and v1 console remain unchanged.

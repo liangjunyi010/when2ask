@@ -1,0 +1,39 @@
+{
+  "task_success": true,
+  "termination_reason": "done",
+  "conditions": {
+    "target_locally_detected": true,
+    "physically_within_approach_radius": true,
+    "robot_stopped": true,
+    "no_wall_penetration": true,
+    "distance_budget_respected": true
+  },
+  "clarification_burden": 1,
+  "action_count": 5,
+  "successful_action_count": 5,
+  "details": {
+    "actual_target_position": [
+      4.000435624995407,
+      -2.150492285108279,
+      0.7150774260947277
+    ],
+    "actual_target_location": "study_shelf",
+    "final_robot_pose": [
+      4.002486406465715,
+      -1.0389403509790844,
+      -1.4509048279367094
+    ],
+    "final_distance_m": 1.1115538259441116,
+    "distance_travelled_m": 25.246589008439514,
+    "checked_locations": [
+      "living_cabinet",
+      "living_table",
+      "kitchen_counter",
+      "kitchen_shelf",
+      "study_shelf"
+    ],
+    "detection_model": "range_1.65m_fov90_ray_los",
+    "pickup_or_delivery": false
+  },
+  "evaluator_version": "navigation_geometry_los_v1"
+}
