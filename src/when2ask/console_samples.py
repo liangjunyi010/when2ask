@@ -8,12 +8,16 @@ from .study_data import load_study
 TEMPLATES = {
     'pack_and_cover': ('Pack and Cover', 'v3_dev_010'),
     'place_into_selected_containers': ('Two Selected Containers', 'v3_dev_026'),
+    'find_and_approach': ('Three-room Find & Approach', 'navigation_dev_v1'),
 }
 
 
-def demo_sample(template, unknown_preferences=None):
+def demo_sample(template, unknown_preferences=None, navigation_case=None):
     if template not in TEMPLATES:
         raise ValueError('Unknown task template')
+    if template == 'find_and_approach':
+        from .navigation_task import make_sample
+        return make_sample(navigation_case or 'case_b', 1 if unknown_preferences is None else unknown_preferences)
     original = next(s for s in load_study('dev') if s.sample_id == TEMPLATES[template][1])
     scene = original.scene()
     aliases = scene['object_id_map']

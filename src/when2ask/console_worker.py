@@ -25,6 +25,9 @@ class WorkerCancelled(RuntimeError):
 
 
 def run_physics_task(server, token_file, worker_id, job, speed=3.0, fps=8):
+    if job['template'] == 'find_and_approach':
+        from .navigation_worker import run_physics_task as navigation_worker
+        return navigation_worker(server, token_file, worker_id, job, speed=1, fps=fps)
     # Spawned process only: do not propagate any model credential environment.
     for name in ('DEEPSEEK_API_KEY', 'TYPESAFE_API_KEY'):
         os.environ.pop(name, None)

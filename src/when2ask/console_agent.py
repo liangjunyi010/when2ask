@@ -16,6 +16,9 @@ from .user_simulator import PreferenceResolver
 
 
 def run_agent(manager, task):
+    if task.template == 'find_and_approach':
+        from .navigation_console import run_agent as navigation_agent
+        return navigation_agent(manager, task)
     start = time.monotonic()
     termination = 'round_limit'
     history = task.history

@@ -1,0 +1,10 @@
+{
+  "version": "navigation_dev_v1",
+  "partition": "dev",
+  "layout_group": "three_room_map_v1",
+  "scenarios": {
+    "case_a": {"target_location": "kitchen_counter", "scene_seed": 0},
+    "case_b": {"target_location": "living_cabinet", "scene_seed": 0},
+    "case_c": {"target_location": "study_shelf", "scene_seed": 0}
+  }
+}

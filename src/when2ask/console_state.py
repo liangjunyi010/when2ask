@@ -63,7 +63,7 @@ class Task:
         self.template = options['template']
         self.method = options['method']
         self.answer_mode = options['answer_mode']
-        self.sample = demo_sample(self.template, options.get('unknown_preferences'))
+        self.sample = demo_sample(self.template, options.get('unknown_preferences'), options.get('navigation_case'))
         self.unknown_preferences = len(self.sample.slots) - len(self.sample.initial_disclosed_slots)
         self.comparison_id = None
         self.created = time.time()
@@ -117,7 +117,8 @@ class Task:
             history=self.history[-8:], actions=self.actions, burden=self.burden, cost=self.audit.summary(),
             evaluation=self.finalization.get('evaluation') if self.finalization else None,
             error=self.error, worker_id=self.worker_id, worker_pid=self.worker_pid, version=self.version,
-            evaluation_protocol='interactive_declared_preferences' if self.answer_mode == 'manual' else 'fixed_demo_preferences'))
+            evaluation_protocol=('fixed_world_location' if self.template == 'find_and_approach' else
+                'interactive_declared_preferences' if self.answer_mode == 'manual' else 'fixed_demo_preferences')))
 
 
 class TaskManager:
@@ -140,6 +141,8 @@ class TaskManager:
         package = Path(__file__).parent
         self.physics_signature = {name: hashlib.sha256((package / name).read_bytes()).hexdigest() for name in
             ('skills.py', 'environment.py', 'diverse_world.py', 'study_evaluator.py', 'console_samples.py')}
+        from .navigation_worker import SOURCES
+        self.navigation_signature = {name: hashlib.sha256((package / name).read_bytes()).hexdigest() for name in SOURCES}
 
     def metadata(self):
         return dict(templates=catalogue(), methods=list(METHODS), live_enabled=self.allow_live,
@@ -165,12 +168,17 @@ class TaskManager:
 
     @staticmethod
     def validate_options(options):
-        if not isinstance(options, dict) or not {'template', 'method', 'answer_mode'} <= set(options) or set(options) - {'template', 'method', 'answer_mode', 'unknown_preferences'}:
+        if not isinstance(options, dict) or not {'template', 'method', 'answer_mode'} <= set(options) or set(options) - {'template', 'method', 'answer_mode', 'unknown_preferences', 'navigation_case'}:
             raise ValueError('Choose a template, method and answer mode')
         if options['template'] not in TEMPLATES or options['method'] not in METHODS or options['answer_mode'] not in ('auto', 'manual'):
             raise ValueError('Invalid task options')
         if 'unknown_preferences' in options and (type(options['unknown_preferences']) is not int or not 0 <= options['unknown_preferences'] <= 3):
             raise ValueError('Unknown preferences must be an integer from 0 to 3')
+        if options['template'] == 'find_and_approach':
+            if options.get('unknown_preferences',1) not in (0,1) or options.get('navigation_case','case_b') not in ('case_a','case_b','case_c'):
+                raise ValueError('Navigation has 0/1 unknown location fact and case_a/b/c')
+        elif 'navigation_case' in options:
+            raise ValueError('navigation_case only applies to navigation')
 
     def check_live(self, methods):
         if not self.allow_live:
@@ -203,7 +211,7 @@ class TaskManager:
             return task.public()
 
     def create_comparison(self, options, key):
-        if not isinstance(options, dict) or set(options) != {'template', 'unknown_preferences'}:
+        if not isinstance(options, dict) or not {'template', 'unknown_preferences'} <= set(options) or set(options)-{'template','unknown_preferences','navigation_case'}:
             raise ValueError('Comparison requires template and unknown_preferences')
         self.validate_options(dict(options, method='llm_noask', answer_mode='auto'))
         if not isinstance(key, str) or not 8 <= len(key) <= 100:
@@ -227,14 +235,17 @@ class TaskManager:
                 raise
             cid = uuid.uuid4().hex[:16]
             from .study_agents import prompt_hashes
+            if options['template'] == 'find_and_approach':
+                from .navigation_agents import prompt_hashes
             sample = tasks[0].sample
             group = dict(id=cid, created=time.time(), options=copy.deepcopy(options),
                 task_ids=[t.id for t in tasks], partition='interactive_demo_on_dev_layout',
                 source_sample_id=sample.sample_id, scene_seed=sample.scene_seed,
                 public_scene_sha256=hashlib.sha256(json.dumps(dict(scene=sample.scene(), instruction=sample.u0), sort_keys=True).encode()).hexdigest(),
                 planner_configuration=self.config.public_config(), prompt_hashes=prompt_hashes(),
-                physics_signature=self.physics_signature, answer_mode='auto',
-                evaluation_protocol='fixed_demo_preferences', note='One paired interactive instance; not a benchmark ranking.')
+                physics_signature=self.navigation_signature if options['template']=='find_and_approach' else self.physics_signature, answer_mode='auto',
+                evaluation_protocol='fixed_world_location' if options['template']=='find_and_approach' else 'fixed_demo_preferences',
+                note='One paired interactive instance; not a benchmark ranking.')
             self.comparisons[cid] = group
             self.comparison_keys[key] = (signature, cid)
             for task in tasks:
@@ -263,6 +274,8 @@ class TaskManager:
                     task_success=evaluation['task_success'] if evaluation else None,
                     burden=task.burden, ask_turns=sum('question' in t for t in task.turns),
                     robot_actions=len(task.actions), physical_successes=sum(a['success'] for a in task.actions),
+                    distance_m=(task.observation or {}).get('distance_travelled_m'),
+                    checked_locations=len((task.observation or {}).get('checked_locations',{})) if task.template=='find_and_approach' else None,
                     cost=task.audit.summary(), wall_time_s=(task.finished or time.time()) - task.created,
                     queue_time_s=(task.started or task.finished or time.time()) - task.created,
                     returned_models=sorted({a['returned_model'] for a in task.audit.records if a.get('returned_model')}),
@@ -278,11 +291,11 @@ class TaskManager:
         (path / f'{cid}.json').write_text(json.dumps(self.config.sanitize(result), indent=2) + '\n')
         with (path / f'{cid}.csv').open('w', newline='') as handle:
             writer = csv.DictWriter(handle, fieldnames=['method', 'status', 'task_success', 'burden', 'ask_turns', 'robot_actions',
-                'api_latency_ms', 'wall_time_s', 'deepseek_input_tokens', 'deepseek_output_tokens', 'jev_input_tokens', 'jev_output_tokens', 'api_attempts'], lineterminator='\n')
+                'distance_m','checked_locations','api_latency_ms', 'wall_time_s', 'deepseek_input_tokens', 'deepseek_output_tokens', 'jev_input_tokens', 'jev_output_tokens', 'api_attempts'], lineterminator='\n')
             writer.writeheader()
             for row in result['rows']:
                 cost = row['cost']
-                writer.writerow({**{k: row[k] for k in ('method', 'status', 'task_success', 'burden', 'ask_turns', 'robot_actions', 'wall_time_s')},
+                writer.writerow({**{k: row[k] for k in ('method', 'status', 'task_success', 'burden', 'ask_turns', 'robot_actions', 'wall_time_s','distance_m','checked_locations')},
                     'api_latency_ms': cost['api_latency_ms'], 'api_attempts': cost['api_attempts'],
                     **{f'{b}_{k}': cost[b][k] for b in ('deepseek', 'jev') for k in ('input_tokens', 'output_tokens')}})
         self.sequence += 1
@@ -315,7 +328,8 @@ class TaskManager:
             threading.Thread(target=run_agent, args=(self, task), name='agent-' + task.id, daemon=True).start()
             scene = task.sample.scene()
             return dict(task_id=task.id, template=task.template, unknown_preferences=task.unknown_preferences, source_sample_id=task.sample.sample_id,
-                        physics_signature=self.physics_signature,
+                        navigation_case=getattr(task.sample,'case_id',None),
+                        physics_signature=self.navigation_signature if task.template=='find_and_approach' else self.physics_signature,
                         scene_sha256=hashlib.sha256(json.dumps(scene, sort_keys=True).encode()).hexdigest())
 
     def owned(self, task_id, worker_id):
@@ -415,7 +429,16 @@ class TaskManager:
             question = task._question
             if source not in ('auto', 'human'):
                 raise ValueError('Unknown answer source')
-            if source == 'auto':
+            if task.template == 'find_and_approach':
+                from .navigation_protocol import auto_answer, validate_answer
+                if source == 'auto':
+                    response = auto_answer(task.sample)
+                else:
+                    if task.answer_mode != 'manual':
+                        raise Conflict('This task uses automatic responses')
+                    validate_answer(response)
+                # World facts stay fixed even if an operator supplies a wrong hint.
+            elif source == 'auto':
                 response, _ = PreferenceResolver(task.sample.slots, {**task.sample.theta_star, **task.goal_overrides}).answer(question)
             else:
                 if task.answer_mode != 'manual':

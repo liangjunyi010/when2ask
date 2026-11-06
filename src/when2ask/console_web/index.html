@@ -14,8 +14,9 @@
 <section class="launcher panel">
 <div class="section-kicker"><span class="tiny-dot"></span> DISPATCH A MISSION <span class="muted">/ 创建独立任务</span></div>
 <form id="launch">
-<label>TASK TEMPLATE<select id="template"><option value="pack_and_cover">Pack &amp; Cover · 装箱盖盒</option><option value="place_into_selected_containers">Two Containers · 双容器放置</option></select></label>
-<label>UNKNOWN PREFERENCES<select id="unknown"><option value="0">0 · 全部已知</option><option value="1">1 · 一项未知</option><option value="2" selected>2 · 两项未知</option><option value="3">3 · 全部未知</option></select></label>
+<label>TASK TEMPLATE<select id="template"><option value="pack_and_cover">Pack &amp; Cover · 装箱盖盒</option><option value="place_into_selected_containers">Two Containers · 双容器放置</option><option value="find_and_approach">Find &amp; Approach · 三房间找物</option></select></label>
+<label id="navigation-case-field" hidden>DEV SCENARIO<select id="navigation-case"><option value="case_a">Case A · fixed world</option><option value="case_b" selected>Case B · fixed world</option><option value="case_c">Case C · fixed world</option></select></label>
+<label><span id="unknown-label">UNKNOWN PREFERENCES</span><select id="unknown"><option value="0">0 · 全部已知</option><option value="1">1 · 一项未知</option><option value="2" selected>2 · 两项未知</option><option value="3">3 · 全部未知</option></select></label>
 <label>DECISION METHOD<select id="method"><optgroup label="真实模型 API"><option value="llm_noask">LLM-NoAsk</option><option value="llm_gate">LLM-Gate · DeepSeek</option><option value="jev_gate">Jev-Gate · Jev + DeepSeek</option></optgroup><optgroup label="离线真实物理"><option value="scripted_ask" selected>Scripted ASK · 无 API</option><option value="scripted_noask">Scripted NoAsk · 无 API</option></optgroup></select></label>
 <label>USER RESPONSE<select id="answer-mode"><option value="auto">Auto · User Simulator</option><option value="manual">Human · 我来回答</option></select></label>
 <button id="start" type="submit" class="primary">＋ 启动任务</button><button id="compare-start" type="button" class="compare-button">⇄ 一键三方法对比</button>
@@ -26,10 +27,10 @@
 <div class="workspace"><div class="operations">
 <div class="workspace-head"><div class="tabs"><button id="wall-tab" class="tab active">LIVE ROBOT WALL <span id="task-count">0</span></button><button id="compare-tab" class="tab">METHOD COMPARISON <span id="comparison-count">0</span></button></div><button id="restore" class="text-button" hidden>显示已收起</button></div>
 <div id="comparison-toolbar" class="comparison-toolbar panel" hidden><label>PAIRED RUN<select id="comparison-select" aria-label="Choose comparison"></select></label><div><strong id="comparison-title">Same scene. Three decisions.</strong><p id="comparison-description"></p></div><button id="show-all" class="text-button">查看全部任务</button></div>
-<section id="tasks" class="tasks" aria-label="Live robot cameras"><div id="empty" class="empty panel"><span class="empty-orbit">◎</span><h2>Your robot fleet is ready.</h2><p>选择任务后启动 Panda，或一键比较三种真实方法。<br>每个画面来自独立执行器的实时全景。</p><span class="empty-tag">REAL PYBULLET · NO TEST SET CALLS</span></div></section>
+<section id="tasks" class="tasks" aria-label="Live robot cameras"><div id="empty" class="empty panel"><span class="empty-orbit">◎</span><h2>Your robot fleet is ready.</h2><p>选择任务后启动 Panda / Husky，或一键比较三种真实方法。<br>每个画面来自独立执行器的实时全景。</p><span class="empty-tag">REAL PYBULLET · NO TEST SET CALLS</span></div></section>
 <section id="comparison-panel" class="panel results-panel" hidden>
 <div class="panel-heading"><div><span class="section-kicker">PAIRED METHOD RESULTS</span><h2>同一任务，三种澄清策略</h2></div><div class="exports"><a id="comparison-json" target="_blank" rel="noopener">JSON ↗</a><a id="comparison-csv">CSV ↓</a></div></div>
-<div class="table-scroll"><table><thead><tr><th>Method</th><th>Task success</th><th>Burden</th><th>ASK</th><th>Actions</th><th>API latency</th><th>Wall time</th><th>DeepSeek in / out</th><th>Jev in / out</th></tr></thead><tbody id="comparison-rows"></tbody></table></div>
+<div class="table-scroll"><table><thead><tr><th>Method</th><th>Task success</th><th>Burden</th><th>ASK</th><th>Actions</th><th>Distance</th><th>Inspected</th><th>API latency</th><th>Wall time</th><th>DeepSeek in / out</th><th>Jev in / out</th></tr></thead><tbody id="comparison-rows"></tbody></table></div>
 <p class="result-note">当前配对任务实测。API latency 为调用累计时间；wall time 包含排队与物理执行。各后端 token 分开统计。单个场景不代表正式 Benchmark 排名。</p>
 </section>
 <section id="inspector" class="panel inspector" hidden>
@@ -41,10 +42,10 @@
 <aside class="clarification-panel panel" aria-label="Unified clarification queue">
 <div class="panel-heading"><div><span class="section-kicker amber-text">HUMAN IN THE LOOP</span><h2>Clarification Queue</h2></div><span id="queue-count" class="queue-count">0</span></div>
 <p class="queue-intro">回答一个任务，其他机器人继续执行。</p><div id="queue-list" class="queue-list"></div>
-<div id="queue-empty" class="queue-empty"><span>✓</span><strong>No intervention needed.</strong><p>当机器人需要你的偏好时，问题会出现在这里。</p></div>
+<div id="queue-empty" class="queue-empty"><span>✓</span><strong>No intervention needed.</strong><p>当机器人需要偏好或位置提示时，问题会出现在这里。</p></div>
 <div id="answer-desk"></div><div class="queue-foot"><span class="tiny-dot green-dot"></span> 问题与回答按 Task ID + Question ID 精确路由</div>
 </aside></div>
-<footer><span>WHEN2ASK / CLARIFICATION TIMING FOR ROBOTIC EXECUTION</span><span>PyBullet Panda · DeepSeek Planner · Jev Noul Gate</span></footer>
+<footer><span>WHEN2ASK / CLARIFICATION TIMING FOR ROBOTIC EXECUTION</span><span>PyBullet Panda / Husky · DeepSeek Planner · Jev Noul Gate</span></footer>
 </main>
 <dialog id="focus"><div class="focus-head"><div><span class="section-kicker">LIVE PANORAMIC VIEW</span><h2 id="focus-title"></h2></div><button id="focus-close" class="text-button" aria-label="关闭大画面">关闭 ×</button></div><img id="focus-image" alt="放大的实时机器人全景"><div id="focus-meta" class="mono"></div></dialog>
 <script src="/app.js"></script></body></html>

@@ -240,3 +240,15 @@ gh repo view --json url,isPrivate,defaultBranchRef
 git rev-parse HEAD
 git ls-remote origin refs/heads/main
 ```
+# Navigation Dev v1 — three-room find and approach
+
+The command center now supports a separate wheel-driven Husky navigation task with a
+known map, local range/FOV/line-of-sight observations, automatic/manual location hints
+and one-click NoAsk / LLM-Gate / Jev-Gate comparison. The target stays at its fixed
+physical location; success requires actual detection and approach, without pickup.
+Original frozen tabletop settings and experiments are preserved.
+
+Run `.venv/bin/python console.py --live`, open `http://127.0.0.1:8877/`, then select
+**Find & Approach**. Scripted methods need no API calls. Instructions, privacy rules,
+physical validation and bounded live-study commands: [Navigation Dev v1](docs/navigation_dev_v1.md).
+

@@ -180,3 +180,22 @@ not separately tested in a second environment.
 - Final live comparison: 3 episodes, 22 pre-reserved API attempts, 9/9 physical skills succeeded; task scores NoAsk false, LLM-Gate true, Jev-Gate false. All genuine preference failures remain visible.
 - Development discovered a missing shared-ledger binding in the first paired run. Raw logs were retained, its 22 real requests explicitly reconciled, binding fixed, regression tested and the full comparison rerun. Total work: 6 real-model episodes and 44 authenticated calls, not six independent scenarios.
 - Full offline suite: **152 passed**. No provider network in pytest. [New evidence](../outputs/command_center_evidence/README.md) is separate from frozen data and earlier reports. No held-out Test API experiments and no dual-computer tests were run.
+## Navigation Dev v1 — 2026-11-06
+
+- Added an independent three-room Husky task. Actual wheel motors, shared known-map
+  routes, local geometric range/FOV/ray detection and true distance/stopped-state
+  evaluation; no target/robot teleportation or pickup/delivery claims.
+- Reuses controller/worker processes, live robot wall, automatic/manual clarification
+  queue and one-click three-method comparison. World location facts remain fixed
+  even if a manual hint is wrong. Each location question costs one slot.
+- Real physical regression: **9/9** (three placements × known-location oracle,
+  scripted NoAsk, scripted ASK); all skill actions succeeded. One floorplan group.
+- Real Chromium regression passed manual navigation + autonomous navigation + original
+  Panda task concurrently, ASK freeze, other-world progress, draft reload and exact
+  frame hash/step consistency. No model calls in these checks.
+- Offline full suite: **205 passed**. The 181 pre-existing tests remain unchanged.
+- Separate preregistered real-model pilot is capped at 9 episodes / 120 requests;
+  its result is reported separately when actually run. Frozen files are hash-checked.
+- Guide: [navigation_dev_v1.md](navigation_dev_v1.md). Dual computers, new independent
+  layouts, dynamic obstacles, learned vision and physical hardware remain unverified.
+
