@@ -252,3 +252,8 @@ Run `.venv/bin/python console.py --live`, open `http://127.0.0.1:8877/`, then se
 **Find & Approach**. Scripted methods need no API calls. Instructions, privacy rules,
 physical validation and bounded live-study commands: [Navigation Dev v1](docs/navigation_dev_v1.md).
 
+
+Navigation v1 is locally verified: 205 tests, 9/9 scripted/oracle physical checks,
+and a separate **9 real-model episodes / 65 requests** pilot. All three methods found
+all three placements; neither learned gate asked, so no timing benefit was demonstrated.
+[Actual results, costs and limitations](outputs/navigation_dev_v1/live_v1/README.md).

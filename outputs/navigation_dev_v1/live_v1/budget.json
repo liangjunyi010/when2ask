@@ -1,0 +1,28 @@
+{
+  "attempts": 65,
+  "episodes": 9,
+  "backends": {
+    "jev": {
+      "consecutive_errors": 0,
+      "blocked": false
+    },
+    "deepseek": {
+      "consecutive_errors": 0,
+      "blocked": false
+    }
+  },
+  "policy": "phase2",
+  "max_attempts": 120,
+  "max_episodes": 9,
+  "episode_ids": [
+    "351fd147019847c8",
+    "e1447600c82141cf",
+    "356fb9167ab041dd",
+    "4a542012267e4220",
+    "c5a594d5d1c04cdc",
+    "3a078366ecb54009",
+    "e244a505fc5d4f41",
+    "cf4efce6d33340fa",
+    "1a50c17b021d46a9"
+  ]
+}

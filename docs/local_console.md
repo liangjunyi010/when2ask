@@ -108,3 +108,13 @@ New local API endpoints:
 Current browser checks: `node scripts/command_center_check.mjs` (real physics, no provider calls). Paid checks additionally require `--live --session-dir <matching-session>`. The previous browser-check entry points forward to this version and write new evidence under `outputs/command_center_evidence/`; they do not overwrite the published v1 artifacts. `python scripts/report_command_center.py` rebuilds the new report offline. The earlier `report_console.py` remains for the earlier evidence only.
 
 See [new measured results and screenshots](../outputs/command_center_evidence/README.md). Two-computer VPN testing remains deferred.
+
+## Navigation Dev v1
+
+Select **Find & Approach · 三房间找物** in the same HTML. The Husky searches six
+stations in a known three-room map using wheel motors and local range/FOV/LOS
+observations. Auto/manual replies provide a fixed-world location hint; manual answers
+never relocate the object or change the evaluator. One-click comparison still launches
+three independent real-model worlds. Navigation cards and comparison rows add actual
+travel distance and inspected station count. See [task contract and commands](navigation_dev_v1.md)
+and [actual bounded pilot](../outputs/navigation_dev_v1/live_v1/README.md).

@@ -1,0 +1,35 @@
+{
+  "task_success": true,
+  "termination_reason": "done",
+  "conditions": {
+    "target_locally_detected": true,
+    "physically_within_approach_radius": true,
+    "robot_stopped": true,
+    "no_wall_penetration": true,
+    "distance_budget_respected": true
+  },
+  "clarification_burden": 0,
+  "action_count": 1,
+  "successful_action_count": 1,
+  "details": {
+    "actual_target_position": [
+      -3.999662219979549,
+      2.1499506850315,
+      0.7150774285168747
+    ],
+    "actual_target_location": "kitchen_counter",
+    "final_robot_pose": [
+      -4.004653252113235,
+      1.0545841466228347,
+      1.6906345690356617
+    ],
+    "final_distance_m": 1.0953779091560782,
+    "distance_travelled_m": 5.136394224026938,
+    "checked_locations": [
+      "kitchen_counter"
+    ],
+    "detection_model": "range_1.65m_fov90_ray_los",
+    "pickup_or_delivery": false
+  },
+  "evaluator_version": "navigation_geometry_los_v1"
+}

@@ -128,5 +128,6 @@ stream.onmessage=e=>{
   if(event.task.comparison_id&&!groups.has(event.task.comparison_id))api('/api/comparisons/'+event.task.comparison_id).then(receiveGroup).catch(e=>notice(e.message));
  }else if(event.type==='comparison')receiveGroup(event.comparison);
 };
+const requestedTemplate=new URLSearchParams(location.search).get('template');if([...$('#template').options].some(o=>o.value===requestedTemplate))$('#template').value=requestedTemplate;
 sceneChanged();refreshMeta();setInterval(refreshMeta,5000);
 window.consoleView={tasks,groups,getCard:id=>views.get(id),refreshMeta,selectTask,selectComparison,chooseQuestion};

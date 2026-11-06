@@ -199,3 +199,17 @@ not separately tested in a second environment.
 - Guide: [navigation_dev_v1.md](navigation_dev_v1.md). Dual computers, new independent
   layouts, dynamic obstacles, learned vision and physical hardware remain unverified.
 
+
+### Navigation Dev v1 actual live outcome
+
+- Dedicated navigation pilot: **9/9 real-model physical successes** on three placement
+  cases in one fixed map group; **65/120 authenticated API attempts**, no retries,
+  API errors or schema errors. Returned models: `deepseek-flash`, `jev-1.14.0`.
+- NoAsk / LLM-Gate / Jev-Gate each succeeded 3/3 with burden 0 and the same total
+  travel (46.754m per method). API latency totals: 9.506s / 21.607s / 13.531s.
+- Neither learned gate asked. This is not evidence of a clarification-timing benefit.
+  Manual and automatic ASK paths were separately run with labelled scripted policies
+  and real physics, including the actual 3s automatic reply delay and ASK freeze.
+- All 1,148 protected existing tracked files (including the user's already-modified
+  PPT) matched their pre-task hashes. No held-out Test API run or frozen-setting change.
+- [Raw logs, automatic CSV/JSON report and preregistration](../outputs/navigation_dev_v1/live_v1/README.md).

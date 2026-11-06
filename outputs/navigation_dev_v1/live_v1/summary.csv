@@ -1,0 +1,4 @@
+method,episodes,successes,burden_total,mean_burden,distance_m_total,api_latency_ms_total,deepseek_input_tokens,deepseek_output_tokens,jev_input_tokens,jev_output_tokens,jev_attempts,deepseek_attempts,api_attempts
+llm_noask,3,3,0,0.0,46.75404207191902,9505.869959946722,20116,141,,,0,13,13
+llm_gate,3,3,0,0.0,46.75404207191902,21607.47933399398,39894,232,,,0,26,26
+jev_gate,3,3,0,0.0,46.75404207191901,13530.57812602492,20116,141,26648,312,13,13,26

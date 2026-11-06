@@ -1,0 +1,903 @@
+{
+  "case": "case_b",
+  "method": "scripted_noask",
+  "group_id": "three_room_map_v1",
+  "scene_seed": 0,
+  "evidence_kind": "scripted_policy_real_pybullet",
+  "evaluation": {
+    "task_success": true,
+    "termination_reason": "done",
+    "conditions": {
+      "target_locally_detected": true,
+      "physically_within_approach_radius": true,
+      "robot_stopped": true,
+      "no_wall_penetration": true,
+      "distance_budget_respected": true
+    },
+    "clarification_burden": 0,
+    "action_count": 3,
+    "successful_action_count": 3,
+    "details": {
+      "actual_target_position": [
+        0.0003602892468544787,
+        2.149849528706984,
+        0.7150774279661358
+      ],
+      "actual_target_location": "living_cabinet",
+      "final_robot_pose": [
+        0.006914008264819596,
+        1.050925659842168,
+        1.4510908827830438
+      ],
+      "final_distance_m": 1.098943411097124,
+      "distance_travelled_m": 14.606294839518398,
+      "checked_locations": [
+        "kitchen_counter",
+        "kitchen_shelf",
+        "living_cabinet"
+      ],
+      "detection_model": "range_1.65m_fov90_ray_los",
+      "pickup_or_delivery": false
+    },
+    "evaluator_version": "navigation_geometry_los_v1"
+  },
+  "turns": [
+    {
+      "round": 0,
+      "public_payload": {
+        "instruction": "Find the kitchen knife and approach it within 1.2 metres. Do not pick it up or deliver it. You know the room map and six inspection stations, but unseen object locations are not observations. A kitchen counter or shelf is a plausible semantic prior for a kitchen knife, not a guaranteed location. You may search stations and ask the user for a location hint. A search can make useful progress by revealing absence. A user location claim does not itself count as detecting the object.",
+        "observation": {
+          "simulation_step": 240,
+          "robot_pose": [
+            0.0,
+            0.0,
+            3.1416
+          ],
+          "current_room": "living_room",
+          "known_map": {
+            "version": "three_room_map_v1",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "room": "kitchen",
+                "name": "Kitchen counter",
+                "xy": [
+                  -4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "room": "kitchen",
+                "name": "Kitchen shelf",
+                "xy": [
+                  -4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "room": "living_room",
+                "name": "Living room cabinet",
+                "xy": [
+                  0.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "room": "living_room",
+                "name": "Living room table",
+                "xy": [
+                  0.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "room": "study",
+                "name": "Study desk",
+                "xy": [
+                  4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "room": "study",
+                "name": "Study shelf",
+                "xy": [
+                  4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "detect_target": true,
+              "approach_distance_m": 1.2,
+              "no_pickup_or_delivery": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "search_actions": 8
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {},
+          "target_observation": null,
+          "target_visible_now": false,
+          "distance_to_observed_target_m": null,
+          "robot_stopped": true,
+          "distance_travelled_m": 0.0,
+          "route_distances_m": {
+            "kitchen_counter": 5.1,
+            "kitchen_shelf": 5.1,
+            "living_cabinet": 1.1,
+            "living_table": 1.1,
+            "study_desk": 5.1,
+            "study_shelf": 5.1
+          }
+        },
+        "public_history": [],
+        "location_claim": null,
+        "interaction_contract": {
+          "auto_answer_delay_s": 3,
+          "location_hint_requests_count_as_one_slot": true,
+          "user_claim_is_not_detection": true,
+          "robot_time_advances_only_during_actions": true,
+          "target_static": true,
+          "sensor": "geometric range/FOV/ray LOS; not learned computer vision"
+        }
+      },
+      "decision": "CONTINUE",
+      "action": {
+        "kind": "search",
+        "location_id": "kitchen_counter"
+      }
+    },
+    {
+      "round": 1,
+      "public_payload": {
+        "instruction": "Find the kitchen knife and approach it within 1.2 metres. Do not pick it up or deliver it. You know the room map and six inspection stations, but unseen object locations are not observations. A kitchen counter or shelf is a plausible semantic prior for a kitchen knife, not a guaranteed location. You may search stations and ask the user for a location hint. A search can make useful progress by revealing absence. A user location claim does not itself count as detecting the object.",
+        "observation": {
+          "simulation_step": 2378,
+          "robot_pose": [
+            -4.0047,
+            1.0546,
+            1.6906
+          ],
+          "current_room": "kitchen",
+          "known_map": {
+            "version": "three_room_map_v1",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "room": "kitchen",
+                "name": "Kitchen counter",
+                "xy": [
+                  -4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "room": "kitchen",
+                "name": "Kitchen shelf",
+                "xy": [
+                  -4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "room": "living_room",
+                "name": "Living room cabinet",
+                "xy": [
+                  0.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "room": "living_room",
+                "name": "Living room table",
+                "xy": [
+                  0.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "room": "study",
+                "name": "Study desk",
+                "xy": [
+                  4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "room": "study",
+                "name": "Study shelf",
+                "xy": [
+                  4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "detect_target": true,
+              "approach_distance_m": 1.2,
+              "no_pickup_or_delivery": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "search_actions": 8
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {
+            "kitchen_counter": {
+              "observed_step": 2378,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            }
+          },
+          "target_observation": null,
+          "target_visible_now": false,
+          "distance_to_observed_target_m": null,
+          "robot_stopped": true,
+          "distance_travelled_m": 5.1364,
+          "route_distances_m": {
+            "kitchen_counter": 0.046,
+            "kitchen_shelf": 2.155,
+            "living_cabinet": 6.155,
+            "living_table": 6.155,
+            "study_desk": 10.155,
+            "study_shelf": 10.155
+          }
+        },
+        "public_history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "kitchen_counter",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 240,
+              "end_step": 2378,
+              "distance_m": 5.1364,
+              "target_detected": false
+            }
+          }
+        ],
+        "location_claim": null,
+        "interaction_contract": {
+          "auto_answer_delay_s": 3,
+          "location_hint_requests_count_as_one_slot": true,
+          "user_claim_is_not_detection": true,
+          "robot_time_advances_only_during_actions": true,
+          "target_static": true,
+          "sensor": "geometric range/FOV/ray LOS; not learned computer vision"
+        }
+      },
+      "decision": "CONTINUE",
+      "action": {
+        "kind": "search",
+        "location_id": "kitchen_shelf"
+      }
+    },
+    {
+      "round": 2,
+      "public_payload": {
+        "instruction": "Find the kitchen knife and approach it within 1.2 metres. Do not pick it up or deliver it. You know the room map and six inspection stations, but unseen object locations are not observations. A kitchen counter or shelf is a plausible semantic prior for a kitchen knife, not a guaranteed location. You may search stations and ask the user for a location hint. A search can make useful progress by revealing absence. A user location claim does not itself count as detecting the object.",
+        "observation": {
+          "simulation_step": 4529,
+          "robot_pose": [
+            -4.0969,
+            -1.14,
+            -1.4511
+          ],
+          "current_room": "kitchen",
+          "known_map": {
+            "version": "three_room_map_v1",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "room": "kitchen",
+                "name": "Kitchen counter",
+                "xy": [
+                  -4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "room": "kitchen",
+                "name": "Kitchen shelf",
+                "xy": [
+                  -4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "room": "living_room",
+                "name": "Living room cabinet",
+                "xy": [
+                  0.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "room": "living_room",
+                "name": "Living room table",
+                "xy": [
+                  0.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "room": "study",
+                "name": "Study desk",
+                "xy": [
+                  4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "room": "study",
+                "name": "Study shelf",
+                "xy": [
+                  4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "detect_target": true,
+              "approach_distance_m": 1.2,
+              "no_pickup_or_delivery": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "search_actions": 8
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {
+            "kitchen_counter": {
+              "observed_step": 2378,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "kitchen_shelf": {
+              "observed_step": 4529,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            }
+          },
+          "target_observation": null,
+          "target_visible_now": false,
+          "distance_to_observed_target_m": null,
+          "robot_stopped": true,
+          "distance_travelled_m": 7.8349,
+          "route_distances_m": {
+            "kitchen_counter": 2.242,
+            "kitchen_shelf": 0.105,
+            "living_cabinet": 6.244,
+            "living_table": 6.244,
+            "study_desk": 10.244,
+            "study_shelf": 10.244
+          }
+        },
+        "public_history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "kitchen_counter",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 240,
+              "end_step": 2378,
+              "distance_m": 5.1364,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "kitchen_shelf",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 2378,
+              "end_step": 4529,
+              "distance_m": 2.6985,
+              "target_detected": false
+            }
+          }
+        ],
+        "location_claim": null,
+        "interaction_contract": {
+          "auto_answer_delay_s": 3,
+          "location_hint_requests_count_as_one_slot": true,
+          "user_claim_is_not_detection": true,
+          "robot_time_advances_only_during_actions": true,
+          "target_static": true,
+          "sensor": "geometric range/FOV/ray LOS; not learned computer vision"
+        }
+      },
+      "decision": "CONTINUE",
+      "action": {
+        "kind": "search",
+        "location_id": "living_cabinet"
+      }
+    },
+    {
+      "round": 3,
+      "public_payload": {
+        "instruction": "Find the kitchen knife and approach it within 1.2 metres. Do not pick it up or deliver it. You know the room map and six inspection stations, but unseen object locations are not observations. A kitchen counter or shelf is a plausible semantic prior for a kitchen knife, not a guaranteed location. You may search stations and ask the user for a location hint. A search can make useful progress by revealing absence. A user location claim does not itself count as detecting the object.",
+        "observation": {
+          "simulation_step": 8218,
+          "robot_pose": [
+            0.0069,
+            1.0509,
+            1.4511
+          ],
+          "current_room": "living_room",
+          "known_map": {
+            "version": "three_room_map_v1",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "room": "kitchen",
+                "name": "Kitchen counter",
+                "xy": [
+                  -4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "room": "kitchen",
+                "name": "Kitchen shelf",
+                "xy": [
+                  -4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "room": "living_room",
+                "name": "Living room cabinet",
+                "xy": [
+                  0.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "room": "living_room",
+                "name": "Living room table",
+                "xy": [
+                  0.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "room": "study",
+                "name": "Study desk",
+                "xy": [
+                  4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "room": "study",
+                "name": "Study shelf",
+                "xy": [
+                  4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "detect_target": true,
+              "approach_distance_m": 1.2,
+              "no_pickup_or_delivery": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "search_actions": 8
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {
+            "kitchen_counter": {
+              "observed_step": 2378,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "kitchen_shelf": {
+              "observed_step": 4529,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "living_cabinet": {
+              "observed_step": 8218,
+              "target_detected": true,
+              "scope": "local_station_inspection"
+            }
+          },
+          "target_observation": {
+            "object_id": "target_knife",
+            "category": "kitchen_knife",
+            "position": [
+              0.0004,
+              2.1498,
+              0.7151
+            ],
+            "location_id": "living_cabinet",
+            "observed_step": 8218
+          },
+          "target_visible_now": true,
+          "distance_to_observed_target_m": 1.0989,
+          "robot_stopped": true,
+          "distance_travelled_m": 14.6063,
+          "route_distances_m": {
+            "kitchen_counter": 6.151,
+            "kitchen_shelf": 6.151,
+            "living_cabinet": 0.05,
+            "living_table": 2.151,
+            "study_desk": 6.151,
+            "study_shelf": 6.151
+          }
+        },
+        "public_history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "kitchen_counter",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 240,
+              "end_step": 2378,
+              "distance_m": 5.1364,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "kitchen_shelf",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 2378,
+              "end_step": 4529,
+              "distance_m": 2.6985,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "living_cabinet",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 4529,
+              "end_step": 8218,
+              "distance_m": 6.7714,
+              "target_detected": true
+            }
+          }
+        ],
+        "location_claim": null,
+        "interaction_contract": {
+          "auto_answer_delay_s": 3,
+          "location_hint_requests_count_as_one_slot": true,
+          "user_claim_is_not_detection": true,
+          "robot_time_advances_only_during_actions": true,
+          "target_static": true,
+          "sensor": "geometric range/FOV/ray LOS; not learned computer vision"
+        }
+      },
+      "decision": "CONTINUE",
+      "action": {
+        "kind": "DONE"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "kitchen_counter",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 240,
+      "end_step": 2378,
+      "distance_m": 5.1364,
+      "target_detected": false
+    },
+    {
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "kitchen_shelf",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 2378,
+      "end_step": 4529,
+      "distance_m": 2.6985,
+      "target_detected": false
+    },
+    {
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "living_cabinet",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 4529,
+      "end_step": 8218,
+      "distance_m": 6.7714,
+      "target_detected": true
+    }
+  ],
+  "execution_log": [
+    {
+      "kind": "phase",
+      "step": 240,
+      "phase": "navigate",
+      "location_id": "kitchen_counter"
+    },
+    {
+      "kind": "phase",
+      "step": 1998,
+      "phase": "inspect",
+      "location_id": "kitchen_counter"
+    },
+    {
+      "kind": "station_inspected",
+      "step": 2378,
+      "phase": "inspect",
+      "location_id": "kitchen_counter",
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 2378,
+      "phase": "idle",
+      "location_id": "kitchen_counter"
+    },
+    {
+      "kind": "skill_result",
+      "step": 2378,
+      "phase": "idle",
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "kitchen_counter",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 240,
+      "end_step": 2378,
+      "distance_m": 5.1364,
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 2378,
+      "phase": "navigate",
+      "location_id": "kitchen_shelf"
+    },
+    {
+      "kind": "phase",
+      "step": 4037,
+      "phase": "inspect",
+      "location_id": "kitchen_shelf"
+    },
+    {
+      "kind": "station_inspected",
+      "step": 4529,
+      "phase": "inspect",
+      "location_id": "kitchen_shelf",
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 4529,
+      "phase": "idle",
+      "location_id": "kitchen_shelf"
+    },
+    {
+      "kind": "skill_result",
+      "step": 4529,
+      "phase": "idle",
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "kitchen_shelf",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 2378,
+      "end_step": 4529,
+      "distance_m": 2.6985,
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 4529,
+      "phase": "navigate",
+      "location_id": "living_cabinet"
+    },
+    {
+      "kind": "target_detected",
+      "step": 7680,
+      "phase": "navigate",
+      "location_id": "living_cabinet"
+    },
+    {
+      "kind": "phase",
+      "step": 7847,
+      "phase": "inspect",
+      "location_id": "living_cabinet"
+    },
+    {
+      "kind": "station_inspected",
+      "step": 8218,
+      "phase": "inspect",
+      "location_id": "living_cabinet",
+      "target_detected": true
+    },
+    {
+      "kind": "phase",
+      "step": 8218,
+      "phase": "idle",
+      "location_id": "living_cabinet"
+    },
+    {
+      "kind": "skill_result",
+      "step": 8218,
+      "phase": "idle",
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "living_cabinet",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 4529,
+      "end_step": 8218,
+      "distance_m": 6.7714,
+      "target_detected": true
+    }
+  ]
+}

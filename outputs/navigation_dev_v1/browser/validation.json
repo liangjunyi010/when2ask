@@ -1,0 +1,53 @@
+{
+  "evidence": "scripted_policy_real_pybullet",
+  "tasks": [
+    {
+      "id": "00337b4d98c540de",
+      "template": "find_and_approach",
+      "method": "scripted_ask",
+      "success": true,
+      "burden": 1
+    },
+    {
+      "id": "298dd88655774dc1",
+      "template": "find_and_approach",
+      "method": "scripted_noask",
+      "success": true,
+      "burden": 0
+    },
+    {
+      "id": "2958ba302ce547e9",
+      "template": "pack_and_cover",
+      "method": "scripted_noask",
+      "success": true,
+      "burden": 0
+    }
+  ],
+  "actual_manual_response": true,
+  "ask_freezes_physics": true,
+  "other_world_keeps_running": true,
+  "reload_preserves_answer_draft": true,
+  "frame_checks": [
+    {
+      "task_id": "00337b4d98c540de",
+      "simulation_step": 5977,
+      "jpeg_sha256": "dd6352de6b262f1f8a3dc38b0b6f5666c5434278219a9c53860cb69ac1d87bc5",
+      "metadata_matches": true
+    },
+    {
+      "task_id": "298dd88655774dc1",
+      "simulation_step": 16420,
+      "jpeg_sha256": "4dd8af281f381090d7267e8a3e18143a2b38f4d2336f94dbe2e4b7de54b4a3b0",
+      "metadata_matches": true
+    },
+    {
+      "task_id": "2958ba302ce547e9",
+      "simulation_step": 10814,
+      "jpeg_sha256": "f819219e082df3dbf145c4c37d1a12bbd9b848a7a8715d0120e14175004989a7",
+      "metadata_matches": true
+    }
+  ],
+  "api_attempts": 0,
+  "console_errors": [],
+  "external_requests": []
+}

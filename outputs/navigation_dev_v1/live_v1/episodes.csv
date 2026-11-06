@@ -1,0 +1,10 @@
+sample,episode_id,method,success,burden,distance_m,inspected,actions,ask_turns,first_ask_round,first_ask_after_inspections,api_attempts,api_latency_ms,deepseek_attempts,jev_attempts,deepseek_input_tokens,deepseek_output_tokens,jev_input_tokens,jev_output_tokens,returned_models,ask_physics_unchanged,termination,error
+nav_dev_v1_case_c_unknown,1a50c17b021d46a9,jev_gate,True,0,27.01135300837368,6,6,0,,,14,6632.844833948184,7,7,11450,79,15162,168,deepseek-flash | jev-1.14.0,,done,
+nav_dev_v1_case_b_unknown,351fd147019847c8,llm_noask,True,0,14.606294839518398,3,3,0,,,4,3162.044499942567,4,0,5908,44,,,deepseek-flash,,done,
+nav_dev_v1_case_b_unknown,356fb9167ab041dd,jev_gate,True,0,14.606294839518398,3,3,0,,,8,4578.69258406572,4,4,5908,44,7829,96,deepseek-flash | jev-1.14.0,,done,
+nav_dev_v1_case_a_unknown,3a078366ecb54009,jev_gate,True,0,5.136394224026938,1,1,0,,,4,2319.0407080110162,2,2,2758,18,3657,48,deepseek-flash | jev-1.14.0,,done,
+nav_dev_v1_case_a_unknown,4a542012267e4220,llm_noask,True,0,5.136394224026938,1,1,0,,,2,1491.8983760289848,2,0,2758,18,,,deepseek-flash,,done,
+nav_dev_v1_case_a_unknown,c5a594d5d1c04cdc,llm_gate,True,0,5.136394224026938,1,1,0,,,4,3766.8829160393216,4,0,5464,32,,,deepseek-flash,,done,
+nav_dev_v1_case_c_unknown,cf4efce6d33340fa,llm_gate,True,0,27.01135300837368,6,6,0,,,14,10427.92875104351,14,0,22718,128,,,deepseek-flash,,done,
+nav_dev_v1_case_b_unknown,e1447600c82141cf,llm_gate,True,0,14.606294839518398,3,3,0,,,8,7412.6676669111475,8,0,11712,72,,,deepseek-flash,,done,
+nav_dev_v1_case_c_unknown,e244a505fc5d4f41,llm_noask,True,0,27.01135300837368,6,6,0,,,7,4851.92708397517,7,0,11450,79,,,deepseek-flash,,done,

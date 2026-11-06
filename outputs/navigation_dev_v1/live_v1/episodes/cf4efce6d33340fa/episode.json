@@ -1,0 +1,4710 @@
+{
+  "schema_version": "navigation_search_dev_v1",
+  "episode_id": "cf4efce6d33340fa",
+  "task_template": "find_and_approach",
+  "method": "llm_gate",
+  "answer_mode": "auto",
+  "comparison_id": "27b7c467d0ff4527",
+  "partition": "navigation_dev_only",
+  "source_sample_id": "nav_dev_v1_case_c_unknown",
+  "layout_group": "three_room_map_v1",
+  "scene_seed": 0,
+  "evidence_kind": "live_models_real_pybullet",
+  "evaluation_protocol": "fixed_world_location",
+  "planner_configuration": {
+    "deepseek_model": "deepseek-flash",
+    "jev_model": "jev-latest",
+    "jev_threshold": 0.5,
+    "timeout_s": 40,
+    "max_retries": 1,
+    "max_tokens": 500,
+    "thinking": "disabled",
+    "response_format": "json_object"
+  },
+  "prompt_hashes": {
+    "gate": "0a3c01cd6a6a05e70f59813bd3e7d1ccd0859883831f71cac46e6a6ddf1b6b21",
+    "action": "ef5afc46a9f10d53b88080dec4b81e43be47ad0079cc52a4716c2ea80e324462",
+    "question": "b44fa983d522f3f6339f82331b268c49f2afeee5825278e8fadcc9118e8b888f"
+  },
+  "public_instruction": "Find the kitchen knife and approach it within 1.2 metres. Do not pick it up or deliver it. You know the room map and six inspection stations, but unseen object locations are not observations. A kitchen counter or shelf is a plausible semantic prior for a kitchen knife, not a guaranteed location. You may search stations and ask the user for a location hint. A search can make useful progress by revealing absence. A user location claim does not itself count as detecting the object.",
+  "turns": [
+    {
+      "round": 0,
+      "public_payload": {
+        "instruction": "Find the kitchen knife and approach it within 1.2 metres. Do not pick it up or deliver it. You know the room map and six inspection stations, but unseen object locations are not observations. A kitchen counter or shelf is a plausible semantic prior for a kitchen knife, not a guaranteed location. You may search stations and ask the user for a location hint. A search can make useful progress by revealing absence. A user location claim does not itself count as detecting the object.",
+        "observation": {
+          "simulation_step": 240,
+          "robot_pose": [
+            0.0,
+            0.0,
+            3.1416
+          ],
+          "current_room": "living_room",
+          "known_map": {
+            "version": "three_room_map_v1",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "room": "kitchen",
+                "name": "Kitchen counter",
+                "xy": [
+                  -4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "room": "kitchen",
+                "name": "Kitchen shelf",
+                "xy": [
+                  -4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "room": "living_room",
+                "name": "Living room cabinet",
+                "xy": [
+                  0.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "room": "living_room",
+                "name": "Living room table",
+                "xy": [
+                  0.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "room": "study",
+                "name": "Study desk",
+                "xy": [
+                  4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "room": "study",
+                "name": "Study shelf",
+                "xy": [
+                  4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "detect_target": true,
+              "approach_distance_m": 1.2,
+              "no_pickup_or_delivery": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "search_actions": 8
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {},
+          "target_observation": null,
+          "target_visible_now": false,
+          "distance_to_observed_target_m": null,
+          "robot_stopped": true,
+          "distance_travelled_m": 0.0,
+          "route_distances_m": {
+            "kitchen_counter": 5.1,
+            "kitchen_shelf": 5.1,
+            "living_cabinet": 1.1,
+            "living_table": 1.1,
+            "study_desk": 5.1,
+            "study_shelf": 5.1
+          }
+        },
+        "public_history": [],
+        "location_claim": null,
+        "interaction_contract": {
+          "auto_answer_delay_s": 3,
+          "location_hint_requests_count_as_one_slot": true,
+          "user_claim_is_not_detection": true,
+          "robot_time_advances_only_during_actions": true,
+          "target_static": true,
+          "sensor": "geometric range/FOV/ray LOS; not learned computer vision"
+        }
+      },
+      "payload_sha256": "557d9bccb525b90da99759b1160cc09db3659ef019b9f12cb58b96713cf11f88",
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 0,
+        "called": true,
+        "backend": "deepseek"
+      },
+      "action": {
+        "kind": "search",
+        "location_id": "kitchen_counter"
+      },
+      "physical_result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "kitchen_counter",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 2378,
+        "distance_m": 5.1364,
+        "target_detected": false
+      }
+    },
+    {
+      "round": 1,
+      "public_payload": {
+        "instruction": "Find the kitchen knife and approach it within 1.2 metres. Do not pick it up or deliver it. You know the room map and six inspection stations, but unseen object locations are not observations. A kitchen counter or shelf is a plausible semantic prior for a kitchen knife, not a guaranteed location. You may search stations and ask the user for a location hint. A search can make useful progress by revealing absence. A user location claim does not itself count as detecting the object.",
+        "observation": {
+          "simulation_step": 2378,
+          "robot_pose": [
+            -4.0047,
+            1.0546,
+            1.6906
+          ],
+          "current_room": "kitchen",
+          "known_map": {
+            "version": "three_room_map_v1",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "room": "kitchen",
+                "name": "Kitchen counter",
+                "xy": [
+                  -4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "room": "kitchen",
+                "name": "Kitchen shelf",
+                "xy": [
+                  -4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "room": "living_room",
+                "name": "Living room cabinet",
+                "xy": [
+                  0.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "room": "living_room",
+                "name": "Living room table",
+                "xy": [
+                  0.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "room": "study",
+                "name": "Study desk",
+                "xy": [
+                  4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "room": "study",
+                "name": "Study shelf",
+                "xy": [
+                  4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "detect_target": true,
+              "approach_distance_m": 1.2,
+              "no_pickup_or_delivery": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "search_actions": 8
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {
+            "kitchen_counter": {
+              "observed_step": 2378,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            }
+          },
+          "target_observation": null,
+          "target_visible_now": false,
+          "distance_to_observed_target_m": null,
+          "robot_stopped": true,
+          "distance_travelled_m": 5.1364,
+          "route_distances_m": {
+            "kitchen_counter": 0.046,
+            "kitchen_shelf": 2.155,
+            "living_cabinet": 6.155,
+            "living_table": 6.155,
+            "study_desk": 10.155,
+            "study_shelf": 10.155
+          }
+        },
+        "public_history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "kitchen_counter",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 240,
+              "end_step": 2378,
+              "distance_m": 5.1364,
+              "target_detected": false
+            }
+          }
+        ],
+        "location_claim": null,
+        "interaction_contract": {
+          "auto_answer_delay_s": 3,
+          "location_hint_requests_count_as_one_slot": true,
+          "user_claim_is_not_detection": true,
+          "robot_time_advances_only_during_actions": true,
+          "target_static": true,
+          "sensor": "geometric range/FOV/ray LOS; not learned computer vision"
+        }
+      },
+      "payload_sha256": "2e2d30eaa16cdc37794def57b28823c83543937bfa19049b2bc2594705680133",
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 1,
+        "called": true,
+        "backend": "deepseek"
+      },
+      "action": {
+        "kind": "search",
+        "location_id": "kitchen_shelf"
+      },
+      "physical_result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "kitchen_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 2378,
+        "end_step": 4529,
+        "distance_m": 2.6985,
+        "target_detected": false
+      }
+    },
+    {
+      "round": 2,
+      "public_payload": {
+        "instruction": "Find the kitchen knife and approach it within 1.2 metres. Do not pick it up or deliver it. You know the room map and six inspection stations, but unseen object locations are not observations. A kitchen counter or shelf is a plausible semantic prior for a kitchen knife, not a guaranteed location. You may search stations and ask the user for a location hint. A search can make useful progress by revealing absence. A user location claim does not itself count as detecting the object.",
+        "observation": {
+          "simulation_step": 4529,
+          "robot_pose": [
+            -4.0969,
+            -1.14,
+            -1.4511
+          ],
+          "current_room": "kitchen",
+          "known_map": {
+            "version": "three_room_map_v1",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "room": "kitchen",
+                "name": "Kitchen counter",
+                "xy": [
+                  -4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "room": "kitchen",
+                "name": "Kitchen shelf",
+                "xy": [
+                  -4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "room": "living_room",
+                "name": "Living room cabinet",
+                "xy": [
+                  0.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "room": "living_room",
+                "name": "Living room table",
+                "xy": [
+                  0.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "room": "study",
+                "name": "Study desk",
+                "xy": [
+                  4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "room": "study",
+                "name": "Study shelf",
+                "xy": [
+                  4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "detect_target": true,
+              "approach_distance_m": 1.2,
+              "no_pickup_or_delivery": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "search_actions": 8
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {
+            "kitchen_counter": {
+              "observed_step": 2378,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "kitchen_shelf": {
+              "observed_step": 4529,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            }
+          },
+          "target_observation": null,
+          "target_visible_now": false,
+          "distance_to_observed_target_m": null,
+          "robot_stopped": true,
+          "distance_travelled_m": 7.8349,
+          "route_distances_m": {
+            "kitchen_counter": 2.242,
+            "kitchen_shelf": 0.105,
+            "living_cabinet": 6.244,
+            "living_table": 6.244,
+            "study_desk": 10.244,
+            "study_shelf": 10.244
+          }
+        },
+        "public_history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "kitchen_counter",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 240,
+              "end_step": 2378,
+              "distance_m": 5.1364,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "kitchen_shelf",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 2378,
+              "end_step": 4529,
+              "distance_m": 2.6985,
+              "target_detected": false
+            }
+          }
+        ],
+        "location_claim": null,
+        "interaction_contract": {
+          "auto_answer_delay_s": 3,
+          "location_hint_requests_count_as_one_slot": true,
+          "user_claim_is_not_detection": true,
+          "robot_time_advances_only_during_actions": true,
+          "target_static": true,
+          "sensor": "geometric range/FOV/ray LOS; not learned computer vision"
+        }
+      },
+      "payload_sha256": "41f491eb9dea1aa9a658e6356b4b059b8d1987900019ac948c6d63343775e77d",
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 2,
+        "called": true,
+        "backend": "deepseek"
+      },
+      "action": {
+        "kind": "search",
+        "location_id": "living_cabinet"
+      },
+      "physical_result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_cabinet",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 4529,
+        "end_step": 8218,
+        "distance_m": 6.7714,
+        "target_detected": false
+      }
+    },
+    {
+      "round": 3,
+      "public_payload": {
+        "instruction": "Find the kitchen knife and approach it within 1.2 metres. Do not pick it up or deliver it. You know the room map and six inspection stations, but unseen object locations are not observations. A kitchen counter or shelf is a plausible semantic prior for a kitchen knife, not a guaranteed location. You may search stations and ask the user for a location hint. A search can make useful progress by revealing absence. A user location claim does not itself count as detecting the object.",
+        "observation": {
+          "simulation_step": 8218,
+          "robot_pose": [
+            0.0069,
+            1.0509,
+            1.4511
+          ],
+          "current_room": "living_room",
+          "known_map": {
+            "version": "three_room_map_v1",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "room": "kitchen",
+                "name": "Kitchen counter",
+                "xy": [
+                  -4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "room": "kitchen",
+                "name": "Kitchen shelf",
+                "xy": [
+                  -4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "room": "living_room",
+                "name": "Living room cabinet",
+                "xy": [
+                  0.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "room": "living_room",
+                "name": "Living room table",
+                "xy": [
+                  0.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "room": "study",
+                "name": "Study desk",
+                "xy": [
+                  4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "room": "study",
+                "name": "Study shelf",
+                "xy": [
+                  4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "detect_target": true,
+              "approach_distance_m": 1.2,
+              "no_pickup_or_delivery": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "search_actions": 8
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {
+            "kitchen_counter": {
+              "observed_step": 2378,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "kitchen_shelf": {
+              "observed_step": 4529,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "living_cabinet": {
+              "observed_step": 8218,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            }
+          },
+          "target_observation": null,
+          "target_visible_now": false,
+          "distance_to_observed_target_m": null,
+          "robot_stopped": true,
+          "distance_travelled_m": 14.6063,
+          "route_distances_m": {
+            "kitchen_counter": 6.151,
+            "kitchen_shelf": 6.151,
+            "living_cabinet": 0.05,
+            "living_table": 2.151,
+            "study_desk": 6.151,
+            "study_shelf": 6.151
+          }
+        },
+        "public_history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "kitchen_counter",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 240,
+              "end_step": 2378,
+              "distance_m": 5.1364,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "kitchen_shelf",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 2378,
+              "end_step": 4529,
+              "distance_m": 2.6985,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "living_cabinet",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 4529,
+              "end_step": 8218,
+              "distance_m": 6.7714,
+              "target_detected": false
+            }
+          }
+        ],
+        "location_claim": null,
+        "interaction_contract": {
+          "auto_answer_delay_s": 3,
+          "location_hint_requests_count_as_one_slot": true,
+          "user_claim_is_not_detection": true,
+          "robot_time_advances_only_during_actions": true,
+          "target_static": true,
+          "sensor": "geometric range/FOV/ray LOS; not learned computer vision"
+        }
+      },
+      "payload_sha256": "00198bd7d3a71152ce49864eb8444b5a0b6305b1171c843f8a357b6fd215d66b",
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 3,
+        "called": true,
+        "backend": "deepseek"
+      },
+      "action": {
+        "kind": "search",
+        "location_id": "living_table"
+      },
+      "physical_result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_table",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 8218,
+        "end_step": 10351,
+        "distance_m": 2.6988,
+        "target_detected": false
+      }
+    },
+    {
+      "round": 4,
+      "public_payload": {
+        "instruction": "Find the kitchen knife and approach it within 1.2 metres. Do not pick it up or deliver it. You know the room map and six inspection stations, but unseen object locations are not observations. A kitchen counter or shelf is a plausible semantic prior for a kitchen knife, not a guaranteed location. You may search stations and ask the user for a location hint. A search can make useful progress by revealing absence. A user location claim does not itself count as detecting the object.",
+        "observation": {
+          "simulation_step": 10351,
+          "robot_pose": [
+            0.1003,
+            -1.1268,
+            -1.6906
+          ],
+          "current_room": "living_room",
+          "known_map": {
+            "version": "three_room_map_v1",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "room": "kitchen",
+                "name": "Kitchen counter",
+                "xy": [
+                  -4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "room": "kitchen",
+                "name": "Kitchen shelf",
+                "xy": [
+                  -4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "room": "living_room",
+                "name": "Living room cabinet",
+                "xy": [
+                  0.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "room": "living_room",
+                "name": "Living room table",
+                "xy": [
+                  0.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "room": "study",
+                "name": "Study desk",
+                "xy": [
+                  4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "room": "study",
+                "name": "Study shelf",
+                "xy": [
+                  4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "detect_target": true,
+              "approach_distance_m": 1.2,
+              "no_pickup_or_delivery": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "search_actions": 8
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {
+            "kitchen_counter": {
+              "observed_step": 2378,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "kitchen_shelf": {
+              "observed_step": 4529,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "living_cabinet": {
+              "observed_step": 8218,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "living_table": {
+              "observed_step": 10351,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            }
+          },
+          "target_observation": null,
+          "target_visible_now": false,
+          "distance_to_observed_target_m": null,
+          "robot_stopped": true,
+          "distance_travelled_m": 17.3051,
+          "route_distances_m": {
+            "kitchen_counter": 6.231,
+            "kitchen_shelf": 6.231,
+            "living_cabinet": 2.229,
+            "living_table": 0.104,
+            "study_desk": 6.231,
+            "study_shelf": 6.231
+          }
+        },
+        "public_history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "kitchen_counter",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 240,
+              "end_step": 2378,
+              "distance_m": 5.1364,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "kitchen_shelf",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 2378,
+              "end_step": 4529,
+              "distance_m": 2.6985,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "living_cabinet",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 4529,
+              "end_step": 8218,
+              "distance_m": 6.7714,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "living_table",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 8218,
+              "end_step": 10351,
+              "distance_m": 2.6988,
+              "target_detected": false
+            }
+          }
+        ],
+        "location_claim": null,
+        "interaction_contract": {
+          "auto_answer_delay_s": 3,
+          "location_hint_requests_count_as_one_slot": true,
+          "user_claim_is_not_detection": true,
+          "robot_time_advances_only_during_actions": true,
+          "target_static": true,
+          "sensor": "geometric range/FOV/ray LOS; not learned computer vision"
+        }
+      },
+      "payload_sha256": "90847079328134e780c45ab9aaede2a234551a7f91e36514fda0fc2fa396b51c",
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 4,
+        "called": true,
+        "backend": "deepseek"
+      },
+      "action": {
+        "kind": "search",
+        "location_id": "study_desk"
+      },
+      "physical_result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_desk",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 10351,
+        "end_step": 14082,
+        "distance_m": 6.9574,
+        "target_detected": false
+      }
+    },
+    {
+      "round": 5,
+      "public_payload": {
+        "instruction": "Find the kitchen knife and approach it within 1.2 metres. Do not pick it up or deliver it. You know the room map and six inspection stations, but unseen object locations are not observations. A kitchen counter or shelf is a plausible semantic prior for a kitchen knife, not a guaranteed location. You may search stations and ask the user for a location hint. A search can make useful progress by revealing absence. A user location claim does not itself count as detecting the object.",
+        "observation": {
+          "simulation_step": 14082,
+          "robot_pose": [
+            4.0302,
+            1.0282,
+            1.4511
+          ],
+          "current_room": "study",
+          "known_map": {
+            "version": "three_room_map_v1",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "room": "kitchen",
+                "name": "Kitchen counter",
+                "xy": [
+                  -4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "room": "kitchen",
+                "name": "Kitchen shelf",
+                "xy": [
+                  -4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "room": "living_room",
+                "name": "Living room cabinet",
+                "xy": [
+                  0.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "room": "living_room",
+                "name": "Living room table",
+                "xy": [
+                  0.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "room": "study",
+                "name": "Study desk",
+                "xy": [
+                  4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "room": "study",
+                "name": "Study shelf",
+                "xy": [
+                  4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "detect_target": true,
+              "approach_distance_m": 1.2,
+              "no_pickup_or_delivery": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "search_actions": 8
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {
+            "kitchen_counter": {
+              "observed_step": 2378,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "kitchen_shelf": {
+              "observed_step": 4529,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "living_cabinet": {
+              "observed_step": 8218,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "living_table": {
+              "observed_step": 10351,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "study_desk": {
+              "observed_step": 14082,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            }
+          },
+          "target_observation": null,
+          "target_visible_now": false,
+          "distance_to_observed_target_m": null,
+          "robot_stopped": true,
+          "distance_travelled_m": 24.2625,
+          "route_distances_m": {
+            "kitchen_counter": 10.129,
+            "kitchen_shelf": 10.129,
+            "living_cabinet": 6.129,
+            "living_table": 6.129,
+            "study_desk": 0.078,
+            "study_shelf": 2.128
+          }
+        },
+        "public_history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "kitchen_counter",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 240,
+              "end_step": 2378,
+              "distance_m": 5.1364,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "kitchen_shelf",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 2378,
+              "end_step": 4529,
+              "distance_m": 2.6985,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "living_cabinet",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 4529,
+              "end_step": 8218,
+              "distance_m": 6.7714,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "living_table",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 8218,
+              "end_step": 10351,
+              "distance_m": 2.6988,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "study_desk",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 10351,
+              "end_step": 14082,
+              "distance_m": 6.9574,
+              "target_detected": false
+            }
+          }
+        ],
+        "location_claim": null,
+        "interaction_contract": {
+          "auto_answer_delay_s": 3,
+          "location_hint_requests_count_as_one_slot": true,
+          "user_claim_is_not_detection": true,
+          "robot_time_advances_only_during_actions": true,
+          "target_static": true,
+          "sensor": "geometric range/FOV/ray LOS; not learned computer vision"
+        }
+      },
+      "payload_sha256": "c52ab611f1a16b3057925de79da313ee79b0ae17b283bcfb4701246b0e4d8eb7",
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 5,
+        "called": true,
+        "backend": "deepseek"
+      },
+      "action": {
+        "kind": "search",
+        "location_id": "study_shelf"
+      },
+      "physical_result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 14082,
+        "end_step": 16420,
+        "distance_m": 2.7489,
+        "target_detected": true
+      }
+    },
+    {
+      "round": 6,
+      "public_payload": {
+        "instruction": "Find the kitchen knife and approach it within 1.2 metres. Do not pick it up or deliver it. You know the room map and six inspection stations, but unseen object locations are not observations. A kitchen counter or shelf is a plausible semantic prior for a kitchen knife, not a guaranteed location. You may search stations and ask the user for a location hint. A search can make useful progress by revealing absence. A user location claim does not itself count as detecting the object.",
+        "observation": {
+          "simulation_step": 16420,
+          "robot_pose": [
+            4.1282,
+            -1.2046,
+            -1.6905
+          ],
+          "current_room": "study",
+          "known_map": {
+            "version": "three_room_map_v1",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "room": "kitchen",
+                "name": "Kitchen counter",
+                "xy": [
+                  -4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "room": "kitchen",
+                "name": "Kitchen shelf",
+                "xy": [
+                  -4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "room": "living_room",
+                "name": "Living room cabinet",
+                "xy": [
+                  0.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "room": "living_room",
+                "name": "Living room table",
+                "xy": [
+                  0.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "room": "study",
+                "name": "Study desk",
+                "xy": [
+                  4.0,
+                  1.1
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "room": "study",
+                "name": "Study shelf",
+                "xy": [
+                  4.0,
+                  -1.1
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "detect_target": true,
+              "approach_distance_m": 1.2,
+              "no_pickup_or_delivery": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "search_actions": 8
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {
+            "kitchen_counter": {
+              "observed_step": 2378,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "kitchen_shelf": {
+              "observed_step": 4529,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "living_cabinet": {
+              "observed_step": 8218,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "living_table": {
+              "observed_step": 10351,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "study_desk": {
+              "observed_step": 14082,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "study_shelf": {
+              "observed_step": 16420,
+              "target_detected": true,
+              "scope": "local_station_inspection"
+            }
+          },
+          "target_observation": {
+            "object_id": "target_knife",
+            "category": "kitchen_knife",
+            "position": [
+              4.0004,
+              -2.1503,
+              0.7151
+            ],
+            "location_id": "study_shelf",
+            "observed_step": 16420
+          },
+          "target_visible_now": true,
+          "distance_to_observed_target_m": 0.9543,
+          "robot_stopped": true,
+          "distance_travelled_m": 27.0114,
+          "route_distances_m": {
+            "kitchen_counter": 10.311,
+            "kitchen_shelf": 10.311,
+            "living_cabinet": 6.311,
+            "living_table": 6.311,
+            "study_desk": 2.308,
+            "study_shelf": 0.165
+          }
+        },
+        "public_history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "kitchen_counter",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 240,
+              "end_step": 2378,
+              "distance_m": 5.1364,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "kitchen_shelf",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 2378,
+              "end_step": 4529,
+              "distance_m": 2.6985,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "living_cabinet",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 4529,
+              "end_step": 8218,
+              "distance_m": 6.7714,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "living_table",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 8218,
+              "end_step": 10351,
+              "distance_m": 2.6988,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "study_desk",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 10351,
+              "end_step": 14082,
+              "distance_m": 6.9574,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "search",
+              "object_id": "mobile_robot",
+              "target_id": "study_shelf",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 14082,
+              "end_step": 16420,
+              "distance_m": 2.7489,
+              "target_detected": true
+            }
+          }
+        ],
+        "location_claim": null,
+        "interaction_contract": {
+          "auto_answer_delay_s": 3,
+          "location_hint_requests_count_as_one_slot": true,
+          "user_claim_is_not_detection": true,
+          "robot_time_advances_only_during_actions": true,
+          "target_static": true,
+          "sensor": "geometric range/FOV/ray LOS; not learned computer vision"
+        }
+      },
+      "payload_sha256": "602fc57f7ce4cdfd5f2e70935e76117b58895855c7cc698ff8c581fa97f0c312",
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 6,
+        "called": true,
+        "backend": "deepseek"
+      },
+      "action": {
+        "kind": "DONE"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "kitchen_counter",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 240,
+      "end_step": 2378,
+      "distance_m": 5.1364,
+      "target_detected": false
+    },
+    {
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "kitchen_shelf",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 2378,
+      "end_step": 4529,
+      "distance_m": 2.6985,
+      "target_detected": false
+    },
+    {
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "living_cabinet",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 4529,
+      "end_step": 8218,
+      "distance_m": 6.7714,
+      "target_detected": false
+    },
+    {
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "living_table",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 8218,
+      "end_step": 10351,
+      "distance_m": 2.6988,
+      "target_detected": false
+    },
+    {
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "study_desk",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 10351,
+      "end_step": 14082,
+      "distance_m": 6.9574,
+      "target_detected": false
+    },
+    {
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "study_shelf",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 14082,
+      "end_step": 16420,
+      "distance_m": 2.7489,
+      "target_detected": true
+    }
+  ],
+  "public_history": [
+    {
+      "kind": "action",
+      "result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "kitchen_counter",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 2378,
+        "distance_m": 5.1364,
+        "target_detected": false
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "kitchen_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 2378,
+        "end_step": 4529,
+        "distance_m": 2.6985,
+        "target_detected": false
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_cabinet",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 4529,
+        "end_step": 8218,
+        "distance_m": 6.7714,
+        "target_detected": false
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_table",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 8218,
+        "end_step": 10351,
+        "distance_m": 2.6988,
+        "target_detected": false
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_desk",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 10351,
+        "end_step": 14082,
+        "distance_m": 6.9574,
+        "target_detected": false
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 14082,
+        "end_step": 16420,
+        "distance_m": 2.7489,
+        "target_detected": true
+      }
+    }
+  ],
+  "trace": [
+    {
+      "seq": 1,
+      "kind": "queued",
+      "elapsed_ms": 0,
+      "round": 0,
+      "simulation_step": null,
+      "comparison_id": "27b7c467d0ff4527"
+    },
+    {
+      "seq": 2,
+      "kind": "initializing",
+      "elapsed_ms": 379,
+      "round": 0,
+      "simulation_step": null,
+      "worker_id": "worker-2c7c3469842b"
+    },
+    {
+      "seq": 3,
+      "kind": "status",
+      "elapsed_ms": 519,
+      "round": 0,
+      "simulation_step": 240,
+      "status": "gate"
+    },
+    {
+      "seq": 4,
+      "kind": "gate_decision",
+      "elapsed_ms": 1360,
+      "round": 0,
+      "simulation_step": 240,
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 0,
+        "called": true,
+        "backend": "deepseek"
+      }
+    },
+    {
+      "seq": 5,
+      "kind": "status",
+      "elapsed_ms": 1360,
+      "round": 0,
+      "simulation_step": 240,
+      "status": "planning_action"
+    },
+    {
+      "seq": 6,
+      "kind": "planned_action",
+      "elapsed_ms": 2119,
+      "round": 0,
+      "simulation_step": 240,
+      "action": {
+        "kind": "search",
+        "location_id": "kitchen_counter"
+      }
+    },
+    {
+      "seq": 7,
+      "kind": "status",
+      "elapsed_ms": 2119,
+      "round": 0,
+      "simulation_step": 240,
+      "status": "dispatching"
+    },
+    {
+      "seq": 8,
+      "kind": "physical_phase",
+      "elapsed_ms": 2268,
+      "round": 0,
+      "simulation_step": 264,
+      "phase": "navigate",
+      "action": {
+        "kind": "search",
+        "location_id": "kitchen_counter"
+      }
+    },
+    {
+      "seq": 9,
+      "kind": "physical_phase",
+      "elapsed_ms": 9662,
+      "round": 0,
+      "simulation_step": 2040,
+      "phase": "inspect",
+      "action": {
+        "kind": "search",
+        "location_id": "kitchen_counter"
+      }
+    },
+    {
+      "seq": 10,
+      "kind": "action_result",
+      "elapsed_ms": 11109,
+      "round": 0,
+      "simulation_step": 2378,
+      "result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "kitchen_counter",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 2378,
+        "distance_m": 5.1364,
+        "target_detected": false
+      }
+    },
+    {
+      "seq": 11,
+      "kind": "status",
+      "elapsed_ms": 11109,
+      "round": 1,
+      "simulation_step": 2378,
+      "status": "gate"
+    },
+    {
+      "seq": 12,
+      "kind": "gate_decision",
+      "elapsed_ms": 11485,
+      "round": 1,
+      "simulation_step": 2378,
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 1,
+        "called": true,
+        "backend": "deepseek"
+      }
+    },
+    {
+      "seq": 13,
+      "kind": "status",
+      "elapsed_ms": 11485,
+      "round": 1,
+      "simulation_step": 2378,
+      "status": "planning_action"
+    },
+    {
+      "seq": 14,
+      "kind": "planned_action",
+      "elapsed_ms": 12372,
+      "round": 1,
+      "simulation_step": 2378,
+      "action": {
+        "kind": "search",
+        "location_id": "kitchen_shelf"
+      }
+    },
+    {
+      "seq": 15,
+      "kind": "status",
+      "elapsed_ms": 12372,
+      "round": 1,
+      "simulation_step": 2378,
+      "status": "dispatching"
+    },
+    {
+      "seq": 16,
+      "kind": "physical_phase",
+      "elapsed_ms": 12512,
+      "round": 1,
+      "simulation_step": 2400,
+      "phase": "navigate",
+      "action": {
+        "kind": "search",
+        "location_id": "kitchen_shelf"
+      }
+    },
+    {
+      "seq": 17,
+      "kind": "physical_phase",
+      "elapsed_ms": 19512,
+      "round": 1,
+      "simulation_step": 4080,
+      "phase": "inspect",
+      "action": {
+        "kind": "search",
+        "location_id": "kitchen_shelf"
+      }
+    },
+    {
+      "seq": 18,
+      "kind": "action_result",
+      "elapsed_ms": 21356,
+      "round": 1,
+      "simulation_step": 4529,
+      "result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "kitchen_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 2378,
+        "end_step": 4529,
+        "distance_m": 2.6985,
+        "target_detected": false
+      }
+    },
+    {
+      "seq": 19,
+      "kind": "status",
+      "elapsed_ms": 21356,
+      "round": 2,
+      "simulation_step": 4529,
+      "status": "gate"
+    },
+    {
+      "seq": 20,
+      "kind": "gate_decision",
+      "elapsed_ms": 21813,
+      "round": 2,
+      "simulation_step": 4529,
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 2,
+        "called": true,
+        "backend": "deepseek"
+      }
+    },
+    {
+      "seq": 21,
+      "kind": "status",
+      "elapsed_ms": 21814,
+      "round": 2,
+      "simulation_step": 4529,
+      "status": "planning_action"
+    },
+    {
+      "seq": 22,
+      "kind": "planned_action",
+      "elapsed_ms": 22764,
+      "round": 2,
+      "simulation_step": 4529,
+      "action": {
+        "kind": "search",
+        "location_id": "living_cabinet"
+      }
+    },
+    {
+      "seq": 23,
+      "kind": "status",
+      "elapsed_ms": 22764,
+      "round": 2,
+      "simulation_step": 4529,
+      "status": "dispatching"
+    },
+    {
+      "seq": 24,
+      "kind": "physical_phase",
+      "elapsed_ms": 22848,
+      "round": 2,
+      "simulation_step": 4536,
+      "phase": "navigate",
+      "action": {
+        "kind": "search",
+        "location_id": "living_cabinet"
+      }
+    },
+    {
+      "seq": 25,
+      "kind": "physical_phase",
+      "elapsed_ms": 36642,
+      "round": 2,
+      "simulation_step": 7848,
+      "phase": "inspect",
+      "action": {
+        "kind": "search",
+        "location_id": "living_cabinet"
+      }
+    },
+    {
+      "seq": 26,
+      "kind": "action_result",
+      "elapsed_ms": 38143,
+      "round": 2,
+      "simulation_step": 8218,
+      "result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_cabinet",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 4529,
+        "end_step": 8218,
+        "distance_m": 6.7714,
+        "target_detected": false
+      }
+    },
+    {
+      "seq": 27,
+      "kind": "status",
+      "elapsed_ms": 38143,
+      "round": 3,
+      "simulation_step": 8218,
+      "status": "gate"
+    },
+    {
+      "seq": 28,
+      "kind": "gate_decision",
+      "elapsed_ms": 38932,
+      "round": 3,
+      "simulation_step": 8218,
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 3,
+        "called": true,
+        "backend": "deepseek"
+      }
+    },
+    {
+      "seq": 29,
+      "kind": "status",
+      "elapsed_ms": 38932,
+      "round": 3,
+      "simulation_step": 8218,
+      "status": "planning_action"
+    },
+    {
+      "seq": 30,
+      "kind": "planned_action",
+      "elapsed_ms": 39666,
+      "round": 3,
+      "simulation_step": 8218,
+      "action": {
+        "kind": "search",
+        "location_id": "living_table"
+      }
+    },
+    {
+      "seq": 31,
+      "kind": "status",
+      "elapsed_ms": 39666,
+      "round": 3,
+      "simulation_step": 8218,
+      "status": "dispatching"
+    },
+    {
+      "seq": 32,
+      "kind": "physical_phase",
+      "elapsed_ms": 39779,
+      "round": 3,
+      "simulation_step": 8232,
+      "phase": "navigate",
+      "action": {
+        "kind": "search",
+        "location_id": "living_table"
+      }
+    },
+    {
+      "seq": 33,
+      "kind": "physical_phase",
+      "elapsed_ms": 46846,
+      "round": 3,
+      "simulation_step": 9912,
+      "phase": "inspect",
+      "action": {
+        "kind": "search",
+        "location_id": "living_table"
+      }
+    },
+    {
+      "seq": 34,
+      "kind": "action_result",
+      "elapsed_ms": 48622,
+      "round": 3,
+      "simulation_step": 10351,
+      "result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_table",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 8218,
+        "end_step": 10351,
+        "distance_m": 2.6988,
+        "target_detected": false
+      }
+    },
+    {
+      "seq": 35,
+      "kind": "status",
+      "elapsed_ms": 48623,
+      "round": 4,
+      "simulation_step": 10351,
+      "status": "gate"
+    },
+    {
+      "seq": 36,
+      "kind": "gate_decision",
+      "elapsed_ms": 49230,
+      "round": 4,
+      "simulation_step": 10351,
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 4,
+        "called": true,
+        "backend": "deepseek"
+      }
+    },
+    {
+      "seq": 37,
+      "kind": "status",
+      "elapsed_ms": 49230,
+      "round": 4,
+      "simulation_step": 10351,
+      "status": "planning_action"
+    },
+    {
+      "seq": 38,
+      "kind": "planned_action",
+      "elapsed_ms": 49785,
+      "round": 4,
+      "simulation_step": 10351,
+      "action": {
+        "kind": "search",
+        "location_id": "study_desk"
+      }
+    },
+    {
+      "seq": 39,
+      "kind": "status",
+      "elapsed_ms": 49785,
+      "round": 4,
+      "simulation_step": 10351,
+      "status": "dispatching"
+    },
+    {
+      "seq": 40,
+      "kind": "physical_phase",
+      "elapsed_ms": 49903,
+      "round": 4,
+      "simulation_step": 10368,
+      "phase": "navigate",
+      "action": {
+        "kind": "search",
+        "location_id": "study_desk"
+      }
+    },
+    {
+      "seq": 41,
+      "kind": "physical_phase",
+      "elapsed_ms": 64750,
+      "round": 4,
+      "simulation_step": 13800,
+      "phase": "inspect",
+      "action": {
+        "kind": "search",
+        "location_id": "study_desk"
+      }
+    },
+    {
+      "seq": 42,
+      "kind": "action_result",
+      "elapsed_ms": 65310,
+      "round": 4,
+      "simulation_step": 14082,
+      "result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_desk",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 10351,
+        "end_step": 14082,
+        "distance_m": 6.9574,
+        "target_detected": false
+      }
+    },
+    {
+      "seq": 43,
+      "kind": "status",
+      "elapsed_ms": 65311,
+      "round": 5,
+      "simulation_step": 14082,
+      "status": "gate"
+    },
+    {
+      "seq": 44,
+      "kind": "gate_decision",
+      "elapsed_ms": 66214,
+      "round": 5,
+      "simulation_step": 14082,
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 5,
+        "called": true,
+        "backend": "deepseek"
+      }
+    },
+    {
+      "seq": 45,
+      "kind": "status",
+      "elapsed_ms": 66215,
+      "round": 5,
+      "simulation_step": 14082,
+      "status": "planning_action"
+    },
+    {
+      "seq": 46,
+      "kind": "planned_action",
+      "elapsed_ms": 67119,
+      "round": 5,
+      "simulation_step": 14082,
+      "action": {
+        "kind": "search",
+        "location_id": "study_shelf"
+      }
+    },
+    {
+      "seq": 47,
+      "kind": "status",
+      "elapsed_ms": 67119,
+      "round": 5,
+      "simulation_step": 14082,
+      "status": "dispatching"
+    },
+    {
+      "seq": 48,
+      "kind": "physical_phase",
+      "elapsed_ms": 67190,
+      "round": 5,
+      "simulation_step": 14088,
+      "phase": "navigate",
+      "action": {
+        "kind": "search",
+        "location_id": "study_shelf"
+      }
+    },
+    {
+      "seq": 49,
+      "kind": "physical_phase",
+      "elapsed_ms": 74604,
+      "round": 5,
+      "simulation_step": 15864,
+      "phase": "inspect",
+      "action": {
+        "kind": "search",
+        "location_id": "study_shelf"
+      }
+    },
+    {
+      "seq": 50,
+      "kind": "action_result",
+      "elapsed_ms": 76897,
+      "round": 5,
+      "simulation_step": 16420,
+      "result": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "study_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 14082,
+        "end_step": 16420,
+        "distance_m": 2.7489,
+        "target_detected": true
+      }
+    },
+    {
+      "seq": 51,
+      "kind": "status",
+      "elapsed_ms": 76897,
+      "round": 6,
+      "simulation_step": 16420,
+      "status": "gate"
+    },
+    {
+      "seq": 52,
+      "kind": "gate_decision",
+      "elapsed_ms": 77573,
+      "round": 6,
+      "simulation_step": 16420,
+      "gate": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 6,
+        "called": true,
+        "backend": "deepseek"
+      }
+    },
+    {
+      "seq": 53,
+      "kind": "status",
+      "elapsed_ms": 77574,
+      "round": 6,
+      "simulation_step": 16420,
+      "status": "planning_action"
+    },
+    {
+      "seq": 54,
+      "kind": "planned_action",
+      "elapsed_ms": 78635,
+      "round": 6,
+      "simulation_step": 16420,
+      "action": {
+        "kind": "DONE"
+      }
+    }
+  ],
+  "worker_events": [
+    {
+      "kind": "ready",
+      "seq": 1,
+      "step": 240,
+      "command_id": null
+    },
+    {
+      "kind": "frame",
+      "seq": 2,
+      "step": 264,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 3,
+      "step": 312,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 4,
+      "step": 360,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 5,
+      "step": 408,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 6,
+      "step": 456,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 7,
+      "step": 504,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 8,
+      "step": 552,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 9,
+      "step": 600,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 10,
+      "step": 648,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 11,
+      "step": 696,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 12,
+      "step": 744,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 13,
+      "step": 792,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 14,
+      "step": 840,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 15,
+      "step": 888,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 16,
+      "step": 936,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 17,
+      "step": 984,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 18,
+      "step": 1032,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 19,
+      "step": 1080,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 20,
+      "step": 1128,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 21,
+      "step": 1176,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 22,
+      "step": 1224,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 23,
+      "step": 1272,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 24,
+      "step": 1320,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 25,
+      "step": 1368,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 26,
+      "step": 1416,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 27,
+      "step": 1464,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 28,
+      "step": 1512,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 29,
+      "step": 1560,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 30,
+      "step": 1608,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 31,
+      "step": 1656,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 32,
+      "step": 1704,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 33,
+      "step": 1752,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 34,
+      "step": 1800,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 35,
+      "step": 1848,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 36,
+      "step": 1896,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 37,
+      "step": 1944,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 38,
+      "step": 1992,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 39,
+      "step": 2040,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 40,
+      "step": 2088,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 41,
+      "step": 2136,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 42,
+      "step": 2184,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 43,
+      "step": 2232,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 44,
+      "step": 2280,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 45,
+      "step": 2328,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 46,
+      "step": 2376,
+      "command_id": 1
+    },
+    {
+      "kind": "action_result",
+      "seq": 47,
+      "step": 2378,
+      "command_id": 1
+    },
+    {
+      "kind": "frame",
+      "seq": 48,
+      "step": 2400,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 49,
+      "step": 2448,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 50,
+      "step": 2496,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 51,
+      "step": 2544,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 52,
+      "step": 2592,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 53,
+      "step": 2640,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 54,
+      "step": 2688,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 55,
+      "step": 2736,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 56,
+      "step": 2784,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 57,
+      "step": 2832,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 58,
+      "step": 2880,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 59,
+      "step": 2928,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 60,
+      "step": 2976,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 61,
+      "step": 3024,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 62,
+      "step": 3072,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 63,
+      "step": 3120,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 64,
+      "step": 3168,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 65,
+      "step": 3216,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 66,
+      "step": 3264,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 67,
+      "step": 3312,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 68,
+      "step": 3360,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 69,
+      "step": 3408,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 70,
+      "step": 3456,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 71,
+      "step": 3504,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 72,
+      "step": 3552,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 73,
+      "step": 3600,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 74,
+      "step": 3648,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 75,
+      "step": 3696,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 76,
+      "step": 3744,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 77,
+      "step": 3792,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 78,
+      "step": 3840,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 79,
+      "step": 3888,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 80,
+      "step": 3936,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 81,
+      "step": 3984,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 82,
+      "step": 4032,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 83,
+      "step": 4080,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 84,
+      "step": 4128,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 85,
+      "step": 4176,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 86,
+      "step": 4224,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 87,
+      "step": 4272,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 88,
+      "step": 4320,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 89,
+      "step": 4368,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 90,
+      "step": 4416,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 91,
+      "step": 4464,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 92,
+      "step": 4512,
+      "command_id": 2
+    },
+    {
+      "kind": "action_result",
+      "seq": 93,
+      "step": 4529,
+      "command_id": 2
+    },
+    {
+      "kind": "frame",
+      "seq": 94,
+      "step": 4536,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 95,
+      "step": 4584,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 96,
+      "step": 4632,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 97,
+      "step": 4680,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 98,
+      "step": 4728,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 99,
+      "step": 4776,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 100,
+      "step": 4824,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 101,
+      "step": 4872,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 102,
+      "step": 4920,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 103,
+      "step": 4968,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 104,
+      "step": 5016,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 105,
+      "step": 5064,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 106,
+      "step": 5112,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 107,
+      "step": 5160,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 108,
+      "step": 5208,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 109,
+      "step": 5256,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 110,
+      "step": 5304,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 111,
+      "step": 5352,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 112,
+      "step": 5400,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 113,
+      "step": 5448,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 114,
+      "step": 5496,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 115,
+      "step": 5544,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 116,
+      "step": 5592,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 117,
+      "step": 5640,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 118,
+      "step": 5688,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 119,
+      "step": 5736,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 120,
+      "step": 5784,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 121,
+      "step": 5832,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 122,
+      "step": 5880,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 123,
+      "step": 5928,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 124,
+      "step": 5976,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 125,
+      "step": 6024,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 126,
+      "step": 6072,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 127,
+      "step": 6120,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 128,
+      "step": 6168,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 129,
+      "step": 6216,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 130,
+      "step": 6264,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 131,
+      "step": 6312,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 132,
+      "step": 6360,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 133,
+      "step": 6408,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 134,
+      "step": 6456,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 135,
+      "step": 6504,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 136,
+      "step": 6552,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 137,
+      "step": 6600,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 138,
+      "step": 6648,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 139,
+      "step": 6696,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 140,
+      "step": 6744,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 141,
+      "step": 6792,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 142,
+      "step": 6840,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 143,
+      "step": 6888,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 144,
+      "step": 6936,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 145,
+      "step": 6984,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 146,
+      "step": 7032,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 147,
+      "step": 7080,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 148,
+      "step": 7128,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 149,
+      "step": 7176,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 150,
+      "step": 7224,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 151,
+      "step": 7272,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 152,
+      "step": 7320,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 153,
+      "step": 7368,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 154,
+      "step": 7416,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 155,
+      "step": 7464,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 156,
+      "step": 7512,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 157,
+      "step": 7560,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 158,
+      "step": 7608,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 159,
+      "step": 7656,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 160,
+      "step": 7704,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 161,
+      "step": 7752,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 162,
+      "step": 7800,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 163,
+      "step": 7848,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 164,
+      "step": 7896,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 165,
+      "step": 7944,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 166,
+      "step": 7992,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 167,
+      "step": 8040,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 168,
+      "step": 8088,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 169,
+      "step": 8136,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 170,
+      "step": 8184,
+      "command_id": 3
+    },
+    {
+      "kind": "action_result",
+      "seq": 171,
+      "step": 8218,
+      "command_id": 3
+    },
+    {
+      "kind": "frame",
+      "seq": 172,
+      "step": 8232,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 173,
+      "step": 8280,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 174,
+      "step": 8328,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 175,
+      "step": 8376,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 176,
+      "step": 8424,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 177,
+      "step": 8472,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 178,
+      "step": 8520,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 179,
+      "step": 8568,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 180,
+      "step": 8616,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 181,
+      "step": 8664,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 182,
+      "step": 8712,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 183,
+      "step": 8760,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 184,
+      "step": 8808,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 185,
+      "step": 8856,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 186,
+      "step": 8904,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 187,
+      "step": 8952,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 188,
+      "step": 9000,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 189,
+      "step": 9048,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 190,
+      "step": 9096,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 191,
+      "step": 9144,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 192,
+      "step": 9192,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 193,
+      "step": 9240,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 194,
+      "step": 9288,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 195,
+      "step": 9336,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 196,
+      "step": 9384,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 197,
+      "step": 9432,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 198,
+      "step": 9480,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 199,
+      "step": 9528,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 200,
+      "step": 9576,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 201,
+      "step": 9624,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 202,
+      "step": 9672,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 203,
+      "step": 9720,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 204,
+      "step": 9768,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 205,
+      "step": 9816,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 206,
+      "step": 9864,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 207,
+      "step": 9912,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 208,
+      "step": 9960,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 209,
+      "step": 10008,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 210,
+      "step": 10056,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 211,
+      "step": 10104,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 212,
+      "step": 10152,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 213,
+      "step": 10200,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 214,
+      "step": 10248,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 215,
+      "step": 10296,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 216,
+      "step": 10344,
+      "command_id": 4
+    },
+    {
+      "kind": "action_result",
+      "seq": 217,
+      "step": 10351,
+      "command_id": 4
+    },
+    {
+      "kind": "frame",
+      "seq": 218,
+      "step": 10368,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 219,
+      "step": 10416,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 220,
+      "step": 10464,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 221,
+      "step": 10512,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 222,
+      "step": 10560,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 223,
+      "step": 10608,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 224,
+      "step": 10656,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 225,
+      "step": 10704,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 226,
+      "step": 10752,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 227,
+      "step": 10800,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 228,
+      "step": 10848,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 229,
+      "step": 10896,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 230,
+      "step": 10944,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 231,
+      "step": 10992,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 232,
+      "step": 11040,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 233,
+      "step": 11088,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 234,
+      "step": 11136,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 235,
+      "step": 11184,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 236,
+      "step": 11232,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 237,
+      "step": 11280,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 238,
+      "step": 11328,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 239,
+      "step": 11376,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 240,
+      "step": 11424,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 241,
+      "step": 11472,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 242,
+      "step": 11520,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 243,
+      "step": 11568,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 244,
+      "step": 11616,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 245,
+      "step": 11664,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 246,
+      "step": 11712,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 247,
+      "step": 11760,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 248,
+      "step": 11808,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 249,
+      "step": 11856,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 250,
+      "step": 11904,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 251,
+      "step": 11952,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 252,
+      "step": 12000,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 253,
+      "step": 12048,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 254,
+      "step": 12096,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 255,
+      "step": 12144,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 256,
+      "step": 12192,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 257,
+      "step": 12240,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 258,
+      "step": 12288,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 259,
+      "step": 12336,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 260,
+      "step": 12384,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 261,
+      "step": 12432,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 262,
+      "step": 12480,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 263,
+      "step": 12528,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 264,
+      "step": 12576,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 265,
+      "step": 12624,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 266,
+      "step": 12672,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 267,
+      "step": 12720,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 268,
+      "step": 12768,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 269,
+      "step": 12816,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 270,
+      "step": 12864,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 271,
+      "step": 12912,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 272,
+      "step": 12960,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 273,
+      "step": 13008,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 274,
+      "step": 13056,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 275,
+      "step": 13104,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 276,
+      "step": 13152,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 277,
+      "step": 13200,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 278,
+      "step": 13248,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 279,
+      "step": 13296,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 280,
+      "step": 13344,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 281,
+      "step": 13392,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 282,
+      "step": 13440,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 283,
+      "step": 13488,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 284,
+      "step": 13536,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 285,
+      "step": 13584,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 286,
+      "step": 13632,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 287,
+      "step": 13680,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 288,
+      "step": 13728,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 289,
+      "step": 13776,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 290,
+      "step": 13800,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 291,
+      "step": 13824,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 292,
+      "step": 13992,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 293,
+      "step": 14040,
+      "command_id": 5
+    },
+    {
+      "kind": "action_result",
+      "seq": 294,
+      "step": 14082,
+      "command_id": 5
+    },
+    {
+      "kind": "frame",
+      "seq": 295,
+      "step": 14088,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 296,
+      "step": 14136,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 297,
+      "step": 14184,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 298,
+      "step": 14232,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 299,
+      "step": 14280,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 300,
+      "step": 14328,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 301,
+      "step": 14376,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 302,
+      "step": 14424,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 303,
+      "step": 14472,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 304,
+      "step": 14520,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 305,
+      "step": 14568,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 306,
+      "step": 14616,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 307,
+      "step": 14664,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 308,
+      "step": 14712,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 309,
+      "step": 14760,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 310,
+      "step": 14808,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 311,
+      "step": 14856,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 312,
+      "step": 14904,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 313,
+      "step": 14952,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 314,
+      "step": 15000,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 315,
+      "step": 15048,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 316,
+      "step": 15096,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 317,
+      "step": 15144,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 318,
+      "step": 15192,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 319,
+      "step": 15240,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 320,
+      "step": 15288,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 321,
+      "step": 15336,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 322,
+      "step": 15384,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 323,
+      "step": 15432,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 324,
+      "step": 15480,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 325,
+      "step": 15528,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 326,
+      "step": 15576,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 327,
+      "step": 15624,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 328,
+      "step": 15672,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 329,
+      "step": 15720,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 330,
+      "step": 15768,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 331,
+      "step": 15816,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 332,
+      "step": 15864,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 333,
+      "step": 15912,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 334,
+      "step": 15960,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 335,
+      "step": 16008,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 336,
+      "step": 16056,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 337,
+      "step": 16104,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 338,
+      "step": 16152,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 339,
+      "step": 16200,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 340,
+      "step": 16248,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 341,
+      "step": 16296,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 342,
+      "step": 16344,
+      "command_id": 6
+    },
+    {
+      "kind": "frame",
+      "seq": 343,
+      "step": 16392,
+      "command_id": 6
+    },
+    {
+      "kind": "action_result",
+      "seq": 344,
+      "step": 16420,
+      "command_id": 6
+    },
+    {
+      "kind": "finalized",
+      "seq": 345,
+      "step": 16420,
+      "command_id": null
+    }
+  ],
+  "execution_log": [
+    {
+      "kind": "phase",
+      "step": 240,
+      "phase": "navigate",
+      "location_id": "kitchen_counter"
+    },
+    {
+      "kind": "phase",
+      "step": 1998,
+      "phase": "inspect",
+      "location_id": "kitchen_counter"
+    },
+    {
+      "kind": "station_inspected",
+      "step": 2378,
+      "phase": "inspect",
+      "location_id": "kitchen_counter",
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 2378,
+      "phase": "idle",
+      "location_id": "kitchen_counter"
+    },
+    {
+      "kind": "skill_result",
+      "step": 2378,
+      "phase": "idle",
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "kitchen_counter",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 240,
+      "end_step": 2378,
+      "distance_m": 5.1364,
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 2378,
+      "phase": "navigate",
+      "location_id": "kitchen_shelf"
+    },
+    {
+      "kind": "phase",
+      "step": 4037,
+      "phase": "inspect",
+      "location_id": "kitchen_shelf"
+    },
+    {
+      "kind": "station_inspected",
+      "step": 4529,
+      "phase": "inspect",
+      "location_id": "kitchen_shelf",
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 4529,
+      "phase": "idle",
+      "location_id": "kitchen_shelf"
+    },
+    {
+      "kind": "skill_result",
+      "step": 4529,
+      "phase": "idle",
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "kitchen_shelf",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 2378,
+      "end_step": 4529,
+      "distance_m": 2.6985,
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 4529,
+      "phase": "navigate",
+      "location_id": "living_cabinet"
+    },
+    {
+      "kind": "phase",
+      "step": 7847,
+      "phase": "inspect",
+      "location_id": "living_cabinet"
+    },
+    {
+      "kind": "station_inspected",
+      "step": 8218,
+      "phase": "inspect",
+      "location_id": "living_cabinet",
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 8218,
+      "phase": "idle",
+      "location_id": "living_cabinet"
+    },
+    {
+      "kind": "skill_result",
+      "step": 8218,
+      "phase": "idle",
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "living_cabinet",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 4529,
+      "end_step": 8218,
+      "distance_m": 6.7714,
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 8218,
+      "phase": "navigate",
+      "location_id": "living_table"
+    },
+    {
+      "kind": "phase",
+      "step": 9873,
+      "phase": "inspect",
+      "location_id": "living_table"
+    },
+    {
+      "kind": "station_inspected",
+      "step": 10351,
+      "phase": "inspect",
+      "location_id": "living_table",
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 10351,
+      "phase": "idle",
+      "location_id": "living_table"
+    },
+    {
+      "kind": "skill_result",
+      "step": 10351,
+      "phase": "idle",
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "living_table",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 8218,
+      "end_step": 10351,
+      "distance_m": 2.6988,
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 10351,
+      "phase": "navigate",
+      "location_id": "study_desk"
+    },
+    {
+      "kind": "phase",
+      "step": 13776,
+      "phase": "inspect",
+      "location_id": "study_desk"
+    },
+    {
+      "kind": "station_inspected",
+      "step": 14082,
+      "phase": "inspect",
+      "location_id": "study_desk",
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 14082,
+      "phase": "idle",
+      "location_id": "study_desk"
+    },
+    {
+      "kind": "skill_result",
+      "step": 14082,
+      "phase": "idle",
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "study_desk",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 10351,
+      "end_step": 14082,
+      "distance_m": 6.9574,
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 14082,
+      "phase": "navigate",
+      "location_id": "study_shelf"
+    },
+    {
+      "kind": "target_detected",
+      "step": 15360,
+      "phase": "navigate",
+      "location_id": "study_shelf"
+    },
+    {
+      "kind": "phase",
+      "step": 15854,
+      "phase": "inspect",
+      "location_id": "study_shelf"
+    },
+    {
+      "kind": "station_inspected",
+      "step": 16420,
+      "phase": "inspect",
+      "location_id": "study_shelf",
+      "target_detected": true
+    },
+    {
+      "kind": "phase",
+      "step": 16420,
+      "phase": "idle",
+      "location_id": "study_shelf"
+    },
+    {
+      "kind": "skill_result",
+      "step": 16420,
+      "phase": "idle",
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "study_shelf",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 14082,
+      "end_step": 16420,
+      "distance_m": 2.7489,
+      "target_detected": true
+    }
+  ],
+  "evaluation": {
+    "task_success": true,
+    "termination_reason": "done",
+    "conditions": {
+      "target_locally_detected": true,
+      "physically_within_approach_radius": true,
+      "robot_stopped": true,
+      "no_wall_penetration": true,
+      "distance_budget_respected": true
+    },
+    "clarification_burden": 0,
+    "action_count": 6,
+    "successful_action_count": 6,
+    "details": {
+      "actual_target_position": [
+        4.000391882663411,
+        -2.1502931986229976,
+        0.7150774271866591
+      ],
+      "actual_target_location": "study_shelf",
+      "final_robot_pose": [
+        4.128217730966034,
+        -1.2046239216750747,
+        -1.690483926576014
+      ],
+      "final_distance_m": 0.9542692643365878,
+      "distance_travelled_m": 27.01135300837368,
+      "checked_locations": [
+        "kitchen_counter",
+        "kitchen_shelf",
+        "living_cabinet",
+        "living_table",
+        "study_desk",
+        "study_shelf"
+      ],
+      "detection_model": "range_1.65m_fov90_ray_los",
+      "pickup_or_delivery": false
+    },
+    "evaluator_version": "navigation_geometry_los_v1"
+  },
+  "termination_reason": "done",
+  "error": null,
+  "cost": {
+    "deepseek": {
+      "attempts": 14,
+      "input_tokens": 22718,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 128,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 10427.92875104351,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 14,
+    "api_latency_ms": 10427.92875104351,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "wall_time_s": 78.32968937500846,
+  "budgets": {
+    "rounds": 20,
+    "robot_actions": 8,
+    "slot_requests": 12,
+    "api_attempts": 64,
+    "distance_m": 36
+  },
+  "motion_time_scale": 1,
+  "auto_answer_delay_s": 3
+}

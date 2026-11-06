@@ -1,0 +1,178 @@
+{
+  "id": "27b7c467d0ff4527",
+  "created": 1793951557.473143,
+  "options": {
+    "template": "find_and_approach",
+    "unknown_preferences": 1,
+    "navigation_case": "case_c"
+  },
+  "task_ids": [
+    "e244a505fc5d4f41",
+    "cf4efce6d33340fa",
+    "1a50c17b021d46a9"
+  ],
+  "partition": "interactive_demo_on_dev_layout",
+  "source_sample_id": "nav_dev_v1_case_c_unknown",
+  "scene_seed": 0,
+  "public_scene_sha256": "26144717f35619c3ec9ffd265a3db4ed13920fb1da40bae374c543d8b7ad1e32",
+  "planner_configuration": {
+    "deepseek_model": "deepseek-flash",
+    "jev_model": "jev-latest",
+    "jev_threshold": 0.5,
+    "timeout_s": 40,
+    "max_retries": 1,
+    "max_tokens": 500,
+    "thinking": "disabled",
+    "response_format": "json_object"
+  },
+  "prompt_hashes": {
+    "gate": "0a3c01cd6a6a05e70f59813bd3e7d1ccd0859883831f71cac46e6a6ddf1b6b21",
+    "action": "ef5afc46a9f10d53b88080dec4b81e43be47ad0079cc52a4716c2ea80e324462",
+    "question": "b44fa983d522f3f6339f82331b268c49f2afeee5825278e8fadcc9118e8b888f"
+  },
+  "physics_signature": {
+    "navigation_world.py": "93587bd87eb4b7118ee427d86c0b812092bb5e2ac0a0224bcf6c020d7d6cde29",
+    "navigation_map.py": "1b24d3bc3181a65a2307730415f701c03fc91485f501fe6d044c431bde2c6b27",
+    "navigation_task.py": "31224e4d2eca4d8205e7e668914ecc83334be66b37ac220da9c6d5357d69c0dc",
+    "navigation_protocol.py": "a169e554b6fcd3af5655055aa0fcac72b55637914bb77eabc97c644b9c261f14"
+  },
+  "answer_mode": "auto",
+  "evaluation_protocol": "fixed_world_location",
+  "note": "One paired interactive instance; not a benchmark ranking.",
+  "rows": [
+    {
+      "task_id": "e244a505fc5d4f41",
+      "method": "llm_noask",
+      "status": "done",
+      "task_success": true,
+      "burden": 0,
+      "ask_turns": 0,
+      "robot_actions": 6,
+      "physical_successes": 6,
+      "distance_m": 27.0114,
+      "checked_locations": 6,
+      "cost": {
+        "deepseek": {
+          "attempts": 7,
+          "input_tokens": 11450,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 79,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 4851.92708397517,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 7,
+        "api_latency_ms": 4851.92708397517,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      },
+      "wall_time_s": 72.94991993904114,
+      "queue_time_s": 0.17178106307983398,
+      "returned_models": [
+        "deepseek-flash"
+      ],
+      "termination_reason": "done",
+      "error": null
+    },
+    {
+      "task_id": "cf4efce6d33340fa",
+      "method": "llm_gate",
+      "status": "done",
+      "task_success": true,
+      "burden": 0,
+      "ask_turns": 0,
+      "robot_actions": 6,
+      "physical_successes": 6,
+      "distance_m": 27.0114,
+      "checked_locations": 6,
+      "cost": {
+        "deepseek": {
+          "attempts": 14,
+          "input_tokens": 22718,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 128,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 10427.92875104351,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 14,
+        "api_latency_ms": 10427.92875104351,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      },
+      "wall_time_s": 78.71404218673706,
+      "queue_time_s": 0.3788571357727051,
+      "returned_models": [
+        "deepseek-flash"
+      ],
+      "termination_reason": "done",
+      "error": null
+    },
+    {
+      "task_id": "1a50c17b021d46a9",
+      "method": "jev_gate",
+      "status": "done",
+      "task_success": true,
+      "burden": 0,
+      "ask_turns": 0,
+      "robot_actions": 6,
+      "physical_successes": 6,
+      "distance_m": 27.0114,
+      "checked_locations": 6,
+      "cost": {
+        "deepseek": {
+          "attempts": 7,
+          "input_tokens": 11450,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 79,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 4510.794708970934,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 7,
+          "input_tokens": 15162,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 168,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 2122.0501249772497,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 14,
+        "api_latency_ms": 6632.844833948184,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      },
+      "wall_time_s": 75.14731907844543,
+      "queue_time_s": 0.5849769115447998,
+      "returned_models": [
+        "deepseek-flash",
+        "jev-1.14.0"
+      ],
+      "termination_reason": "done",
+      "error": null
+    }
+  ],
+  "status": "complete"
+}

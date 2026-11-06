@@ -65,9 +65,10 @@ def report(out):
             actions=len(ep['actions']),ask_turns=len(asks),first_ask_round=asks[0]['round'] if asks else None,
             first_ask_after_inspections=len(asks[0]['public_payload']['observation']['checked_locations']) if asks else None,
             api_attempts=cost['api_attempts'],api_latency_ms=cost['api_latency_ms'],
+            deepseek_attempts=cost['deepseek']['attempts'],jev_attempts=cost['jev']['attempts'],
             **{f'{b}_{k}':cost[b][k] for b in ('deepseek','jev') for k in ('input_tokens','output_tokens')},
             returned_models=' | '.join(sorted({a['returned_model'] for a in api if a.get('returned_model')})),
-            ask_physics_unchanged=all(t['ask_check']['state_unchanged'] for t in asks),
+            ask_physics_unchanged=all(t['ask_check']['state_unchanged'] for t in asks) if asks else None,
             termination=ep['termination_reason'],error=ep['error']))
     aggregate=[]
     for method in plan['methods']:
@@ -79,11 +80,13 @@ def report(out):
             burden_total=total('burden'),mean_burden=total('burden')/len(selected) if total('burden') is not None else None,
             distance_m_total=total('distance_m'),api_latency_ms_total=total('api_latency_ms'),
             **{f'{b}_{k}':total(f'{b}_{k}') for b in ('deepseek','jev') for k in ('input_tokens','output_tokens')},
+            jev_attempts=total('jev_attempts'),deepseek_attempts=total('deepseek_attempts'),
             api_attempts=total('api_attempts')))
     summary=dict(plan_sha256=hashlib.sha256((out/'plan.json').read_bytes()).hexdigest(),layout_groups=1,
         placement_cases=3,episodes=len(rows),authenticated_requests=len(attempts),
         returned_models=sorted({a['returned_model'] for a in attempts if a.get('returned_model')}),
         schema_errors=sum(a['status']=='schema_error' for a in attempts),api_errors=sum(a['status']=='api_error' for a in attempts),
+        live_ask_turns=sum(r['ask_turns'] for r in rows),
         aggregate=aggregate,rows=rows,note=plan['interpretation'])
     assert len(rows)<=9 and len(attempts)<=120
     (out/'summary.json').write_text(json.dumps(summary,indent=2)+'\n')
@@ -95,10 +98,13 @@ def report(out):
     header='| Method | Success | Mean burden | Total travel (m) | API latency total (s) | DeepSeek in/out | Jev in/out |\n|---|---:|---:|---:|---:|---:|---:|\n'
     lines=[]
     for r in aggregate:
-        lines.append(f"| {r['method']} | {r['successes']}/{r['episodes']} | {f(r['mean_burden'])} | {f(r['distance_m_total'])} | {f(r['api_latency_ms_total']/1000) if r['api_latency_ms_total'] is not None else 'unknown'} | {r['deepseek_input_tokens']}/{r['deepseek_output_tokens']} | {r['jev_input_tokens']}/{r['jev_output_tokens']} |")
+        jev_usage=f"{r['jev_input_tokens']}/{r['jev_output_tokens']}" if r['jev_attempts'] else '— (not called)'
+        lines.append(f"| {r['method']} | {r['successes']}/{r['episodes']} | {f(r['mean_burden'])} | {f(r['distance_m_total'])} | {f(r['api_latency_ms_total']/1000) if r['api_latency_ms_total'] is not None else 'unknown'} | {r['deepseek_input_tokens']}/{r['deepseek_output_tokens']} | {jev_usage} |")
     text='# Navigation Dev v1 — actual API + PyBullet pilot\n\n'+plan['interpretation']+'.\n\n'+header+'\n'.join(lines)+'\n\n'
     text+=f"Authenticated attempts: {len(attempts)}/120; episodes: {len(rows)}/9. No paid Test calls. All metrics above are derived from episode JSON and API audit records. Backend tokens are kept separate.\n\n"
     text+='The target is a fixed world fact. Search uses known map routes and real wheel motors; detection uses local geometric range/FOV/ray line of sight, not learned vision. User hints do not move the object. Success means found and approached, without pickup or delivery. Each automatic reply incurs one slot and a declared 3s delay.\n\n'
+    if rows and not summary['live_ask_turns']:
+        text+='**Observed limitation:** Neither learned gate asked in these episodes. Both continued autonomous search until detection. Consequently this pilot demonstrates integration and search feasibility, not a clarification-timing advantage; the gate methods incurred extra inference cost without shortening travel. Actual ASK freezing and human/automatic replies were verified separately with explicitly scripted policies and real physics; they are not live-model ASK evidence.\n\n'
     text+='## Paired traces and timing\n\n'
     for r in rows:
         text+=f"- [{r['sample']} / {r['method']}](episodes/{r['episode_id']}/episode.json): success={r['success']}; burden={r['burden']}; distance={f(r['distance_m'])}m; first ASK round={r['first_ask_round']}, after {r['first_ask_after_inspections']} inspections; termination={r['termination']}; error={r['error']}.\n"
