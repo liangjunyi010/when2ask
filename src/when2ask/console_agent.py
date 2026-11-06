@@ -173,7 +173,7 @@ def run_agent(manager, task):
                 turns=task.turns, actions=task.actions, public_history=task.history,
                 worker_events=task.events, execution_log=(task.finalization or {}).get('execution_log', []),
                 evaluation=(task.finalization or {}).get('evaluation'), termination_reason=termination,
-                error=task.error, cost=api.summary(), wall_time_s=time.monotonic() - start)
+                error=task.error, cost=api.summary(), wall_time_s=time.monotonic() - start,review=task.public()['review'])
             (task.output / 'episode.json').write_text(json.dumps(manager.config.sanitize(episode), indent=2) + '\n')
             if task.finalization:
                 (task.output / 'evaluation.json').write_text(json.dumps(task.finalization['evaluation'], indent=2) + '\n')

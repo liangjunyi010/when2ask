@@ -1,0 +1,169 @@
+{
+  "original_instruction": "Find the kitchen knife and approach it within 1.2 metres. Do not pick it up or deliver it. You know the room map and six inspection stations, but unseen object locations are not observations. A kitchen counter or shelf is a plausible semantic prior for a kitchen knife, not a guaranteed location. You may search stations and ask the user for a location hint. A search can make useful progress by revealing absence. A user location claim does not itself count as detecting the object.",
+  "instruction_origin": "generated_task_instruction",
+  "interaction": {
+    "message": "NoAsk 按定义不提问；不会出现回答表单。",
+    "missing_roles": [],
+    "manual_form_available": false,
+    "ask_turns": 0,
+    "threshold": 0.5
+  },
+  "conversation": [
+    {
+      "kind": "gate",
+      "round": 0,
+      "simulation_step": 240,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 0,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 0,
+      "simulation_step": 240,
+      "value": {
+        "kind": "search",
+        "location_id": "kitchen_counter"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 0,
+      "simulation_step": 2378,
+      "value": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "kitchen_counter",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 2378,
+        "distance_m": 5.1364,
+        "target_detected": false
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 1,
+      "simulation_step": 2378,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 1,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 1,
+      "simulation_step": 2378,
+      "value": {
+        "kind": "search",
+        "location_id": "kitchen_shelf"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 1,
+      "simulation_step": 4529,
+      "value": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "kitchen_shelf",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 2378,
+        "end_step": 4529,
+        "distance_m": 2.6985,
+        "target_detected": false
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 2,
+      "simulation_step": 4529,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 2,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 2,
+      "simulation_step": 4529,
+      "value": {
+        "kind": "search",
+        "location_id": "living_cabinet"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 2,
+      "simulation_step": 8218,
+      "value": {
+        "skill": "search",
+        "object_id": "mobile_robot",
+        "target_id": "living_cabinet",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 4529,
+        "end_step": 8218,
+        "distance_m": 6.7714,
+        "target_detected": true
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 3,
+      "simulation_step": 8218,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 3,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 3,
+      "simulation_step": 8218,
+      "value": {
+        "kind": "DONE"
+      }
+    }
+  ],
+  "ground_truth": {
+    "protocol": "fixed_world_location",
+    "meaning": "固定世界事实；人工位置提示不会移动目标或改变评分目标。",
+    "initial": [
+      {
+        "role": "target_location",
+        "object_id": "living_cabinet",
+        "label": "Living room cabinet"
+      }
+    ],
+    "evaluated": [
+      {
+        "role": "target_location",
+        "object_id": "living_cabinet",
+        "label": "Living room cabinet"
+      }
+    ],
+    "manual_changes": []
+  },
+  "truth_revealed": true,
+  "engine": {
+    "tabletop": "shared_task_contract_v3.1",
+    "navigation": "navigation_search_dev_v1",
+    "notice": "当前交互控制台保留基础策略；Navigation Dev v2 是独立研究实验，未自动替换。"
+  }
+}

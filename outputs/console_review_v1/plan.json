@@ -1,0 +1,30 @@
+{
+  "scope": "Three single live UI smoke episodes; one method per task, not a benchmark ranking",
+  "api_cap": 60,
+  "episode_cap": 3,
+  "threshold": 0.5,
+  "cases": [
+    {
+      "template": "pack_and_cover",
+      "method": "llm_gate",
+      "answer_mode": "manual",
+      "unknown_preferences": 2
+    },
+    {
+      "template": "place_into_selected_containers",
+      "method": "jev_gate",
+      "answer_mode": "manual",
+      "unknown_preferences": 1
+    },
+    {
+      "template": "find_and_approach",
+      "method": "llm_noask",
+      "answer_mode": "auto",
+      "unknown_preferences": 1,
+      "navigation_case": "case_b"
+    }
+  ],
+  "operator": "Browser automation submits public candidate-based manual test answers; no human subject claim",
+  "no_forced_ask": true,
+  "policy_prompts_unchanged": true
+}

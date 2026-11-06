@@ -118,3 +118,13 @@ never relocate the object or change the evaluator. One-click comparison still la
 three independent real-model worlds. Navigation cards and comparison rows add actual
 travel distance and inspected station count. See [task contract and commands](navigation_dev_v1.md)
 and [actual bounded pilot](../outputs/navigation_dev_v1/live_v1/README.md).
+
+## Manual replies and complete task review
+
+Human mode chooses who answers **after a real ASK**; it does not force the Gate to ask. NoAsk never asks. The “自动三方法对比” button always uses automatic responses; launch an individual task for Human mode. If no question is pending, the queue explains the selected task's actual mode/Gate status rather than implying a missing input box.
+
+A pending question accepts explicit object names/colors/IDs as text (for example `green block, black lid`), or candidate dropdowns. Ambiguous text is rejected; this is bounded structured grounding without an extra LLM call. Navigation requires a complete station such as “客厅柜子”; “客厅” alone is ambiguous.
+
+Each card's **指令 · 完整对话 · Ground Truth** button opens the original generated instruction, a public ID/name legend, the entire chronological conversation/action history and physical scoring conditions. The sidebar Queue is for pending questions only. After termination the card also shows the evaluated goal. Full hidden reference and effective scoring goals are shown in the modal; human tabletop choices may define interactive intent, while navigation facts remain fixed. No hidden truth is included in model input.
+
+Completed task views persist in `review.json`/`final_view.json` and reload read-only after controller restart. Active-world crash recovery is still unsupported. Current HTML uses the existing tabletop contract and navigation v1; the Navigation Dev v2 report remains a separate research artifact. [Actual three-run verification](../outputs/console_review_v1/README.md).

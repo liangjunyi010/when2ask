@@ -102,10 +102,11 @@ class Task:
         self.last_seen = time.monotonic()
 
     def public(self):
+        from .console_review import review
         return copy.deepcopy(dict(id=self.id, template=self.template, template_name=TEMPLATES[self.template][0],
             method=self.method, answer_mode=self.answer_mode, status=self.status, created=self.created,
             evidence_kind='live_models_real_pybullet' if self.method in LIVE_METHODS else 'scripted_policy_real_pybullet',
-            round=self.round, gate=self.gate, frame=self.frame, question=self.pending,
+            round=self.round, gate=self.gate, frame=self.frame, question=self.pending,review=self.audit.config.sanitize(review(self)),
             instruction=self.sample.u0, unknown_preferences=self.unknown_preferences,
             comparison_id=self.comparison_id, trace=self.trace[-60:],
             timing=dict(created=self.created, started=self.started, finished=self.finished,
@@ -138,6 +139,12 @@ class TaskManager:
         self.sequence = 0
         self.stream = deque(maxlen=100)
         self.closed = False
+        self.completed = {}
+        for file in self.output.glob('tasks/*/final_view.json'):
+            row=json.loads(file.read_text())
+            if row.get('status') in TERMINAL:
+                row.update(archived_readonly=True,comparison_id=None)
+                self.completed[row['id']]=row
         package = Path(__file__).parent
         self.physics_signature = {name: hashlib.sha256((package / name).read_bytes()).hexdigest() for name in
             ('skills.py', 'environment.py', 'diverse_world.py', 'study_evaluator.py', 'console_samples.py')}
@@ -154,12 +161,19 @@ class TaskManager:
             elapsed_ms=round((time.monotonic() - task.clock_start) * 1000),
             round=task.round, simulation_step=(task.frame or {}).get('simulation_step'), **data))
 
+    def public_tasks(self):
+        return list({**self.completed,**{k:t.public() for k,t in self.tasks.items()}}.values())
+
     def publish(self, task):
         # Call with the condition lock held. Frame and its physical metadata
         # are stored in one object, never pieced together by browser timers.
         if task.status in TERMINAL and task.finished is None:
             task.finished = time.time()
         task.version += 1
+        if task.status in TERMINAL:
+            row=self.config.sanitize(task.public())
+            (task.output/'final_view.json').write_text(json.dumps(row,ensure_ascii=False)+'\n')
+            (task.output/'review.json').write_text(json.dumps(row['review'],indent=2,ensure_ascii=False)+'\n')
         self.sequence += 1
         self.stream.append(dict(id=self.sequence, type='task', task=task.public()))
         self.changed.notify_all()
@@ -421,14 +435,19 @@ class TaskManager:
             task = self.tasks[task_id]
             if question_id in task.answers:
                 previous = task.answers[question_id]
-                if source == previous['source'] and (source == 'auto' or response == previous['response']):
+                if source == previous['source'] and (source == 'auto' or response == previous['response'] or
+                        previous.get('input_text') is not None and response=={'text':previous['input_text']}):
                     return dict(accepted=True, duplicate=True)
                 raise Conflict('Question has already been answered')
             if task.cancel or task.status != 'waiting_answer' or not task.pending or task.pending['id'] != question_id:
                 raise Conflict('This question is no longer pending')
             question = task._question
+            input_text=None
             if source not in ('auto', 'human'):
                 raise ValueError('Unknown answer source')
+            if source=='human' and isinstance(response,dict) and set(response)=={'text'}:
+                from .console_answers import text_answer
+                input_text=response['text'];response=text_answer(task.pending,input_text)
             if task.template == 'find_and_approach':
                 from .navigation_protocol import auto_answer, validate_answer
                 if source == 'auto':
@@ -444,7 +463,7 @@ class TaskManager:
                 if task.answer_mode != 'manual':
                     raise Conflict('This task uses automatic responses')
                 self.validate_answer(task, response)
-            task.answers[question_id] = dict(response=copy.deepcopy(response), source=source)
+            task.answers[question_id] = dict(response=copy.deepcopy(response), source=source,input_text=input_text)
             task.answer_wait_s += max(0, time.time() - task.pending.get('created', time.time()))
             self.log(task, 'answer_received', question_id=question_id, source=source)
             task.pending = None
@@ -490,6 +509,6 @@ class TaskManager:
                 if task.worker_id is None:
                     (task.output / 'episode.json').write_text(json.dumps(dict(episode_id=task.id,
                         partition='interactive_demo', method=task.method, termination_reason='cancelled_before_start',
-                        evaluation=None, cost=task.audit.summary())) + '\n')
+                        evaluation=None, cost=task.audit.summary(),review=task.public()['review'])) + '\n')
                 self.publish(task)
             return task.public()

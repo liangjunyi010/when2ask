@@ -259,3 +259,5 @@ all three placements; neither learned gate asked, so no timing benefit was demon
 [Actual results, costs and limitations](outputs/navigation_dev_v1/live_v1/README.md).
 
 Navigation Dev v2 is an independent cost-aware pilot with two real motor speeds and two reply delays. It adds a mutually exclusive Gate contract, public cost/belief summaries, a 48-call matched-state ablation and 12 valid real-model physical episodes. [Results, protocol incident and limitations](outputs/navigation_dev_v2/README.md). The frozen studies and v1 console remain unchanged.
+
+The local console now provides typed/manual clarification answers, explicit no-ASK status, complete per-task instruction/dialogue review and terminal-only Ground Truth. Completed cards restore after restart. [Three real smoke runs and remaining timing limitations](outputs/console_review_v1/README.md). No model threshold/prompt change or frozen-record update was made.

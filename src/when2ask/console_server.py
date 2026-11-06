@@ -84,7 +84,7 @@ class Handler(BaseHTTPRequestHandler):
             return self.json_response(data)
         if path == '/api/tasks':
             with manager.lock:
-                return self.json_response(dict(tasks=[t.public() for t in manager.tasks.values()]))
+                return self.json_response(dict(tasks=manager.public_tasks()))
         if path == '/api/comparisons':
             with manager.lock:
                 return self.json_response(dict(comparisons=[manager.comparison(cid) for cid in manager.comparisons]))
@@ -111,12 +111,13 @@ class Handler(BaseHTTPRequestHandler):
         if len(parts) == 3 and parts[:2] == ['api', 'tasks']:
             with manager.lock:
                 task = manager.tasks.get(parts[2])
-                return self.json_response(task.public() if task else dict(error='Task not found'), 200 if task else 404)
+                row=task.public() if task else manager.completed.get(parts[2]);return self.json_response(row or dict(error='Task not found'),200 if row else 404)
         if len(parts) == 4 and parts[:2] == ['api', 'tasks'] and parts[3] == 'episode':
             with manager.lock:
                 task = manager.tasks.get(parts[2])
-                if task and (task.output / 'episode.json').exists():
-                    return self.json_response(json.loads((task.output / 'episode.json').read_text()))
+                file=manager.output/'tasks'/parts[2]/'episode.json'
+                if (task or parts[2] in manager.completed) and file.exists():
+                    return self.json_response(json.loads(file.read_text()))
             return self.json_response(dict(error='Episode is not finalized'), 404)
         if path == '/api/events':
             return self.events()
@@ -133,7 +134,7 @@ class Handler(BaseHTTPRequestHandler):
         try:
             with manager.lock:
                 cursor = manager.sequence
-                initial = dict(type='snapshot', tasks=[t.public() for t in manager.tasks.values()],
+                initial = dict(type='snapshot', tasks=manager.public_tasks(),
                                comparisons=[manager.comparison(cid) for cid in manager.comparisons])
             self.wfile.write(('id: %d\ndata: %s\n\n' % (cursor, json.dumps(initial))).encode())
             self.wfile.flush()
@@ -143,7 +144,7 @@ class Handler(BaseHTTPRequestHandler):
                     # A slow/reconnected client receives current state, never
                     # replays a robot command or recreates a pending question.
                     if manager.stream and cursor < manager.stream[0]['id'] - 1:
-                        rows = [dict(id=manager.sequence, type='snapshot', tasks=[t.public() for t in manager.tasks.values()],
+                        rows = [dict(id=manager.sequence, type='snapshot', tasks=manager.public_tasks(),
                                      comparisons=[manager.comparison(cid) for cid in manager.comparisons])]
                     else:
                         rows = [r for r in manager.stream if r['id'] > cursor]

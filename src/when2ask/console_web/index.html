@@ -19,9 +19,9 @@
 <label><span id="unknown-label">UNKNOWN PREFERENCES</span><select id="unknown"><option value="0">0 · 全部已知</option><option value="1">1 · 一项未知</option><option value="2" selected>2 · 两项未知</option><option value="3">3 · 全部未知</option></select></label>
 <label>DECISION METHOD<select id="method"><optgroup label="真实模型 API"><option value="llm_noask">LLM-NoAsk</option><option value="llm_gate">LLM-Gate · DeepSeek</option><option value="jev_gate">Jev-Gate · Jev + DeepSeek</option></optgroup><optgroup label="离线真实物理"><option value="scripted_ask" selected>Scripted ASK · 无 API</option><option value="scripted_noask">Scripted NoAsk · 无 API</option></optgroup></select></label>
 <label>USER RESPONSE<select id="answer-mode"><option value="auto">Auto · User Simulator</option><option value="manual">Human · 我来回答</option></select></label>
-<button id="start" type="submit" class="primary">＋ 启动任务</button><button id="compare-start" type="button" class="compare-button">⇄ 一键三方法对比</button>
+<button id="start" type="submit" class="primary">＋ 启动任务</button><button id="compare-start" type="button" class="compare-button">⇄ 自动三方法对比</button>
 </form>
-<div class="launch-info"><span id="method-note">Scripted 为规则策略，执行真实物理，不调用模型 API。</span><span id="compare-note">对比固定为自动回答 · 同一场景 · 3 个真实 API 任务</span></div>
+<p class="interaction-help">Human 模式只在模型真正 ASK 后显示回答表单；NoAsk 不会提问。右侧 Queue 处理待回答问题，任务卡可查看完整指令、对话和结束后的真值。</p><div class="launch-info"><span id="method-note">Scripted 为规则策略，执行真实物理，不调用模型 API。</span><span id="compare-note">对比固定为自动回答 · 同一场景 · 3 个真实 API 任务</span></div>
 </section>
 <div id="notice" role="status" hidden></div>
 <div class="workspace"><div class="operations">
@@ -42,10 +42,11 @@
 <aside class="clarification-panel panel" aria-label="Unified clarification queue">
 <div class="panel-heading"><div><span class="section-kicker amber-text">HUMAN IN THE LOOP</span><h2>Clarification Queue</h2></div><span id="queue-count" class="queue-count">0</span></div>
 <p class="queue-intro">回答一个任务，其他机器人继续执行。</p><div id="queue-list" class="queue-list"></div>
-<div id="queue-empty" class="queue-empty"><span>✓</span><strong>No intervention needed.</strong><p>当机器人需要偏好或位置提示时，问题会出现在这里。</p></div>
+<div id="queue-empty" class="queue-empty"><span>Ⅱ</span><strong>尚无待回答的问题</strong><p id="queue-reason">请选择任务查看当前回答模式与 Gate 状态。</p></div>
 <div id="answer-desk"></div><div class="queue-foot"><span class="tiny-dot green-dot"></span> 问题与回答按 Task ID + Question ID 精确路由</div>
 </aside></div>
 <footer><span>WHEN2ASK / CLARIFICATION TIMING FOR ROBOTIC EXECUTION</span><span>PyBullet Panda / Husky · DeepSeek Planner · Jev Noul Gate</span></footer>
 </main>
 <dialog id="focus"><div class="focus-head"><div><span class="section-kicker">LIVE PANORAMIC VIEW</span><h2 id="focus-title"></h2></div><button id="focus-close" class="text-button" aria-label="关闭大画面">关闭 ×</button></div><img id="focus-image" alt="放大的实时机器人全景"><div id="focus-meta" class="mono"></div></dialog>
+<dialog id="task-review"><div class="focus-head"><div><span class="section-kicker">EPISODE DETAILS / 原始记录</span><h2 id="review-title"></h2></div><button id="review-close" class="text-button">关闭 ×</button></div><div id="review-body"></div></dialog>
 <script src="/app.js"></script></body></html>
