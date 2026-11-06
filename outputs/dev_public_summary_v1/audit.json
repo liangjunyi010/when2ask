@@ -1,0 +1,55 @@
+{
+  "all_original_tracked_files_unchanged": true,
+  "protected_files": 1056,
+  "existing_user_ppt_unchanged": true,
+  "sealed_sources_match": true,
+  "source_commit": "6d873d1298eca7a1c0cf1e81eb97bf90233b820c",
+  "real_model_episodes": 12,
+  "authenticated_requests": 140,
+  "reservation_ids_unique_contiguous": true,
+  "successful_physical_skills": 54,
+  "physical_skill_calls": 54,
+  "actual_model_payloads_and_probabilities_checked_by_report": true,
+  "ask_physics_invariant": true,
+  "test_api_episodes": 0,
+  "budget_terminations": [
+    {
+      "episode_id": "dev_m0_v3_dev_024__compact_state",
+      "error": "robot_action_limit",
+      "task_success": true
+    },
+    {
+      "episode_id": "dev_m0_v3_dev_024__v3_original",
+      "error": "robot_action_limit",
+      "task_success": false
+    }
+  ],
+  "identical_action_request_groups_with_different_outputs": [
+    {
+      "request_sha256": "363ea07d53b0a259b70591695a74af1aaf485a415a6331d0c33c4756674fe5a7",
+      "outputs": [
+        {
+          "episode_id": "dev_m0_v3_dev_024__compact_question",
+          "round": 4,
+          "action": {
+            "kind": "pick_place",
+            "object_id": "item_2494181cbb9a",
+            "target_id": "item_0413225ca44f",
+            "relation": "inside"
+          }
+        },
+        {
+          "episode_id": "dev_m0_v3_dev_024__compact_state",
+          "round": 4,
+          "action": {
+            "kind": "pick_place",
+            "object_id": "item_2494181cbb9a",
+            "target_id": "table",
+            "relation": "on"
+          }
+        }
+      ]
+    }
+  ],
+  "frozen_test_sha256": "897968817e70f47f16c0d75a2911c635a44722535a7093f8e4f9be608d90bcc0"
+}

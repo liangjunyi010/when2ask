@@ -1,0 +1,4 @@
+profile,completed,task_successes,burden,ask_turns,early_asks,blocked_continues,complete_asks,physical_failures,deepseek_input_tokens,deepseek_output_tokens,jev_input_tokens,jev_output_tokens,api_latency_ms,api_attempts,retries,schema_errors,api_errors
+v3_original,4,2,3,1,0,5,0,0,39332,688,51176,576,30463.7985000154,48,0,0,0
+compact_state,4,4,5,2,1,2,0,0,36211,781,47603,600,28908.835373062175,50,0,0,0
+compact_question,4,4,6,3,1,0,0,0,28955,628,32096,504,26464.190285943914,42,0,0,0

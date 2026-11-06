@@ -1,0 +1,118 @@
+{
+  "summary": [
+    {
+      "profile": "v3_original",
+      "completed": 4,
+      "task_successes": 2,
+      "burden": 3,
+      "ask_turns": 1,
+      "early_asks": 0,
+      "blocked_continues": 5,
+      "complete_asks": 0,
+      "physical_failures": 0,
+      "deepseek_input_tokens": 39332,
+      "deepseek_output_tokens": 688,
+      "jev_input_tokens": 51176,
+      "jev_output_tokens": 576,
+      "api_latency_ms": 30463.7985000154,
+      "api_attempts": 48,
+      "retries": 0,
+      "schema_errors": 0,
+      "api_errors": 0
+    },
+    {
+      "profile": "compact_state",
+      "completed": 4,
+      "task_successes": 4,
+      "burden": 5,
+      "ask_turns": 2,
+      "early_asks": 1,
+      "blocked_continues": 2,
+      "complete_asks": 0,
+      "physical_failures": 0,
+      "deepseek_input_tokens": 36211,
+      "deepseek_output_tokens": 781,
+      "jev_input_tokens": 47603,
+      "jev_output_tokens": 600,
+      "api_latency_ms": 28908.835373062175,
+      "api_attempts": 50,
+      "retries": 0,
+      "schema_errors": 0,
+      "api_errors": 0
+    },
+    {
+      "profile": "compact_question",
+      "completed": 4,
+      "task_successes": 4,
+      "burden": 6,
+      "ask_turns": 3,
+      "early_asks": 1,
+      "blocked_continues": 0,
+      "complete_asks": 0,
+      "physical_failures": 0,
+      "deepseek_input_tokens": 28955,
+      "deepseek_output_tokens": 628,
+      "jev_input_tokens": 32096,
+      "jev_output_tokens": 504,
+      "api_latency_ms": 26464.190285943914,
+      "api_attempts": 42,
+      "retries": 0,
+      "schema_errors": 0,
+      "api_errors": 0
+    }
+  ],
+  "eligibility": {
+    "compact_state": {
+      "promising": false,
+      "no_per_case_success_or_early_ask_regression": false,
+      "blocked_continue_reduction": 3,
+      "reason": "Predeclared exploratory rule only; no automatic Test promotion"
+    },
+    "compact_question": {
+      "promising": false,
+      "no_per_case_success_or_early_ask_regression": false,
+      "blocked_continue_reduction": 5,
+      "reason": "Predeclared exploratory rule only; no automatic Test promotion"
+    }
+  },
+  "budget": {
+    "attempts": 140,
+    "episodes": 12,
+    "backends": {
+      "jev": {
+        "consecutive_errors": 0,
+        "blocked": false
+      },
+      "deepseek": {
+        "consecutive_errors": 0,
+        "blocked": false
+      }
+    },
+    "policy": "phase3_dev",
+    "max_attempts": 140,
+    "max_episodes": 12,
+    "episode_ids": [
+      "dev_m0_v3_dev_024__compact_question",
+      "regression_console_m2__compact_question",
+      "dev_m0_v3_dev_024__v3_original",
+      "dev_m3_v3_dev_023__compact_state",
+      "dev_m1_v3_dev_013__compact_question",
+      "regression_console_m2__v3_original",
+      "dev_m1_v3_dev_013__v3_original",
+      "dev_m0_v3_dev_024__compact_state",
+      "dev_m3_v3_dev_023__v3_original",
+      "dev_m3_v3_dev_023__compact_question",
+      "regression_console_m2__compact_state",
+      "dev_m1_v3_dev_013__compact_state"
+    ]
+  },
+  "returned_models": [
+    "deepseek-flash",
+    "jev-1.14.0"
+  ],
+  "paired_cases": 4,
+  "independent_groups": 4,
+  "test_api_episodes": 0,
+  "completed_episodes": 12,
+  "planned_episodes": 12
+}

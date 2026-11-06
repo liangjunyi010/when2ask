@@ -1,0 +1,47 @@
+{
+  "signature": {
+    "plan_sha256": "a249668503e386c0134828a5aa2e4378e3feb9bff0488114196116e65c2b0a46",
+    "cases_sha256": "40d9487281cc5d06870f97a2b0f8b6624abbae7ea7ebc42a5a14e44b572e1eb5",
+    "source_sha256": {
+      "src/when2ask/dev_public_summary.py": "6b3a2437d0a27525c10fed25b5027998a98bd25910edf2bb28a84ac74d1beb3a",
+      "src/when2ask/dev_summary_agents.py": "fc2653a3c2c315d23976e1173e493681774848cf5ce931badd51adcd8e4ba9d4",
+      "src/when2ask/dev_summary_runner.py": "054b60d0efeb4bd026cd3d1204889c36cb33ef6a2da6af0bdc92b10c673f6082",
+      "src/when2ask/dev_summary_study.py": "5462ae3e4760f9c2d45abbd54a883bc8b67e2091f16e83b63adb9ee69b2e1f11",
+      "src/when2ask/dev_summary_report.py": "47e8f00435b03b11306b05ec415efca6b7b389ea90bcc7c896cfde7261d73b08",
+      "src/when2ask/study_agents.py": "bac6a18090295b471b6d7d52011814279f02ebec498c9734516a4fcb8bc40acd",
+      "src/when2ask/study_protocol.py": "04226dfc7bf984a7e4c9a9c73df0525ed645a860c3a96902d64878691f01df26",
+      "src/when2ask/protocol.py": "f1a8b52b292ad704545359468631a9902b32c56641ccbbea4ce6d819f282d7e0",
+      "src/when2ask/api.py": "45c820362b077017f9025025629895dd2230838c1ddeb9aad09bddb41e823155",
+      "src/when2ask/accounting.py": "e0bb943f74e5bcd2b245078bf22a33805fbd6ce7aefaad915f2456600bc09d4c",
+      "src/when2ask/user_simulator.py": "582a3aa8589f0381e9ca62bc40e17e52d5dbc1dcb5e61f4d2246895aa76dba78",
+      "src/when2ask/environment.py": "1c97b2b1be9fc7aba9942228b2ab3771f162f5f6ee192fb3dfd76d8764237e19",
+      "src/when2ask/skills.py": "a7b1a41a0a635e44734fac7dd3b8347bd169b371c44979a3a59b1a644c66a409",
+      "src/when2ask/diverse_world.py": "42743f748bf91928b5dc4838e36b08d338bf362bc195f5188bb34b8ddc94a339",
+      "src/when2ask/study_evaluator.py": "15330b95b40c29deef6a80256c66f8306fcce03197ad99103b09155296da1fd6",
+      "src/when2ask/evaluator.py": "918b5b0fb40fee24cecd7cb761f787021469402ca7b12bcff96c3a96622946fc",
+      "src/when2ask/study_reporting.py": "936423ff3aab1018d10c4ce6d7c76f88e75eba39644e95703cb30a5da0407440",
+      "src/when2ask/config.py": "ca582bfb4fd39fdc736f12833326177305117eb5a224cf780f1d7af6ff56182a",
+      "src/when2ask/task.py": "56fc69565f2cce7bfb92325815286e9d652457d5c15ecf439a35f4fca44eaea8",
+      "src/when2ask/recording.py": "b51ff8def6e9f2dbaab5becab32936e838400a15ae52298017e2ab9b5356a929"
+    },
+    "scene_sha256": {
+      "data/phase3/scenes/v3_dev_010.json": "445eeb3f53d69ff349b56683a1259fe97384cdab8696cd0bb58d9d23fdcb4875",
+      "data/phase3/scenes/v3_dev_024.json": "7a0ccd1d637fc339601fa3408acd0dc15fcc4e0e3b7cf4779ade69f2729e1c42",
+      "data/phase3/scenes/v3_dev_013.json": "41ffddd0fdbd2376fcb9e385a7b5777973de38540af0c7e4e2b6fc39242dcf4d",
+      "data/phase3/scenes/v3_dev_023.json": "70dd99ea5c80fdb61212f6000db7ae753258f513d2f0af72ea3a9bec12faedc3"
+    }
+  },
+  "code_commit": "6d873d1298eca7a1c0cf1e81eb97bf90233b820c",
+  "sealed_at": "2026-11-06T06:41:58.405792+00:00",
+  "experiment_id": "dev_public_summary_v1",
+  "model_configuration": {
+    "deepseek_model": "deepseek-flash",
+    "jev_model": "jev-latest",
+    "jev_threshold": 0.5,
+    "timeout_s": 40,
+    "max_retries": 1,
+    "max_tokens": 500,
+    "thinking": "disabled",
+    "response_format": "json_object"
+  }
+}
