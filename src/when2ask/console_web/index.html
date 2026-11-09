@@ -16,11 +16,13 @@
 <form id="launch">
 <label>TASK TEMPLATE<select id="template"><option value="pack_and_cover">Pack &amp; Cover · 装箱盖盒</option><option value="place_into_selected_containers">Two Containers · 双容器放置</option><option value="find_and_approach">Find &amp; Approach · 三房间找物</option></select></label>
 <label id="navigation-case-field" hidden>DEV SCENARIO<select id="navigation-case"><option value="case_a">Case A · fixed world</option><option value="case_b" selected>Case B · fixed world</option><option value="case_c">Case C · fixed world</option></select></label>
+<label id="scenario-field">DAG PRESENTATION SCENARIO<select id="scenario"><option value="">自由演示 · 原场景</option></select></label>
 <label><span id="unknown-label">UNKNOWN PREFERENCES</span><select id="unknown"><option value="0">0 · 全部已知</option><option value="1">1 · 一项未知</option><option value="2" selected>2 · 两项未知</option><option value="3">3 · 全部未知</option></select></label>
 <label>DECISION METHOD<select id="method"><optgroup label="真实模型 API"><option value="llm_noask">LLM-NoAsk</option><option value="llm_gate">LLM-Gate · DeepSeek</option><option value="jev_gate">Jev-Gate · Jev + DeepSeek</option></optgroup><optgroup label="离线真实物理"><option value="scripted_ask" selected>Scripted ASK · 无 API</option><option value="scripted_noask">Scripted NoAsk · 无 API</option></optgroup></select></label>
 <label>USER RESPONSE<select id="answer-mode"><option value="auto">Auto · User Simulator</option><option value="manual">Human · 我来回答</option></select></label>
 <button id="start" type="submit" class="primary">＋ 启动任务</button><button id="compare-start" type="button" class="compare-button">⇄ 自动三方法对比</button>
 </form>
+<section id="scenario-preview" class="scenario-preview" hidden><div><span class="section-kicker">PUBLIC TASK DAG</span><h3 id="scenario-title"></h3><p id="scenario-focus"></p><p id="scenario-counts"></p></div><div id="scenario-dag" aria-label="Public task dependencies"></div></section>
 <p class="interaction-help">Human 模式只在模型真正 ASK 后显示回答表单；NoAsk 不会提问。右侧 Queue 处理待回答问题，任务卡可查看完整指令、对话和结束后的真值。</p><div class="launch-info"><span id="method-note">Scripted 为规则策略，执行真实物理，不调用模型 API。</span><span id="compare-note">对比固定为自动回答 · 同一场景 · 3 个真实 API 任务</span></div>
 </section>
 <div id="notice" role="status" hidden></div>

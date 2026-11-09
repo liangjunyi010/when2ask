@@ -12,9 +12,18 @@ TEMPLATES = {
 }
 
 
-def demo_sample(template, unknown_preferences=None, navigation_case=None):
+def demo_sample(template, unknown_preferences=None, navigation_case=None, scenario_id=None):
     if template not in TEMPLATES:
         raise ValueError('Unknown task template')
+    if scenario_id is not None:
+        from .presentation_scenarios import get_sample
+        sample = get_sample(scenario_id)
+        if sample is None or sample.template_id != template:
+            raise ValueError('Unknown presentation scenario or template mismatch')
+        if navigation_case is not None or (unknown_preferences is not None and
+                unknown_preferences != 3 - len(sample.initial_disclosed_slots)):
+            raise ValueError('A presentation preset has fixed disclosure and no navigation case')
+        return sample
     if template == 'find_and_approach':
         from .navigation_task import make_sample
         return make_sample(navigation_case or 'case_b', 1 if unknown_preferences is None else unknown_preferences)

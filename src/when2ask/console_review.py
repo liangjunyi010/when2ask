@@ -74,7 +74,12 @@ def ground_truth(task):
 
 
 def review(task):
+    scenario = None
+    if getattr(task, 'scenario_id', None):
+        from .presentation_scenarios import catalogue
+        scenario = next(e for e in catalogue() if e['sample_id'] == task.scenario_id)
     return dict(original_instruction=task.sample.u0,instruction_origin='generated_task_instruction',
+        scenario=scenario, public_dag=None if task.template=='find_and_approach' else copy.deepcopy(task.sample.dag),
         interaction=interaction_status(task),conversation=conversation(task),ground_truth=ground_truth(task),
         truth_revealed=task.status in TERMINAL,
         engine=dict(tabletop='shared_task_contract_v3.1',navigation='navigation_search_dev_v1',

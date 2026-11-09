@@ -1,0 +1,81 @@
+{
+  "schema_version": 3,
+  "geometry_version": "panda_diverse_v3.1",
+  "template_id": "place_into_selected_containers",
+  "jitter_max_m": 0.004,
+  "containers": [
+    {
+      "id": "container_a",
+      "xy": [
+        0.535,
+        -0.195
+      ],
+      "half_xy": [
+        0.09,
+        0.08
+      ],
+      "wall_height": 0.09,
+      "color": "orange",
+      "rgba": [
+        0.95,
+        0.45,
+        0.12,
+        1
+      ]
+    },
+    {
+      "id": "container_b",
+      "xy": [
+        0.5650000000000001,
+        0.16499999999999998
+      ],
+      "half_xy": [
+        0.09,
+        0.08
+      ],
+      "wall_height": 0.09,
+      "color": "purple",
+      "rgba": [
+        0.55,
+        0.25,
+        0.8,
+        1
+      ]
+    }
+  ],
+  "sources": {
+    "red_cup": [
+      0.29,
+      -0.26
+    ],
+    "blue_cup": [
+      0.34,
+      -0.12
+    ],
+    "green_block": [
+      0.29,
+      0.24
+    ],
+    "yellow_block": [
+      0.29,
+      0.035
+    ]
+  },
+  "object_id_map": {
+    "container_a": "obj_9f79a26dcc",
+    "container_b": "obj_e3f493f903",
+    "red_cup": "obj_fa8efdb608",
+    "blue_cup": "obj_87518a00b9",
+    "green_block": "obj_79eb02c688",
+    "yellow_block": "obj_89693227df"
+  },
+  "object_order": [
+    "obj_9f79a26dcc",
+    "obj_87518a00b9",
+    "obj_79eb02c688",
+    "obj_89693227df",
+    "obj_e3f493f903",
+    "obj_fa8efdb608"
+  ],
+  "layout_fingerprint": "b02188e014e9561aab8f871db73670bbf89955a5385d38e68ba66a67cf3e7da1"
+}

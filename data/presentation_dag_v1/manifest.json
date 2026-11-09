@@ -1,0 +1,48 @@
+{
+  "version": "presentation_dag_v1",
+  "schema_compatibility": "StudySample v3.1",
+  "purpose": "presentation smoke scenarios; not formal Dev/Test or 20 new task types",
+  "seed": 427820,
+  "samples": 20,
+  "independent_physical_groups": 10,
+  "templates": {
+    "pack_and_cover": 10,
+    "place_into_selected_containers": 10
+  },
+  "missing_preferences": {
+    "0": 5,
+    "1": 5,
+    "2": 5,
+    "3": 5
+  },
+  "public_order": {
+    "independent": 7,
+    "cup_first": 7,
+    "block_first": 6
+  },
+  "samples_sha256": "b17e5c3073657696c2db0cc021570f57bb9ef5f4e2c29b4fe9b08bc696675665",
+  "catalogue_sha256": "2ebf6a18ed0f52c067716976a2bfccb5c9288217227ccd8c3a72e3aa36cec65e",
+  "scene_hashes": {
+    "data/presentation_dag_v1/scenes/dag_demo_01.json": "33204dd3b3784e87da5697b286d897a677097455e4f4402be6f1077f853753c3",
+    "data/presentation_dag_v1/scenes/dag_demo_02.json": "a96043183ca5ee262796d781edf74b984487c195864a2c168cd782c9a6241691",
+    "data/presentation_dag_v1/scenes/dag_demo_03.json": "0d1da44bca791fb24295ab53f70e9a6844176409504751cc358565782f303eb5",
+    "data/presentation_dag_v1/scenes/dag_demo_04.json": "81cc689845c5a24d7c611022ae2d39e3e776c71cd406e1363544115b7370c468",
+    "data/presentation_dag_v1/scenes/dag_demo_05.json": "8f2575b656b5a1145b804f4491cb506d5abd6e44099b5b165e2f09b2ebea8711",
+    "data/presentation_dag_v1/scenes/dag_demo_06.json": "29f6f1f2ee1c98a5e0b7cdc1141e2245e1a5c874c5c50d33e8c7be0c9ca7d2a5",
+    "data/presentation_dag_v1/scenes/dag_demo_07.json": "7637d4808771540f4b38af744c4196b2e4b2027e40b1d1968c0aee30bf319396",
+    "data/presentation_dag_v1/scenes/dag_demo_08.json": "c8d60f699605fd980fa0a51d8dd61361b68931201981578840325527b520a54e",
+    "data/presentation_dag_v1/scenes/dag_demo_09.json": "671a2f1e3d34bcf3fc5f64cb517173263c2ed8a53ac20adfd964e20c96819d37",
+    "data/presentation_dag_v1/scenes/dag_demo_10.json": "5b96999ec817cc0eb43ec2424e7f9f3aa43632af661eb34a4eaca400694865e7",
+    "data/presentation_dag_v1/scenes/dag_demo_11.json": "19f600c786252448905f498af4085c56e6464c3b3ddd30d5a1e6b6973cd21f88",
+    "data/presentation_dag_v1/scenes/dag_demo_12.json": "23f0908336441eca76f9e8feddb8169d62e825f550b47333c9026e667a098970",
+    "data/presentation_dag_v1/scenes/dag_demo_13.json": "47ed95bb49a5d2fa1512f2455090be856104fd93a2447e010d8f36d157d15bf3",
+    "data/presentation_dag_v1/scenes/dag_demo_14.json": "b7d2d5d3f5e9e0ff46b69f4c46eed956994c9956e52cfaf34d4202aa32c9f471",
+    "data/presentation_dag_v1/scenes/dag_demo_15.json": "0292287d915c9557a731bd8e7019a5c7728191f5c28f0b530c670e93af1a3344",
+    "data/presentation_dag_v1/scenes/dag_demo_16.json": "54e950a1d288d54a5de1cb22df9ad9296c9543659a552b59e4b153a0e139dfbf",
+    "data/presentation_dag_v1/scenes/dag_demo_17.json": "6279144e8afa63179090c8b482de45259a728ad0443cb4d0e546830f1274a0f8",
+    "data/presentation_dag_v1/scenes/dag_demo_18.json": "d1993c3f4af3de3b9cacbd94bcbfdbb1ba2314881a651123f095cb60810f2ec3",
+    "data/presentation_dag_v1/scenes/dag_demo_19.json": "e7ec30ec89b5d58e682db9e50873694420dee4a8578a06fef6e63dc4454aaaee",
+    "data/presentation_dag_v1/scenes/dag_demo_20.json": "1c7b253a0287d49e63f6bf3d962c2662bda2755dfa88b15c2bb9ed2b371f09de"
+  },
+  "note": "Five conservative base layouts per template; two task variants per group. Existing Dev layouts reused; no Test selection."
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": 3,
+  "geometry_version": "panda_diverse_v3.1",
+  "template_id": "pack_and_cover",
+  "jitter_max_m": 0.004,
+  "containers": [
+    {
+      "id": "box",
+      "xy": [
+        0.595,
+        0.055
+      ],
+      "half_xy": [
+        0.14,
+        0.12
+      ],
+      "wall_height": 0.11,
+      "color": "brown",
+      "rgba": [
+        0.63,
+        0.4,
+        0.2,
+        1
+      ]
+    }
+  ],
+  "sources": {
+    "red_cup": [
+      0.31,
+      -0.22799999999999998
+    ],
+    "blue_cup": [
+      0.383,
+      -0.12
+    ],
+    "green_block": [
+      0.29,
+      -0.011000000000000001
+    ],
+    "yellow_block": [
+      0.302,
+      0.145
+    ],
+    "black_lid": [
+      0.62,
+      -0.34
+    ],
+    "white_lid": [
+      0.288,
+      0.39
+    ]
+  },
+  "object_id_map": {
+    "box": "box",
+    "red_cup": "obj_11b91ab1ab",
+    "blue_cup": "obj_bd7c82eaa6",
+    "green_block": "obj_686ab88c4f",
+    "yellow_block": "obj_d2d03e0dea",
+    "black_lid": "obj_596065ad5d",
+    "white_lid": "obj_38eedd534d"
+  },
+  "object_order": [
+    "box",
+    "obj_11b91ab1ab",
+    "obj_596065ad5d",
+    "obj_38eedd534d",
+    "obj_686ab88c4f",
+    "obj_d2d03e0dea",
+    "obj_bd7c82eaa6"
+  ],
+  "layout_fingerprint": "43469905d9edebbdfda6308bd060489adda6e807da4901cc5917f5481540e0cb"
+}

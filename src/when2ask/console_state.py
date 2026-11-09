@@ -63,7 +63,8 @@ class Task:
         self.template = options['template']
         self.method = options['method']
         self.answer_mode = options['answer_mode']
-        self.sample = demo_sample(self.template, options.get('unknown_preferences'), options.get('navigation_case'))
+        self.scenario_id = options.get('scenario_id')
+        self.sample = demo_sample(self.template, options.get('unknown_preferences'), options.get('navigation_case'), self.scenario_id)
         self.unknown_preferences = len(self.sample.slots) - len(self.sample.initial_disclosed_slots)
         self.comparison_id = None
         self.created = time.time()
@@ -107,7 +108,7 @@ class Task:
             method=self.method, answer_mode=self.answer_mode, status=self.status, created=self.created,
             evidence_kind='live_models_real_pybullet' if self.method in LIVE_METHODS else 'scripted_policy_real_pybullet',
             round=self.round, gate=self.gate, frame=self.frame, question=self.pending,review=self.audit.config.sanitize(review(self)),
-            instruction=self.sample.u0, unknown_preferences=self.unknown_preferences,
+            instruction=self.sample.u0, unknown_preferences=self.unknown_preferences, scenario_id=self.scenario_id,
             comparison_id=self.comparison_id, trace=self.trace[-60:],
             timing=dict(created=self.created, started=self.started, finished=self.finished,
                 wall_time_s=(self.finished or time.time()) - self.created,
@@ -152,7 +153,8 @@ class TaskManager:
         self.navigation_signature = {name: hashlib.sha256((package / name).read_bytes()).hexdigest() for name in SOURCES}
 
     def metadata(self):
-        return dict(templates=catalogue(), methods=list(METHODS), live_enabled=self.allow_live,
+        from .presentation_scenarios import catalogue as scenarios
+        return dict(templates=catalogue(), scenarios=scenarios(), methods=list(METHODS), live_enabled=self.allow_live,
                     concurrency=self.capacity, budget=self.ledger.snapshot(),
                     models=self.config.public_config(), protocol_version=2)
 
@@ -182,7 +184,7 @@ class TaskManager:
 
     @staticmethod
     def validate_options(options):
-        if not isinstance(options, dict) or not {'template', 'method', 'answer_mode'} <= set(options) or set(options) - {'template', 'method', 'answer_mode', 'unknown_preferences', 'navigation_case'}:
+        if not isinstance(options, dict) or not {'template', 'method', 'answer_mode'} <= set(options) or set(options) - {'template', 'method', 'answer_mode', 'unknown_preferences', 'navigation_case', 'scenario_id'}:
             raise ValueError('Choose a template, method and answer mode')
         if options['template'] not in TEMPLATES or options['method'] not in METHODS or options['answer_mode'] not in ('auto', 'manual'):
             raise ValueError('Invalid task options')
@@ -193,6 +195,11 @@ class TaskManager:
                 raise ValueError('Navigation has 0/1 unknown location fact and case_a/b/c')
         elif 'navigation_case' in options:
             raise ValueError('navigation_case only applies to navigation')
+        if 'scenario_id' in options:
+            if not isinstance(options['scenario_id'], str):
+                raise ValueError('scenario_id must be a named presentation preset')
+            demo_sample(options['template'], options.get('unknown_preferences'),
+                        options.get('navigation_case'), options['scenario_id'])
 
     def check_live(self, methods):
         if not self.allow_live:
@@ -225,7 +232,7 @@ class TaskManager:
             return task.public()
 
     def create_comparison(self, options, key):
-        if not isinstance(options, dict) or not {'template', 'unknown_preferences'} <= set(options) or set(options)-{'template','unknown_preferences','navigation_case'}:
+        if not isinstance(options, dict) or not {'template', 'unknown_preferences'} <= set(options) or set(options)-{'template','unknown_preferences','navigation_case','scenario_id'}:
             raise ValueError('Comparison requires template and unknown_preferences')
         self.validate_options(dict(options, method='llm_noask', answer_mode='auto'))
         if not isinstance(key, str) or not 8 <= len(key) <= 100:
@@ -343,6 +350,7 @@ class TaskManager:
             scene = task.sample.scene()
             return dict(task_id=task.id, template=task.template, unknown_preferences=task.unknown_preferences, source_sample_id=task.sample.sample_id,
                         navigation_case=getattr(task.sample,'case_id',None),
+                        scenario_id=task.scenario_id,
                         physics_signature=self.navigation_signature if task.template=='find_and_approach' else self.physics_signature,
                         scene_sha256=hashlib.sha256(json.dumps(scene, sort_keys=True).encode()).hexdigest())
 

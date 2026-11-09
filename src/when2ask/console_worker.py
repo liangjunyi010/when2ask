@@ -40,7 +40,7 @@ def run_physics_task(server, token_file, worker_id, job, speed=3.0, fps=8):
             raise ValueError('Unknown physics source in worker handshake')
         if hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest() != expected:
             raise RuntimeError('Controller/worker physics source versions differ')
-    sample = demo_sample(job['template'], job.get('unknown_preferences'))
+    sample = demo_sample(job['template'], job.get('unknown_preferences'), scenario_id=job.get('scenario_id'))
     actual_hash = hashlib.sha256(json.dumps(sample.scene(), sort_keys=True).encode()).hexdigest()
     if actual_hash != job['scene_sha256']:
         raise RuntimeError('Controller/worker scene versions differ')
