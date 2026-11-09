@@ -1,0 +1,3479 @@
+{
+  "summary": {
+    "evidence_kind": "real_model_and_real_pybullet",
+    "episodes": 20,
+    "successes": 13,
+    "methods": {
+      "llm_noask": {
+        "episodes": 7,
+        "successes": 2,
+        "burden": 0,
+        "api_latency_s": 33.82263499702094,
+        "api_attempts": 34,
+        "deepseek_input_tokens": 53255,
+        "deepseek_output_tokens": 866,
+        "jev_input_tokens": null,
+        "jev_output_tokens": null
+      },
+      "llm_gate": {
+        "episodes": 7,
+        "successes": 6,
+        "burden": 6,
+        "api_latency_s": 48.68198500602739,
+        "api_attempts": 54,
+        "deepseek_input_tokens": 75853,
+        "deepseek_output_tokens": 889,
+        "jev_input_tokens": null,
+        "jev_output_tokens": null
+      },
+      "jev_gate": {
+        "episodes": 6,
+        "successes": 5,
+        "burden": 9,
+        "api_latency_s": 32.28198241489008,
+        "api_attempts": 50,
+        "deepseek_input_tokens": 37087,
+        "deepseek_output_tokens": 653,
+        "jev_input_tokens": 48555,
+        "jev_output_tokens": 600
+      }
+    },
+    "caution": "Unpaired smoke demonstration: different scenarios per method, 10 physical groups. Not an unbiased method comparison or held-out Test result."
+  },
+  "scenarios": [
+    {
+      "sample_id": "dag_demo_01",
+      "title": "All choices known",
+      "template_id": "pack_and_cover",
+      "group_id": "pack_and_cover:layout_18c7c887e58a1f9a",
+      "layout_family_id": "layout_18c7c887e58a1f9a",
+      "unknown_preferences": 0,
+      "order": "independent",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block",
+          "cover"
+        ],
+        "edges": [
+          [
+            "place_cup",
+            "cover"
+          ],
+          [
+            "place_block",
+            "cover"
+          ]
+        ],
+        "order": "independent"
+      },
+      "focus": "No preference clarification needed",
+      "instruction": "Pack exactly one cup and one block into the box, then cover it with one lid. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use obj_a3cd395c77. For the block, use obj_efb8da6f19. For the lid, use obj_b96aeb202d.",
+      "metrics": {
+        "sample_id": "dag_demo_01",
+        "method": "llm_noask",
+        "task_success": true,
+        "termination": "done",
+        "burden": 0,
+        "ask_turns": 0,
+        "actions": 3,
+        "api_attempts": 4,
+        "api_latency_s": 3.579080957919359,
+        "deepseek_input_tokens": 6083,
+        "deepseek_output_tokens": 83,
+        "jev_input_tokens": null,
+        "jev_output_tokens": null,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_01__llm_noask/episode.json",
+        "unknown_preferences": 0,
+        "order": "independent",
+        "template_id": "pack_and_cover",
+        "group_id": "pack_and_cover:layout_18c7c887e58a1f9a"
+      },
+      "object_names": {
+        "obj_91fdfa8761": "blue cup",
+        "box": "brown container",
+        "obj_efb8da6f19": "green block",
+        "obj_a3cd395c77": "red cup",
+        "obj_b96aeb202d": "black lid",
+        "obj_a649730081": "yellow block",
+        "obj_89e00e23c3": "white lid"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_a3cd395c77",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_a3cd395c77",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 3702,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_efb8da6f19",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_efb8da6f19",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 3702,
+            "end_step": 7231,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "cover",
+            "object_id": "obj_b96aeb202d",
+            "target_id": "box",
+            "relation": "covers"
+          },
+          "physical_result": {
+            "skill": "cover",
+            "object_id": "obj_b96aeb202d",
+            "target_id": "box",
+            "success": true,
+            "reason": "covered",
+            "start_step": 7231,
+            "end_step": 10938,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 3,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "green block",
+        "cup": "red cup",
+        "lid": "black lid"
+      },
+      "conditions": {
+        "correct_cup_inside": true,
+        "correct_block_inside": true,
+        "correct_lid_covers": true,
+        "unselected_objects_outside": true,
+        "robot_released": true,
+        "packing_before_cover": true,
+        "declared_dag_order": true
+      },
+      "scene": "live/dag_demo_01__llm_noask/scene.png",
+      "final": "live/dag_demo_01__llm_noask/final.png",
+      "gif": "live/dag_demo_01__llm_noask/demo.gif",
+      "video": "media/dag_demo_01.mp4",
+      "trace": "live/dag_demo_01__llm_noask/episode.json"
+    },
+    {
+      "sample_id": "dag_demo_02",
+      "title": "Known cup first",
+      "template_id": "pack_and_cover",
+      "group_id": "pack_and_cover:layout_eefb9a2482cec408",
+      "layout_family_id": "layout_eefb9a2482cec408",
+      "unknown_preferences": 0,
+      "order": "cup_first",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block",
+          "cover"
+        ],
+        "edges": [
+          [
+            "place_cup",
+            "cover"
+          ],
+          [
+            "place_block",
+            "cover"
+          ],
+          [
+            "place_cup",
+            "place_block"
+          ]
+        ],
+        "order": "cup_first"
+      },
+      "focus": "Follow a public precedence edge",
+      "instruction": "Put one selected cup and one selected block in the box; cover it only after both are packed. Place the cup before the block. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use obj_fb1e3bfd60. For the block, use obj_e7722d905b. For the lid, use obj_928784d6ba.",
+      "metrics": {
+        "sample_id": "dag_demo_02",
+        "method": "llm_gate",
+        "task_success": true,
+        "termination": "done",
+        "burden": 0,
+        "ask_turns": 0,
+        "actions": 3,
+        "api_attempts": 8,
+        "api_latency_s": 5.964606708963402,
+        "deepseek_input_tokens": 11542,
+        "deepseek_output_tokens": 111,
+        "jev_input_tokens": null,
+        "jev_output_tokens": null,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_02__llm_gate/episode.json",
+        "unknown_preferences": 0,
+        "order": "cup_first",
+        "template_id": "pack_and_cover",
+        "group_id": "pack_and_cover:layout_eefb9a2482cec408"
+      },
+      "object_names": {
+        "obj_4ccc71d115": "blue cup",
+        "box": "brown container",
+        "obj_3df076a3a3": "green block",
+        "obj_e7722d905b": "yellow block",
+        "obj_928784d6ba": "white lid",
+        "obj_19e849ceb1": "black lid",
+        "obj_fb1e3bfd60": "red cup"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_fb1e3bfd60",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_fb1e3bfd60",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 3415,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_e7722d905b",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_e7722d905b",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 3415,
+            "end_step": 6973,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "cover",
+            "object_id": "obj_928784d6ba",
+            "target_id": "box",
+            "relation": "covers"
+          },
+          "physical_result": {
+            "skill": "cover",
+            "object_id": "obj_928784d6ba",
+            "target_id": "box",
+            "success": true,
+            "reason": "covered",
+            "start_step": 6973,
+            "end_step": 10694,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 3,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "yellow block",
+        "cup": "red cup",
+        "lid": "white lid"
+      },
+      "conditions": {
+        "correct_cup_inside": true,
+        "correct_block_inside": true,
+        "correct_lid_covers": true,
+        "unselected_objects_outside": true,
+        "robot_released": true,
+        "packing_before_cover": true,
+        "declared_dag_order": true
+      },
+      "scene": "live/dag_demo_02__llm_gate/scene.png",
+      "final": "live/dag_demo_02__llm_gate/final.png",
+      "gif": "live/dag_demo_02__llm_gate/demo.gif",
+      "video": "media/dag_demo_02.mp4",
+      "trace": "live/dag_demo_02__llm_gate/episode.json"
+    },
+    {
+      "sample_id": "dag_demo_03",
+      "title": "Block unlocks the task",
+      "template_id": "pack_and_cover",
+      "group_id": "pack_and_cover:layout_1eff016f08c16c21",
+      "layout_family_id": "layout_1eff016f08c16c21",
+      "unknown_preferences": 1,
+      "order": "block_first",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block",
+          "cover"
+        ],
+        "edges": [
+          [
+            "place_cup",
+            "cover"
+          ],
+          [
+            "place_block",
+            "cover"
+          ],
+          [
+            "place_block",
+            "place_cup"
+          ]
+        ],
+        "order": "block_first"
+      },
+      "focus": "A known cup cannot bypass the block-first instruction",
+      "instruction": "Pack exactly one cup and one block into the box, then cover it with one lid. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use obj_ba7463979e. For the lid, use obj_15737e79bd.",
+      "metrics": {
+        "sample_id": "dag_demo_03",
+        "method": "jev_gate",
+        "task_success": false,
+        "termination": "done",
+        "burden": 0,
+        "ask_turns": 0,
+        "actions": 3,
+        "api_attempts": 8,
+        "api_latency_s": 5.496569873997942,
+        "deepseek_input_tokens": 6007,
+        "deepseek_output_tokens": 81,
+        "jev_input_tokens": 7843,
+        "jev_output_tokens": 96,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_03__jev_gate/episode.json",
+        "unknown_preferences": 1,
+        "order": "block_first",
+        "template_id": "pack_and_cover",
+        "group_id": "pack_and_cover:layout_1eff016f08c16c21"
+      },
+      "object_names": {
+        "obj_7214125aac": "green block",
+        "obj_6a1f1fb218": "red cup",
+        "box": "brown container",
+        "obj_59fbbb311d": "yellow block",
+        "obj_94dd6908ca": "white lid",
+        "obj_15737e79bd": "black lid",
+        "obj_ba7463979e": "blue cup"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.05,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_7214125aac",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_7214125aac",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 3686,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.06,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_ba7463979e",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_ba7463979e",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 3686,
+            "end_step": 7168,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.05,
+            "called": true
+          },
+          "action": {
+            "kind": "cover",
+            "object_id": "obj_15737e79bd",
+            "target_id": "box",
+            "relation": "covers"
+          },
+          "physical_result": {
+            "skill": "cover",
+            "object_id": "obj_15737e79bd",
+            "target_id": "box",
+            "success": true,
+            "reason": "covered",
+            "start_step": 7168,
+            "end_step": 10748,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 3,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.05,
+            "called": true
+          },
+          "action": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "yellow block",
+        "cup": "blue cup",
+        "lid": "black lid"
+      },
+      "conditions": {
+        "correct_cup_inside": true,
+        "correct_block_inside": false,
+        "correct_lid_covers": true,
+        "unselected_objects_outside": false,
+        "robot_released": true,
+        "packing_before_cover": false,
+        "declared_dag_order": false
+      },
+      "scene": "live/dag_demo_03__jev_gate/scene.png",
+      "final": "live/dag_demo_03__jev_gate/final.png",
+      "gif": "live/dag_demo_03__jev_gate/demo.gif",
+      "video": "media/dag_demo_03.mp4",
+      "trace": "live/dag_demo_03__jev_gate/episode.json"
+    },
+    {
+      "sample_id": "dag_demo_04",
+      "title": "Ask about the lid later",
+      "template_id": "pack_and_cover",
+      "group_id": "pack_and_cover:layout_43469905d9edebbd",
+      "layout_family_id": "layout_43469905d9edebbd",
+      "unknown_preferences": 1,
+      "order": "cup_first",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block",
+          "cover"
+        ],
+        "edges": [
+          [
+            "place_cup",
+            "cover"
+          ],
+          [
+            "place_block",
+            "cover"
+          ],
+          [
+            "place_cup",
+            "place_block"
+          ]
+        ],
+        "order": "cup_first"
+      },
+      "focus": "Two supported placements are available before covering",
+      "instruction": "Put one selected cup and one selected block in the box; cover it only after both are packed. Place the cup before the block. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use obj_11b91ab1ab. For the block, use obj_686ab88c4f.",
+      "metrics": {
+        "sample_id": "dag_demo_04",
+        "method": "llm_noask",
+        "task_success": false,
+        "termination": "done",
+        "burden": 0,
+        "ask_turns": 0,
+        "actions": 3,
+        "api_attempts": 4,
+        "api_latency_s": 4.150311624049209,
+        "deepseek_input_tokens": 6057,
+        "deepseek_output_tokens": 83,
+        "jev_input_tokens": null,
+        "jev_output_tokens": null,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_04__llm_noask/episode.json",
+        "unknown_preferences": 1,
+        "order": "cup_first",
+        "template_id": "pack_and_cover",
+        "group_id": "pack_and_cover:layout_43469905d9edebbd"
+      },
+      "object_names": {
+        "box": "brown container",
+        "obj_11b91ab1ab": "red cup",
+        "obj_596065ad5d": "black lid",
+        "obj_38eedd534d": "white lid",
+        "obj_686ab88c4f": "green block",
+        "obj_d2d03e0dea": "yellow block",
+        "obj_bd7c82eaa6": "blue cup"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_11b91ab1ab",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_11b91ab1ab",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 3678,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_686ab88c4f",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_686ab88c4f",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 3678,
+            "end_step": 7276,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "cover",
+            "object_id": "obj_596065ad5d",
+            "target_id": "box",
+            "relation": "covers"
+          },
+          "physical_result": {
+            "skill": "cover",
+            "object_id": "obj_596065ad5d",
+            "target_id": "box",
+            "success": true,
+            "reason": "covered",
+            "start_step": 7276,
+            "end_step": 10913,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 3,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "green block",
+        "cup": "red cup",
+        "lid": "white lid"
+      },
+      "conditions": {
+        "correct_cup_inside": true,
+        "correct_block_inside": true,
+        "correct_lid_covers": false,
+        "unselected_objects_outside": false,
+        "robot_released": true,
+        "packing_before_cover": false,
+        "declared_dag_order": true
+      },
+      "scene": "live/dag_demo_04__llm_noask/scene.png",
+      "final": "live/dag_demo_04__llm_noask/final.png",
+      "gif": "live/dag_demo_04__llm_noask/demo.gif",
+      "video": "media/dag_demo_04.mp4",
+      "trace": "live/dag_demo_04__llm_noask/episode.json"
+    },
+    {
+      "sample_id": "dag_demo_05",
+      "title": "Known block can go first",
+      "template_id": "pack_and_cover",
+      "group_id": "pack_and_cover:layout_44827efbd4c6c47d",
+      "layout_family_id": "layout_44827efbd4c6c47d",
+      "unknown_preferences": 1,
+      "order": "independent",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block",
+          "cover"
+        ],
+        "edges": [
+          [
+            "place_cup",
+            "cover"
+          ],
+          [
+            "place_block",
+            "cover"
+          ]
+        ],
+        "order": "independent"
+      },
+      "focus": "An unknown cup does not block the independent block",
+      "instruction": "Pack exactly one cup and one block into the box, then cover it with one lid. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use obj_62643b2cd0. For the lid, use obj_f18fb5f22e.",
+      "metrics": {
+        "sample_id": "dag_demo_05",
+        "method": "llm_gate",
+        "task_success": true,
+        "termination": "done",
+        "burden": 1,
+        "ask_turns": 1,
+        "actions": 3,
+        "api_attempts": 10,
+        "api_latency_s": 8.536665917024948,
+        "deepseek_input_tokens": 14787,
+        "deepseek_output_tokens": 164,
+        "jev_input_tokens": null,
+        "jev_output_tokens": null,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_05__llm_gate/episode.json",
+        "unknown_preferences": 1,
+        "order": "independent",
+        "template_id": "pack_and_cover",
+        "group_id": "pack_and_cover:layout_44827efbd4c6c47d"
+      },
+      "object_names": {
+        "obj_62643b2cd0": "green block",
+        "obj_6dfaa2595d": "red cup",
+        "obj_f18fb5f22e": "black lid",
+        "obj_67744c67b5": "yellow block",
+        "obj_cfd3d9ebfd": "white lid",
+        "obj_6add6cd485": "blue cup",
+        "box": "brown container"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "ASK",
+            "p_ask": null,
+            "called": true
+          },
+          "question": {
+            "type": "select",
+            "text": "Which cup should be packed into the box?",
+            "requests": [
+              {
+                "role": "cup",
+                "candidate_ids": [
+                  "obj_6dfaa2595d",
+                  "obj_6add6cd485"
+                ]
+              }
+            ]
+          },
+          "user_answer": {
+            "choices": {
+              "cup": "obj_6add6cd485"
+            }
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_6add6cd485",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_6add6cd485",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 3417,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_62643b2cd0",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_62643b2cd0",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 3417,
+            "end_step": 6886,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 3,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "cover",
+            "object_id": "obj_f18fb5f22e",
+            "target_id": "box",
+            "relation": "covers"
+          },
+          "physical_result": {
+            "skill": "cover",
+            "object_id": "obj_f18fb5f22e",
+            "target_id": "box",
+            "success": true,
+            "reason": "covered",
+            "start_step": 6886,
+            "end_step": 10451,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 4,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "green block",
+        "cup": "blue cup",
+        "lid": "black lid"
+      },
+      "conditions": {
+        "correct_cup_inside": true,
+        "correct_block_inside": true,
+        "correct_lid_covers": true,
+        "unselected_objects_outside": true,
+        "robot_released": true,
+        "packing_before_cover": true,
+        "declared_dag_order": true
+      },
+      "scene": "live/dag_demo_05__llm_gate/scene.png",
+      "final": "live/dag_demo_05__llm_gate/final.png",
+      "gif": "live/dag_demo_05__llm_gate/demo.gif",
+      "video": "media/dag_demo_05.mp4",
+      "trace": "live/dag_demo_05__llm_gate/episode.json"
+    },
+    {
+      "sample_id": "dag_demo_06",
+      "title": "Pack the known cup",
+      "template_id": "pack_and_cover",
+      "group_id": "pack_and_cover:layout_18c7c887e58a1f9a",
+      "layout_family_id": "layout_18c7c887e58a1f9a",
+      "unknown_preferences": 2,
+      "order": "cup_first",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block",
+          "cover"
+        ],
+        "edges": [
+          [
+            "place_cup",
+            "cover"
+          ],
+          [
+            "place_block",
+            "cover"
+          ],
+          [
+            "place_cup",
+            "place_block"
+          ]
+        ],
+        "order": "cup_first"
+      },
+      "focus": "One supported action precedes two missing choices",
+      "instruction": "Put one selected cup and one selected block in the box; cover it only after both are packed. Place the cup before the block. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use obj_c0a73505d7.",
+      "metrics": {
+        "sample_id": "dag_demo_06",
+        "method": "jev_gate",
+        "task_success": true,
+        "termination": "done",
+        "burden": 2,
+        "ask_turns": 1,
+        "actions": 3,
+        "api_attempts": 10,
+        "api_latency_s": 5.832440998987295,
+        "deepseek_input_tokens": 7843,
+        "deepseek_output_tokens": 157,
+        "jev_input_tokens": 10395,
+        "jev_output_tokens": 120,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_06__jev_gate/episode.json",
+        "unknown_preferences": 2,
+        "order": "cup_first",
+        "template_id": "pack_and_cover",
+        "group_id": "pack_and_cover:layout_18c7c887e58a1f9a"
+      },
+      "object_names": {
+        "obj_6b4f550a57": "yellow block",
+        "obj_a1cb46f506": "black lid",
+        "obj_f583cb465b": "white lid",
+        "obj_c8ea3ddccb": "red cup",
+        "box": "brown container",
+        "obj_c0a73505d7": "blue cup",
+        "obj_a998d95dd2": "green block"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "ASK",
+            "p_ask": 0.51,
+            "called": true
+          },
+          "question": {
+            "type": "select",
+            "text": "Which block and which lid should be used?",
+            "requests": [
+              {
+                "role": "block",
+                "candidate_ids": [
+                  "obj_6b4f550a57",
+                  "obj_a998d95dd2"
+                ]
+              },
+              {
+                "role": "lid",
+                "candidate_ids": [
+                  "obj_a1cb46f506",
+                  "obj_f583cb465b"
+                ]
+              }
+            ]
+          },
+          "user_answer": {
+            "choices": {
+              "block": "obj_6b4f550a57",
+              "lid": "obj_f583cb465b"
+            }
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.05,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_c0a73505d7",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_c0a73505d7",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 3367,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.07,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_6b4f550a57",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_6b4f550a57",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 3367,
+            "end_step": 6869,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 3,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.08,
+            "called": true
+          },
+          "action": {
+            "kind": "cover",
+            "object_id": "obj_f583cb465b",
+            "target_id": "box",
+            "relation": "covers"
+          },
+          "physical_result": {
+            "skill": "cover",
+            "object_id": "obj_f583cb465b",
+            "target_id": "box",
+            "success": true,
+            "reason": "covered",
+            "start_step": 6869,
+            "end_step": 10570,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 4,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.07,
+            "called": true
+          },
+          "action": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "yellow block",
+        "cup": "blue cup",
+        "lid": "white lid"
+      },
+      "conditions": {
+        "correct_cup_inside": true,
+        "correct_block_inside": true,
+        "correct_lid_covers": true,
+        "unselected_objects_outside": true,
+        "robot_released": true,
+        "packing_before_cover": true,
+        "declared_dag_order": true
+      },
+      "scene": "live/dag_demo_06__jev_gate/scene.png",
+      "final": "live/dag_demo_06__jev_gate/final.png",
+      "gif": "live/dag_demo_06__jev_gate/demo.gif",
+      "video": "media/dag_demo_06.mp4",
+      "trace": "live/dag_demo_06__jev_gate/episode.json"
+    },
+    {
+      "sample_id": "dag_demo_07",
+      "title": "Pack the known block",
+      "template_id": "pack_and_cover",
+      "group_id": "pack_and_cover:layout_eefb9a2482cec408",
+      "layout_family_id": "layout_eefb9a2482cec408",
+      "unknown_preferences": 2,
+      "order": "block_first",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block",
+          "cover"
+        ],
+        "edges": [
+          [
+            "place_cup",
+            "cover"
+          ],
+          [
+            "place_block",
+            "cover"
+          ],
+          [
+            "place_block",
+            "place_cup"
+          ]
+        ],
+        "order": "block_first"
+      },
+      "focus": "One supported action precedes two missing choices",
+      "instruction": "Pack exactly one cup and one block into the box, then cover it with one lid. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use obj_e6ee70a5d4.",
+      "metrics": {
+        "sample_id": "dag_demo_07",
+        "method": "llm_noask",
+        "task_success": false,
+        "termination": "done",
+        "burden": 0,
+        "ask_turns": 0,
+        "actions": 3,
+        "api_attempts": 4,
+        "api_latency_s": 3.771904291061219,
+        "deepseek_input_tokens": 6033,
+        "deepseek_output_tokens": 87,
+        "jev_input_tokens": null,
+        "jev_output_tokens": null,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_07__llm_noask/episode.json",
+        "unknown_preferences": 2,
+        "order": "block_first",
+        "template_id": "pack_and_cover",
+        "group_id": "pack_and_cover:layout_eefb9a2482cec408"
+      },
+      "object_names": {
+        "obj_1d75a95410": "green block",
+        "obj_6415efb1e0": "blue cup",
+        "obj_e7ee1fb8b1": "black lid",
+        "obj_2a31d54794": "red cup",
+        "box": "brown container",
+        "obj_e6ee70a5d4": "yellow block",
+        "obj_0df92cb2bb": "white lid"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_e6ee70a5d4",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_e6ee70a5d4",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 3714,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_6415efb1e0",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_6415efb1e0",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 3714,
+            "end_step": 7141,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "cover",
+            "object_id": "obj_e7ee1fb8b1",
+            "target_id": "box",
+            "relation": "covers"
+          },
+          "physical_result": {
+            "skill": "cover",
+            "object_id": "obj_e7ee1fb8b1",
+            "target_id": "box",
+            "success": true,
+            "reason": "covered",
+            "start_step": 7141,
+            "end_step": 10838,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 3,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "yellow block",
+        "cup": "red cup",
+        "lid": "black lid"
+      },
+      "conditions": {
+        "correct_cup_inside": false,
+        "correct_block_inside": true,
+        "correct_lid_covers": true,
+        "unselected_objects_outside": false,
+        "robot_released": true,
+        "packing_before_cover": false,
+        "declared_dag_order": false
+      },
+      "scene": "live/dag_demo_07__llm_noask/scene.png",
+      "final": "live/dag_demo_07__llm_noask/final.png",
+      "gif": "live/dag_demo_07__llm_noask/demo.gif",
+      "video": "media/dag_demo_07.mp4",
+      "trace": "live/dag_demo_07__llm_noask/episode.json"
+    },
+    {
+      "sample_id": "dag_demo_08",
+      "title": "Lid known, contents unknown",
+      "template_id": "pack_and_cover",
+      "group_id": "pack_and_cover:layout_1eff016f08c16c21",
+      "layout_family_id": "layout_1eff016f08c16c21",
+      "unknown_preferences": 2,
+      "order": "independent",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block",
+          "cover"
+        ],
+        "edges": [
+          [
+            "place_cup",
+            "cover"
+          ],
+          [
+            "place_block",
+            "cover"
+          ]
+        ],
+        "order": "independent"
+      },
+      "focus": "Cover requires both placements",
+      "instruction": "Put one selected cup and one selected block in the box; cover it only after both are packed. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the lid, use obj_396538054a.",
+      "metrics": {
+        "sample_id": "dag_demo_08",
+        "method": "llm_gate",
+        "task_success": true,
+        "termination": "done",
+        "burden": 2,
+        "ask_turns": 1,
+        "actions": 3,
+        "api_attempts": 10,
+        "api_latency_s": 9.68823987513315,
+        "deepseek_input_tokens": 14983,
+        "deepseek_output_tokens": 194,
+        "jev_input_tokens": null,
+        "jev_output_tokens": null,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_08__llm_gate/episode.json",
+        "unknown_preferences": 2,
+        "order": "independent",
+        "template_id": "pack_and_cover",
+        "group_id": "pack_and_cover:layout_1eff016f08c16c21"
+      },
+      "object_names": {
+        "obj_c277f301b0": "red cup",
+        "obj_e7176f5db3": "yellow block",
+        "obj_a4789dc6b6": "blue cup",
+        "box": "brown container",
+        "obj_396538054a": "white lid",
+        "obj_9882ad17ca": "black lid",
+        "obj_ec9a21e188": "green block"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "ASK",
+            "p_ask": null,
+            "called": true
+          },
+          "question": {
+            "type": "select",
+            "text": "Which cup and which block should be placed in the box?",
+            "requests": [
+              {
+                "role": "cup",
+                "candidate_ids": [
+                  "obj_c277f301b0",
+                  "obj_a4789dc6b6"
+                ]
+              },
+              {
+                "role": "block",
+                "candidate_ids": [
+                  "obj_e7176f5db3",
+                  "obj_ec9a21e188"
+                ]
+              }
+            ]
+          },
+          "user_answer": {
+            "choices": {
+              "block": "obj_ec9a21e188",
+              "cup": "obj_a4789dc6b6"
+            }
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_a4789dc6b6",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_a4789dc6b6",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 3472,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_ec9a21e188",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_ec9a21e188",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 3472,
+            "end_step": 7046,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 3,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "cover",
+            "object_id": "obj_396538054a",
+            "target_id": "box",
+            "relation": "covers"
+          },
+          "physical_result": {
+            "skill": "cover",
+            "object_id": "obj_396538054a",
+            "target_id": "box",
+            "success": true,
+            "reason": "covered",
+            "start_step": 7046,
+            "end_step": 10881,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 4,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "green block",
+        "cup": "blue cup",
+        "lid": "white lid"
+      },
+      "conditions": {
+        "correct_cup_inside": true,
+        "correct_block_inside": true,
+        "correct_lid_covers": true,
+        "unselected_objects_outside": true,
+        "robot_released": true,
+        "packing_before_cover": true,
+        "declared_dag_order": true
+      },
+      "scene": "live/dag_demo_08__llm_gate/scene.png",
+      "final": "live/dag_demo_08__llm_gate/final.png",
+      "gif": "live/dag_demo_08__llm_gate/demo.gif",
+      "video": "media/dag_demo_08.mp4",
+      "trace": "live/dag_demo_08__llm_gate/episode.json"
+    },
+    {
+      "sample_id": "dag_demo_09",
+      "title": "All choices missing, cup first",
+      "template_id": "pack_and_cover",
+      "group_id": "pack_and_cover:layout_43469905d9edebbd",
+      "layout_family_id": "layout_43469905d9edebbd",
+      "unknown_preferences": 3,
+      "order": "cup_first",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block",
+          "cover"
+        ],
+        "edges": [
+          [
+            "place_cup",
+            "cover"
+          ],
+          [
+            "place_block",
+            "cover"
+          ],
+          [
+            "place_cup",
+            "place_block"
+          ]
+        ],
+        "order": "cup_first"
+      },
+      "focus": "Clarify the current dependency; later choices can be batched",
+      "instruction": "Pack exactly one cup and one block into the box, then cover it with one lid. Place the cup before the block. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown.",
+      "metrics": {
+        "sample_id": "dag_demo_09",
+        "method": "jev_gate",
+        "task_success": true,
+        "termination": "done",
+        "burden": 3,
+        "ask_turns": 1,
+        "actions": 3,
+        "api_attempts": 10,
+        "api_latency_s": 6.306030248932075,
+        "deepseek_input_tokens": 7653,
+        "deepseek_output_tokens": 114,
+        "jev_input_tokens": 10056,
+        "jev_output_tokens": 120,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_09__jev_gate/episode.json",
+        "unknown_preferences": 3,
+        "order": "cup_first",
+        "template_id": "pack_and_cover",
+        "group_id": "pack_and_cover:layout_43469905d9edebbd"
+      },
+      "object_names": {
+        "box": "brown container",
+        "obj_f875cc05a0": "yellow block",
+        "obj_b51dac419f": "white lid",
+        "obj_87b75a1f4e": "blue cup",
+        "obj_18ad2075a9": "red cup",
+        "obj_0eee3f7b04": "green block",
+        "obj_27bc8c8ad4": "black lid"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "ASK",
+            "p_ask": 0.66,
+            "called": true
+          },
+          "question": {
+            "type": "all_preferences",
+            "text": "Which cup, block, and lid should be used for this task?",
+            "requests": []
+          },
+          "user_answer": {
+            "choices": {
+              "block": "obj_0eee3f7b04",
+              "cup": "obj_18ad2075a9",
+              "lid": "obj_27bc8c8ad4"
+            }
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.05,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_18ad2075a9",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_18ad2075a9",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 3368,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.06,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_0eee3f7b04",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_0eee3f7b04",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 3368,
+            "end_step": 6969,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 3,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.05,
+            "called": true
+          },
+          "action": {
+            "kind": "cover",
+            "object_id": "obj_27bc8c8ad4",
+            "target_id": "box",
+            "relation": "covers"
+          },
+          "physical_result": {
+            "skill": "cover",
+            "object_id": "obj_27bc8c8ad4",
+            "target_id": "box",
+            "success": true,
+            "reason": "covered",
+            "start_step": 6969,
+            "end_step": 10736,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 4,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.06,
+            "called": true
+          },
+          "action": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "green block",
+        "cup": "red cup",
+        "lid": "black lid"
+      },
+      "conditions": {
+        "correct_cup_inside": true,
+        "correct_block_inside": true,
+        "correct_lid_covers": true,
+        "unselected_objects_outside": true,
+        "robot_released": true,
+        "packing_before_cover": true,
+        "declared_dag_order": true
+      },
+      "scene": "live/dag_demo_09__jev_gate/scene.png",
+      "final": "live/dag_demo_09__jev_gate/final.png",
+      "gif": "live/dag_demo_09__jev_gate/demo.gif",
+      "video": "media/dag_demo_09.mp4",
+      "trace": "live/dag_demo_09__jev_gate/episode.json"
+    },
+    {
+      "sample_id": "dag_demo_10",
+      "title": "All choices missing, block first",
+      "template_id": "pack_and_cover",
+      "group_id": "pack_and_cover:layout_44827efbd4c6c47d",
+      "layout_family_id": "layout_44827efbd4c6c47d",
+      "unknown_preferences": 3,
+      "order": "block_first",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block",
+          "cover"
+        ],
+        "edges": [
+          [
+            "place_cup",
+            "cover"
+          ],
+          [
+            "place_block",
+            "cover"
+          ],
+          [
+            "place_block",
+            "place_cup"
+          ]
+        ],
+        "order": "block_first"
+      },
+      "focus": "The public order is still binding when choices are unknown",
+      "instruction": "Put one selected cup and one selected block in the box; cover it only after both are packed. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown.",
+      "metrics": {
+        "sample_id": "dag_demo_10",
+        "method": "llm_noask",
+        "task_success": false,
+        "termination": "done",
+        "burden": 0,
+        "ask_turns": 0,
+        "actions": 3,
+        "api_attempts": 4,
+        "api_latency_s": 4.186290416982956,
+        "deepseek_input_tokens": 5968,
+        "deepseek_output_tokens": 84,
+        "jev_input_tokens": null,
+        "jev_output_tokens": null,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_10__llm_noask/episode.json",
+        "unknown_preferences": 3,
+        "order": "block_first",
+        "template_id": "pack_and_cover",
+        "group_id": "pack_and_cover:layout_44827efbd4c6c47d"
+      },
+      "object_names": {
+        "box": "brown container",
+        "obj_62ddd9725d": "white lid",
+        "obj_56f2fe89d1": "red cup",
+        "obj_4062a7887d": "green block",
+        "obj_4b5bab98d6": "blue cup",
+        "obj_6131e0bc05": "yellow block",
+        "obj_a7fe7cdd9f": "black lid"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_4062a7887d",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_4062a7887d",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 3695,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_56f2fe89d1",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_56f2fe89d1",
+            "target_id": "box",
+            "success": true,
+            "reason": "placed",
+            "start_step": 3695,
+            "end_step": 7407,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "cover",
+            "object_id": "obj_62ddd9725d",
+            "target_id": "box",
+            "relation": "covers"
+          },
+          "physical_result": {
+            "skill": "cover",
+            "object_id": "obj_62ddd9725d",
+            "target_id": "box",
+            "success": true,
+            "reason": "covered",
+            "start_step": 7407,
+            "end_step": 10965,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 3,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "yellow block",
+        "cup": "red cup",
+        "lid": "white lid"
+      },
+      "conditions": {
+        "correct_cup_inside": true,
+        "correct_block_inside": false,
+        "correct_lid_covers": true,
+        "unselected_objects_outside": false,
+        "robot_released": true,
+        "packing_before_cover": false,
+        "declared_dag_order": false
+      },
+      "scene": "live/dag_demo_10__llm_noask/scene.png",
+      "final": "live/dag_demo_10__llm_noask/final.png",
+      "gif": "live/dag_demo_10__llm_noask/demo.gif",
+      "video": "media/dag_demo_10.mp4",
+      "trace": "live/dag_demo_10__llm_noask/episode.json"
+    },
+    {
+      "sample_id": "dag_demo_11",
+      "title": "Two known destinations",
+      "template_id": "place_into_selected_containers",
+      "group_id": "place_into_selected_containers:layout_b02188e014e9561a",
+      "layout_family_id": "layout_b02188e014e9561a",
+      "unknown_preferences": 0,
+      "order": "independent",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block"
+        ],
+        "edges": [],
+        "order": "independent"
+      },
+      "focus": "The block uses the other container",
+      "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use obj_76306c6f1e. For the block, use obj_8c9d9e97de. For the cup_destination, use obj_64097ceee9.",
+      "metrics": {
+        "sample_id": "dag_demo_11",
+        "method": "llm_gate",
+        "task_success": true,
+        "termination": "done",
+        "burden": 0,
+        "ask_turns": 0,
+        "actions": 2,
+        "api_attempts": 6,
+        "api_latency_s": 5.671708126901649,
+        "deepseek_input_tokens": 8077,
+        "deepseek_output_tokens": 101,
+        "jev_input_tokens": null,
+        "jev_output_tokens": null,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_11__llm_gate/episode.json",
+        "unknown_preferences": 0,
+        "order": "independent",
+        "template_id": "place_into_selected_containers",
+        "group_id": "place_into_selected_containers:layout_b02188e014e9561a"
+      },
+      "object_names": {
+        "obj_8c9d9e97de": "yellow block",
+        "obj_55c5b65443": "green block",
+        "obj_76306c6f1e": "blue cup",
+        "obj_64097ceee9": "purple container",
+        "obj_45a6f2a9fa": "orange container",
+        "obj_b49b3ae1f3": "red cup"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_76306c6f1e",
+            "target_id": "obj_64097ceee9",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_76306c6f1e",
+            "target_id": "obj_64097ceee9",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 3917,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_8c9d9e97de",
+            "target_id": "obj_45a6f2a9fa",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_8c9d9e97de",
+            "target_id": "obj_45a6f2a9fa",
+            "success": true,
+            "reason": "placed",
+            "start_step": 3917,
+            "end_step": 7708,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "yellow block",
+        "cup": "blue cup",
+        "cup_destination": "purple container"
+      },
+      "conditions": {
+        "correct_cup_in_selected_container": true,
+        "correct_block_in_other_container": true,
+        "unselected_objects_outside": true,
+        "robot_released": true,
+        "declared_dag_order": true
+      },
+      "scene": "live/dag_demo_11__llm_gate/scene.png",
+      "final": "live/dag_demo_11__llm_gate/final.png",
+      "gif": "live/dag_demo_11__llm_gate/demo.gif",
+      "video": "media/dag_demo_11.mp4",
+      "trace": "live/dag_demo_11__llm_gate/episode.json"
+    },
+    {
+      "sample_id": "dag_demo_12",
+      "title": "Known split, cup first",
+      "template_id": "place_into_selected_containers",
+      "group_id": "place_into_selected_containers:layout_e4a219b5d0977883",
+      "layout_family_id": "layout_e4a219b5d0977883",
+      "unknown_preferences": 0,
+      "order": "cup_first",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block"
+        ],
+        "edges": [
+          [
+            "place_cup",
+            "place_block"
+          ]
+        ],
+        "order": "cup_first"
+      },
+      "focus": "Follow the cup-to-block dependency",
+      "instruction": "Place the preferred cup and block into separate containers: the cup uses its preferred destination, and the block must use the remaining container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the cup before the block. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use obj_e06d0013f4. For the block, use obj_1794717eff. For the cup_destination, use obj_662dda8d0d.",
+      "metrics": {
+        "sample_id": "dag_demo_12",
+        "method": "jev_gate",
+        "task_success": true,
+        "termination": "done",
+        "burden": 0,
+        "ask_turns": 0,
+        "actions": 2,
+        "api_attempts": 6,
+        "api_latency_s": 3.708657792012673,
+        "deepseek_input_tokens": 4253,
+        "deepseek_output_tokens": 74,
+        "jev_input_tokens": 5472,
+        "jev_output_tokens": 72,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_12__jev_gate/episode.json",
+        "unknown_preferences": 0,
+        "order": "cup_first",
+        "template_id": "place_into_selected_containers",
+        "group_id": "place_into_selected_containers:layout_e4a219b5d0977883"
+      },
+      "object_names": {
+        "obj_91903b0758": "purple container",
+        "obj_3d9739454c": "green block",
+        "obj_662dda8d0d": "orange container",
+        "obj_1794717eff": "yellow block",
+        "obj_e06d0013f4": "red cup",
+        "obj_053d330cbc": "blue cup"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.04,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_e06d0013f4",
+            "target_id": "obj_662dda8d0d",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_e06d0013f4",
+            "target_id": "obj_662dda8d0d",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 3386,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.05,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_1794717eff",
+            "target_id": "obj_91903b0758",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_1794717eff",
+            "target_id": "obj_91903b0758",
+            "success": true,
+            "reason": "placed",
+            "start_step": 3386,
+            "end_step": 7094,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.05,
+            "called": true
+          },
+          "action": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "yellow block",
+        "cup": "red cup",
+        "cup_destination": "orange container"
+      },
+      "conditions": {
+        "correct_cup_in_selected_container": true,
+        "correct_block_in_other_container": true,
+        "unselected_objects_outside": true,
+        "robot_released": true,
+        "declared_dag_order": true
+      },
+      "scene": "live/dag_demo_12__jev_gate/scene.png",
+      "final": "live/dag_demo_12__jev_gate/final.png",
+      "gif": "live/dag_demo_12__jev_gate/demo.gif",
+      "video": "media/dag_demo_12.mp4",
+      "trace": "live/dag_demo_12__jev_gate/episode.json"
+    },
+    {
+      "sample_id": "dag_demo_13",
+      "title": "Known split, block first",
+      "template_id": "place_into_selected_containers",
+      "group_id": "place_into_selected_containers:layout_4a09a6bd6b9107e8",
+      "layout_family_id": "layout_4a09a6bd6b9107e8",
+      "unknown_preferences": 0,
+      "order": "block_first",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block"
+        ],
+        "edges": [
+          [
+            "place_block",
+            "place_cup"
+          ]
+        ],
+        "order": "block_first"
+      },
+      "focus": "Follow the block-to-cup dependency",
+      "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use obj_f4765e9e55. For the block, use obj_2f7ae7f04a. For the cup_destination, use obj_29479b176b.",
+      "metrics": {
+        "sample_id": "dag_demo_13",
+        "method": "llm_noask",
+        "task_success": true,
+        "termination": "done",
+        "burden": 0,
+        "ask_turns": 0,
+        "actions": 2,
+        "api_attempts": 3,
+        "api_latency_s": 2.7700005000224337,
+        "deepseek_input_tokens": 4238,
+        "deepseek_output_tokens": 75,
+        "jev_input_tokens": null,
+        "jev_output_tokens": null,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_13__llm_noask/episode.json",
+        "unknown_preferences": 0,
+        "order": "block_first",
+        "template_id": "place_into_selected_containers",
+        "group_id": "place_into_selected_containers:layout_4a09a6bd6b9107e8"
+      },
+      "object_names": {
+        "obj_c1b46a6875": "red cup",
+        "obj_29479b176b": "purple container",
+        "obj_63378bc69d": "yellow block",
+        "obj_2f7ae7f04a": "green block",
+        "obj_f4765e9e55": "blue cup",
+        "obj_ddbcc414ad": "orange container"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_2f7ae7f04a",
+            "target_id": "obj_ddbcc414ad",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_2f7ae7f04a",
+            "target_id": "obj_ddbcc414ad",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 4048,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_f4765e9e55",
+            "target_id": "obj_29479b176b",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_f4765e9e55",
+            "target_id": "obj_29479b176b",
+            "success": true,
+            "reason": "placed",
+            "start_step": 4048,
+            "end_step": 7805,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "green block",
+        "cup": "blue cup",
+        "cup_destination": "purple container"
+      },
+      "conditions": {
+        "correct_cup_in_selected_container": true,
+        "correct_block_in_other_container": true,
+        "unselected_objects_outside": true,
+        "robot_released": true,
+        "declared_dag_order": true
+      },
+      "scene": "live/dag_demo_13__llm_noask/scene.png",
+      "final": "live/dag_demo_13__llm_noask/final.png",
+      "gif": "live/dag_demo_13__llm_noask/demo.gif",
+      "video": "media/dag_demo_13.mp4",
+      "trace": "live/dag_demo_13__llm_noask/episode.json"
+    },
+    {
+      "sample_id": "dag_demo_14",
+      "title": "Cup ready, block missing",
+      "template_id": "place_into_selected_containers",
+      "group_id": "place_into_selected_containers:layout_ac4e33f56a9a5820",
+      "layout_family_id": "layout_ac4e33f56a9a5820",
+      "unknown_preferences": 1,
+      "order": "cup_first",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block"
+        ],
+        "edges": [
+          [
+            "place_cup",
+            "place_block"
+          ]
+        ],
+        "order": "cup_first"
+      },
+      "focus": "Perform the specified cup placement before clarifying the block",
+      "instruction": "Place the preferred cup and block into separate containers: the cup uses its preferred destination, and the block must use the remaining container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the cup before the block. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use obj_bb74f8ca4c. For the cup_destination, use obj_beaf093553.",
+      "metrics": {
+        "sample_id": "dag_demo_14",
+        "method": "llm_gate",
+        "task_success": true,
+        "termination": "done",
+        "burden": 0,
+        "ask_turns": 0,
+        "actions": 2,
+        "api_attempts": 6,
+        "api_latency_s": 5.653704167052638,
+        "deepseek_input_tokens": 7895,
+        "deepseek_output_tokens": 93,
+        "jev_input_tokens": null,
+        "jev_output_tokens": null,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_14__llm_gate/episode.json",
+        "unknown_preferences": 1,
+        "order": "cup_first",
+        "template_id": "place_into_selected_containers",
+        "group_id": "place_into_selected_containers:layout_ac4e33f56a9a5820"
+      },
+      "object_names": {
+        "obj_bb74f8ca4c": "red cup",
+        "obj_a72ef4ee8f": "green block",
+        "obj_3c4b792284": "blue cup",
+        "obj_99aded038d": "purple container",
+        "obj_cc17b7bd84": "yellow block",
+        "obj_beaf093553": "orange container"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_bb74f8ca4c",
+            "target_id": "obj_beaf093553",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_bb74f8ca4c",
+            "target_id": "obj_beaf093553",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 3601,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_a72ef4ee8f",
+            "target_id": "obj_99aded038d",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_a72ef4ee8f",
+            "target_id": "obj_99aded038d",
+            "success": true,
+            "reason": "placed",
+            "start_step": 3601,
+            "end_step": 7343,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "green block",
+        "cup": "red cup",
+        "cup_destination": "orange container"
+      },
+      "conditions": {
+        "correct_cup_in_selected_container": true,
+        "correct_block_in_other_container": true,
+        "unselected_objects_outside": true,
+        "robot_released": true,
+        "declared_dag_order": true
+      },
+      "scene": "live/dag_demo_14__llm_gate/scene.png",
+      "final": "live/dag_demo_14__llm_gate/final.png",
+      "gif": "live/dag_demo_14__llm_gate/demo.gif",
+      "video": "media/dag_demo_14.mp4",
+      "trace": "live/dag_demo_14__llm_gate/episode.json"
+    },
+    {
+      "sample_id": "dag_demo_15",
+      "title": "One answer, two destinations",
+      "template_id": "place_into_selected_containers",
+      "group_id": "place_into_selected_containers:layout_558ccb61fa0a0f8f",
+      "layout_family_id": "layout_558ccb61fa0a0f8f",
+      "unknown_preferences": 1,
+      "order": "independent",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block"
+        ],
+        "edges": [],
+        "order": "independent"
+      },
+      "focus": "A destination answer is reusable for both objects",
+      "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use obj_6732bf69b2. For the block, use obj_f3137b1f51.",
+      "metrics": {
+        "sample_id": "dag_demo_15",
+        "method": "jev_gate",
+        "task_success": true,
+        "termination": "done",
+        "burden": 1,
+        "ask_turns": 1,
+        "actions": 2,
+        "api_attempts": 8,
+        "api_latency_s": 5.732182958920021,
+        "deepseek_input_tokens": 5691,
+        "deepseek_output_tokens": 122,
+        "jev_input_tokens": 7462,
+        "jev_output_tokens": 96,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_15__jev_gate/episode.json",
+        "unknown_preferences": 1,
+        "order": "independent",
+        "template_id": "place_into_selected_containers",
+        "group_id": "place_into_selected_containers:layout_558ccb61fa0a0f8f"
+      },
+      "object_names": {
+        "obj_f3137b1f51": "yellow block",
+        "obj_b2c8f644ca": "purple container",
+        "obj_be359a102d": "orange container",
+        "obj_6732bf69b2": "red cup",
+        "obj_9cd0690f66": "green block",
+        "obj_e438ef75ba": "blue cup"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "ASK",
+            "p_ask": 0.96,
+            "called": true
+          },
+          "question": {
+            "type": "select",
+            "text": "Which container should the cup go in?",
+            "requests": [
+              {
+                "role": "cup_destination",
+                "candidate_ids": [
+                  "obj_b2c8f644ca",
+                  "obj_be359a102d"
+                ]
+              }
+            ]
+          },
+          "user_answer": {
+            "choices": {
+              "cup_destination": "obj_b2c8f644ca"
+            }
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.05,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_6732bf69b2",
+            "target_id": "obj_b2c8f644ca",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_6732bf69b2",
+            "target_id": "obj_b2c8f644ca",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 3545,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.04,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_f3137b1f51",
+            "target_id": "obj_be359a102d",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_f3137b1f51",
+            "target_id": "obj_be359a102d",
+            "success": true,
+            "reason": "placed",
+            "start_step": 3545,
+            "end_step": 7363,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 3,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.05,
+            "called": true
+          },
+          "action": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "yellow block",
+        "cup": "red cup",
+        "cup_destination": "purple container"
+      },
+      "conditions": {
+        "correct_cup_in_selected_container": true,
+        "correct_block_in_other_container": true,
+        "unselected_objects_outside": true,
+        "robot_released": true,
+        "declared_dag_order": true
+      },
+      "scene": "live/dag_demo_15__jev_gate/scene.png",
+      "final": "live/dag_demo_15__jev_gate/final.png",
+      "gif": "live/dag_demo_15__jev_gate/demo.gif",
+      "video": "media/dag_demo_15.mp4",
+      "trace": "live/dag_demo_15__jev_gate/episode.json"
+    },
+    {
+      "sample_id": "dag_demo_16",
+      "title": "Known cup behind a dependency",
+      "template_id": "place_into_selected_containers",
+      "group_id": "place_into_selected_containers:layout_b02188e014e9561a",
+      "layout_family_id": "layout_b02188e014e9561a",
+      "unknown_preferences": 2,
+      "order": "block_first",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block"
+        ],
+        "edges": [
+          [
+            "place_block",
+            "place_cup"
+          ]
+        ],
+        "order": "block_first"
+      },
+      "focus": "A known object alone does not imply an executable action",
+      "instruction": "Place the preferred cup and block into separate containers: the cup uses its preferred destination, and the block must use the remaining container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use obj_87518a00b9.",
+      "metrics": {
+        "sample_id": "dag_demo_16",
+        "method": "llm_noask",
+        "task_success": false,
+        "termination": "done",
+        "burden": 0,
+        "ask_turns": 0,
+        "actions": 2,
+        "api_attempts": 3,
+        "api_latency_s": 3.5373438330134377,
+        "deepseek_input_tokens": 4159,
+        "deepseek_output_tokens": 75,
+        "jev_input_tokens": null,
+        "jev_output_tokens": null,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_16__llm_noask/episode.json",
+        "unknown_preferences": 2,
+        "order": "block_first",
+        "template_id": "place_into_selected_containers",
+        "group_id": "place_into_selected_containers:layout_b02188e014e9561a"
+      },
+      "object_names": {
+        "obj_9f79a26dcc": "orange container",
+        "obj_87518a00b9": "blue cup",
+        "obj_79eb02c688": "green block",
+        "obj_89693227df": "yellow block",
+        "obj_e3f493f903": "purple container",
+        "obj_fa8efdb608": "red cup"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_79eb02c688",
+            "target_id": "obj_9f79a26dcc",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_79eb02c688",
+            "target_id": "obj_9f79a26dcc",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 4030,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_87518a00b9",
+            "target_id": "obj_e3f493f903",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_87518a00b9",
+            "target_id": "obj_e3f493f903",
+            "success": true,
+            "reason": "placed",
+            "start_step": 4030,
+            "end_step": 7445,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "yellow block",
+        "cup": "blue cup",
+        "cup_destination": "orange container"
+      },
+      "conditions": {
+        "correct_cup_in_selected_container": false,
+        "correct_block_in_other_container": false,
+        "unselected_objects_outside": false,
+        "robot_released": true,
+        "declared_dag_order": false
+      },
+      "scene": "live/dag_demo_16__llm_noask/scene.png",
+      "final": "live/dag_demo_16__llm_noask/final.png",
+      "gif": "live/dag_demo_16__llm_noask/demo.gif",
+      "video": "media/dag_demo_16.mp4",
+      "trace": "live/dag_demo_16__llm_noask/episode.json"
+    },
+    {
+      "sample_id": "dag_demo_17",
+      "title": "Destinations known, objects missing",
+      "template_id": "place_into_selected_containers",
+      "group_id": "place_into_selected_containers:layout_e4a219b5d0977883",
+      "layout_family_id": "layout_e4a219b5d0977883",
+      "unknown_preferences": 2,
+      "order": "independent",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block"
+        ],
+        "edges": [],
+        "order": "independent"
+      },
+      "focus": "Shared destination knowledge cannot select the objects",
+      "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup_destination, use obj_16c07164d5.",
+      "metrics": {
+        "sample_id": "dag_demo_17",
+        "method": "llm_gate",
+        "task_success": false,
+        "termination": "done",
+        "burden": 0,
+        "ask_turns": 0,
+        "actions": 2,
+        "api_attempts": 6,
+        "api_latency_s": 5.866994792944752,
+        "deepseek_input_tokens": 7837,
+        "deepseek_output_tokens": 98,
+        "jev_input_tokens": null,
+        "jev_output_tokens": null,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_17__llm_gate/episode.json",
+        "unknown_preferences": 2,
+        "order": "independent",
+        "template_id": "place_into_selected_containers",
+        "group_id": "place_into_selected_containers:layout_e4a219b5d0977883"
+      },
+      "object_names": {
+        "obj_82ce3d2aa6": "yellow block",
+        "obj_31543c175e": "red cup",
+        "obj_6fceab5e65": "orange container",
+        "obj_de5d3b507d": "blue cup",
+        "obj_16c07164d5": "purple container",
+        "obj_d5af1a0857": "green block"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_31543c175e",
+            "target_id": "obj_16c07164d5",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_31543c175e",
+            "target_id": "obj_16c07164d5",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 3579,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_82ce3d2aa6",
+            "target_id": "obj_6fceab5e65",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_82ce3d2aa6",
+            "target_id": "obj_6fceab5e65",
+            "success": true,
+            "reason": "placed",
+            "start_step": 3579,
+            "end_step": 7141,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "green block",
+        "cup": "red cup",
+        "cup_destination": "purple container"
+      },
+      "conditions": {
+        "correct_cup_in_selected_container": true,
+        "correct_block_in_other_container": false,
+        "unselected_objects_outside": false,
+        "robot_released": true,
+        "declared_dag_order": false
+      },
+      "scene": "live/dag_demo_17__llm_gate/scene.png",
+      "final": "live/dag_demo_17__llm_gate/final.png",
+      "gif": "live/dag_demo_17__llm_gate/demo.gif",
+      "video": "media/dag_demo_17.mp4",
+      "trace": "live/dag_demo_17__llm_gate/episode.json"
+    },
+    {
+      "sample_id": "dag_demo_18",
+      "title": "Unknown split, cup first",
+      "template_id": "place_into_selected_containers",
+      "group_id": "place_into_selected_containers:layout_4a09a6bd6b9107e8",
+      "layout_family_id": "layout_4a09a6bd6b9107e8",
+      "unknown_preferences": 3,
+      "order": "cup_first",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block"
+        ],
+        "edges": [
+          [
+            "place_cup",
+            "place_block"
+          ]
+        ],
+        "order": "cup_first"
+      },
+      "focus": "Combine or sequence requests without repeating disclosed choices",
+      "instruction": "Place the preferred cup and block into separate containers: the cup uses its preferred destination, and the block must use the remaining container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the cup before the block. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown.",
+      "metrics": {
+        "sample_id": "dag_demo_18",
+        "method": "jev_gate",
+        "task_success": true,
+        "termination": "done",
+        "burden": 3,
+        "ask_turns": 1,
+        "actions": 2,
+        "api_attempts": 8,
+        "api_latency_s": 5.206100542040076,
+        "deepseek_input_tokens": 5640,
+        "deepseek_output_tokens": 105,
+        "jev_input_tokens": 7327,
+        "jev_output_tokens": 96,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_18__jev_gate/episode.json",
+        "unknown_preferences": 3,
+        "order": "cup_first",
+        "template_id": "place_into_selected_containers",
+        "group_id": "place_into_selected_containers:layout_4a09a6bd6b9107e8"
+      },
+      "object_names": {
+        "obj_df8ed49edb": "red cup",
+        "obj_31e481d217": "yellow block",
+        "obj_7b5cdfd8bb": "blue cup",
+        "obj_e7cbf82294": "orange container",
+        "obj_c6b02b0535": "purple container",
+        "obj_f9ebf05534": "green block"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "ASK",
+            "p_ask": 0.97,
+            "called": true
+          },
+          "question": {
+            "type": "all_preferences",
+            "text": "Which cup, block, and cup destination do you prefer for this task?",
+            "requests": []
+          },
+          "user_answer": {
+            "choices": {
+              "block": "obj_f9ebf05534",
+              "cup": "obj_7b5cdfd8bb",
+              "cup_destination": "obj_e7cbf82294"
+            }
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.05,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_7b5cdfd8bb",
+            "target_id": "obj_e7cbf82294",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_7b5cdfd8bb",
+            "target_id": "obj_e7cbf82294",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 3349,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.07,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_f9ebf05534",
+            "target_id": "obj_c6b02b0535",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_f9ebf05534",
+            "target_id": "obj_c6b02b0535",
+            "success": true,
+            "reason": "placed",
+            "start_step": 3349,
+            "end_step": 7117,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 3,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": 0.18,
+            "called": true
+          },
+          "action": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "green block",
+        "cup": "blue cup",
+        "cup_destination": "orange container"
+      },
+      "conditions": {
+        "correct_cup_in_selected_container": true,
+        "correct_block_in_other_container": true,
+        "unselected_objects_outside": true,
+        "robot_released": true,
+        "declared_dag_order": true
+      },
+      "scene": "live/dag_demo_18__jev_gate/scene.png",
+      "final": "live/dag_demo_18__jev_gate/final.png",
+      "gif": "live/dag_demo_18__jev_gate/demo.gif",
+      "video": "media/dag_demo_18.mp4",
+      "trace": "live/dag_demo_18__jev_gate/episode.json"
+    },
+    {
+      "sample_id": "dag_demo_19",
+      "title": "Unknown split, block first",
+      "template_id": "place_into_selected_containers",
+      "group_id": "place_into_selected_containers:layout_ac4e33f56a9a5820",
+      "layout_family_id": "layout_ac4e33f56a9a5820",
+      "unknown_preferences": 3,
+      "order": "block_first",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block"
+        ],
+        "edges": [
+          [
+            "place_block",
+            "place_cup"
+          ]
+        ],
+        "order": "block_first"
+      },
+      "focus": "Resolve the current block and reusable destination preference",
+      "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown.",
+      "metrics": {
+        "sample_id": "dag_demo_19",
+        "method": "llm_noask",
+        "task_success": false,
+        "termination": "robot_action_limit",
+        "burden": 0,
+        "ask_turns": 0,
+        "actions": 12,
+        "api_attempts": 12,
+        "api_latency_s": 11.827703373972327,
+        "deepseek_input_tokens": 20717,
+        "deepseek_output_tokens": 379,
+        "jev_input_tokens": null,
+        "jev_output_tokens": null,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_19__llm_noask/episode.json",
+        "unknown_preferences": 3,
+        "order": "block_first",
+        "template_id": "place_into_selected_containers",
+        "group_id": "place_into_selected_containers:layout_ac4e33f56a9a5820"
+      },
+      "object_names": {
+        "obj_33f7ad08c6": "yellow block",
+        "obj_b0b3cca63b": "purple container",
+        "obj_3d502f0320": "red cup",
+        "obj_2efffefc44": "blue cup",
+        "obj_18d80cd829": "green block",
+        "obj_9d67950dc4": "orange container"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_33f7ad08c6",
+            "target_id": "obj_b0b3cca63b",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_33f7ad08c6",
+            "target_id": "obj_b0b3cca63b",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 3711,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_33f7ad08c6",
+            "target_id": "table",
+            "relation": "on"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_33f7ad08c6",
+            "target_id": "table",
+            "success": true,
+            "reason": "placed",
+            "start_step": 3711,
+            "end_step": 6881,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_18d80cd829",
+            "target_id": "obj_b0b3cca63b",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_18d80cd829",
+            "target_id": "obj_b0b3cca63b",
+            "success": true,
+            "reason": "placed",
+            "start_step": 6881,
+            "end_step": 10330,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 3,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_18d80cd829",
+            "target_id": "table",
+            "relation": "on"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_18d80cd829",
+            "target_id": "table",
+            "success": true,
+            "reason": "placed",
+            "start_step": 10330,
+            "end_step": 13545,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 4,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_18d80cd829",
+            "target_id": "obj_b0b3cca63b",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_18d80cd829",
+            "target_id": "obj_b0b3cca63b",
+            "success": true,
+            "reason": "placed",
+            "start_step": 13545,
+            "end_step": 16867,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 5,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_18d80cd829",
+            "target_id": "table",
+            "relation": "on"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_18d80cd829",
+            "target_id": "table",
+            "success": true,
+            "reason": "placed",
+            "start_step": 16867,
+            "end_step": 20082,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 6,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_18d80cd829",
+            "target_id": "obj_9d67950dc4",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_18d80cd829",
+            "target_id": "obj_9d67950dc4",
+            "success": true,
+            "reason": "placed",
+            "start_step": 20082,
+            "end_step": 23502,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 7,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_18d80cd829",
+            "target_id": "table",
+            "relation": "on"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_18d80cd829",
+            "target_id": "table",
+            "success": true,
+            "reason": "placed",
+            "start_step": 23502,
+            "end_step": 26816,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 8,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_18d80cd829",
+            "target_id": "obj_9d67950dc4",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_18d80cd829",
+            "target_id": "obj_9d67950dc4",
+            "success": true,
+            "reason": "placed",
+            "start_step": 26816,
+            "end_step": 30236,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 9,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_33f7ad08c6",
+            "target_id": "obj_b0b3cca63b",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_33f7ad08c6",
+            "target_id": "obj_b0b3cca63b",
+            "success": true,
+            "reason": "placed",
+            "start_step": 30236,
+            "end_step": 33972,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 10,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_18d80cd829",
+            "target_id": "table",
+            "relation": "on"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_18d80cd829",
+            "target_id": "table",
+            "success": true,
+            "reason": "placed",
+            "start_step": 33972,
+            "end_step": 37580,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 11,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": false
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_18d80cd829",
+            "target_id": "obj_9d67950dc4",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_18d80cd829",
+            "target_id": "obj_9d67950dc4",
+            "success": true,
+            "reason": "placed",
+            "start_step": 37580,
+            "end_step": 40997,
+            "grasp_mode": "constraint"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "yellow block",
+        "cup": "blue cup",
+        "cup_destination": "purple container"
+      },
+      "conditions": {
+        "correct_cup_in_selected_container": false,
+        "correct_block_in_other_container": false,
+        "unselected_objects_outside": false,
+        "robot_released": true,
+        "declared_dag_order": false
+      },
+      "scene": "live/dag_demo_19__llm_noask/scene.png",
+      "final": "live/dag_demo_19__llm_noask/final.png",
+      "gif": "live/dag_demo_19__llm_noask/demo.gif",
+      "video": "media/dag_demo_19.mp4",
+      "trace": "live/dag_demo_19__llm_noask/episode.json"
+    },
+    {
+      "sample_id": "dag_demo_20",
+      "title": "Unknown split, either first",
+      "template_id": "place_into_selected_containers",
+      "group_id": "place_into_selected_containers:layout_558ccb61fa0a0f8f",
+      "layout_family_id": "layout_558ccb61fa0a0f8f",
+      "unknown_preferences": 3,
+      "order": "independent",
+      "dag": {
+        "nodes": [
+          "place_cup",
+          "place_block"
+        ],
+        "edges": [],
+        "order": "independent"
+      },
+      "focus": "Both object choices and the shared destination are unknown",
+      "instruction": "Place the preferred cup and block into separate containers: the cup uses its preferred destination, and the block must use the remaining container. The cup_destination preference chooses the cup's container and also determines the block's other container. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown.",
+      "metrics": {
+        "sample_id": "dag_demo_20",
+        "method": "llm_gate",
+        "task_success": true,
+        "termination": "done",
+        "burden": 3,
+        "ask_turns": 1,
+        "actions": 2,
+        "api_attempts": 8,
+        "api_latency_s": 7.300065418006852,
+        "deepseek_input_tokens": 10732,
+        "deepseek_output_tokens": 128,
+        "jev_input_tokens": null,
+        "jev_output_tokens": null,
+        "schema_errors": 0,
+        "api_errors": 0,
+        "episode_path": "outputs/presentation_dag_v1/live/dag_demo_20__llm_gate/episode.json",
+        "unknown_preferences": 3,
+        "order": "independent",
+        "template_id": "place_into_selected_containers",
+        "group_id": "place_into_selected_containers:layout_558ccb61fa0a0f8f"
+      },
+      "object_names": {
+        "obj_982e721629": "purple container",
+        "obj_81ea3e91a8": "red cup",
+        "obj_e7298b2948": "orange container",
+        "obj_263ddb627d": "yellow block",
+        "obj_b164a0ba6d": "blue cup",
+        "obj_6d091bc3f5": "green block"
+      },
+      "turns": [
+        {
+          "round": 0,
+          "gate": {
+            "decision": "ASK",
+            "p_ask": null,
+            "called": true
+          },
+          "question": {
+            "type": "all_preferences",
+            "text": "Which cup, block, and cup destination do you prefer for this task?",
+            "requests": []
+          },
+          "user_answer": {
+            "choices": {
+              "block": "obj_263ddb627d",
+              "cup": "obj_81ea3e91a8",
+              "cup_destination": "obj_e7298b2948"
+            }
+          }
+        },
+        {
+          "round": 1,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_81ea3e91a8",
+            "target_id": "obj_e7298b2948",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_81ea3e91a8",
+            "target_id": "obj_e7298b2948",
+            "success": true,
+            "reason": "placed",
+            "start_step": 240,
+            "end_step": 3393,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 2,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "pick_place",
+            "object_id": "obj_263ddb627d",
+            "target_id": "obj_982e721629",
+            "relation": "inside"
+          },
+          "physical_result": {
+            "skill": "pick_place",
+            "object_id": "obj_263ddb627d",
+            "target_id": "obj_982e721629",
+            "success": true,
+            "reason": "placed",
+            "start_step": 3393,
+            "end_step": 7196,
+            "grasp_mode": "constraint"
+          }
+        },
+        {
+          "round": 3,
+          "gate": {
+            "decision": "CONTINUE",
+            "p_ask": null,
+            "called": true
+          },
+          "action": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          }
+        }
+      ],
+      "ground_truth": {
+        "block": "yellow block",
+        "cup": "red cup",
+        "cup_destination": "orange container"
+      },
+      "conditions": {
+        "correct_cup_in_selected_container": true,
+        "correct_block_in_other_container": true,
+        "unselected_objects_outside": true,
+        "robot_released": true,
+        "declared_dag_order": true
+      },
+      "scene": "live/dag_demo_20__llm_gate/scene.png",
+      "final": "live/dag_demo_20__llm_gate/final.png",
+      "gif": "live/dag_demo_20__llm_gate/demo.gif",
+      "video": "media/dag_demo_20.mp4",
+      "trace": "live/dag_demo_20__llm_gate/episode.json"
+    }
+  ]
+}

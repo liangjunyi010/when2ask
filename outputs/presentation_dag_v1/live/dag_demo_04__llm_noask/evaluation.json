@@ -1,0 +1,101 @@
+{
+  "task_success": false,
+  "termination_reason": "done",
+  "execution_termination": "done",
+  "conditions": {
+    "correct_cup_inside": true,
+    "correct_block_inside": true,
+    "correct_lid_covers": false,
+    "unselected_objects_outside": false,
+    "robot_released": true,
+    "packing_before_cover": false,
+    "declared_dag_order": true
+  },
+  "execution_completed": true,
+  "details": {
+    "expected_objects": {
+      "cup": "obj_11b91ab1ab",
+      "block": "obj_686ab88c4f",
+      "lid": "obj_38eedd534d"
+    },
+    "cup": {
+      "inside": true,
+      "full_xy_inside": true,
+      "full_z_inside": true,
+      "supported_by_box": true,
+      "stable": true,
+      "aabb_min": [
+        0.5157575981086182,
+        -0.007106529367655934,
+        0.43398394439679483
+      ],
+      "aabb_max": [
+        0.5701256949913611,
+        0.047262746907762006,
+        0.49399222916034385
+      ]
+    },
+    "block": {
+      "inside": true,
+      "full_xy_inside": true,
+      "full_z_inside": true,
+      "supported_by_box": true,
+      "stable": true,
+      "aabb_min": [
+        0.627528196675701,
+        0.06828832101171832,
+        0.4339890228583322
+      ],
+      "aabb_max": [
+        0.6715301934684269,
+        0.11228940602936456,
+        0.47799014903754944
+      ]
+    },
+    "lid": {
+      "covered": false,
+      "all_mouth_corners_covered": false,
+      "height_ok": false,
+      "flat": true,
+      "normal_z": 0.9999999999694873,
+      "rim_supported": false,
+      "support_contact_count": 0,
+      "stable": true
+    },
+    "unselected": {
+      "obj_596065ad5d": {
+        "outside": false,
+        "footprint_disjoint": false,
+        "stable": true
+      },
+      "obj_d2d03e0dea": {
+        "outside": true,
+        "footprint_disjoint": true,
+        "stable": true
+      },
+      "obj_bd7c82eaa6": {
+        "outside": true,
+        "footprint_disjoint": true,
+        "stable": true
+      }
+    },
+    "robot_contact_counts": {
+      "obj_686ab88c4f": 0,
+      "obj_38eedd534d": 0,
+      "obj_11b91ab1ab": 0
+    },
+    "cover_order_checks": [],
+    "declared_dag": {
+      "placement_events_present": true,
+      "precedence_checks": {
+        "place_cup->place_block": true
+      },
+      "satisfied": true
+    }
+  },
+  "clarification_burden": 0,
+  "action_count": 3,
+  "successful_action_count": 3,
+  "simulation_steps": 10913,
+  "evaluator_version": "full_aabb_contact_dag_v3.1"
+}

@@ -128,3 +128,9 @@ A pending question accepts explicit object names/colors/IDs as text (for example
 Each card's **指令 · 完整对话 · Ground Truth** button opens the original generated instruction, a public ID/name legend, the entire chronological conversation/action history and physical scoring conditions. The sidebar Queue is for pending questions only. After termination the card also shows the evaluated goal. Full hidden reference and effective scoring goals are shown in the modal; human tabletop choices may define interactive intent, while navigation facts remain fixed. No hidden truth is included in model input.
 
 Completed task views persist in `review.json`/`final_view.json` and reload read-only after controller restart. Active-world crash recovery is still unsupported. Current HTML uses the existing tabletop contract and navigation v1; the Navigation Dev v2 report remains a separate research artifact. [Actual three-run verification](../outputs/console_review_v1/README.md).
+
+## Named DAG presentation presets
+
+The tabletop launcher now offers ten presets per template (twenty total). Selecting a preset fixes its disclosure count, public ordering constraints, seed, object aliases and initial instruction. It uses the same scene and preference definitions on controller and worker; preset/template/disclosure mismatches are rejected. Free demonstration remains available, and navigation keeps its existing scenario selector. Both single-task and three-method comparison launches preserve the selected preset.
+
+The preview/episode details display the public DAG, without hidden choices. These observer-facing diagrams do not change the agent payload. Human mode continues to wait for an actual ASK rather than forcing a question. A read-only result gallery is available at http://127.0.0.1:8881/ and launches no model calls. See [scenario collection and evidence](presentation_dag_scenarios_v1.md).

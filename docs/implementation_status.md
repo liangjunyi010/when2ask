@@ -229,3 +229,13 @@ not separately tested in a second environment.
 - Exactly three new real API/PyBullet smoke episodes: Pack/LLM-Gate, two containers/Jev-Gate, navigation/NoAsk; all physically successful, 22 requests, no API/schema errors or retries. The first two genuinely asked and accepted browser-operated manual text replies; ASK frame/observation equality, refresh drafts, idempotent submit, full review and no-cost restoration verified.
 - Pack LLM-Gate asked before the specified cup action, so timing is still imperfect. Previous missing-lid-only manual trials had no ASK and failed; selecting Human never forces a question. No forced ASK or threshold adjustment was introduced.
 - Full offline suite: 241 passed. All 1,613 protected pre-existing files remained byte-identical, including the frozen studies, nav v1/v2 and user-modified PPT. [New evidence](../outputs/console_review_v1/README.md).
+
+## Presentation DAG collection v1 (2026-11-09)
+
+Implemented and physically verified 20 presentation task instances: pack-and-cover 10, selected containers 10; ten physical layout groups; five samples per missing-preference count 0–3. Public DAG order variants cover currently supported actions, blocked prerequisites and reusable destination answers. Real PyBullet oracle: 20/20, no initial penetrations. Original physics and frozen studies remain unchanged.
+
+Executed 20 new real-model episodes (138 authenticated calls), rotating methods: NoAsk 2/7, LLM-Gate 6/7, Jev-Gate 5/6. These are different samples per method, not a paired comparison. Total task success 13/20; all 60 robot skills completed, demonstrating that final preference/order scoring remains independent. Early asks, missed asks and lucky correct guesses remain visible. No threshold/prompt tuning was performed.
+
+Console presets, observer-only public DAG preview, fixed preset disclosure and manual/auto responses are integrated. Real Chrome browser tests verified the manual form after an actual scripted ASK, frozen physics while waiting, final truth disclosure, mobile layout and no console errors. This additional scripted-policy integration episode made zero API calls and is excluded from model metrics. Twenty original recordings were compressed to MP4 and validated for duration; the read-only gallery supports seek/pause and uniform 1×/2×/3× speed. Previous synchronized milestone replay/PPT were not edited.
+
+Full offline pytest: 270 passed. Raw model/physics evidence, automatic CSV/report and browser validation are in `outputs/presentation_dag_v1/`; details and limitations in [presentation_dag_scenarios_v1.md](presentation_dag_scenarios_v1.md). No held-out Test APIs were used.

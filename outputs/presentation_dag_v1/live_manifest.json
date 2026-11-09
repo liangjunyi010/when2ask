@@ -1,0 +1,134 @@
+{
+  "version": "presentation_dag_v1",
+  "purpose": "20 unpaired presentation smoke episodes, one per scenario; not a method ranking",
+  "dataset_sha256": "b17e5c3073657696c2db0cc021570f57bb9ef5f4e2c29b4fe9b08bc696675665",
+  "code_commit": "9df82b28e00d26813e2f537aec1edcea2992cbbf",
+  "configuration": {
+    "deepseek_model": "deepseek-flash",
+    "jev_model": "jev-latest",
+    "jev_threshold": 0.5,
+    "timeout_s": 40,
+    "max_retries": 1,
+    "max_tokens": 500,
+    "thinking": "disabled",
+    "response_format": "json_object"
+  },
+  "limits": {
+    "max_rounds": 20,
+    "max_robot_actions": 12,
+    "max_slot_requests": 12,
+    "max_api_attempts": 24
+  },
+  "session_max_attempts": 200,
+  "session_max_episodes": 20,
+  "prompt_hashes": {
+    "action": "155bd6f9d28a17c5fcbeaf778930b948224bbf95d2d1086aee7202c20c6a47cc",
+    "question": "ba06051f9cdf69b47e0d274deb69aded451b1c38f7f6f98a371ab97e8454f4ae",
+    "gate": "50189f5c46e3baa30212875e355fa68ff189b938511069b9e91ec3230f7738ca"
+  },
+  "physics_code_sha256": "b322399b232c1447bced16c7171fe5a00ca25df525be72a5c976fa10fef95b02",
+  "retry_policy": "one retry, shared 200-attempt cap; permanent/three-consecutive-error backend circuit breaker",
+  "run_order_seed": 427820,
+  "jobs": [
+    {
+      "sample_id": "dag_demo_13",
+      "method": "llm_noask",
+      "record": true
+    },
+    {
+      "sample_id": "dag_demo_03",
+      "method": "jev_gate",
+      "record": true
+    },
+    {
+      "sample_id": "dag_demo_10",
+      "method": "llm_noask",
+      "record": true
+    },
+    {
+      "sample_id": "dag_demo_11",
+      "method": "llm_gate",
+      "record": true
+    },
+    {
+      "sample_id": "dag_demo_18",
+      "method": "jev_gate",
+      "record": true
+    },
+    {
+      "sample_id": "dag_demo_05",
+      "method": "llm_gate",
+      "record": true
+    },
+    {
+      "sample_id": "dag_demo_17",
+      "method": "llm_gate",
+      "record": true
+    },
+    {
+      "sample_id": "dag_demo_01",
+      "method": "llm_noask",
+      "record": true
+    },
+    {
+      "sample_id": "dag_demo_16",
+      "method": "llm_noask",
+      "record": true
+    },
+    {
+      "sample_id": "dag_demo_15",
+      "method": "jev_gate",
+      "record": true
+    },
+    {
+      "sample_id": "dag_demo_14",
+      "method": "llm_gate",
+      "record": true
+    },
+    {
+      "sample_id": "dag_demo_08",
+      "method": "llm_gate",
+      "record": true
+    },
+    {
+      "sample_id": "dag_demo_09",
+      "method": "jev_gate",
+      "record": true
+    },
+    {
+      "sample_id": "dag_demo_19",
+      "method": "llm_noask",
+      "record": true
+    },
+    {
+      "sample_id": "dag_demo_07",
+      "method": "llm_noask",
+      "record": true
+    },
+    {
+      "sample_id": "dag_demo_04",
+      "method": "llm_noask",
+      "record": true
+    },
+    {
+      "sample_id": "dag_demo_06",
+      "method": "jev_gate",
+      "record": true
+    },
+    {
+      "sample_id": "dag_demo_02",
+      "method": "llm_gate",
+      "record": true
+    },
+    {
+      "sample_id": "dag_demo_12",
+      "method": "jev_gate",
+      "record": true
+    },
+    {
+      "sample_id": "dag_demo_20",
+      "method": "llm_gate",
+      "record": true
+    }
+  ]
+}

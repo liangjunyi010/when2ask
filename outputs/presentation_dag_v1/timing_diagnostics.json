@@ -1,0 +1,1060 @@
+{
+  "scope": "Post-hoc public-only scripted support check, not optimal-timing ground truth; no private preferences used",
+  "rows": [
+    {
+      "sample_id": "dag_demo_01",
+      "method": "llm_noask",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_a3cd395c77",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_efb8da6f19",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "cover",
+            "object_id": "obj_b96aeb202d",
+            "target_id": "box",
+            "relation": "covers"
+          },
+          "flag": null
+        },
+        {
+          "round": 3,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          },
+          "flag": null
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [],
+      "ask_physics_frozen": true
+    },
+    {
+      "sample_id": "dag_demo_02",
+      "method": "llm_gate",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_fb1e3bfd60",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_e7722d905b",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "cover",
+            "object_id": "obj_928784d6ba",
+            "target_id": "box",
+            "relation": "covers"
+          },
+          "flag": null
+        },
+        {
+          "round": 3,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          },
+          "flag": null
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [],
+      "ask_physics_frozen": true
+    },
+    {
+      "sample_id": "dag_demo_03",
+      "method": "jev_gate",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.05,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.06,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.05,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 3,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.05,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [
+        "correct_block_inside",
+        "unselected_objects_outside",
+        "packing_before_cover",
+        "declared_dag_order"
+      ],
+      "ask_physics_frozen": true
+    },
+    {
+      "sample_id": "dag_demo_04",
+      "method": "llm_noask",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_11b91ab1ab",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_686ab88c4f",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 3,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [
+        "correct_lid_covers",
+        "unselected_objects_outside",
+        "packing_before_cover"
+      ],
+      "ask_physics_frozen": true
+    },
+    {
+      "sample_id": "dag_demo_05",
+      "method": "llm_gate",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "ASK",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_62643b2cd0",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "flag": "ask_with_supported_progress"
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_6add6cd485",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_62643b2cd0",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 3,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "cover",
+            "object_id": "obj_f18fb5f22e",
+            "target_id": "box",
+            "relation": "covers"
+          },
+          "flag": null
+        },
+        {
+          "round": 4,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          },
+          "flag": null
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [],
+      "ask_physics_frozen": true
+    },
+    {
+      "sample_id": "dag_demo_06",
+      "method": "jev_gate",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "ASK",
+          "p_ask": 0.51,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_c0a73505d7",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "flag": "ask_with_supported_progress"
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.05,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_c0a73505d7",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.07,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_6b4f550a57",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 3,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.08,
+          "supported_action_from_public_state": {
+            "kind": "cover",
+            "object_id": "obj_f583cb465b",
+            "target_id": "box",
+            "relation": "covers"
+          },
+          "flag": null
+        },
+        {
+          "round": 4,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.07,
+          "supported_action_from_public_state": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          },
+          "flag": null
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [],
+      "ask_physics_frozen": true
+    },
+    {
+      "sample_id": "dag_demo_07",
+      "method": "llm_noask",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_e6ee70a5d4",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 3,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [
+        "correct_cup_inside",
+        "unselected_objects_outside",
+        "packing_before_cover",
+        "declared_dag_order"
+      ],
+      "ask_physics_frozen": true
+    },
+    {
+      "sample_id": "dag_demo_08",
+      "method": "llm_gate",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "ASK",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": null
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_a4789dc6b6",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_ec9a21e188",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 3,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "cover",
+            "object_id": "obj_396538054a",
+            "target_id": "box",
+            "relation": "covers"
+          },
+          "flag": null
+        },
+        {
+          "round": 4,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          },
+          "flag": null
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [],
+      "ask_physics_frozen": true
+    },
+    {
+      "sample_id": "dag_demo_09",
+      "method": "jev_gate",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "ASK",
+          "p_ask": 0.66,
+          "supported_action_from_public_state": null,
+          "flag": null
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.05,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_18ad2075a9",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.06,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_0eee3f7b04",
+            "target_id": "box",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 3,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.05,
+          "supported_action_from_public_state": {
+            "kind": "cover",
+            "object_id": "obj_27bc8c8ad4",
+            "target_id": "box",
+            "relation": "covers"
+          },
+          "flag": null
+        },
+        {
+          "round": 4,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.06,
+          "supported_action_from_public_state": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          },
+          "flag": null
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [],
+      "ask_physics_frozen": true
+    },
+    {
+      "sample_id": "dag_demo_10",
+      "method": "llm_noask",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 3,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [
+        "correct_block_inside",
+        "unselected_objects_outside",
+        "packing_before_cover",
+        "declared_dag_order"
+      ],
+      "ask_physics_frozen": true
+    },
+    {
+      "sample_id": "dag_demo_11",
+      "method": "llm_gate",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_76306c6f1e",
+            "target_id": "obj_64097ceee9",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_8c9d9e97de",
+            "target_id": "obj_45a6f2a9fa",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          },
+          "flag": null
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [],
+      "ask_physics_frozen": true
+    },
+    {
+      "sample_id": "dag_demo_12",
+      "method": "jev_gate",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.04,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_e06d0013f4",
+            "target_id": "obj_662dda8d0d",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.05,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_1794717eff",
+            "target_id": "obj_91903b0758",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.05,
+          "supported_action_from_public_state": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          },
+          "flag": null
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [],
+      "ask_physics_frozen": true
+    },
+    {
+      "sample_id": "dag_demo_13",
+      "method": "llm_noask",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_2f7ae7f04a",
+            "target_id": "obj_ddbcc414ad",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_f4765e9e55",
+            "target_id": "obj_29479b176b",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          },
+          "flag": null
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [],
+      "ask_physics_frozen": true
+    },
+    {
+      "sample_id": "dag_demo_14",
+      "method": "llm_gate",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_bb74f8ca4c",
+            "target_id": "obj_beaf093553",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [],
+      "ask_physics_frozen": true
+    },
+    {
+      "sample_id": "dag_demo_15",
+      "method": "jev_gate",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "ASK",
+          "p_ask": 0.96,
+          "supported_action_from_public_state": null,
+          "flag": null
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.05,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_6732bf69b2",
+            "target_id": "obj_b2c8f644ca",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.04,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_f3137b1f51",
+            "target_id": "obj_be359a102d",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 3,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.05,
+          "supported_action_from_public_state": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          },
+          "flag": null
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [],
+      "ask_physics_frozen": true
+    },
+    {
+      "sample_id": "dag_demo_16",
+      "method": "llm_noask",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [
+        "correct_cup_in_selected_container",
+        "correct_block_in_other_container",
+        "unselected_objects_outside",
+        "declared_dag_order"
+      ],
+      "ask_physics_frozen": true
+    },
+    {
+      "sample_id": "dag_demo_17",
+      "method": "llm_gate",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [
+        "correct_block_in_other_container",
+        "unselected_objects_outside",
+        "declared_dag_order"
+      ],
+      "ask_physics_frozen": true
+    },
+    {
+      "sample_id": "dag_demo_18",
+      "method": "jev_gate",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "ASK",
+          "p_ask": 0.97,
+          "supported_action_from_public_state": null,
+          "flag": null
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.05,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_7b5cdfd8bb",
+            "target_id": "obj_e7cbf82294",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.07,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_f9ebf05534",
+            "target_id": "obj_c6b02b0535",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 3,
+          "gate_decision": "CONTINUE",
+          "p_ask": 0.18,
+          "supported_action_from_public_state": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          },
+          "flag": null
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [],
+      "ask_physics_frozen": true
+    },
+    {
+      "sample_id": "dag_demo_19",
+      "method": "llm_noask",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 3,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 4,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 5,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 6,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 7,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 8,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 9,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 10,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        },
+        {
+          "round": 11,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": "continue_without_disclosed_next_action"
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [
+        "correct_cup_in_selected_container",
+        "correct_block_in_other_container",
+        "unselected_objects_outside",
+        "declared_dag_order"
+      ],
+      "ask_physics_frozen": true
+    },
+    {
+      "sample_id": "dag_demo_20",
+      "method": "llm_gate",
+      "turns": [
+        {
+          "round": 0,
+          "gate_decision": "ASK",
+          "p_ask": null,
+          "supported_action_from_public_state": null,
+          "flag": null
+        },
+        {
+          "round": 1,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_81ea3e91a8",
+            "target_id": "obj_e7298b2948",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 2,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "pick_place",
+            "object_id": "obj_263ddb627d",
+            "target_id": "obj_982e721629",
+            "relation": "inside"
+          },
+          "flag": null
+        },
+        {
+          "round": 3,
+          "gate_decision": "CONTINUE",
+          "p_ask": null,
+          "supported_action_from_public_state": {
+            "kind": "DONE",
+            "object_id": null,
+            "target_id": null,
+            "relation": "inside"
+          },
+          "flag": null
+        }
+      ],
+      "physical_skill_failures": 0,
+      "failed_conditions": [],
+      "ask_physics_frozen": true
+    }
+  ]
+}

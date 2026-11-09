@@ -1,0 +1,25 @@
+{
+  "preserved_existing_files": 1648,
+  "preservation_mismatches": [],
+  "user_modified_ppt_preserved": true,
+  "real_model_episodes": 20,
+  "oracle_successes": 20,
+  "task_successes": 13,
+  "real_robot_actions": 60,
+  "physical_skill_failures": 0,
+  "authenticated_requests": 138,
+  "all_usage_and_latency_measured": true,
+  "statuses": {
+    "ok": 138
+  },
+  "ask_checks": 7,
+  "all_asks_physically_frozen": true,
+  "media_clips": 20,
+  "media_bytes": 10993697,
+  "all_media_hashes_valid": true,
+  "returned_models": [
+    "deepseek-flash",
+    "jev-1.14.0"
+  ],
+  "test_api_episodes": 0
+}

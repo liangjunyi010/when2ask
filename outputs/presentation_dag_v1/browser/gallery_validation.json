@@ -1,0 +1,39 @@
+{
+  "url": "http://127.0.0.1:8881/",
+  "scenarios": 20,
+  "rows": 20,
+  "checked": [
+    {
+      "sample_id": "dag_demo_03",
+      "real_mp4_loaded": true,
+      "default_playback_rate": 2,
+      "raw_transcript": true,
+      "dag_public_only": true
+    },
+    {
+      "sample_id": "dag_demo_06",
+      "real_mp4_loaded": true,
+      "default_playback_rate": 2,
+      "raw_transcript": true,
+      "dag_public_only": true
+    },
+    {
+      "sample_id": "dag_demo_15",
+      "real_mp4_loaded": true,
+      "default_playback_rate": 2,
+      "raw_transcript": true,
+      "dag_public_only": true
+    },
+    {
+      "sample_id": "dag_demo_18",
+      "real_mp4_loaded": true,
+      "default_playback_rate": 2,
+      "raw_transcript": true,
+      "dag_public_only": true
+    }
+  ],
+  "filters": true,
+  "mobile_no_overflow": true,
+  "console_errors": [],
+  "authenticated_requests": 0
+}

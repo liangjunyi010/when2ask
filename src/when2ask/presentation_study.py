@@ -127,7 +127,7 @@ def episode_row(e, out):
     evaluation, cost = e["evaluation"], e["cost"]
     return dict(sample_id=e["sample_id"], method=e["method"],
         task_success=evaluation["task_success"], termination=evaluation["termination_reason"],
-        burden=evaluation["clarification_burden"], ask_turns=sum("question" in t for t in e["turns"]),
+        burden=evaluation.get("clarification_burden", e["diagnostics"]["clarification_burden"]), ask_turns=sum("question" in t for t in e["turns"]),
         actions=len(e["actions"]), api_attempts=cost["api_attempts"],
         api_latency_s=(cost["api_latency_ms"] / 1000 if cost["api_latency_ms"] is not None else None),
         deepseek_input_tokens=cost["deepseek"]["input_tokens"], deepseek_output_tokens=cost["deepseek"]["output_tokens"],
@@ -136,11 +136,44 @@ def episode_row(e, out):
         episode_path=str(Path(out).relative_to(ROOT) / "episode.json"))
 
 
+def timing_diagnostics(episode):
+    """Post-hoc public-only diagnostic, never fed to models or used as a score.
+
+    This conservative scripted support check is a teaching aid, not a gold
+    optimal-timing label or a counterfactual success experiment.
+    """
+    from .console_policy import ConsoleScriptedPlanner
+    from .task import PublicState
+    planner, rows = ConsoleScriptedPlanner(), []
+    for turn in episode['turns']:
+        payload = turn['public_payload']
+        raw = dict(payload['observation'])
+        raw['objects'] = {o['object_id']: {k: v for k, v in o.items() if k != 'object_id'}
+                          for o in raw['objects']}
+        state = PublicState.build(raw, payload['history'], payload['instruction'])
+        supported = planner.next_action(state, known_only=True)
+        decision = turn['gate']['decision']
+        flag = ('ask_with_supported_progress' if decision == 'ASK' and supported and supported.kind != 'DONE'
+                else 'ask_after_supported_done' if decision == 'ASK' and supported and supported.kind == 'DONE'
+                else 'continue_without_disclosed_next_action' if decision == 'CONTINUE' and supported is None
+                else None)
+        rows.append(dict(round=turn['round'], gate_decision=decision,
+            p_ask=turn['gate'].get('p_ask'),
+            supported_action_from_public_state=supported.to_dict() if supported else None, flag=flag))
+    return rows
+
+
 def report():
     entries = {e["sample_id"]: e for e in catalogue()}
-    rows = []
+    rows, diagnostics = [], []
     for path in sorted((OUTPUT / "live").glob("*/episode.json")):
         episode = json.loads(path.read_text())
+        diagnostics.append(dict(sample_id=episode['sample_id'], method=episode['method'],
+            turns=timing_diagnostics(episode),
+            physical_skill_failures=sum(not a['success'] for a in episode['actions']),
+            failed_conditions=[k for k, v in episode['evaluation'].get('conditions', {}).items() if not v],
+            ask_physics_frozen=all(c['before_step'] == c['after_step'] and c['state_unchanged']
+                                   for c in episode['ask_checks'])))
         rows.append({**episode_row(episode, path.parent),
             "unknown_preferences": entries[episode["sample_id"]]["unknown_preferences"],
             "order": entries[episode["sample_id"]]["order"],
@@ -163,11 +196,37 @@ def report():
         successes=sum(r["task_success"] for r in rows), methods=methods, rows=rows,
         caution="Unpaired smoke demonstration: different scenarios per method, 10 physical groups. Not an unbiased method comparison or held-out Test result.")
     write_json(OUTPUT / "summary.json", result)
+    write_json(OUTPUT / "timing_diagnostics.json", dict(
+        scope='Post-hoc public-only scripted support check, not optimal-timing ground truth; no private preferences used',
+        rows=diagnostics))
     lines = ["# Twenty DAG Presentation Scenarios", "", result["caution"], "",
         "| Scenario | Method | Unknown | Order | Success | Burden | API seconds |", "|---|---|---:|---|---|---:|---:|"]
     for r in rows:
         latency = f"{r['api_latency_s']:.2f}" if r["api_latency_s"] is not None else "unknown"
         lines.append(f"| {r['sample_id']} | {r['method']} | {r['unknown_preferences']} | {r['order']} | {r['task_success']} | {r['burden']} | {latency} |")
-    lines += ["", "Each JSON trace, physical score, PNG and GIF is retained in `live/`. All requests use the unchanged shared v3.1 contract and Jev threshold 0.5."]
+    lines += ["", "| Method (unpaired cases) | Success | Total burden | Cumulative API seconds | DeepSeek in / out | Jev in / out |",
+              "|---|---:|---:|---:|---:|---:|"]
+    for method, m in methods.items():
+        jev = f"{m['jev_input_tokens']} / {m['jev_output_tokens']}" if m['jev_input_tokens'] is not None else '—'
+        latency = f"{m['api_latency_s']:.2f}" if m['api_latency_s'] is not None else 'unknown'
+        lines.append(f"| {method} | {m['successes']}/{m['episodes']} | {m['burden']} | {latency} | {m['deepseek_input_tokens']} / {m['deepseek_output_tokens']} | {jev} |")
+    flags = Counter(t['flag'] for d in diagnostics if d['method'] != 'llm_noask' for t in d['turns'] if t['flag'])
+    lines += ["", "## Timing observations", "",
+        "The support check below reads only the logged public instruction, observation and history; it does not label optimal timing or modify any run.", ""]
+    for flag, count in flags.items():
+        lines.append(f"- `{flag}`: {count} turns.")
+    failed_skills = sum(d['physical_skill_failures'] for d in diagnostics)
+    lines += ["", f"{sum(r['actions'] for r in rows)} robot skills executed; {failed_skills} skill failures, but {len(rows)-result['successes']} episodes failed the independent final preference/geometry/order conditions. Physical skill completion is not task success.",
+        "", "Useful presentation cases:", "",
+        "- `dag_demo_03` (Jev): block-first, block unknown. Scores 0.05/0.06/0.05/0.05 never cross 0.5; guessed object/order fails. A genuine missed-clarification example.",
+        "- `dag_demo_05` (LLM-Gate) and `dag_demo_06` (Jev): ask at round 0 despite a supported placement. These show premature clarification, even though final tasks succeed.",
+        "- `dag_demo_14` (LLM-Gate): no ASK about the unknown block; its guess happens to be correct. Success does not prove appropriate timing.",
+        "- `dag_demo_15` (Jev): one missing destination; one answer is reused for the cup and the block's OTHER destination. Success, burden 1.",
+        "- `dag_demo_18` (Jev): all three choices unknown; ASK at round 0 (p=0.97), then two placements and success.",
+        "", "## Provenance and scope", "",
+        "20 instances from 10 physical groups, 10 per template; missing counts 0/1/2/3 each occur 5 times. They reuse conservative development geometry, not held-out Test data.",
+        "Each JSON trace, physical score, PNG and GIF is retained in `live/`. All requests use the unchanged shared v3.1 contract and Jev threshold 0.5.",
+        "Returned models: DeepSeek `deepseek-flash`; Jev `jev-1.14.0` (configured `jev-latest`). No prompt or threshold tuning was performed on these runs.",
+        "Metrics are derived from the raw episode JSONs, and the full job order/configuration is in `live_manifest.json`. Timing findings remain engineering diagnostics, not a formal comparative result."]
     (OUTPUT / "report.md").write_text("\n".join(lines) + "\n")
     return result

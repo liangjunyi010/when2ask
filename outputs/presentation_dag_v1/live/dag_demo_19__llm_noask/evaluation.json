@@ -1,0 +1,101 @@
+{
+  "task_success": false,
+  "termination_reason": "robot_action_limit",
+  "execution_termination": "robot_action_limit",
+  "execution_completed": false,
+  "evaluator_version": "full_aabb_contact_dag_v3.1",
+  "conditions": {
+    "correct_cup_in_selected_container": false,
+    "correct_block_in_other_container": false,
+    "unselected_objects_outside": false,
+    "robot_released": true,
+    "declared_dag_order": false
+  },
+  "details": {
+    "expected_objects": {
+      "cup": "obj_2efffefc44",
+      "block": "obj_33f7ad08c6"
+    },
+    "expected_targets": {
+      "cup": "obj_b0b3cca63b",
+      "block": "obj_9d67950dc4"
+    },
+    "containment": {
+      "cup": {
+        "inside": false,
+        "full_xy_inside": false,
+        "full_z_inside": false,
+        "supported_by_box": false,
+        "stable": true,
+        "aabb_min": [
+          0.32468450002799304,
+          -0.14652535843676456,
+          0.4199866026136367
+        ],
+        "aabb_max": [
+          0.3789594685497773,
+          -0.09225468713155395,
+          0.47999238483162493
+        ]
+      },
+      "block": {
+        "inside": false,
+        "full_xy_inside": false,
+        "full_z_inside": true,
+        "supported_by_box": false,
+        "stable": true,
+        "aabb_min": [
+          0.5330624477211989,
+          0.15804453374997507,
+          0.43398897269777625
+        ],
+        "aabb_max": [
+          0.5770709331280564,
+          0.20205208611695774,
+          0.4779901655390709
+        ]
+      }
+    },
+    "unselected": {
+      "obj_3d502f0320": {
+        "obj_9d67950dc4": {
+          "outside": true,
+          "footprint_disjoint": true,
+          "stable": true
+        },
+        "obj_b0b3cca63b": {
+          "outside": true,
+          "footprint_disjoint": true,
+          "stable": true
+        }
+      },
+      "obj_18d80cd829": {
+        "obj_9d67950dc4": {
+          "outside": false,
+          "footprint_disjoint": false,
+          "stable": true
+        },
+        "obj_b0b3cca63b": {
+          "outside": true,
+          "footprint_disjoint": true,
+          "stable": true
+        }
+      }
+    },
+    "robot_contact_counts": {
+      "obj_33f7ad08c6": 0,
+      "obj_2efffefc44": 0
+    },
+    "declared_dag": {
+      "placement_events_present": false,
+      "precedence_checks": {
+        "place_block->place_cup": false
+      },
+      "satisfied": false
+    }
+  },
+  "clarification_burden": 0,
+  "action_count": 12,
+  "successful_action_count": 12,
+  "simulation_steps": 40997
+}
