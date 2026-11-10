@@ -64,6 +64,7 @@ class Task:
         self.method = options['method']
         self.answer_mode = options['answer_mode']
         self.scenario_id = options.get('scenario_id')
+        self.planner_profile = options.get('planner_profile', 'default_v1')
         self.sample = demo_sample(self.template, options.get('unknown_preferences'), options.get('navigation_case'), self.scenario_id)
         self.unknown_preferences = len(self.sample.slots) - len(self.sample.initial_disclosed_slots)
         self.comparison_id = None
@@ -107,7 +108,7 @@ class Task:
     def public(self):
         from .console_review import review
         return copy.deepcopy(dict(id=self.id, template=self.template, template_name=TEMPLATES[self.template][0],
-            method=self.method, answer_mode=self.answer_mode, status=self.status, created=self.created,
+            method=self.method, answer_mode=self.answer_mode, planner_profile=self.planner_profile, status=self.status, created=self.created,
             evidence_kind='live_models_real_pybullet' if self.method in LIVE_METHODS else 'scripted_policy_real_pybullet',
             round=self.round, gate=self.gate, frame=self.frame, question=self.pending,review=self.audit.config.sanitize(review(self)),
             instruction=self.sample.u0, unknown_preferences=self.unknown_preferences, scenario_id=self.scenario_id,
@@ -164,6 +165,8 @@ class TaskManager:
         from .presentation_scenarios import catalogue as scenarios
         from .task6_spec import TITLES,make_sample
         return dict(templates=catalogue(), scenarios=scenarios(), new_tasks=list(TITLES), methods=list(METHODS), live_enabled=self.allow_live,
+                    planner_profiles=[dict(id='default_v1',label='Original / Default v1',templates=list(TEMPLATES)),
+                        dict(id='grounded_dev_v5',label='Grounded Dev v5 · optional',templates=['buffer_exchange','retrieve_restore','occlusion_inspection'])],
                     new_task_catalogue={key:dict(title=title,instruction=make_sample(key).u0,dag=make_sample(key).dag) for key,title in TITLES.items()},
                     concurrency=self.capacity, budget=self.ledger.snapshot(),
                     models=self.config.public_config(), protocol_version=2)
@@ -194,10 +197,14 @@ class TaskManager:
 
     @staticmethod
     def validate_options(options):
-        if not isinstance(options, dict) or not {'template', 'method', 'answer_mode'} <= set(options) or set(options) - {'template', 'method', 'answer_mode', 'unknown_preferences', 'navigation_case', 'scenario_id'}:
+        if not isinstance(options, dict) or not {'template', 'method', 'answer_mode'} <= set(options) or set(options) - {'template', 'method', 'answer_mode', 'unknown_preferences', 'navigation_case', 'scenario_id', 'planner_profile'}:
             raise ValueError('Choose a template, method and answer mode')
         if options['template'] not in TEMPLATES or options['method'] not in METHODS or options['answer_mode'] not in ('auto', 'manual'):
             raise ValueError('Invalid task options')
+        profile=options.get('planner_profile','default_v1')
+        from .grounded_dev_public import PROFILE,SUPPORTED
+        if profile not in ('default_v1',PROFILE) or (profile==PROFILE and options['template'] not in SUPPORTED):
+            raise ValueError('Unsupported Planner profile for this task')
         if 'unknown_preferences' in options and (type(options['unknown_preferences']) is not int or not 0 <= options['unknown_preferences'] <= 3):
             raise ValueError('Unknown preferences must be an integer from 0 to 3')
         if options['template'] == 'find_and_approach':
@@ -245,7 +252,7 @@ class TaskManager:
             return task.public()
 
     def create_comparison(self, options, key):
-        if not isinstance(options, dict) or not {'template', 'unknown_preferences'} <= set(options) or set(options)-{'template','unknown_preferences','navigation_case','scenario_id'}:
+        if not isinstance(options, dict) or not {'template', 'unknown_preferences'} <= set(options) or set(options)-{'template','unknown_preferences','navigation_case','scenario_id','planner_profile'}:
             raise ValueError('Comparison requires template and unknown_preferences')
         self.validate_options(dict(options, method='llm_noask', answer_mode='auto'))
         if not isinstance(key, str) or not 8 <= len(key) <= 100:
@@ -274,12 +281,14 @@ class TaskManager:
             from .task6_spec import TITLES
             if options['template'] in TITLES:
                 from .task6_agents import prompt_hashes
+            if options.get('planner_profile')=='grounded_dev_v5':
+                from .grounded_dev_agents import prompt_hashes
             sample = tasks[0].sample
             group = dict(id=cid, created=time.time(), options=copy.deepcopy(options),
                 task_ids=[t.id for t in tasks], partition='interactive_demo_on_dev_layout',
                 source_sample_id=sample.sample_id, scene_seed=sample.scene_seed,
                 public_scene_sha256=hashlib.sha256(json.dumps(dict(scene=sample.scene(), instruction=sample.u0), sort_keys=True).encode()).hexdigest(),
-                planner_configuration=self.config.public_config(), prompt_hashes=prompt_hashes(),
+                planner_profile=tasks[0].planner_profile, planner_configuration=self.config.public_config(), prompt_hashes=prompt_hashes(),
                 physics_signature=self.signature(options['template']), answer_mode='auto',
                 evaluation_protocol=tasks[0].public()['evaluation_protocol'],
                 note='One paired interactive instance; not a benchmark ranking.')
