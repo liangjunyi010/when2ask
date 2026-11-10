@@ -106,3 +106,21 @@ def test_default_opt_in_validation_and_paired_profile_metadata(tmp_path):
     assert manager.ledger.snapshot()['attempts']==0
     for bad in ['pack_and_cover','category_sorting','find_and_approach']:
         with pytest.raises(ValueError):manager.validate_options(dict(options,template=bad,planner_profile=PROFILE))
+
+
+def test_schema_repair_debits_budget_without_reporting_backend_outage(tmp_path):
+    from when2ask.grounded_dev_health import SchemaAwareSession
+    from when2ask.accounting import Audit,BackendBlocked
+    from when2ask.console_state import ConsoleLedger
+    ledger=ConsoleLedger(tmp_path/'ledger',20,9);audit=Audit('offline',Config())
+    session=SchemaAwareSession(ledger,audit)
+    for _ in range(3):
+        audit.records.append(dict(status='schema_error',http_status=200))
+        session.reserve('deepseek');session.outcome('deepseek',False)
+    assert ledger.snapshot()['attempts']==3
+    assert not ledger.snapshot()['backends']['deepseek']['blocked']
+    assert all(r['backend_health']=='http_ok_schema_error' for r in audit.records)
+    for _ in range(3):
+        audit.records.append(dict(status='api_error',http_status=503))
+        session.reserve('deepseek');session.outcome('deepseek',False)
+    with pytest.raises(BackendBlocked):session.reserve('deepseek')

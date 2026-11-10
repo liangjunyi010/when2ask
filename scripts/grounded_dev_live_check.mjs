@@ -2,8 +2,8 @@
 import fs from 'node:fs/promises';import path from 'node:path';import assert from 'node:assert/strict';import crypto from 'node:crypto';
 import {ROOT,requireRuntime} from '../presentation/milestone/tools/runtime.mjs';
 if(!process.argv.includes('--live'))throw Error('Explicit --live required');
-const out=path.join(ROOT,'outputs/grounded_planner_dev_v5'),session=path.join(ROOT,'outputs/local_console/grounded-dev-v5-live');
-const plan=JSON.parse(await fs.readFile(path.join(out,'live_plan.json'),'utf8'));
+const out=path.join(ROOT,'outputs/grounded_planner_dev_v5'),session=path.join(ROOT,'outputs/local_console/grounded-dev-v5-live-r2');
+const plan=JSON.parse(await fs.readFile(path.join(out,'live_plan_r2.json'),'utf8'));
 await fs.mkdir(path.join(out,'live'),{recursive:false}); // Never rerun or overwrite.
 for(const [name,digest]of Object.entries(plan.source_hashes))assert.equal(crypto.createHash('sha256').update(await fs.readFile(path.join(ROOT,name))).digest('hex'),digest,'Source changed after freeze: '+name);
 assert.equal(crypto.createHash('sha256').update(await fs.readFile(path.join(ROOT,'data/six_tasks_dev_v1/samples.json'))).digest('hex'),plan.dataset_sha256);
@@ -13,7 +13,7 @@ page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()
 async function rpc(url){return page.evaluate(async url=>{const r=await fetch(url);if(!r.ok)throw Error(await r.text());return r.json();},url);}
 try{
  await page.goto('http://127.0.0.1:8894/',{waitUntil:'domcontentloaded'});await page.waitForSelector('#new-task-options option',{state:'attached'});
- const before=await rpc('/api/meta');assert.equal(before.budget.attempts,0);assert.equal(before.budget.episodes,0);assert.equal(before.budget.max_episodes,9);assert.equal(before.budget.max_attempts,150);assert.deepEqual(before.models,plan.configuration);
+ const before=await rpc('/api/meta');assert.equal(before.budget.attempts,0);assert.equal(before.budget.episodes,0);assert.equal(before.budget.max_episodes,9);assert.equal(before.budget.max_attempts,144);assert.deepEqual(before.models,plan.configuration);
  assert.equal(await page.locator('#planner-profile').inputValue(),'default_v1');
  for(const job of plan.groups){
   await page.selectOption('#template',job.template);await page.selectOption('#unknown','1');await page.selectOption('#planner-profile',plan.planner_profile);
@@ -35,7 +35,7 @@ try{
    console.log(JSON.stringify({completed:t.id,template:t.template,method:t.method,success:t.evaluation?.task_success,burden:t.burden,actions:t.actions.length,attempts:t.cost.api_attempts,error:t.error}));
   }
  }
- const budget=(await rpc('/api/meta')).budget;assert.equal(budget.episodes,9);assert(budget.attempts<=150);assert.deepEqual(errors,[]);
+ const budget=(await rpc('/api/meta')).budget;assert.equal(budget.episodes,9);assert(budget.attempts+6<=150);assert.deepEqual(errors,[]);
  await fs.writeFile(path.join(out,'live_validation.json'),JSON.stringify({evidence_kind:'live_models_real_pybullet_actual_html',created,comparisons,episodes:9,authenticated_requests:budget.attempts,console_errors:errors},null,2)+'\n');
  console.log(JSON.stringify({episodes:9,authenticated_requests:budget.attempts,console_errors:errors}));
 }finally{await browser.close();}

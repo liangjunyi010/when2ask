@@ -17,6 +17,9 @@ from .user_simulator import PreferenceResolver
 
 def run_agent(manager,task):
     start=time.monotonic();termination='round_limit';api=task.audit
+    if api.session is not None:
+        from .grounded_dev_health import SchemaAwareSession
+        api.session=SchemaAwareSession(api.session,api)
     def update(status):
         with manager.changed:
             if task.cancel:raise Cancelled('cancelled_by_user')

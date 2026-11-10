@@ -49,6 +49,8 @@ def serialize(public):
     value['public_summary']=dict(version=PROFILE,current_regions=regions,current_locations=locations,goal_requirements=goal,
         contents_observed={k:v.get('contents_observed',True) for k,v in obs['containers'].items()},
         unobserved_public_item_ids=[k for k in task.get('items',[]) if k not in obs['objects']],
+        preference_candidates={r:v['candidate_ids'] for r,v in task['preference_slots'].items() if v['kind']=='preference'},
+        world_fact_roles=[r for r,v in task['preference_slots'].items() if v['kind']=='world_fact'],
         confirmed_choices=known,unresolved_roles=sorted(set(task['preference_slots'])-set(known)),
         own_working_buffer=(dict(value=parking[0],user_confirmed=False) if parking and 'buffer_pad' not in known else None),
         lid_geometry=lid_geometry,
