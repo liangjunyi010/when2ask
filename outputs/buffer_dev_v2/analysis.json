@@ -1,0 +1,471 @@
+{
+  "original_episode_sha256": "be59256f2ffd2a477d3a843035e72b5aaffc1bbf2aebdbf494a18fbf042923ed",
+  "original_api_log_sha256": "7362dbc3e3c9602745e9b11585760456e21cb816b64978aa1ae23b989e0df51f",
+  "all_sent_states_match_logged_states": true,
+  "first_regression_round": 2,
+  "history_was_present": true,
+  "rows": [
+    {
+      "round": 0,
+      "simulation_step": 240,
+      "left": [
+        "item_a"
+      ],
+      "right": [
+        "item_b"
+      ],
+      "front": [],
+      "back": [],
+      "history_length": 0,
+      "wire_equals_logged_state": true,
+      "planner_output": {
+        "kind": "move",
+        "object_id": "item_a",
+        "target_id": "buffer_front"
+      },
+      "physical_result": {
+        "skill": "move",
+        "object_id": "item_a",
+        "target_id": "buffer_front",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3507,
+        "grasp_mode": "constraint"
+      },
+      "public_diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": false,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      }
+    },
+    {
+      "round": 1,
+      "simulation_step": 3507,
+      "left": [],
+      "right": [
+        "item_b"
+      ],
+      "front": [
+        "item_a"
+      ],
+      "back": [],
+      "history_length": 1,
+      "wire_equals_logged_state": true,
+      "planner_output": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left"
+      },
+      "physical_result": {
+        "skill": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left",
+        "success": true,
+        "reason": "placed",
+        "start_step": 3507,
+        "end_step": 7097,
+        "grasp_mode": "constraint"
+      },
+      "public_diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": false,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      }
+    },
+    {
+      "round": 2,
+      "simulation_step": 7097,
+      "left": [
+        "item_b"
+      ],
+      "right": [],
+      "front": [
+        "item_a"
+      ],
+      "back": [],
+      "history_length": 2,
+      "wire_equals_logged_state": true,
+      "planner_output": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "slot_right"
+      },
+      "physical_result": {
+        "skill": "move",
+        "object_id": "item_b",
+        "target_id": "slot_right",
+        "success": true,
+        "reason": "placed",
+        "start_step": 7097,
+        "end_step": 10296,
+        "grasp_mode": "constraint"
+      },
+      "public_diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": true,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      }
+    },
+    {
+      "round": 3,
+      "simulation_step": 10296,
+      "left": [],
+      "right": [
+        "item_b"
+      ],
+      "front": [
+        "item_a"
+      ],
+      "back": [],
+      "history_length": 3,
+      "wire_equals_logged_state": true,
+      "planner_output": {
+        "kind": "move",
+        "object_id": "item_a",
+        "target_id": "slot_right"
+      },
+      "physical_result": {
+        "skill": "move",
+        "object_id": "item_a",
+        "target_id": "slot_right",
+        "success": false,
+        "reason": "target_full",
+        "start_step": 10296,
+        "end_step": 10296,
+        "grasp_mode": "constraint"
+      },
+      "public_diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": false,
+        "targets_occupied_single_capacity_slot": true,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      }
+    },
+    {
+      "round": 4,
+      "simulation_step": 10296,
+      "left": [],
+      "right": [
+        "item_b"
+      ],
+      "front": [
+        "item_a"
+      ],
+      "back": [],
+      "history_length": 4,
+      "wire_equals_logged_state": true,
+      "planner_output": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left"
+      },
+      "physical_result": {
+        "skill": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left",
+        "success": true,
+        "reason": "placed",
+        "start_step": 10296,
+        "end_step": 13495,
+        "grasp_mode": "constraint"
+      },
+      "public_diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": false,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      }
+    },
+    {
+      "round": 5,
+      "simulation_step": 13495,
+      "left": [
+        "item_b"
+      ],
+      "right": [],
+      "front": [
+        "item_a"
+      ],
+      "back": [],
+      "history_length": 5,
+      "wire_equals_logged_state": true,
+      "planner_output": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "slot_right"
+      },
+      "physical_result": {
+        "skill": "move",
+        "object_id": "item_b",
+        "target_id": "slot_right",
+        "success": true,
+        "reason": "placed",
+        "start_step": 13495,
+        "end_step": 16694,
+        "grasp_mode": "constraint"
+      },
+      "public_diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": true,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      }
+    },
+    {
+      "round": 6,
+      "simulation_step": 16694,
+      "left": [],
+      "right": [
+        "item_b"
+      ],
+      "front": [
+        "item_a"
+      ],
+      "back": [],
+      "history_length": 6,
+      "wire_equals_logged_state": true,
+      "planner_output": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left"
+      },
+      "physical_result": {
+        "skill": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left",
+        "success": true,
+        "reason": "placed",
+        "start_step": 16694,
+        "end_step": 19893,
+        "grasp_mode": "constraint"
+      },
+      "public_diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": false,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      }
+    },
+    {
+      "round": 7,
+      "simulation_step": 19893,
+      "left": [
+        "item_b"
+      ],
+      "right": [],
+      "front": [
+        "item_a"
+      ],
+      "back": [],
+      "history_length": 7,
+      "wire_equals_logged_state": true,
+      "planner_output": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "slot_right"
+      },
+      "physical_result": {
+        "skill": "move",
+        "object_id": "item_b",
+        "target_id": "slot_right",
+        "success": true,
+        "reason": "placed",
+        "start_step": 19893,
+        "end_step": 23092,
+        "grasp_mode": "constraint"
+      },
+      "public_diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": true,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      }
+    },
+    {
+      "round": 8,
+      "simulation_step": 23092,
+      "left": [],
+      "right": [
+        "item_b"
+      ],
+      "front": [
+        "item_a"
+      ],
+      "back": [],
+      "history_length": 8,
+      "wire_equals_logged_state": true,
+      "planner_output": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "buffer_front"
+      },
+      "physical_result": {
+        "skill": "move",
+        "object_id": "item_b",
+        "target_id": "buffer_front",
+        "success": false,
+        "reason": "placement_geometry_failed",
+        "start_step": 23092,
+        "end_step": 26524,
+        "grasp_mode": "constraint"
+      },
+      "public_diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": false,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      }
+    },
+    {
+      "round": 9,
+      "simulation_step": 26524,
+      "left": [],
+      "right": [],
+      "front": [
+        "item_a"
+      ],
+      "back": [],
+      "history_length": 9,
+      "wire_equals_logged_state": true,
+      "planner_output": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left"
+      },
+      "physical_result": {
+        "skill": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left",
+        "success": true,
+        "reason": "placed",
+        "start_step": 26524,
+        "end_step": 29628,
+        "grasp_mode": "constraint"
+      },
+      "public_diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": false,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      }
+    },
+    {
+      "round": 10,
+      "simulation_step": 29628,
+      "left": [
+        "item_b"
+      ],
+      "right": [],
+      "front": [
+        "item_a"
+      ],
+      "back": [],
+      "history_length": 10,
+      "wire_equals_logged_state": true,
+      "planner_output": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "buffer_front"
+      },
+      "physical_result": {
+        "skill": "move",
+        "object_id": "item_b",
+        "target_id": "buffer_front",
+        "success": false,
+        "reason": "placement_geometry_failed",
+        "start_step": 29628,
+        "end_step": 32775,
+        "grasp_mode": "constraint"
+      },
+      "public_diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": true,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      }
+    },
+    {
+      "round": 11,
+      "simulation_step": 32775,
+      "left": [],
+      "right": [],
+      "front": [
+        "item_a"
+      ],
+      "back": [],
+      "history_length": 11,
+      "wire_equals_logged_state": true,
+      "planner_output": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "slot_right"
+      },
+      "physical_result": {
+        "skill": "move",
+        "object_id": "item_b",
+        "target_id": "slot_right",
+        "success": true,
+        "reason": "placed",
+        "start_step": 32775,
+        "end_step": 36166,
+        "grasp_mode": "constraint"
+      },
+      "public_diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": false,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      }
+    },
+    {
+      "round": 12,
+      "simulation_step": 36166,
+      "left": [],
+      "right": [
+        "item_b"
+      ],
+      "front": [
+        "item_a"
+      ],
+      "back": [],
+      "history_length": 12,
+      "wire_equals_logged_state": true,
+      "planner_output": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left"
+      },
+      "physical_result": null,
+      "public_diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": false,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      }
+    }
+  ],
+  "conclusions": [
+    "Round 2 correctly showed B in left slot, A on front buffer and right slot empty, with both successful actions in history.",
+    "The actual DeepSeek response moved B back to the right slot; this is a planner decision, not lost history or stale transport state.",
+    "V1 affordances enumerate schema-supported destinations, including occupied slots and backward moves; they are not a verified set of currently executable or task-progressing actions.",
+    "Initial-location wording, dense raw state and unstated persistence of an agent guess are plausible contributors, not proven internal model reasoning."
+  ],
+  "unresolved": "Factorial action probes and end-to-end controls are needed to assess public summaries versus planner wording."
+}
