@@ -1,0 +1,231 @@
+{
+  "original_instruction": "Restock the cup shelf to exactly 2 cups. Restock the block shelf to the user's block_quota, either 2 or 3 blocks. Count current physical contents first and add only the deficit. Do not move already stocked items or surplus spare stock. Cup replenishment is fully specified even before the block quota is known.",
+  "instruction_origin": "generated_task_instruction",
+  "scenario": null,
+  "public_dag": {
+    "nodes": [
+      "count_inventory",
+      "replenish_cups",
+      "replenish_blocks"
+    ],
+    "edges": [
+      [
+        "count_inventory",
+        "replenish_cups"
+      ],
+      [
+        "count_inventory",
+        "replenish_blocks"
+      ]
+    ]
+  },
+  "interaction": {
+    "message": "任务已结束，完整问答和最终真值可在详情查看。",
+    "missing_roles": [],
+    "manual_form_available": false,
+    "ask_turns": 1,
+    "threshold": 0.5
+  },
+  "conversation": [
+    {
+      "kind": "gate",
+      "round": 0,
+      "simulation_step": 240,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 0,
+        "called": true,
+        "backend": "deepseek"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 0,
+      "simulation_step": 240,
+      "value": {
+        "kind": "move",
+        "object_id": "spare_cup_1",
+        "target_id": "cup_shelf"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 0,
+      "simulation_step": 3742,
+      "value": {
+        "skill": "move",
+        "object_id": "spare_cup_1",
+        "target_id": "cup_shelf",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3742,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 1,
+      "simulation_step": 3742,
+      "value": {
+        "decision": "ASK",
+        "p_ask": null,
+        "round": 1,
+        "called": true,
+        "backend": "deepseek"
+      }
+    },
+    {
+      "kind": "question",
+      "round": 1,
+      "simulation_step": 3742,
+      "value": {
+        "type": "select",
+        "text": "How many blocks should the block shelf hold in total: 2 or 3?",
+        "requests": [
+          {
+            "role": "block_quota",
+            "candidate_ids": [
+              "2",
+              "3"
+            ]
+          }
+        ]
+      },
+      "question_id": "6c144408cee64642"
+    },
+    {
+      "kind": "user_answer",
+      "round": 1,
+      "simulation_step": 3742,
+      "value": {
+        "choices": {
+          "block_quota": "3"
+        }
+      },
+      "source": "auto",
+      "input_text": null
+    },
+    {
+      "kind": "gate",
+      "round": 2,
+      "simulation_step": 3742,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 2,
+        "called": true,
+        "backend": "deepseek"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 2,
+      "simulation_step": 3742,
+      "value": {
+        "kind": "move",
+        "object_id": "spare_block_1",
+        "target_id": "block_shelf"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 2,
+      "simulation_step": 7462,
+      "value": {
+        "skill": "move",
+        "object_id": "spare_block_1",
+        "target_id": "block_shelf",
+        "success": true,
+        "reason": "placed",
+        "start_step": 3742,
+        "end_step": 7462,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 3,
+      "simulation_step": 7462,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 3,
+        "called": true,
+        "backend": "deepseek"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 3,
+      "simulation_step": 7462,
+      "value": {
+        "kind": "move",
+        "object_id": "spare_block_2",
+        "target_id": "block_shelf"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 3,
+      "simulation_step": 10989,
+      "value": {
+        "skill": "move",
+        "object_id": "spare_block_2",
+        "target_id": "block_shelf",
+        "success": true,
+        "reason": "placed",
+        "start_step": 7462,
+        "end_step": 10989,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 4,
+      "simulation_step": 10989,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 4,
+        "called": true,
+        "backend": "deepseek"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 4,
+      "simulation_step": 10989,
+      "value": {
+        "kind": "DONE"
+      }
+    }
+  ],
+  "ground_truth": {
+    "protocol": "fixed_demo_preferences",
+    "meaning": "自动用户按预置隐藏偏好回答；评分目标固定。",
+    "initial": [
+      {
+        "role": "block_quota",
+        "object_id": "3",
+        "label": "3 blocks"
+      }
+    ],
+    "evaluated": [
+      {
+        "role": "block_quota",
+        "object_id": "3",
+        "label": "3 blocks"
+      }
+    ],
+    "manual_changes": []
+  },
+  "truth_revealed": true,
+  "engine": {
+    "tabletop": "shared_task_contract_v3.1",
+    "navigation": "navigation_search_dev_v1",
+    "task_version": "six_tasks_dev_v1",
+    "notice": "独立六任务 Dev v1：新场景、新任务评分，未替换原冻结研究配置。"
+  }
+}

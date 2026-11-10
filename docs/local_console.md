@@ -134,3 +134,11 @@ Completed task views persist in `review.json`/`final_view.json` and reload read-
 The tabletop launcher now offers ten presets per template (twenty total). Selecting a preset fixes its disclosure count, public ordering constraints, seed, object aliases and initial instruction. It uses the same scene and preference definitions on controller and worker; preset/template/disclosure mismatches are rejected. Free demonstration remains available, and navigation keeps its existing scenario selector. Both single-task and three-method comparison launches preserve the selected preset.
 
 The preview/episode details display the public DAG, without hidden choices. These observer-facing diagrams do not change the agent payload. Human mode continues to wait for an actual ASK rather than forcing a question. A read-only result gallery is available at http://127.0.0.1:8881/ and launches no model calls. See [scenario collection and evidence](presentation_dag_scenarios_v1.md).
+
+## Six new robotic task types
+
+The template selector now includes `category_sorting`, `inventory_restock`, `retrieve_restore`, `buffer_exchange`, `patrol_return`, and `occlusion_inspection`. Each prototype has one finite preference/fact role (0/1 undisclosed). Their public task DAG, candidate choices and instruction are shown before launch; private answers are hidden until termination. Auto/Human and one-click three-method comparison use the same new task sample, shared planner configuration and independent physical worlds.
+
+Human replies may define a previously unspecified preference for that interactive run. The printed inspection code is an immutable world fact; an answer never changes its physical label or replaces inspection. Observable facts can be obtained without asking, so Human mode need not show a form in every task. New task records use `six_tasks_dev_v1` and independent geometry/contact/evidence scoring, without replacing old frozen task contracts.
+
+The six real-model case reviews are archived in the main console. The read-only result/video page is http://127.0.0.1:8892/; reading/playing records makes no API calls. See [task definitions, verification and limitations](six_new_tasks_dev_v1.md).

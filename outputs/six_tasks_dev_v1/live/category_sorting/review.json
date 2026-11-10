@@ -1,0 +1,292 @@
+{
+  "original_instruction": "Sort all six objects into three category bins. Cups go in bin_a. Ask for the user's block_bin choice if needed; pucks use the OTHER bin among bin_b and bin_c. Do not mix categories. Release every object. You can sort the known cups before needing the missing rule.",
+  "instruction_origin": "generated_task_instruction",
+  "scenario": null,
+  "public_dag": {
+    "nodes": [
+      "sort_cups",
+      "sort_blocks",
+      "sort_pucks"
+    ],
+    "edges": []
+  },
+  "interaction": {
+    "message": "NoAsk 按定义不提问；不会出现回答表单。 结束时仍有未公开偏好，执行可能使用了猜测；成功与否由真实物理结果评分。",
+    "missing_roles": [
+      "block_bin"
+    ],
+    "manual_form_available": false,
+    "ask_turns": 0,
+    "threshold": 0.5
+  },
+  "conversation": [
+    {
+      "kind": "gate",
+      "round": 0,
+      "simulation_step": 240,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 0,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 0,
+      "simulation_step": 240,
+      "value": {
+        "kind": "move",
+        "object_id": "cup_1",
+        "target_id": "bin_a"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 0,
+      "simulation_step": 3622,
+      "value": {
+        "skill": "move",
+        "object_id": "cup_1",
+        "target_id": "bin_a",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3622,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 1,
+      "simulation_step": 3622,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 1,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 1,
+      "simulation_step": 3622,
+      "value": {
+        "kind": "move",
+        "object_id": "cup_2",
+        "target_id": "bin_a"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 1,
+      "simulation_step": 6861,
+      "value": {
+        "skill": "move",
+        "object_id": "cup_2",
+        "target_id": "bin_a",
+        "success": true,
+        "reason": "placed",
+        "start_step": 3622,
+        "end_step": 6861,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 2,
+      "simulation_step": 6861,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 2,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 2,
+      "simulation_step": 6861,
+      "value": {
+        "kind": "move",
+        "object_id": "block_1",
+        "target_id": "bin_b"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 2,
+      "simulation_step": 10442,
+      "value": {
+        "skill": "move",
+        "object_id": "block_1",
+        "target_id": "bin_b",
+        "success": true,
+        "reason": "placed",
+        "start_step": 6861,
+        "end_step": 10442,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 3,
+      "simulation_step": 10442,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 3,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 3,
+      "simulation_step": 10442,
+      "value": {
+        "kind": "move",
+        "object_id": "block_2",
+        "target_id": "bin_b"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 3,
+      "simulation_step": 13803,
+      "value": {
+        "skill": "move",
+        "object_id": "block_2",
+        "target_id": "bin_b",
+        "success": true,
+        "reason": "placed",
+        "start_step": 10442,
+        "end_step": 13803,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 4,
+      "simulation_step": 13803,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 4,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 4,
+      "simulation_step": 13803,
+      "value": {
+        "kind": "move",
+        "object_id": "puck_1",
+        "target_id": "bin_c"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 4,
+      "simulation_step": 17371,
+      "value": {
+        "skill": "move",
+        "object_id": "puck_1",
+        "target_id": "bin_c",
+        "success": true,
+        "reason": "placed",
+        "start_step": 13803,
+        "end_step": 17371,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 5,
+      "simulation_step": 17371,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 5,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 5,
+      "simulation_step": 17371,
+      "value": {
+        "kind": "move",
+        "object_id": "puck_2",
+        "target_id": "bin_c"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 5,
+      "simulation_step": 20681,
+      "value": {
+        "skill": "move",
+        "object_id": "puck_2",
+        "target_id": "bin_c",
+        "success": true,
+        "reason": "placed",
+        "start_step": 17371,
+        "end_step": 20681,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 6,
+      "simulation_step": 20681,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 6,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 6,
+      "simulation_step": 20681,
+      "value": {
+        "kind": "DONE"
+      }
+    }
+  ],
+  "ground_truth": {
+    "protocol": "fixed_demo_preferences",
+    "meaning": "自动用户按预置隐藏偏好回答；评分目标固定。",
+    "initial": [
+      {
+        "role": "block_bin",
+        "object_id": "bin_c",
+        "label": "orange container / bin_c"
+      }
+    ],
+    "evaluated": [
+      {
+        "role": "block_bin",
+        "object_id": "bin_c",
+        "label": "orange container / bin_c"
+      }
+    ],
+    "manual_changes": []
+  },
+  "truth_revealed": true,
+  "engine": {
+    "tabletop": "shared_task_contract_v3.1",
+    "navigation": "navigation_search_dev_v1",
+    "task_version": "six_tasks_dev_v1",
+    "notice": "独立六任务 Dev v1：新场景、新任务评分，未替换原冻结研究配置。"
+  }
+}

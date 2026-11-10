@@ -1,0 +1,7 @@
+template,method,success,burden,ask_turns,actions,physical_failures,termination_reason,api_attempts,api_latency_s,deepseek_input_tokens,deepseek_output_tokens,jev_input_tokens,jev_output_tokens,schema_errors,retries,api_errors
+category_sorting,llm_noask,False,0,0,6,0,done,7,6.948951374001808,25651,116,,,0,0,0
+inventory_restock,llm_gate,True,1,1,3,0,done,12,9.936865999000474,40832,189,,,2,2,0
+retrieve_restore,jev_gate,True,1,1,3,0,done,10,5.59162008399835,11256,109,16613,120,0,0,0
+buffer_exchange,llm_noask,False,0,0,12,3,robot_action_limit,13,11.111312290001479,34489,221,,,0,0,0
+patrol_return,llm_gate,True,1,1,3,0,done,10,9.271663790997081,17951,129,,,0,0,0
+occlusion_inspection,jev_gate,True,0,0,3,0,done,8,5.317249542002173,7162,49,10053,96,0,0,0
