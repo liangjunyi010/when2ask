@@ -1,0 +1,349 @@
+{
+  "scope": "Adaptive Dev context-compression probes; no physics and no episode success claim",
+  "rows": [
+    {
+      "evidence_kind": "real_api_action_probe_no_physics",
+      "round": 2,
+      "profile_id": "s1p0c1",
+      "action": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "buffer_front"
+      },
+      "error": null,
+      "diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": true,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      },
+      "cost": {
+        "deepseek": {
+          "attempts": 1,
+          "input_tokens": 2331,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 17,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 795.7224999991013,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 1,
+        "api_latency_ms": 795.7224999991013,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      }
+    },
+    {
+      "evidence_kind": "real_api_action_probe_no_physics",
+      "round": 7,
+      "profile_id": "s1p1c1",
+      "action": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "buffer_front"
+      },
+      "error": null,
+      "diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": true,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      },
+      "cost": {
+        "deepseek": {
+          "attempts": 1,
+          "input_tokens": 2679,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 17,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 1060.8284999998432,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 1,
+        "api_latency_ms": 1060.8284999998432,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      }
+    },
+    {
+      "evidence_kind": "real_api_action_probe_no_physics",
+      "round": 2,
+      "profile_id": "s1p1c1",
+      "action": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "buffer_front"
+      },
+      "error": null,
+      "diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": true,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      },
+      "cost": {
+        "deepseek": {
+          "attempts": 1,
+          "input_tokens": 2630,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 17,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 1017.0672080002987,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 1,
+        "api_latency_ms": 1017.0672080002987,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      }
+    },
+    {
+      "evidence_kind": "real_api_action_probe_no_physics",
+      "round": 4,
+      "profile_id": "s1p0c1",
+      "action": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left"
+      },
+      "error": null,
+      "diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": false,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      },
+      "cost": {
+        "deepseek": {
+          "attempts": 1,
+          "input_tokens": 2335,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 17,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 1105.8485829998972,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 1,
+        "api_latency_ms": 1105.8485829998972,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      }
+    },
+    {
+      "evidence_kind": "real_api_action_probe_no_physics",
+      "round": 9,
+      "profile_id": "s1p0c1",
+      "action": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left"
+      },
+      "error": null,
+      "diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": false,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      },
+      "cost": {
+        "deepseek": {
+          "attempts": 1,
+          "input_tokens": 2380,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 17,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 875.4468749993976,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 1,
+        "api_latency_ms": 875.4468749993976,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      }
+    },
+    {
+      "evidence_kind": "real_api_action_probe_no_physics",
+      "round": 4,
+      "profile_id": "s1p1c1",
+      "action": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left"
+      },
+      "error": null,
+      "diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": false,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      },
+      "cost": {
+        "deepseek": {
+          "attempts": 1,
+          "input_tokens": 2634,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 17,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 954.715166000824,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 1,
+        "api_latency_ms": 954.715166000824,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      }
+    },
+    {
+      "evidence_kind": "real_api_action_probe_no_physics",
+      "round": 9,
+      "profile_id": "s1p1c1",
+      "action": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left"
+      },
+      "error": null,
+      "diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": false,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      },
+      "cost": {
+        "deepseek": {
+          "attempts": 1,
+          "input_tokens": 2679,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 17,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 991.0449170001812,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 1,
+        "api_latency_ms": 991.0449170001812,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      }
+    },
+    {
+      "evidence_kind": "real_api_action_probe_no_physics",
+      "round": 7,
+      "profile_id": "s1p0c1",
+      "action": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "buffer_front"
+      },
+      "error": null,
+      "diagnostics": {
+        "assessment_available": true,
+        "undoes_currently_satisfied_final_relation": true,
+        "targets_occupied_single_capacity_slot": false,
+        "repeats_current_placement": false,
+        "done_before_visible_swap_complete": false
+      },
+      "cost": {
+        "deepseek": {
+          "attempts": 1,
+          "input_tokens": 2380,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 17,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 762.059542001225,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 1,
+        "api_latency_ms": 762.059542001225,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      }
+    }
+  ]
+}

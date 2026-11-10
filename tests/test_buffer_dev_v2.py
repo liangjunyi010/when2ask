@@ -93,6 +93,60 @@ def test_baseline_profile_is_exact_original_prompt_and_all_methods_share_dev_pla
     assert all(g.threshold==.5 for g,_ in pairs if g)
 
 
+def test_compact_context_keeps_only_latest_execution_and_complete_public_dialogue():
+    from when2ask.buffer_context_dev_v3 import compact
+    public=recorded(7);before=copy.deepcopy(public)
+    public['history'].append(dict(kind='ask',question=dict(text='Which buffer?')))
+    public['history'].append(dict(kind='user_answer',response=dict(choices=dict(buffer_pad='buffer_back'))))
+    result=compact(public)
+    assert len([e for e in result['history'] if e['kind']=='action'])==1
+    assert [e['kind'] for e in result['history']]==['action','ask','user_answer']
+    assert result['public_summary']['confirmed_user_choices']==dict(buffer_pad='buffer_back')
+    assert result['public_summary']['execution_history_coverage']['total_actions']==7
+    assert 'chronological_action_results' not in result['public_summary']
+    assert result['observation']['affordances']==public['observation']['affordances']
+    assert public['history'][:7]==before['history']
+
+
+def test_compact_and_append_profiles_use_identical_prompts_for_context_ablation():
+    from when2ask.buffer_context_dev_v3 import CompactProfile
+    for repaired in (False,True):
+        assert CompactProfile(True,repaired).hashes()==Profile(True,repaired).hashes()
+
+
+def test_structured_planner_returns_model_action_without_progress_or_preference_rewrite():
+    from when2ask.buffer_plan_dev_v4 import Planner as GroundedPlanner,PlanProfile
+    proposed=dict(kind='move',object_id='item_b',target_id='slot_right')
+    class Client:
+        def json(self,system,public,stage,validator,max_tokens):
+            assert max_tokens==400
+            return validator(dict(current_locations=dict(item_a=['buffer_front'],item_b=['slot_left']),
+                final_targets=dict(item_a='slot_right',item_b='slot_left'),working_buffer='buffer_front',remaining_plan=[proposed]))
+    profile=PlanProfile(True,True,True);planner=GroundedPlanner(Client(),profile)
+    assert planner.generate_action(profile.serialize(recorded(2)))==proposed
+    assert diagnose_action(recorded(2),proposed)['undoes_currently_satisfied_final_relation']
+
+
+def test_structured_plan_checks_only_public_grounding():
+    from when2ask.buffer_plan_dev_v4 import Planner as GroundedPlanner,PlanProfile
+    class Client:
+        def json(self,system,public,stage,validator,max_tokens):
+            return validator(dict(current_locations=dict(item_a=['slot_left'],item_b=['slot_right']),
+                final_targets=dict(item_a='slot_right',item_b='slot_left'),working_buffer='buffer_front',remaining_plan=[dict(kind='DONE')]))
+    profile=PlanProfile(True,True,True)
+    from when2ask.api import SchemaError
+    with pytest.raises(SchemaError,match='latest measured'):
+        GroundedPlanner(Client(),profile).generate_action(profile.serialize(recorded(2)))
+
+
+def test_structured_planner_is_shared_by_all_three_methods():
+    from when2ask.buffer_plan_dev_v4 import Planner as GroundedPlanner,PlanProfile,components as make
+    profile=PlanProfile(True,True,True)
+    pairs=[make(m,object(),object(),.5,profile) for m in ('llm_noask','llm_gate','jev_gate')]
+    assert pairs[0][0] is None
+    assert all(type(p)==GroundedPlanner and p.profile.hashes()==profile.hashes() for _,p in pairs)
+
+
 def test_opposite_hidden_preferences_have_identical_initial_public_payload():
     back=sample_for(next(c for c in cases() if c['case_id']=='unknown_back_v2_noask'))
     front=sample_for(next(c for c in cases() if c['case_id']=='unknown_front_v2_noask'))

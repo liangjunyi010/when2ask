@@ -1,0 +1,157 @@
+{
+  "version": "buffer_grounded_plan_dev_v4",
+  "reason": "V3 compact one-action output still undid completed relations. V4 asks the shared LLM for public state/goal grounding and a remaining plan, executes only its first action, and replans after the next gate.",
+  "v2_plan_sha256": "bce31a866a823af382821566342e949fc4ea4dd8f07a4563838c48be17add17a",
+  "v2_probe_summary_sha256": "81d0452c3faf2e518b74bc833b9bf1d3e1e05c46f393bf432d22b5a00d14424f",
+  "v3_probe_summary_sha256": "db06fcb453a5129cf9581cb6c4f8bfdb26fde47145a817043d7c345cd7ba50e5",
+  "adaptation_notice": "Adaptive Dev iteration after negative probes; not a confirmatory preregistered finding.",
+  "before_any_complete_episode": true,
+  "session_before": {
+    "attempts": 24,
+    "episodes": 0,
+    "backends": {
+      "deepseek": {
+        "consecutive_errors": 0,
+        "blocked": false
+      }
+    },
+    "policy": "phase2",
+    "max_attempts": 120,
+    "max_episodes": 6
+  },
+  "source_hashes": {
+    "task6_spec.py": "ea573cb0384b2d7fecb5ad9d9df71fcda889c3cb3c67d50e2b37b942d6775305",
+    "task6_world.py": "2c1cd3ec30c47079328103a54f202ac8c3ace5a3f00b4d380279d3395d8e1897",
+    "task6_protocol.py": "00d9aedc257a8689d7fde7e592dd532c332b1c3e174d8a2493c82f883faed311",
+    "task6_evaluator.py": "d0d6398a81dfd887a9ca9cbc103b4448b8e64275a0be2977bc13898600c343a3",
+    "task6_worker.py": "b791525e2e568dd9f0fcf062180f2e01a146ba00d8006ae292dda0b0b906ce8c",
+    "environment.py": "1c97b2b1be9fc7aba9942228b2ab3771f162f5f6ee192fb3dfd76d8764237e19",
+    "skills.py": "a7b1a41a0a635e44734fac7dd3b8347bd169b371c44979a3a59b1a644c66a409",
+    "diverse_world.py": "42743f748bf91928b5dc4838e36b08d338bf362bc195f5188bb34b8ddc94a339",
+    "navigation_world.py": "93587bd87eb4b7118ee427d86c0b812092bb5e2ac0a0224bcf6c020d7d6cde29",
+    "navigation_map.py": "1b24d3bc3181a65a2307730415f701c03fc91485f501fe6d044c431bde2c6b27",
+    "task6_agents.py": "56f5c0fceb84d54a7d3235379db62759593c05a5e9ca4edbdae79f41f9c3821f",
+    "buffer_public_dev.py": "08f53618eea279eea984fe23a2ac183725478dd0efd8daf2ec1c5f27e81c1bc1",
+    "buffer_planner_dev.py": "601ce8286d457226aab06b9a903df4e53cc337b0b661d363619df225481297a4",
+    "buffer_study_dev.py": "c4ad6055be1a83ca7302f7436b337859f51a03463ee7a09c7463cb4d21e30cbe",
+    "api.py": "45c820362b077017f9025025629895dd2230838c1ddeb9aad09bddb41e823155",
+    "accounting.py": "e0bb943f74e5bcd2b245078bf22a33805fbd6ce7aefaad915f2456600bc09d4c",
+    "buffer_context_dev_v3.py": "bd108598b9caee473e5846f77870bf61e00c666cc954de124c8165b9d9dcc347",
+    "buffer_plan_dev_v4.py": "bc0a5727038f080051188967fd5812fe1fdb112bc88a875c8c28ccd3582893d4",
+    "buffer_study_dev_v4.py": "8109dc76b9482a38dca641a9880f771f710ec6e055b0735e719afad66d83168f"
+  },
+  "configuration": {
+    "deepseek_model": "deepseek-flash",
+    "jev_model": "jev-latest",
+    "jev_threshold": 0.5,
+    "timeout_s": 40,
+    "max_retries": 1,
+    "max_tokens": 500,
+    "thinking": "disabled",
+    "response_format": "json_object"
+  },
+  "budgets": {
+    "shared_authenticated_attempts": 120,
+    "complete_episodes": 6,
+    "additional_action_probes": 8,
+    "max_plan_output_tokens": 400
+  },
+  "changes": "Same provider/non-thinking/temperature/threshold/physics/evaluator; action output cap increases 160 to 400 for every new-method planner. Public grounding errors use existing one-retry accounting. No action mask/rewrite or cached future action.",
+  "probe_jobs": [
+    {
+      "round": 4,
+      "compact_context": true
+    },
+    {
+      "round": 4,
+      "compact_context": false
+    },
+    {
+      "round": 2,
+      "compact_context": true
+    },
+    {
+      "round": 7,
+      "compact_context": false
+    },
+    {
+      "round": 7,
+      "compact_context": true
+    },
+    {
+      "round": 9,
+      "compact_context": false
+    },
+    {
+      "round": 2,
+      "compact_context": false
+    },
+    {
+      "round": 9,
+      "compact_context": true
+    }
+  ],
+  "episode_jobs": [
+    {
+      "case_id": "known_back_v4_noask",
+      "known": true,
+      "truth": "buffer_back",
+      "method": "llm_noask",
+      "summary": true,
+      "planner_repair": true,
+      "original_control_id": "known_back_v2_noask",
+      "baseline_v1": false
+    },
+    {
+      "case_id": "unknown_front_v4_noask",
+      "known": false,
+      "truth": "buffer_front",
+      "method": "llm_noask",
+      "summary": true,
+      "planner_repair": true,
+      "original_control_id": "unknown_front_v2_noask",
+      "baseline_v1": false
+    },
+    {
+      "case_id": "unknown_back_v4_jev",
+      "known": false,
+      "truth": "buffer_back",
+      "method": "jev_gate",
+      "summary": true,
+      "planner_repair": true,
+      "original_control_id": "unknown_back_v2_jev",
+      "baseline_v1": false
+    },
+    {
+      "case_id": "unknown_back_v4_noask",
+      "known": false,
+      "truth": "buffer_back",
+      "method": "llm_noask",
+      "summary": true,
+      "planner_repair": true,
+      "original_control_id": "unknown_back_v2_noask",
+      "baseline_v1": false
+    },
+    {
+      "case_id": "known_back_v1_noask",
+      "known": true,
+      "truth": "buffer_back",
+      "method": "llm_noask",
+      "summary": false,
+      "planner_repair": false,
+      "original_control_id": "known_back_v1_noask",
+      "baseline_v1": true
+    },
+    {
+      "case_id": "unknown_back_v4_llm",
+      "known": false,
+      "truth": "buffer_back",
+      "method": "llm_gate",
+      "summary": true,
+      "planner_repair": true,
+      "original_control_id": "unknown_back_v2_llm",
+      "baseline_v1": false
+    }
+  ],
+  "default_console_unchanged": true
+}

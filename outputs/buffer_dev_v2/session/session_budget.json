@@ -1,0 +1,13 @@
+{
+  "attempts": 32,
+  "episodes": 0,
+  "backends": {
+    "deepseek": {
+      "consecutive_errors": 0,
+      "blocked": false
+    }
+  },
+  "policy": "phase2",
+  "max_attempts": 120,
+  "max_episodes": 6
+}
