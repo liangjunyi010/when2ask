@@ -1,13 +1,25 @@
 {
-  "attempts": 32,
-  "episodes": 0,
+  "attempts": 69,
+  "episodes": 6,
   "backends": {
     "deepseek": {
+      "consecutive_errors": 0,
+      "blocked": false
+    },
+    "jev": {
       "consecutive_errors": 0,
       "blocked": false
     }
   },
   "policy": "phase2",
   "max_attempts": 120,
-  "max_episodes": 6
+  "max_episodes": 6,
+  "episode_ids": [
+    "known_back_v4_noask",
+    "unknown_front_v4_noask",
+    "unknown_back_v4_jev",
+    "unknown_back_v4_noask",
+    "known_back_v1_noask",
+    "unknown_back_v4_llm"
+  ]
 }

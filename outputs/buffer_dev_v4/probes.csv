@@ -1,0 +1,9 @@
+profile,probes,valid_responses,goal_regressions,occupied_slot_targets,errors
+s0p0,4,4,2,0,0
+s0p1,4,4,1,0,0
+s1p0,4,4,2,0,0
+s1p1,4,4,1,0,0
+s1p0c1,4,4,2,0,0
+s1p1c1,4,4,2,0,0
+grounded_plan_compact,4,4,0,0,0
+grounded_plan_append,4,4,0,0,0

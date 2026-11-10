@@ -1,0 +1,221 @@
+{
+  "scope": "Six cases in one physical group; unknown-back three methods are matched",
+  "rows": [
+    {
+      "case_id": "known_back_v4_noask",
+      "method": "llm_noask",
+      "profile": "grounded_plan_compact",
+      "physical_swap_complete": true,
+      "task_success": true,
+      "burden": 0,
+      "actions": 3,
+      "termination_reason": "done",
+      "cost": {
+        "deepseek": {
+          "attempts": 4,
+          "input_tokens": 8937,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 330,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 4727.505500997722,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 4,
+        "api_latency_ms": 4727.505500997722,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      },
+      "error": null
+    },
+    {
+      "case_id": "unknown_front_v4_noask",
+      "method": "llm_noask",
+      "profile": "grounded_plan_compact",
+      "physical_swap_complete": true,
+      "task_success": true,
+      "burden": 0,
+      "actions": 3,
+      "termination_reason": "done",
+      "cost": {
+        "deepseek": {
+          "attempts": 4,
+          "input_tokens": 8921,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 330,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 4698.044583998126,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 4,
+        "api_latency_ms": 4698.044583998126,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      },
+      "error": null
+    },
+    {
+      "case_id": "unknown_back_v4_jev",
+      "method": "jev_gate",
+      "profile": "grounded_plan_compact",
+      "physical_swap_complete": true,
+      "task_success": true,
+      "burden": 1,
+      "actions": 3,
+      "termination_reason": "done",
+      "cost": {
+        "deepseek": {
+          "attempts": 5,
+          "input_tokens": 11289,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 374,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 5646.715374999985,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 5,
+          "input_tokens": 16638,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 120,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 1547.8767080021498,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 10,
+        "api_latency_ms": 7194.592083002135,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      },
+      "error": null
+    },
+    {
+      "case_id": "unknown_back_v4_noask",
+      "method": "llm_noask",
+      "profile": "grounded_plan_compact",
+      "physical_swap_complete": true,
+      "task_success": false,
+      "burden": 0,
+      "actions": 3,
+      "termination_reason": "done",
+      "cost": {
+        "deepseek": {
+          "attempts": 4,
+          "input_tokens": 8921,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 330,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 5086.637542000972,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 4,
+        "api_latency_ms": 5086.637542000972,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      },
+      "error": null
+    },
+    {
+      "case_id": "known_back_v1_noask",
+      "method": "llm_noask",
+      "profile": "s0p0",
+      "physical_swap_complete": true,
+      "task_success": true,
+      "burden": 0,
+      "actions": 3,
+      "termination_reason": "done",
+      "cost": {
+        "deepseek": {
+          "attempts": 5,
+          "input_tokens": 11950,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 71,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 3973.930375997952,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 5,
+        "api_latency_ms": 3973.930375997952,
+        "retries": 1,
+        "schema_errors": 1,
+        "api_errors": 0
+      },
+      "error": null
+    },
+    {
+      "case_id": "unknown_back_v4_llm",
+      "method": "llm_gate",
+      "profile": "grounded_plan_compact",
+      "physical_swap_complete": true,
+      "task_success": true,
+      "burden": 1,
+      "actions": 3,
+      "termination_reason": "done",
+      "cost": {
+        "deepseek": {
+          "attempts": 10,
+          "input_tokens": 22355,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 407,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 10254.43204200019,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 10,
+        "api_latency_ms": 10254.43204200019,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      },
+      "error": null
+    }
+  ]
+}

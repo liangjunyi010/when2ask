@@ -1,0 +1,10 @@
+{
+  "url": "http://127.0.0.1:8893/",
+  "six_real_videos_decoded": true,
+  "play_pause_seek": true,
+  "playback_rate": 3,
+  "mobile_no_overflow": true,
+  "negative_iterations_displayed": true,
+  "console_errors": [],
+  "authenticated_requests": 0
+}
