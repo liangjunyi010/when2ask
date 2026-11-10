@@ -10,7 +10,11 @@ def interaction_status(task):
     nav=task.template=='find_and_approach'
     missing=[]
     if task.observation:
-        if nav:
+        from .task6_spec import TITLES
+        if task.template in TITLES:
+            from .task6_protocol import known_choices,payload
+            missing=sorted(set(task.observation['task']['preference_slots'])-set(known_choices(payload(task.sample.u0,task.observation,task.history))))
+        elif nav:
             from .navigation_protocol import location_claim
             if not location_claim(task.sample.u0,task.history) and not task.observation.get('target_observation'):
                 missing=['target_location']
@@ -64,10 +68,12 @@ def ground_truth(task):
             initial=[dict(role='target_location',object_id=location,label=LOCATIONS[location]['name'])],
             evaluated=[dict(role='target_location',object_id=location,label=LOCATIONS[location]['name'])],manual_changes=[])
     initial=task.sample.theta_star;effective={**initial,**task.goal_overrides}
+    fact=any(r.get('kind')=='world_fact' for r in task.sample.slots.values())
+    if fact:effective=initial
     def rows(values):
         return [dict(role=task.sample.slots[k]['public_role'],object_id=v,label=names.get(v,v)) for k,v in values.items()]
-    return dict(protocol='interactive_declared_preferences' if task.answer_mode=='manual' else 'fixed_demo_preferences',
-        meaning='预置隐藏偏好与本次实际评分目标分别显示。人工对未公开偏好的回答定义本次交互目标。' if task.answer_mode=='manual' else '自动用户按预置隐藏偏好回答；评分目标固定。',
+    return dict(protocol='fixed_world_fact' if fact else 'interactive_declared_preferences' if task.answer_mode=='manual' else 'fixed_demo_preferences',
+        meaning='固定世界事实；人工回答不能改变标签或代替真实观察。' if fact else '预置隐藏偏好与本次实际评分目标分别显示。人工对未公开偏好的回答定义本次交互目标。' if task.answer_mode=='manual' else '自动用户按预置隐藏偏好回答；评分目标固定。',
         initial=rows(initial),evaluated=rows(effective),
         manual_changes=[dict(role=task.sample.slots[k]['public_role'],before=names.get(initial[k],initial[k]),after=names.get(v,v))
                         for k,v in task.goal_overrides.items() if initial[k]!=v])
@@ -78,9 +84,12 @@ def review(task):
     if getattr(task, 'scenario_id', None):
         from .presentation_scenarios import catalogue
         scenario = next(e for e in catalogue() if e['sample_id'] == task.scenario_id)
+    from .task6_spec import TITLES,VERSION
+    new=task.template in TITLES
     return dict(original_instruction=task.sample.u0,instruction_origin='generated_task_instruction',
         scenario=scenario, public_dag=None if task.template=='find_and_approach' else copy.deepcopy(task.sample.dag),
         interaction=interaction_status(task),conversation=conversation(task),ground_truth=ground_truth(task),
         truth_revealed=task.status in TERMINAL,
         engine=dict(tabletop='shared_task_contract_v3.1',navigation='navigation_search_dev_v1',
-            notice='当前交互控制台保留基础策略；Navigation Dev v2 是独立研究实验，未自动替换。'))
+            task_version=VERSION if new else None,
+            notice='独立六任务 Dev v1：新场景、新任务评分，未替换原冻结研究配置。' if new else '当前交互控制台保留基础策略；Navigation Dev v2 是独立研究实验，未自动替换。'))

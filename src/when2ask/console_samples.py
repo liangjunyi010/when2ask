@@ -4,17 +4,24 @@ import re
 from dataclasses import replace
 
 from .study_data import load_study
+from .task6_spec import TITLES as NEW_TASKS
 
 TEMPLATES = {
     'pack_and_cover': ('Pack and Cover', 'v3_dev_010'),
     'place_into_selected_containers': ('Two Selected Containers', 'v3_dev_026'),
     'find_and_approach': ('Three-room Find & Approach', 'navigation_dev_v1'),
 }
+TEMPLATES.update({k:(v,'task6_'+k+'_001') for k,v in NEW_TASKS.items()})
 
 
 def demo_sample(template, unknown_preferences=None, navigation_case=None, scenario_id=None):
     if template not in TEMPLATES:
         raise ValueError('Unknown task template')
+    if template in NEW_TASKS:
+        from .task6_spec import make_sample
+        if scenario_id is not None or navigation_case is not None:
+            raise ValueError('New tasks have their own independent fixed demo scene')
+        return make_sample(template,unknown_preferences)
     if scenario_id is not None:
         from .presentation_scenarios import get_sample
         sample = get_sample(scenario_id)

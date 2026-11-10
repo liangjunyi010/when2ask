@@ -99,6 +99,8 @@ class Task:
         self.output = Path(output) / 'tasks' / self.id
         self.output.mkdir(parents=True, exist_ok=False)
         self.audit = Audit(self.id, config, path=self.output / 'api_attempts.jsonl')
+        from .task6_spec import TITLES
+        if self.template in TITLES:self.audit.limit=32
         self.version = 0
         self.last_seen = time.monotonic()
 
@@ -119,7 +121,7 @@ class Task:
             history=self.history[-8:], actions=self.actions, burden=self.burden, cost=self.audit.summary(),
             evaluation=self.finalization.get('evaluation') if self.finalization else None,
             error=self.error, worker_id=self.worker_id, worker_pid=self.worker_pid, version=self.version,
-            evaluation_protocol=('fixed_world_location' if self.template == 'find_and_approach' else
+            evaluation_protocol=('fixed_world_fact' if any(r.get('kind')=='world_fact' for r in self.sample.slots.values()) else 'fixed_world_location' if self.template == 'find_and_approach' else
                 'interactive_declared_preferences' if self.answer_mode == 'manual' else 'fixed_demo_preferences')))
 
 
@@ -151,10 +153,18 @@ class TaskManager:
             ('skills.py', 'environment.py', 'diverse_world.py', 'study_evaluator.py', 'console_samples.py')}
         from .navigation_worker import SOURCES
         self.navigation_signature = {name: hashlib.sha256((package / name).read_bytes()).hexdigest() for name in SOURCES}
+        from .task6_spec import SOURCES as NEW_SOURCES
+        self.new_task_signature={name:hashlib.sha256((package/name).read_bytes()).hexdigest() for name in NEW_SOURCES}
+
+    def signature(self,template):
+        from .task6_spec import TITLES
+        return self.new_task_signature if template in TITLES else self.navigation_signature if template=='find_and_approach' else self.physics_signature
 
     def metadata(self):
         from .presentation_scenarios import catalogue as scenarios
-        return dict(templates=catalogue(), scenarios=scenarios(), methods=list(METHODS), live_enabled=self.allow_live,
+        from .task6_spec import TITLES,make_sample
+        return dict(templates=catalogue(), scenarios=scenarios(), new_tasks=list(TITLES), methods=list(METHODS), live_enabled=self.allow_live,
+                    new_task_catalogue={key:dict(title=title,instruction=make_sample(key).u0,dag=make_sample(key).dag) for key,title in TITLES.items()},
                     concurrency=self.capacity, budget=self.ledger.snapshot(),
                     models=self.config.public_config(), protocol_version=2)
 
@@ -195,6 +205,9 @@ class TaskManager:
                 raise ValueError('Navigation has 0/1 unknown location fact and case_a/b/c')
         elif 'navigation_case' in options:
             raise ValueError('navigation_case only applies to navigation')
+        from .task6_spec import TITLES
+        if options['template'] in TITLES and options.get('unknown_preferences',1) not in (0,1):
+            raise ValueError('New tasks have 0/1 unknown preference or world fact')
         if 'scenario_id' in options:
             if not isinstance(options['scenario_id'], str):
                 raise ValueError('scenario_id must be a named presentation preset')
@@ -258,14 +271,17 @@ class TaskManager:
             from .study_agents import prompt_hashes
             if options['template'] == 'find_and_approach':
                 from .navigation_agents import prompt_hashes
+            from .task6_spec import TITLES
+            if options['template'] in TITLES:
+                from .task6_agents import prompt_hashes
             sample = tasks[0].sample
             group = dict(id=cid, created=time.time(), options=copy.deepcopy(options),
                 task_ids=[t.id for t in tasks], partition='interactive_demo_on_dev_layout',
                 source_sample_id=sample.sample_id, scene_seed=sample.scene_seed,
                 public_scene_sha256=hashlib.sha256(json.dumps(dict(scene=sample.scene(), instruction=sample.u0), sort_keys=True).encode()).hexdigest(),
                 planner_configuration=self.config.public_config(), prompt_hashes=prompt_hashes(),
-                physics_signature=self.navigation_signature if options['template']=='find_and_approach' else self.physics_signature, answer_mode='auto',
-                evaluation_protocol='fixed_world_location' if options['template']=='find_and_approach' else 'fixed_demo_preferences',
+                physics_signature=self.signature(options['template']), answer_mode='auto',
+                evaluation_protocol=tasks[0].public()['evaluation_protocol'],
                 note='One paired interactive instance; not a benchmark ranking.')
             self.comparisons[cid] = group
             self.comparison_keys[key] = (signature, cid)
@@ -351,7 +367,7 @@ class TaskManager:
             return dict(task_id=task.id, template=task.template, unknown_preferences=task.unknown_preferences, source_sample_id=task.sample.sample_id,
                         navigation_case=getattr(task.sample,'case_id',None),
                         scenario_id=task.scenario_id,
-                        physics_signature=self.navigation_signature if task.template=='find_and_approach' else self.physics_signature,
+                        physics_signature=self.signature(task.template),
                         scene_sha256=hashlib.sha256(json.dumps(scene, sort_keys=True).encode()).hexdigest())
 
     def owned(self, task_id, worker_id):
@@ -481,6 +497,10 @@ class TaskManager:
 
     @staticmethod
     def validate_answer(task, response):
+        from .task6_spec import TITLES
+        if task.template in TITLES:
+            from .task6_protocol import validate_answer
+            return validate_answer(task._question,task._question_state,response)
         question = task._question
         roles = question.roles()
         if not isinstance(response, dict):

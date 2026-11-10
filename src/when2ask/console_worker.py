@@ -25,6 +25,10 @@ class WorkerCancelled(RuntimeError):
 
 
 def run_physics_task(server, token_file, worker_id, job, speed=3.0, fps=8):
+    from .task6_spec import TITLES
+    if job['template'] in TITLES:
+        from .task6_worker import run_physics_task as new_task_worker
+        return new_task_worker(server,token_file,worker_id,job,speed=speed,fps=fps)
     if job['template'] == 'find_and_approach':
         from .navigation_worker import run_physics_task as navigation_worker
         return navigation_worker(server, token_file, worker_id, job, speed=1, fps=fps)

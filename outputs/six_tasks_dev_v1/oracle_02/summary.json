@@ -1,0 +1,86 @@
+{
+  "successes": 6,
+  "total": 6,
+  "rows": [
+    {
+      "template": "category_sorting",
+      "success": true,
+      "conditions": {
+        "all_items_in_category_bins": true,
+        "categories_not_mixed": true,
+        "robot_released": true,
+        "all_movable_objects_stable": true
+      },
+      "error": null
+    },
+    {
+      "template": "inventory_restock",
+      "success": true,
+      "conditions": {
+        "exact_cup_inventory": true,
+        "exact_block_inventory": true,
+        "original_stock_untouched": true,
+        "surplus_stock_untouched": true,
+        "robot_released": true,
+        "all_movable_objects_stable": true
+      },
+      "error": null
+    },
+    {
+      "template": "retrieve_restore",
+      "success": true,
+      "conditions": {
+        "selected_item_delivered": true,
+        "other_item_left_inside": true,
+        "box_reclosed": true,
+        "uncover_retrieve_restore_order": true,
+        "robot_released": true,
+        "all_movable_objects_stable": true
+      },
+      "error": null
+    },
+    {
+      "template": "buffer_exchange",
+      "success": true,
+      "conditions": {
+        "items_exchanged": true,
+        "selected_buffer_physically_used": true,
+        "other_buffer_unused": true,
+        "buffers_empty_at_end": true,
+        "capacity_respected": true,
+        "buffer_exchange_order": true,
+        "robot_released": true,
+        "all_movable_objects_stable": true
+      },
+      "error": null
+    },
+    {
+      "template": "patrol_return",
+      "success": true,
+      "conditions": {
+        "required_stations_physically_inspected": true,
+        "returned_to_start": true,
+        "inspections_before_return": true,
+        "robot_stopped": true,
+        "no_wall_penetration": true,
+        "distance_budget_respected": true
+      },
+      "error": null
+    },
+    {
+      "template": "occlusion_inspection",
+      "success": true,
+      "conditions": {
+        "screen_parked": true,
+        "label_physically_observed": true,
+        "line_of_sight_clear_now": true,
+        "correct_report_after_inspection": true,
+        "label_not_moved": true,
+        "robot_released": true,
+        "all_movable_objects_stable": true
+      },
+      "error": null
+    }
+  ],
+  "api_attempts": 0
+}

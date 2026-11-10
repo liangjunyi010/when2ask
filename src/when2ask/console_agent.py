@@ -16,6 +16,10 @@ from .user_simulator import PreferenceResolver
 
 
 def run_agent(manager, task):
+    from .task6_spec import TITLES
+    if task.template in TITLES:
+        from .task6_console import run_agent as new_task_agent
+        return new_task_agent(manager,task)
     if task.template == 'find_and_approach':
         from .navigation_console import run_agent as navigation_agent
         return navigation_agent(manager, task)

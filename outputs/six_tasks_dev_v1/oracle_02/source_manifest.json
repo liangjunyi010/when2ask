@@ -1,0 +1,15 @@
+{
+  "verification": "Same physical sources verified by six real-physics pytest oracles, after adding fixture collision bodies and a graspable cylindrical category.",
+  "source_hashes": {
+    "task6_spec.py": "ea573cb0384b2d7fecb5ad9d9df71fcda889c3cb3c67d50e2b37b942d6775305",
+    "task6_world.py": "2c1cd3ec30c47079328103a54f202ac8c3ace5a3f00b4d380279d3395d8e1897",
+    "task6_protocol.py": "00d9aedc257a8689d7fde7e592dd532c332b1c3e174d8a2493c82f883faed311",
+    "task6_evaluator.py": "d0d6398a81dfd887a9ca9cbc103b4448b8e64275a0be2977bc13898600c343a3",
+    "task6_worker.py": "b791525e2e568dd9f0fcf062180f2e01a146ba00d8006ae292dda0b0b906ce8c",
+    "environment.py": "1c97b2b1be9fc7aba9942228b2ab3771f162f5f6ee192fb3dfd76d8764237e19",
+    "skills.py": "a7b1a41a0a635e44734fac7dd3b8347bd169b371c44979a3a59b1a644c66a409",
+    "diverse_world.py": "42743f748bf91928b5dc4838e36b08d338bf362bc195f5188bb34b8ddc94a339",
+    "navigation_world.py": "93587bd87eb4b7118ee427d86c0b812092bb5e2ac0a0224bcf6c020d7d6cde29",
+    "navigation_map.py": "1b24d3bc3181a65a2307730415f701c03fc91485f501fe6d044c431bde2c6b27"
+  }
+}

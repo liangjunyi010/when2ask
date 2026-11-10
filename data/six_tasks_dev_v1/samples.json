@@ -1,0 +1,655 @@
+{
+  "version": "six_tasks_dev_v1",
+  "purpose": "six new task templates, not frozen benchmark",
+  "samples": [
+    {
+      "template_id": "category_sorting",
+      "sample_id": "task6_category_sorting_001",
+      "scene_seed": 4278,
+      "u0": "Sort all six objects into three category bins. Cups go in bin_a. Ask for the user's block_bin choice if needed; pucks use the OTHER bin among bin_b and bin_c. Do not mix categories. Release every object. You can sort the known cups before needing the missing rule.",
+      "slots": {
+        "block_bin_choice": {
+          "public_role": "block_bin",
+          "candidate_ids": [
+            "bin_b",
+            "bin_c"
+          ],
+          "description": "Which bin should contain the blocks? Pucks use the remaining bin.",
+          "kind": "preference"
+        }
+      },
+      "theta_star": {
+        "block_bin_choice": "bin_c"
+      },
+      "initial_disclosed_slots": [],
+      "public_goal": {
+        "cup_bin": "bin_a",
+        "other_bins": [
+          "bin_b",
+          "bin_c"
+        ],
+        "categories": [
+          "cup",
+          "block",
+          "puck"
+        ]
+      },
+      "physical_scene": {
+        "containers": [
+          {
+            "id": "bin_a",
+            "xy": [
+              0.55,
+              -0.29
+            ],
+            "half_xy": [
+              0.085,
+              0.085
+            ],
+            "wall_height": 0.1,
+            "color": "orange"
+          },
+          {
+            "id": "bin_b",
+            "xy": [
+              0.57,
+              0
+            ],
+            "half_xy": [
+              0.085,
+              0.085
+            ],
+            "wall_height": 0.1,
+            "color": "orange"
+          },
+          {
+            "id": "bin_c",
+            "xy": [
+              0.55,
+              0.29
+            ],
+            "half_xy": [
+              0.085,
+              0.085
+            ],
+            "wall_height": 0.1,
+            "color": "orange"
+          }
+        ],
+        "objects": [
+          {
+            "id": "cup_1",
+            "category": "cup",
+            "xy": [
+              0.28,
+              -0.3
+            ],
+            "color": "red"
+          },
+          {
+            "id": "cup_2",
+            "category": "cup",
+            "xy": [
+              0.37,
+              -0.18
+            ],
+            "color": "blue"
+          },
+          {
+            "id": "block_1",
+            "category": "block",
+            "xy": [
+              0.28,
+              -0.06
+            ],
+            "color": "green"
+          },
+          {
+            "id": "block_2",
+            "category": "block",
+            "xy": [
+              0.36,
+              0.06
+            ],
+            "color": "yellow"
+          },
+          {
+            "id": "puck_1",
+            "category": "puck",
+            "xy": [
+              0.28,
+              0.21
+            ],
+            "color": "purple"
+          },
+          {
+            "id": "puck_2",
+            "category": "puck",
+            "xy": [
+              0.36,
+              0.34
+            ],
+            "color": "cyan"
+          }
+        ]
+      },
+      "dag": {
+        "nodes": [
+          "sort_cups",
+          "sort_blocks",
+          "sort_pucks"
+        ],
+        "edges": []
+      }
+    },
+    {
+      "template_id": "inventory_restock",
+      "sample_id": "task6_inventory_restock_001",
+      "scene_seed": 4278,
+      "u0": "Restock the cup shelf to exactly 2 cups. Restock the block shelf to the user's block_quota, either 2 or 3 blocks. Count current physical contents first and add only the deficit. Do not move already stocked items or surplus spare stock. Cup replenishment is fully specified even before the block quota is known.",
+      "slots": {
+        "block_quota_choice": {
+          "public_role": "block_quota",
+          "candidate_ids": [
+            "2",
+            "3"
+          ],
+          "description": "How many blocks should the block shelf hold in total: 2 or 3?",
+          "kind": "preference"
+        }
+      },
+      "theta_star": {
+        "block_quota_choice": "3"
+      },
+      "initial_disclosed_slots": [],
+      "public_goal": {
+        "cup_bin": "cup_shelf",
+        "block_bin": "block_shelf",
+        "cup_quota": 2
+      },
+      "physical_scene": {
+        "containers": [
+          {
+            "id": "cup_shelf",
+            "xy": [
+              0.56,
+              -0.19
+            ],
+            "half_xy": [
+              0.12,
+              0.095
+            ],
+            "wall_height": 0.1,
+            "color": "orange"
+          },
+          {
+            "id": "block_shelf",
+            "xy": [
+              0.56,
+              0.19
+            ],
+            "half_xy": [
+              0.12,
+              0.095
+            ],
+            "wall_height": 0.1,
+            "color": "orange"
+          }
+        ],
+        "objects": [
+          {
+            "id": "stocked_cup",
+            "category": "cup",
+            "xy": [
+              0.515,
+              -0.19
+            ],
+            "color": "red",
+            "z": 0.465
+          },
+          {
+            "id": "stocked_block",
+            "category": "block",
+            "xy": [
+              0.515,
+              0.19
+            ],
+            "color": "green",
+            "z": 0.457
+          },
+          {
+            "id": "spare_cup_1",
+            "category": "cup",
+            "xy": [
+              0.29,
+              -0.29
+            ],
+            "color": "blue"
+          },
+          {
+            "id": "spare_cup_2",
+            "category": "cup",
+            "xy": [
+              0.29,
+              -0.15
+            ],
+            "color": "cyan"
+          },
+          {
+            "id": "spare_block_1",
+            "category": "block",
+            "xy": [
+              0.29,
+              0.045
+            ],
+            "color": "yellow"
+          },
+          {
+            "id": "spare_block_2",
+            "category": "block",
+            "xy": [
+              0.29,
+              0.25
+            ],
+            "color": "purple"
+          }
+        ]
+      },
+      "dag": {
+        "nodes": [
+          "count_inventory",
+          "replenish_cups",
+          "replenish_blocks"
+        ],
+        "edges": [
+          [
+            "count_inventory",
+            "replenish_cups"
+          ],
+          [
+            "count_inventory",
+            "replenish_blocks"
+          ]
+        ]
+      }
+    },
+    {
+      "template_id": "retrieve_restore",
+      "sample_id": "task6_retrieve_restore_001",
+      "scene_seed": 4278,
+      "u0": "Open the storage box by parking its lid on lid_pad. Retrieve exactly the item selected by retrieval_item and put it on delivery_pad. Then replace the lid to close the box. Leave the unselected item inside. The selected item is initially unspecified. Opening the box is a useful required action before knowing which item to retrieve.",
+      "slots": {
+        "retrieval_item_choice": {
+          "public_role": "retrieval_item",
+          "candidate_ids": [
+            "stored_cup",
+            "stored_block"
+          ],
+          "description": "Which item should be retrieved from the box?",
+          "kind": "preference"
+        }
+      },
+      "theta_star": {
+        "retrieval_item_choice": "stored_block"
+      },
+      "initial_disclosed_slots": [],
+      "public_goal": {
+        "box": "box",
+        "lid": "storage_lid",
+        "lid_pad": "lid_pad",
+        "delivery_pad": "delivery_pad",
+        "items": [
+          "stored_cup",
+          "stored_block"
+        ]
+      },
+      "physical_scene": {
+        "containers": [
+          {
+            "id": "box",
+            "xy": [
+              0.57,
+              0.06
+            ],
+            "half_xy": [
+              0.14,
+              0.12
+            ],
+            "wall_height": 0.11,
+            "color": "brown"
+          }
+        ],
+        "zones": [
+          {
+            "id": "lid_pad",
+            "xy": [
+              0.3,
+              0.39
+            ],
+            "half_xy": [
+              0.16,
+              0.14
+            ]
+          },
+          {
+            "id": "delivery_pad",
+            "xy": [
+              0.33,
+              -0.22
+            ],
+            "half_xy": [
+              0.075,
+              0.075
+            ]
+          }
+        ],
+        "objects": [
+          {
+            "id": "stored_cup",
+            "category": "cup",
+            "xy": [
+              0.518,
+              0.025
+            ],
+            "color": "blue",
+            "z": 0.465
+          },
+          {
+            "id": "stored_block",
+            "category": "block",
+            "xy": [
+              0.622,
+              0.095
+            ],
+            "color": "green",
+            "z": 0.457
+          },
+          {
+            "id": "storage_lid",
+            "category": "lid",
+            "xy": [
+              0.57,
+              0.06
+            ],
+            "color": "black",
+            "z": 0.55
+          }
+        ]
+      },
+      "dag": {
+        "nodes": [
+          "uncover",
+          "retrieve",
+          "restore_lid"
+        ],
+        "edges": [
+          [
+            "uncover",
+            "retrieve"
+          ],
+          [
+            "retrieve",
+            "restore_lid"
+          ]
+        ]
+      }
+    },
+    {
+      "template_id": "buffer_exchange",
+      "sample_id": "task6_buffer_exchange_001",
+      "scene_seed": 4278,
+      "u0": "Exchange item_a in slot_left and item_b in slot_right. Each slot holds at most one item. Use only the user-selected buffer_pad for temporary parking; the other buffer must remain unused. Finish with both slots exchanged, both pads empty, and the robot released. The required buffer_pad is unspecified.",
+      "slots": {
+        "buffer_pad_choice": {
+          "public_role": "buffer_pad",
+          "candidate_ids": [
+            "buffer_front",
+            "buffer_back"
+          ],
+          "description": "Which temporary pad should be used for the exchange?",
+          "kind": "preference"
+        }
+      },
+      "theta_star": {
+        "buffer_pad_choice": "buffer_back"
+      },
+      "initial_disclosed_slots": [],
+      "public_goal": {
+        "left": "slot_left",
+        "right": "slot_right",
+        "item_a": "item_a",
+        "item_b": "item_b",
+        "buffers": [
+          "buffer_front",
+          "buffer_back"
+        ]
+      },
+      "physical_scene": {
+        "containers": [
+          {
+            "id": "slot_left",
+            "xy": [
+              0.55,
+              -0.16
+            ],
+            "half_xy": [
+              0.045,
+              0.045
+            ],
+            "wall_height": 0.075,
+            "color": "orange"
+          },
+          {
+            "id": "slot_right",
+            "xy": [
+              0.55,
+              0.16
+            ],
+            "half_xy": [
+              0.045,
+              0.045
+            ],
+            "wall_height": 0.075,
+            "color": "purple"
+          }
+        ],
+        "zones": [
+          {
+            "id": "buffer_front",
+            "xy": [
+              0.31,
+              -0.22
+            ],
+            "half_xy": [
+              0.065,
+              0.065
+            ]
+          },
+          {
+            "id": "buffer_back",
+            "xy": [
+              0.31,
+              0.22
+            ],
+            "half_xy": [
+              0.065,
+              0.065
+            ]
+          }
+        ],
+        "objects": [
+          {
+            "id": "item_a",
+            "category": "block",
+            "xy": [
+              0.55,
+              -0.16
+            ],
+            "color": "green",
+            "z": 0.457
+          },
+          {
+            "id": "item_b",
+            "category": "block",
+            "xy": [
+              0.55,
+              0.16
+            ],
+            "color": "yellow",
+            "z": 0.457
+          }
+        ]
+      },
+      "dag": {
+        "nodes": [
+          "park_a",
+          "move_b_left",
+          "move_a_right"
+        ],
+        "edges": [
+          [
+            "park_a",
+            "move_b_left"
+          ],
+          [
+            "move_b_left",
+            "move_a_right"
+          ]
+        ]
+      }
+    },
+    {
+      "template_id": "patrol_return",
+      "sample_id": "task6_patrol_return_001",
+      "scene_seed": 4278,
+      "u0": "Physically inspect living_cabinet and the user-selected extra_station (study_desk or study_shelf), then return to the starting pose area at [0,0] and stop. Inspection requires reaching the station and facing its equipment. Do not count a user answer as an inspection. You can inspect the known living_cabinet before clarifying extra_station.",
+      "slots": {
+        "extra_station_choice": {
+          "public_role": "extra_station",
+          "candidate_ids": [
+            "study_desk",
+            "study_shelf"
+          ],
+          "description": "Which additional study-room inspection station should be visited?",
+          "kind": "preference"
+        }
+      },
+      "theta_star": {
+        "extra_station_choice": "study_shelf"
+      },
+      "initial_disclosed_slots": [],
+      "public_goal": {
+        "required_station": "living_cabinet",
+        "home_xy": [
+          0,
+          0
+        ],
+        "home_radius_m": 0.22
+      },
+      "physical_scene": {
+        "kind": "patrol",
+        "map_version": "three_room_map_v1"
+      },
+      "dag": {
+        "nodes": [
+          "inspect_known",
+          "inspect_selected",
+          "return_home"
+        ],
+        "edges": [
+          [
+            "inspect_known",
+            "return_home"
+          ],
+          [
+            "inspect_selected",
+            "return_home"
+          ]
+        ]
+      }
+    },
+    {
+      "template_id": "occlusion_inspection",
+      "sample_id": "task6_occlusion_inspection_001",
+      "scene_seed": 4278,
+      "u0": "Move the opaque screen onto screen_pad, use the fixed inspection camera to inspect the label underneath, and report its actual code. Leave the label in place and the screen on its pad. The code is a fixed world fact, not a preference. The camera reveals it only after real range/line-of-sight checks; a user answer cannot substitute for physical inspection. No need to ask for a code that can be observed after clearing the screen.",
+      "slots": {
+        "inspection_code_choice": {
+          "public_role": "inspection_code",
+          "candidate_ids": [
+            "alpha",
+            "beta"
+          ],
+          "description": "What is the printed inspection code? Fixed world fact; physical verification still required.",
+          "kind": "world_fact"
+        }
+      },
+      "theta_star": {
+        "inspection_code_choice": "beta"
+      },
+      "initial_disclosed_slots": [],
+      "public_goal": {
+        "screen": "opaque_screen",
+        "screen_pad": "screen_pad",
+        "inspection_target": "label_fixture"
+      },
+      "physical_scene": {
+        "containers": [],
+        "zones": [
+          {
+            "id": "screen_pad",
+            "xy": [
+              0.3,
+              0.39
+            ],
+            "half_xy": [
+              0.16,
+              0.14
+            ]
+          }
+        ],
+        "objects": [
+          {
+            "id": "opaque_screen",
+            "category": "screen",
+            "xy": [
+              0.57,
+              0.06
+            ],
+            "color": "gray",
+            "z": 0.55
+          }
+        ],
+        "label": {
+          "xy": [
+            0.57,
+            0.06
+          ],
+          "code": "beta",
+          "eye": [
+            0.57,
+            0.06,
+            1.1
+          ]
+        }
+      },
+      "dag": {
+        "nodes": [
+          "clear_screen",
+          "inspect_label",
+          "report_code"
+        ],
+        "edges": [
+          [
+            "clear_screen",
+            "inspect_label"
+          ],
+          [
+            "inspect_label",
+            "report_code"
+          ]
+        ]
+      }
+    }
+  ]
+}
