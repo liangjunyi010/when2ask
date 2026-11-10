@@ -1,0 +1,519 @@
+{
+  "original_instruction": "Open the storage box by parking its lid on lid_pad. Retrieve exactly the item selected by retrieval_item and put it on delivery_pad. Then replace the lid to close the box. Leave the unselected item inside. The selected item is initially unspecified. Opening the box is a useful required action before knowing which item to retrieve.",
+  "instruction_origin": "generated_task_instruction",
+  "scenario": null,
+  "public_dag": {
+    "nodes": [
+      "uncover",
+      "retrieve",
+      "restore_lid"
+    ],
+    "edges": [
+      [
+        "uncover",
+        "retrieve"
+      ],
+      [
+        "retrieve",
+        "restore_lid"
+      ]
+    ]
+  },
+  "interaction": {
+    "message": "NoAsk 按定义不提问；不会出现回答表单。 结束时仍有未公开偏好，执行可能使用了猜测；成功与否由真实物理结果评分。",
+    "missing_roles": [
+      "retrieval_item"
+    ],
+    "manual_form_available": false,
+    "ask_turns": 0,
+    "threshold": 0.5
+  },
+  "conversation": [
+    {
+      "kind": "gate",
+      "round": 0,
+      "simulation_step": 240,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 0,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 0,
+      "simulation_step": 240,
+      "value": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 0,
+      "simulation_step": 3702,
+      "value": {
+        "skill": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3702,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 1,
+      "simulation_step": 3702,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 1,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 1,
+      "simulation_step": 3702,
+      "value": {
+        "kind": "move",
+        "object_id": "stored_cup",
+        "target_id": "delivery_pad"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 1,
+      "simulation_step": 7194,
+      "value": {
+        "skill": "move",
+        "object_id": "stored_cup",
+        "target_id": "delivery_pad",
+        "success": true,
+        "reason": "placed",
+        "start_step": 3702,
+        "end_step": 7194,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 2,
+      "simulation_step": 7194,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 2,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 2,
+      "simulation_step": 7194,
+      "value": {
+        "kind": "cover",
+        "object_id": "storage_lid"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 2,
+      "simulation_step": 11081,
+      "value": {
+        "skill": "cover",
+        "object_id": "storage_lid",
+        "target_id": "box",
+        "success": true,
+        "reason": "covered",
+        "start_step": 7194,
+        "end_step": 11081,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 3,
+      "simulation_step": 11081,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 3,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 3,
+      "simulation_step": 11081,
+      "value": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 3,
+      "simulation_step": 14473,
+      "value": {
+        "skill": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad",
+        "success": true,
+        "reason": "placed",
+        "start_step": 11081,
+        "end_step": 14473,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 4,
+      "simulation_step": 14473,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 4,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 4,
+      "simulation_step": 14473,
+      "value": {
+        "kind": "cover",
+        "object_id": "storage_lid"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 4,
+      "simulation_step": 17792,
+      "value": {
+        "skill": "cover",
+        "object_id": "storage_lid",
+        "target_id": "box",
+        "success": true,
+        "reason": "covered",
+        "start_step": 14473,
+        "end_step": 17792,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 5,
+      "simulation_step": 17792,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 5,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 5,
+      "simulation_step": 17792,
+      "value": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 5,
+      "simulation_step": 21184,
+      "value": {
+        "skill": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad",
+        "success": true,
+        "reason": "placed",
+        "start_step": 17792,
+        "end_step": 21184,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 6,
+      "simulation_step": 21184,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 6,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 6,
+      "simulation_step": 21184,
+      "value": {
+        "kind": "cover",
+        "object_id": "storage_lid"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 6,
+      "simulation_step": 24503,
+      "value": {
+        "skill": "cover",
+        "object_id": "storage_lid",
+        "target_id": "box",
+        "success": true,
+        "reason": "covered",
+        "start_step": 21184,
+        "end_step": 24503,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 7,
+      "simulation_step": 24503,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 7,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 7,
+      "simulation_step": 24503,
+      "value": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 7,
+      "simulation_step": 27895,
+      "value": {
+        "skill": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad",
+        "success": true,
+        "reason": "placed",
+        "start_step": 24503,
+        "end_step": 27895,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 8,
+      "simulation_step": 27895,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 8,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 8,
+      "simulation_step": 27895,
+      "value": {
+        "kind": "cover",
+        "object_id": "storage_lid"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 8,
+      "simulation_step": 31214,
+      "value": {
+        "skill": "cover",
+        "object_id": "storage_lid",
+        "target_id": "box",
+        "success": true,
+        "reason": "covered",
+        "start_step": 27895,
+        "end_step": 31214,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 9,
+      "simulation_step": 31214,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 9,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 9,
+      "simulation_step": 31214,
+      "value": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 9,
+      "simulation_step": 34606,
+      "value": {
+        "skill": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad",
+        "success": true,
+        "reason": "placed",
+        "start_step": 31214,
+        "end_step": 34606,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 10,
+      "simulation_step": 34606,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 10,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 10,
+      "simulation_step": 34606,
+      "value": {
+        "kind": "cover",
+        "object_id": "storage_lid"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 10,
+      "simulation_step": 37925,
+      "value": {
+        "skill": "cover",
+        "object_id": "storage_lid",
+        "target_id": "box",
+        "success": true,
+        "reason": "covered",
+        "start_step": 34606,
+        "end_step": 37925,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 11,
+      "simulation_step": 37925,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 11,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 11,
+      "simulation_step": 37925,
+      "value": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 11,
+      "simulation_step": 41317,
+      "value": {
+        "skill": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad",
+        "success": true,
+        "reason": "placed",
+        "start_step": 37925,
+        "end_step": 41317,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 12,
+      "simulation_step": 41317,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": null,
+        "round": 12,
+        "called": false,
+        "backend": "none"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 12,
+      "simulation_step": 41317,
+      "value": {
+        "kind": "cover",
+        "object_id": "storage_lid"
+      }
+    }
+  ],
+  "ground_truth": {
+    "protocol": "fixed_demo_preferences",
+    "meaning": "自动用户按预置隐藏偏好回答；评分目标固定。",
+    "initial": [
+      {
+        "role": "retrieval_item",
+        "object_id": "stored_block",
+        "label": "green block / stored_block"
+      }
+    ],
+    "evaluated": [
+      {
+        "role": "retrieval_item",
+        "object_id": "stored_block",
+        "label": "green block / stored_block"
+      }
+    ],
+    "manual_changes": []
+  },
+  "truth_revealed": true,
+  "engine": {
+    "tabletop": "shared_task_contract_v3.1",
+    "navigation": "navigation_search_dev_v1",
+    "task_version": "six_tasks_dev_v1",
+    "notice": "独立六任务 Dev v1：新场景、新任务评分，未替换原冻结研究配置。"
+  }
+}

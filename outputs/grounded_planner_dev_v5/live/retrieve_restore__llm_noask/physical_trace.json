@@ -1,0 +1,6036 @@
+{
+  "actions": [
+    {
+      "skill": "move",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3702,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "stored_cup",
+      "target_id": "delivery_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3702,
+      "end_step": 7194,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "cover",
+      "object_id": "storage_lid",
+      "target_id": "box",
+      "success": true,
+      "reason": "covered",
+      "start_step": 7194,
+      "end_step": 11081,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 11081,
+      "end_step": 14473,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "cover",
+      "object_id": "storage_lid",
+      "target_id": "box",
+      "success": true,
+      "reason": "covered",
+      "start_step": 14473,
+      "end_step": 17792,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 17792,
+      "end_step": 21184,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "cover",
+      "object_id": "storage_lid",
+      "target_id": "box",
+      "success": true,
+      "reason": "covered",
+      "start_step": 21184,
+      "end_step": 24503,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 24503,
+      "end_step": 27895,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "cover",
+      "object_id": "storage_lid",
+      "target_id": "box",
+      "success": true,
+      "reason": "covered",
+      "start_step": 27895,
+      "end_step": 31214,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 31214,
+      "end_step": 34606,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "cover",
+      "object_id": "storage_lid",
+      "target_id": "box",
+      "success": true,
+      "reason": "covered",
+      "start_step": 34606,
+      "end_step": 37925,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 37925,
+      "end_step": 41317,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "execution_log": [
+    {
+      "kind": "placement_started",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "step": 240
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "storage_lid",
+      "step": 240,
+      "end_effector": [
+        0.428022563457489,
+        3.169046749462723e-06,
+        0.859183669090271
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "storage_lid",
+      "step": 951,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.0037707718353978585,
+      "closest_hand_distance_m": 0.013521419046840483
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "storage_lid",
+      "step": 1011,
+      "end_effector": [
+        0.5699889659881592,
+        0.05997447296977043,
+        0.5739933848381042
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "storage_lid",
+      "step": 1373,
+      "end_effector": [
+        0.5699659585952759,
+        0.06000000983476639,
+        0.8253815770149231
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "storage_lid",
+      "step": 1975,
+      "end_effector": [
+        0.30288583040237427,
+        0.38642117381095886,
+        0.8299381732940674
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "storage_lid",
+      "step": 2727
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "storage_lid",
+      "step": 3462,
+      "end_effector": [
+        0.29997116327285767,
+        0.38997530937194824,
+        0.8262202739715576
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3702,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "stored_cup",
+      "target_id": "delivery_pad",
+      "step": 3702
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "stored_cup",
+      "step": 3702,
+      "end_effector": [
+        0.2999538481235504,
+        0.38995856046676636,
+        0.8299896717071533
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "stored_cup",
+      "step": 4789,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.0037663650292194084,
+      "closest_hand_distance_m": 0.03345443586237392
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "stored_cup",
+      "step": 4849,
+      "end_effector": [
+        0.5210548043251038,
+        0.02229474112391472,
+        0.5289979577064514
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "stored_cup",
+      "step": 5274,
+      "end_effector": [
+        0.5210658311843872,
+        0.022286104038357735,
+        0.8253946304321289
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "stored_cup",
+      "step": 5710,
+      "end_effector": [
+        0.3328445851802826,
+        -0.21637968719005585,
+        0.8299448490142822
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "stored_cup",
+      "step": 6332
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "stored_cup",
+      "step": 6954,
+      "end_effector": [
+        0.32998767495155334,
+        -0.2199515700340271,
+        0.8262248635292053
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "stored_cup",
+      "target_id": "delivery_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3702,
+      "end_step": 7194,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "cover_started",
+      "step": 7194,
+      "contents_before": [
+        "stored_block"
+      ],
+      "released_before": true,
+      "lid_id": "storage_lid"
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "storage_lid",
+      "step": 7194,
+      "end_effector": [
+        0.32997119426727295,
+        -0.21994000673294067,
+        0.8299939036369324
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "storage_lid",
+      "step": 8615,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004001587389734022,
+      "closest_hand_distance_m": 0.013748718627855637
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "storage_lid",
+      "step": 8675,
+      "end_effector": [
+        0.3002060055732727,
+        0.3900265693664551,
+        0.45017191767692566
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "storage_lid",
+      "step": 9212,
+      "end_effector": [
+        0.30016809701919556,
+        0.39005178213119507,
+        0.8254134654998779
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "storage_lid",
+      "step": 9815,
+      "end_effector": [
+        0.5670946836471558,
+        0.0634470134973526,
+        0.8299311995506287
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "storage_lid",
+      "step": 10319
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "storage_lid",
+      "step": 10841,
+      "end_effector": [
+        0.5700063109397888,
+        0.05988048017024994,
+        0.8261969685554504
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "cover",
+      "object_id": "storage_lid",
+      "target_id": "box",
+      "success": true,
+      "reason": "covered",
+      "start_step": 7194,
+      "end_step": 11081,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "step": 11081
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "storage_lid",
+      "step": 11081,
+      "end_effector": [
+        0.5699855089187622,
+        0.05988067016005516,
+        0.8299701809883118
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "storage_lid",
+      "step": 11722,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.003773903450650828,
+      "closest_hand_distance_m": 0.013525395368055177
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "storage_lid",
+      "step": 11782,
+      "end_effector": [
+        0.5699869990348816,
+        0.05998579412698746,
+        0.5739985704421997
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "storage_lid",
+      "step": 12144,
+      "end_effector": [
+        0.5699504613876343,
+        0.059992801398038864,
+        0.8253835439682007
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "storage_lid",
+      "step": 12746,
+      "end_effector": [
+        0.3028939664363861,
+        0.3864024877548218,
+        0.8299348950386047
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "storage_lid",
+      "step": 13498
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "storage_lid",
+      "step": 14233,
+      "end_effector": [
+        0.2999950647354126,
+        0.3899783790111542,
+        0.8262232542037964
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 11081,
+      "end_step": 14473,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "cover_started",
+      "step": 14473,
+      "contents_before": [
+        "stored_block"
+      ],
+      "released_before": true,
+      "lid_id": "storage_lid"
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "storage_lid",
+      "step": 14473,
+      "end_effector": [
+        0.2999766170978546,
+        0.3899620771408081,
+        0.8299918174743652
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "storage_lid",
+      "step": 15327,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.003983989974784933,
+      "closest_hand_distance_m": 0.013731831622674643
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "storage_lid",
+      "step": 15387,
+      "end_effector": [
+        0.3001042902469635,
+        0.38995108008384705,
+        0.4501582384109497
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "storage_lid",
+      "step": 15924,
+      "end_effector": [
+        0.30007436871528625,
+        0.38997361063957214,
+        0.8254125714302063
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "storage_lid",
+      "step": 16526,
+      "end_effector": [
+        0.567108154296875,
+        0.06352284550666809,
+        0.8299309015274048
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "storage_lid",
+      "step": 17030
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "storage_lid",
+      "step": 17552,
+      "end_effector": [
+        0.5700242519378662,
+        0.059952471405267715,
+        0.8261971473693848
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "cover",
+      "object_id": "storage_lid",
+      "target_id": "box",
+      "success": true,
+      "reason": "covered",
+      "start_step": 14473,
+      "end_step": 17792,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "step": 17792
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "storage_lid",
+      "step": 17792,
+      "end_effector": [
+        0.5700034499168396,
+        0.05995229259133339,
+        0.8299703598022461
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "storage_lid",
+      "step": 18433,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.003774758148508231,
+      "closest_hand_distance_m": 0.013527191416890502
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "storage_lid",
+      "step": 18493,
+      "end_effector": [
+        0.5700005292892456,
+        0.05999317392706871,
+        0.5740001797676086
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "storage_lid",
+      "step": 18855,
+      "end_effector": [
+        0.569965124130249,
+        0.06000106781721115,
+        0.8253836631774902
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "storage_lid",
+      "step": 19457,
+      "end_effector": [
+        0.30289939045906067,
+        0.3864095211029053,
+        0.8299352526664734
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "storage_lid",
+      "step": 20209
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "storage_lid",
+      "step": 20944,
+      "end_effector": [
+        0.2999963164329529,
+        0.38997963070869446,
+        0.8262225389480591
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 17792,
+      "end_step": 21184,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "cover_started",
+      "step": 21184,
+      "contents_before": [
+        "stored_block"
+      ],
+      "released_before": true,
+      "lid_id": "storage_lid"
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "storage_lid",
+      "step": 21184,
+      "end_effector": [
+        0.2999780774116516,
+        0.38996341824531555,
+        0.8299912810325623
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "storage_lid",
+      "step": 22038,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.00396731920265332,
+      "closest_hand_distance_m": 0.013715375533282377
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "storage_lid",
+      "step": 22098,
+      "end_effector": [
+        0.30009955167770386,
+        0.3899553418159485,
+        0.4501452147960663
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "storage_lid",
+      "step": 22635,
+      "end_effector": [
+        0.3000726103782654,
+        0.38997629284858704,
+        0.8254116773605347
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "storage_lid",
+      "step": 23237,
+      "end_effector": [
+        0.5671074390411377,
+        0.06352588534355164,
+        0.8299305438995361
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "storage_lid",
+      "step": 23741
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "storage_lid",
+      "step": 24263,
+      "end_effector": [
+        0.5700222849845886,
+        0.059956006705760956,
+        0.8261968493461609
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "cover",
+      "object_id": "storage_lid",
+      "target_id": "box",
+      "success": true,
+      "reason": "covered",
+      "start_step": 21184,
+      "end_step": 24503,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "step": 24503
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "storage_lid",
+      "step": 24503,
+      "end_effector": [
+        0.570001482963562,
+        0.05995563417673111,
+        0.8299704790115356
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "storage_lid",
+      "step": 25144,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.0037760265196555218,
+      "closest_hand_distance_m": 0.013528431925660738
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "storage_lid",
+      "step": 25204,
+      "end_effector": [
+        0.570002019405365,
+        0.05999177321791649,
+        0.5740017890930176
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "storage_lid",
+      "step": 25566,
+      "end_effector": [
+        0.5699666738510132,
+        0.06000048294663429,
+        0.8253836631774902
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "storage_lid",
+      "step": 26168,
+      "end_effector": [
+        0.3029046058654785,
+        0.38641536235809326,
+        0.8299357891082764
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "storage_lid",
+      "step": 26920
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "storage_lid",
+      "step": 27655,
+      "end_effector": [
+        0.29999834299087524,
+        0.38998082280158997,
+        0.8262219429016113
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 24503,
+      "end_step": 27895,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "cover_started",
+      "step": 27895,
+      "contents_before": [
+        "stored_block"
+      ],
+      "released_before": true,
+      "lid_id": "storage_lid"
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "storage_lid",
+      "step": 27895,
+      "end_effector": [
+        0.29998013377189636,
+        0.389964759349823,
+        0.829990804195404
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "storage_lid",
+      "step": 28749,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.003950696505989562,
+      "closest_hand_distance_m": 0.013699056627342011
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "storage_lid",
+      "step": 28809,
+      "end_effector": [
+        0.30009397864341736,
+        0.3899593949317932,
+        0.45013225078582764
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "storage_lid",
+      "step": 29346,
+      "end_effector": [
+        0.300070196390152,
+        0.3899790346622467,
+        0.8254109025001526
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "storage_lid",
+      "step": 29948,
+      "end_effector": [
+        0.5671058893203735,
+        0.06352878361940384,
+        0.8299300670623779
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "storage_lid",
+      "step": 30452
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "storage_lid",
+      "step": 30974,
+      "end_effector": [
+        0.5700196623802185,
+        0.05995940789580345,
+        0.8261966109275818
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "cover",
+      "object_id": "storage_lid",
+      "target_id": "box",
+      "success": true,
+      "reason": "covered",
+      "start_step": 27895,
+      "end_step": 31214,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "step": 31214
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "storage_lid",
+      "step": 31214,
+      "end_effector": [
+        0.569999098777771,
+        0.059958722442388535,
+        0.8299705982208252
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "storage_lid",
+      "step": 31855,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.0037769891131272794,
+      "closest_hand_distance_m": 0.013529489132934336
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "storage_lid",
+      "step": 31915,
+      "end_effector": [
+        0.5700064897537231,
+        0.05999379605054855,
+        0.5740025639533997
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "storage_lid",
+      "step": 32277,
+      "end_effector": [
+        0.5699697732925415,
+        0.06000267341732979,
+        0.8253834843635559
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "storage_lid",
+      "step": 32879,
+      "end_effector": [
+        0.30291032791137695,
+        0.38642096519470215,
+        0.8299363255500793
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "storage_lid",
+      "step": 33631
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "storage_lid",
+      "step": 34366,
+      "end_effector": [
+        0.3000014126300812,
+        0.38998275995254517,
+        0.8262214064598083
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 31214,
+      "end_step": 34606,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "cover_started",
+      "step": 34606,
+      "contents_before": [
+        "stored_block"
+      ],
+      "released_before": true,
+      "lid_id": "storage_lid"
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "storage_lid",
+      "step": 34606,
+      "end_effector": [
+        0.2999836504459381,
+        0.38996636867523193,
+        0.8299904465675354
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "storage_lid",
+      "step": 35460,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.003934481572824826,
+      "closest_hand_distance_m": 0.013682799362422343
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "storage_lid",
+      "step": 35520,
+      "end_effector": [
+        0.30008867383003235,
+        0.3899634778499603,
+        0.4501192271709442
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "storage_lid",
+      "step": 36057,
+      "end_effector": [
+        0.30006811022758484,
+        0.3899819254875183,
+        0.8254101276397705
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "storage_lid",
+      "step": 36659,
+      "end_effector": [
+        0.5671036243438721,
+        0.06353142112493515,
+        0.829929530620575
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "storage_lid",
+      "step": 37163
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "storage_lid",
+      "step": 37685,
+      "end_effector": [
+        0.5700168609619141,
+        0.05996265262365341,
+        0.8261963725090027
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "cover",
+      "object_id": "storage_lid",
+      "target_id": "box",
+      "success": true,
+      "reason": "covered",
+      "start_step": 34606,
+      "end_step": 37925,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "step": 37925
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "storage_lid",
+      "step": 37925,
+      "end_effector": [
+        0.5699962377548218,
+        0.05996153503656387,
+        0.8299705386161804
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "storage_lid",
+      "step": 38566,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.0037767685180810635,
+      "closest_hand_distance_m": 0.013529287339559423
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "storage_lid",
+      "step": 38626,
+      "end_effector": [
+        0.5700108408927917,
+        0.059996385127305984,
+        0.5740038156509399
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "storage_lid",
+      "step": 38988,
+      "end_effector": [
+        0.5699722170829773,
+        0.06000504270195961,
+        0.825383186340332
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "storage_lid",
+      "step": 39590,
+      "end_effector": [
+        0.3029155135154724,
+        0.38642629981040955,
+        0.8299369215965271
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "storage_lid",
+      "step": 40342
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "storage_lid",
+      "step": 41077,
+      "end_effector": [
+        0.3000045120716095,
+        0.3899851143360138,
+        0.8262209296226501
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 37925,
+      "end_step": 41317,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "checkpoints": [
+    {
+      "step": 240,
+      "action": "initial",
+      "contents": {
+        "box": [
+          "stored_cup",
+          "stored_block"
+        ]
+      },
+      "zones": {
+        "lid_pad": [],
+        "delivery_pad": []
+      },
+      "released": true,
+      "positions": {
+        "stored_cup": [
+          0.5210982581109922,
+          0.022293548199574735,
+          0.4639889265110943
+        ],
+        "stored_block": [
+          0.6219995236741692,
+          0.09500015092986444,
+          0.45598958971592707
+        ],
+        "storage_lid": [
+          0.5699999862202693,
+          0.0600000245439646,
+          0.5499898522436107
+        ]
+      }
+    },
+    {
+      "step": 3702,
+      "action": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      },
+      "contents": {
+        "box": [
+          "stored_cup",
+          "stored_block"
+        ]
+      },
+      "zones": {
+        "lid_pad": [
+          "storage_lid"
+        ],
+        "delivery_pad": []
+      },
+      "released": true,
+      "positions": {
+        "stored_cup": [
+          0.5210628443858742,
+          0.022279914097301148,
+          0.4639889264678663
+        ],
+        "stored_block": [
+          0.6219995236741692,
+          0.09500015092991249,
+          0.45598958971587755
+        ],
+        "storage_lid": [
+          0.30008819081807575,
+          0.3900115151711915,
+          0.4259888937547113
+        ]
+      }
+    },
+    {
+      "step": 7194,
+      "action": {
+        "kind": "move",
+        "object_id": "stored_cup",
+        "target_id": "delivery_pad"
+      },
+      "contents": {
+        "box": [
+          "stored_block"
+        ]
+      },
+      "zones": {
+        "lid_pad": [
+          "storage_lid"
+        ],
+        "delivery_pad": [
+          "stored_cup"
+        ]
+      },
+      "released": true,
+      "positions": {
+        "stored_cup": [
+          0.3296739072737597,
+          -0.21952390698016117,
+          0.44998991999434146
+        ],
+        "stored_block": [
+          0.6219995236741692,
+          0.09500015092996095,
+          0.45598958971582765
+        ],
+        "storage_lid": [
+          0.3001590152644901,
+          0.3900652244069928,
+          0.42598901271821116
+        ]
+      }
+    },
+    {
+      "step": 11081,
+      "action": {
+        "kind": "cover",
+        "object_id": "storage_lid"
+      },
+      "contents": {
+        "box": [
+          "stored_block"
+        ]
+      },
+      "zones": {
+        "lid_pad": [],
+        "delivery_pad": [
+          "stored_cup"
+        ]
+      },
+      "released": true,
+      "positions": {
+        "stored_cup": [
+          0.3296739071842144,
+          -0.21952390698943935,
+          0.4499899200504878
+        ],
+        "stored_block": [
+          0.6219995236741692,
+          0.09500015093001489,
+          0.455989589715772
+        ],
+        "storage_lid": [
+          0.5699885731278951,
+          0.05999773520864685,
+          0.5499883533657991
+        ]
+      }
+    },
+    {
+      "step": 14473,
+      "action": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      },
+      "contents": {
+        "box": [
+          "stored_block"
+        ]
+      },
+      "zones": {
+        "lid_pad": [
+          "storage_lid"
+        ],
+        "delivery_pad": [
+          "stored_cup"
+        ]
+      },
+      "released": true,
+      "positions": {
+        "stored_cup": [
+          0.3296739071060725,
+          -0.219523906997536,
+          0.44998992009946764
+        ],
+        "stored_block": [
+          0.6219995236741692,
+          0.09500015093006196,
+          0.4559895897157235
+        ],
+        "storage_lid": [
+          0.30006507942502836,
+          0.3899862642253096,
+          0.4259888925068294
+        ]
+      }
+    },
+    {
+      "step": 17792,
+      "action": {
+        "kind": "cover",
+        "object_id": "storage_lid"
+      },
+      "contents": {
+        "box": [
+          "stored_block"
+        ]
+      },
+      "zones": {
+        "lid_pad": [],
+        "delivery_pad": [
+          "stored_cup"
+        ]
+      },
+      "released": true,
+      "positions": {
+        "stored_cup": [
+          0.32967390702961225,
+          -0.21952390700545837,
+          0.44998992014737854
+        ],
+        "stored_block": [
+          0.6219995236741692,
+          0.09500015093010802,
+          0.45598958971567605
+        ],
+        "storage_lid": [
+          0.5700013473725986,
+          0.06000470743906361,
+          0.5499866655655091
+        ]
+      }
+    },
+    {
+      "step": 21184,
+      "action": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      },
+      "contents": {
+        "box": [
+          "stored_block"
+        ]
+      },
+      "zones": {
+        "lid_pad": [
+          "storage_lid"
+        ],
+        "delivery_pad": [
+          "stored_cup"
+        ]
+      },
+      "released": true,
+      "positions": {
+        "stored_cup": [
+          0.3296739069514703,
+          -0.21952390701353963,
+          0.4499899201963278
+        ],
+        "stored_block": [
+          0.6219995236741692,
+          0.0950001509301551,
+          0.45598958971562753
+        ],
+        "storage_lid": [
+          0.3000629025549749,
+          0.389987985485031,
+          0.4259889008986194
+        ]
+      }
+    },
+    {
+      "step": 24503,
+      "action": {
+        "kind": "cover",
+        "object_id": "storage_lid"
+      },
+      "contents": {
+        "box": [
+          "stored_block"
+        ]
+      },
+      "zones": {
+        "lid_pad": [],
+        "delivery_pad": [
+          "stored_cup"
+        ]
+      },
+      "released": true,
+      "positions": {
+        "stored_cup": [
+          0.3296739068750101,
+          -0.2195239070213699,
+          0.4499899202442086
+        ],
+        "stored_block": [
+          0.6219995236741692,
+          0.09500015093020116,
+          0.45598958971558007
+        ],
+        "storage_lid": [
+          0.5700014227249196,
+          0.060002974836323476,
+          0.5499869221681893
+        ]
+      }
+    },
+    {
+      "step": 27895,
+      "action": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      },
+      "contents": {
+        "box": [
+          "stored_block"
+        ]
+      },
+      "zones": {
+        "lid_pad": [
+          "storage_lid"
+        ],
+        "delivery_pad": [
+          "stored_cup"
+        ]
+      },
+      "released": true,
+      "positions": {
+        "stored_cup": [
+          0.32967390679686814,
+          -0.21952390702937238,
+          0.44998992029312745
+        ],
+        "stored_block": [
+          0.6219995236741692,
+          0.09500015093024823,
+          0.45598958971553155
+        ],
+        "storage_lid": [
+          0.3000600592596656,
+          0.38998959312816395,
+          0.42598900638962933
+        ]
+      }
+    },
+    {
+      "step": 31214,
+      "action": {
+        "kind": "cover",
+        "object_id": "storage_lid"
+      },
+      "contents": {
+        "box": [
+          "stored_block"
+        ]
+      },
+      "zones": {
+        "lid_pad": [],
+        "delivery_pad": [
+          "stored_cup"
+        ]
+      },
+      "released": true,
+      "positions": {
+        "stored_cup": [
+          0.3296739067204079,
+          -0.21952390703720265,
+          0.4499899203409781
+        ],
+        "stored_block": [
+          0.6219995236741692,
+          0.09500015093029429,
+          0.4559895897154841
+        ],
+        "storage_lid": [
+          0.5700033942526963,
+          0.06000409392877479,
+          0.5499869227964866
+        ]
+      }
+    },
+    {
+      "step": 34606,
+      "action": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      },
+      "contents": {
+        "box": [
+          "stored_block"
+        ]
+      },
+      "zones": {
+        "lid_pad": [
+          "storage_lid"
+        ],
+        "delivery_pad": [
+          "stored_cup"
+        ]
+      },
+      "released": true,
+      "positions": {
+        "stored_cup": [
+          0.329673906642266,
+          -0.21952390704520514,
+          0.44998992038986585
+        ],
+        "stored_block": [
+          0.6219995236741692,
+          0.09500015093034136,
+          0.4559895897154356
+        ],
+        "storage_lid": [
+          0.3000575508217419,
+          0.3899912922968952,
+          0.4259888903134766
+        ]
+      }
+    },
+    {
+      "step": 37925,
+      "action": {
+        "kind": "cover",
+        "object_id": "storage_lid"
+      },
+      "contents": {
+        "box": [
+          "stored_block"
+        ]
+      },
+      "zones": {
+        "lid_pad": [],
+        "delivery_pad": [
+          "stored_cup"
+        ]
+      },
+      "released": true,
+      "positions": {
+        "stored_cup": [
+          0.32967390656580575,
+          -0.2195239070530354,
+          0.4499899204376866
+        ],
+        "stored_block": [
+          0.6219995236741692,
+          0.09500015093038743,
+          0.4559895897153881
+        ],
+        "storage_lid": [
+          0.5700051829664212,
+          0.06000543038862856,
+          0.5499869438294375
+        ]
+      }
+    },
+    {
+      "step": 41317,
+      "action": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      },
+      "contents": {
+        "box": [
+          "stored_block"
+        ]
+      },
+      "zones": {
+        "lid_pad": [
+          "storage_lid"
+        ],
+        "delivery_pad": [
+          "stored_cup"
+        ]
+      },
+      "released": true,
+      "positions": {
+        "stored_cup": [
+          0.3296739064876638,
+          -0.2195239070610379,
+          0.4499899204865431
+        ],
+        "stored_block": [
+          0.6219995236741692,
+          0.0950001509304345,
+          0.4559895897153396
+        ],
+        "storage_lid": [
+          0.3000546136486779,
+          0.3899926369961036,
+          0.4259888924803205
+        ]
+      }
+    }
+  ],
+  "evaluation": {
+    "task_success": false,
+    "termination_reason": "robot_action_limit",
+    "conditions": {
+      "selected_item_delivered": false,
+      "other_item_left_inside": false,
+      "box_reclosed": false,
+      "uncover_retrieve_restore_order": false,
+      "robot_released": true,
+      "all_movable_objects_stable": true
+    },
+    "details": {
+      "selected_item": "stored_block",
+      "coverage": {
+        "covered": false,
+        "all_mouth_corners_covered": false,
+        "height_ok": false,
+        "flat": true,
+        "normal_z": 0.9999999999696113,
+        "rim_supported": false,
+        "support_contact_count": 0,
+        "stable": true
+      },
+      "robot_contact_counts": {
+        "stored_cup": 0,
+        "stored_block": 0,
+        "storage_lid": 0
+      }
+    },
+    "clarification_burden": 0,
+    "action_count": 12,
+    "successful_action_count": 12,
+    "simulation_steps": 41317,
+    "evaluator_version": "task6_geometry_contact_evidence_v1"
+  },
+  "recording": {
+    "renderer": "PyBullet ER_TINY_RENDERER",
+    "path": "demo.gif",
+    "frame_count": 869,
+    "encoded_frame_count": 869,
+    "stride": 48,
+    "frames": [
+      {
+        "simulation_step": 240,
+        "label": "retrieve_restore",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 288,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 336,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 384,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 432,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 480,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 528,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 576,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 624,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 672,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 720,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 768,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 816,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 864,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 912,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 960,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1008,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1056,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1104,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1152,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1200,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1248,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1296,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1344,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1392,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1440,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1488,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1536,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1584,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1632,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1680,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1728,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1776,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1824,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1872,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1920,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 1968,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2016,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2064,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2112,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2160,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2208,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2256,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2304,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2352,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2400,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2448,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2496,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2544,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2592,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2640,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2688,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2736,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2784,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2832,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2880,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2928,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 2976,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3024,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3072,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3120,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3168,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3216,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3264,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3312,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3360,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3408,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3456,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3504,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3552,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3600,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3648,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3696,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3702,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3744,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3792,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3840,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3888,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3936,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 3984,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4032,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4080,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4128,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4176,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4224,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4272,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4320,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4368,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4416,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4464,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4512,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4560,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4608,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4656,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4704,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4752,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4800,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4848,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4896,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4944,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 4992,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5040,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5088,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5136,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5184,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5232,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5280,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5328,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5376,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5424,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5472,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5520,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5568,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5616,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5664,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5712,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5760,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5808,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5856,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5904,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 5952,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6000,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6048,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6096,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6144,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6192,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6240,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6288,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6336,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6384,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6432,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6480,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6528,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6576,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6624,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6672,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6720,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6768,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6816,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6864,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6912,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 6960,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7008,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7056,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7104,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7152,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7194,
+        "label": "move stored_cup",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7200,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7248,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7296,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7344,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7392,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7440,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7488,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7536,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7584,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7632,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7680,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7728,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7776,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7824,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7872,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7920,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 7968,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8016,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8064,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8112,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8160,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8208,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8256,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8304,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8352,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8400,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8448,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8496,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8544,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8592,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8640,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8688,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8736,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8784,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8832,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8880,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8928,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 8976,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9024,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9072,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9120,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9168,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9216,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9264,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9312,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9360,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9408,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9456,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9504,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9552,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9600,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9648,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9696,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9744,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9792,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9840,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9888,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9936,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 9984,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10032,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10080,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10128,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10176,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10224,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10272,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10320,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10368,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10416,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10464,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10512,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10560,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10608,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10656,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10704,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10752,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10800,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10848,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10896,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10944,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 10992,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11040,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11081,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11088,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11136,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11184,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11232,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11280,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11328,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11376,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11424,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11472,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11520,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11568,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11616,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11664,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11712,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11760,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11808,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11856,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11904,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 11952,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12000,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12048,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12096,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12144,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12192,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12240,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12288,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12336,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12384,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12432,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12480,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12528,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12576,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12624,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12672,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12720,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12768,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12816,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12864,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12912,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 12960,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13008,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13056,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13104,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13152,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13200,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13248,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13296,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13344,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13392,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13440,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13488,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13536,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13584,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13632,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13680,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13728,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13776,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13824,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13872,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13920,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 13968,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14016,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14064,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14112,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14160,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14208,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14256,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14304,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14352,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14400,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14448,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14473,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14496,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14544,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14592,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14640,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14688,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14736,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14784,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14832,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14880,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14928,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 14976,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15024,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15072,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15120,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15168,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15216,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15264,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15312,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15360,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15408,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15456,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15504,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15552,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15600,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15648,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15696,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15744,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15792,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15840,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15888,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15936,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 15984,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16032,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16080,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16128,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16176,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16224,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16272,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16320,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16368,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16416,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16464,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16512,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16560,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16608,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16656,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16704,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16752,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16800,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16848,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16896,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16944,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 16992,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17040,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17088,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17136,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17184,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17232,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17280,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17328,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17376,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17424,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17472,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17520,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17568,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17616,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17664,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17712,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17760,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17792,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17808,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17856,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17904,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 17952,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18000,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18048,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18096,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18144,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18192,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18240,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18288,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18336,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18384,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18432,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18480,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18528,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18576,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18624,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18672,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18720,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18768,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18816,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18864,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18912,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 18960,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19008,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19056,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19104,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19152,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19200,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19248,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19296,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19344,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19392,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19440,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19488,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19536,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19584,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19632,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19680,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19728,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19776,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19824,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19872,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19920,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 19968,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20016,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20064,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20112,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20160,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20208,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20256,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20304,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20352,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20400,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20448,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20496,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20544,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20592,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20640,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20688,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20736,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20784,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20832,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20880,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20928,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 20976,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21024,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21072,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21120,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21168,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21184,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21216,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21264,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21312,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21360,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21408,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21456,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21504,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21552,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21600,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21648,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21696,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21744,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21792,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21840,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21888,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21936,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 21984,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22032,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22080,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22128,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22176,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22224,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22272,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22320,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22368,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22416,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22464,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22512,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22560,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22608,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22656,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22704,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22752,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22800,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22848,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22896,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22944,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 22992,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23040,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23088,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23136,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23184,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23232,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23280,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23328,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23376,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23424,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23472,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23520,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23568,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23616,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23664,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23712,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23760,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23808,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23856,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23904,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 23952,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24000,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24048,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24096,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24144,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24192,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24240,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24288,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24336,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24384,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24432,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24480,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24503,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24528,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24576,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24624,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24672,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24720,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24768,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24816,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24864,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24912,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 24960,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25008,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25056,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25104,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25152,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25200,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25248,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25296,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25344,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25392,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25440,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25488,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25536,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25584,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25632,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25680,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25728,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25776,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25824,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25872,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25920,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 25968,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26016,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26064,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26112,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26160,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26208,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26256,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26304,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26352,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26400,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26448,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26496,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26544,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26592,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26640,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26688,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26736,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26784,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26832,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26880,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26928,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 26976,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27024,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27072,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27120,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27168,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27216,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27264,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27312,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27360,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27408,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27456,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27504,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27552,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27600,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27648,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27696,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27744,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27792,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27840,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27888,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27895,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27936,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 27984,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28032,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28080,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28128,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28176,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28224,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28272,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28320,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28368,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28416,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28464,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28512,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28560,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28608,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28656,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28704,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28752,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28800,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28848,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28896,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28944,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 28992,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29040,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29088,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29136,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29184,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29232,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29280,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29328,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29376,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29424,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29472,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29520,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29568,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29616,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29664,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29712,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29760,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29808,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29856,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29904,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 29952,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30000,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30048,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30096,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30144,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30192,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30240,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30288,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30336,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30384,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30432,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30480,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30528,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30576,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30624,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30672,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30720,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30768,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30816,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30864,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30912,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 30960,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31008,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31056,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31104,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31152,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31200,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31214,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31248,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31296,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31344,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31392,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31440,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31488,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31536,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31584,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31632,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31680,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31728,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31776,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31824,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31872,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31920,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 31968,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32016,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32064,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32112,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32160,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32208,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32256,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32304,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32352,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32400,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32448,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32496,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32544,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32592,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32640,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32688,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32736,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32784,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32832,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32880,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32928,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 32976,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33024,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33072,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33120,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33168,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33216,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33264,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33312,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33360,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33408,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33456,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33504,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33552,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33600,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33648,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33696,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33744,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33792,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33840,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33888,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33936,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 33984,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34032,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34080,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34128,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34176,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34224,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34272,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34320,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34368,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34416,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34464,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34512,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34560,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34606,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34608,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34656,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34704,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34752,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34800,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34848,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34896,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34944,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 34992,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35040,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35088,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35136,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35184,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35232,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35280,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35328,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35376,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35424,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35472,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35520,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35568,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35616,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35664,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35712,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35760,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35808,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35856,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35904,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 35952,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36000,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36048,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36096,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36144,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36192,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36240,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36288,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36336,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36384,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36432,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36480,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36528,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36576,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36624,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36672,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36720,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36768,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36816,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36864,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36912,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 36960,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37008,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37056,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37104,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37152,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37200,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37248,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37296,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37344,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37392,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37440,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37488,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37536,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37584,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37632,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37680,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37728,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37776,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37824,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37872,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37920,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37925,
+        "label": "cover storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 37968,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38016,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38064,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38112,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38160,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38208,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38256,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38304,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38352,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38400,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38448,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38496,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38544,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38592,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38640,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38688,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38736,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38784,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38832,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38880,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38928,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 38976,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39024,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39072,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39120,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39168,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39216,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39264,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39312,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39360,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39408,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39456,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39504,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39552,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39600,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39648,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39696,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39744,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39792,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39840,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39888,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39936,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 39984,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40032,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40080,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40128,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40176,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40224,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40272,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40320,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40368,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40416,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40464,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40512,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40560,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40608,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40656,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40704,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40752,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40800,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40848,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40896,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40944,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 40992,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 41040,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 41088,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 41136,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 41184,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 41232,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 41280,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 41317,
+        "label": "move storage_lid",
+        "duration_ms": 200
+      },
+      {
+        "simulation_step": 41317,
+        "label": "FINAL success=False",
+        "duration_ms": 1200
+      }
+    ]
+  }
+}

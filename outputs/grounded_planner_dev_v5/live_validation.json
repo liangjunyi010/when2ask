@@ -1,0 +1,58 @@
+{
+  "evidence_kind": "live_models_real_pybullet_actual_html",
+  "created": [
+    {
+      "id": "cdc1ea90c91c4e8b",
+      "template": "occlusion_inspection",
+      "comparison_id": "517689138a8b45a4"
+    },
+    {
+      "id": "9c7587c40a6e416c",
+      "template": "occlusion_inspection",
+      "comparison_id": "517689138a8b45a4"
+    },
+    {
+      "id": "67d41a2ef5414267",
+      "template": "occlusion_inspection",
+      "comparison_id": "517689138a8b45a4"
+    },
+    {
+      "id": "b014201e33fb453e",
+      "template": "retrieve_restore",
+      "comparison_id": "e5fda556f09a4ade"
+    },
+    {
+      "id": "003c7bfe028f4e4f",
+      "template": "retrieve_restore",
+      "comparison_id": "e5fda556f09a4ade"
+    },
+    {
+      "id": "5613bf68fd154d4d",
+      "template": "retrieve_restore",
+      "comparison_id": "e5fda556f09a4ade"
+    },
+    {
+      "id": "13bf01222dca4ad6",
+      "template": "buffer_exchange",
+      "comparison_id": "283a02340d73490c"
+    },
+    {
+      "id": "2c1e46cc618842f6",
+      "template": "buffer_exchange",
+      "comparison_id": "283a02340d73490c"
+    },
+    {
+      "id": "e6faf2e853cc4722",
+      "template": "buffer_exchange",
+      "comparison_id": "283a02340d73490c"
+    }
+  ],
+  "comparisons": [
+    "517689138a8b45a4",
+    "e5fda556f09a4ade",
+    "283a02340d73490c"
+  ],
+  "episodes": 9,
+  "authenticated_requests": 121,
+  "console_errors": []
+}

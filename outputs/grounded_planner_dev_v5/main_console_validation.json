@@ -1,0 +1,9 @@
+{
+  "url": "http://127.0.0.1:8877/",
+  "default_profile_unchanged": true,
+  "optional_dev_profile_visible": true,
+  "manual_selection_available": true,
+  "restored_historical_cards": 10,
+  "authenticated_requests": 0,
+  "errors": []
+}

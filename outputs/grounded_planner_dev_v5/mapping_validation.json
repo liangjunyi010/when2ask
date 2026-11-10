@@ -1,0 +1,1041 @@
+{
+  "paired_initial_payloads_equal": true,
+  "source_hashes_unchanged": true,
+  "preserved_files": 2181,
+  "episodes": [
+    {
+      "episode_id": "e6faf2e853cc4722",
+      "template": "buffer_exchange",
+      "method": "jev_gate",
+      "wire_payload_valid": true,
+      "gate_before_planner": true,
+      "first_model_action_executed_verbatim": true,
+      "ask_state_unchanged": true,
+      "gate_sequence": [
+        {
+          "round": 0,
+          "decision": "ASK",
+          "p_ask": 0.53,
+          "step": 240,
+          "action": null,
+          "question": {
+            "type": "select",
+            "text": "Which temporary buffer pad should I use for the exchange?",
+            "requests": [
+              {
+                "role": "buffer_pad",
+                "candidate_ids": [
+                  "buffer_front",
+                  "buffer_back"
+                ]
+              }
+            ]
+          },
+          "answer": {
+            "choices": {
+              "buffer_pad": "buffer_back"
+            }
+          }
+        },
+        {
+          "round": 1,
+          "decision": "CONTINUE",
+          "p_ask": 0.04,
+          "step": 240,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "buffer_back"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 2,
+          "decision": "CONTINUE",
+          "p_ask": 0.05,
+          "step": 3791,
+          "action": {
+            "kind": "move",
+            "object_id": "item_b",
+            "target_id": "slot_left"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 3,
+          "decision": "CONTINUE",
+          "p_ask": 0.07,
+          "step": 7160,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "slot_right"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 4,
+          "decision": "CONTINUE",
+          "p_ask": 0.15,
+          "step": 10796,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "buffer_back"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 5,
+          "decision": "CONTINUE",
+          "p_ask": 0.08,
+          "step": 13942,
+          "action": {
+            "kind": "move",
+            "object_id": "item_b",
+            "target_id": "slot_right"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 6,
+          "decision": "CONTINUE",
+          "p_ask": 0.08,
+          "step": 17532,
+          "action": {
+            "kind": "move",
+            "object_id": "item_b",
+            "target_id": "slot_left"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 7,
+          "decision": "CONTINUE",
+          "p_ask": 0.06,
+          "step": 20731,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "slot_right"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 8,
+          "decision": "CONTINUE",
+          "p_ask": 0.1,
+          "step": 24366,
+          "action": {
+            "kind": "DONE"
+          },
+          "question": null,
+          "answer": null
+        }
+      ]
+    },
+    {
+      "episode_id": "2c1e46cc618842f6",
+      "template": "buffer_exchange",
+      "method": "llm_gate",
+      "wire_payload_valid": true,
+      "gate_before_planner": true,
+      "first_model_action_executed_verbatim": true,
+      "ask_state_unchanged": true,
+      "gate_sequence": [
+        {
+          "round": 0,
+          "decision": "ASK",
+          "p_ask": null,
+          "step": 240,
+          "action": null,
+          "question": {
+            "type": "select",
+            "text": "Which temporary buffer pad should I use for the exchange?",
+            "requests": [
+              {
+                "role": "buffer_pad",
+                "candidate_ids": [
+                  "buffer_front",
+                  "buffer_back"
+                ]
+              }
+            ]
+          },
+          "answer": {
+            "choices": {
+              "buffer_pad": "buffer_back"
+            }
+          }
+        },
+        {
+          "round": 1,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 240,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "buffer_back"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 2,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3791,
+          "action": {
+            "kind": "move",
+            "object_id": "item_b",
+            "target_id": "slot_left"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 3,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 7160,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "slot_right"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 4,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 10796,
+          "action": {
+            "kind": "DONE"
+          },
+          "question": null,
+          "answer": null
+        }
+      ]
+    },
+    {
+      "episode_id": "13bf01222dca4ad6",
+      "template": "buffer_exchange",
+      "method": "llm_noask",
+      "wire_payload_valid": true,
+      "gate_before_planner": true,
+      "first_model_action_executed_verbatim": true,
+      "ask_state_unchanged": true,
+      "gate_sequence": [
+        {
+          "round": 0,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 240,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "buffer_front"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 1,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3507,
+          "action": {
+            "kind": "move",
+            "object_id": "item_b",
+            "target_id": "slot_left"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 2,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 7097,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "slot_right"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 3,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 10803,
+          "action": {
+            "kind": "DONE"
+          },
+          "question": null,
+          "answer": null
+        }
+      ]
+    },
+    {
+      "episode_id": "67d41a2ef5414267",
+      "template": "occlusion_inspection",
+      "method": "jev_gate",
+      "wire_payload_valid": true,
+      "gate_before_planner": true,
+      "first_model_action_executed_verbatim": true,
+      "ask_state_unchanged": true,
+      "gate_sequence": [
+        {
+          "round": 0,
+          "decision": "CONTINUE",
+          "p_ask": 0.04,
+          "step": 240,
+          "action": {
+            "kind": "move",
+            "object_id": "opaque_screen",
+            "target_id": "screen_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 1,
+          "decision": "CONTINUE",
+          "p_ask": 0.04,
+          "step": 3702,
+          "action": {
+            "kind": "inspect",
+            "target_id": "label_fixture"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 2,
+          "decision": "CONTINUE",
+          "p_ask": 0.06,
+          "step": 3822,
+          "action": {
+            "kind": "report",
+            "code": "beta"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 3,
+          "decision": "CONTINUE",
+          "p_ask": 0.04,
+          "step": 3822,
+          "action": {
+            "kind": "DONE"
+          },
+          "question": null,
+          "answer": null
+        }
+      ]
+    },
+    {
+      "episode_id": "9c7587c40a6e416c",
+      "template": "occlusion_inspection",
+      "method": "llm_gate",
+      "wire_payload_valid": true,
+      "gate_before_planner": true,
+      "first_model_action_executed_verbatim": true,
+      "ask_state_unchanged": true,
+      "gate_sequence": [
+        {
+          "round": 0,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 240,
+          "action": {
+            "kind": "move",
+            "object_id": "opaque_screen",
+            "target_id": "screen_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 1,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3702,
+          "action": {
+            "kind": "inspect",
+            "target_id": "label_fixture"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 2,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3822,
+          "action": {
+            "kind": "report",
+            "code": "beta"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 3,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3822,
+          "action": {
+            "kind": "DONE"
+          },
+          "question": null,
+          "answer": null
+        }
+      ]
+    },
+    {
+      "episode_id": "cdc1ea90c91c4e8b",
+      "template": "occlusion_inspection",
+      "method": "llm_noask",
+      "wire_payload_valid": true,
+      "gate_before_planner": true,
+      "first_model_action_executed_verbatim": true,
+      "ask_state_unchanged": true,
+      "gate_sequence": [
+        {
+          "round": 0,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 240,
+          "action": {
+            "kind": "move",
+            "object_id": "opaque_screen",
+            "target_id": "screen_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 1,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3702,
+          "action": {
+            "kind": "inspect",
+            "target_id": "label_fixture"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 2,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3822,
+          "action": {
+            "kind": "report",
+            "code": "beta"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 3,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3822,
+          "action": {
+            "kind": "DONE"
+          },
+          "question": null,
+          "answer": null
+        }
+      ]
+    },
+    {
+      "episode_id": "5613bf68fd154d4d",
+      "template": "retrieve_restore",
+      "method": "jev_gate",
+      "wire_payload_valid": true,
+      "gate_before_planner": true,
+      "first_model_action_executed_verbatim": true,
+      "ask_state_unchanged": true,
+      "gate_sequence": [
+        {
+          "round": 0,
+          "decision": "CONTINUE",
+          "p_ask": 0.12,
+          "step": 240,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 1,
+          "decision": "ASK",
+          "p_ask": 0.81,
+          "step": 3702,
+          "action": null,
+          "question": {
+            "type": "select",
+            "text": "Which item should I retrieve from the box: the blue cup or the green block?",
+            "requests": [
+              {
+                "role": "retrieval_item",
+                "candidate_ids": [
+                  "stored_cup",
+                  "stored_block"
+                ]
+              }
+            ]
+          },
+          "answer": {
+            "choices": {
+              "retrieval_item": "stored_block"
+            }
+          }
+        },
+        {
+          "round": 2,
+          "decision": "CONTINUE",
+          "p_ask": 0.04,
+          "step": 3702,
+          "action": {
+            "kind": "move",
+            "object_id": "stored_block",
+            "target_id": "delivery_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 3,
+          "decision": "CONTINUE",
+          "p_ask": 0.06,
+          "step": 7484,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 4,
+          "decision": "CONTINUE",
+          "p_ask": 0.06,
+          "step": 11371,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 5,
+          "decision": "CONTINUE",
+          "p_ask": 0.1,
+          "step": 14763,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 6,
+          "decision": "CONTINUE",
+          "p_ask": 0.08,
+          "step": 18082,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 7,
+          "decision": "CONTINUE",
+          "p_ask": 0.11,
+          "step": 21474,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 8,
+          "decision": "CONTINUE",
+          "p_ask": 0.07,
+          "step": 24793,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 9,
+          "decision": "CONTINUE",
+          "p_ask": 0.09,
+          "step": 28185,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 10,
+          "decision": "CONTINUE",
+          "p_ask": 0.09,
+          "step": 31504,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 11,
+          "decision": "CONTINUE",
+          "p_ask": 0.12,
+          "step": 34896,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 12,
+          "decision": "CONTINUE",
+          "p_ask": 0.09,
+          "step": 38215,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 13,
+          "decision": "CONTINUE",
+          "p_ask": 0.1,
+          "step": 41607,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        }
+      ]
+    },
+    {
+      "episode_id": "003c7bfe028f4e4f",
+      "template": "retrieve_restore",
+      "method": "llm_gate",
+      "wire_payload_valid": true,
+      "gate_before_planner": true,
+      "first_model_action_executed_verbatim": true,
+      "ask_state_unchanged": true,
+      "gate_sequence": [
+        {
+          "round": 0,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 240,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 1,
+          "decision": "ASK",
+          "p_ask": null,
+          "step": 3702,
+          "action": null,
+          "question": {
+            "type": "select",
+            "text": "Which item should I retrieve from the box: the blue cup or the green block?",
+            "requests": [
+              {
+                "role": "retrieval_item",
+                "candidate_ids": [
+                  "stored_cup",
+                  "stored_block"
+                ]
+              }
+            ]
+          },
+          "answer": {
+            "choices": {
+              "retrieval_item": "stored_block"
+            }
+          }
+        },
+        {
+          "round": 2,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3702,
+          "action": {
+            "kind": "move",
+            "object_id": "stored_block",
+            "target_id": "delivery_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 3,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 7484,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 4,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 11371,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 5,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 14763,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 6,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 18082,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 7,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 21474,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 8,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 24793,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 9,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 28185,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 10,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 31504,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 11,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 34896,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 12,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 38215,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 13,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 41607,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        }
+      ]
+    },
+    {
+      "episode_id": "b014201e33fb453e",
+      "template": "retrieve_restore",
+      "method": "llm_noask",
+      "wire_payload_valid": true,
+      "gate_before_planner": true,
+      "first_model_action_executed_verbatim": true,
+      "ask_state_unchanged": true,
+      "gate_sequence": [
+        {
+          "round": 0,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 240,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 1,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3702,
+          "action": {
+            "kind": "move",
+            "object_id": "stored_cup",
+            "target_id": "delivery_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 2,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 7194,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 3,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 11081,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 4,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 14473,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 5,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 17792,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 6,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 21184,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 7,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 24503,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 8,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 27895,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 9,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 31214,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 10,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 34606,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 11,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 37925,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 12,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 41317,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        }
+      ]
+    }
+  ]
+}
