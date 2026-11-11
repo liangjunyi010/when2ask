@@ -18,6 +18,9 @@ from .user_simulator import PreferenceResolver
 def run_agent(manager, task):
     from .task6_spec import TITLES
     if task.template in TITLES:
+        if task.planner_profile == 'gate_dev_v7':
+            from .gate_ready_console import run_agent as gate_dev_agent
+            return gate_dev_agent(manager, task)
         if task.planner_profile == 'memory_dev_v6':
             from .memory_dev_console import run_agent as memory_agent
             return memory_agent(manager, task)

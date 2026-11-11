@@ -166,6 +166,7 @@ class TaskManager:
         from .task6_spec import TITLES,make_sample
         return dict(templates=catalogue(), scenarios=scenarios(), new_tasks=list(TITLES), methods=list(METHODS), live_enabled=self.allow_live,
                     planner_profiles=[dict(id='default_v1',label='Original / Default v1',templates=list(TEMPLATES)),
+                        dict(id='gate_dev_v7',label='Gate Dev v7 · optional',templates=['buffer_exchange','retrieve_restore','occlusion_inspection']),
                         dict(id='memory_dev_v6',label='Memory Dev v6 · optional',templates=['buffer_exchange','retrieve_restore','occlusion_inspection']),
                         dict(id='grounded_dev_v5',label='Grounded Dev v5 · optional',templates=['buffer_exchange','retrieve_restore','occlusion_inspection'])],
                     new_task_catalogue={key:dict(title=title,instruction=make_sample(key).u0,dag=make_sample(key).dag) for key,title in TITLES.items()},
@@ -204,7 +205,7 @@ class TaskManager:
             raise ValueError('Invalid task options')
         profile=options.get('planner_profile','default_v1')
         from .grounded_dev_public import PROFILE,SUPPORTED
-        if profile not in ('default_v1',PROFILE,'memory_dev_v6') or (profile in (PROFILE,'memory_dev_v6') and options['template'] not in SUPPORTED):
+        if profile not in ('default_v1',PROFILE,'memory_dev_v6','gate_dev_v7') or (profile in (PROFILE,'memory_dev_v6','gate_dev_v7') and options['template'] not in SUPPORTED):
             raise ValueError('Unsupported Planner profile for this task')
         if 'unknown_preferences' in options and (type(options['unknown_preferences']) is not int or not 0 <= options['unknown_preferences'] <= 3):
             raise ValueError('Unknown preferences must be an integer from 0 to 3')
@@ -286,6 +287,8 @@ class TaskManager:
                 from .grounded_dev_agents import prompt_hashes
             if options.get('planner_profile')=='memory_dev_v6':
                 from .memory_dev_agents import prompt_hashes
+            if options.get('planner_profile')=='gate_dev_v7':
+                from .gate_ready_dev import prompt_hashes
             sample = tasks[0].sample
             group = dict(id=cid, created=time.time(), options=copy.deepcopy(options),
                 task_ids=[t.id for t in tasks], partition='interactive_demo_on_dev_layout',
@@ -295,6 +298,9 @@ class TaskManager:
                 physics_signature=self.signature(options['template']), answer_mode='auto',
                 evaluation_protocol=tasks[0].public()['evaluation_protocol'],
                 note='One paired interactive instance; not a benchmark ranking.')
+            if options.get('planner_profile')=='gate_dev_v7':
+                from .gate_ready_dev import configuration
+                group['gate_configuration']=configuration()
             self.comparisons[cid] = group
             self.comparison_keys[key] = (signature, cid)
             for task in tasks:
