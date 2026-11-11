@@ -1,0 +1,221 @@
+{
+  "retrieval_root_cause": {
+    "old_source": "outputs/grounded_planner_dev_v5/live/retrieve_restore__llm_gate/episode.json",
+    "old_round": 4,
+    "current_objects": [
+      "box",
+      "storage_lid"
+    ],
+    "public_delivery_contents": [
+      "stored_block"
+    ],
+    "old_summary_locations": {
+      "storage_lid": []
+    },
+    "old_model_plan": {
+      "current_locations": {
+        "storage_lid": []
+      },
+      "goal_requirements": {
+        "box": "box",
+        "lid": "storage_lid",
+        "lid_pad": "lid_pad",
+        "delivery_pad": "delivery_pad",
+        "items": [
+          "stored_cup",
+          "stored_block"
+        ],
+        "other_item_remains_inside": true,
+        "restore_lid_after_delivery": true
+      },
+      "working_choices": {
+        "retrieval_item": "stored_block"
+      },
+      "remaining_plan": [
+        {
+          "kind": "move",
+          "object_id": "storage_lid",
+          "target_id": "lid_pad"
+        },
+        {
+          "kind": "DONE"
+        }
+      ]
+    },
+    "new_source": "outputs/memory_planner_dev_v6/live/retrieve_restore__llm_gate/episode.json",
+    "new_final_memory": {
+      "storage_lid": {
+        "status": "observed_now",
+        "regions": [],
+        "observed_step": 11371,
+        "source": "visible_geometry_unassigned",
+        "geometry_visible": true,
+        "currently_graspable": true,
+        "invalidated_after_step": null
+      },
+      "stored_block": {
+        "status": "observed_now",
+        "regions": [
+          "delivery_pad"
+        ],
+        "observed_step": 11371,
+        "source": "public_region_contents",
+        "geometry_visible": false,
+        "currently_graspable": false,
+        "invalidated_after_step": null
+      },
+      "stored_cup": {
+        "status": "remembered_occluded",
+        "regions": [
+          "box"
+        ],
+        "observed_step": 7484,
+        "source": "public_region_contents",
+        "geometry_visible": false,
+        "currently_graspable": false,
+        "invalidated_after_step": null
+      }
+    },
+    "new_completion": {
+      "ready_for_done": true,
+      "reason": "Selected item stored_block is observed on delivery_pad. Unselected stored_cup was observed inside box before the successful cover at step 11371. Lid AABB spans the opening at the rim and robot has released it. All public requirements met."
+    },
+    "new_action": {
+      "kind": "DONE"
+    }
+  },
+  "buffer_root_cause": {
+    "old_source": "outputs/grounded_planner_dev_v5/live/buffer_exchange__jev_gate/episode.json",
+    "old_round": 4,
+    "old_summary_locations": {
+      "item_a": [
+        "slot_right"
+      ],
+      "item_b": [
+        "slot_left"
+      ]
+    },
+    "old_goal": {
+      "final_targets": {
+        "item_a": "slot_right",
+        "item_b": "slot_left"
+      },
+      "buffer_candidates": [
+        "buffer_front",
+        "buffer_back"
+      ],
+      "buffers_empty_at_end": true
+    },
+    "old_bad_model_plan": {
+      "current_locations": {
+        "item_a": [
+          "slot_right"
+        ],
+        "item_b": [
+          "slot_left"
+        ]
+      },
+      "goal_requirements": {
+        "final_targets": {
+          "item_a": "slot_right",
+          "item_b": "slot_left"
+        },
+        "buffer_candidates": [
+          "buffer_front",
+          "buffer_back"
+        ],
+        "buffers_empty_at_end": true
+      },
+      "working_choices": {
+        "buffer_pad": "buffer_back"
+      },
+      "remaining_plan": [
+        {
+          "kind": "move",
+          "object_id": "item_a",
+          "target_id": "buffer_back"
+        },
+        {
+          "kind": "move",
+          "object_id": "item_b",
+          "target_id": "slot_right"
+        },
+        {
+          "kind": "move",
+          "object_id": "item_a",
+          "target_id": "slot_left"
+        },
+        {
+          "kind": "DONE"
+        }
+      ]
+    },
+    "new_final_relations": [
+      {
+        "object_id": "item_a",
+        "required_final_region": "slot_right",
+        "currently_observed_at_target": true,
+        "region_contents": [
+          "item_a"
+        ]
+      },
+      {
+        "object_id": "item_b",
+        "required_final_region": "slot_left",
+        "currently_observed_at_target": true,
+        "region_contents": [
+          "item_b"
+        ]
+      }
+    ],
+    "new_final_completion": {
+      "ready_for_done": true,
+      "reason": "item_a is observed in slot_right and item_b in slot_left, matching required final relations. Both buffer pads are empty and the robot holds nothing (released). Exchange is complete; no further moves needed."
+    },
+    "new_action": {
+      "kind": "DONE"
+    }
+  },
+  "unresolved_gate_case": {
+    "source": "outputs/memory_planner_dev_v6/live/buffer_exchange__jev_gate/episode.json",
+    "gate_sequence": [
+      {
+        "decision": "CONTINUE",
+        "p_ask": 0.43,
+        "round": 0,
+        "called": true,
+        "backend": "jev"
+      },
+      {
+        "decision": "CONTINUE",
+        "p_ask": 0.16,
+        "round": 1,
+        "called": true,
+        "backend": "jev"
+      },
+      {
+        "decision": "CONTINUE",
+        "p_ask": 0.21,
+        "round": 2,
+        "called": true,
+        "backend": "jev"
+      },
+      {
+        "decision": "CONTINUE",
+        "p_ask": 0.2,
+        "round": 3,
+        "called": true,
+        "backend": "jev"
+      }
+    ],
+    "failed_conditions": [
+      "selected_buffer_physically_used",
+      "other_buffer_unused",
+      "buffer_exchange_order"
+    ]
+  },
+  "physical_actions": 27,
+  "failed_physical_skills": 0,
+  "total_reopens": 0,
+  "total_regressions": 0
+}

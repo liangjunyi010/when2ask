@@ -1,0 +1,515 @@
+{
+  "id": "exchange_complete",
+  "evidence_kind": "real_api_action_only_replay_probe_not_episode",
+  "source_episode": "outputs/grounded_planner_dev_v5/live/buffer_exchange__jev_gate/episode.json",
+  "source_sha256": "c5e7454386c2f1a40e6dc9b918875e1bb44d79a219b934c8ffe8e90af8c505f0",
+  "source_round": 4,
+  "public_payload": {
+    "instruction": "Exchange item_a in slot_left and item_b in slot_right. Each slot holds at most one item. Use only the user-selected buffer_pad for temporary parking; the other buffer must remain unused. Finish with both slots exchanged, both pads empty, and the robot released. The required buffer_pad is unspecified.",
+    "observation": {
+      "simulation_step": 10796,
+      "objects": {
+        "slot_left": {
+          "category": "container",
+          "color": "orange",
+          "position": [
+            0.55,
+            -0.16,
+            0.42
+          ],
+          "aabb_min": [
+            0.505,
+            -0.20500000000000002,
+            0.42
+          ],
+          "aabb_max": [
+            0.5950000000000001,
+            -0.115,
+            0.509
+          ]
+        },
+        "slot_right": {
+          "category": "container",
+          "color": "purple",
+          "position": [
+            0.55,
+            0.16,
+            0.42
+          ],
+          "aabb_min": [
+            0.505,
+            0.115,
+            0.42
+          ],
+          "aabb_max": [
+            0.5950000000000001,
+            0.20500000000000002,
+            0.509
+          ]
+        },
+        "item_a": {
+          "category": "block",
+          "color": "green",
+          "position": [
+            0.5501080383714194,
+            0.16011792039942893,
+            0.45598958583721516
+          ],
+          "aabb_min": [
+            0.5281062284879309,
+            0.13811656662726743,
+            0.4339890227569803
+          ],
+          "aabb_max": [
+            0.572109848254908,
+            0.18211927417159043,
+            0.47799014891745
+          ]
+        },
+        "item_b": {
+          "category": "block",
+          "color": "yellow",
+          "position": [
+            0.5500107042982735,
+            -0.1599711211445004,
+            0.45598959386916366
+          ],
+          "aabb_min": [
+            0.5280101673001592,
+            -0.1819712162600579,
+            0.4339890346471217
+          ],
+          "aabb_max": [
+            0.5720112412963878,
+            -0.1379710260289429,
+            0.4779901530912056
+          ]
+        }
+      },
+      "end_effector": [
+        0.5496541261672974,
+        0.15905752778053284,
+        0.8299704194068909
+      ],
+      "held_object": null,
+      "robot_joints": [
+        {
+          "position": -0.00947409744379,
+          "velocity": -1.8865117801247777e-16
+        },
+        {
+          "position": 0.0321824695643701,
+          "velocity": -1.5994150448506161e-15
+        },
+        {
+          "position": 0.2956305295407801,
+          "velocity": -6.202720628789571e-15
+        },
+        {
+          "position": -1.8136195589554214,
+          "velocity": 2.6076363290883364e-14
+        },
+        {
+          "position": -0.00973431210387556,
+          "velocity": 4.926614671774132e-16
+        },
+        {
+          "position": 1.8444136026764741,
+          "velocity": -2.5202062658991053e-14
+        },
+        {
+          "position": 1.0740501316203694,
+          "velocity": -2.104219576359867e-14
+        },
+        {
+          "position": 0.040000000000000015,
+          "velocity": -6.661338147750939e-16
+        },
+        {
+          "position": 0.03999999573958,
+          "velocity": 6.591949208711867e-16
+        }
+      ],
+      "task": {
+        "left": "slot_left",
+        "right": "slot_right",
+        "item_a": "item_a",
+        "item_b": "item_b",
+        "buffers": [
+          "buffer_front",
+          "buffer_back"
+        ],
+        "template_id": "buffer_exchange",
+        "version": "six_tasks_dev_v1",
+        "dag": {
+          "nodes": [
+            "park_a",
+            "move_b_left",
+            "move_a_right"
+          ],
+          "edges": [
+            [
+              "park_a",
+              "move_b_left"
+            ],
+            [
+              "move_b_left",
+              "move_a_right"
+            ]
+          ]
+        },
+        "preference_slots": {
+          "buffer_pad": {
+            "candidate_ids": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "kind": "preference",
+            "description": "Which temporary pad should be used for the exchange?"
+          }
+        },
+        "initial_choices": {}
+      },
+      "containers": {
+        "slot_left": {
+          "xy": [
+            0.55,
+            -0.16
+          ],
+          "half": [
+            0.045,
+            0.045
+          ],
+          "inner": [
+            0.033,
+            0.033
+          ],
+          "floor": 0.434,
+          "rim": 0.509,
+          "contents": [
+            "item_b"
+          ],
+          "contents_observed": true
+        },
+        "slot_right": {
+          "xy": [
+            0.55,
+            0.16
+          ],
+          "half": [
+            0.045,
+            0.045
+          ],
+          "inner": [
+            0.033,
+            0.033
+          ],
+          "floor": 0.434,
+          "rim": 0.509,
+          "contents": [
+            "item_a"
+          ],
+          "contents_observed": true
+        }
+      },
+      "zones": {
+        "buffer_front": {
+          "id": "buffer_front",
+          "xy": [
+            0.31,
+            -0.22
+          ],
+          "half_xy": [
+            0.065,
+            0.065
+          ],
+          "contents": []
+        },
+        "buffer_back": {
+          "id": "buffer_back",
+          "xy": [
+            0.31,
+            0.22
+          ],
+          "half_xy": [
+            0.065,
+            0.065
+          ],
+          "contents": []
+        }
+      },
+      "inspections": [],
+      "reports": [],
+      "sensor": null,
+      "affordances": {
+        "move": {
+          "item_a": [
+            "slot_left",
+            "slot_right",
+            "buffer_front",
+            "buffer_back"
+          ],
+          "item_b": [
+            "slot_left",
+            "slot_right",
+            "buffer_front",
+            "buffer_back"
+          ]
+        },
+        "cover": [],
+        "inspect": []
+      }
+    },
+    "history": [
+      {
+        "kind": "ask",
+        "question": {
+          "type": "select",
+          "text": "Which temporary buffer pad should I use for the exchange?",
+          "requests": [
+            {
+              "role": "buffer_pad",
+              "candidate_ids": [
+                "buffer_front",
+                "buffer_back"
+              ]
+            }
+          ]
+        },
+        "question_id": "753bbb03043544bf",
+        "simulation_step": 240
+      },
+      {
+        "kind": "user_answer",
+        "response": {
+          "choices": {
+            "buffer_pad": "buffer_back"
+          }
+        },
+        "source": "auto",
+        "question_id": "753bbb03043544bf",
+        "simulation_step": 240
+      },
+      {
+        "kind": "action",
+        "result": {
+          "skill": "move",
+          "object_id": "item_a",
+          "target_id": "slot_right",
+          "success": true,
+          "reason": "placed",
+          "start_step": 7160,
+          "end_step": 10796,
+          "grasp_mode": "constraint"
+        }
+      }
+    ],
+    "public_summary": {
+      "version": "memory_dev_v6",
+      "current_regions": {
+        "slot_left": {
+          "contents": [
+            "item_b"
+          ],
+          "observed": true
+        },
+        "slot_right": {
+          "contents": [
+            "item_a"
+          ],
+          "observed": true
+        },
+        "buffer_front": {
+          "contents": [],
+          "observed": true
+        },
+        "buffer_back": {
+          "contents": [],
+          "observed": true
+        }
+      },
+      "observed_locations": {
+        "item_a": [
+          "slot_right"
+        ],
+        "item_b": [
+          "slot_left"
+        ]
+      },
+      "object_memory": {
+        "item_a": {
+          "status": "observed_now",
+          "regions": [
+            "slot_right"
+          ],
+          "observed_step": 10796,
+          "source": "public_region_contents",
+          "geometry_visible": true,
+          "currently_graspable": true,
+          "invalidated_after_step": null
+        },
+        "item_b": {
+          "status": "observed_now",
+          "regions": [
+            "slot_left"
+          ],
+          "observed_step": 10796,
+          "source": "public_region_contents",
+          "geometry_visible": true,
+          "currently_graspable": true,
+          "invalidated_after_step": null
+        }
+      },
+      "goal_requirements": {
+        "final_targets": {
+          "item_a": "slot_right",
+          "item_b": "slot_left"
+        },
+        "buffer_candidates": [
+          "buffer_front",
+          "buffer_back"
+        ],
+        "buffers_empty_at_end": true
+      },
+      "required_final_relations": [
+        {
+          "object_id": "item_a",
+          "required_final_region": "slot_right",
+          "currently_observed_at_target": true,
+          "region_contents": [
+            "item_a"
+          ]
+        },
+        {
+          "object_id": "item_b",
+          "required_final_region": "slot_left",
+          "currently_observed_at_target": true,
+          "region_contents": [
+            "item_b"
+          ]
+        }
+      ],
+      "lid_geometry": null,
+      "confirmed_choices": {
+        "buffer_pad": "buffer_back"
+      },
+      "own_working_choices": {},
+      "preference_candidates": {
+        "buffer_pad": [
+          "buffer_front",
+          "buffer_back"
+        ]
+      },
+      "unresolved_roles": [],
+      "observed_region_visits": [
+        {
+          "object_id": "item_a",
+          "region_id": "slot_left",
+          "first_observed_step": 240,
+          "last_observed_step": 240
+        },
+        {
+          "object_id": "item_b",
+          "region_id": "slot_right",
+          "first_observed_step": 240,
+          "last_observed_step": 3791
+        },
+        {
+          "object_id": "item_a",
+          "region_id": "buffer_back",
+          "first_observed_step": 3791,
+          "last_observed_step": 7160
+        },
+        {
+          "object_id": "item_b",
+          "region_id": "slot_left",
+          "first_observed_step": 7160,
+          "last_observed_step": 10796
+        },
+        {
+          "object_id": "item_a",
+          "region_id": "slot_right",
+          "first_observed_step": 10796,
+          "last_observed_step": 10796
+        }
+      ],
+      "latest_action_by_object": {
+        "item_a": {
+          "skill": "move",
+          "object_id": "item_a",
+          "target_id": "slot_right",
+          "success": true,
+          "reason": "placed",
+          "start_step": 7160,
+          "end_step": 10796
+        },
+        "item_b": {
+          "skill": "move",
+          "object_id": "item_b",
+          "target_id": "slot_left",
+          "success": true,
+          "reason": "placed",
+          "start_step": 3791,
+          "end_step": 7160
+        }
+      },
+      "action_history_coverage": {
+        "total": 3,
+        "failed": 0
+      },
+      "memory_scope": {
+        "prior_public_snapshots": 4,
+        "current_step": 10796,
+        "note": "Memory records past public observations, never fresh sight through a lid. Region sensor membership and current grasp visibility are different. Unknown is not absent. New measured state overrides memory; unseen memories after failed/disturbing actions are invalidated."
+      },
+      "limitation": "These are public facts, not task scores, an oracle, prescribed actions or a completion verdict. The model must assess the goal; the independent evaluator uses actual final geometry/contact."
+    }
+  },
+  "expected_public_action": {
+    "kind": "DONE"
+  },
+  "actual_action": {
+    "kind": "DONE"
+  },
+  "model_plan": {
+    "working_choices": {
+      "buffer_pad": "buffer_back"
+    },
+    "completion_assessment": {
+      "ready_for_done": true,
+      "reason": "item_a is observed in slot_right and item_b in slot_left, satisfying both required final relations. Both buffer pads are empty, the robot holds nothing, and the exchange used only buffer_back as selected. No further action needed."
+    },
+    "remaining_plan": [
+      {
+        "kind": "DONE"
+      }
+    ]
+  },
+  "error": null,
+  "matches_expected": true,
+  "cost": {
+    "deepseek": {
+      "attempts": 1,
+      "input_tokens": 3396,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 87,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 1044.0134160016896,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 1,
+    "api_latency_ms": 1044.0134160016896,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "id": "1fac6a020159438d",
+  "created": 1794385557.4177978,
+  "options": {
+    "template": "buffer_exchange",
+    "unknown_preferences": 1,
+    "planner_profile": "memory_dev_v6"
+  },
+  "task_ids": [
+    "475c8f6cd4674432",
+    "02682fe9f0844893",
+    "75265289b291457f"
+  ],
+  "partition": "interactive_demo_on_dev_layout",
+  "source_sample_id": "task6_buffer_exchange_001",
+  "scene_seed": 4278,
+  "public_scene_sha256": "0102071cd781f70600b5a01ddb4d31898b67fe990996079e5f768c4ebed544c2",
+  "planner_profile": "memory_dev_v6",
+  "planner_configuration": {
+    "deepseek_model": "deepseek-flash",
+    "jev_model": "jev-latest",
+    "jev_threshold": 0.5,
+    "timeout_s": 40,
+    "max_retries": 1,
+    "max_tokens": 500,
+    "thinking": "disabled",
+    "response_format": "json_object"
+  },
+  "prompt_hashes": {
+    "gate": "7c2bb65c87c169707a4f847620bf6296463fe42f36a8e20f674d121765ecf820",
+    "question": "ed6cde3749fdf6d98ae39a897f37facbfc99afbc8f4ae6421c749b56eaf6fcb1",
+    "action": "10bcfdefa1e573d9627e4e919abafb5807c6f611342d8ebf31f4cfabeb28ccce"
+  },
+  "physics_signature": {
+    "task6_spec.py": "ea573cb0384b2d7fecb5ad9d9df71fcda889c3cb3c67d50e2b37b942d6775305",
+    "task6_world.py": "2c1cd3ec30c47079328103a54f202ac8c3ace5a3f00b4d380279d3395d8e1897",
+    "task6_protocol.py": "00d9aedc257a8689d7fde7e592dd532c332b1c3e174d8a2493c82f883faed311",
+    "task6_evaluator.py": "d0d6398a81dfd887a9ca9cbc103b4448b8e64275a0be2977bc13898600c343a3",
+    "task6_worker.py": "b791525e2e568dd9f0fcf062180f2e01a146ba00d8006ae292dda0b0b906ce8c",
+    "environment.py": "1c97b2b1be9fc7aba9942228b2ab3771f162f5f6ee192fb3dfd76d8764237e19",
+    "skills.py": "a7b1a41a0a635e44734fac7dd3b8347bd169b371c44979a3a59b1a644c66a409",
+    "diverse_world.py": "42743f748bf91928b5dc4838e36b08d338bf362bc195f5188bb34b8ddc94a339",
+    "navigation_world.py": "93587bd87eb4b7118ee427d86c0b812092bb5e2ac0a0224bcf6c020d7d6cde29",
+    "navigation_map.py": "1b24d3bc3181a65a2307730415f701c03fc91485f501fe6d044c431bde2c6b27"
+  },
+  "answer_mode": "auto",
+  "evaluation_protocol": "fixed_demo_preferences",
+  "note": "One paired interactive instance; not a benchmark ranking.",
+  "rows": [
+    {
+      "task_id": "475c8f6cd4674432",
+      "method": "llm_noask",
+      "status": "done",
+      "task_success": false,
+      "burden": 0,
+      "ask_turns": 0,
+      "robot_actions": 3,
+      "physical_successes": 3,
+      "distance_m": null,
+      "checked_locations": null,
+      "cost": {
+        "deepseek": {
+          "attempts": 4,
+          "input_tokens": 12933,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 420,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 4684.101083999849,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 4,
+        "api_latency_ms": 4684.101083999849,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      },
+      "wall_time_s": 20.560750007629395,
+      "queue_time_s": 0.06213498115539551,
+      "returned_models": [
+        "deepseek-flash"
+      ],
+      "termination_reason": "done",
+      "error": null
+    },
+    {
+      "task_id": "02682fe9f0844893",
+      "method": "llm_gate",
+      "status": "done",
+      "task_success": true,
+      "burden": 1,
+      "ask_turns": 1,
+      "robot_actions": 3,
+      "physical_successes": 3,
+      "distance_m": null,
+      "checked_locations": null,
+      "cost": {
+        "deepseek": {
+          "attempts": 10,
+          "input_tokens": 28839,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 496,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 10390.010250979685,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 10,
+        "api_latency_ms": 10390.010250979685,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      },
+      "wall_time_s": 26.444477081298828,
+      "queue_time_s": 0.27357006072998047,
+      "returned_models": [
+        "deepseek-flash"
+      ],
+      "termination_reason": "done",
+      "error": null
+    },
+    {
+      "task_id": "75265289b291457f",
+      "method": "jev_gate",
+      "status": "done",
+      "task_success": false,
+      "burden": 0,
+      "ask_turns": 0,
+      "robot_actions": 3,
+      "physical_successes": 3,
+      "distance_m": null,
+      "checked_locations": null,
+      "cost": {
+        "deepseek": {
+          "attempts": 4,
+          "input_tokens": 12933,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 439,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 4903.011917005642,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 4,
+          "input_tokens": 15208,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 96,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 1115.1305829989724,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 8,
+        "api_latency_ms": 6018.142500004615,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      },
+      "wall_time_s": 22.265610933303833,
+      "queue_time_s": 0.4782898426055908,
+      "returned_models": [
+        "deepseek-flash",
+        "jev-1.14.0"
+      ],
+      "termination_reason": "done",
+      "error": null
+    }
+  ],
+  "status": "complete"
+}

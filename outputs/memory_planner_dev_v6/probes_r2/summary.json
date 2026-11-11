@@ -1,0 +1,254 @@
+{
+  "probes": 6,
+  "matches": 6,
+  "authenticated_requests": 12,
+  "evidence_kind": "action_only_replay_probes_not_physical_episodes",
+  "rows": [
+    {
+      "id": "retrieval_closed_known",
+      "evidence_kind": "real_api_action_only_replay_probe_not_episode",
+      "source_episode": "outputs/grounded_planner_dev_v5/live/retrieve_restore__llm_gate/episode.json",
+      "source_sha256": "537fafc4338c6783633971526d960491f33a79700767bab2efa3409e8adc7333",
+      "source_round": 4,
+      "expected_public_action": {
+        "kind": "DONE"
+      },
+      "actual_action": {
+        "kind": "DONE"
+      },
+      "error": null,
+      "matches_expected": true,
+      "cost": {
+        "deepseek": {
+          "attempts": 1,
+          "input_tokens": 3231,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 89,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 1056.6368330037221,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 1,
+        "api_latency_ms": 1056.6368330037221,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      }
+    },
+    {
+      "id": "retrieval_closed_guess",
+      "evidence_kind": "real_api_action_only_replay_probe_not_episode",
+      "source_episode": "outputs/grounded_planner_dev_v5/live/retrieve_restore__llm_noask/episode.json",
+      "source_sha256": "01fb8a0818567e3fd453cd4ffbdfd8c403e701b6af0ff3de85be2588e02ec7ef",
+      "source_round": 3,
+      "expected_public_action": {
+        "kind": "DONE"
+      },
+      "actual_action": {
+        "kind": "DONE"
+      },
+      "error": null,
+      "matches_expected": true,
+      "cost": {
+        "deepseek": {
+          "attempts": 1,
+          "input_tokens": 3123,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 94,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 1950.709500000812,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 1,
+        "api_latency_ms": 1950.709500000812,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      }
+    },
+    {
+      "id": "retrieval_needs_cover",
+      "evidence_kind": "real_api_action_only_replay_probe_not_episode",
+      "source_episode": "outputs/grounded_planner_dev_v5/live/retrieve_restore__llm_gate/episode.json",
+      "source_sha256": "537fafc4338c6783633971526d960491f33a79700767bab2efa3409e8adc7333",
+      "source_round": 3,
+      "expected_public_action": {
+        "kind": "cover",
+        "object_id": "storage_lid"
+      },
+      "actual_action": {
+        "kind": "cover",
+        "object_id": "storage_lid"
+      },
+      "error": null,
+      "matches_expected": true,
+      "cost": {
+        "deepseek": {
+          "attempts": 1,
+          "input_tokens": 3547,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 85,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 954.8330830002669,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 1,
+        "api_latency_ms": 954.8330830002669,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      }
+    },
+    {
+      "id": "exchange_complete",
+      "evidence_kind": "real_api_action_only_replay_probe_not_episode",
+      "source_episode": "outputs/grounded_planner_dev_v5/live/buffer_exchange__jev_gate/episode.json",
+      "source_sha256": "c5e7454386c2f1a40e6dc9b918875e1bb44d79a219b934c8ffe8e90af8c505f0",
+      "source_round": 4,
+      "expected_public_action": {
+        "kind": "DONE"
+      },
+      "actual_action": {
+        "kind": "DONE"
+      },
+      "error": null,
+      "matches_expected": true,
+      "cost": {
+        "deepseek": {
+          "attempts": 1,
+          "input_tokens": 3456,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 78,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 1122.962458000984,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 1,
+        "api_latency_ms": 1122.962458000984,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      }
+    },
+    {
+      "id": "exchange_needs_final_move",
+      "evidence_kind": "real_api_action_only_replay_probe_not_episode",
+      "source_episode": "outputs/grounded_planner_dev_v5/live/buffer_exchange__jev_gate/episode.json",
+      "source_sha256": "c5e7454386c2f1a40e6dc9b918875e1bb44d79a219b934c8ffe8e90af8c505f0",
+      "source_round": 3,
+      "expected_public_action": {
+        "kind": "move",
+        "object_id": "item_a",
+        "target_id": "slot_right"
+      },
+      "actual_action": {
+        "kind": "move",
+        "object_id": "item_a",
+        "target_id": "slot_right"
+      },
+      "error": null,
+      "matches_expected": true,
+      "cost": {
+        "deepseek": {
+          "attempts": 1,
+          "input_tokens": 3421,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 92,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 1014.421667001443,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 1,
+        "api_latency_ms": 1014.421667001443,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      }
+    },
+    {
+      "id": "inspection_complete",
+      "evidence_kind": "real_api_action_only_replay_probe_not_episode",
+      "source_episode": "outputs/grounded_planner_dev_v5/live/occlusion_inspection__llm_gate/episode.json",
+      "source_sha256": "e132196c9b020c5612d0e73e835027a3f774f02289b7f08c2de17a2a6c228082",
+      "source_round": 3,
+      "expected_public_action": {
+        "kind": "DONE"
+      },
+      "actual_action": {
+        "kind": "DONE"
+      },
+      "error": null,
+      "matches_expected": true,
+      "cost": {
+        "deepseek": {
+          "attempts": 1,
+          "input_tokens": 2812,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 70,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 1167.5449169997592,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 1,
+        "api_latency_ms": 1167.5449169997592,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      }
+    }
+  ]
+}

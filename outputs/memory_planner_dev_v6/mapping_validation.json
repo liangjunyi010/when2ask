@@ -1,0 +1,622 @@
+{
+  "paired_initial_payloads_equal": true,
+  "source_hashes_unchanged": true,
+  "preserved_files": 2346,
+  "episodes": [
+    {
+      "episode_id": "75265289b291457f",
+      "template": "buffer_exchange",
+      "method": "jev_gate",
+      "wire_payload_valid": true,
+      "gate_before_planner": true,
+      "first_model_action_executed_verbatim": true,
+      "ask_state_unchanged": true,
+      "gate_sequence": [
+        {
+          "round": 0,
+          "decision": "CONTINUE",
+          "p_ask": 0.43,
+          "step": 240,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "buffer_front"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 1,
+          "decision": "CONTINUE",
+          "p_ask": 0.16,
+          "step": 3507,
+          "action": {
+            "kind": "move",
+            "object_id": "item_b",
+            "target_id": "slot_left"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 2,
+          "decision": "CONTINUE",
+          "p_ask": 0.21,
+          "step": 7097,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "slot_right"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 3,
+          "decision": "CONTINUE",
+          "p_ask": 0.2,
+          "step": 10803,
+          "action": {
+            "kind": "DONE"
+          },
+          "question": null,
+          "answer": null
+        }
+      ]
+    },
+    {
+      "episode_id": "02682fe9f0844893",
+      "template": "buffer_exchange",
+      "method": "llm_gate",
+      "wire_payload_valid": true,
+      "gate_before_planner": true,
+      "first_model_action_executed_verbatim": true,
+      "ask_state_unchanged": true,
+      "gate_sequence": [
+        {
+          "round": 0,
+          "decision": "ASK",
+          "p_ask": null,
+          "step": 240,
+          "action": null,
+          "question": {
+            "type": "select",
+            "text": "Which temporary buffer pad should I use for the exchange: buffer_front or buffer_back?",
+            "requests": [
+              {
+                "role": "buffer_pad",
+                "candidate_ids": [
+                  "buffer_front",
+                  "buffer_back"
+                ]
+              }
+            ]
+          },
+          "answer": {
+            "choices": {
+              "buffer_pad": "buffer_back"
+            }
+          }
+        },
+        {
+          "round": 1,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 240,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "buffer_back"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 2,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3791,
+          "action": {
+            "kind": "move",
+            "object_id": "item_b",
+            "target_id": "slot_left"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 3,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 7160,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "slot_right"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 4,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 10796,
+          "action": {
+            "kind": "DONE"
+          },
+          "question": null,
+          "answer": null
+        }
+      ]
+    },
+    {
+      "episode_id": "475c8f6cd4674432",
+      "template": "buffer_exchange",
+      "method": "llm_noask",
+      "wire_payload_valid": true,
+      "gate_before_planner": true,
+      "first_model_action_executed_verbatim": true,
+      "ask_state_unchanged": true,
+      "gate_sequence": [
+        {
+          "round": 0,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 240,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "buffer_front"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 1,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3507,
+          "action": {
+            "kind": "move",
+            "object_id": "item_b",
+            "target_id": "slot_left"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 2,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 7097,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "slot_right"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 3,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 10803,
+          "action": {
+            "kind": "DONE"
+          },
+          "question": null,
+          "answer": null
+        }
+      ]
+    },
+    {
+      "episode_id": "d33c34f6bd514c25",
+      "template": "occlusion_inspection",
+      "method": "jev_gate",
+      "wire_payload_valid": true,
+      "gate_before_planner": true,
+      "first_model_action_executed_verbatim": true,
+      "ask_state_unchanged": true,
+      "gate_sequence": [
+        {
+          "round": 0,
+          "decision": "CONTINUE",
+          "p_ask": 0.04,
+          "step": 240,
+          "action": {
+            "kind": "move",
+            "object_id": "opaque_screen",
+            "target_id": "screen_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 1,
+          "decision": "CONTINUE",
+          "p_ask": 0.05,
+          "step": 3702,
+          "action": {
+            "kind": "inspect",
+            "target_id": "label_fixture"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 2,
+          "decision": "CONTINUE",
+          "p_ask": 0.06,
+          "step": 3822,
+          "action": {
+            "kind": "report",
+            "code": "beta"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 3,
+          "decision": "CONTINUE",
+          "p_ask": 0.03,
+          "step": 3822,
+          "action": {
+            "kind": "DONE"
+          },
+          "question": null,
+          "answer": null
+        }
+      ]
+    },
+    {
+      "episode_id": "b1b47926383f4f85",
+      "template": "occlusion_inspection",
+      "method": "llm_gate",
+      "wire_payload_valid": true,
+      "gate_before_planner": true,
+      "first_model_action_executed_verbatim": true,
+      "ask_state_unchanged": true,
+      "gate_sequence": [
+        {
+          "round": 0,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 240,
+          "action": {
+            "kind": "move",
+            "object_id": "opaque_screen",
+            "target_id": "screen_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 1,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3702,
+          "action": {
+            "kind": "inspect",
+            "target_id": "label_fixture"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 2,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3822,
+          "action": {
+            "kind": "report",
+            "code": "beta"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 3,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3822,
+          "action": {
+            "kind": "DONE"
+          },
+          "question": null,
+          "answer": null
+        }
+      ]
+    },
+    {
+      "episode_id": "dadac3662e8548d2",
+      "template": "occlusion_inspection",
+      "method": "llm_noask",
+      "wire_payload_valid": true,
+      "gate_before_planner": true,
+      "first_model_action_executed_verbatim": true,
+      "ask_state_unchanged": true,
+      "gate_sequence": [
+        {
+          "round": 0,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 240,
+          "action": {
+            "kind": "move",
+            "object_id": "opaque_screen",
+            "target_id": "screen_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 1,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3702,
+          "action": {
+            "kind": "inspect",
+            "target_id": "label_fixture"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 2,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3822,
+          "action": {
+            "kind": "report",
+            "code": "beta"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 3,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3822,
+          "action": {
+            "kind": "DONE"
+          },
+          "question": null,
+          "answer": null
+        }
+      ]
+    },
+    {
+      "episode_id": "3bee641e98a641ff",
+      "template": "retrieve_restore",
+      "method": "jev_gate",
+      "wire_payload_valid": true,
+      "gate_before_planner": true,
+      "first_model_action_executed_verbatim": true,
+      "ask_state_unchanged": true,
+      "gate_sequence": [
+        {
+          "round": 0,
+          "decision": "CONTINUE",
+          "p_ask": 0.13,
+          "step": 240,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 1,
+          "decision": "ASK",
+          "p_ask": 0.76,
+          "step": 3702,
+          "action": null,
+          "question": {
+            "type": "select",
+            "text": "Which item should I retrieve from the box: the blue cup or the green block?",
+            "requests": [
+              {
+                "role": "retrieval_item",
+                "candidate_ids": [
+                  "stored_cup",
+                  "stored_block"
+                ]
+              }
+            ]
+          },
+          "answer": {
+            "choices": {
+              "retrieval_item": "stored_block"
+            }
+          }
+        },
+        {
+          "round": 2,
+          "decision": "CONTINUE",
+          "p_ask": 0.04,
+          "step": 3702,
+          "action": {
+            "kind": "move",
+            "object_id": "stored_block",
+            "target_id": "delivery_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 3,
+          "decision": "CONTINUE",
+          "p_ask": 0.06,
+          "step": 7484,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 4,
+          "decision": "CONTINUE",
+          "p_ask": 0.1,
+          "step": 11371,
+          "action": {
+            "kind": "DONE"
+          },
+          "question": null,
+          "answer": null
+        }
+      ]
+    },
+    {
+      "episode_id": "5b1cc90ae9334616",
+      "template": "retrieve_restore",
+      "method": "llm_gate",
+      "wire_payload_valid": true,
+      "gate_before_planner": true,
+      "first_model_action_executed_verbatim": true,
+      "ask_state_unchanged": true,
+      "gate_sequence": [
+        {
+          "round": 0,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 240,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 1,
+          "decision": "ASK",
+          "p_ask": null,
+          "step": 3702,
+          "action": null,
+          "question": {
+            "type": "select",
+            "text": "Which item should I retrieve from the box: the blue cup or the green block?",
+            "requests": [
+              {
+                "role": "retrieval_item",
+                "candidate_ids": [
+                  "stored_cup",
+                  "stored_block"
+                ]
+              }
+            ]
+          },
+          "answer": {
+            "choices": {
+              "retrieval_item": "stored_block"
+            }
+          }
+        },
+        {
+          "round": 2,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3702,
+          "action": {
+            "kind": "move",
+            "object_id": "stored_block",
+            "target_id": "delivery_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 3,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 7484,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 4,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 11371,
+          "action": {
+            "kind": "DONE"
+          },
+          "question": null,
+          "answer": null
+        }
+      ]
+    },
+    {
+      "episode_id": "e386c7b9e0294698",
+      "template": "retrieve_restore",
+      "method": "llm_noask",
+      "wire_payload_valid": true,
+      "gate_before_planner": true,
+      "first_model_action_executed_verbatim": true,
+      "ask_state_unchanged": true,
+      "gate_sequence": [
+        {
+          "round": 0,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 240,
+          "action": {
+            "kind": "move",
+            "object_id": "storage_lid",
+            "target_id": "lid_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 1,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 3702,
+          "action": {
+            "kind": "move",
+            "object_id": "stored_cup",
+            "target_id": "delivery_pad"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 2,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 7194,
+          "action": {
+            "kind": "cover",
+            "object_id": "storage_lid"
+          },
+          "question": null,
+          "answer": null
+        },
+        {
+          "round": 3,
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "step": 11081,
+          "action": {
+            "kind": "DONE"
+          },
+          "question": null,
+          "answer": null
+        }
+      ]
+    }
+  ]
+}

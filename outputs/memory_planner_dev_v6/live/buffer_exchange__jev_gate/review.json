@@ -1,0 +1,190 @@
+{
+  "original_instruction": "Exchange item_a in slot_left and item_b in slot_right. Each slot holds at most one item. Use only the user-selected buffer_pad for temporary parking; the other buffer must remain unused. Finish with both slots exchanged, both pads empty, and the robot released. The required buffer_pad is unspecified.",
+  "instruction_origin": "generated_task_instruction",
+  "scenario": null,
+  "public_dag": {
+    "nodes": [
+      "park_a",
+      "move_b_left",
+      "move_a_right"
+    ],
+    "edges": [
+      [
+        "park_a",
+        "move_b_left"
+      ],
+      [
+        "move_b_left",
+        "move_a_right"
+      ]
+    ]
+  },
+  "interaction": {
+    "message": "本次模型没有发出 ASK，因此没有出现回答表单。 最近 Jev p(ASK)=0.20，阈值=0.5，决策=CONTINUE。 结束时仍有未公开偏好，执行可能使用了猜测；成功与否由真实物理结果评分。",
+    "missing_roles": [
+      "buffer_pad"
+    ],
+    "manual_form_available": false,
+    "ask_turns": 0,
+    "threshold": 0.5
+  },
+  "conversation": [
+    {
+      "kind": "gate",
+      "round": 0,
+      "simulation_step": 240,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": 0.43,
+        "round": 0,
+        "called": true,
+        "backend": "jev"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 0,
+      "simulation_step": 240,
+      "value": {
+        "kind": "move",
+        "object_id": "item_a",
+        "target_id": "buffer_front"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 0,
+      "simulation_step": 3507,
+      "value": {
+        "skill": "move",
+        "object_id": "item_a",
+        "target_id": "buffer_front",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3507,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 1,
+      "simulation_step": 3507,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": 0.16,
+        "round": 1,
+        "called": true,
+        "backend": "jev"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 1,
+      "simulation_step": 3507,
+      "value": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 1,
+      "simulation_step": 7097,
+      "value": {
+        "skill": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left",
+        "success": true,
+        "reason": "placed",
+        "start_step": 3507,
+        "end_step": 7097,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 2,
+      "simulation_step": 7097,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": 0.21,
+        "round": 2,
+        "called": true,
+        "backend": "jev"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 2,
+      "simulation_step": 7097,
+      "value": {
+        "kind": "move",
+        "object_id": "item_a",
+        "target_id": "slot_right"
+      }
+    },
+    {
+      "kind": "physical_result",
+      "round": 2,
+      "simulation_step": 10803,
+      "value": {
+        "skill": "move",
+        "object_id": "item_a",
+        "target_id": "slot_right",
+        "success": true,
+        "reason": "placed",
+        "start_step": 7097,
+        "end_step": 10803,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "gate",
+      "round": 3,
+      "simulation_step": 10803,
+      "value": {
+        "decision": "CONTINUE",
+        "p_ask": 0.2,
+        "round": 3,
+        "called": true,
+        "backend": "jev"
+      }
+    },
+    {
+      "kind": "action",
+      "round": 3,
+      "simulation_step": 10803,
+      "value": {
+        "kind": "DONE"
+      }
+    }
+  ],
+  "ground_truth": {
+    "protocol": "fixed_demo_preferences",
+    "meaning": "自动用户按预置隐藏偏好回答；评分目标固定。",
+    "initial": [
+      {
+        "role": "buffer_pad",
+        "object_id": "buffer_back",
+        "label": "buffer back"
+      }
+    ],
+    "evaluated": [
+      {
+        "role": "buffer_pad",
+        "object_id": "buffer_back",
+        "label": "buffer back"
+      }
+    ],
+    "manual_changes": []
+  },
+  "truth_revealed": true,
+  "engine": {
+    "tabletop": "shared_task_contract_v3.1",
+    "navigation": "navigation_search_dev_v1",
+    "task_version": "six_tasks_dev_v1",
+    "notice": "独立六任务 Dev v1：新场景、新任务评分，未替换原冻结研究配置。"
+  }
+}
