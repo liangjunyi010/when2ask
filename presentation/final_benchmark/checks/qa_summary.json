@@ -1,0 +1,44 @@
+{
+  "pytest": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "358",
+    "time": "97.374",
+    "timestamp": "2026-11-11T22:53:22.231201+08:00",
+    "hostname": "liangjunyideMacBook-Pro.local"
+  },
+  "powerpoint": {
+    "application": "Microsoft PowerPoint",
+    "version": "16.115",
+    "slides": 9,
+    "play_on_entry": true,
+    "player_positions_ms": [
+      1992,
+      3997
+    ],
+    "slide_show_exited": true,
+    "pptx_sha256": "62cef7959dec0e3d306225eff65a32cbaf86859d15a11b81999c7b8a83a59782",
+    "byte_identical_copy": true,
+    "autoplay_verified": true,
+    "method": "Native PowerPoint Slide Show; real Player object positions after two 2-second waits.",
+    "visual_review": "All slide visuals separately checked through LibreOffice PDF and PNG; native screen pixels not captured."
+  },
+  "render_engine": "LibreOfficeDev headless \u2192 PDF \u2192 Poppler1600\u00d7900; all9slides individually inspected",
+  "slides_without_clipping": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "font": "Arial",
+  "readable_native_chart_and_tables": true,
+  "new_model_api_requests": 0,
+  "original_user_milestone_pptx_sha256": "5e76c9967d2b76b5f331d119b2373c84d26a54138ac53d17d8c3ab57c100b7da"
+}

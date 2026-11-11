@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "slide_count": 9,
+  "aspect": "16:9",
+  "pptx_sha256": "62cef7959dec0e3d306225eff65a32cbaf86859d15a11b81999c7b8a83a59782",
+  "editable_table_slides": [
+    4,
+    7
+  ],
+  "editable_chart_slides": [
+    7
+  ],
+  "embedded_workbook": true,
+  "embedded_mp4_byte_identical": true,
+  "embedded_animated_gif_frames": 164,
+  "speaker_notes_verified": true,
+  "visible_source_labels": false,
+  "raw_episodes_verified": 36,
+  "methods_table": [
+    [
+      "NoAsk",
+      "0.000",
+      "57.91 s"
+    ],
+    [
+      "LLM-Gate",
+      "0.333",
+      "105.41 s"
+    ],
+    [
+      "Jev-Gate",
+      "0.333",
+      "78.56 s"
+    ]
+  ],
+  "protected_hashes_unchanged": true,
+  "timeline_frames_verified": 164,
+  "script_words": 1169,
+  "target_seconds": 585,
+  "new_model_api_calls": 0
+}

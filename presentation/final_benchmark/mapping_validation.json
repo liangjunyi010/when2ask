@@ -1,0 +1,133 @@
+{
+  "source_frames": 164,
+  "frame_count_matches_gif": true,
+  "frame_order_preserved": true,
+  "same_step_question_and_answer_preserved": true,
+  "probability_matches_source": true,
+  "source_actions_unmodified": true,
+  "rejected_command_has_own_frame": true,
+  "rejection_events": [
+    {
+      "round": 3,
+      "action": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "box"
+      },
+      "result": {
+        "skill": "move",
+        "object_id": "storage_lid",
+        "target_id": "box",
+        "success": false,
+        "reason": "use_surface_for_large_panel",
+        "start_step": 7514,
+        "end_step": 7514,
+        "grasp_mode": "constraint"
+      }
+    }
+  ],
+  "duration_ms": 22200.0,
+  "checkpoints": [
+    {
+      "frame": 0,
+      "simulation_step": 240,
+      "stage": "decision",
+      "round": 0,
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.11
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      }
+    },
+    {
+      "frame": 20,
+      "simulation_step": 1656,
+      "stage": "execution",
+      "round": 0,
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.11
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      }
+    },
+    {
+      "frame": 49,
+      "simulation_step": 3620,
+      "stage": "question",
+      "round": 1,
+      "gate": {
+        "called": true,
+        "decision": "ASK",
+        "p_ask": 0.62
+      },
+      "action": null
+    },
+    {
+      "frame": 50,
+      "simulation_step": 3620,
+      "stage": "answer",
+      "round": 1,
+      "gate": {
+        "called": true,
+        "decision": "ASK",
+        "p_ask": 0.62
+      },
+      "action": null
+    },
+    {
+      "frame": 75,
+      "simulation_step": 5400,
+      "stage": "execution",
+      "round": 2,
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.04
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "stored_block",
+        "target_id": "delivery_pad"
+      }
+    },
+    {
+      "frame": 130,
+      "simulation_step": 9216,
+      "stage": "execution",
+      "round": 4,
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.11
+      },
+      "action": {
+        "kind": "cover",
+        "object_id": "storage_lid"
+      }
+    },
+    {
+      "frame": 163,
+      "simulation_step": 11453,
+      "stage": "evaluation",
+      "round": 5,
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.1
+      },
+      "action": {
+        "kind": "DONE"
+      }
+    }
+  ]
+}

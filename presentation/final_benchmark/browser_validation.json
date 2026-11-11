@@ -1,0 +1,181 @@
+{
+  "browser": "157.0.8103.50",
+  "viewport": [
+    1280,
+    720
+  ],
+  "rendered_frames": 164,
+  "checkpoints": [
+    {
+      "frame_index": 0,
+      "simulation_step": 240,
+      "round": 0,
+      "stage": "decision",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.11
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      },
+      "image": "assets/frames-00.webp",
+      "active": [
+        "n-gate",
+        "n-planner"
+      ]
+    },
+    {
+      "frame_index": 20,
+      "simulation_step": 1656,
+      "round": 0,
+      "stage": "execution",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.11
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      },
+      "image": "assets/frames-00.webp",
+      "active": [
+        "n-gate",
+        "n-planner",
+        "n-physics"
+      ]
+    },
+    {
+      "frame_index": 49,
+      "simulation_step": 3620,
+      "round": 1,
+      "stage": "question",
+      "gate": {
+        "called": true,
+        "decision": "ASK",
+        "p_ask": 0.62
+      },
+      "action": null,
+      "image": "assets/frames-01.webp",
+      "active": [
+        "n-gate",
+        "n-question"
+      ]
+    },
+    {
+      "frame_index": 50,
+      "simulation_step": 3620,
+      "round": 1,
+      "stage": "answer",
+      "gate": {
+        "called": true,
+        "decision": "ASK",
+        "p_ask": 0.62
+      },
+      "action": null,
+      "image": "assets/frames-01.webp",
+      "active": [
+        "n-gate",
+        "n-question",
+        "n-user"
+      ]
+    },
+    {
+      "frame_index": 75,
+      "simulation_step": 5400,
+      "round": 2,
+      "stage": "execution",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.04
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "stored_block",
+        "target_id": "delivery_pad"
+      },
+      "image": "assets/frames-02.webp",
+      "active": [
+        "n-gate",
+        "n-planner",
+        "n-physics"
+      ]
+    },
+    {
+      "frame_index": 106,
+      "simulation_step": 7514,
+      "round": 3,
+      "stage": "rejection",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.05
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "box"
+      },
+      "image": "assets/frames-03.webp",
+      "active": [
+        "n-gate",
+        "n-planner",
+        "n-physics"
+      ]
+    },
+    {
+      "frame_index": 130,
+      "simulation_step": 9216,
+      "round": 4,
+      "stage": "execution",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.11
+      },
+      "action": {
+        "kind": "cover",
+        "object_id": "storage_lid"
+      },
+      "image": "assets/frames-04.webp",
+      "active": [
+        "n-gate",
+        "n-planner",
+        "n-physics"
+      ]
+    },
+    {
+      "frame_index": 163,
+      "simulation_step": 11453,
+      "round": 5,
+      "stage": "evaluation",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.1
+      },
+      "action": {
+        "kind": "DONE"
+      },
+      "image": "assets/frames-05.webp",
+      "active": [
+        "n-gate",
+        "n-eval"
+      ]
+    }
+  ],
+  "pause": true,
+  "seek": true,
+  "restart": true,
+  "speeds": [
+    1,
+    2,
+    3
+  ],
+  "errors": []
+}

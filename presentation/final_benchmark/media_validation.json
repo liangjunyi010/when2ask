@@ -1,0 +1,15 @@
+{
+  "origin": "Deterministic Chromium screenshots of frame-indexed HTML replay",
+  "outputs": [
+    {
+      "file": "when2ask_highlight.mp4",
+      "duration_s": 22.2,
+      "bytes": 597767
+    },
+    {
+      "file": "when2ask_full.mp4",
+      "duration_s": 51.5,
+      "bytes": 990097
+    }
+  ]
+}

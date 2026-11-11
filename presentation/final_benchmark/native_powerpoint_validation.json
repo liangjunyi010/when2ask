@@ -1,0 +1,16 @@
+{
+  "application": "Microsoft PowerPoint",
+  "version": "16.115",
+  "slides": 9,
+  "play_on_entry": true,
+  "player_positions_ms": [
+    1992,
+    3997
+  ],
+  "slide_show_exited": true,
+  "pptx_sha256": "62cef7959dec0e3d306225eff65a32cbaf86859d15a11b81999c7b8a83a59782",
+  "byte_identical_copy": true,
+  "autoplay_verified": true,
+  "method": "Native PowerPoint Slide Show; real Player object positions after two 2-second waits.",
+  "visual_review": "All slide visuals separately checked through LibreOffice PDF and PNG; native screen pixels not captured."
+}
