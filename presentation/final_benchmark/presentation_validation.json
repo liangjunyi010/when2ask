@@ -2,7 +2,7 @@
   "passed": true,
   "slide_count": 9,
   "aspect": "16:9",
-  "pptx_sha256": "62cef7959dec0e3d306225eff65a32cbaf86859d15a11b81999c7b8a83a59782",
+  "pptx_sha256": "a85ad6ca6643479426d185c989eec0ebbacebda8ac8644f746171ed34a1fe3b0",
   "editable_table_slides": [
     4,
     7
@@ -35,7 +35,7 @@
   ],
   "protected_hashes_unchanged": true,
   "timeline_frames_verified": 164,
-  "script_words": 1169,
+  "script_words": 1171,
   "target_seconds": 585,
   "new_model_api_calls": 0
 }

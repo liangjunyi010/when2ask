@@ -52,7 +52,7 @@ export async function batch1({presentation:p}){
  const configs=[
  {title:'Buffer exchange',im:'0_04_3',method:'jev_gate',rule:'ASK before acting',detail:'A required temporary pad\nhas not been selected.',steps:['ASK: choose pad','Park A → move B → move A'],col:C.orange},
  {title:'Retrieve & restore',im:'1_04_1',method:'llm_noask',rule:'Make progress, then ASK',detail:'Opening is already allowed;\nthe item choice is still missing.',steps:['Open the box','ASK → retrieve → reclose'],col:C.blue},
- {title:'Occlusion inspection',im:'2_04_3',method:'jev_gate',rule:'Inspect instead of asking',detail:'The hidden world fact can be\nmeasured by required inspection.',steps:['Uncover → inspect','Report → restore'],col:C.green}];
+ {title:'Occlusion inspection',im:'2_04_3',method:'jev_gate',rule:'Inspect instead of asking',detail:'The hidden world fact can be\nmeasured by required inspection.',steps:['Uncover → inspect','Report measured code'],col:C.green}];
  for(let i=0;i<3;i++){const a=configs[i],x=70+i*510;txt(t,'task-title-'+i,a.title,x,200,480,50,34,C.navy,true);await image(t,'task-scene-'+i,`outputs/three_task_v8/test_runs/t8_r2_test_${a.im}__${a.method}/scene.png`,x,264,470,264);line(t,'task-separator-'+i,x,550,470,3,a.col);txt(t,'task-rule-'+i,a.rule,x,577,475,48,30,a.col,true);txt(t,'task-info-'+i,a.detail,x,642,476,83,28);txt(t,'task-sequence-'+i,a.steps.join('\n'),x,751,470,72,26,C.muted);}
  await notes(t,3);return {slides:p.slides.items.length};
 }

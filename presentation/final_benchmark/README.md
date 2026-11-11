@@ -3,14 +3,14 @@
 The nine-slide English deck focuses on the independently held-out three-task v8 Benchmark. It does not combine that evaluation with the older two-template benchmark or its unrun 128-sample Test set.
 
 - [PowerPoint with embedded video](deliverables/When2Ask_Benchmark_Presentation.pptx)
-- [English speaker notes](speaker_notes.md): 1,169 spoken words; 585-second slide schedule, including demo.
+- [English speaker notes](speaker_notes.md): 1,171 spoken words; 585-second slide schedule, including demo.
 - [22.2-second synchronized highlight](media/when2ask_highlight.mp4), [GIF fallback](media/when2ask_highlight.gif), and [51.5-second full replay](media/when2ask_full.mp4).
 - [Slide previews](slide_previews/) and [presentation validation](presentation_validation.json).
 - [HTML replay](web/index.html), [frame mapping](mapping_validation.json), and [browser checks](browser_validation.json).
 
 Use PowerPoint Slide Show for embedded MP4 playback on slide 8. An animated GIF is embedded underneath as a fallback. PDF/PNG previews are static. The independent MP4 is available if another viewer does not support presentation video. No network or model key is needed to present.
 
-**Actual checks:** project pytest **358 passed in97.43seconds**. All nine exported slides were individually inspected after LibreOffice PDF/PNG rendering. A byte-identical copy was opened in native **Microsoft PowerPoint16.115** and Slide Show started at slide8: `play_on_entry=true`, with real player positions **1992ms →3997ms** after two2-second waits. The show exited cleanly. Native screen pixels were not captured; the visual inspection used the exported PNGs. See `native_powerpoint_validation.json` and `checks/`.
+**Actual checks:** project pytest **358 passed in97.43seconds**. All nine exported slides were individually inspected after LibreOffice PDF/PNG rendering. A byte-identical copy was opened in native **Microsoft PowerPoint16.115** and Slide Show started at slide8: `play_on_entry=true`, with real player positions **2003ms →4009ms** after two2-second waits. The show exited cleanly. Native screen pixels were not captured; the visual inspection used the exported PNGs. See `native_powerpoint_validation.json` and `checks/`.
 
 ## Story and timing
 

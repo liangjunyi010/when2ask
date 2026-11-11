@@ -1,7 +1,7 @@
 {
   "schemaVersion": "presentation-finalization.v1",
-  "finalSha256": "62cef7959dec0e3d306225eff65a32cbaf86859d15a11b81999c7b8a83a59782",
-  "byteCount": 6358126,
+  "finalSha256": "a85ad6ca6643479426d185c989eec0ebbacebda8ac8644f746171ed34a1fe3b0",
+  "byteCount": 6358165,
   "packageIntegrity": {
     "chart_count": 1,
     "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
@@ -75,7 +75,7 @@
     "performed": true,
     "passed": true,
     "slideCount": 9,
-    "sha256": "62cef7959dec0e3d306225eff65a32cbaf86859d15a11b81999c7b8a83a59782",
+    "sha256": "a85ad6ca6643479426d185c989eec0ebbacebda8ac8644f746171ed34a1fe3b0",
     "runtimeNodeModules": "/Users/liangjunyi/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules",
     "nodeExecutable": "/Users/liangjunyi/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
   },
@@ -120,7 +120,7 @@
     "native_chart_count": 1,
     "native_powerpoint_verified": false,
     "passed": true,
-    "presentation_sha256": "62cef7959dec0e3d306225eff65a32cbaf86859d15a11b81999c7b8a83a59782",
+    "presentation_sha256": "a85ad6ca6643479426d185c989eec0ebbacebda8ac8644f746171ed34a1fe3b0",
     "schema_version": "presentation-native-chart-titles.v1",
     "slide_count": 9,
     "source_text_emitted": false,
@@ -161,7 +161,7 @@
       "failed_slides": [],
       "formal_human_reviewed": false,
       "native_application_open_verified": false,
-      "package_sha256": "62cef7959dec0e3d306225eff65a32cbaf86859d15a11b81999c7b8a83a59782",
+      "package_sha256": "a85ad6ca6643479426d185c989eec0ebbacebda8ac8644f746171ed34a1fe3b0",
       "passed": true,
       "results": [
         {
@@ -215,10 +215,10 @@
       7
     ],
     "experimental": true,
-    "input_sha256": "c1dd79e66287ddce4e4c9397b8f244136f0a4cbbbfbf19767860f2579efd39e2",
+    "input_sha256": "600b2657fd80144342890f0af46d3a091c957ec9e4564417597371aec0c30098",
     "new_formulas_describe_snapshot_only": true,
-    "output_bytes": 6358126,
-    "output_sha256": "62cef7959dec0e3d306225eff65a32cbaf86859d15a11b81999c7b8a83a59782",
+    "output_bytes": 6358165,
+    "output_sha256": "a85ad6ca6643479426d185c989eec0ebbacebda8ac8644f746171ed34a1fe3b0",
     "portable_chart_validation_passed": true,
     "portable_validated_owner_slides": [
       7

@@ -22,9 +22,9 @@
       "slide": 3,
       "title": "Three tasks, three clarification regimes",
       "target_seconds": 80,
-      "script": "We designed three task templates to create different reasons to ask or continue. First, buffer exchange: two occupied slots must swap their contents through one temporary pad. The user has to choose the permitted pad, so an undisclosed preference blocks the first useful move. Second, retrieve and restore: the robot can open the box immediately, then ask which item to deliver, and finally reclose it. This tests whether a gate can postpone a question until it actually blocks progress. Third, occlusion inspection: a hidden world fact is available through a required inspection step. The robot should uncover, inspect, report, and restore, rather than asking the user for an observable fact. We also include fully disclosed controls. Together these cases distinguish immediate clarification, delayed clarification, and useful observation without clarification. They are different task structures, rather than just color changes.",
+      "script": "We designed three task templates to create different reasons to ask or continue. First, buffer exchange: two occupied slots must swap their contents through one temporary pad. The user has to choose the permitted pad, so an undisclosed preference blocks the first useful move. Second, retrieve and restore: the robot can open the box immediately, then ask which item to deliver, and finally reclose it. This tests whether a gate can postpone a question until it actually blocks progress. Third, occlusion inspection: a hidden world fact is available through a required inspection step. The robot should uncover, inspect, and report the measured code, rather than asking the user for an observable fact. We also include fully disclosed controls. Together these cases distinguish immediate clarification, delayed clarification, and useful observation without clarification. They are different task structures, rather than just color changes.",
       "evidence": "data/three_task_v8/r2/{dev,test}.jsonl; public task DAGs; outputs/three_task_v8/report/disclosure_breakdown.csv. Public-support timing categories are conceptual; exact event counts on slide8 are exploratory post-Test diagnostics.",
-      "spoken_words": 139
+      "spoken_words": 141
     },
     {
       "slide": 4,
