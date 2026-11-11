@@ -1,0 +1,1219 @@
+{
+  "evidence_kind": "deterministic_oracle_actual_pybullet_no_model",
+  "sample_id": "t8_r2_test_0_05_1",
+  "group_id": "buffer_exchange:layout_c78585299c364f2e",
+  "partition": "test",
+  "initial_observation": {
+    "simulation_step": 240,
+    "objects": {
+      "slot_left": {
+        "category": "container",
+        "color": "orange",
+        "position": [
+          0.62,
+          -0.07,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.575,
+          -0.115,
+          0.42
+        ],
+        "aabb_max": [
+          0.665,
+          -0.02500000000000001,
+          0.509
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "slot_right": {
+        "category": "container",
+        "color": "purple",
+        "position": [
+          0.47,
+          0.2,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.425,
+          0.15500000000000003,
+          0.42
+        ],
+        "aabb_max": [
+          0.515,
+          0.245,
+          0.509
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "item_a": {
+        "category": "block",
+        "color": "green",
+        "position": [
+          0.6199995236741692,
+          -0.06999984907013555,
+          0.45598958971592707
+        ],
+        "orientation": [
+          1.1453237039086868e-06,
+          -1.1466033852367319e-05,
+          -1.6882992151886243e-06,
+          0.999999999932184
+        ],
+        "aabb_min": [
+          0.5979989448899171,
+          -0.09199997374908692,
+          0.4339890348212703
+        ],
+        "aabb_max": [
+          0.6420001024584213,
+          -0.04799972439118419,
+          0.4779901446105838
+        ],
+        "linear_velocity": [
+          -2.6926820103430743e-15,
+          4.875919612425909e-15,
+          -8.673617379884035e-15
+        ],
+        "angular_velocity": [
+          -2.0430505467365698e-13,
+          -1.6233785353379963e-13,
+          -4.44987375337968e-14
+        ]
+      },
+      "item_b": {
+        "category": "block",
+        "color": "yellow",
+        "position": [
+          0.46999952367416925,
+          0.2000001509298668,
+          0.45598958971592707
+        ],
+        "orientation": [
+          1.1453237039132197e-06,
+          -1.1466033852358848e-05,
+          -1.6882992151909983e-06,
+          0.999999999932184
+        ],
+        "aabb_min": [
+          0.44799894488991715,
+          0.17800002625091543,
+          0.4339890348212703
+        ],
+        "aabb_max": [
+          0.49200010245842135,
+          0.2220002756088182,
+          0.4779901446105838
+        ],
+        "linear_velocity": [
+          -2.692681711367409e-15,
+          4.8759192034986296e-15,
+          -8.673617379884035e-15
+        ],
+        "angular_velocity": [
+          -2.0430504699400133e-13,
+          -1.6233783523637015e-13,
+          -4.4498730278249304e-14
+        ]
+      }
+    },
+    "end_effector": [
+      0.428022563457489,
+      3.169046749462723e-06,
+      0.859183669090271
+    ],
+    "held_object": null,
+    "robot_joints": [
+      {
+        "position": 1.0696532630007442e-05,
+        "velocity": 1.1492543028346347e-17
+      },
+      {
+        "position": -0.449997729886078,
+        "velocity": 5.492134524942571e-15
+      },
+      {
+        "position": -9.03501810404587e-22,
+        "velocity": 0.0
+      },
+      {
+        "position": -2.249999902417897,
+        "velocity": 4.657385588302532e-14
+      },
+      {
+        "position": -7.849520546658477e-06,
+        "velocity": -6.938893903907228e-18
+      },
+      {
+        "position": 1.8499867933658418,
+        "velocity": -2.1926904736346842e-14
+      },
+      {
+        "position": 0.7854036028562704,
+        "velocity": 1.2405874938448136e-14
+      },
+      {
+        "position": 0.03999881643475243,
+        "velocity": -6.804452834519026e-16
+      },
+      {
+        "position": 0.040001211924621284,
+        "velocity": 7.671814572507429e-16
+      }
+    ],
+    "task": {
+      "buffers": [
+        "buffer_front",
+        "buffer_back"
+      ],
+      "item_a": "item_a",
+      "item_b": "item_b",
+      "left": "slot_left",
+      "right": "slot_right",
+      "template_id": "buffer_exchange",
+      "version": "six_tasks_dev_v1",
+      "dag": {
+        "edges": [
+          [
+            "park_a",
+            "move_b_left"
+          ],
+          [
+            "move_b_left",
+            "move_a_right"
+          ]
+        ],
+        "nodes": [
+          "park_a",
+          "move_b_left",
+          "move_a_right"
+        ]
+      },
+      "preference_slots": {
+        "buffer_pad": {
+          "candidate_ids": [
+            "buffer_back",
+            "buffer_front"
+          ],
+          "kind": "preference",
+          "description": "Which temporary pad should be used for the exchange?"
+        }
+      },
+      "initial_choices": {}
+    },
+    "containers": {
+      "slot_left": {
+        "xy": [
+          0.62,
+          -0.07
+        ],
+        "half": [
+          0.045,
+          0.045
+        ],
+        "inner": [
+          0.033,
+          0.033
+        ],
+        "floor": 0.434,
+        "rim": 0.509,
+        "contents": [
+          "item_a"
+        ],
+        "contents_observed": true
+      },
+      "slot_right": {
+        "xy": [
+          0.47,
+          0.2
+        ],
+        "half": [
+          0.045,
+          0.045
+        ],
+        "inner": [
+          0.033,
+          0.033
+        ],
+        "floor": 0.434,
+        "rim": 0.509,
+        "contents": [
+          "item_b"
+        ],
+        "contents_observed": true
+      }
+    },
+    "zones": {
+      "buffer_back": {
+        "half_xy": [
+          0.065,
+          0.065
+        ],
+        "id": "buffer_back",
+        "xy": [
+          0.32,
+          0.05
+        ],
+        "contents": []
+      },
+      "buffer_front": {
+        "half_xy": [
+          0.065,
+          0.065
+        ],
+        "id": "buffer_front",
+        "xy": [
+          0.32,
+          -0.3
+        ],
+        "contents": []
+      }
+    },
+    "inspections": [],
+    "reports": [],
+    "sensor": null,
+    "affordances": {
+      "move": {
+        "item_a": [
+          "slot_left",
+          "slot_right",
+          "buffer_back",
+          "buffer_front"
+        ],
+        "item_b": [
+          "slot_left",
+          "slot_right",
+          "buffer_back",
+          "buffer_front"
+        ]
+      },
+      "cover": [],
+      "inspect": []
+    }
+  },
+  "final_observation": {
+    "simulation_step": 10381,
+    "objects": {
+      "slot_left": {
+        "category": "container",
+        "color": "orange",
+        "position": [
+          0.62,
+          -0.07,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.575,
+          -0.115,
+          0.42
+        ],
+        "aabb_max": [
+          0.665,
+          -0.02500000000000001,
+          0.509
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "slot_right": {
+        "category": "container",
+        "color": "purple",
+        "position": [
+          0.47,
+          0.2,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.425,
+          0.15500000000000003,
+          0.42
+        ],
+        "aabb_max": [
+          0.515,
+          0.245,
+          0.509
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "item_a": {
+        "category": "block",
+        "color": "green",
+        "position": [
+          0.4700651257278549,
+          0.1999328225552789,
+          0.4559896088372823
+        ],
+        "orientation": [
+          1.0133583913445858e-06,
+          -1.0921406610630493e-05,
+          -5.156253382094647e-05,
+          0.9999999986105005
+        ],
+        "aabb_min": [
+          0.44806237655489844,
+          0.17793050935734353,
+          0.4339890836904374
+        ],
+        "aabb_max": [
+          0.4920678749008114,
+          0.22193513575321425,
+          0.47799013398412715
+        ],
+        "linear_velocity": [
+          -2.5206515402304913e-13,
+          1.6656314469038992e-13,
+          -2.5558721805651885e-13
+        ],
+        "angular_velocity": [
+          -5.927335962090518e-12,
+          -1.3291670068767731e-11,
+          -2.235517542456878e-12
+        ]
+      },
+      "item_b": {
+        "category": "block",
+        "color": "yellow",
+        "position": [
+          0.6200077737040938,
+          -0.06993872791055811,
+          0.4559895899101035
+        ],
+        "orientation": [
+          1.1635663464004533e-06,
+          -1.146306638923304e-05,
+          6.156649367472513e-06,
+          0.9999999999146699
+        ],
+        "aabb_min": [
+          0.5980069984437784,
+          -0.09193905000084052,
+          0.4339890343468945
+        ],
+        "aabb_max": [
+          0.6420085489644092,
+          -0.0479384058202757,
+          0.47799014547331253
+        ],
+        "linear_velocity": [
+          -2.416663374437313e-15,
+          4.3763843139540686e-15,
+          -1.3877787807814457e-16
+        ],
+        "angular_velocity": [
+          -1.8337484464540817e-13,
+          -1.4569844492842807e-13,
+          -3.9939017562115004e-14
+        ]
+      }
+    },
+    "end_effector": [
+      0.4695731997489929,
+      0.19946974515914917,
+      0.8299866914749146
+    ],
+    "held_object": null,
+    "robot_joints": [
+      {
+        "position": 0.03944062319991527,
+        "velocity": 8.079290834242352e-06
+      },
+      {
+        "position": -0.17024789345353925,
+        "velocity": 9.690655642150513e-08
+      },
+      {
+        "position": 0.33793321969644774,
+        "velocity": -6.394190732450511e-15
+      },
+      {
+        "position": -2.0342045552253176,
+        "velocity": -2.9608673413061837e-07
+      },
+      {
+        "position": 0.05887156651954957,
+        "velocity": -6.47436212333069e-07
+      },
+      {
+        "position": 1.8729322715938395,
+        "velocity": 1.0916010504957718e-06
+      },
+      {
+        "position": 1.1406953500547543,
+        "velocity": 6.840034264187986e-07
+      },
+      {
+        "position": 0.039999978965646776,
+        "velocity": -1.2541250627405576e-08
+      },
+      {
+        "position": 0.04000002349493119,
+        "velocity": 1.4002135527435566e-08
+      }
+    ],
+    "task": {
+      "buffers": [
+        "buffer_front",
+        "buffer_back"
+      ],
+      "item_a": "item_a",
+      "item_b": "item_b",
+      "left": "slot_left",
+      "right": "slot_right",
+      "template_id": "buffer_exchange",
+      "version": "six_tasks_dev_v1",
+      "dag": {
+        "edges": [
+          [
+            "park_a",
+            "move_b_left"
+          ],
+          [
+            "move_b_left",
+            "move_a_right"
+          ]
+        ],
+        "nodes": [
+          "park_a",
+          "move_b_left",
+          "move_a_right"
+        ]
+      },
+      "preference_slots": {
+        "buffer_pad": {
+          "candidate_ids": [
+            "buffer_back",
+            "buffer_front"
+          ],
+          "kind": "preference",
+          "description": "Which temporary pad should be used for the exchange?"
+        }
+      },
+      "initial_choices": {}
+    },
+    "containers": {
+      "slot_left": {
+        "xy": [
+          0.62,
+          -0.07
+        ],
+        "half": [
+          0.045,
+          0.045
+        ],
+        "inner": [
+          0.033,
+          0.033
+        ],
+        "floor": 0.434,
+        "rim": 0.509,
+        "contents": [
+          "item_b"
+        ],
+        "contents_observed": true
+      },
+      "slot_right": {
+        "xy": [
+          0.47,
+          0.2
+        ],
+        "half": [
+          0.045,
+          0.045
+        ],
+        "inner": [
+          0.033,
+          0.033
+        ],
+        "floor": 0.434,
+        "rim": 0.509,
+        "contents": [
+          "item_a"
+        ],
+        "contents_observed": true
+      }
+    },
+    "zones": {
+      "buffer_back": {
+        "half_xy": [
+          0.065,
+          0.065
+        ],
+        "id": "buffer_back",
+        "xy": [
+          0.32,
+          0.05
+        ],
+        "contents": []
+      },
+      "buffer_front": {
+        "half_xy": [
+          0.065,
+          0.065
+        ],
+        "id": "buffer_front",
+        "xy": [
+          0.32,
+          -0.3
+        ],
+        "contents": []
+      }
+    },
+    "inspections": [],
+    "reports": [],
+    "sensor": null,
+    "affordances": {
+      "move": {
+        "item_a": [
+          "slot_left",
+          "slot_right",
+          "buffer_back",
+          "buffer_front"
+        ],
+        "item_b": [
+          "slot_left",
+          "slot_right",
+          "buffer_back",
+          "buffer_front"
+        ]
+      },
+      "cover": [],
+      "inspect": []
+    }
+  },
+  "initial_penetrations": [],
+  "actions": [
+    {
+      "skill": "move",
+      "object_id": "item_a",
+      "target_id": "buffer_back",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3618,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "item_b",
+      "target_id": "slot_left",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3618,
+      "end_step": 6933,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "item_a",
+      "target_id": "slot_right",
+      "success": true,
+      "reason": "placed",
+      "start_step": 6933,
+      "end_step": 10381,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "execution_log": [
+    {
+      "kind": "placement_started",
+      "object_id": "item_a",
+      "target_id": "buffer_back",
+      "step": 240
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_a",
+      "step": 240,
+      "end_effector": [
+        0.428022563457489,
+        3.169046749462723e-06,
+        0.859183669090271
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_a",
+      "step": 1109,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.0037636160783070718,
+      "closest_hand_distance_m": 0.03570882929584756
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_a",
+      "step": 1169,
+      "end_effector": [
+        0.6199859976768494,
+        -0.069994255900383,
+        0.5130292773246765
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_a",
+      "step": 1617,
+      "end_effector": [
+        0.6198750138282776,
+        -0.0699843093752861,
+        0.8253386616706848
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_a",
+      "step": 2074,
+      "end_effector": [
+        0.3241918683052063,
+        0.04837273433804512,
+        0.8299792408943176
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_a",
+      "step": 2728
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_a",
+      "step": 3378,
+      "end_effector": [
+        0.3199586570262909,
+        0.050037629902362823,
+        0.8262223601341248
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "item_a",
+      "target_id": "buffer_back",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3618,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_b",
+      "target_id": "slot_left",
+      "step": 3618
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_b",
+      "step": 3618,
+      "end_effector": [
+        0.319934606552124,
+        0.05003270134329796,
+        0.8299923539161682
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_b",
+      "step": 4495,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.0037842954265893884,
+      "closest_hand_distance_m": 0.03570065700619255
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_b",
+      "step": 4555,
+      "end_effector": [
+        0.4699609577655792,
+        0.19998107850551605,
+        0.5129905343055725
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_b",
+      "step": 5003,
+      "end_effector": [
+        0.4700017273426056,
+        0.19999751448631287,
+        0.8253998160362244
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_b",
+      "step": 5440,
+      "end_effector": [
+        0.6176044940948486,
+        -0.0659870132803917,
+        0.8298523426055908
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_b",
+      "step": 6066
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_b",
+      "step": 6693,
+      "end_effector": [
+        0.6198676824569702,
+        -0.07001256197690964,
+        0.8261649012565613
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "item_b",
+      "target_id": "slot_left",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3618,
+      "end_step": 6933,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_a",
+      "target_id": "slot_right",
+      "step": 6933
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_a",
+      "step": 6933,
+      "end_effector": [
+        0.6198503971099854,
+        -0.07001035660505295,
+        0.8299357891082764
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_a",
+      "step": 7985,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.005572724256579333,
+      "closest_hand_distance_m": 0.0233295912310372
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_a",
+      "step": 8045,
+      "end_effector": [
+        0.3194250166416168,
+        0.049363020807504654,
+        0.48427265882492065
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_a",
+      "step": 8534,
+      "end_effector": [
+        0.31992462277412415,
+        0.04990989342331886,
+        0.8254194855690002
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_a",
+      "step": 8833,
+      "end_effector": [
+        0.46630537509918213,
+        0.1961955428123474,
+        0.8298912644386292
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_a",
+      "step": 9489
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_a",
+      "step": 10141,
+      "end_effector": [
+        0.46959593892097473,
+        0.1994766891002655,
+        0.8262158036231995
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "item_a",
+      "target_id": "slot_right",
+      "success": true,
+      "reason": "placed",
+      "start_step": 6933,
+      "end_step": 10381,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "checkpoints": [
+    {
+      "step": 240,
+      "action": "initial",
+      "contents": {
+        "slot_left": [
+          "item_a"
+        ],
+        "slot_right": [
+          "item_b"
+        ]
+      },
+      "zones": {
+        "buffer_back": [],
+        "buffer_front": []
+      },
+      "released": true,
+      "positions": {
+        "item_a": [
+          0.6199995236741692,
+          -0.06999984907013555,
+          0.45598958971592707
+        ],
+        "item_b": [
+          0.46999952367416925,
+          0.2000001509298668,
+          0.45598958971592707
+        ]
+      }
+    },
+    {
+      "step": 3618,
+      "action": {
+        "kind": "move",
+        "object_id": "item_a",
+        "target_id": "buffer_back"
+      },
+      "contents": {
+        "slot_left": [],
+        "slot_right": [
+          "item_b"
+        ]
+      },
+      "zones": {
+        "buffer_back": [
+          "item_a"
+        ],
+        "buffer_front": []
+      },
+      "released": true,
+      "positions": {
+        "item_a": [
+          0.3199048574933387,
+          0.049909507966262735,
+          0.44198913769367737
+        ],
+        "item_b": [
+          0.46999952367416925,
+          0.20000015092996057,
+          0.4559895897158788
+        ]
+      }
+    },
+    {
+      "step": 6933,
+      "action": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left"
+      },
+      "contents": {
+        "slot_left": [
+          "item_b"
+        ],
+        "slot_right": []
+      },
+      "zones": {
+        "buffer_back": [
+          "item_a"
+        ],
+        "buffer_front": []
+      },
+      "released": true,
+      "positions": {
+        "item_a": [
+          0.3199048574933387,
+          0.049909507966262735,
+          0.44198913769367737
+        ],
+        "item_b": [
+          0.6200077737040938,
+          -0.06993872791060596,
+          0.45598958991014776
+        ]
+      }
+    },
+    {
+      "step": 10381,
+      "action": {
+        "kind": "move",
+        "object_id": "item_a",
+        "target_id": "slot_right"
+      },
+      "contents": {
+        "slot_left": [
+          "item_b"
+        ],
+        "slot_right": [
+          "item_a"
+        ]
+      },
+      "zones": {
+        "buffer_back": [],
+        "buffer_front": []
+      },
+      "released": true,
+      "positions": {
+        "item_a": [
+          0.4700651257278549,
+          0.1999328225552789,
+          0.4559896088372823
+        ],
+        "item_b": [
+          0.6200077737040938,
+          -0.06993872791055811,
+          0.4559895899101035
+        ]
+      }
+    }
+  ],
+  "evaluation": {
+    "task_success": true,
+    "termination_reason": "independent_offline_oracle",
+    "conditions": {
+      "items_exchanged": true,
+      "selected_buffer_physically_used": true,
+      "other_buffer_unused": true,
+      "buffers_empty_at_end": true,
+      "capacity_respected": true,
+      "buffer_exchange_order": true,
+      "robot_released": true,
+      "all_movable_objects_stable": true
+    },
+    "details": {
+      "selected_buffer": "buffer_back",
+      "checkpoints": [
+        {
+          "step": 240,
+          "action": "initial",
+          "contents": {
+            "slot_left": [
+              "item_a"
+            ],
+            "slot_right": [
+              "item_b"
+            ]
+          },
+          "zones": {
+            "buffer_back": [],
+            "buffer_front": []
+          },
+          "released": true,
+          "positions": {
+            "item_a": [
+              0.6199995236741692,
+              -0.06999984907013555,
+              0.45598958971592707
+            ],
+            "item_b": [
+              0.46999952367416925,
+              0.2000001509298668,
+              0.45598958971592707
+            ]
+          }
+        },
+        {
+          "step": 3618,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "buffer_back"
+          },
+          "contents": {
+            "slot_left": [],
+            "slot_right": [
+              "item_b"
+            ]
+          },
+          "zones": {
+            "buffer_back": [
+              "item_a"
+            ],
+            "buffer_front": []
+          },
+          "released": true,
+          "positions": {
+            "item_a": [
+              0.3199048574933387,
+              0.049909507966262735,
+              0.44198913769367737
+            ],
+            "item_b": [
+              0.46999952367416925,
+              0.20000015092996057,
+              0.4559895897158788
+            ]
+          }
+        },
+        {
+          "step": 6933,
+          "action": {
+            "kind": "move",
+            "object_id": "item_b",
+            "target_id": "slot_left"
+          },
+          "contents": {
+            "slot_left": [
+              "item_b"
+            ],
+            "slot_right": []
+          },
+          "zones": {
+            "buffer_back": [
+              "item_a"
+            ],
+            "buffer_front": []
+          },
+          "released": true,
+          "positions": {
+            "item_a": [
+              0.3199048574933387,
+              0.049909507966262735,
+              0.44198913769367737
+            ],
+            "item_b": [
+              0.6200077737040938,
+              -0.06993872791060596,
+              0.45598958991014776
+            ]
+          }
+        },
+        {
+          "step": 10381,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "slot_right"
+          },
+          "contents": {
+            "slot_left": [
+              "item_b"
+            ],
+            "slot_right": [
+              "item_a"
+            ]
+          },
+          "zones": {
+            "buffer_back": [],
+            "buffer_front": []
+          },
+          "released": true,
+          "positions": {
+            "item_a": [
+              0.4700651257278549,
+              0.1999328225552789,
+              0.4559896088372823
+            ],
+            "item_b": [
+              0.6200077737040938,
+              -0.06993872791055811,
+              0.4559895899101035
+            ]
+          }
+        }
+      ],
+      "robot_contact_counts": {
+        "item_a": 0,
+        "item_b": 0
+      }
+    },
+    "clarification_burden": 0,
+    "action_count": 3,
+    "successful_action_count": 3,
+    "simulation_steps": 10381,
+    "evaluator_version": "task6_geometry_contact_evidence_v1"
+  },
+  "api_attempts": 0
+}

@@ -1,0 +1,295 @@
+{
+  "experiment_id": "three_task_v8_heldout_test_r2",
+  "dataset_version": "when2ask_three_task_v8",
+  "revision": "r2",
+  "completed": 36,
+  "planned": 36,
+  "independent_test_groups": 12,
+  "test_samples": 12,
+  "dev_samples": 24,
+  "oracle": {
+    "successes": 36,
+    "total": 36
+  },
+  "methods": [
+    {
+      "method": "llm_noask",
+      "scored": 12,
+      "planned": 12,
+      "successes": 10,
+      "success_rate": 0.8333333333333334,
+      "group_wilson95": [
+        0.5519636426153274,
+        0.9530358523851776
+      ],
+      "burden_total": 0,
+      "burden_mean": 0.0,
+      "actions": 36,
+      "physical_failures": 0,
+      "api_attempts": 48,
+      "api_latency_s": 57.90658562499448,
+      "early_asks_exploratory": 0,
+      "missed_asks_exploratory": 0,
+      "schema_errors": 0,
+      "retries": 0,
+      "deepseek_input_tokens": 143551,
+      "deepseek_output_tokens": 4830,
+      "jev_input_tokens": null,
+      "jev_output_tokens": null
+    },
+    {
+      "method": "llm_gate",
+      "scored": 12,
+      "planned": 12,
+      "successes": 12,
+      "success_rate": 1.0,
+      "group_wilson95": [
+        0.7574992425007574,
+        1
+      ],
+      "burden_total": 4,
+      "burden_mean": 0.3333333333333333,
+      "actions": 37,
+      "physical_failures": 1,
+      "api_attempts": 106,
+      "api_latency_s": 105.40838682891626,
+      "early_asks_exploratory": 2,
+      "missed_asks_exploratory": 0,
+      "schema_errors": 0,
+      "retries": 0,
+      "deepseek_input_tokens": 238767,
+      "deepseek_output_tokens": 5442,
+      "jev_input_tokens": null,
+      "jev_output_tokens": null
+    },
+    {
+      "method": "jev_gate",
+      "scored": 12,
+      "planned": 12,
+      "successes": 12,
+      "success_rate": 1.0,
+      "group_wilson95": [
+        0.7574992425007574,
+        1
+      ],
+      "burden_total": 4,
+      "burden_mean": 0.3333333333333333,
+      "actions": 38,
+      "physical_failures": 2,
+      "api_attempts": 108,
+      "api_latency_s": 78.56056749305571,
+      "early_asks_exploratory": 0,
+      "missed_asks_exploratory": 0,
+      "schema_errors": 0,
+      "retries": 0,
+      "deepseek_input_tokens": 161546,
+      "deepseek_output_tokens": 5219,
+      "jev_input_tokens": 116101,
+      "jev_output_tokens": 1296
+    }
+  ],
+  "template_disclosure_breakdown": [
+    {
+      "method": "llm_noask",
+      "template": "buffer_exchange",
+      "unknown": 0,
+      "n": 2,
+      "successes": 2,
+      "burden": 0
+    },
+    {
+      "method": "llm_noask",
+      "template": "buffer_exchange",
+      "unknown": 1,
+      "n": 2,
+      "successes": 1,
+      "burden": 0
+    },
+    {
+      "method": "llm_noask",
+      "template": "occlusion_inspection",
+      "unknown": 0,
+      "n": 2,
+      "successes": 2,
+      "burden": 0
+    },
+    {
+      "method": "llm_noask",
+      "template": "occlusion_inspection",
+      "unknown": 1,
+      "n": 2,
+      "successes": 2,
+      "burden": 0
+    },
+    {
+      "method": "llm_noask",
+      "template": "retrieve_restore",
+      "unknown": 0,
+      "n": 2,
+      "successes": 2,
+      "burden": 0
+    },
+    {
+      "method": "llm_noask",
+      "template": "retrieve_restore",
+      "unknown": 1,
+      "n": 2,
+      "successes": 1,
+      "burden": 0
+    },
+    {
+      "method": "llm_gate",
+      "template": "buffer_exchange",
+      "unknown": 0,
+      "n": 2,
+      "successes": 2,
+      "burden": 0
+    },
+    {
+      "method": "llm_gate",
+      "template": "buffer_exchange",
+      "unknown": 1,
+      "n": 2,
+      "successes": 2,
+      "burden": 2
+    },
+    {
+      "method": "llm_gate",
+      "template": "occlusion_inspection",
+      "unknown": 0,
+      "n": 2,
+      "successes": 2,
+      "burden": 0
+    },
+    {
+      "method": "llm_gate",
+      "template": "occlusion_inspection",
+      "unknown": 1,
+      "n": 2,
+      "successes": 2,
+      "burden": 0
+    },
+    {
+      "method": "llm_gate",
+      "template": "retrieve_restore",
+      "unknown": 0,
+      "n": 2,
+      "successes": 2,
+      "burden": 0
+    },
+    {
+      "method": "llm_gate",
+      "template": "retrieve_restore",
+      "unknown": 1,
+      "n": 2,
+      "successes": 2,
+      "burden": 2
+    },
+    {
+      "method": "jev_gate",
+      "template": "buffer_exchange",
+      "unknown": 0,
+      "n": 2,
+      "successes": 2,
+      "burden": 0
+    },
+    {
+      "method": "jev_gate",
+      "template": "buffer_exchange",
+      "unknown": 1,
+      "n": 2,
+      "successes": 2,
+      "burden": 2
+    },
+    {
+      "method": "jev_gate",
+      "template": "occlusion_inspection",
+      "unknown": 0,
+      "n": 2,
+      "successes": 2,
+      "burden": 0
+    },
+    {
+      "method": "jev_gate",
+      "template": "occlusion_inspection",
+      "unknown": 1,
+      "n": 2,
+      "successes": 2,
+      "burden": 0
+    },
+    {
+      "method": "jev_gate",
+      "template": "retrieve_restore",
+      "unknown": 0,
+      "n": 2,
+      "successes": 2,
+      "burden": 0
+    },
+    {
+      "method": "jev_gate",
+      "template": "retrieve_restore",
+      "unknown": 1,
+      "n": 2,
+      "successes": 2,
+      "burden": 2
+    }
+  ],
+  "paired_group_analysis": [
+    {
+      "first": "llm_gate",
+      "second": "llm_noask",
+      "group_paired_sr_difference": 0.16666666666666666,
+      "bootstrap95": [
+        0.0,
+        0.4166666666666667
+      ],
+      "independent_groups": 12,
+      "policy": "Exploratory stratified paired group bootstrap; each template contributes4 groups. No significance claim, no variants counted independently.",
+      "warning": null
+    },
+    {
+      "first": "jev_gate",
+      "second": "llm_noask",
+      "group_paired_sr_difference": 0.16666666666666666,
+      "bootstrap95": [
+        0.0,
+        0.4166666666666667
+      ],
+      "independent_groups": 12,
+      "policy": "Exploratory stratified paired group bootstrap; each template contributes4 groups. No significance claim, no variants counted independently.",
+      "warning": null
+    },
+    {
+      "first": "jev_gate",
+      "second": "llm_gate",
+      "group_paired_sr_difference": 0.0,
+      "bootstrap95": [
+        0.0,
+        0.0
+      ],
+      "independent_groups": 12,
+      "policy": "Exploratory stratified paired group bootstrap; each template contributes4 groups. No significance claim, no variants counted independently.",
+      "warning": "No observed discordant outcomes; a degenerate empirical interval is not evidence of population equivalence."
+    }
+  ],
+  "total_authenticated_requests": 262,
+  "budget": 450,
+  "api_errors": 0,
+  "schema_errors": 0,
+  "retries": 0,
+  "returned_models": {
+    "deepseek": [
+      "deepseek-flash"
+    ],
+    "jev": [
+      "jev-1.14.0"
+    ]
+  },
+  "protected_files": 2709,
+  "notes": [
+    "Small genuinely held-out layout Test for the three new templates, independent of original128-Test.",
+    "Source/prompts/models/threshold frozen before Test, all Test samples paired across methods; no whole-episode retries or sample exclusions.",
+    "Early/missed ASK counts are EXPLORATORY post-Test public-DAG/scripted support diagnostics, not preregistered optimal-timing labels. No private preference is used for this reference.",
+    "Physical oracle knows private preference only for feasibility; its trajectories are never agent inputs."
+  ]
+}

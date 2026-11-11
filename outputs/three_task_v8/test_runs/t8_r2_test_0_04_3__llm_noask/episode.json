@@ -1,0 +1,5023 @@
+{
+  "experiment_id": "three_task_v8_heldout_test_r2",
+  "evidence_kind": "real_api_real_pybullet_heldout_test",
+  "dataset_version": "when2ask_three_task_v8",
+  "sample_id": "t8_r2_test_0_04_3",
+  "group_id": "buffer_exchange:layout_a934680d42e53aa5",
+  "partition": "test",
+  "task_template": "buffer_exchange",
+  "method": "llm_noask",
+  "scene_seed": 1779466723,
+  "instruction": "Swap the contents of slot_left and slot_right using temporary parking for item_a. The final destinations are item_a to slot_right and item_b to slot_left. Use only the buffer_pad chosen by the user; leave the other pad unused. Each slot capacity is one. Park A, move B left, then move A right; finish with empty pads and no held object. The buffer_pad choice has not been disclosed.",
+  "unknown_slots": 1,
+  "protocol": {
+    "gate": {
+      "profile": "gate_dev_v7",
+      "gate_view": "compact_public",
+      "gate_contract": "unchanged_v6",
+      "threshold_policy": "unchanged_configured_threshold",
+      "selected_factor_profile": "s1c0",
+      "shared_planner": "unchanged_memory_dev_v6",
+      "selection_evidence": "outputs/gate_diagnostics_dev_v7/selection.json"
+    },
+    "planner": "memory_dev_v6",
+    "prompt_hashes": {
+      "gate": "7c2bb65c87c169707a4f847620bf6296463fe42f36a8e20f674d121765ecf820",
+      "question": "ed6cde3749fdf6d98ae39a897f37facbfc99afbc8f4ae6421c749b56eaf6fcb1",
+      "action": "10bcfdefa1e573d9627e4e919abafb5807c6f611342d8ebf31f4cfabeb28ccce"
+    },
+    "threshold": 0.5
+  },
+  "configuration": {
+    "deepseek_model": "deepseek-flash",
+    "jev_model": "jev-latest",
+    "jev_threshold": 0.5,
+    "timeout_s": 40,
+    "max_retries": 1,
+    "max_tokens": 500,
+    "thinking": "disabled",
+    "response_format": "json_object"
+  },
+  "source_commit": "0fcd2723eea2008c094000b65eda62284f1d7874",
+  "turns": [
+    {
+      "round": 0,
+      "raw_public_payload": {
+        "instruction": "Swap the contents of slot_left and slot_right using temporary parking for item_a. The final destinations are item_a to slot_right and item_b to slot_left. Use only the buffer_pad chosen by the user; leave the other pad unused. Each slot capacity is one. Park A, move B left, then move A right; finish with empty pads and no held object. The buffer_pad choice has not been disclosed.",
+        "observation": {
+          "simulation_step": 240,
+          "objects": {
+            "slot_left": {
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.48,
+                -0.19,
+                0.42
+              ],
+              "orientation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "aabb_min": [
+                0.435,
+                -0.235,
+                0.42
+              ],
+              "aabb_max": [
+                0.525,
+                -0.14500000000000002,
+                0.509
+              ],
+              "linear_velocity": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "angular_velocity": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "slot_right": {
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.63,
+                0.07,
+                0.42
+              ],
+              "orientation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "aabb_min": [
+                0.585,
+                0.02500000000000001,
+                0.42
+              ],
+              "aabb_max": [
+                0.675,
+                0.115,
+                0.509
+              ],
+              "linear_velocity": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "angular_velocity": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "item_a": {
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.47999952367416926,
+                -0.1899998490701332,
+                0.45598958971592707
+              ],
+              "orientation": [
+                1.1453237039083327e-06,
+                -1.1466033852347173e-05,
+                -1.6882992151913494e-06,
+                0.999999999932184
+              ],
+              "aabb_min": [
+                0.45799894488991716,
+                -0.21199997374908458,
+                0.4339890348212703
+              ],
+              "aabb_max": [
+                0.5020001024584213,
+                -0.16799972439118183,
+                0.4779901446105838
+              ],
+              "linear_velocity": [
+                -2.692681258102697e-15,
+                4.875919204841806e-15,
+                -8.895661984809067e-15
+              ],
+              "angular_velocity": [
+                -2.043050402881836e-13,
+                -1.62337815825504e-13,
+                -4.44987330247153e-14
+              ]
+            },
+            "item_b": {
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.6299995236741692,
+                0.07000015092986445,
+                0.45598958971592707
+              ],
+              "orientation": [
+                1.145323703910276e-06,
+                -1.1466033852375555e-05,
+                -1.6882992151880475e-06,
+                0.999999999932184
+              ],
+              "aabb_min": [
+                0.6079989448899171,
+                0.04800002625091308,
+                0.4339890348212703
+              ],
+              "aabb_max": [
+                0.6520001024584213,
+                0.09200027560881581,
+                0.4779901446105838
+              ],
+              "linear_velocity": [
+                -2.692680951821403e-15,
+                4.875919869312478e-15,
+                -8.673617379884035e-15
+              ],
+              "angular_velocity": [
+                -2.0430507116576744e-13,
+                -1.6233779991268505e-13,
+                -4.449873084983225e-14
+              ]
+            }
+          },
+          "end_effector": [
+            0.428022563457489,
+            3.169046749462723e-06,
+            0.859183669090271
+          ],
+          "held_object": null,
+          "robot_joints": [
+            {
+              "position": 1.0696532630007442e-05,
+              "velocity": 1.1492543028346347e-17
+            },
+            {
+              "position": -0.449997729886078,
+              "velocity": 5.492134524942571e-15
+            },
+            {
+              "position": -9.03501810404587e-22,
+              "velocity": 0.0
+            },
+            {
+              "position": -2.249999902417897,
+              "velocity": 4.657385588302532e-14
+            },
+            {
+              "position": -7.849520546658477e-06,
+              "velocity": -6.938893903907228e-18
+            },
+            {
+              "position": 1.8499867933658418,
+              "velocity": -2.1926904736346842e-14
+            },
+            {
+              "position": 0.7854036028562704,
+              "velocity": 1.2405874938448136e-14
+            },
+            {
+              "position": 0.03999881643475243,
+              "velocity": -6.804452834519026e-16
+            },
+            {
+              "position": 0.040001211924621284,
+              "velocity": 7.671814572507429e-16
+            }
+          ],
+          "task": {
+            "buffers": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "item_a": "item_a",
+            "item_b": "item_b",
+            "left": "slot_left",
+            "right": "slot_right",
+            "template_id": "buffer_exchange",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "park_a",
+                  "move_b_left"
+                ],
+                [
+                  "move_b_left",
+                  "move_a_right"
+                ]
+              ],
+              "nodes": [
+                "park_a",
+                "move_b_left",
+                "move_a_right"
+              ]
+            },
+            "preference_slots": {
+              "buffer_pad": {
+                "candidate_ids": [
+                  "buffer_back",
+                  "buffer_front"
+                ],
+                "kind": "preference",
+                "description": "Which temporary pad should be used for the exchange?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "containers": {
+            "slot_left": {
+              "xy": [
+                0.48,
+                -0.19
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_a"
+              ],
+              "contents_observed": true
+            },
+            "slot_right": {
+              "xy": [
+                0.63,
+                0.07
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_b"
+              ],
+              "contents_observed": true
+            }
+          },
+          "zones": {
+            "buffer_back": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_back",
+              "xy": [
+                0.3,
+                0.33
+              ],
+              "contents": []
+            },
+            "buffer_front": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_front",
+              "xy": [
+                0.32,
+                -0.06
+              ],
+              "contents": []
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": null,
+          "affordances": {
+            "move": {
+              "item_a": [
+                "slot_left",
+                "slot_right",
+                "buffer_back",
+                "buffer_front"
+              ],
+              "item_b": [
+                "slot_left",
+                "slot_right",
+                "buffer_back",
+                "buffer_front"
+              ]
+            },
+            "cover": [],
+            "inspect": []
+          }
+        },
+        "history": []
+      },
+      "public_payload": {
+        "instruction": "Swap the contents of slot_left and slot_right using temporary parking for item_a. The final destinations are item_a to slot_right and item_b to slot_left. Use only the buffer_pad chosen by the user; leave the other pad unused. Each slot capacity is one. Park A, move B left, then move A right; finish with empty pads and no held object. The buffer_pad choice has not been disclosed.",
+        "observation": {
+          "simulation_step": 240,
+          "objects": {
+            "slot_left": {
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.48,
+                -0.19,
+                0.42
+              ],
+              "aabb_min": [
+                0.435,
+                -0.235,
+                0.42
+              ],
+              "aabb_max": [
+                0.525,
+                -0.14500000000000002,
+                0.509
+              ]
+            },
+            "slot_right": {
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.63,
+                0.07,
+                0.42
+              ],
+              "aabb_min": [
+                0.585,
+                0.02500000000000001,
+                0.42
+              ],
+              "aabb_max": [
+                0.675,
+                0.115,
+                0.509
+              ]
+            },
+            "item_a": {
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.47999952367416926,
+                -0.1899998490701332,
+                0.45598958971592707
+              ],
+              "aabb_min": [
+                0.45799894488991716,
+                -0.21199997374908458,
+                0.4339890348212703
+              ],
+              "aabb_max": [
+                0.5020001024584213,
+                -0.16799972439118183,
+                0.4779901446105838
+              ]
+            },
+            "item_b": {
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.6299995236741692,
+                0.07000015092986445,
+                0.45598958971592707
+              ],
+              "aabb_min": [
+                0.6079989448899171,
+                0.04800002625091308,
+                0.4339890348212703
+              ],
+              "aabb_max": [
+                0.6520001024584213,
+                0.09200027560881581,
+                0.4779901446105838
+              ]
+            }
+          },
+          "end_effector": [
+            0.428022563457489,
+            3.169046749462723e-06,
+            0.859183669090271
+          ],
+          "held_object": null,
+          "robot_joints": [
+            {
+              "position": 1.0696532630007442e-05,
+              "velocity": 1.1492543028346347e-17
+            },
+            {
+              "position": -0.449997729886078,
+              "velocity": 5.492134524942571e-15
+            },
+            {
+              "position": -9.03501810404587e-22,
+              "velocity": 0.0
+            },
+            {
+              "position": -2.249999902417897,
+              "velocity": 4.657385588302532e-14
+            },
+            {
+              "position": -7.849520546658477e-06,
+              "velocity": -6.938893903907228e-18
+            },
+            {
+              "position": 1.8499867933658418,
+              "velocity": -2.1926904736346842e-14
+            },
+            {
+              "position": 0.7854036028562704,
+              "velocity": 1.2405874938448136e-14
+            },
+            {
+              "position": 0.03999881643475243,
+              "velocity": -6.804452834519026e-16
+            },
+            {
+              "position": 0.040001211924621284,
+              "velocity": 7.671814572507429e-16
+            }
+          ],
+          "task": {
+            "buffers": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "item_a": "item_a",
+            "item_b": "item_b",
+            "left": "slot_left",
+            "right": "slot_right",
+            "template_id": "buffer_exchange",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "park_a",
+                  "move_b_left"
+                ],
+                [
+                  "move_b_left",
+                  "move_a_right"
+                ]
+              ],
+              "nodes": [
+                "park_a",
+                "move_b_left",
+                "move_a_right"
+              ]
+            },
+            "preference_slots": {
+              "buffer_pad": {
+                "candidate_ids": [
+                  "buffer_back",
+                  "buffer_front"
+                ],
+                "kind": "preference",
+                "description": "Which temporary pad should be used for the exchange?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "containers": {
+            "slot_left": {
+              "xy": [
+                0.48,
+                -0.19
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_a"
+              ],
+              "contents_observed": true
+            },
+            "slot_right": {
+              "xy": [
+                0.63,
+                0.07
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_b"
+              ],
+              "contents_observed": true
+            }
+          },
+          "zones": {
+            "buffer_back": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_back",
+              "xy": [
+                0.3,
+                0.33
+              ],
+              "contents": []
+            },
+            "buffer_front": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_front",
+              "xy": [
+                0.32,
+                -0.06
+              ],
+              "contents": []
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": null,
+          "affordances": {
+            "move": {
+              "item_a": [
+                "slot_left",
+                "slot_right",
+                "buffer_back",
+                "buffer_front"
+              ],
+              "item_b": [
+                "slot_left",
+                "slot_right",
+                "buffer_back",
+                "buffer_front"
+              ]
+            },
+            "cover": [],
+            "inspect": []
+          }
+        },
+        "history": [],
+        "public_summary": {
+          "version": "memory_dev_v6",
+          "current_regions": {
+            "slot_left": {
+              "contents": [
+                "item_a"
+              ],
+              "observed": true
+            },
+            "slot_right": {
+              "contents": [
+                "item_b"
+              ],
+              "observed": true
+            },
+            "buffer_back": {
+              "contents": [],
+              "observed": true
+            },
+            "buffer_front": {
+              "contents": [],
+              "observed": true
+            }
+          },
+          "observed_locations": {
+            "item_a": [
+              "slot_left"
+            ],
+            "item_b": [
+              "slot_right"
+            ]
+          },
+          "object_memory": {
+            "item_a": {
+              "status": "observed_now",
+              "regions": [
+                "slot_left"
+              ],
+              "observed_step": 240,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            },
+            "item_b": {
+              "status": "observed_now",
+              "regions": [
+                "slot_right"
+              ],
+              "observed_step": 240,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            }
+          },
+          "goal_requirements": {
+            "final_targets": {
+              "item_a": "slot_right",
+              "item_b": "slot_left"
+            },
+            "buffer_candidates": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "buffers_empty_at_end": true
+          },
+          "required_final_relations": [
+            {
+              "object_id": "item_a",
+              "required_final_region": "slot_right",
+              "currently_observed_at_target": false,
+              "region_contents": [
+                "item_b"
+              ]
+            },
+            {
+              "object_id": "item_b",
+              "required_final_region": "slot_left",
+              "currently_observed_at_target": false,
+              "region_contents": [
+                "item_a"
+              ]
+            }
+          ],
+          "lid_geometry": null,
+          "confirmed_choices": {},
+          "own_working_choices": {},
+          "preference_candidates": {
+            "buffer_pad": [
+              "buffer_back",
+              "buffer_front"
+            ]
+          },
+          "unresolved_roles": [
+            "buffer_pad"
+          ],
+          "observed_region_visits": [
+            {
+              "object_id": "item_a",
+              "region_id": "slot_left",
+              "first_observed_step": 240,
+              "last_observed_step": 240
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_right",
+              "first_observed_step": 240,
+              "last_observed_step": 240
+            }
+          ],
+          "latest_action_by_object": {},
+          "action_history_coverage": {
+            "total": 0,
+            "failed": 0
+          },
+          "memory_scope": {
+            "prior_public_snapshots": 0,
+            "current_step": 240,
+            "note": "Memory records past public observations, never fresh sight through a lid. Region sensor membership and current grasp visibility are different. Unknown is not absent. New measured state overrides memory; unseen memories after failed/disturbing actions are invalidated."
+          },
+          "limitation": "These are public facts, not task scores, an oracle, prescribed actions or a completion verdict. The model must assess the goal; the independent evaluator uses actual final geometry/contact."
+        }
+      },
+      "payload_sha256": "fcd59c98636d982e6f95de3b02bce46c85a6ee0313477eb8c60a2319f984f51e",
+      "gate": {
+        "called": false,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "item_a",
+        "target_id": "buffer_back"
+      },
+      "model_plan": {
+        "working_choices": {
+          "buffer_pad": "buffer_back"
+        },
+        "completion_assessment": {
+          "ready_for_done": false,
+          "reason": "Items are still in their initial slots (A in slot_left, B in slot_right). Buffer pad choice undisclosed; using a reasonable guess (buffer_back). Need to park A, move B to slot_left, then move A to slot_right, ending with empty pads."
+        },
+        "remaining_plan": [
+          {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "buffer_back"
+          },
+          {
+            "kind": "move",
+            "object_id": "item_b",
+            "target_id": "slot_left"
+          },
+          {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "slot_right"
+          },
+          {
+            "kind": "DONE"
+          }
+        ]
+      },
+      "physical_result": {
+        "skill": "move",
+        "object_id": "item_a",
+        "target_id": "buffer_back",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3929,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 1,
+      "raw_public_payload": {
+        "instruction": "Swap the contents of slot_left and slot_right using temporary parking for item_a. The final destinations are item_a to slot_right and item_b to slot_left. Use only the buffer_pad chosen by the user; leave the other pad unused. Each slot capacity is one. Park A, move B left, then move A right; finish with empty pads and no held object. The buffer_pad choice has not been disclosed.",
+        "observation": {
+          "simulation_step": 3929,
+          "objects": {
+            "slot_left": {
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.48,
+                -0.19,
+                0.42
+              ],
+              "orientation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "aabb_min": [
+                0.435,
+                -0.235,
+                0.42
+              ],
+              "aabb_max": [
+                0.525,
+                -0.14500000000000002,
+                0.509
+              ],
+              "linear_velocity": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "angular_velocity": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "slot_right": {
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.63,
+                0.07,
+                0.42
+              ],
+              "orientation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "aabb_min": [
+                0.585,
+                0.02500000000000001,
+                0.42
+              ],
+              "aabb_max": [
+                0.675,
+                0.115,
+                0.509
+              ],
+              "linear_velocity": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "angular_velocity": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "item_a": {
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.2999605828289876,
+                0.32965616162315103,
+                0.44198916593295695
+              ],
+              "orientation": [
+                2.342533588588689e-06,
+                -2.3311119727420162e-05,
+                -7.265318351259288e-06,
+                0.9999999996991596
+              ],
+              "aabb_min": [
+                0.27795923749359885,
+                0.30765573888527903,
+                0.4199880371896597
+              ],
+              "aabb_max": [
+                0.3219619281643763,
+                0.35165658436102304,
+                0.4639902946762542
+              ],
+              "linear_velocity": [
+                -7.19773201659454e-13,
+                4.747849103631107e-13,
+                -7.315675842889391e-13
+              ],
+              "angular_velocity": [
+                -1.6886840816187803e-11,
+                -3.794987034789047e-11,
+                -6.377964971038744e-12
+              ]
+            },
+            "item_b": {
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.6299995236741692,
+                0.07000015092991564,
+                0.45598958971587433
+              ],
+              "orientation": [
+                1.1453221337316827e-06,
+                -1.1466035100015527e-05,
+                -1.6882995571614076e-06,
+                0.9999999999321839
+              ],
+              "aabb_min": [
+                0.6079989448898472,
+                0.04800002625101832,
+                0.4339890348212318
+              ],
+              "aabb_max": [
+                0.6520001024584913,
+                0.09200027560881296,
+                0.47799014461051686
+              ],
+              "linear_velocity": [
+                -2.6927069844542487e-15,
+                4.875966028731977e-15,
+                -1.824929096727601e-15
+              ],
+              "angular_velocity": [
+                -2.043069987096951e-13,
+                -1.6233936741726012e-13,
+                -4.44991597645682e-14
+              ]
+            }
+          },
+          "end_effector": [
+            0.29998713731765747,
+            0.3300764262676239,
+            0.8299915194511414
+          ],
+          "held_object": null,
+          "robot_joints": [
+            {
+              "position": 0.24469305626915158,
+              "velocity": -2.661065812148422e-15
+            },
+            {
+              "position": -0.414881554076165,
+              "velocity": -6.401129626354418e-15
+            },
+            {
+              "position": 0.5069803333060623,
+              "velocity": -1.2788381464901022e-14
+            },
+            {
+              "position": -2.2260399731494998,
+              "velocity": 4.679590048795035e-14
+            },
+            {
+              "position": 0.20519037929920714,
+              "velocity": -2.624636619152909e-15
+            },
+            {
+              "position": 1.8527640256347844,
+              "velocity": -2.223221606811876e-14
+            },
+            {
+              "position": 1.4424918761000673,
+              "velocity": 2.214547989431992e-14
+            },
+            {
+              "position": 0.03999872985090774,
+              "velocity": -8.101158632811689e-16
+            },
+            {
+              "position": 0.04000147677999356,
+              "velocity": 7.003946034256359e-16
+            }
+          ],
+          "task": {
+            "buffers": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "item_a": "item_a",
+            "item_b": "item_b",
+            "left": "slot_left",
+            "right": "slot_right",
+            "template_id": "buffer_exchange",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "park_a",
+                  "move_b_left"
+                ],
+                [
+                  "move_b_left",
+                  "move_a_right"
+                ]
+              ],
+              "nodes": [
+                "park_a",
+                "move_b_left",
+                "move_a_right"
+              ]
+            },
+            "preference_slots": {
+              "buffer_pad": {
+                "candidate_ids": [
+                  "buffer_back",
+                  "buffer_front"
+                ],
+                "kind": "preference",
+                "description": "Which temporary pad should be used for the exchange?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "containers": {
+            "slot_left": {
+              "xy": [
+                0.48,
+                -0.19
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [],
+              "contents_observed": true
+            },
+            "slot_right": {
+              "xy": [
+                0.63,
+                0.07
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_b"
+              ],
+              "contents_observed": true
+            }
+          },
+          "zones": {
+            "buffer_back": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_back",
+              "xy": [
+                0.3,
+                0.33
+              ],
+              "contents": [
+                "item_a"
+              ]
+            },
+            "buffer_front": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_front",
+              "xy": [
+                0.32,
+                -0.06
+              ],
+              "contents": []
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": null,
+          "affordances": {
+            "move": {
+              "item_a": [
+                "slot_left",
+                "slot_right",
+                "buffer_back",
+                "buffer_front"
+              ],
+              "item_b": [
+                "slot_left",
+                "slot_right",
+                "buffer_back",
+                "buffer_front"
+              ]
+            },
+            "cover": [],
+            "inspect": []
+          }
+        },
+        "history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "move",
+              "object_id": "item_a",
+              "target_id": "buffer_back",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3929,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "public_payload": {
+        "instruction": "Swap the contents of slot_left and slot_right using temporary parking for item_a. The final destinations are item_a to slot_right and item_b to slot_left. Use only the buffer_pad chosen by the user; leave the other pad unused. Each slot capacity is one. Park A, move B left, then move A right; finish with empty pads and no held object. The buffer_pad choice has not been disclosed.",
+        "observation": {
+          "simulation_step": 3929,
+          "objects": {
+            "slot_left": {
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.48,
+                -0.19,
+                0.42
+              ],
+              "aabb_min": [
+                0.435,
+                -0.235,
+                0.42
+              ],
+              "aabb_max": [
+                0.525,
+                -0.14500000000000002,
+                0.509
+              ]
+            },
+            "slot_right": {
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.63,
+                0.07,
+                0.42
+              ],
+              "aabb_min": [
+                0.585,
+                0.02500000000000001,
+                0.42
+              ],
+              "aabb_max": [
+                0.675,
+                0.115,
+                0.509
+              ]
+            },
+            "item_a": {
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.2999605828289876,
+                0.32965616162315103,
+                0.44198916593295695
+              ],
+              "aabb_min": [
+                0.27795923749359885,
+                0.30765573888527903,
+                0.4199880371896597
+              ],
+              "aabb_max": [
+                0.3219619281643763,
+                0.35165658436102304,
+                0.4639902946762542
+              ]
+            },
+            "item_b": {
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.6299995236741692,
+                0.07000015092991564,
+                0.45598958971587433
+              ],
+              "aabb_min": [
+                0.6079989448898472,
+                0.04800002625101832,
+                0.4339890348212318
+              ],
+              "aabb_max": [
+                0.6520001024584913,
+                0.09200027560881296,
+                0.47799014461051686
+              ]
+            }
+          },
+          "end_effector": [
+            0.29998713731765747,
+            0.3300764262676239,
+            0.8299915194511414
+          ],
+          "held_object": null,
+          "robot_joints": [
+            {
+              "position": 0.24469305626915158,
+              "velocity": -2.661065812148422e-15
+            },
+            {
+              "position": -0.414881554076165,
+              "velocity": -6.401129626354418e-15
+            },
+            {
+              "position": 0.5069803333060623,
+              "velocity": -1.2788381464901022e-14
+            },
+            {
+              "position": -2.2260399731494998,
+              "velocity": 4.679590048795035e-14
+            },
+            {
+              "position": 0.20519037929920714,
+              "velocity": -2.624636619152909e-15
+            },
+            {
+              "position": 1.8527640256347844,
+              "velocity": -2.223221606811876e-14
+            },
+            {
+              "position": 1.4424918761000673,
+              "velocity": 2.214547989431992e-14
+            },
+            {
+              "position": 0.03999872985090774,
+              "velocity": -8.101158632811689e-16
+            },
+            {
+              "position": 0.04000147677999356,
+              "velocity": 7.003946034256359e-16
+            }
+          ],
+          "task": {
+            "buffers": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "item_a": "item_a",
+            "item_b": "item_b",
+            "left": "slot_left",
+            "right": "slot_right",
+            "template_id": "buffer_exchange",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "park_a",
+                  "move_b_left"
+                ],
+                [
+                  "move_b_left",
+                  "move_a_right"
+                ]
+              ],
+              "nodes": [
+                "park_a",
+                "move_b_left",
+                "move_a_right"
+              ]
+            },
+            "preference_slots": {
+              "buffer_pad": {
+                "candidate_ids": [
+                  "buffer_back",
+                  "buffer_front"
+                ],
+                "kind": "preference",
+                "description": "Which temporary pad should be used for the exchange?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "containers": {
+            "slot_left": {
+              "xy": [
+                0.48,
+                -0.19
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [],
+              "contents_observed": true
+            },
+            "slot_right": {
+              "xy": [
+                0.63,
+                0.07
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_b"
+              ],
+              "contents_observed": true
+            }
+          },
+          "zones": {
+            "buffer_back": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_back",
+              "xy": [
+                0.3,
+                0.33
+              ],
+              "contents": [
+                "item_a"
+              ]
+            },
+            "buffer_front": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_front",
+              "xy": [
+                0.32,
+                -0.06
+              ],
+              "contents": []
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": null,
+          "affordances": {
+            "move": {
+              "item_a": [
+                "slot_left",
+                "slot_right",
+                "buffer_back",
+                "buffer_front"
+              ],
+              "item_b": [
+                "slot_left",
+                "slot_right",
+                "buffer_back",
+                "buffer_front"
+              ]
+            },
+            "cover": [],
+            "inspect": []
+          }
+        },
+        "history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "move",
+              "object_id": "item_a",
+              "target_id": "buffer_back",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3929,
+              "grasp_mode": "constraint"
+            }
+          }
+        ],
+        "public_summary": {
+          "version": "memory_dev_v6",
+          "current_regions": {
+            "slot_left": {
+              "contents": [],
+              "observed": true
+            },
+            "slot_right": {
+              "contents": [
+                "item_b"
+              ],
+              "observed": true
+            },
+            "buffer_back": {
+              "contents": [
+                "item_a"
+              ],
+              "observed": true
+            },
+            "buffer_front": {
+              "contents": [],
+              "observed": true
+            }
+          },
+          "observed_locations": {
+            "item_a": [
+              "buffer_back"
+            ],
+            "item_b": [
+              "slot_right"
+            ]
+          },
+          "object_memory": {
+            "item_a": {
+              "status": "observed_now",
+              "regions": [
+                "buffer_back"
+              ],
+              "observed_step": 3929,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            },
+            "item_b": {
+              "status": "observed_now",
+              "regions": [
+                "slot_right"
+              ],
+              "observed_step": 3929,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            }
+          },
+          "goal_requirements": {
+            "final_targets": {
+              "item_a": "slot_right",
+              "item_b": "slot_left"
+            },
+            "buffer_candidates": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "buffers_empty_at_end": true
+          },
+          "required_final_relations": [
+            {
+              "object_id": "item_a",
+              "required_final_region": "slot_right",
+              "currently_observed_at_target": false,
+              "region_contents": [
+                "item_b"
+              ]
+            },
+            {
+              "object_id": "item_b",
+              "required_final_region": "slot_left",
+              "currently_observed_at_target": false,
+              "region_contents": []
+            }
+          ],
+          "lid_geometry": null,
+          "confirmed_choices": {},
+          "own_working_choices": {
+            "buffer_pad": {
+              "value": "buffer_back",
+              "source": "own_successful_action",
+              "user_confirmed": false
+            }
+          },
+          "preference_candidates": {
+            "buffer_pad": [
+              "buffer_back",
+              "buffer_front"
+            ]
+          },
+          "unresolved_roles": [
+            "buffer_pad"
+          ],
+          "observed_region_visits": [
+            {
+              "object_id": "item_a",
+              "region_id": "slot_left",
+              "first_observed_step": 240,
+              "last_observed_step": 240
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_right",
+              "first_observed_step": 240,
+              "last_observed_step": 3929
+            },
+            {
+              "object_id": "item_a",
+              "region_id": "buffer_back",
+              "first_observed_step": 3929,
+              "last_observed_step": 3929
+            }
+          ],
+          "latest_action_by_object": {
+            "item_a": {
+              "skill": "move",
+              "object_id": "item_a",
+              "target_id": "buffer_back",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3929
+            }
+          },
+          "action_history_coverage": {
+            "total": 1,
+            "failed": 0
+          },
+          "memory_scope": {
+            "prior_public_snapshots": 1,
+            "current_step": 3929,
+            "note": "Memory records past public observations, never fresh sight through a lid. Region sensor membership and current grasp visibility are different. Unknown is not absent. New measured state overrides memory; unseen memories after failed/disturbing actions are invalidated."
+          },
+          "limitation": "These are public facts, not task scores, an oracle, prescribed actions or a completion verdict. The model must assess the goal; the independent evaluator uses actual final geometry/contact."
+        }
+      },
+      "payload_sha256": "9278a0b41ca283174f37f5d5181afa0a55d943ac6a075820f6a6c6707c359122",
+      "gate": {
+        "called": false,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left"
+      },
+      "model_plan": {
+        "working_choices": {
+          "buffer_pad": "buffer_back"
+        },
+        "completion_assessment": {
+          "ready_for_done": false,
+          "reason": "Item_a is parked on buffer_back (own working choice). Item_b is still in slot_right and must move to slot_left, then item_a to slot_right, leaving both pads empty."
+        },
+        "remaining_plan": [
+          {
+            "kind": "move",
+            "object_id": "item_b",
+            "target_id": "slot_left"
+          },
+          {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "slot_right"
+          },
+          {
+            "kind": "DONE"
+          }
+        ]
+      },
+      "physical_result": {
+        "skill": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left",
+        "success": true,
+        "reason": "placed",
+        "start_step": 3929,
+        "end_step": 7459,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 2,
+      "raw_public_payload": {
+        "instruction": "Swap the contents of slot_left and slot_right using temporary parking for item_a. The final destinations are item_a to slot_right and item_b to slot_left. Use only the buffer_pad chosen by the user; leave the other pad unused. Each slot capacity is one. Park A, move B left, then move A right; finish with empty pads and no held object. The buffer_pad choice has not been disclosed.",
+        "observation": {
+          "simulation_step": 7459,
+          "objects": {
+            "slot_left": {
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.48,
+                -0.19,
+                0.42
+              ],
+              "orientation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "aabb_min": [
+                0.435,
+                -0.235,
+                0.42
+              ],
+              "aabb_max": [
+                0.525,
+                -0.14500000000000002,
+                0.509
+              ],
+              "linear_velocity": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "angular_velocity": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "slot_right": {
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.63,
+                0.07,
+                0.42
+              ],
+              "orientation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "aabb_min": [
+                0.585,
+                0.02500000000000001,
+                0.42
+              ],
+              "aabb_max": [
+                0.675,
+                0.115,
+                0.509
+              ],
+              "linear_velocity": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "angular_velocity": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "item_a": {
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.29996058281840604,
+                0.3296561616302054,
+                0.44198916592223975
+              ],
+              "orientation": [
+                2.342409373371209e-06,
+                -2.3311398880020652e-05,
+                -7.265365262727764e-06,
+                0.9999999996991531
+              ],
+              "aabb_min": [
+                0.27795923746867107,
+                0.307655738895735,
+                0.41998803717212563
+              ],
+              "aabb_max": [
+                0.321961928168141,
+                0.3516565843646758,
+                0.46399029467235386
+              ],
+              "linear_velocity": [
+                -7.200925765750209e-13,
+                4.749952947963085e-13,
+                -7.273487367953635e-13
+              ],
+              "angular_velocity": [
+                -1.689432078909791e-11,
+                -3.7966707489031684e-11,
+                -6.38079309319334e-12
+              ]
+            },
+            "item_b": {
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.48001751616785654,
+                -0.18997009644239107,
+                0.45598959662347677
+              ],
+              "orientation": [
+                1.0604340174638665e-06,
+                -1.1264323373546652e-05,
+                1.0927279777049102e-06,
+                0.9999999999353982
+              ],
+              "aabb_min": [
+                0.458016972462758,
+                -0.21197019118143284,
+                0.4339890543402746
+              ],
+              "aabb_max": [
+                0.5020180598729551,
+                -0.1679700017033493,
+                0.4779901389066789
+              ],
+              "linear_velocity": [
+                -2.3267605828504075e-14,
+                2.7054071795947853e-14,
+                -2.6624535909292035e-14
+              ],
+              "angular_velocity": [
+                -1.0788647455918998e-12,
+                -1.3036691158549518e-12,
+                -2.841147322953211e-13
+              ]
+            }
+          },
+          "end_effector": [
+            0.4799344539642334,
+            -0.18993186950683594,
+            0.829986035823822
+          ],
+          "held_object": null,
+          "robot_joints": [
+            {
+              "position": -0.3083929663747859,
+              "velocity": 5.383280626825027e-15
+            },
+            {
+              "position": -0.1421679756917559,
+              "velocity": -3.28502416241383e-15
+            },
+            {
+              "position": -0.06446275137687169,
+              "velocity": 1.5985476831126277e-15
+            },
+            {
+              "position": -2.014791135673091,
+              "velocity": 5.2263748884229244e-14
+            },
+            {
+              "position": -0.009562253446752277,
+              "velocity": -1.6653345369377348e-16
+            },
+            {
+              "position": 1.872908888618689,
+              "velocity": -2.5396351688300456e-14
+            },
+            {
+              "position": 0.41602558383683086,
+              "velocity": 5.443562267615221e-15
+            },
+            {
+              "position": 0.039999903807757885,
+              "velocity": -7.37257477290143e-16
+            },
+            {
+              "position": 0.04000009762696729,
+              "velocity": 7.103692634125025e-16
+            }
+          ],
+          "task": {
+            "buffers": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "item_a": "item_a",
+            "item_b": "item_b",
+            "left": "slot_left",
+            "right": "slot_right",
+            "template_id": "buffer_exchange",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "park_a",
+                  "move_b_left"
+                ],
+                [
+                  "move_b_left",
+                  "move_a_right"
+                ]
+              ],
+              "nodes": [
+                "park_a",
+                "move_b_left",
+                "move_a_right"
+              ]
+            },
+            "preference_slots": {
+              "buffer_pad": {
+                "candidate_ids": [
+                  "buffer_back",
+                  "buffer_front"
+                ],
+                "kind": "preference",
+                "description": "Which temporary pad should be used for the exchange?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "containers": {
+            "slot_left": {
+              "xy": [
+                0.48,
+                -0.19
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_b"
+              ],
+              "contents_observed": true
+            },
+            "slot_right": {
+              "xy": [
+                0.63,
+                0.07
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [],
+              "contents_observed": true
+            }
+          },
+          "zones": {
+            "buffer_back": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_back",
+              "xy": [
+                0.3,
+                0.33
+              ],
+              "contents": [
+                "item_a"
+              ]
+            },
+            "buffer_front": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_front",
+              "xy": [
+                0.32,
+                -0.06
+              ],
+              "contents": []
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": null,
+          "affordances": {
+            "move": {
+              "item_a": [
+                "slot_left",
+                "slot_right",
+                "buffer_back",
+                "buffer_front"
+              ],
+              "item_b": [
+                "slot_left",
+                "slot_right",
+                "buffer_back",
+                "buffer_front"
+              ]
+            },
+            "cover": [],
+            "inspect": []
+          }
+        },
+        "history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "move",
+              "object_id": "item_a",
+              "target_id": "buffer_back",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3929,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "move",
+              "object_id": "item_b",
+              "target_id": "slot_left",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3929,
+              "end_step": 7459,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "public_payload": {
+        "instruction": "Swap the contents of slot_left and slot_right using temporary parking for item_a. The final destinations are item_a to slot_right and item_b to slot_left. Use only the buffer_pad chosen by the user; leave the other pad unused. Each slot capacity is one. Park A, move B left, then move A right; finish with empty pads and no held object. The buffer_pad choice has not been disclosed.",
+        "observation": {
+          "simulation_step": 7459,
+          "objects": {
+            "slot_left": {
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.48,
+                -0.19,
+                0.42
+              ],
+              "aabb_min": [
+                0.435,
+                -0.235,
+                0.42
+              ],
+              "aabb_max": [
+                0.525,
+                -0.14500000000000002,
+                0.509
+              ]
+            },
+            "slot_right": {
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.63,
+                0.07,
+                0.42
+              ],
+              "aabb_min": [
+                0.585,
+                0.02500000000000001,
+                0.42
+              ],
+              "aabb_max": [
+                0.675,
+                0.115,
+                0.509
+              ]
+            },
+            "item_a": {
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.29996058281840604,
+                0.3296561616302054,
+                0.44198916592223975
+              ],
+              "aabb_min": [
+                0.27795923746867107,
+                0.307655738895735,
+                0.41998803717212563
+              ],
+              "aabb_max": [
+                0.321961928168141,
+                0.3516565843646758,
+                0.46399029467235386
+              ]
+            },
+            "item_b": {
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.48001751616785654,
+                -0.18997009644239107,
+                0.45598959662347677
+              ],
+              "aabb_min": [
+                0.458016972462758,
+                -0.21197019118143284,
+                0.4339890543402746
+              ],
+              "aabb_max": [
+                0.5020180598729551,
+                -0.1679700017033493,
+                0.4779901389066789
+              ]
+            }
+          },
+          "end_effector": [
+            0.4799344539642334,
+            -0.18993186950683594,
+            0.829986035823822
+          ],
+          "held_object": null,
+          "robot_joints": [
+            {
+              "position": -0.3083929663747859,
+              "velocity": 5.383280626825027e-15
+            },
+            {
+              "position": -0.1421679756917559,
+              "velocity": -3.28502416241383e-15
+            },
+            {
+              "position": -0.06446275137687169,
+              "velocity": 1.5985476831126277e-15
+            },
+            {
+              "position": -2.014791135673091,
+              "velocity": 5.2263748884229244e-14
+            },
+            {
+              "position": -0.009562253446752277,
+              "velocity": -1.6653345369377348e-16
+            },
+            {
+              "position": 1.872908888618689,
+              "velocity": -2.5396351688300456e-14
+            },
+            {
+              "position": 0.41602558383683086,
+              "velocity": 5.443562267615221e-15
+            },
+            {
+              "position": 0.039999903807757885,
+              "velocity": -7.37257477290143e-16
+            },
+            {
+              "position": 0.04000009762696729,
+              "velocity": 7.103692634125025e-16
+            }
+          ],
+          "task": {
+            "buffers": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "item_a": "item_a",
+            "item_b": "item_b",
+            "left": "slot_left",
+            "right": "slot_right",
+            "template_id": "buffer_exchange",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "park_a",
+                  "move_b_left"
+                ],
+                [
+                  "move_b_left",
+                  "move_a_right"
+                ]
+              ],
+              "nodes": [
+                "park_a",
+                "move_b_left",
+                "move_a_right"
+              ]
+            },
+            "preference_slots": {
+              "buffer_pad": {
+                "candidate_ids": [
+                  "buffer_back",
+                  "buffer_front"
+                ],
+                "kind": "preference",
+                "description": "Which temporary pad should be used for the exchange?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "containers": {
+            "slot_left": {
+              "xy": [
+                0.48,
+                -0.19
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_b"
+              ],
+              "contents_observed": true
+            },
+            "slot_right": {
+              "xy": [
+                0.63,
+                0.07
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [],
+              "contents_observed": true
+            }
+          },
+          "zones": {
+            "buffer_back": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_back",
+              "xy": [
+                0.3,
+                0.33
+              ],
+              "contents": [
+                "item_a"
+              ]
+            },
+            "buffer_front": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_front",
+              "xy": [
+                0.32,
+                -0.06
+              ],
+              "contents": []
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": null,
+          "affordances": {
+            "move": {
+              "item_a": [
+                "slot_left",
+                "slot_right",
+                "buffer_back",
+                "buffer_front"
+              ],
+              "item_b": [
+                "slot_left",
+                "slot_right",
+                "buffer_back",
+                "buffer_front"
+              ]
+            },
+            "cover": [],
+            "inspect": []
+          }
+        },
+        "history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "move",
+              "object_id": "item_b",
+              "target_id": "slot_left",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3929,
+              "end_step": 7459,
+              "grasp_mode": "constraint"
+            }
+          }
+        ],
+        "public_summary": {
+          "version": "memory_dev_v6",
+          "current_regions": {
+            "slot_left": {
+              "contents": [
+                "item_b"
+              ],
+              "observed": true
+            },
+            "slot_right": {
+              "contents": [],
+              "observed": true
+            },
+            "buffer_back": {
+              "contents": [
+                "item_a"
+              ],
+              "observed": true
+            },
+            "buffer_front": {
+              "contents": [],
+              "observed": true
+            }
+          },
+          "observed_locations": {
+            "item_a": [
+              "buffer_back"
+            ],
+            "item_b": [
+              "slot_left"
+            ]
+          },
+          "object_memory": {
+            "item_a": {
+              "status": "observed_now",
+              "regions": [
+                "buffer_back"
+              ],
+              "observed_step": 7459,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            },
+            "item_b": {
+              "status": "observed_now",
+              "regions": [
+                "slot_left"
+              ],
+              "observed_step": 7459,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            }
+          },
+          "goal_requirements": {
+            "final_targets": {
+              "item_a": "slot_right",
+              "item_b": "slot_left"
+            },
+            "buffer_candidates": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "buffers_empty_at_end": true
+          },
+          "required_final_relations": [
+            {
+              "object_id": "item_a",
+              "required_final_region": "slot_right",
+              "currently_observed_at_target": false,
+              "region_contents": []
+            },
+            {
+              "object_id": "item_b",
+              "required_final_region": "slot_left",
+              "currently_observed_at_target": true,
+              "region_contents": [
+                "item_b"
+              ]
+            }
+          ],
+          "lid_geometry": null,
+          "confirmed_choices": {},
+          "own_working_choices": {
+            "buffer_pad": {
+              "value": "buffer_back",
+              "source": "own_successful_action",
+              "user_confirmed": false
+            }
+          },
+          "preference_candidates": {
+            "buffer_pad": [
+              "buffer_back",
+              "buffer_front"
+            ]
+          },
+          "unresolved_roles": [
+            "buffer_pad"
+          ],
+          "observed_region_visits": [
+            {
+              "object_id": "item_a",
+              "region_id": "slot_left",
+              "first_observed_step": 240,
+              "last_observed_step": 240
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_right",
+              "first_observed_step": 240,
+              "last_observed_step": 3929
+            },
+            {
+              "object_id": "item_a",
+              "region_id": "buffer_back",
+              "first_observed_step": 3929,
+              "last_observed_step": 7459
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_left",
+              "first_observed_step": 7459,
+              "last_observed_step": 7459
+            }
+          ],
+          "latest_action_by_object": {
+            "item_a": {
+              "skill": "move",
+              "object_id": "item_a",
+              "target_id": "buffer_back",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3929
+            },
+            "item_b": {
+              "skill": "move",
+              "object_id": "item_b",
+              "target_id": "slot_left",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3929,
+              "end_step": 7459
+            }
+          },
+          "action_history_coverage": {
+            "total": 2,
+            "failed": 0
+          },
+          "memory_scope": {
+            "prior_public_snapshots": 2,
+            "current_step": 7459,
+            "note": "Memory records past public observations, never fresh sight through a lid. Region sensor membership and current grasp visibility are different. Unknown is not absent. New measured state overrides memory; unseen memories after failed/disturbing actions are invalidated."
+          },
+          "limitation": "These are public facts, not task scores, an oracle, prescribed actions or a completion verdict. The model must assess the goal; the independent evaluator uses actual final geometry/contact."
+        }
+      },
+      "payload_sha256": "924b79bd124d572446f2a2f6bc6fd9568295fedcd6776995b6910b33f7dc35e2",
+      "gate": {
+        "called": false,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "item_a",
+        "target_id": "slot_right"
+      },
+      "model_plan": {
+        "working_choices": {
+          "buffer_pad": "buffer_back"
+        },
+        "completion_assessment": {
+          "ready_for_done": false,
+          "reason": "item_b is already at slot_left (final target satisfied). item_a is parked at buffer_back and must be moved to slot_right. buffer_back is the chosen pad; after moving item_a, both pads will be empty."
+        },
+        "remaining_plan": [
+          {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "slot_right"
+          },
+          {
+            "kind": "DONE"
+          }
+        ]
+      },
+      "physical_result": {
+        "skill": "move",
+        "object_id": "item_a",
+        "target_id": "slot_right",
+        "success": true,
+        "reason": "placed",
+        "start_step": 7459,
+        "end_step": 11452,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 3,
+      "raw_public_payload": {
+        "instruction": "Swap the contents of slot_left and slot_right using temporary parking for item_a. The final destinations are item_a to slot_right and item_b to slot_left. Use only the buffer_pad chosen by the user; leave the other pad unused. Each slot capacity is one. Park A, move B left, then move A right; finish with empty pads and no held object. The buffer_pad choice has not been disclosed.",
+        "observation": {
+          "simulation_step": 11452,
+          "objects": {
+            "slot_left": {
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.48,
+                -0.19,
+                0.42
+              ],
+              "orientation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "aabb_min": [
+                0.435,
+                -0.235,
+                0.42
+              ],
+              "aabb_max": [
+                0.525,
+                -0.14500000000000002,
+                0.509
+              ],
+              "linear_velocity": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "angular_velocity": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "slot_right": {
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.63,
+                0.07,
+                0.42
+              ],
+              "orientation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "aabb_min": [
+                0.585,
+                0.02500000000000001,
+                0.42
+              ],
+              "aabb_max": [
+                0.675,
+                0.115,
+                0.509
+              ],
+              "linear_velocity": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "angular_velocity": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "item_a": {
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.6300481006163996,
+                0.07009587118094146,
+                0.4559895814723856
+              ],
+              "orientation": [
+                1.0459292022533135e-06,
+                -1.1680288531175923e-05,
+                -1.6327923365914902e-05,
+                0.9999999997979379
+              ],
+              "aabb_min": [
+                0.6080468682725958,
+                0.048095106751061115,
+                0.4339890215172164
+              ],
+              "aabb_max": [
+                0.6520493329602034,
+                0.0920966356108218,
+                0.4779901414275548
+              ],
+              "linear_velocity": [
+                -2.3721280955269533e-15,
+                5.068462391657268e-15,
+                -2.9559688030644793e-15
+              ],
+              "angular_velocity": [
+                -2.1517858139934802e-13,
+                -1.4809346459052094e-13,
+                -4.4348593170927077e-14
+              ]
+            },
+            "item_b": {
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.4800175161674132,
+                -0.18997009644194776,
+                0.45598959662304056
+              ],
+              "orientation": [
+                1.0604250424301352e-06,
+                -1.1264334218666405e-05,
+                1.092725614288834e-06,
+                0.9999999999353981
+              ],
+              "aabb_min": [
+                0.4580169724619415,
+                -0.21197019118049065,
+                0.43398905433975615
+              ],
+              "aabb_max": [
+                0.502018059872885,
+                -0.16797000170340487,
+                0.47799013890632497
+              ],
+              "linear_velocity": [
+                -2.326858737941749e-14,
+                2.7055214580931298e-14,
+                -2.6055546609171643e-14
+              ],
+              "angular_velocity": [
+                -1.0789103147416801e-12,
+                -1.3037241280847817e-12,
+                -2.8412673709718506e-13
+              ]
+            }
+          },
+          "end_effector": [
+            0.6299324035644531,
+            0.06957574933767319,
+            0.8299195170402527
+          ],
+          "held_object": null,
+          "robot_joints": [
+            {
+              "position": -0.20042166708024076,
+              "velocity": 2.5205532105943007e-15
+            },
+            {
+              "position": 0.24565403711080774,
+              "velocity": -2.6957602816679582e-15
+            },
+            {
+              "position": 0.3566419794553496,
+              "velocity": 5.691627724679904e-15
+            },
+            {
+              "position": -1.5485943059986027,
+              "velocity": 2.2495894036467234e-14
+            },
+            {
+              "position": -0.08688020874314063,
+              "velocity": 1.3322676295501878e-15
+            },
+            {
+              "position": 1.7786390447933846,
+              "velocity": -2.1496693314304594e-14
+            },
+            {
+              "position": 0.9497418233699697,
+              "velocity": -1.0581813203458523e-14
+            },
+            {
+              "position": 0.040000000000000015,
+              "velocity": -6.661338147750939e-16
+            },
+            {
+              "position": 0.03999998558747354,
+              "velocity": -7.788908407135864e-16
+            }
+          ],
+          "task": {
+            "buffers": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "item_a": "item_a",
+            "item_b": "item_b",
+            "left": "slot_left",
+            "right": "slot_right",
+            "template_id": "buffer_exchange",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "park_a",
+                  "move_b_left"
+                ],
+                [
+                  "move_b_left",
+                  "move_a_right"
+                ]
+              ],
+              "nodes": [
+                "park_a",
+                "move_b_left",
+                "move_a_right"
+              ]
+            },
+            "preference_slots": {
+              "buffer_pad": {
+                "candidate_ids": [
+                  "buffer_back",
+                  "buffer_front"
+                ],
+                "kind": "preference",
+                "description": "Which temporary pad should be used for the exchange?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "containers": {
+            "slot_left": {
+              "xy": [
+                0.48,
+                -0.19
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_b"
+              ],
+              "contents_observed": true
+            },
+            "slot_right": {
+              "xy": [
+                0.63,
+                0.07
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_a"
+              ],
+              "contents_observed": true
+            }
+          },
+          "zones": {
+            "buffer_back": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_back",
+              "xy": [
+                0.3,
+                0.33
+              ],
+              "contents": []
+            },
+            "buffer_front": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_front",
+              "xy": [
+                0.32,
+                -0.06
+              ],
+              "contents": []
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": null,
+          "affordances": {
+            "move": {
+              "item_a": [
+                "slot_left",
+                "slot_right",
+                "buffer_back",
+                "buffer_front"
+              ],
+              "item_b": [
+                "slot_left",
+                "slot_right",
+                "buffer_back",
+                "buffer_front"
+              ]
+            },
+            "cover": [],
+            "inspect": []
+          }
+        },
+        "history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "move",
+              "object_id": "item_a",
+              "target_id": "buffer_back",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3929,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "move",
+              "object_id": "item_b",
+              "target_id": "slot_left",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3929,
+              "end_step": 7459,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "move",
+              "object_id": "item_a",
+              "target_id": "slot_right",
+              "success": true,
+              "reason": "placed",
+              "start_step": 7459,
+              "end_step": 11452,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "public_payload": {
+        "instruction": "Swap the contents of slot_left and slot_right using temporary parking for item_a. The final destinations are item_a to slot_right and item_b to slot_left. Use only the buffer_pad chosen by the user; leave the other pad unused. Each slot capacity is one. Park A, move B left, then move A right; finish with empty pads and no held object. The buffer_pad choice has not been disclosed.",
+        "observation": {
+          "simulation_step": 11452,
+          "objects": {
+            "slot_left": {
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.48,
+                -0.19,
+                0.42
+              ],
+              "aabb_min": [
+                0.435,
+                -0.235,
+                0.42
+              ],
+              "aabb_max": [
+                0.525,
+                -0.14500000000000002,
+                0.509
+              ]
+            },
+            "slot_right": {
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.63,
+                0.07,
+                0.42
+              ],
+              "aabb_min": [
+                0.585,
+                0.02500000000000001,
+                0.42
+              ],
+              "aabb_max": [
+                0.675,
+                0.115,
+                0.509
+              ]
+            },
+            "item_a": {
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.6300481006163996,
+                0.07009587118094146,
+                0.4559895814723856
+              ],
+              "aabb_min": [
+                0.6080468682725958,
+                0.048095106751061115,
+                0.4339890215172164
+              ],
+              "aabb_max": [
+                0.6520493329602034,
+                0.0920966356108218,
+                0.4779901414275548
+              ]
+            },
+            "item_b": {
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.4800175161674132,
+                -0.18997009644194776,
+                0.45598959662304056
+              ],
+              "aabb_min": [
+                0.4580169724619415,
+                -0.21197019118049065,
+                0.43398905433975615
+              ],
+              "aabb_max": [
+                0.502018059872885,
+                -0.16797000170340487,
+                0.47799013890632497
+              ]
+            }
+          },
+          "end_effector": [
+            0.6299324035644531,
+            0.06957574933767319,
+            0.8299195170402527
+          ],
+          "held_object": null,
+          "robot_joints": [
+            {
+              "position": -0.20042166708024076,
+              "velocity": 2.5205532105943007e-15
+            },
+            {
+              "position": 0.24565403711080774,
+              "velocity": -2.6957602816679582e-15
+            },
+            {
+              "position": 0.3566419794553496,
+              "velocity": 5.691627724679904e-15
+            },
+            {
+              "position": -1.5485943059986027,
+              "velocity": 2.2495894036467234e-14
+            },
+            {
+              "position": -0.08688020874314063,
+              "velocity": 1.3322676295501878e-15
+            },
+            {
+              "position": 1.7786390447933846,
+              "velocity": -2.1496693314304594e-14
+            },
+            {
+              "position": 0.9497418233699697,
+              "velocity": -1.0581813203458523e-14
+            },
+            {
+              "position": 0.040000000000000015,
+              "velocity": -6.661338147750939e-16
+            },
+            {
+              "position": 0.03999998558747354,
+              "velocity": -7.788908407135864e-16
+            }
+          ],
+          "task": {
+            "buffers": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "item_a": "item_a",
+            "item_b": "item_b",
+            "left": "slot_left",
+            "right": "slot_right",
+            "template_id": "buffer_exchange",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "park_a",
+                  "move_b_left"
+                ],
+                [
+                  "move_b_left",
+                  "move_a_right"
+                ]
+              ],
+              "nodes": [
+                "park_a",
+                "move_b_left",
+                "move_a_right"
+              ]
+            },
+            "preference_slots": {
+              "buffer_pad": {
+                "candidate_ids": [
+                  "buffer_back",
+                  "buffer_front"
+                ],
+                "kind": "preference",
+                "description": "Which temporary pad should be used for the exchange?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "containers": {
+            "slot_left": {
+              "xy": [
+                0.48,
+                -0.19
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_b"
+              ],
+              "contents_observed": true
+            },
+            "slot_right": {
+              "xy": [
+                0.63,
+                0.07
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_a"
+              ],
+              "contents_observed": true
+            }
+          },
+          "zones": {
+            "buffer_back": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_back",
+              "xy": [
+                0.3,
+                0.33
+              ],
+              "contents": []
+            },
+            "buffer_front": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_front",
+              "xy": [
+                0.32,
+                -0.06
+              ],
+              "contents": []
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": null,
+          "affordances": {
+            "move": {
+              "item_a": [
+                "slot_left",
+                "slot_right",
+                "buffer_back",
+                "buffer_front"
+              ],
+              "item_b": [
+                "slot_left",
+                "slot_right",
+                "buffer_back",
+                "buffer_front"
+              ]
+            },
+            "cover": [],
+            "inspect": []
+          }
+        },
+        "history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "move",
+              "object_id": "item_a",
+              "target_id": "slot_right",
+              "success": true,
+              "reason": "placed",
+              "start_step": 7459,
+              "end_step": 11452,
+              "grasp_mode": "constraint"
+            }
+          }
+        ],
+        "public_summary": {
+          "version": "memory_dev_v6",
+          "current_regions": {
+            "slot_left": {
+              "contents": [
+                "item_b"
+              ],
+              "observed": true
+            },
+            "slot_right": {
+              "contents": [
+                "item_a"
+              ],
+              "observed": true
+            },
+            "buffer_back": {
+              "contents": [],
+              "observed": true
+            },
+            "buffer_front": {
+              "contents": [],
+              "observed": true
+            }
+          },
+          "observed_locations": {
+            "item_a": [
+              "slot_right"
+            ],
+            "item_b": [
+              "slot_left"
+            ]
+          },
+          "object_memory": {
+            "item_a": {
+              "status": "observed_now",
+              "regions": [
+                "slot_right"
+              ],
+              "observed_step": 11452,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            },
+            "item_b": {
+              "status": "observed_now",
+              "regions": [
+                "slot_left"
+              ],
+              "observed_step": 11452,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            }
+          },
+          "goal_requirements": {
+            "final_targets": {
+              "item_a": "slot_right",
+              "item_b": "slot_left"
+            },
+            "buffer_candidates": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "buffers_empty_at_end": true
+          },
+          "required_final_relations": [
+            {
+              "object_id": "item_a",
+              "required_final_region": "slot_right",
+              "currently_observed_at_target": true,
+              "region_contents": [
+                "item_a"
+              ]
+            },
+            {
+              "object_id": "item_b",
+              "required_final_region": "slot_left",
+              "currently_observed_at_target": true,
+              "region_contents": [
+                "item_b"
+              ]
+            }
+          ],
+          "lid_geometry": null,
+          "confirmed_choices": {},
+          "own_working_choices": {
+            "buffer_pad": {
+              "value": "buffer_back",
+              "source": "own_successful_action",
+              "user_confirmed": false
+            }
+          },
+          "preference_candidates": {
+            "buffer_pad": [
+              "buffer_back",
+              "buffer_front"
+            ]
+          },
+          "unresolved_roles": [
+            "buffer_pad"
+          ],
+          "observed_region_visits": [
+            {
+              "object_id": "item_a",
+              "region_id": "slot_left",
+              "first_observed_step": 240,
+              "last_observed_step": 240
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_right",
+              "first_observed_step": 240,
+              "last_observed_step": 3929
+            },
+            {
+              "object_id": "item_a",
+              "region_id": "buffer_back",
+              "first_observed_step": 3929,
+              "last_observed_step": 7459
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_left",
+              "first_observed_step": 7459,
+              "last_observed_step": 11452
+            },
+            {
+              "object_id": "item_a",
+              "region_id": "slot_right",
+              "first_observed_step": 11452,
+              "last_observed_step": 11452
+            }
+          ],
+          "latest_action_by_object": {
+            "item_a": {
+              "skill": "move",
+              "object_id": "item_a",
+              "target_id": "slot_right",
+              "success": true,
+              "reason": "placed",
+              "start_step": 7459,
+              "end_step": 11452
+            },
+            "item_b": {
+              "skill": "move",
+              "object_id": "item_b",
+              "target_id": "slot_left",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3929,
+              "end_step": 7459
+            }
+          },
+          "action_history_coverage": {
+            "total": 3,
+            "failed": 0
+          },
+          "memory_scope": {
+            "prior_public_snapshots": 3,
+            "current_step": 11452,
+            "note": "Memory records past public observations, never fresh sight through a lid. Region sensor membership and current grasp visibility are different. Unknown is not absent. New measured state overrides memory; unseen memories after failed/disturbing actions are invalidated."
+          },
+          "limitation": "These are public facts, not task scores, an oracle, prescribed actions or a completion verdict. The model must assess the goal; the independent evaluator uses actual final geometry/contact."
+        }
+      },
+      "payload_sha256": "ade820d523710d7a90b6d197249ebdc76292e9a9ff6fafaf7f3448ba0c2b2295",
+      "gate": {
+        "called": false,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "DONE"
+      },
+      "model_plan": {
+        "working_choices": {
+          "buffer_pad": "buffer_back"
+        },
+        "completion_assessment": {
+          "ready_for_done": true,
+          "reason": "item_a is observed in slot_right and item_b in slot_left, matching required final relations. Both buffer pads are empty and no object is held. The exchange is complete; further moves would undo the goal."
+        },
+        "remaining_plan": [
+          {
+            "kind": "DONE"
+          }
+        ]
+      }
+    }
+  ],
+  "actions": [
+    {
+      "skill": "move",
+      "object_id": "item_a",
+      "target_id": "buffer_back",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3929,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "item_b",
+      "target_id": "slot_left",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3929,
+      "end_step": 7459,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "item_a",
+      "target_id": "slot_right",
+      "success": true,
+      "reason": "placed",
+      "start_step": 7459,
+      "end_step": 11452,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "public_history": [
+    {
+      "kind": "action",
+      "result": {
+        "skill": "move",
+        "object_id": "item_a",
+        "target_id": "buffer_back",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3929,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left",
+        "success": true,
+        "reason": "placed",
+        "start_step": 3929,
+        "end_step": 7459,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "move",
+        "object_id": "item_a",
+        "target_id": "slot_right",
+        "success": true,
+        "reason": "placed",
+        "start_step": 7459,
+        "end_step": 11452,
+        "grasp_mode": "constraint"
+      }
+    }
+  ],
+  "evaluation": {
+    "task_success": false,
+    "termination_reason": "done",
+    "conditions": {
+      "items_exchanged": true,
+      "selected_buffer_physically_used": false,
+      "other_buffer_unused": false,
+      "buffers_empty_at_end": true,
+      "capacity_respected": true,
+      "buffer_exchange_order": false,
+      "robot_released": true,
+      "all_movable_objects_stable": true
+    },
+    "details": {
+      "selected_buffer": "buffer_front",
+      "checkpoints": [
+        {
+          "step": 240,
+          "action": "initial",
+          "contents": {
+            "slot_left": [
+              "item_a"
+            ],
+            "slot_right": [
+              "item_b"
+            ]
+          },
+          "zones": {
+            "buffer_back": [],
+            "buffer_front": []
+          },
+          "released": true,
+          "positions": {
+            "item_a": [
+              0.47999952367416926,
+              -0.1899998490701332,
+              0.45598958971592707
+            ],
+            "item_b": [
+              0.6299995236741692,
+              0.07000015092986445,
+              0.45598958971592707
+            ]
+          }
+        },
+        {
+          "step": 3929,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "buffer_back"
+          },
+          "contents": {
+            "slot_left": [],
+            "slot_right": [
+              "item_b"
+            ]
+          },
+          "zones": {
+            "buffer_back": [
+              "item_a"
+            ],
+            "buffer_front": []
+          },
+          "released": true,
+          "positions": {
+            "item_a": [
+              0.2999605828289876,
+              0.32965616162315103,
+              0.44198916593295695
+            ],
+            "item_b": [
+              0.6299995236741692,
+              0.07000015092991564,
+              0.45598958971587433
+            ]
+          }
+        },
+        {
+          "step": 7459,
+          "action": {
+            "kind": "move",
+            "object_id": "item_b",
+            "target_id": "slot_left"
+          },
+          "contents": {
+            "slot_left": [
+              "item_b"
+            ],
+            "slot_right": []
+          },
+          "zones": {
+            "buffer_back": [
+              "item_a"
+            ],
+            "buffer_front": []
+          },
+          "released": true,
+          "positions": {
+            "item_a": [
+              0.29996058281840604,
+              0.3296561616302054,
+              0.44198916592223975
+            ],
+            "item_b": [
+              0.48001751616785654,
+              -0.18997009644239107,
+              0.45598959662347677
+            ]
+          }
+        },
+        {
+          "step": 11452,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "slot_right"
+          },
+          "contents": {
+            "slot_left": [
+              "item_b"
+            ],
+            "slot_right": [
+              "item_a"
+            ]
+          },
+          "zones": {
+            "buffer_back": [],
+            "buffer_front": []
+          },
+          "released": true,
+          "positions": {
+            "item_a": [
+              0.6300481006163996,
+              0.07009587118094146,
+              0.4559895814723856
+            ],
+            "item_b": [
+              0.4800175161674132,
+              -0.18997009644194776,
+              0.45598959662304056
+            ]
+          }
+        }
+      ],
+      "robot_contact_counts": {
+        "item_a": 0,
+        "item_b": 0
+      }
+    },
+    "clarification_burden": 0,
+    "action_count": 3,
+    "successful_action_count": 3,
+    "simulation_steps": 11452,
+    "evaluator_version": "task6_geometry_contact_evidence_v1"
+  },
+  "termination_reason": "done",
+  "error": null,
+  "cost": {
+    "deepseek": {
+      "attempts": 4,
+      "input_tokens": 12982,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 446,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 4664.415667997673,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 4,
+    "api_latency_ms": 4664.415667997673,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "wall_time_s": 13.314590666996082,
+  "final_observation": {
+    "simulation_step": 11452,
+    "objects": {
+      "slot_left": {
+        "category": "container",
+        "color": "orange",
+        "position": [
+          0.48,
+          -0.19,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.435,
+          -0.235,
+          0.42
+        ],
+        "aabb_max": [
+          0.525,
+          -0.14500000000000002,
+          0.509
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "slot_right": {
+        "category": "container",
+        "color": "purple",
+        "position": [
+          0.63,
+          0.07,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.585,
+          0.02500000000000001,
+          0.42
+        ],
+        "aabb_max": [
+          0.675,
+          0.115,
+          0.509
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "item_a": {
+        "category": "block",
+        "color": "green",
+        "position": [
+          0.6300481006163996,
+          0.07009587118094146,
+          0.4559895814723856
+        ],
+        "orientation": [
+          1.0459292022533135e-06,
+          -1.1680288531175923e-05,
+          -1.6327923365914902e-05,
+          0.9999999997979379
+        ],
+        "aabb_min": [
+          0.6080468682725958,
+          0.048095106751061115,
+          0.4339890215172164
+        ],
+        "aabb_max": [
+          0.6520493329602034,
+          0.0920966356108218,
+          0.4779901414275548
+        ],
+        "linear_velocity": [
+          -2.3721280955269533e-15,
+          5.068462391657268e-15,
+          -2.9559688030644793e-15
+        ],
+        "angular_velocity": [
+          -2.1517858139934802e-13,
+          -1.4809346459052094e-13,
+          -4.4348593170927077e-14
+        ]
+      },
+      "item_b": {
+        "category": "block",
+        "color": "yellow",
+        "position": [
+          0.4800175161674132,
+          -0.18997009644194776,
+          0.45598959662304056
+        ],
+        "orientation": [
+          1.0604250424301352e-06,
+          -1.1264334218666405e-05,
+          1.092725614288834e-06,
+          0.9999999999353981
+        ],
+        "aabb_min": [
+          0.4580169724619415,
+          -0.21197019118049065,
+          0.43398905433975615
+        ],
+        "aabb_max": [
+          0.502018059872885,
+          -0.16797000170340487,
+          0.47799013890632497
+        ],
+        "linear_velocity": [
+          -2.326858737941749e-14,
+          2.7055214580931298e-14,
+          -2.6055546609171643e-14
+        ],
+        "angular_velocity": [
+          -1.0789103147416801e-12,
+          -1.3037241280847817e-12,
+          -2.8412673709718506e-13
+        ]
+      }
+    },
+    "end_effector": [
+      0.6299324035644531,
+      0.06957574933767319,
+      0.8299195170402527
+    ],
+    "held_object": null,
+    "robot_joints": [
+      {
+        "position": -0.20042166708024076,
+        "velocity": 2.5205532105943007e-15
+      },
+      {
+        "position": 0.24565403711080774,
+        "velocity": -2.6957602816679582e-15
+      },
+      {
+        "position": 0.3566419794553496,
+        "velocity": 5.691627724679904e-15
+      },
+      {
+        "position": -1.5485943059986027,
+        "velocity": 2.2495894036467234e-14
+      },
+      {
+        "position": -0.08688020874314063,
+        "velocity": 1.3322676295501878e-15
+      },
+      {
+        "position": 1.7786390447933846,
+        "velocity": -2.1496693314304594e-14
+      },
+      {
+        "position": 0.9497418233699697,
+        "velocity": -1.0581813203458523e-14
+      },
+      {
+        "position": 0.040000000000000015,
+        "velocity": -6.661338147750939e-16
+      },
+      {
+        "position": 0.03999998558747354,
+        "velocity": -7.788908407135864e-16
+      }
+    ],
+    "task": {
+      "buffers": [
+        "buffer_front",
+        "buffer_back"
+      ],
+      "item_a": "item_a",
+      "item_b": "item_b",
+      "left": "slot_left",
+      "right": "slot_right",
+      "template_id": "buffer_exchange",
+      "version": "six_tasks_dev_v1",
+      "dag": {
+        "edges": [
+          [
+            "park_a",
+            "move_b_left"
+          ],
+          [
+            "move_b_left",
+            "move_a_right"
+          ]
+        ],
+        "nodes": [
+          "park_a",
+          "move_b_left",
+          "move_a_right"
+        ]
+      },
+      "preference_slots": {
+        "buffer_pad": {
+          "candidate_ids": [
+            "buffer_back",
+            "buffer_front"
+          ],
+          "kind": "preference",
+          "description": "Which temporary pad should be used for the exchange?"
+        }
+      },
+      "initial_choices": {}
+    },
+    "containers": {
+      "slot_left": {
+        "xy": [
+          0.48,
+          -0.19
+        ],
+        "half": [
+          0.045,
+          0.045
+        ],
+        "inner": [
+          0.033,
+          0.033
+        ],
+        "floor": 0.434,
+        "rim": 0.509,
+        "contents": [
+          "item_b"
+        ],
+        "contents_observed": true
+      },
+      "slot_right": {
+        "xy": [
+          0.63,
+          0.07
+        ],
+        "half": [
+          0.045,
+          0.045
+        ],
+        "inner": [
+          0.033,
+          0.033
+        ],
+        "floor": 0.434,
+        "rim": 0.509,
+        "contents": [
+          "item_a"
+        ],
+        "contents_observed": true
+      }
+    },
+    "zones": {
+      "buffer_back": {
+        "half_xy": [
+          0.065,
+          0.065
+        ],
+        "id": "buffer_back",
+        "xy": [
+          0.3,
+          0.33
+        ],
+        "contents": []
+      },
+      "buffer_front": {
+        "half_xy": [
+          0.065,
+          0.065
+        ],
+        "id": "buffer_front",
+        "xy": [
+          0.32,
+          -0.06
+        ],
+        "contents": []
+      }
+    },
+    "inspections": [],
+    "reports": [],
+    "sensor": null,
+    "affordances": {
+      "move": {
+        "item_a": [
+          "slot_left",
+          "slot_right",
+          "buffer_back",
+          "buffer_front"
+        ],
+        "item_b": [
+          "slot_left",
+          "slot_right",
+          "buffer_back",
+          "buffer_front"
+        ]
+      },
+      "cover": [],
+      "inspect": []
+    }
+  },
+  "execution_log": [
+    {
+      "kind": "placement_started",
+      "object_id": "item_a",
+      "target_id": "buffer_back",
+      "step": 240
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_a",
+      "step": 240,
+      "end_effector": [
+        0.428022563457489,
+        3.169046749462723e-06,
+        0.859183669090271
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_a",
+      "step": 1100,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.0037777150347047934,
+      "closest_hand_distance_m": 0.03568731337381884
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_a",
+      "step": 1160,
+      "end_effector": [
+        0.4799972176551819,
+        -0.18997062742710114,
+        0.5129963159561157
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_a",
+      "step": 1608,
+      "end_effector": [
+        0.4800063967704773,
+        -0.18999166786670685,
+        0.8254014253616333
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_a",
+      "step": 2385,
+      "end_effector": [
+        0.30151841044425964,
+        0.32573509216308594,
+        0.8299514651298523
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_a",
+      "step": 3039
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_a",
+      "step": 3689,
+      "end_effector": [
+        0.30000436305999756,
+        0.33009305596351624,
+        0.8262243866920471
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "item_a",
+      "target_id": "buffer_back",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3929,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_b",
+      "target_id": "slot_left",
+      "step": 3929
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_b",
+      "step": 3929,
+      "end_effector": [
+        0.29998713731765747,
+        0.3300764262676239,
+        0.8299915194511414
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_b",
+      "step": 5034,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.003764427462229999,
+      "closest_hand_distance_m": 0.035699603103695694
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_b",
+      "step": 5094,
+      "end_effector": [
+        0.6300067901611328,
+        0.07000294327735901,
+        0.5130871534347534
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_b",
+      "step": 5542,
+      "end_effector": [
+        0.6298409104347229,
+        0.0699835941195488,
+        0.8253281116485596
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_b",
+      "step": 5966,
+      "end_effector": [
+        0.4822711944580078,
+        -0.18599967658519745,
+        0.8299359679222107
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_b",
+      "step": 6592
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_b",
+      "step": 7219,
+      "end_effector": [
+        0.4799565076828003,
+        -0.18994012475013733,
+        0.8262162208557129
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "item_b",
+      "target_id": "slot_left",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3929,
+      "end_step": 7459,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_a",
+      "target_id": "slot_right",
+      "step": 7459
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_a",
+      "step": 7459,
+      "end_effector": [
+        0.4799344539642334,
+        -0.18993186950683594,
+        0.829986035823822
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_a",
+      "step": 8757,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.00526123262572618,
+      "closest_hand_distance_m": 0.02315245530512583
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_a",
+      "step": 8817,
+      "end_effector": [
+        0.2999991774559021,
+        0.3292383551597595,
+        0.48319172859191895
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_a",
+      "step": 9307,
+      "end_effector": [
+        0.2999762296676636,
+        0.32965871691703796,
+        0.8254120349884033
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_a",
+      "step": 9901,
+      "end_effector": [
+        0.6262185573577881,
+        0.07242599129676819,
+        0.8298386335372925
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_a",
+      "step": 10558
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_a",
+      "step": 11212,
+      "end_effector": [
+        0.6299484372138977,
+        0.06957678496837616,
+        0.8261496424674988
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "item_a",
+      "target_id": "slot_right",
+      "success": true,
+      "reason": "placed",
+      "start_step": 7459,
+      "end_step": 11452,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "checkpoints": [
+    {
+      "step": 240,
+      "action": "initial",
+      "contents": {
+        "slot_left": [
+          "item_a"
+        ],
+        "slot_right": [
+          "item_b"
+        ]
+      },
+      "zones": {
+        "buffer_back": [],
+        "buffer_front": []
+      },
+      "released": true,
+      "positions": {
+        "item_a": [
+          0.47999952367416926,
+          -0.1899998490701332,
+          0.45598958971592707
+        ],
+        "item_b": [
+          0.6299995236741692,
+          0.07000015092986445,
+          0.45598958971592707
+        ]
+      }
+    },
+    {
+      "step": 3929,
+      "action": {
+        "kind": "move",
+        "object_id": "item_a",
+        "target_id": "buffer_back"
+      },
+      "contents": {
+        "slot_left": [],
+        "slot_right": [
+          "item_b"
+        ]
+      },
+      "zones": {
+        "buffer_back": [
+          "item_a"
+        ],
+        "buffer_front": []
+      },
+      "released": true,
+      "positions": {
+        "item_a": [
+          0.2999605828289876,
+          0.32965616162315103,
+          0.44198916593295695
+        ],
+        "item_b": [
+          0.6299995236741692,
+          0.07000015092991564,
+          0.45598958971587433
+        ]
+      }
+    },
+    {
+      "step": 7459,
+      "action": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left"
+      },
+      "contents": {
+        "slot_left": [
+          "item_b"
+        ],
+        "slot_right": []
+      },
+      "zones": {
+        "buffer_back": [
+          "item_a"
+        ],
+        "buffer_front": []
+      },
+      "released": true,
+      "positions": {
+        "item_a": [
+          0.29996058281840604,
+          0.3296561616302054,
+          0.44198916592223975
+        ],
+        "item_b": [
+          0.48001751616785654,
+          -0.18997009644239107,
+          0.45598959662347677
+        ]
+      }
+    },
+    {
+      "step": 11452,
+      "action": {
+        "kind": "move",
+        "object_id": "item_a",
+        "target_id": "slot_right"
+      },
+      "contents": {
+        "slot_left": [
+          "item_b"
+        ],
+        "slot_right": [
+          "item_a"
+        ]
+      },
+      "zones": {
+        "buffer_back": [],
+        "buffer_front": []
+      },
+      "released": true,
+      "positions": {
+        "item_a": [
+          0.6300481006163996,
+          0.07009587118094146,
+          0.4559895814723856
+        ],
+        "item_b": [
+          0.4800175161674132,
+          -0.18997009644194776,
+          0.45598959662304056
+        ]
+      }
+    }
+  ],
+  "recording": {
+    "renderer": "PyBullet ER_TINY_RENDERER",
+    "path": "demo.gif",
+    "frame_count": 161,
+    "encoded_frame_count": 161,
+    "stride": 72,
+    "frames": [
+      {
+        "simulation_step": 240,
+        "label": "OBSERVE scene",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 288,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 360,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 432,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 504,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 576,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 648,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 720,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 792,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 864,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 936,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 1008,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 1080,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 1152,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 1224,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 1296,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 1368,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 1440,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 1512,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 1584,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 1656,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 1728,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 1800,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 1872,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 1944,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 2016,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 2088,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 2160,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 2232,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 2304,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 2376,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 2448,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 2520,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 2592,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 2664,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 2736,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 2808,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 2880,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 2952,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 3024,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 3096,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 3168,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 3240,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 3312,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 3384,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 3456,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 3528,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 3600,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 3672,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 3744,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 3816,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 3888,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 3929,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 3960,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 4032,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 4104,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 4176,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 4248,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 4320,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 4392,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 4464,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 4536,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 4608,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 4680,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 4752,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 4824,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 4896,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 4968,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 5040,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 5112,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 5184,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 5256,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 5328,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 5400,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 5472,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 5544,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 5616,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 5688,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 5760,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 5832,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 5904,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 5976,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 6048,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 6120,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 6192,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 6264,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 6336,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 6408,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 6480,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 6552,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 6624,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 6696,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 6768,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 6840,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 6912,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 6984,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 7056,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 7128,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 7200,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 7272,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 7344,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 7416,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 7459,
+        "label": "move item_b",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 7488,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 7560,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 7632,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 7704,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 7776,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 7848,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 7920,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 7992,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 8064,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 8136,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 8208,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 8280,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 8352,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 8424,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 8496,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 8568,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 8640,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 8712,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 8784,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 8856,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 8928,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 9000,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 9072,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 9144,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 9216,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 9288,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 9360,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 9432,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 9504,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 9576,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 9648,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 9720,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 9792,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 9864,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 9936,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 10008,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 10080,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 10152,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 10224,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 10296,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 10368,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 10440,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 10512,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 10584,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 10656,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 10728,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 10800,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 10872,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 10944,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 11016,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 11088,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 11160,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 11232,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 11304,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 11376,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 11448,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 11452,
+        "label": "move item_a",
+        "duration_ms": 300
+      },
+      {
+        "simulation_step": 11452,
+        "label": "FINAL success=False",
+        "duration_ms": 1200
+      }
+    ]
+  }
+}

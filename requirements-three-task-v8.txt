@@ -1,0 +1,2 @@
+# Supplemental report plotting dependency; core dependencies remain in pyproject.toml.
+matplotlib==3.11.2

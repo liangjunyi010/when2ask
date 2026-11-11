@@ -1,5 +1,8 @@
 # When2Ask — Clarification Timing for Robotic Task Execution
 
+最新独立 Benchmark v8：新增缓冲交换、开盒取物、遮挡检查的 **24 Dev／12 Test**，按基础布局 group 隔离，oracle36/36；全部 Test 三方法36次真实配对已完成。NoAsk10/12、LLM-Gate12/12、Jev-Gate12/12，262次请求，358项测试通过。[新版数据与结果](docs/three_task_benchmark_v8.md) · [图表/原始日志](outputs/three_task_v8/README.md) · [本地结果页](http://127.0.0.1:8900/)。原两任务128-Test与所有历史记录保留，仍未运行；两个版本的结果不混合。
+
+
 当前交付入口（2026-11-11）：[今晚就绪状态与剩余工作](docs/delivery_readiness_2026-11-11.md)。主控制台已提供可选 **Gate Dev v7**：精简 Gate 输入，保留原提示、阈值0.5和共享 Planner；新小规模实测与限制见[诊断报告](docs/gate_diagnostics_dev_v7.md)。原默认、v5/v6及所有历史实验继续保留。当前350项测试通过；正式384-episode Test与双机实测仍未完成。
 
 

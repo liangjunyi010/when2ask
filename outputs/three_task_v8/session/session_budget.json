@@ -1,0 +1,55 @@
+{
+  "attempts": 262,
+  "episodes": 36,
+  "backends": {
+    "jev": {
+      "consecutive_errors": 0,
+      "blocked": false
+    },
+    "deepseek": {
+      "consecutive_errors": 0,
+      "blocked": false
+    }
+  },
+  "policy": "phase3_dev",
+  "max_attempts": 450,
+  "max_episodes": 36,
+  "episode_ids": [
+    "t8_r2_test_1_04_1__llm_noask",
+    "t8_r2_test_0_04_3__jev_gate",
+    "t8_r2_test_2_02_0__llm_gate",
+    "t8_r2_test_1_04_1__jev_gate",
+    "t8_r2_test_1_03_0__llm_gate",
+    "t8_r2_test_2_05_1__jev_gate",
+    "t8_r2_test_1_02_2__jev_gate",
+    "t8_r2_test_2_04_3__jev_gate",
+    "t8_r2_test_0_02_0__llm_noask",
+    "t8_r2_test_1_05_3__llm_noask",
+    "t8_r2_test_0_02_0__llm_gate",
+    "t8_r2_test_1_05_3__jev_gate",
+    "t8_r2_test_1_05_3__llm_gate",
+    "t8_r2_test_0_03_2__llm_noask",
+    "t8_r2_test_2_04_3__llm_gate",
+    "t8_r2_test_1_04_1__llm_gate",
+    "t8_r2_test_2_03_2__llm_gate",
+    "t8_r2_test_0_04_3__llm_gate",
+    "t8_r2_test_0_03_2__llm_gate",
+    "t8_r2_test_2_05_1__llm_noask",
+    "t8_r2_test_0_05_1__jev_gate",
+    "t8_r2_test_0_03_2__jev_gate",
+    "t8_r2_test_0_05_1__llm_noask",
+    "t8_r2_test_2_03_2__llm_noask",
+    "t8_r2_test_2_02_0__llm_noask",
+    "t8_r2_test_0_02_0__jev_gate",
+    "t8_r2_test_0_04_3__llm_noask",
+    "t8_r2_test_1_02_2__llm_noask",
+    "t8_r2_test_2_04_3__llm_noask",
+    "t8_r2_test_2_05_1__llm_gate",
+    "t8_r2_test_2_03_2__jev_gate",
+    "t8_r2_test_1_02_2__llm_gate",
+    "t8_r2_test_1_03_0__jev_gate",
+    "t8_r2_test_1_03_0__llm_noask",
+    "t8_r2_test_0_05_1__llm_gate",
+    "t8_r2_test_2_02_0__jev_gate"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "evidence": "actual_Chrome_render_and_MP4_decode",
+  "recorded_cases": 3,
+  "decoded_videos": [
+    {
+      "id": "t8_r2_test_0_04_3",
+      "videos": [
+        {
+          "src": "http://127.0.0.1:8900/media/t8_r2_test_0_04_3__llm_noask.mp4",
+          "width": 960,
+          "height": 720,
+          "duration": 48.3
+        },
+        {
+          "src": "http://127.0.0.1:8900/media/t8_r2_test_0_04_3__llm_gate.mp4",
+          "width": 960,
+          "height": 720,
+          "duration": 46.5
+        },
+        {
+          "src": "http://127.0.0.1:8900/media/t8_r2_test_0_04_3__jev_gate.mp4",
+          "width": 960,
+          "height": 720,
+          "duration": 46.5
+        }
+      ]
+    },
+    {
+      "id": "t8_r2_test_1_04_1",
+      "videos": [
+        {
+          "src": "http://127.0.0.1:8900/media/t8_r2_test_1_04_1__llm_noask.mp4",
+          "width": 960,
+          "height": 720,
+          "duration": 48
+        },
+        {
+          "src": "http://127.0.0.1:8900/media/t8_r2_test_1_04_1__llm_gate.mp4",
+          "width": 960,
+          "height": 720,
+          "duration": 51.3
+        },
+        {
+          "src": "http://127.0.0.1:8900/media/t8_r2_test_1_04_1__jev_gate.mp4",
+          "width": 960,
+          "height": 720,
+          "duration": 50.7
+        }
+      ]
+    },
+    {
+      "id": "t8_r2_test_2_04_3",
+      "videos": [
+        {
+          "src": "http://127.0.0.1:8900/media/t8_r2_test_2_04_3__llm_noask.mp4",
+          "width": 960,
+          "height": 720,
+          "duration": 15.9
+        },
+        {
+          "src": "http://127.0.0.1:8900/media/t8_r2_test_2_04_3__llm_gate.mp4",
+          "width": 960,
+          "height": 720,
+          "duration": 15.9
+        },
+        {
+          "src": "http://127.0.0.1:8900/media/t8_r2_test_2_04_3__jev_gate.mp4",
+          "width": 960,
+          "height": 720,
+          "duration": 15.9
+        }
+      ]
+    }
+  ],
+  "mobile_no_overflow": true,
+  "errors": [],
+  "api_requests_added": 0
+}
