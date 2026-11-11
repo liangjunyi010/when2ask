@@ -1,0 +1,50 @@
+[
+  {
+    "file": "buffer_exchange__jev_gate__gate_dev_v7.mp4",
+    "episode_id": "179605fa5a614dc4",
+    "source_gif": "/Users/liangjunyi/Desktop/CS4278/when2ask/outputs/local_console/task6_worker_v1/179605fa5a614dc4/demo.gif",
+    "sha256": "9f986fb820de31d755ccd47b03ee42bed059980f425248244c22808a5e5b27d5",
+    "bytes": 403542,
+    "duration_s": 44.8
+  },
+  {
+    "file": "buffer_exchange__jev_gate__memory_dev_v6.mp4",
+    "episode_id": "100cb6f38a414564",
+    "source_gif": "/Users/liangjunyi/Desktop/CS4278/when2ask/outputs/local_console/task6_worker_v1/100cb6f38a414564/demo.gif",
+    "sha256": "73f4f8c38efc0547118e9ba2b5eed4b03aa6d0d00c26eeea20ed7a786735633b",
+    "bytes": 407811,
+    "duration_s": 45.0
+  },
+  {
+    "file": "buffer_exchange__llm_gate__gate_dev_v7.mp4",
+    "episode_id": "9e1d5d4e325e4ebb",
+    "source_gif": "/Users/liangjunyi/Desktop/CS4278/when2ask/outputs/local_console/task6_worker_v1/9e1d5d4e325e4ebb/demo.gif",
+    "sha256": "9f986fb820de31d755ccd47b03ee42bed059980f425248244c22808a5e5b27d5",
+    "bytes": 403542,
+    "duration_s": 44.8
+  },
+  {
+    "file": "buffer_exchange__llm_gate__memory_dev_v6.mp4",
+    "episode_id": "0262f55420084df2",
+    "source_gif": "/Users/liangjunyi/Desktop/CS4278/when2ask/outputs/local_console/task6_worker_v1/0262f55420084df2/demo.gif",
+    "sha256": "9f986fb820de31d755ccd47b03ee42bed059980f425248244c22808a5e5b27d5",
+    "bytes": 403542,
+    "duration_s": 44.8
+  },
+  {
+    "file": "occlusion_inspection__jev_gate__gate_dev_v7.mp4",
+    "episode_id": "35a00acd20564344",
+    "source_gif": "/Users/liangjunyi/Desktop/CS4278/when2ask/outputs/local_console/task6_worker_v1/35a00acd20564344/demo.gif",
+    "sha256": "84d333e7f28e0f72edb55f986def64078464c584870cc1be0f56df4af2412105",
+    "bytes": 160150,
+    "duration_s": 15.8
+  },
+  {
+    "file": "retrieve_restore__jev_gate__gate_dev_v7.mp4",
+    "episode_id": "ac5ffffd4b7040cb",
+    "source_gif": "/Users/liangjunyi/Desktop/CS4278/when2ask/outputs/local_console/task6_worker_v1/ac5ffffd4b7040cb/demo.gif",
+    "sha256": "015d99c4521741a113227150a7b883e44da64dab5992559e332293c7e0e6a17f",
+    "bytes": 446607,
+    "duration_s": 47.2
+  }
+]

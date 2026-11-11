@@ -1,0 +1,545 @@
+{
+  "evidence_scope": "Dev gate-state ablation and six real physics episodes, not formal Test",
+  "selection": {
+    "metrics": [
+      {
+        "profile": "s0c0",
+        "states": 8,
+        "correct": 7,
+        "missed_asks": 1,
+        "unnecessary_asks": 0
+      },
+      {
+        "profile": "s0c1",
+        "states": 8,
+        "correct": 7,
+        "missed_asks": 1,
+        "unnecessary_asks": 0
+      },
+      {
+        "profile": "s1c0",
+        "states": 8,
+        "correct": 8,
+        "missed_asks": 0,
+        "unnecessary_asks": 0
+      },
+      {
+        "profile": "s1c1",
+        "states": 8,
+        "correct": 8,
+        "missed_asks": 0,
+        "unnecessary_asks": 0
+      }
+    ],
+    "qualified": [
+      "s1c0",
+      "s1c1"
+    ],
+    "selected": "s1c0",
+    "threshold": 0.5,
+    "selection_rule": "Candidate must fix the buffer miss, match both required ASK and all six CONTINUE controls at0.5; then prefer fewer changed factors, contract-only before compact-only before both. If none qualify, do not promote.",
+    "authenticated_requests": 42,
+    "all_jobs_complete": true
+  },
+  "gate_state_probabilities": [
+    {
+      "state": "buffer_initial",
+      "expected": "ASK",
+      "s0c0": 0.39,
+      "s0c1": 0.4,
+      "s1c0": 0.57,
+      "s1c1": 0.54
+    },
+    {
+      "state": "buffer_disclosed",
+      "expected": "CONTINUE",
+      "s0c0": 0.04,
+      "s0c1": 0.04,
+      "s1c0": 0.04,
+      "s1c1": 0.04
+    },
+    {
+      "state": "buffer_finished_guess",
+      "expected": "CONTINUE",
+      "s0c0": 0.16,
+      "s0c1": 0.05,
+      "s1c0": 0.17,
+      "s1c1": 0.07
+    },
+    {
+      "state": "retrieval_initial",
+      "expected": "CONTINUE",
+      "s0c0": 0.13,
+      "s0c1": 0.07,
+      "s1c0": 0.13,
+      "s1c1": 0.07
+    },
+    {
+      "state": "retrieval_open",
+      "expected": "ASK",
+      "s0c0": 0.76,
+      "s0c1": 0.8,
+      "s1c0": 0.84,
+      "s1c1": 0.83
+    },
+    {
+      "state": "retrieval_finished",
+      "expected": "CONTINUE",
+      "s0c0": 0.11,
+      "s0c1": 0.09,
+      "s1c0": 0.11,
+      "s1c1": 0.1
+    },
+    {
+      "state": "inspection_initial",
+      "expected": "CONTINUE",
+      "s0c0": 0.04,
+      "s0c1": 0.03,
+      "s1c0": 0.04,
+      "s1c1": 0.03
+    },
+    {
+      "state": "inspection_finished",
+      "expected": "CONTINUE",
+      "s0c0": 0.03,
+      "s0c1": 0.03,
+      "s1c0": 0.04,
+      "s1c1": 0.03
+    }
+  ],
+  "historical_replay": [
+    {
+      "version": "grounded_planner_dev_v5",
+      "historical_p": 0.53,
+      "repeated_p": [
+        0.48,
+        0.41,
+        0.47
+      ],
+      "range": [
+        0.41,
+        0.48
+      ]
+    },
+    {
+      "version": "memory_planner_dev_v6",
+      "historical_p": 0.43,
+      "repeated_p": [
+        0.45,
+        0.45,
+        0.46
+      ],
+      "range": [
+        0.45,
+        0.46
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "template": "buffer_exchange",
+      "method": "jev_gate",
+      "profile": "gate_dev_v7",
+      "episode_id": "179605fa5a614dc4",
+      "success": true,
+      "burden": 1,
+      "actions": 3,
+      "physical_failures": 0,
+      "attempts": 10,
+      "api_latency_s": 7.852671041022404,
+      "deepseek_input_tokens": 15797,
+      "deepseek_output_tokens": 466,
+      "jev_input_tokens": 11798,
+      "jev_output_tokens": 120,
+      "first_p_ask": 0.56,
+      "gate_sequence": [
+        {
+          "decision": "ASK",
+          "p_ask": 0.56,
+          "round": 0,
+          "called": true,
+          "backend": "jev"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": 0.04,
+          "round": 1,
+          "called": true,
+          "backend": "jev"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": 0.05,
+          "round": 2,
+          "called": true,
+          "backend": "jev"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": 0.06,
+          "round": 3,
+          "called": true,
+          "backend": "jev"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": 0.05,
+          "round": 4,
+          "called": true,
+          "backend": "jev"
+        }
+      ],
+      "termination": "done",
+      "failed_conditions": []
+    },
+    {
+      "template": "buffer_exchange",
+      "method": "jev_gate",
+      "profile": "memory_dev_v6",
+      "episode_id": "100cb6f38a414564",
+      "success": false,
+      "burden": 0,
+      "actions": 3,
+      "physical_failures": 0,
+      "attempts": 8,
+      "api_latency_s": 5.957260209004744,
+      "deepseek_input_tokens": 12933,
+      "deepseek_output_tokens": 431,
+      "jev_input_tokens": 15208,
+      "jev_output_tokens": 96,
+      "first_p_ask": 0.39,
+      "gate_sequence": [
+        {
+          "decision": "CONTINUE",
+          "p_ask": 0.39,
+          "round": 0,
+          "called": true,
+          "backend": "jev"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": 0.19,
+          "round": 1,
+          "called": true,
+          "backend": "jev"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": 0.26,
+          "round": 2,
+          "called": true,
+          "backend": "jev"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": 0.18,
+          "round": 3,
+          "called": true,
+          "backend": "jev"
+        }
+      ],
+      "termination": "done",
+      "failed_conditions": [
+        "selected_buffer_physically_used",
+        "other_buffer_unused",
+        "buffer_exchange_order"
+      ]
+    },
+    {
+      "template": "buffer_exchange",
+      "method": "llm_gate",
+      "profile": "gate_dev_v7",
+      "episode_id": "9e1d5d4e325e4ebb",
+      "success": true,
+      "burden": 1,
+      "actions": 3,
+      "physical_failures": 0,
+      "attempts": 10,
+      "api_latency_s": 8.55223962700984,
+      "deepseek_input_tokens": 24125,
+      "deepseek_output_tokens": 498,
+      "jev_input_tokens": null,
+      "jev_output_tokens": null,
+      "first_p_ask": null,
+      "gate_sequence": [
+        {
+          "decision": "ASK",
+          "p_ask": null,
+          "round": 0,
+          "called": true,
+          "backend": "deepseek"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "round": 1,
+          "called": true,
+          "backend": "deepseek"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "round": 2,
+          "called": true,
+          "backend": "deepseek"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "round": 3,
+          "called": true,
+          "backend": "deepseek"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "round": 4,
+          "called": true,
+          "backend": "deepseek"
+        }
+      ],
+      "termination": "done",
+      "failed_conditions": []
+    },
+    {
+      "template": "buffer_exchange",
+      "method": "llm_gate",
+      "profile": "memory_dev_v6",
+      "episode_id": "0262f55420084df2",
+      "success": true,
+      "burden": 1,
+      "actions": 3,
+      "physical_failures": 0,
+      "attempts": 10,
+      "api_latency_s": 10.351860210983432,
+      "deepseek_input_tokens": 28839,
+      "deepseek_output_tokens": 494,
+      "jev_input_tokens": null,
+      "jev_output_tokens": null,
+      "first_p_ask": null,
+      "gate_sequence": [
+        {
+          "decision": "ASK",
+          "p_ask": null,
+          "round": 0,
+          "called": true,
+          "backend": "deepseek"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "round": 1,
+          "called": true,
+          "backend": "deepseek"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "round": 2,
+          "called": true,
+          "backend": "deepseek"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "round": 3,
+          "called": true,
+          "backend": "deepseek"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": null,
+          "round": 4,
+          "called": true,
+          "backend": "deepseek"
+        }
+      ],
+      "termination": "done",
+      "failed_conditions": []
+    },
+    {
+      "template": "occlusion_inspection",
+      "method": "jev_gate",
+      "profile": "gate_dev_v7",
+      "episode_id": "35a00acd20564344",
+      "success": true,
+      "burden": 0,
+      "actions": 3,
+      "physical_failures": 0,
+      "attempts": 8,
+      "api_latency_s": 5.844995832972927,
+      "deepseek_input_tokens": 10480,
+      "deepseek_output_tokens": 354,
+      "jev_input_tokens": 7222,
+      "jev_output_tokens": 96,
+      "first_p_ask": 0.04,
+      "gate_sequence": [
+        {
+          "decision": "CONTINUE",
+          "p_ask": 0.04,
+          "round": 0,
+          "called": true,
+          "backend": "jev"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": 0.05,
+          "round": 1,
+          "called": true,
+          "backend": "jev"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": 0.06,
+          "round": 2,
+          "called": true,
+          "backend": "jev"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": 0.04,
+          "round": 3,
+          "called": true,
+          "backend": "jev"
+        }
+      ],
+      "termination": "done",
+      "failed_conditions": []
+    },
+    {
+      "template": "retrieve_restore",
+      "method": "jev_gate",
+      "profile": "gate_dev_v7",
+      "episode_id": "ac5ffffd4b7040cb",
+      "success": true,
+      "burden": 1,
+      "actions": 3,
+      "physical_failures": 0,
+      "attempts": 10,
+      "api_latency_s": 7.527688208007021,
+      "deepseek_input_tokens": 15593,
+      "deepseek_output_tokens": 442,
+      "jev_input_tokens": 11737,
+      "jev_output_tokens": 120,
+      "first_p_ask": 0.13,
+      "gate_sequence": [
+        {
+          "decision": "CONTINUE",
+          "p_ask": 0.13,
+          "round": 0,
+          "called": true,
+          "backend": "jev"
+        },
+        {
+          "decision": "ASK",
+          "p_ask": 0.83,
+          "round": 1,
+          "called": true,
+          "backend": "jev"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": 0.04,
+          "round": 2,
+          "called": true,
+          "backend": "jev"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": 0.08,
+          "round": 3,
+          "called": true,
+          "backend": "jev"
+        },
+        {
+          "decision": "CONTINUE",
+          "p_ask": 0.12,
+          "round": 4,
+          "called": true,
+          "backend": "jev"
+        }
+      ],
+      "termination": "done",
+      "failed_conditions": []
+    }
+  ],
+  "candidate_successes": 4,
+  "candidate_episodes": 4,
+  "state_calls": 42,
+  "episode_calls": 56,
+  "total_authenticated_requests": 98,
+  "matrix_cost": {
+    "deepseek": {
+      "attempts": 4,
+      "input_tokens": 8018,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 24,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 3246.2060419784393,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 38,
+      "input_tokens": 105364,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 912,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 11244.613918053801,
+      "unknown_latency_ms_attempts": 0
+    }
+  },
+  "episode_cost": {
+    "deepseek": {
+      "attempts": 38,
+      "input_tokens": 107767,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 2685,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 40009.260172984796,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 18,
+      "input_tokens": 45965,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 432,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 6077.454956015572,
+      "unknown_latency_ms_attempts": 0
+    }
+  },
+  "total_cost": {
+    "deepseek": {
+      "attempts": 42,
+      "input_tokens": 115785,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 2709,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 43255.466214963235,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 56,
+      "input_tokens": 151329,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 1344,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 17322.068874069373,
+      "unknown_latency_ms_attempts": 0
+    }
+  },
+  "models": {
+    "deepseek": [
+      "deepseek-flash"
+    ],
+    "jev": [
+      "jev-1.14.0"
+    ]
+  },
+  "schema_errors": 0,
+  "api_errors": 0,
+  "retries": 0,
+  "protected_files": 2515,
+  "threshold": 0.5,
+  "formal_test_api_episodes": 0
+}

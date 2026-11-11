@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-11",
+  "environment": {
+    "system": "Darwin",
+    "architecture": "arm64",
+    "python": "3.11.16"
+  },
+  "current_templates": [
+    "pack_and_cover",
+    "place_into_selected_containers",
+    "find_and_approach",
+    "category_sorting",
+    "inventory_restock",
+    "retrieve_restore",
+    "buffer_exchange",
+    "patrol_return",
+    "occlusion_inspection"
+  ],
+  "template_count": 9,
+  "console_profiles": [
+    "default_v1",
+    "gate_dev_v7",
+    "memory_dev_v6",
+    "grounded_dev_v5"
+  ],
+  "direct_physics_and_tinyrenderer": "passed_actual_init_step_render_disconnect",
+  "formal_dataset": {
+    "dev": {
+      "samples": 32,
+      "groups": 8,
+      "oracle_successes": 32,
+      "oracle_total": 32
+    },
+    "test": {
+      "samples": 128,
+      "groups": 16,
+      "oracle_successes": 128,
+      "oracle_total": 128
+    }
+  },
+  "group_isolation": true,
+  "frozen_formal_source_mismatches": [],
+  "frozen_test_status": "FROZEN_NOT_RUN",
+  "formal_test_planned_episodes": 384,
+  "existing_presentation": {
+    "pptx_exists": true,
+    "synced_html": true,
+    "speaker_notes": true,
+    "scope": "Existing milestone deck/QA retained; user-modified PPT not edited or newly certified as final deck. Historical pilot numbers remain historical."
+  },
+  "automated_tests": {
+    "current_passed": 350,
+    "baseline_passed": 343,
+    "evidence": "Actual pytest tool run; offline no model requests"
+  },
+  "private_repository": true,
+  "repository_url": "https://github.com/liangjunyi010/when2ask",
+  "env_permissions": "0o600",
+  "live_dev_evidence": 4,
+  "release_assessment": "Local engineering/demo delivery ready with stated Dev limits; full held-out research evaluation and two-device deployment remain unverified.",
+  "remaining": [
+    {
+      "item": "Formal held-out model evaluation",
+      "status": "NOT_RUN",
+      "scope": "384 fresh episodes on frozen original protocol; do not substitute new Dev v7 or tune against Test"
+    },
+    {
+      "item": "Two-computer VPN deployment",
+      "status": "NOT_TESTED",
+      "scope": "Controller/worker separation and local concurrency exist; remote network validation is separate"
+    },
+    {
+      "item": "Final course-specific report/deck submission",
+      "status": "RUBRIC_NOT_AVAILABLE",
+      "scope": "Existing milestone PPT is available; final submission requirements/deck refresh are not verified"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "buffer_disclosed__s0c0",
+  "kind": "factorial",
+  "backend": "jev",
+  "state_id": "buffer_disclosed",
+  "compact": false,
+  "contract": false,
+  "decision": "CONTINUE",
+  "p_ask": 0.04,
+  "error": null,
+  "expected": "CONTINUE",
+  "correct": true,
+  "cost": {
+    "deepseek": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 1,
+      "input_tokens": 3717,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 24,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 283.9033339987509,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 1,
+    "api_latency_ms": 283.9033339987509,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "public_payload_sha256": "97475dc185f6ef886a06cc6e6b4d602bd02e6b07df1adf234649ae14303ed2e9"
+}

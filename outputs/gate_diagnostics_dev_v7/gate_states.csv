@@ -1,0 +1,9 @@
+state,expected,s0c0,s0c1,s1c0,s1c1
+buffer_initial,ASK,0.39,0.4,0.57,0.54
+buffer_disclosed,CONTINUE,0.04,0.04,0.04,0.04
+buffer_finished_guess,CONTINUE,0.16,0.05,0.17,0.07
+retrieval_initial,CONTINUE,0.13,0.07,0.13,0.07
+retrieval_open,ASK,0.76,0.8,0.84,0.83
+retrieval_finished,CONTINUE,0.11,0.09,0.11,0.1
+inspection_initial,CONTINUE,0.04,0.03,0.04,0.03
+inspection_finished,CONTINUE,0.03,0.03,0.04,0.03

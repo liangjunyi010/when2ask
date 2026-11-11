@@ -1,0 +1,41 @@
+{
+  "metrics": [
+    {
+      "profile": "s0c0",
+      "states": 8,
+      "correct": 7,
+      "missed_asks": 1,
+      "unnecessary_asks": 0
+    },
+    {
+      "profile": "s0c1",
+      "states": 8,
+      "correct": 7,
+      "missed_asks": 1,
+      "unnecessary_asks": 0
+    },
+    {
+      "profile": "s1c0",
+      "states": 8,
+      "correct": 8,
+      "missed_asks": 0,
+      "unnecessary_asks": 0
+    },
+    {
+      "profile": "s1c1",
+      "states": 8,
+      "correct": 8,
+      "missed_asks": 0,
+      "unnecessary_asks": 0
+    }
+  ],
+  "qualified": [
+    "s1c0",
+    "s1c1"
+  ],
+  "selected": "s1c0",
+  "threshold": 0.5,
+  "selection_rule": "Candidate must fix the buffer miss, match both required ASK and all six CONTINUE controls at0.5; then prefer fewer changed factors, contract-only before compact-only before both. If none qualify, do not promote.",
+  "authenticated_requests": 42,
+  "all_jobs_complete": true
+}

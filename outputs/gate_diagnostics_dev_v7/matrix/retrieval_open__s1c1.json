@@ -1,0 +1,39 @@
+{
+  "id": "retrieval_open__s1c1",
+  "kind": "factorial",
+  "backend": "jev",
+  "state_id": "retrieval_open",
+  "compact": true,
+  "contract": true,
+  "decision": "ASK",
+  "p_ask": 0.83,
+  "error": null,
+  "expected": "ASK",
+  "correct": true,
+  "cost": {
+    "deepseek": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 1,
+      "input_tokens": 2156,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 24,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 347.8352499951143,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 1,
+    "api_latency_ms": 347.8352499951143,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "public_payload_sha256": "32957396ecaac4b6655615ea7ce6dc27396f024b9351dd858f3357b7fd4605e4"
+}

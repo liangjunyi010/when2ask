@@ -1,0 +1,39 @@
+{
+  "id": "buffer_finished_guess__s1c0",
+  "kind": "factorial",
+  "backend": "jev",
+  "state_id": "buffer_finished_guess",
+  "compact": true,
+  "contract": false,
+  "decision": "CONTINUE",
+  "p_ask": 0.17,
+  "error": null,
+  "expected": "CONTINUE",
+  "correct": true,
+  "cost": {
+    "deepseek": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 1,
+      "input_tokens": 2448,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 24,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 275.7762920082314,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 1,
+    "api_latency_ms": 275.7762920082314,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "public_payload_sha256": "9ac2422146f2c0c831fc60b69f21057c862610a7a2c1e071a80851631aa47028"
+}

@@ -1,0 +1,55 @@
+{
+  "episodes": [
+    {
+      "id": "179605fa5a614dc4",
+      "gate_before_planner": true,
+      "wire_stage_payloads_match": true,
+      "first_action_verbatim": true,
+      "memory_recomputes": true,
+      "ask_checks": 1
+    },
+    {
+      "id": "100cb6f38a414564",
+      "gate_before_planner": true,
+      "wire_stage_payloads_match": true,
+      "first_action_verbatim": true,
+      "memory_recomputes": true,
+      "ask_checks": 0
+    },
+    {
+      "id": "9e1d5d4e325e4ebb",
+      "gate_before_planner": true,
+      "wire_stage_payloads_match": true,
+      "first_action_verbatim": true,
+      "memory_recomputes": true,
+      "ask_checks": 1
+    },
+    {
+      "id": "0262f55420084df2",
+      "gate_before_planner": true,
+      "wire_stage_payloads_match": true,
+      "first_action_verbatim": true,
+      "memory_recomputes": true,
+      "ask_checks": 1
+    },
+    {
+      "id": "35a00acd20564344",
+      "gate_before_planner": true,
+      "wire_stage_payloads_match": true,
+      "first_action_verbatim": true,
+      "memory_recomputes": true,
+      "ask_checks": 0
+    },
+    {
+      "id": "ac5ffffd4b7040cb",
+      "gate_before_planner": true,
+      "wire_stage_payloads_match": true,
+      "first_action_verbatim": true,
+      "memory_recomputes": true,
+      "ask_checks": 1
+    }
+  ],
+  "buffer_initial_full_inputs_identical": true,
+  "all_prompts_identical": true,
+  "historical_files_preserved": 2515
+}

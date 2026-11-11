@@ -1,0 +1,10 @@
+{
+  "url": "http://127.0.0.1:8877/",
+  "default_profile_unchanged": true,
+  "v5_still_available": true,
+  "v7_optional_and_supported": true,
+  "manual_selection_available": true,
+  "restored_historical_cards": 10,
+  "paid_requests_added": 0,
+  "errors": []
+}

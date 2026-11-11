@@ -1,5 +1,8 @@
 # When2Ask — Clarification Timing for Robotic Task Execution
 
+当前交付入口（2026-11-11）：[今晚就绪状态与剩余工作](docs/delivery_readiness_2026-11-11.md)。主控制台已提供可选 **Gate Dev v7**：精简 Gate 输入，保留原提示、阈值0.5和共享 Planner；新小规模实测与限制见[诊断报告](docs/gate_diagnostics_dev_v7.md)。原默认、v5/v6及所有历史实验继续保留。当前350项测试通过；正式384-episode Test与双机实测仍未完成。
+
+
 真实 PyBullet / Franka Panda 的澄清时机研究工程。保留 Scripted MVP、共享 DeepSeek Planner 与 DeepSeek/Jev Gate；Phase 3 增加场景分组的 Dev/Test、双容器任务和真实 Dev 阈值校准。没有模型训练。
 
 新增 [实时任务控制台](docs/local_console.md)：`python console.py --live` 后访问 **http://127.0.0.1:8877/**。可选择任务、NoAsk/LLM-Gate/Jev-Gate 与自动/手动回答，并行观看独立 Panda 场景。控制器与物理 worker 已通过本机 HTTP 联调，双机 VPN 尚未实测。[真实运行证据](outputs/console_evidence/README.md) 独立保存，不修改冻结实验。

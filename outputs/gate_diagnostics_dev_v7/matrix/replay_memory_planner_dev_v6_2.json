@@ -1,0 +1,38 @@
+{
+  "id": "replay_memory_planner_dev_v6_2",
+  "kind": "historical_replay",
+  "backend": "jev",
+  "version": "memory_planner_dev_v6",
+  "repeat": 2,
+  "decision": "CONTINUE",
+  "p_ask": 0.45,
+  "error": null,
+  "expected": null,
+  "correct": null,
+  "cost": {
+    "deepseek": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 1,
+      "input_tokens": 3534,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 24,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 362.2935829916969,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 1,
+    "api_latency_ms": 362.2935829916969,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "public_payload_sha256": "a4093a13f97ed4dfe079b47ab8d53c95b9bd23079a9ece8fa896ff400c280a57"
+}

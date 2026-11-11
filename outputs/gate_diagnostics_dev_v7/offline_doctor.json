@@ -1,0 +1,24 @@
+{
+  "live": false,
+  "credentials": {
+    "deepseek": true,
+    "jev": true
+  },
+  "env_mode": "0o600",
+  "configuration": {
+    "deepseek_model": "deepseek-flash",
+    "jev_model": "jev-latest",
+    "jev_threshold": 0.5,
+    "timeout_s": 40,
+    "max_retries": 1,
+    "max_tokens": 500,
+    "thinking": "disabled",
+    "response_format": "json_object"
+  },
+  "packages": {
+    "pybullet": "3.2.7",
+    "numpy": "2.4.6",
+    "pillow": "13.0.0",
+    "pytest": "9.1.1"
+  }
+}

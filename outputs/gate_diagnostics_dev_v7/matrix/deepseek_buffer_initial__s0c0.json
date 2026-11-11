@@ -1,0 +1,39 @@
+{
+  "id": "deepseek_buffer_initial__s0c0",
+  "kind": "factorial",
+  "backend": "deepseek",
+  "state_id": "buffer_initial",
+  "compact": false,
+  "contract": false,
+  "decision": "ASK",
+  "p_ask": null,
+  "error": null,
+  "expected": "ASK",
+  "correct": true,
+  "cost": {
+    "deepseek": {
+      "attempts": 1,
+      "input_tokens": 2360,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 5,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 543.018749987823,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 1,
+    "api_latency_ms": 543.018749987823,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "public_payload_sha256": "a4093a13f97ed4dfe079b47ab8d53c95b9bd23079a9ece8fa896ff400c280a57"
+}

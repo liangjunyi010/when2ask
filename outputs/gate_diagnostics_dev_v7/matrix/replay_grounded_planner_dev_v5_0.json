@@ -1,0 +1,38 @@
+{
+  "id": "replay_grounded_planner_dev_v5_0",
+  "kind": "historical_replay",
+  "backend": "jev",
+  "version": "grounded_planner_dev_v5",
+  "repeat": 0,
+  "decision": "CONTINUE",
+  "p_ask": 0.41,
+  "error": null,
+  "expected": null,
+  "correct": null,
+  "cost": {
+    "deepseek": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 1,
+      "input_tokens": 3084,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 24,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 338.52054200542625,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 1,
+    "api_latency_ms": 338.52054200542625,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "public_payload_sha256": "34198648a1bb603c0638e0c6257f03f79847d32b424b5e1fca23c41d53a37bdf"
+}
