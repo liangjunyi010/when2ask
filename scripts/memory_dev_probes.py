@@ -12,16 +12,16 @@ from when2ask.grounded_dev_health import SchemaAwareSession
 
 
 def main():
-    p=argparse.ArgumentParser(__doc__);p.add_argument('--live',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser(__doc__);p.add_argument('--live',action='store_true');p.add_argument('--revision',choices=['r1','r2'],default='r1');a=p.parse_args()
     if not a.live:p.error('Explicit --live required')
-    out=ROOT/'outputs/memory_planner_dev_v6';dest=out/'probes';dest.mkdir(exist_ok=False)
+    out=ROOT/'outputs/memory_planner_dev_v6';dest=out/('probes' if a.revision=='r1' else 'probes_r2');dest.mkdir(exist_ok=False)
     cases=[('retrieval_closed_known','retrieve_restore','llm_gate',4,{'kind':'DONE'}),
            ('retrieval_closed_guess','retrieve_restore','llm_noask',3,{'kind':'DONE'}),
            ('retrieval_needs_cover','retrieve_restore','llm_gate',3,{'kind':'cover','object_id':'storage_lid'}),
            ('exchange_complete','buffer_exchange','jev_gate',4,{'kind':'DONE'}),
            ('exchange_needs_final_move','buffer_exchange','jev_gate',3,{'kind':'move','object_id':'item_a','target_id':'slot_right'}),
            ('inspection_complete','occlusion_inspection','llm_gate',3,{'kind':'DONE'})]
-    frozen=dict(created_date='2026-11-11',purpose='Action-only regression probes from six actual previously observed public states; no oracle/private inputs, no end-to-end success claims',
+    frozen=dict(revision=a.revision,created_date='2026-11-11',purpose='Action-only regression probes from six actual previously observed public states; no oracle/private inputs, no end-to-end success claims',
         source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),prompt_hashes=prompt_hashes(),
         source_hashes={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in (ROOT/'src/when2ask').glob('memory_dev*.py')},
         cases=[dict(id=k,template=t,method=m,round=i,expected_public_action=c) for k,t,m,i,c in cases],
