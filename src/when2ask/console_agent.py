@@ -18,6 +18,9 @@ from .user_simulator import PreferenceResolver
 def run_agent(manager, task):
     from .task6_spec import TITLES
     if task.template in TITLES:
+        if task.planner_profile == 'memory_dev_v6':
+            from .memory_dev_console import run_agent as memory_agent
+            return memory_agent(manager, task)
         if task.planner_profile == 'grounded_dev_v5':
             from .grounded_dev_console import run_agent as dev_agent
             return dev_agent(manager, task)
