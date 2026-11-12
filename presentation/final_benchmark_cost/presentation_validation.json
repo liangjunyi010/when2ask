@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "pptx_sha256": "e975fadbe2c100bc2d6f54fbd7ac9b41e5564337a59a1ad1f7a01c2d2f08fa13",
+  "slide_count": 10,
+  "aspect": "16:9",
+  "editable_table_slides": [
+    4,
+    7,
+    8
+  ],
+  "editable_chart_slides": [
+    7,
+    8
+  ],
+  "embedded_workbooks": 2,
+  "raw_test_episodes": 36,
+  "actual_saved_attempts": 262,
+  "new_model_api_calls": 0,
+  "original_tracked_files_unchanged": 3187,
+  "original_dirty_milestone_preserved": true,
+  "original_benchmark_reports_and_configs_unchanged": true,
+  "estimated_usd_only": true,
+  "cache_hit_miss_usage_verified": true,
+  "current_rates_verified_date": "2026-11-12",
+  "source_request_time_range": [
+    "2026-11-11T13:53:34+00:00",
+    "2026-11-11T13:55:36+00:00"
+  ],
+  "speaker_notes_and_visible_tables_match": true,
+  "script_words": 1091,
+  "target_seconds": 580,
+  "replay_duration_s": 22.2,
+  "replay_frame_count": 164,
+  "embedded_video_native_autoplay_verified": true,
+  "per_slide_wpm_with_separate_replay": [
+    120.0,
+    115.2,
+    116.0,
+    113.5,
+    114.0,
+    120.0,
+    116.0,
+    122.6,
+    114.8,
+    121.5
+  ],
+  "visible_source_labels": false
+}

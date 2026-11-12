@@ -1,0 +1,17 @@
+{
+  "application": "Microsoft PowerPoint",
+  "version": "16.115",
+  "slides": 10,
+  "play_on_entry": true,
+  "player_positions_ms": [
+    2020,
+    4025
+  ],
+  "slide_show_exited": true,
+  "pptx_sha256": "e975fadbe2c100bc2d6f54fbd7ac9b41e5564337a59a1ad1f7a01c2d2f08fa13",
+  "byte_identical_copy": true,
+  "autoplay_verified": true,
+  "opening_method": "Launch Services, then explicit disposable presentation selection. Initial cold-start Apple-event open timed out; no benchmark/API rerun.",
+  "method": "Native PowerPoint Slide Show; real Player object positions after two 2-second waits.",
+  "visual_review": "All slide visuals separately checked through LibreOffice PDF and PNG; native screen pixels not captured."
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "when2ask.presentation_pricing.v1",
+  "verified_date": "2026-11-12",
+  "currency": "USD",
+  "classification": "Retrospective estimate using current public rates, not a historical invoice or verified deduction",
+  "deepseek": {
+    "configured_and_returned_model": "deepseek-flash",
+    "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+    "off_peak_usd_per_million": {"cache_hit_input": 0.003, "cache_miss_input": 0.15, "output": 0.6},
+    "peak_usd_per_million": {"cache_hit_input": 0.006, "cache_miss_input": 0.3, "output": 1.2},
+    "peak_hours_utc": [[1, 4], [6, 10]],
+    "peak_weekdays": [0, 1, 2, 3, 4],
+    "chinese_public_holidays": "Excluded by provider. All recorded DeepSeek requests are outside the peak clock hours, so no holiday inference is needed."
+  },
+  "jev": {
+    "returned_model": "jev-1.14.0",
+    "source_url": "https://docs.typesafe.ai/models",
+    "usd_per_million": {"input": 0.042, "output": 0.0}
+  },
+  "scope": "All agent inference attempts in the preserved 36 v8 Test episodes, including gate, question, action and DONE. Costs are calculated per backend before summing USD.",
+  "exclusions": ["Taxes", "credits", "discounts", "robot/computer runtime", "human time", "data generation and oracle validation"],
+  "comparison_limit": "Observed per-call gate averages use different saved trajectories (53 versus 54 calls), not identical-state latency microbenchmarks. No BERT comparison or unseen-template zero-shot claim."
+}
