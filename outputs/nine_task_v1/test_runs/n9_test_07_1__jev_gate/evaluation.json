@@ -1,0 +1,78 @@
+{
+  "task_success": true,
+  "termination_reason": "done",
+  "conditions": {
+    "required_stations_physically_inspected": true,
+    "returned_to_start": true,
+    "inspections_before_return": true,
+    "robot_stopped": true,
+    "no_wall_penetration": true,
+    "distance_budget_respected": true
+  },
+  "clarification_burden": 0,
+  "action_count": 3,
+  "simulation_steps": 8670,
+  "details": {
+    "required_stations": [
+      "living_cabinet",
+      "study_desk"
+    ],
+    "inspection_evidence": [
+      {
+        "step": 1808,
+        "location_id": "living_cabinet",
+        "robot_pose": [
+          0.34441878867118847,
+          1.2501879884925124,
+          1.45094115965638
+        ],
+        "distance_m": 0.09768993212433279,
+        "yaw_error": 0.11985516713851663,
+        "fixture_distance_m": 0.6356475194934961,
+        "ray_hit_body": 27,
+        "ray_hit_point": [
+          0.43513579250271617,
+          2.1,
+          0.7680632929044626
+        ],
+        "ray_endpoint": [
+          0.44,
+          2.15,
+          0.74
+        ],
+        "success": true
+      },
+      {
+        "step": 5817,
+        "location_id": "study_desk",
+        "robot_pose": [
+          4.400530650087878,
+          1.2332500631523686,
+          1.4511267110327501
+        ],
+        "distance_m": 0.03960293540862815,
+        "yaw_error": 0.11966961576214619,
+        "fixture_distance_m": 0.648193212478852,
+        "ray_hit_body": 29,
+        "ray_hit_point": [
+          4.4402033469365225,
+          2.0999999999999996,
+          0.7672286620156782
+        ],
+        "ray_endpoint": [
+          4.44,
+          2.15,
+          0.74
+        ],
+        "success": true
+      }
+    ],
+    "final_pose": [
+      0.11835485212269369,
+      -0.09020051402287932,
+      2.823419337021944
+    ],
+    "distance_m": 14.652168677997729
+  },
+  "evaluator_version": "task6_patrol_v1_criteria_map_adapter_v9"
+}

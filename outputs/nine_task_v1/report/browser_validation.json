@@ -1,0 +1,12 @@
+{
+  "url": "http://127.0.0.1:8904/report/",
+  "http_status": 200,
+  "task_rows": 9,
+  "test_case_sections": 18,
+  "images": 54,
+  "all_images_loaded": true,
+  "details_interaction": true,
+  "javascript_errors": [],
+  "failed_requests": [],
+  "no_horizontal_overflow_1366": true
+}

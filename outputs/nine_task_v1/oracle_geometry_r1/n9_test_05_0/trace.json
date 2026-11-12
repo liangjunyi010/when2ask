@@ -1,0 +1,946 @@
+{
+  "evidence_kind": "deterministic_oracle_real_pybullet",
+  "sample_id": "n9_test_05_0",
+  "group_id": "retrieve_restore:layout_34cdd16fd4b42308",
+  "partition": "test",
+  "template_id": "retrieve_restore",
+  "initial_observation": {
+    "simulation_step": 240,
+    "objects": {
+      "box": {
+        "category": "container",
+        "color": "brown",
+        "position": [
+          0.53,
+          0.085,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.39,
+          -0.03499999999999999,
+          0.42
+        ],
+        "aabb_max": [
+          0.67,
+          0.20500000000000002,
+          0.544
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "storage_lid": {
+        "category": "lid",
+        "color": "black",
+        "position": [
+          0.5299999938708186,
+          0.08499998882338554,
+          0.5499897712796389
+        ],
+        "orientation": [
+          7.955487364155169e-07,
+          -5.484307952370267e-07,
+          -9.27889125001282e-10,
+          0.9999999999995332
+        ],
+        "aabb_min": [
+          0.37599998704118437,
+          -0.04900002100895391,
+          0.5439893891559039
+        ],
+        "aabb_max": [
+          0.684000000700453,
+          0.218999998655725,
+          0.5559901534033739
+        ],
+        "linear_velocity": [
+          -6.384589373002615e-09,
+          -1.2054522283703208e-08,
+          -2.5955776047914547e-07
+        ],
+        "angular_velocity": [
+          1.683606719967025e-06,
+          -1.1973310200699332e-06,
+          -9.801052807536851e-09
+        ]
+      }
+    },
+    "end_effector": [
+      0.428022563457489,
+      3.169046749462723e-06,
+      0.859183669090271
+    ],
+    "held_object": null,
+    "robot_joints": [
+      {
+        "position": 1.0696532630007442e-05,
+        "velocity": 1.1492543028346347e-17
+      },
+      {
+        "position": -0.449997729886078,
+        "velocity": 5.492134524942571e-15
+      },
+      {
+        "position": -9.03501810404587e-22,
+        "velocity": 0.0
+      },
+      {
+        "position": -2.249999902417897,
+        "velocity": 4.657385588302532e-14
+      },
+      {
+        "position": -7.849520546658477e-06,
+        "velocity": -6.938893903907228e-18
+      },
+      {
+        "position": 1.8499867933658418,
+        "velocity": -2.1926904736346842e-14
+      },
+      {
+        "position": 0.7854036028562704,
+        "velocity": 1.2405874938448136e-14
+      },
+      {
+        "position": 0.03999881643475243,
+        "velocity": -6.804452834519026e-16
+      },
+      {
+        "position": 0.040001211924621284,
+        "velocity": 7.671814572507429e-16
+      }
+    ],
+    "task": {
+      "box": "box",
+      "delivery_pad": "delivery_pad",
+      "items": [
+        "stored_cup",
+        "stored_block"
+      ],
+      "lid": "storage_lid",
+      "lid_pad": "lid_pad",
+      "template_id": "retrieve_restore",
+      "version": "six_tasks_dev_v1",
+      "dag": {
+        "edges": [
+          [
+            "uncover",
+            "retrieve"
+          ],
+          [
+            "retrieve",
+            "restore_lid"
+          ]
+        ],
+        "nodes": [
+          "uncover",
+          "retrieve",
+          "restore_lid"
+        ]
+      },
+      "preference_slots": {
+        "retrieval_item": {
+          "candidate_ids": [
+            "stored_block",
+            "stored_cup"
+          ],
+          "kind": "preference",
+          "description": "Which item should be retrieved from the box?"
+        }
+      },
+      "initial_choices": {
+        "retrieval_item": "stored_block"
+      }
+    },
+    "containers": {
+      "box": {
+        "xy": [
+          0.53,
+          0.085
+        ],
+        "half": [
+          0.14,
+          0.12
+        ],
+        "inner": [
+          0.128,
+          0.108
+        ],
+        "floor": 0.434,
+        "rim": 0.544,
+        "contents": [],
+        "contents_observed": false
+      }
+    },
+    "zones": {
+      "lid_pad": {
+        "half_xy": [
+          0.16,
+          0.14
+        ],
+        "id": "lid_pad",
+        "xy": [
+          0.26,
+          0.415
+        ],
+        "contents": []
+      },
+      "delivery_pad": {
+        "half_xy": [
+          0.075,
+          0.075
+        ],
+        "id": "delivery_pad",
+        "xy": [
+          0.29,
+          -0.195
+        ],
+        "contents": []
+      }
+    },
+    "inspections": [],
+    "reports": [],
+    "sensor": null,
+    "affordances": {
+      "move": {
+        "storage_lid": [
+          "box",
+          "lid_pad",
+          "delivery_pad"
+        ]
+      },
+      "cover": [
+        "storage_lid"
+      ],
+      "inspect": []
+    }
+  },
+  "final_observation": {
+    "simulation_step": 11343,
+    "objects": {
+      "box": {
+        "category": "container",
+        "color": "brown",
+        "position": [
+          0.53,
+          0.085,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.39,
+          -0.03499999999999999,
+          0.42
+        ],
+        "aabb_max": [
+          0.67,
+          0.20500000000000002,
+          0.544
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "storage_lid": {
+        "category": "lid",
+        "color": "black",
+        "position": [
+          0.5299784167258307,
+          0.08498523844374764,
+          0.5499896849513306
+        ],
+        "orientation": [
+          1.0833272739174993e-06,
+          1.0725231730206026e-06,
+          -0.0003870871095879931,
+          0.9999999250806201
+        ],
+        "aabb_min": [
+          0.37587471067265166,
+          -0.04913395722514588,
+          0.5439890642646638
+        ],
+        "aabb_max": [
+          0.6840821227790097,
+          0.21910443411264116,
+          0.5559903056379975
+        ],
+        "linear_velocity": [
+          2.806973527956662e-09,
+          -2.209367113929407e-09,
+          -6.209074183277652e-08
+        ],
+        "angular_velocity": [
+          3.6608916052299836e-07,
+          4.672066451052005e-07,
+          -3.687662705710771e-11
+        ]
+      }
+    },
+    "end_effector": [
+      0.5300132632255554,
+      0.08488026261329651,
+      0.8299816250801086
+    ],
+    "held_object": null,
+    "robot_joints": [
+      {
+        "position": -0.2974018358041852,
+        "velocity": -6.3525573690270676e-15
+      },
+      {
+        "position": -0.08743205370652456,
+        "velocity": -1.4263763781219296e-15
+      },
+      {
+        "position": 0.4394988817292434,
+        "velocity": -6.394190732450511e-15
+      },
+      {
+        "position": -1.9440522084709733,
+        "velocity": 2.6229018956769323e-14
+      },
+      {
+        "position": 0.0388315731149646,
+        "velocity": 6.83481049534862e-16
+      },
+      {
+        "position": 1.864697776354858,
+        "velocity": -2.4452662117369073e-14
+      },
+      {
+        "position": 0.9147569426267819,
+        "velocity": -1.2129186544029835e-14
+      },
+      {
+        "position": 0.03999992445080879,
+        "velocity": 6.678685382510707e-16
+      },
+      {
+        "position": 0.04000007708921853,
+        "velocity": -8.092485015431805e-16
+      }
+    ],
+    "task": {
+      "box": "box",
+      "delivery_pad": "delivery_pad",
+      "items": [
+        "stored_cup",
+        "stored_block"
+      ],
+      "lid": "storage_lid",
+      "lid_pad": "lid_pad",
+      "template_id": "retrieve_restore",
+      "version": "six_tasks_dev_v1",
+      "dag": {
+        "edges": [
+          [
+            "uncover",
+            "retrieve"
+          ],
+          [
+            "retrieve",
+            "restore_lid"
+          ]
+        ],
+        "nodes": [
+          "uncover",
+          "retrieve",
+          "restore_lid"
+        ]
+      },
+      "preference_slots": {
+        "retrieval_item": {
+          "candidate_ids": [
+            "stored_block",
+            "stored_cup"
+          ],
+          "kind": "preference",
+          "description": "Which item should be retrieved from the box?"
+        }
+      },
+      "initial_choices": {
+        "retrieval_item": "stored_block"
+      }
+    },
+    "containers": {
+      "box": {
+        "xy": [
+          0.53,
+          0.085
+        ],
+        "half": [
+          0.14,
+          0.12
+        ],
+        "inner": [
+          0.128,
+          0.108
+        ],
+        "floor": 0.434,
+        "rim": 0.544,
+        "contents": [],
+        "contents_observed": false
+      }
+    },
+    "zones": {
+      "lid_pad": {
+        "half_xy": [
+          0.16,
+          0.14
+        ],
+        "id": "lid_pad",
+        "xy": [
+          0.26,
+          0.415
+        ],
+        "contents": []
+      },
+      "delivery_pad": {
+        "half_xy": [
+          0.075,
+          0.075
+        ],
+        "id": "delivery_pad",
+        "xy": [
+          0.29,
+          -0.195
+        ],
+        "contents": [
+          "stored_block"
+        ]
+      }
+    },
+    "inspections": [],
+    "reports": [],
+    "sensor": null,
+    "affordances": {
+      "move": {
+        "storage_lid": [
+          "box",
+          "lid_pad",
+          "delivery_pad"
+        ]
+      },
+      "cover": [
+        "storage_lid"
+      ],
+      "inspect": []
+    }
+  },
+  "proposed_actions": [
+    {
+      "kind": "move",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad"
+    },
+    {
+      "kind": "move",
+      "object_id": "stored_block",
+      "target_id": "delivery_pad"
+    },
+    {
+      "kind": "cover",
+      "object_id": "storage_lid"
+    }
+  ],
+  "actions": [
+    {
+      "skill": "move",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3678,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "stored_block",
+      "target_id": "delivery_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3678,
+      "end_step": 7456,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "cover",
+      "object_id": "storage_lid",
+      "target_id": "box",
+      "success": true,
+      "reason": "covered",
+      "start_step": 7456,
+      "end_step": 11343,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "execution_log": [
+    {
+      "kind": "placement_started",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "step": 240
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "storage_lid",
+      "step": 240,
+      "end_effector": [
+        0.428022563457489,
+        3.169046749462723e-06,
+        0.859183669090271
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "storage_lid",
+      "step": 927,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.0037690447924108297,
+      "closest_hand_distance_m": 0.013519161282701097
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "storage_lid",
+      "step": 987,
+      "end_effector": [
+        0.5299909710884094,
+        0.08496630936861038,
+        0.5739933252334595
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "storage_lid",
+      "step": 1349,
+      "end_effector": [
+        0.529992938041687,
+        0.08500153571367264,
+        0.8253944516181946
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "storage_lid",
+      "step": 1951,
+      "end_effector": [
+        0.26287907361984253,
+        0.41138166189193726,
+        0.829931914806366
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "storage_lid",
+      "step": 2703
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "storage_lid",
+      "step": 3438,
+      "end_effector": [
+        0.2599684000015259,
+        0.4149540364742279,
+        0.8262215852737427
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "storage_lid",
+      "target_id": "lid_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3678,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "stored_block",
+      "target_id": "delivery_pad",
+      "step": 3678
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "stored_block",
+      "step": 3678,
+      "end_effector": [
+        0.25995227694511414,
+        0.4149358868598938,
+        0.829990565776825
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "stored_block",
+      "step": 4800,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.0037703452624334986,
+      "closest_hand_distance_m": 0.03570539760550803
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "stored_block",
+      "step": 4860,
+      "end_effector": [
+        0.581988513469696,
+        0.11999249458312988,
+        0.5129911303520203
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "stored_block",
+      "step": 5308,
+      "end_effector": [
+        0.581939697265625,
+        0.11999037116765976,
+        0.8253709077835083
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "stored_block",
+      "step": 5915,
+      "end_effector": [
+        0.2931053638458252,
+        -0.19162526726722717,
+        0.8299660682678223
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "stored_block",
+      "step": 6569
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "stored_block",
+      "step": 7216,
+      "end_effector": [
+        0.2899720370769501,
+        -0.19494928419589996,
+        0.8262252807617188
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "stored_block",
+      "target_id": "delivery_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3678,
+      "end_step": 7456,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "cover_started",
+      "step": 7456,
+      "contents_before": [
+        "stored_cup"
+      ],
+      "released_before": true,
+      "lid_id": "storage_lid"
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "storage_lid",
+      "step": 7456,
+      "end_effector": [
+        0.28996142745018005,
+        -0.19494026899337769,
+        0.829993486404419
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "storage_lid",
+      "step": 8877,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004082504564743417,
+      "closest_hand_distance_m": 0.013829550580953432
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "storage_lid",
+      "step": 8937,
+      "end_effector": [
+        0.26022326946258545,
+        0.415019690990448,
+        0.4502324163913727
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "storage_lid",
+      "step": 9474,
+      "end_effector": [
+        0.2601790130138397,
+        0.4150696396827698,
+        0.8254186511039734
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "storage_lid",
+      "step": 10077,
+      "end_effector": [
+        0.527119517326355,
+        0.08843499422073364,
+        0.8299434781074524
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "storage_lid",
+      "step": 10581
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "storage_lid",
+      "step": 11103,
+      "end_effector": [
+        0.5300353765487671,
+        0.08487960696220398,
+        0.8262097835540771
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "cover",
+      "object_id": "storage_lid",
+      "target_id": "box",
+      "success": true,
+      "reason": "covered",
+      "start_step": 7456,
+      "end_step": 11343,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "checkpoints": [
+    {
+      "step": 240,
+      "action": "initial",
+      "contents": {
+        "box": [
+          "stored_cup",
+          "stored_block"
+        ]
+      },
+      "zones": {
+        "lid_pad": [],
+        "delivery_pad": []
+      },
+      "released": true,
+      "positions": {
+        "storage_lid": [
+          0.5299999938708186,
+          0.08499998882338554,
+          0.5499897712796389
+        ],
+        "stored_cup": [
+          0.47929392183001107,
+          0.04685850112144239,
+          0.46398983787685666
+        ],
+        "stored_block": [
+          0.5819995236741692,
+          0.12000015092986444,
+          0.45598958971592707
+        ]
+      }
+    },
+    {
+      "step": 3678,
+      "action": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      },
+      "contents": {
+        "box": [
+          "stored_cup",
+          "stored_block"
+        ]
+      },
+      "zones": {
+        "lid_pad": [
+          "storage_lid"
+        ],
+        "delivery_pad": []
+      },
+      "released": true,
+      "positions": {
+        "storage_lid": [
+          0.2600876751991682,
+          0.4150115934810002,
+          0.4259888951527295
+        ],
+        "stored_cup": [
+          0.4792973072165132,
+          0.04680021418091804,
+          0.4639898379831189
+        ],
+        "stored_block": [
+          0.5819995236741692,
+          0.12000015092991215,
+          0.45598958971587794
+        ]
+      }
+    },
+    {
+      "step": 7456,
+      "action": {
+        "kind": "move",
+        "object_id": "stored_block",
+        "target_id": "delivery_pad"
+      },
+      "contents": {
+        "box": [
+          "stored_cup"
+        ]
+      },
+      "zones": {
+        "lid_pad": [
+          "storage_lid"
+        ],
+        "delivery_pad": [
+          "stored_block"
+        ]
+      },
+      "released": true,
+      "positions": {
+        "storage_lid": [
+          0.2601643233612935,
+          0.4150697293878968,
+          0.42598901544357426
+        ],
+        "stored_cup": [
+          0.47930084375640203,
+          0.046736068942089946,
+          0.463989838100096
+        ],
+        "stored_block": [
+          0.2892469911106211,
+          -0.1941129841763336,
+          0.44198921731906915
+        ]
+      }
+    },
+    {
+      "step": 11343,
+      "action": {
+        "kind": "cover",
+        "object_id": "storage_lid"
+      },
+      "contents": {
+        "box": [
+          "stored_cup"
+        ]
+      },
+      "zones": {
+        "lid_pad": [],
+        "delivery_pad": [
+          "stored_block"
+        ]
+      },
+      "released": true,
+      "positions": {
+        "storage_lid": [
+          0.5299784167258307,
+          0.08498523844374764,
+          0.5499896849513306
+        ],
+        "stored_cup": [
+          0.47930428257032276,
+          0.046669968510283405,
+          0.4639898382208029
+        ],
+        "stored_block": [
+          0.28924698948152733,
+          -0.19411298386500775,
+          0.44198921584443046
+        ]
+      }
+    }
+  ],
+  "evaluation": {
+    "task_success": true,
+    "termination_reason": "offline_physical_oracle",
+    "conditions": {
+      "selected_item_delivered": true,
+      "other_item_left_inside": true,
+      "box_reclosed": true,
+      "uncover_retrieve_restore_order": true,
+      "robot_released": true,
+      "all_movable_objects_stable": true
+    },
+    "details": {
+      "selected_item": "stored_block",
+      "coverage": {
+        "covered": true,
+        "all_mouth_corners_covered": true,
+        "height_ok": true,
+        "flat": true,
+        "normal_z": 0.9999999999953522,
+        "rim_supported": true,
+        "support_contact_count": 10,
+        "stable": true
+      },
+      "robot_contact_counts": {
+        "storage_lid": 0,
+        "stored_cup": 0,
+        "stored_block": 0
+      }
+    },
+    "clarification_burden": 0,
+    "action_count": 3,
+    "successful_action_count": 3,
+    "simulation_steps": 11343,
+    "evaluator_version": "task6_geometry_contact_evidence_v1"
+  },
+  "api_attempts": 0
+}

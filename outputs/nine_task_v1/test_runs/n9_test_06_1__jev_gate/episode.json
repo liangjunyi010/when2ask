@@ -1,0 +1,4552 @@
+{
+  "experiment_id": "nine_task_pilot_v1",
+  "evidence_kind": "real_api_real_pybullet",
+  "partition": "test",
+  "sample_id": "n9_test_06_1",
+  "group_id": "buffer_exchange:layout_5f79eed805a9f9e5",
+  "template_id": "buffer_exchange",
+  "method": "jev_gate",
+  "scene_seed": 1270177817,
+  "instruction": "Exchange item_a in slot_left and item_b in slot_right. Each slot holds at most one item. Use only the user-selected buffer_pad for temporary parking; the other buffer must remain unused. Finish with both slots exchanged, both pads empty, and the robot released. The required buffer_pad is unspecified.",
+  "unknown_slots": 1,
+  "turns": [
+    {
+      "round": 0,
+      "public_payload": {
+        "instruction": "Exchange item_a in slot_left and item_b in slot_right. Each slot holds at most one item. Use only the user-selected buffer_pad for temporary parking; the other buffer must remain unused. Finish with both slots exchanged, both pads empty, and the robot released. The required buffer_pad is unspecified.",
+        "observation": {
+          "simulation_step": 240,
+          "objects": {
+            "slot_left": {
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.59,
+                -0.16,
+                0.42
+              ],
+              "aabb_min": [
+                0.5449999999999999,
+                -0.20500000000000002,
+                0.42
+              ],
+              "aabb_max": [
+                0.635,
+                -0.115,
+                0.509
+              ]
+            },
+            "slot_right": {
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.59,
+                0.16,
+                0.42
+              ],
+              "aabb_min": [
+                0.5449999999999999,
+                0.115,
+                0.42
+              ],
+              "aabb_max": [
+                0.635,
+                0.20500000000000002,
+                0.509
+              ]
+            },
+            "item_a": {
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.5899995236741692,
+                -0.1599998490701332,
+                0.45598958971592707
+              ],
+              "aabb_min": [
+                0.5679989448899171,
+                -0.18199997374908455,
+                0.4339890348212703
+              ],
+              "aabb_max": [
+                0.6120001024584213,
+                -0.13799972439118185,
+                0.4779901446105838
+              ]
+            },
+            "item_b": {
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.5899995236741692,
+                0.1600001509298668,
+                0.45598958971592707
+              ],
+              "aabb_min": [
+                0.5679989448899171,
+                0.13800002625091545,
+                0.4339890348212703
+              ],
+              "aabb_max": [
+                0.6120001024584213,
+                0.18200027560881815,
+                0.4779901446105838
+              ]
+            }
+          },
+          "end_effector": [
+            0.428022563457489,
+            3.169046749462723e-06,
+            0.859183669090271
+          ],
+          "held_object": null,
+          "robot_joints": [
+            {
+              "position": 1.0696532630007442e-05,
+              "velocity": 1.1492543028346347e-17
+            },
+            {
+              "position": -0.449997729886078,
+              "velocity": 5.492134524942571e-15
+            },
+            {
+              "position": -9.03501810404587e-22,
+              "velocity": 0.0
+            },
+            {
+              "position": -2.249999902417897,
+              "velocity": 4.657385588302532e-14
+            },
+            {
+              "position": -7.849520546658477e-06,
+              "velocity": -6.938893903907228e-18
+            },
+            {
+              "position": 1.8499867933658418,
+              "velocity": -2.1926904736346842e-14
+            },
+            {
+              "position": 0.7854036028562704,
+              "velocity": 1.2405874938448136e-14
+            },
+            {
+              "position": 0.03999881643475243,
+              "velocity": -6.804452834519026e-16
+            },
+            {
+              "position": 0.040001211924621284,
+              "velocity": 7.671814572507429e-16
+            }
+          ],
+          "task": {
+            "buffers": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "item_a": "item_a",
+            "item_b": "item_b",
+            "left": "slot_left",
+            "right": "slot_right",
+            "template_id": "buffer_exchange",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "park_a",
+                  "move_b_left"
+                ],
+                [
+                  "move_b_left",
+                  "move_a_right"
+                ]
+              ],
+              "nodes": [
+                "park_a",
+                "move_b_left",
+                "move_a_right"
+              ]
+            },
+            "preference_slots": {
+              "buffer_pad": {
+                "candidate_ids": [
+                  "buffer_back",
+                  "buffer_front"
+                ],
+                "kind": "preference",
+                "description": "Which temporary pad should be used for the exchange?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "containers": {
+            "slot_left": {
+              "xy": [
+                0.59,
+                -0.16
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_a"
+              ],
+              "contents_observed": true
+            },
+            "slot_right": {
+              "xy": [
+                0.59,
+                0.16
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_b"
+              ],
+              "contents_observed": true
+            }
+          },
+          "zones": {
+            "buffer_front": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_front",
+              "xy": [
+                0.35,
+                -0.22
+              ],
+              "contents": []
+            },
+            "buffer_back": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_back",
+              "xy": [
+                0.35,
+                0.22
+              ],
+              "contents": []
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": null,
+          "affordances": {
+            "move": {
+              "item_a": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ],
+              "item_b": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ]
+            },
+            "cover": [],
+            "inspect": []
+          }
+        },
+        "history": [],
+        "public_summary": {
+          "version": "memory_dev_v6",
+          "current_regions": {
+            "slot_left": {
+              "contents": [
+                "item_a"
+              ],
+              "observed": true
+            },
+            "slot_right": {
+              "contents": [
+                "item_b"
+              ],
+              "observed": true
+            },
+            "buffer_front": {
+              "contents": [],
+              "observed": true
+            },
+            "buffer_back": {
+              "contents": [],
+              "observed": true
+            }
+          },
+          "observed_locations": {
+            "item_a": [
+              "slot_left"
+            ],
+            "item_b": [
+              "slot_right"
+            ]
+          },
+          "object_memory": {
+            "item_a": {
+              "status": "observed_now",
+              "regions": [
+                "slot_left"
+              ],
+              "observed_step": 240,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            },
+            "item_b": {
+              "status": "observed_now",
+              "regions": [
+                "slot_right"
+              ],
+              "observed_step": 240,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            }
+          },
+          "goal_requirements": {
+            "final_targets": {
+              "item_a": "slot_right",
+              "item_b": "slot_left"
+            },
+            "buffer_candidates": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "buffers_empty_at_end": true
+          },
+          "required_final_relations": [
+            {
+              "object_id": "item_a",
+              "required_final_region": "slot_right",
+              "currently_observed_at_target": false,
+              "region_contents": [
+                "item_b"
+              ]
+            },
+            {
+              "object_id": "item_b",
+              "required_final_region": "slot_left",
+              "currently_observed_at_target": false,
+              "region_contents": [
+                "item_a"
+              ]
+            }
+          ],
+          "lid_geometry": null,
+          "confirmed_choices": {},
+          "own_working_choices": {},
+          "preference_candidates": {
+            "buffer_pad": [
+              "buffer_back",
+              "buffer_front"
+            ]
+          },
+          "unresolved_roles": [
+            "buffer_pad"
+          ],
+          "observed_region_visits": [
+            {
+              "object_id": "item_a",
+              "region_id": "slot_left",
+              "first_observed_step": 240,
+              "last_observed_step": 240
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_right",
+              "first_observed_step": 240,
+              "last_observed_step": 240
+            }
+          ],
+          "latest_action_by_object": {},
+          "action_history_coverage": {
+            "total": 0,
+            "failed": 0
+          },
+          "memory_scope": {
+            "prior_public_snapshots": 0,
+            "current_step": 240,
+            "note": "Memory records past public observations, never fresh sight through a lid. Region sensor membership and current grasp visibility are different. Unknown is not absent. New measured state overrides memory; unseen memories after failed/disturbing actions are invalidated."
+          },
+          "limitation": "These are public facts, not task scores, an oracle, prescribed actions or a completion verdict. The model must assess the goal; the independent evaluator uses actual final geometry/contact."
+        }
+      },
+      "payload_sha256": "3566e3428960955db84fd86c133c2dbd99d5908e36e3a92c4b82263b63e74378",
+      "gate": {
+        "called": true,
+        "decision": "ASK",
+        "p_ask": 0.52
+      },
+      "gate_payload": {
+        "instruction": "Exchange item_a in slot_left and item_b in slot_right. Each slot holds at most one item. Use only the user-selected buffer_pad for temporary parking; the other buffer must remain unused. Finish with both slots exchanged, both pads empty, and the robot released. The required buffer_pad is unspecified.",
+        "observation": {
+          "simulation_step": 240,
+          "objects": {
+            "slot_left": {
+              "category": "container",
+              "color": "orange"
+            },
+            "slot_right": {
+              "category": "container",
+              "color": "purple"
+            },
+            "item_a": {
+              "category": "block",
+              "color": "green"
+            },
+            "item_b": {
+              "category": "block",
+              "color": "yellow"
+            }
+          },
+          "held_object": null,
+          "task": {
+            "buffers": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "item_a": "item_a",
+            "item_b": "item_b",
+            "left": "slot_left",
+            "right": "slot_right",
+            "template_id": "buffer_exchange",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "park_a",
+                  "move_b_left"
+                ],
+                [
+                  "move_b_left",
+                  "move_a_right"
+                ]
+              ],
+              "nodes": [
+                "park_a",
+                "move_b_left",
+                "move_a_right"
+              ]
+            },
+            "preference_slots": {
+              "buffer_pad": {
+                "candidate_ids": [
+                  "buffer_back",
+                  "buffer_front"
+                ],
+                "kind": "preference",
+                "description": "Which temporary pad should be used for the exchange?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "containers": {
+            "slot_left": {
+              "contents": [
+                "item_a"
+              ],
+              "contents_observed": true
+            },
+            "slot_right": {
+              "contents": [
+                "item_b"
+              ],
+              "contents_observed": true
+            }
+          },
+          "zones": {
+            "buffer_front": {
+              "contents": []
+            },
+            "buffer_back": {
+              "contents": []
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": null,
+          "affordances": {
+            "move": {
+              "item_a": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ],
+              "item_b": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ]
+            },
+            "cover": [],
+            "inspect": []
+          }
+        },
+        "history": [],
+        "public_summary": {
+          "current_regions": {
+            "slot_left": {
+              "contents": [
+                "item_a"
+              ],
+              "observed": true
+            },
+            "slot_right": {
+              "contents": [
+                "item_b"
+              ],
+              "observed": true
+            },
+            "buffer_front": {
+              "contents": [],
+              "observed": true
+            },
+            "buffer_back": {
+              "contents": [],
+              "observed": true
+            }
+          },
+          "observed_locations": {
+            "item_a": [
+              "slot_left"
+            ],
+            "item_b": [
+              "slot_right"
+            ]
+          },
+          "object_memory": {
+            "item_a": {
+              "status": "observed_now",
+              "regions": [
+                "slot_left"
+              ],
+              "observed_step": 240,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            },
+            "item_b": {
+              "status": "observed_now",
+              "regions": [
+                "slot_right"
+              ],
+              "observed_step": 240,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            }
+          },
+          "goal_requirements": {
+            "final_targets": {
+              "item_a": "slot_right",
+              "item_b": "slot_left"
+            },
+            "buffer_candidates": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "buffers_empty_at_end": true
+          },
+          "required_final_relations": [
+            {
+              "object_id": "item_a",
+              "required_final_region": "slot_right",
+              "currently_observed_at_target": false,
+              "region_contents": [
+                "item_b"
+              ]
+            },
+            {
+              "object_id": "item_b",
+              "required_final_region": "slot_left",
+              "currently_observed_at_target": false,
+              "region_contents": [
+                "item_a"
+              ]
+            }
+          ],
+          "lid_geometry": null,
+          "confirmed_choices": {},
+          "own_working_choices": {},
+          "preference_candidates": {
+            "buffer_pad": [
+              "buffer_back",
+              "buffer_front"
+            ]
+          },
+          "unresolved_roles": [
+            "buffer_pad"
+          ],
+          "observed_region_visits": [
+            {
+              "object_id": "item_a",
+              "region_id": "slot_left",
+              "first_observed_step": 240,
+              "last_observed_step": 240
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_right",
+              "first_observed_step": 240,
+              "last_observed_step": 240
+            }
+          ],
+          "latest_action_by_object": {},
+          "action_history_coverage": {
+            "total": 0,
+            "failed": 0
+          }
+        }
+      },
+      "question": {
+        "type": "select",
+        "text": "Which temporary buffer pad should I use for the exchange?",
+        "requests": [
+          {
+            "role": "buffer_pad",
+            "candidate_ids": [
+              "buffer_back",
+              "buffer_front"
+            ]
+          }
+        ]
+      },
+      "user_answer": {
+        "choices": {
+          "buffer_pad": "buffer_back"
+        }
+      },
+      "ask_check": {
+        "before_step": 240,
+        "after_step": 240,
+        "state_unchanged": true,
+        "charged_slots": 1
+      }
+    },
+    {
+      "round": 1,
+      "public_payload": {
+        "instruction": "Exchange item_a in slot_left and item_b in slot_right. Each slot holds at most one item. Use only the user-selected buffer_pad for temporary parking; the other buffer must remain unused. Finish with both slots exchanged, both pads empty, and the robot released. The required buffer_pad is unspecified.",
+        "observation": {
+          "simulation_step": 240,
+          "objects": {
+            "slot_left": {
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.59,
+                -0.16,
+                0.42
+              ],
+              "aabb_min": [
+                0.5449999999999999,
+                -0.20500000000000002,
+                0.42
+              ],
+              "aabb_max": [
+                0.635,
+                -0.115,
+                0.509
+              ]
+            },
+            "slot_right": {
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.59,
+                0.16,
+                0.42
+              ],
+              "aabb_min": [
+                0.5449999999999999,
+                0.115,
+                0.42
+              ],
+              "aabb_max": [
+                0.635,
+                0.20500000000000002,
+                0.509
+              ]
+            },
+            "item_a": {
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.5899995236741692,
+                -0.1599998490701332,
+                0.45598958971592707
+              ],
+              "aabb_min": [
+                0.5679989448899171,
+                -0.18199997374908455,
+                0.4339890348212703
+              ],
+              "aabb_max": [
+                0.6120001024584213,
+                -0.13799972439118185,
+                0.4779901446105838
+              ]
+            },
+            "item_b": {
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.5899995236741692,
+                0.1600001509298668,
+                0.45598958971592707
+              ],
+              "aabb_min": [
+                0.5679989448899171,
+                0.13800002625091545,
+                0.4339890348212703
+              ],
+              "aabb_max": [
+                0.6120001024584213,
+                0.18200027560881815,
+                0.4779901446105838
+              ]
+            }
+          },
+          "end_effector": [
+            0.428022563457489,
+            3.169046749462723e-06,
+            0.859183669090271
+          ],
+          "held_object": null,
+          "robot_joints": [
+            {
+              "position": 1.0696532630007442e-05,
+              "velocity": 1.1492543028346347e-17
+            },
+            {
+              "position": -0.449997729886078,
+              "velocity": 5.492134524942571e-15
+            },
+            {
+              "position": -9.03501810404587e-22,
+              "velocity": 0.0
+            },
+            {
+              "position": -2.249999902417897,
+              "velocity": 4.657385588302532e-14
+            },
+            {
+              "position": -7.849520546658477e-06,
+              "velocity": -6.938893903907228e-18
+            },
+            {
+              "position": 1.8499867933658418,
+              "velocity": -2.1926904736346842e-14
+            },
+            {
+              "position": 0.7854036028562704,
+              "velocity": 1.2405874938448136e-14
+            },
+            {
+              "position": 0.03999881643475243,
+              "velocity": -6.804452834519026e-16
+            },
+            {
+              "position": 0.040001211924621284,
+              "velocity": 7.671814572507429e-16
+            }
+          ],
+          "task": {
+            "buffers": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "item_a": "item_a",
+            "item_b": "item_b",
+            "left": "slot_left",
+            "right": "slot_right",
+            "template_id": "buffer_exchange",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "park_a",
+                  "move_b_left"
+                ],
+                [
+                  "move_b_left",
+                  "move_a_right"
+                ]
+              ],
+              "nodes": [
+                "park_a",
+                "move_b_left",
+                "move_a_right"
+              ]
+            },
+            "preference_slots": {
+              "buffer_pad": {
+                "candidate_ids": [
+                  "buffer_back",
+                  "buffer_front"
+                ],
+                "kind": "preference",
+                "description": "Which temporary pad should be used for the exchange?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "containers": {
+            "slot_left": {
+              "xy": [
+                0.59,
+                -0.16
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_a"
+              ],
+              "contents_observed": true
+            },
+            "slot_right": {
+              "xy": [
+                0.59,
+                0.16
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_b"
+              ],
+              "contents_observed": true
+            }
+          },
+          "zones": {
+            "buffer_front": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_front",
+              "xy": [
+                0.35,
+                -0.22
+              ],
+              "contents": []
+            },
+            "buffer_back": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_back",
+              "xy": [
+                0.35,
+                0.22
+              ],
+              "contents": []
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": null,
+          "affordances": {
+            "move": {
+              "item_a": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ],
+              "item_b": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ]
+            },
+            "cover": [],
+            "inspect": []
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which temporary buffer pad should I use for the exchange?",
+              "requests": [
+                {
+                  "role": "buffer_pad",
+                  "candidate_ids": [
+                    "buffer_back",
+                    "buffer_front"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "buffer_pad": "buffer_back"
+              }
+            }
+          }
+        ],
+        "public_summary": {
+          "version": "memory_dev_v6",
+          "current_regions": {
+            "slot_left": {
+              "contents": [
+                "item_a"
+              ],
+              "observed": true
+            },
+            "slot_right": {
+              "contents": [
+                "item_b"
+              ],
+              "observed": true
+            },
+            "buffer_front": {
+              "contents": [],
+              "observed": true
+            },
+            "buffer_back": {
+              "contents": [],
+              "observed": true
+            }
+          },
+          "observed_locations": {
+            "item_a": [
+              "slot_left"
+            ],
+            "item_b": [
+              "slot_right"
+            ]
+          },
+          "object_memory": {
+            "item_a": {
+              "status": "observed_now",
+              "regions": [
+                "slot_left"
+              ],
+              "observed_step": 240,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            },
+            "item_b": {
+              "status": "observed_now",
+              "regions": [
+                "slot_right"
+              ],
+              "observed_step": 240,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            }
+          },
+          "goal_requirements": {
+            "final_targets": {
+              "item_a": "slot_right",
+              "item_b": "slot_left"
+            },
+            "buffer_candidates": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "buffers_empty_at_end": true
+          },
+          "required_final_relations": [
+            {
+              "object_id": "item_a",
+              "required_final_region": "slot_right",
+              "currently_observed_at_target": false,
+              "region_contents": [
+                "item_b"
+              ]
+            },
+            {
+              "object_id": "item_b",
+              "required_final_region": "slot_left",
+              "currently_observed_at_target": false,
+              "region_contents": [
+                "item_a"
+              ]
+            }
+          ],
+          "lid_geometry": null,
+          "confirmed_choices": {
+            "buffer_pad": "buffer_back"
+          },
+          "own_working_choices": {},
+          "preference_candidates": {
+            "buffer_pad": [
+              "buffer_back",
+              "buffer_front"
+            ]
+          },
+          "unresolved_roles": [],
+          "observed_region_visits": [
+            {
+              "object_id": "item_a",
+              "region_id": "slot_left",
+              "first_observed_step": 240,
+              "last_observed_step": 240
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_right",
+              "first_observed_step": 240,
+              "last_observed_step": 240
+            }
+          ],
+          "latest_action_by_object": {},
+          "action_history_coverage": {
+            "total": 0,
+            "failed": 0
+          },
+          "memory_scope": {
+            "prior_public_snapshots": 1,
+            "current_step": 240,
+            "note": "Memory records past public observations, never fresh sight through a lid. Region sensor membership and current grasp visibility are different. Unknown is not absent. New measured state overrides memory; unseen memories after failed/disturbing actions are invalidated."
+          },
+          "limitation": "These are public facts, not task scores, an oracle, prescribed actions or a completion verdict. The model must assess the goal; the independent evaluator uses actual final geometry/contact."
+        }
+      },
+      "payload_sha256": "ffbcd41f28558f97331d235b72c3842ba5a3ffdbd55b7c77c9889a53e0689313",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.04
+      },
+      "gate_payload": {
+        "instruction": "Exchange item_a in slot_left and item_b in slot_right. Each slot holds at most one item. Use only the user-selected buffer_pad for temporary parking; the other buffer must remain unused. Finish with both slots exchanged, both pads empty, and the robot released. The required buffer_pad is unspecified.",
+        "observation": {
+          "simulation_step": 240,
+          "objects": {
+            "slot_left": {
+              "category": "container",
+              "color": "orange"
+            },
+            "slot_right": {
+              "category": "container",
+              "color": "purple"
+            },
+            "item_a": {
+              "category": "block",
+              "color": "green"
+            },
+            "item_b": {
+              "category": "block",
+              "color": "yellow"
+            }
+          },
+          "held_object": null,
+          "task": {
+            "buffers": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "item_a": "item_a",
+            "item_b": "item_b",
+            "left": "slot_left",
+            "right": "slot_right",
+            "template_id": "buffer_exchange",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "park_a",
+                  "move_b_left"
+                ],
+                [
+                  "move_b_left",
+                  "move_a_right"
+                ]
+              ],
+              "nodes": [
+                "park_a",
+                "move_b_left",
+                "move_a_right"
+              ]
+            },
+            "preference_slots": {
+              "buffer_pad": {
+                "candidate_ids": [
+                  "buffer_back",
+                  "buffer_front"
+                ],
+                "kind": "preference",
+                "description": "Which temporary pad should be used for the exchange?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "containers": {
+            "slot_left": {
+              "contents": [
+                "item_a"
+              ],
+              "contents_observed": true
+            },
+            "slot_right": {
+              "contents": [
+                "item_b"
+              ],
+              "contents_observed": true
+            }
+          },
+          "zones": {
+            "buffer_front": {
+              "contents": []
+            },
+            "buffer_back": {
+              "contents": []
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": null,
+          "affordances": {
+            "move": {
+              "item_a": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ],
+              "item_b": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ]
+            },
+            "cover": [],
+            "inspect": []
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which temporary buffer pad should I use for the exchange?",
+              "requests": [
+                {
+                  "role": "buffer_pad",
+                  "candidate_ids": [
+                    "buffer_back",
+                    "buffer_front"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "buffer_pad": "buffer_back"
+              }
+            }
+          }
+        ],
+        "public_summary": {
+          "current_regions": {
+            "slot_left": {
+              "contents": [
+                "item_a"
+              ],
+              "observed": true
+            },
+            "slot_right": {
+              "contents": [
+                "item_b"
+              ],
+              "observed": true
+            },
+            "buffer_front": {
+              "contents": [],
+              "observed": true
+            },
+            "buffer_back": {
+              "contents": [],
+              "observed": true
+            }
+          },
+          "observed_locations": {
+            "item_a": [
+              "slot_left"
+            ],
+            "item_b": [
+              "slot_right"
+            ]
+          },
+          "object_memory": {
+            "item_a": {
+              "status": "observed_now",
+              "regions": [
+                "slot_left"
+              ],
+              "observed_step": 240,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            },
+            "item_b": {
+              "status": "observed_now",
+              "regions": [
+                "slot_right"
+              ],
+              "observed_step": 240,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            }
+          },
+          "goal_requirements": {
+            "final_targets": {
+              "item_a": "slot_right",
+              "item_b": "slot_left"
+            },
+            "buffer_candidates": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "buffers_empty_at_end": true
+          },
+          "required_final_relations": [
+            {
+              "object_id": "item_a",
+              "required_final_region": "slot_right",
+              "currently_observed_at_target": false,
+              "region_contents": [
+                "item_b"
+              ]
+            },
+            {
+              "object_id": "item_b",
+              "required_final_region": "slot_left",
+              "currently_observed_at_target": false,
+              "region_contents": [
+                "item_a"
+              ]
+            }
+          ],
+          "lid_geometry": null,
+          "confirmed_choices": {
+            "buffer_pad": "buffer_back"
+          },
+          "own_working_choices": {},
+          "preference_candidates": {
+            "buffer_pad": [
+              "buffer_back",
+              "buffer_front"
+            ]
+          },
+          "unresolved_roles": [],
+          "observed_region_visits": [
+            {
+              "object_id": "item_a",
+              "region_id": "slot_left",
+              "first_observed_step": 240,
+              "last_observed_step": 240
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_right",
+              "first_observed_step": 240,
+              "last_observed_step": 240
+            }
+          ],
+          "latest_action_by_object": {},
+          "action_history_coverage": {
+            "total": 0,
+            "failed": 0
+          }
+        }
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "item_a",
+        "target_id": "buffer_back"
+      },
+      "model_plan": {
+        "working_choices": {
+          "buffer_pad": "buffer_back"
+        },
+        "completion_assessment": {
+          "ready_for_done": false,
+          "reason": "Items are still in their initial slots; exchange not started. Using confirmed buffer_back, park item_a, move item_b to slot_left, then move item_a to slot_right."
+        },
+        "remaining_plan": [
+          {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "buffer_back"
+          },
+          {
+            "kind": "move",
+            "object_id": "item_b",
+            "target_id": "slot_left"
+          },
+          {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "slot_right"
+          },
+          {
+            "kind": "DONE"
+          }
+        ]
+      },
+      "physical_result": {
+        "skill": "move",
+        "object_id": "item_a",
+        "target_id": "buffer_back",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3822,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 2,
+      "public_payload": {
+        "instruction": "Exchange item_a in slot_left and item_b in slot_right. Each slot holds at most one item. Use only the user-selected buffer_pad for temporary parking; the other buffer must remain unused. Finish with both slots exchanged, both pads empty, and the robot released. The required buffer_pad is unspecified.",
+        "observation": {
+          "simulation_step": 3822,
+          "objects": {
+            "slot_left": {
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.59,
+                -0.16,
+                0.42
+              ],
+              "aabb_min": [
+                0.5449999999999999,
+                -0.20500000000000002,
+                0.42
+              ],
+              "aabb_max": [
+                0.635,
+                -0.115,
+                0.509
+              ]
+            },
+            "slot_right": {
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.59,
+                0.16,
+                0.42
+              ],
+              "aabb_min": [
+                0.5449999999999999,
+                0.115,
+                0.42
+              ],
+              "aabb_max": [
+                0.635,
+                0.20500000000000002,
+                0.509
+              ]
+            },
+            "item_a": {
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.3499406455906646,
+                0.2197650563204462,
+                0.4419891362814344
+              ],
+              "aabb_min": [
+                0.3279395785042817,
+                0.19776493038699922,
+                0.4199879488449701
+              ],
+              "aabb_max": [
+                0.37194171267704756,
+                0.2417651822538932,
+                0.46399032371789867
+              ]
+            },
+            "item_b": {
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.5899995236741692,
+                0.16000015092996622,
+                0.4559895897158759
+              ],
+              "aabb_min": [
+                0.5679989448898491,
+                0.13800002625106733,
+                0.43398903482123297
+              ],
+              "aabb_max": [
+                0.6120001024584892,
+                0.18200027560886511,
+                0.4779901446105188
+              ]
+            }
+          },
+          "end_effector": [
+            0.3499515950679779,
+            0.220049649477005,
+            0.8299915194511414
+          ],
+          "held_object": null,
+          "robot_joints": [
+            {
+              "position": 0.22002010336755867,
+              "velocity": -2.9438257387326416e-15
+            },
+            {
+              "position": -0.48150807089946407,
+              "velocity": -5.856426454897701e-15
+            },
+            {
+              "position": 0.28784925493417546,
+              "velocity": -6.394190732450511e-15
+            },
+            {
+              "position": -2.318128505633892,
+              "velocity": 5.065392549852277e-14
+            },
+            {
+              "position": 0.13723481916232638,
+              "velocity": -3.2014321749151975e-15
+            },
+            {
+              "position": 1.8511115710679236,
+              "velocity": -2.453592884421596e-14
+            },
+            {
+              "position": 1.223847506868086,
+              "velocity": 2.1942517247630633e-14
+            },
+            {
+              "position": 0.03999801250630229,
+              "velocity": -6.865168156178214e-16
+            },
+            {
+              "position": 0.04000220765313215,
+              "velocity": 8.092485015431805e-16
+            }
+          ],
+          "task": {
+            "buffers": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "item_a": "item_a",
+            "item_b": "item_b",
+            "left": "slot_left",
+            "right": "slot_right",
+            "template_id": "buffer_exchange",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "park_a",
+                  "move_b_left"
+                ],
+                [
+                  "move_b_left",
+                  "move_a_right"
+                ]
+              ],
+              "nodes": [
+                "park_a",
+                "move_b_left",
+                "move_a_right"
+              ]
+            },
+            "preference_slots": {
+              "buffer_pad": {
+                "candidate_ids": [
+                  "buffer_back",
+                  "buffer_front"
+                ],
+                "kind": "preference",
+                "description": "Which temporary pad should be used for the exchange?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "containers": {
+            "slot_left": {
+              "xy": [
+                0.59,
+                -0.16
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [],
+              "contents_observed": true
+            },
+            "slot_right": {
+              "xy": [
+                0.59,
+                0.16
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_b"
+              ],
+              "contents_observed": true
+            }
+          },
+          "zones": {
+            "buffer_front": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_front",
+              "xy": [
+                0.35,
+                -0.22
+              ],
+              "contents": []
+            },
+            "buffer_back": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_back",
+              "xy": [
+                0.35,
+                0.22
+              ],
+              "contents": [
+                "item_a"
+              ]
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": null,
+          "affordances": {
+            "move": {
+              "item_a": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ],
+              "item_b": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ]
+            },
+            "cover": [],
+            "inspect": []
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which temporary buffer pad should I use for the exchange?",
+              "requests": [
+                {
+                  "role": "buffer_pad",
+                  "candidate_ids": [
+                    "buffer_back",
+                    "buffer_front"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "buffer_pad": "buffer_back"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "move",
+              "object_id": "item_a",
+              "target_id": "buffer_back",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3822,
+              "grasp_mode": "constraint"
+            }
+          }
+        ],
+        "public_summary": {
+          "version": "memory_dev_v6",
+          "current_regions": {
+            "slot_left": {
+              "contents": [],
+              "observed": true
+            },
+            "slot_right": {
+              "contents": [
+                "item_b"
+              ],
+              "observed": true
+            },
+            "buffer_front": {
+              "contents": [],
+              "observed": true
+            },
+            "buffer_back": {
+              "contents": [
+                "item_a"
+              ],
+              "observed": true
+            }
+          },
+          "observed_locations": {
+            "item_a": [
+              "buffer_back"
+            ],
+            "item_b": [
+              "slot_right"
+            ]
+          },
+          "object_memory": {
+            "item_a": {
+              "status": "observed_now",
+              "regions": [
+                "buffer_back"
+              ],
+              "observed_step": 3822,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            },
+            "item_b": {
+              "status": "observed_now",
+              "regions": [
+                "slot_right"
+              ],
+              "observed_step": 3822,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            }
+          },
+          "goal_requirements": {
+            "final_targets": {
+              "item_a": "slot_right",
+              "item_b": "slot_left"
+            },
+            "buffer_candidates": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "buffers_empty_at_end": true
+          },
+          "required_final_relations": [
+            {
+              "object_id": "item_a",
+              "required_final_region": "slot_right",
+              "currently_observed_at_target": false,
+              "region_contents": [
+                "item_b"
+              ]
+            },
+            {
+              "object_id": "item_b",
+              "required_final_region": "slot_left",
+              "currently_observed_at_target": false,
+              "region_contents": []
+            }
+          ],
+          "lid_geometry": null,
+          "confirmed_choices": {
+            "buffer_pad": "buffer_back"
+          },
+          "own_working_choices": {},
+          "preference_candidates": {
+            "buffer_pad": [
+              "buffer_back",
+              "buffer_front"
+            ]
+          },
+          "unresolved_roles": [],
+          "observed_region_visits": [
+            {
+              "object_id": "item_a",
+              "region_id": "slot_left",
+              "first_observed_step": 240,
+              "last_observed_step": 240
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_right",
+              "first_observed_step": 240,
+              "last_observed_step": 3822
+            },
+            {
+              "object_id": "item_a",
+              "region_id": "buffer_back",
+              "first_observed_step": 3822,
+              "last_observed_step": 3822
+            }
+          ],
+          "latest_action_by_object": {
+            "item_a": {
+              "skill": "move",
+              "object_id": "item_a",
+              "target_id": "buffer_back",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3822
+            }
+          },
+          "action_history_coverage": {
+            "total": 1,
+            "failed": 0
+          },
+          "memory_scope": {
+            "prior_public_snapshots": 2,
+            "current_step": 3822,
+            "note": "Memory records past public observations, never fresh sight through a lid. Region sensor membership and current grasp visibility are different. Unknown is not absent. New measured state overrides memory; unseen memories after failed/disturbing actions are invalidated."
+          },
+          "limitation": "These are public facts, not task scores, an oracle, prescribed actions or a completion verdict. The model must assess the goal; the independent evaluator uses actual final geometry/contact."
+        }
+      },
+      "payload_sha256": "ee22b7a1244f7f952027e16a436129cb77924ec271550f5aed08faf0257cfb75",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.04
+      },
+      "gate_payload": {
+        "instruction": "Exchange item_a in slot_left and item_b in slot_right. Each slot holds at most one item. Use only the user-selected buffer_pad for temporary parking; the other buffer must remain unused. Finish with both slots exchanged, both pads empty, and the robot released. The required buffer_pad is unspecified.",
+        "observation": {
+          "simulation_step": 3822,
+          "objects": {
+            "slot_left": {
+              "category": "container",
+              "color": "orange"
+            },
+            "slot_right": {
+              "category": "container",
+              "color": "purple"
+            },
+            "item_a": {
+              "category": "block",
+              "color": "green"
+            },
+            "item_b": {
+              "category": "block",
+              "color": "yellow"
+            }
+          },
+          "held_object": null,
+          "task": {
+            "buffers": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "item_a": "item_a",
+            "item_b": "item_b",
+            "left": "slot_left",
+            "right": "slot_right",
+            "template_id": "buffer_exchange",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "park_a",
+                  "move_b_left"
+                ],
+                [
+                  "move_b_left",
+                  "move_a_right"
+                ]
+              ],
+              "nodes": [
+                "park_a",
+                "move_b_left",
+                "move_a_right"
+              ]
+            },
+            "preference_slots": {
+              "buffer_pad": {
+                "candidate_ids": [
+                  "buffer_back",
+                  "buffer_front"
+                ],
+                "kind": "preference",
+                "description": "Which temporary pad should be used for the exchange?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "containers": {
+            "slot_left": {
+              "contents": [],
+              "contents_observed": true
+            },
+            "slot_right": {
+              "contents": [
+                "item_b"
+              ],
+              "contents_observed": true
+            }
+          },
+          "zones": {
+            "buffer_front": {
+              "contents": []
+            },
+            "buffer_back": {
+              "contents": [
+                "item_a"
+              ]
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": null,
+          "affordances": {
+            "move": {
+              "item_a": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ],
+              "item_b": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ]
+            },
+            "cover": [],
+            "inspect": []
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which temporary buffer pad should I use for the exchange?",
+              "requests": [
+                {
+                  "role": "buffer_pad",
+                  "candidate_ids": [
+                    "buffer_back",
+                    "buffer_front"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "buffer_pad": "buffer_back"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "move",
+              "object_id": "item_a",
+              "target_id": "buffer_back",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3822,
+              "grasp_mode": "constraint"
+            }
+          }
+        ],
+        "public_summary": {
+          "current_regions": {
+            "slot_left": {
+              "contents": [],
+              "observed": true
+            },
+            "slot_right": {
+              "contents": [
+                "item_b"
+              ],
+              "observed": true
+            },
+            "buffer_front": {
+              "contents": [],
+              "observed": true
+            },
+            "buffer_back": {
+              "contents": [
+                "item_a"
+              ],
+              "observed": true
+            }
+          },
+          "observed_locations": {
+            "item_a": [
+              "buffer_back"
+            ],
+            "item_b": [
+              "slot_right"
+            ]
+          },
+          "object_memory": {
+            "item_a": {
+              "status": "observed_now",
+              "regions": [
+                "buffer_back"
+              ],
+              "observed_step": 3822,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            },
+            "item_b": {
+              "status": "observed_now",
+              "regions": [
+                "slot_right"
+              ],
+              "observed_step": 3822,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            }
+          },
+          "goal_requirements": {
+            "final_targets": {
+              "item_a": "slot_right",
+              "item_b": "slot_left"
+            },
+            "buffer_candidates": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "buffers_empty_at_end": true
+          },
+          "required_final_relations": [
+            {
+              "object_id": "item_a",
+              "required_final_region": "slot_right",
+              "currently_observed_at_target": false,
+              "region_contents": [
+                "item_b"
+              ]
+            },
+            {
+              "object_id": "item_b",
+              "required_final_region": "slot_left",
+              "currently_observed_at_target": false,
+              "region_contents": []
+            }
+          ],
+          "lid_geometry": null,
+          "confirmed_choices": {
+            "buffer_pad": "buffer_back"
+          },
+          "own_working_choices": {},
+          "preference_candidates": {
+            "buffer_pad": [
+              "buffer_back",
+              "buffer_front"
+            ]
+          },
+          "unresolved_roles": [],
+          "observed_region_visits": [
+            {
+              "object_id": "item_a",
+              "region_id": "slot_left",
+              "first_observed_step": 240,
+              "last_observed_step": 240
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_right",
+              "first_observed_step": 240,
+              "last_observed_step": 3822
+            },
+            {
+              "object_id": "item_a",
+              "region_id": "buffer_back",
+              "first_observed_step": 3822,
+              "last_observed_step": 3822
+            }
+          ],
+          "latest_action_by_object": {
+            "item_a": {
+              "skill": "move",
+              "object_id": "item_a",
+              "target_id": "buffer_back",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3822
+            }
+          },
+          "action_history_coverage": {
+            "total": 1,
+            "failed": 0
+          }
+        }
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left"
+      },
+      "model_plan": {
+        "working_choices": {
+          "buffer_pad": "buffer_back"
+        },
+        "completion_assessment": {
+          "ready_for_done": false,
+          "reason": "item_a is parked on buffer_back (the confirmed pad). item_b is still in slot_right and must go to slot_left, then item_a to slot_right, leaving both pads empty."
+        },
+        "remaining_plan": [
+          {
+            "kind": "move",
+            "object_id": "item_b",
+            "target_id": "slot_left"
+          },
+          {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "slot_right"
+          },
+          {
+            "kind": "DONE"
+          }
+        ]
+      },
+      "physical_result": {
+        "skill": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left",
+        "success": true,
+        "reason": "placed",
+        "start_step": 3822,
+        "end_step": 7191,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 3,
+      "public_payload": {
+        "instruction": "Exchange item_a in slot_left and item_b in slot_right. Each slot holds at most one item. Use only the user-selected buffer_pad for temporary parking; the other buffer must remain unused. Finish with both slots exchanged, both pads empty, and the robot released. The required buffer_pad is unspecified.",
+        "observation": {
+          "simulation_step": 7191,
+          "objects": {
+            "slot_left": {
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.59,
+                -0.16,
+                0.42
+              ],
+              "aabb_min": [
+                0.5449999999999999,
+                -0.20500000000000002,
+                0.42
+              ],
+              "aabb_max": [
+                0.635,
+                -0.115,
+                0.509
+              ]
+            },
+            "slot_right": {
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.59,
+                0.16,
+                0.42
+              ],
+              "aabb_min": [
+                0.5449999999999999,
+                0.115,
+                0.42
+              ],
+              "aabb_max": [
+                0.635,
+                0.20500000000000002,
+                0.509
+              ]
+            },
+            "item_a": {
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.3499406455906646,
+                0.2197650563204462,
+                0.4419891362814344
+              ],
+              "aabb_min": [
+                0.3279395785042817,
+                0.19776493038699922,
+                0.4199879488449701
+              ],
+              "aabb_max": [
+                0.37194171267704756,
+                0.2417651822538932,
+                0.46399032371789867
+              ]
+            },
+            "item_b": {
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.5900096839870484,
+                -0.1599712598683002,
+                0.45598958850260646
+              ],
+              "aabb_min": [
+                0.56800841352473,
+                -0.18197207432886062,
+                0.4339890326662115
+              ],
+              "aabb_max": [
+                0.6120109544493669,
+                -0.13797044540773976,
+                0.4779901443390014
+              ]
+            }
+          },
+          "end_effector": [
+            0.5898473262786865,
+            -0.15995162725448608,
+            0.8299444317817688
+          ],
+          "held_object": null,
+          "robot_joints": [
+            {
+              "position": -0.21355764248786618,
+              "velocity": -2.7226484955455987e-15
+            },
+            {
+              "position": 0.1559876831245224,
+              "velocity": -2.8033131371785203e-15
+            },
+            {
+              "position": -0.05570898858019954,
+              "velocity": -7.997075224253081e-16
+            },
+            {
+              "position": -1.6532150604687956,
+              "velocity": 2.525757381022231e-14
+            },
+            {
+              "position": 0.00889439710227933,
+              "velocity": -1.6653345369377348e-16
+            },
+            {
+              "position": 1.808966833379075,
+              "velocity": -2.378652830259398e-14
+            },
+            {
+              "position": 0.5147177163810429,
+              "velocity": 1.2462253451417382e-14
+            },
+            {
+              "position": 0.03999960442097154,
+              "velocity": -7.034303695085953e-16
+            },
+            {
+              "position": 0.040000369704919464,
+              "velocity": 7.277164981722706e-16
+            }
+          ],
+          "task": {
+            "buffers": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "item_a": "item_a",
+            "item_b": "item_b",
+            "left": "slot_left",
+            "right": "slot_right",
+            "template_id": "buffer_exchange",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "park_a",
+                  "move_b_left"
+                ],
+                [
+                  "move_b_left",
+                  "move_a_right"
+                ]
+              ],
+              "nodes": [
+                "park_a",
+                "move_b_left",
+                "move_a_right"
+              ]
+            },
+            "preference_slots": {
+              "buffer_pad": {
+                "candidate_ids": [
+                  "buffer_back",
+                  "buffer_front"
+                ],
+                "kind": "preference",
+                "description": "Which temporary pad should be used for the exchange?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "containers": {
+            "slot_left": {
+              "xy": [
+                0.59,
+                -0.16
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_b"
+              ],
+              "contents_observed": true
+            },
+            "slot_right": {
+              "xy": [
+                0.59,
+                0.16
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [],
+              "contents_observed": true
+            }
+          },
+          "zones": {
+            "buffer_front": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_front",
+              "xy": [
+                0.35,
+                -0.22
+              ],
+              "contents": []
+            },
+            "buffer_back": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_back",
+              "xy": [
+                0.35,
+                0.22
+              ],
+              "contents": [
+                "item_a"
+              ]
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": null,
+          "affordances": {
+            "move": {
+              "item_a": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ],
+              "item_b": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ]
+            },
+            "cover": [],
+            "inspect": []
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which temporary buffer pad should I use for the exchange?",
+              "requests": [
+                {
+                  "role": "buffer_pad",
+                  "candidate_ids": [
+                    "buffer_back",
+                    "buffer_front"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "buffer_pad": "buffer_back"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "move",
+              "object_id": "item_b",
+              "target_id": "slot_left",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3822,
+              "end_step": 7191,
+              "grasp_mode": "constraint"
+            }
+          }
+        ],
+        "public_summary": {
+          "version": "memory_dev_v6",
+          "current_regions": {
+            "slot_left": {
+              "contents": [
+                "item_b"
+              ],
+              "observed": true
+            },
+            "slot_right": {
+              "contents": [],
+              "observed": true
+            },
+            "buffer_front": {
+              "contents": [],
+              "observed": true
+            },
+            "buffer_back": {
+              "contents": [
+                "item_a"
+              ],
+              "observed": true
+            }
+          },
+          "observed_locations": {
+            "item_a": [
+              "buffer_back"
+            ],
+            "item_b": [
+              "slot_left"
+            ]
+          },
+          "object_memory": {
+            "item_a": {
+              "status": "observed_now",
+              "regions": [
+                "buffer_back"
+              ],
+              "observed_step": 7191,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            },
+            "item_b": {
+              "status": "observed_now",
+              "regions": [
+                "slot_left"
+              ],
+              "observed_step": 7191,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            }
+          },
+          "goal_requirements": {
+            "final_targets": {
+              "item_a": "slot_right",
+              "item_b": "slot_left"
+            },
+            "buffer_candidates": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "buffers_empty_at_end": true
+          },
+          "required_final_relations": [
+            {
+              "object_id": "item_a",
+              "required_final_region": "slot_right",
+              "currently_observed_at_target": false,
+              "region_contents": []
+            },
+            {
+              "object_id": "item_b",
+              "required_final_region": "slot_left",
+              "currently_observed_at_target": true,
+              "region_contents": [
+                "item_b"
+              ]
+            }
+          ],
+          "lid_geometry": null,
+          "confirmed_choices": {
+            "buffer_pad": "buffer_back"
+          },
+          "own_working_choices": {},
+          "preference_candidates": {
+            "buffer_pad": [
+              "buffer_back",
+              "buffer_front"
+            ]
+          },
+          "unresolved_roles": [],
+          "observed_region_visits": [
+            {
+              "object_id": "item_a",
+              "region_id": "slot_left",
+              "first_observed_step": 240,
+              "last_observed_step": 240
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_right",
+              "first_observed_step": 240,
+              "last_observed_step": 3822
+            },
+            {
+              "object_id": "item_a",
+              "region_id": "buffer_back",
+              "first_observed_step": 3822,
+              "last_observed_step": 7191
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_left",
+              "first_observed_step": 7191,
+              "last_observed_step": 7191
+            }
+          ],
+          "latest_action_by_object": {
+            "item_a": {
+              "skill": "move",
+              "object_id": "item_a",
+              "target_id": "buffer_back",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3822
+            },
+            "item_b": {
+              "skill": "move",
+              "object_id": "item_b",
+              "target_id": "slot_left",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3822,
+              "end_step": 7191
+            }
+          },
+          "action_history_coverage": {
+            "total": 2,
+            "failed": 0
+          },
+          "memory_scope": {
+            "prior_public_snapshots": 3,
+            "current_step": 7191,
+            "note": "Memory records past public observations, never fresh sight through a lid. Region sensor membership and current grasp visibility are different. Unknown is not absent. New measured state overrides memory; unseen memories after failed/disturbing actions are invalidated."
+          },
+          "limitation": "These are public facts, not task scores, an oracle, prescribed actions or a completion verdict. The model must assess the goal; the independent evaluator uses actual final geometry/contact."
+        }
+      },
+      "payload_sha256": "734a53c2d3af1eccbb32b346c467d9ee590546a1dbe36fc3da9d8935735b5da4",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.05
+      },
+      "gate_payload": {
+        "instruction": "Exchange item_a in slot_left and item_b in slot_right. Each slot holds at most one item. Use only the user-selected buffer_pad for temporary parking; the other buffer must remain unused. Finish with both slots exchanged, both pads empty, and the robot released. The required buffer_pad is unspecified.",
+        "observation": {
+          "simulation_step": 7191,
+          "objects": {
+            "slot_left": {
+              "category": "container",
+              "color": "orange"
+            },
+            "slot_right": {
+              "category": "container",
+              "color": "purple"
+            },
+            "item_a": {
+              "category": "block",
+              "color": "green"
+            },
+            "item_b": {
+              "category": "block",
+              "color": "yellow"
+            }
+          },
+          "held_object": null,
+          "task": {
+            "buffers": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "item_a": "item_a",
+            "item_b": "item_b",
+            "left": "slot_left",
+            "right": "slot_right",
+            "template_id": "buffer_exchange",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "park_a",
+                  "move_b_left"
+                ],
+                [
+                  "move_b_left",
+                  "move_a_right"
+                ]
+              ],
+              "nodes": [
+                "park_a",
+                "move_b_left",
+                "move_a_right"
+              ]
+            },
+            "preference_slots": {
+              "buffer_pad": {
+                "candidate_ids": [
+                  "buffer_back",
+                  "buffer_front"
+                ],
+                "kind": "preference",
+                "description": "Which temporary pad should be used for the exchange?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "containers": {
+            "slot_left": {
+              "contents": [
+                "item_b"
+              ],
+              "contents_observed": true
+            },
+            "slot_right": {
+              "contents": [],
+              "contents_observed": true
+            }
+          },
+          "zones": {
+            "buffer_front": {
+              "contents": []
+            },
+            "buffer_back": {
+              "contents": [
+                "item_a"
+              ]
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": null,
+          "affordances": {
+            "move": {
+              "item_a": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ],
+              "item_b": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ]
+            },
+            "cover": [],
+            "inspect": []
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which temporary buffer pad should I use for the exchange?",
+              "requests": [
+                {
+                  "role": "buffer_pad",
+                  "candidate_ids": [
+                    "buffer_back",
+                    "buffer_front"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "buffer_pad": "buffer_back"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "move",
+              "object_id": "item_b",
+              "target_id": "slot_left",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3822,
+              "end_step": 7191,
+              "grasp_mode": "constraint"
+            }
+          }
+        ],
+        "public_summary": {
+          "current_regions": {
+            "slot_left": {
+              "contents": [
+                "item_b"
+              ],
+              "observed": true
+            },
+            "slot_right": {
+              "contents": [],
+              "observed": true
+            },
+            "buffer_front": {
+              "contents": [],
+              "observed": true
+            },
+            "buffer_back": {
+              "contents": [
+                "item_a"
+              ],
+              "observed": true
+            }
+          },
+          "observed_locations": {
+            "item_a": [
+              "buffer_back"
+            ],
+            "item_b": [
+              "slot_left"
+            ]
+          },
+          "object_memory": {
+            "item_a": {
+              "status": "observed_now",
+              "regions": [
+                "buffer_back"
+              ],
+              "observed_step": 7191,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            },
+            "item_b": {
+              "status": "observed_now",
+              "regions": [
+                "slot_left"
+              ],
+              "observed_step": 7191,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            }
+          },
+          "goal_requirements": {
+            "final_targets": {
+              "item_a": "slot_right",
+              "item_b": "slot_left"
+            },
+            "buffer_candidates": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "buffers_empty_at_end": true
+          },
+          "required_final_relations": [
+            {
+              "object_id": "item_a",
+              "required_final_region": "slot_right",
+              "currently_observed_at_target": false,
+              "region_contents": []
+            },
+            {
+              "object_id": "item_b",
+              "required_final_region": "slot_left",
+              "currently_observed_at_target": true,
+              "region_contents": [
+                "item_b"
+              ]
+            }
+          ],
+          "lid_geometry": null,
+          "confirmed_choices": {
+            "buffer_pad": "buffer_back"
+          },
+          "own_working_choices": {},
+          "preference_candidates": {
+            "buffer_pad": [
+              "buffer_back",
+              "buffer_front"
+            ]
+          },
+          "unresolved_roles": [],
+          "observed_region_visits": [
+            {
+              "object_id": "item_a",
+              "region_id": "slot_left",
+              "first_observed_step": 240,
+              "last_observed_step": 240
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_right",
+              "first_observed_step": 240,
+              "last_observed_step": 3822
+            },
+            {
+              "object_id": "item_a",
+              "region_id": "buffer_back",
+              "first_observed_step": 3822,
+              "last_observed_step": 7191
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_left",
+              "first_observed_step": 7191,
+              "last_observed_step": 7191
+            }
+          ],
+          "latest_action_by_object": {
+            "item_a": {
+              "skill": "move",
+              "object_id": "item_a",
+              "target_id": "buffer_back",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3822
+            },
+            "item_b": {
+              "skill": "move",
+              "object_id": "item_b",
+              "target_id": "slot_left",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3822,
+              "end_step": 7191
+            }
+          },
+          "action_history_coverage": {
+            "total": 2,
+            "failed": 0
+          }
+        }
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "item_a",
+        "target_id": "slot_right"
+      },
+      "model_plan": {
+        "working_choices": {
+          "buffer_pad": "buffer_back"
+        },
+        "completion_assessment": {
+          "ready_for_done": false,
+          "reason": "item_b is already at slot_left (final target). item_a is parked at buffer_back and must be moved to slot_right. buffer_front is empty and unused, satisfying the buffer constraint."
+        },
+        "remaining_plan": [
+          {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "slot_right"
+          },
+          {
+            "kind": "DONE"
+          }
+        ]
+      },
+      "physical_result": {
+        "skill": "move",
+        "object_id": "item_a",
+        "target_id": "slot_right",
+        "success": true,
+        "reason": "placed",
+        "start_step": 7191,
+        "end_step": 10831,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 4,
+      "public_payload": {
+        "instruction": "Exchange item_a in slot_left and item_b in slot_right. Each slot holds at most one item. Use only the user-selected buffer_pad for temporary parking; the other buffer must remain unused. Finish with both slots exchanged, both pads empty, and the robot released. The required buffer_pad is unspecified.",
+        "observation": {
+          "simulation_step": 10831,
+          "objects": {
+            "slot_left": {
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.59,
+                -0.16,
+                0.42
+              ],
+              "aabb_min": [
+                0.5449999999999999,
+                -0.20500000000000002,
+                0.42
+              ],
+              "aabb_max": [
+                0.635,
+                -0.115,
+                0.509
+              ]
+            },
+            "slot_right": {
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.59,
+                0.16,
+                0.42
+              ],
+              "aabb_min": [
+                0.5449999999999999,
+                0.115,
+                0.42
+              ],
+              "aabb_max": [
+                0.635,
+                0.20500000000000002,
+                0.509
+              ]
+            },
+            "item_a": {
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.589886919026336,
+                0.16022609684793043,
+                0.45598958527651207
+              ],
+              "aabb_min": [
+                0.5678863993516333,
+                0.13822603467732775,
+                0.4339890208481491
+              ],
+              "aabb_max": [
+                0.6118874387010388,
+                0.18222615901853312,
+                0.477990149704875
+              ]
+            },
+            "item_b": {
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.5900096839870484,
+                -0.15997125986819916,
+                0.4559895885025502
+              ],
+              "aabb_min": [
+                0.5680084135246554,
+                -0.18197207432870202,
+                0.4339890326661704
+              ],
+              "aabb_max": [
+                0.6120109544494415,
+                -0.1379704454076963,
+                0.47799014433893006
+              ]
+            }
+          },
+          "end_effector": [
+            0.5899492502212524,
+            0.15959197282791138,
+            0.8299464583396912
+          ],
+          "held_object": null,
+          "robot_joints": [
+            {
+              "position": 0.012188134494704114,
+              "velocity": 1.8561541192951836e-16
+            },
+            {
+              "position": 0.16132796624821896,
+              "velocity": -2.9178048865929895e-15
+            },
+            {
+              "position": 0.27448396151406673,
+              "velocity": 3.2552086026704785e-15
+            },
+            {
+              "position": -1.6530267887131145,
+              "velocity": 2.6367796834847468e-14
+            },
+            {
+              "position": -0.0448087267932856,
+              "velocity": 8.187894806610529e-16
+            },
+            {
+              "position": 1.8082187536482996,
+              "velocity": -2.3037127760971998e-14
+            },
+            {
+              "position": 1.0792354919532818,
+              "velocity": -2.5607987952369626e-14
+            },
+            {
+              "position": 0.040000000000000015,
+              "velocity": -6.657001339060997e-16
+            },
+            {
+              "position": 0.03999999068430717,
+              "velocity": -7.663140955127545e-16
+            }
+          ],
+          "task": {
+            "buffers": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "item_a": "item_a",
+            "item_b": "item_b",
+            "left": "slot_left",
+            "right": "slot_right",
+            "template_id": "buffer_exchange",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "park_a",
+                  "move_b_left"
+                ],
+                [
+                  "move_b_left",
+                  "move_a_right"
+                ]
+              ],
+              "nodes": [
+                "park_a",
+                "move_b_left",
+                "move_a_right"
+              ]
+            },
+            "preference_slots": {
+              "buffer_pad": {
+                "candidate_ids": [
+                  "buffer_back",
+                  "buffer_front"
+                ],
+                "kind": "preference",
+                "description": "Which temporary pad should be used for the exchange?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "containers": {
+            "slot_left": {
+              "xy": [
+                0.59,
+                -0.16
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_b"
+              ],
+              "contents_observed": true
+            },
+            "slot_right": {
+              "xy": [
+                0.59,
+                0.16
+              ],
+              "half": [
+                0.045,
+                0.045
+              ],
+              "inner": [
+                0.033,
+                0.033
+              ],
+              "floor": 0.434,
+              "rim": 0.509,
+              "contents": [
+                "item_a"
+              ],
+              "contents_observed": true
+            }
+          },
+          "zones": {
+            "buffer_front": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_front",
+              "xy": [
+                0.35,
+                -0.22
+              ],
+              "contents": []
+            },
+            "buffer_back": {
+              "half_xy": [
+                0.065,
+                0.065
+              ],
+              "id": "buffer_back",
+              "xy": [
+                0.35,
+                0.22
+              ],
+              "contents": []
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": null,
+          "affordances": {
+            "move": {
+              "item_a": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ],
+              "item_b": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ]
+            },
+            "cover": [],
+            "inspect": []
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which temporary buffer pad should I use for the exchange?",
+              "requests": [
+                {
+                  "role": "buffer_pad",
+                  "candidate_ids": [
+                    "buffer_back",
+                    "buffer_front"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "buffer_pad": "buffer_back"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "move",
+              "object_id": "item_a",
+              "target_id": "slot_right",
+              "success": true,
+              "reason": "placed",
+              "start_step": 7191,
+              "end_step": 10831,
+              "grasp_mode": "constraint"
+            }
+          }
+        ],
+        "public_summary": {
+          "version": "memory_dev_v6",
+          "current_regions": {
+            "slot_left": {
+              "contents": [
+                "item_b"
+              ],
+              "observed": true
+            },
+            "slot_right": {
+              "contents": [
+                "item_a"
+              ],
+              "observed": true
+            },
+            "buffer_front": {
+              "contents": [],
+              "observed": true
+            },
+            "buffer_back": {
+              "contents": [],
+              "observed": true
+            }
+          },
+          "observed_locations": {
+            "item_a": [
+              "slot_right"
+            ],
+            "item_b": [
+              "slot_left"
+            ]
+          },
+          "object_memory": {
+            "item_a": {
+              "status": "observed_now",
+              "regions": [
+                "slot_right"
+              ],
+              "observed_step": 10831,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            },
+            "item_b": {
+              "status": "observed_now",
+              "regions": [
+                "slot_left"
+              ],
+              "observed_step": 10831,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            }
+          },
+          "goal_requirements": {
+            "final_targets": {
+              "item_a": "slot_right",
+              "item_b": "slot_left"
+            },
+            "buffer_candidates": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "buffers_empty_at_end": true
+          },
+          "required_final_relations": [
+            {
+              "object_id": "item_a",
+              "required_final_region": "slot_right",
+              "currently_observed_at_target": true,
+              "region_contents": [
+                "item_a"
+              ]
+            },
+            {
+              "object_id": "item_b",
+              "required_final_region": "slot_left",
+              "currently_observed_at_target": true,
+              "region_contents": [
+                "item_b"
+              ]
+            }
+          ],
+          "lid_geometry": null,
+          "confirmed_choices": {
+            "buffer_pad": "buffer_back"
+          },
+          "own_working_choices": {},
+          "preference_candidates": {
+            "buffer_pad": [
+              "buffer_back",
+              "buffer_front"
+            ]
+          },
+          "unresolved_roles": [],
+          "observed_region_visits": [
+            {
+              "object_id": "item_a",
+              "region_id": "slot_left",
+              "first_observed_step": 240,
+              "last_observed_step": 240
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_right",
+              "first_observed_step": 240,
+              "last_observed_step": 3822
+            },
+            {
+              "object_id": "item_a",
+              "region_id": "buffer_back",
+              "first_observed_step": 3822,
+              "last_observed_step": 7191
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_left",
+              "first_observed_step": 7191,
+              "last_observed_step": 10831
+            },
+            {
+              "object_id": "item_a",
+              "region_id": "slot_right",
+              "first_observed_step": 10831,
+              "last_observed_step": 10831
+            }
+          ],
+          "latest_action_by_object": {
+            "item_a": {
+              "skill": "move",
+              "object_id": "item_a",
+              "target_id": "slot_right",
+              "success": true,
+              "reason": "placed",
+              "start_step": 7191,
+              "end_step": 10831
+            },
+            "item_b": {
+              "skill": "move",
+              "object_id": "item_b",
+              "target_id": "slot_left",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3822,
+              "end_step": 7191
+            }
+          },
+          "action_history_coverage": {
+            "total": 3,
+            "failed": 0
+          },
+          "memory_scope": {
+            "prior_public_snapshots": 4,
+            "current_step": 10831,
+            "note": "Memory records past public observations, never fresh sight through a lid. Region sensor membership and current grasp visibility are different. Unknown is not absent. New measured state overrides memory; unseen memories after failed/disturbing actions are invalidated."
+          },
+          "limitation": "These are public facts, not task scores, an oracle, prescribed actions or a completion verdict. The model must assess the goal; the independent evaluator uses actual final geometry/contact."
+        }
+      },
+      "payload_sha256": "f2060372e6692cf512791892caf55cc9726a8df9bf5b8389e0e221721553a760",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.05
+      },
+      "gate_payload": {
+        "instruction": "Exchange item_a in slot_left and item_b in slot_right. Each slot holds at most one item. Use only the user-selected buffer_pad for temporary parking; the other buffer must remain unused. Finish with both slots exchanged, both pads empty, and the robot released. The required buffer_pad is unspecified.",
+        "observation": {
+          "simulation_step": 10831,
+          "objects": {
+            "slot_left": {
+              "category": "container",
+              "color": "orange"
+            },
+            "slot_right": {
+              "category": "container",
+              "color": "purple"
+            },
+            "item_a": {
+              "category": "block",
+              "color": "green"
+            },
+            "item_b": {
+              "category": "block",
+              "color": "yellow"
+            }
+          },
+          "held_object": null,
+          "task": {
+            "buffers": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "item_a": "item_a",
+            "item_b": "item_b",
+            "left": "slot_left",
+            "right": "slot_right",
+            "template_id": "buffer_exchange",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "park_a",
+                  "move_b_left"
+                ],
+                [
+                  "move_b_left",
+                  "move_a_right"
+                ]
+              ],
+              "nodes": [
+                "park_a",
+                "move_b_left",
+                "move_a_right"
+              ]
+            },
+            "preference_slots": {
+              "buffer_pad": {
+                "candidate_ids": [
+                  "buffer_back",
+                  "buffer_front"
+                ],
+                "kind": "preference",
+                "description": "Which temporary pad should be used for the exchange?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "containers": {
+            "slot_left": {
+              "contents": [
+                "item_b"
+              ],
+              "contents_observed": true
+            },
+            "slot_right": {
+              "contents": [
+                "item_a"
+              ],
+              "contents_observed": true
+            }
+          },
+          "zones": {
+            "buffer_front": {
+              "contents": []
+            },
+            "buffer_back": {
+              "contents": []
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": null,
+          "affordances": {
+            "move": {
+              "item_a": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ],
+              "item_b": [
+                "slot_left",
+                "slot_right",
+                "buffer_front",
+                "buffer_back"
+              ]
+            },
+            "cover": [],
+            "inspect": []
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which temporary buffer pad should I use for the exchange?",
+              "requests": [
+                {
+                  "role": "buffer_pad",
+                  "candidate_ids": [
+                    "buffer_back",
+                    "buffer_front"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "buffer_pad": "buffer_back"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "move",
+              "object_id": "item_a",
+              "target_id": "slot_right",
+              "success": true,
+              "reason": "placed",
+              "start_step": 7191,
+              "end_step": 10831,
+              "grasp_mode": "constraint"
+            }
+          }
+        ],
+        "public_summary": {
+          "current_regions": {
+            "slot_left": {
+              "contents": [
+                "item_b"
+              ],
+              "observed": true
+            },
+            "slot_right": {
+              "contents": [
+                "item_a"
+              ],
+              "observed": true
+            },
+            "buffer_front": {
+              "contents": [],
+              "observed": true
+            },
+            "buffer_back": {
+              "contents": [],
+              "observed": true
+            }
+          },
+          "observed_locations": {
+            "item_a": [
+              "slot_right"
+            ],
+            "item_b": [
+              "slot_left"
+            ]
+          },
+          "object_memory": {
+            "item_a": {
+              "status": "observed_now",
+              "regions": [
+                "slot_right"
+              ],
+              "observed_step": 10831,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            },
+            "item_b": {
+              "status": "observed_now",
+              "regions": [
+                "slot_left"
+              ],
+              "observed_step": 10831,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            }
+          },
+          "goal_requirements": {
+            "final_targets": {
+              "item_a": "slot_right",
+              "item_b": "slot_left"
+            },
+            "buffer_candidates": [
+              "buffer_front",
+              "buffer_back"
+            ],
+            "buffers_empty_at_end": true
+          },
+          "required_final_relations": [
+            {
+              "object_id": "item_a",
+              "required_final_region": "slot_right",
+              "currently_observed_at_target": true,
+              "region_contents": [
+                "item_a"
+              ]
+            },
+            {
+              "object_id": "item_b",
+              "required_final_region": "slot_left",
+              "currently_observed_at_target": true,
+              "region_contents": [
+                "item_b"
+              ]
+            }
+          ],
+          "lid_geometry": null,
+          "confirmed_choices": {
+            "buffer_pad": "buffer_back"
+          },
+          "own_working_choices": {},
+          "preference_candidates": {
+            "buffer_pad": [
+              "buffer_back",
+              "buffer_front"
+            ]
+          },
+          "unresolved_roles": [],
+          "observed_region_visits": [
+            {
+              "object_id": "item_a",
+              "region_id": "slot_left",
+              "first_observed_step": 240,
+              "last_observed_step": 240
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_right",
+              "first_observed_step": 240,
+              "last_observed_step": 3822
+            },
+            {
+              "object_id": "item_a",
+              "region_id": "buffer_back",
+              "first_observed_step": 3822,
+              "last_observed_step": 7191
+            },
+            {
+              "object_id": "item_b",
+              "region_id": "slot_left",
+              "first_observed_step": 7191,
+              "last_observed_step": 10831
+            },
+            {
+              "object_id": "item_a",
+              "region_id": "slot_right",
+              "first_observed_step": 10831,
+              "last_observed_step": 10831
+            }
+          ],
+          "latest_action_by_object": {
+            "item_a": {
+              "skill": "move",
+              "object_id": "item_a",
+              "target_id": "slot_right",
+              "success": true,
+              "reason": "placed",
+              "start_step": 7191,
+              "end_step": 10831
+            },
+            "item_b": {
+              "skill": "move",
+              "object_id": "item_b",
+              "target_id": "slot_left",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3822,
+              "end_step": 7191
+            }
+          },
+          "action_history_coverage": {
+            "total": 3,
+            "failed": 0
+          }
+        }
+      },
+      "action": {
+        "kind": "DONE"
+      },
+      "model_plan": {
+        "working_choices": {
+          "buffer_pad": "buffer_back"
+        },
+        "completion_assessment": {
+          "ready_for_done": true,
+          "reason": "item_a is observed in slot_right and item_b in slot_left, satisfying both required final relations. Both buffer pads are empty, robot holds nothing, and the selected buffer_back was used for parking. Exchange complete."
+        },
+        "remaining_plan": [
+          {
+            "kind": "DONE"
+          }
+        ]
+      }
+    }
+  ],
+  "actions": [
+    {
+      "skill": "move",
+      "object_id": "item_a",
+      "target_id": "buffer_back",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3822,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "item_b",
+      "target_id": "slot_left",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3822,
+      "end_step": 7191,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "item_a",
+      "target_id": "slot_right",
+      "success": true,
+      "reason": "placed",
+      "start_step": 7191,
+      "end_step": 10831,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "public_history": [
+    {
+      "kind": "ask",
+      "question": {
+        "type": "select",
+        "text": "Which temporary buffer pad should I use for the exchange?",
+        "requests": [
+          {
+            "role": "buffer_pad",
+            "candidate_ids": [
+              "buffer_back",
+              "buffer_front"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "user_answer",
+      "response": {
+        "choices": {
+          "buffer_pad": "buffer_back"
+        }
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "move",
+        "object_id": "item_a",
+        "target_id": "buffer_back",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3822,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "move",
+        "object_id": "item_b",
+        "target_id": "slot_left",
+        "success": true,
+        "reason": "placed",
+        "start_step": 3822,
+        "end_step": 7191,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "move",
+        "object_id": "item_a",
+        "target_id": "slot_right",
+        "success": true,
+        "reason": "placed",
+        "start_step": 7191,
+        "end_step": 10831,
+        "grasp_mode": "constraint"
+      }
+    }
+  ],
+  "evaluation": {
+    "task_success": true,
+    "termination_reason": "done",
+    "conditions": {
+      "items_exchanged": true,
+      "selected_buffer_physically_used": true,
+      "other_buffer_unused": true,
+      "buffers_empty_at_end": true,
+      "capacity_respected": true,
+      "buffer_exchange_order": true,
+      "robot_released": true,
+      "all_movable_objects_stable": true
+    },
+    "details": {
+      "selected_buffer": "buffer_back",
+      "checkpoints": [
+        {
+          "step": 240,
+          "action": "initial",
+          "contents": {
+            "slot_left": [
+              "item_a"
+            ],
+            "slot_right": [
+              "item_b"
+            ]
+          },
+          "zones": {
+            "buffer_front": [],
+            "buffer_back": []
+          },
+          "released": true,
+          "positions": {
+            "item_a": [
+              0.5899995236741692,
+              -0.1599998490701332,
+              0.45598958971592707
+            ],
+            "item_b": [
+              0.5899995236741692,
+              0.1600001509298668,
+              0.45598958971592707
+            ]
+          }
+        },
+        {
+          "step": 3822,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "buffer_back"
+          },
+          "contents": {
+            "slot_left": [],
+            "slot_right": [
+              "item_b"
+            ]
+          },
+          "zones": {
+            "buffer_front": [],
+            "buffer_back": [
+              "item_a"
+            ]
+          },
+          "released": true,
+          "positions": {
+            "item_a": [
+              0.3499406455906646,
+              0.2197650563204462,
+              0.4419891362814344
+            ],
+            "item_b": [
+              0.5899995236741692,
+              0.16000015092996622,
+              0.4559895897158759
+            ]
+          }
+        },
+        {
+          "step": 7191,
+          "action": {
+            "kind": "move",
+            "object_id": "item_b",
+            "target_id": "slot_left"
+          },
+          "contents": {
+            "slot_left": [
+              "item_b"
+            ],
+            "slot_right": []
+          },
+          "zones": {
+            "buffer_front": [],
+            "buffer_back": [
+              "item_a"
+            ]
+          },
+          "released": true,
+          "positions": {
+            "item_a": [
+              0.3499406455906646,
+              0.2197650563204462,
+              0.4419891362814344
+            ],
+            "item_b": [
+              0.5900096839870484,
+              -0.1599712598683002,
+              0.45598958850260646
+            ]
+          }
+        },
+        {
+          "step": 10831,
+          "action": {
+            "kind": "move",
+            "object_id": "item_a",
+            "target_id": "slot_right"
+          },
+          "contents": {
+            "slot_left": [
+              "item_b"
+            ],
+            "slot_right": [
+              "item_a"
+            ]
+          },
+          "zones": {
+            "buffer_front": [],
+            "buffer_back": []
+          },
+          "released": true,
+          "positions": {
+            "item_a": [
+              0.589886919026336,
+              0.16022609684793043,
+              0.45598958527651207
+            ],
+            "item_b": [
+              0.5900096839870484,
+              -0.15997125986819916,
+              0.4559895885025502
+            ]
+          }
+        }
+      ],
+      "robot_contact_counts": {
+        "item_a": 0,
+        "item_b": 0
+      }
+    },
+    "clarification_burden": 1,
+    "action_count": 3,
+    "successful_action_count": 3,
+    "simulation_steps": 10831,
+    "evaluator_version": "task6_geometry_contact_evidence_v1"
+  },
+  "termination_reason": "done",
+  "error": null,
+  "cost": {
+    "deepseek": {
+      "attempts": 5,
+      "input_tokens": 15576,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 462,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 5461.437958991155,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 5,
+      "input_tokens": 11510,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 120,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 1463.6790419463068,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 10,
+    "api_latency_ms": 6925.117000937462,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "wall_time_s": 9.655310749978526,
+  "final_observation": {
+    "simulation_step": 10831,
+    "objects": {
+      "slot_left": {
+        "category": "container",
+        "color": "orange",
+        "position": [
+          0.59,
+          -0.16,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.5449999999999999,
+          -0.20500000000000002,
+          0.42
+        ],
+        "aabb_max": [
+          0.635,
+          -0.115,
+          0.509
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "slot_right": {
+        "category": "container",
+        "color": "purple",
+        "position": [
+          0.59,
+          0.16,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.5449999999999999,
+          0.115,
+          0.42
+        ],
+        "aabb_max": [
+          0.635,
+          0.20500000000000002,
+          0.509
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "item_a": {
+        "category": "block",
+        "color": "green",
+        "position": [
+          0.589886919026336,
+          0.16022609684793043,
+          0.45598958527651207
+        ],
+        "orientation": [
+          1.2150637886127821e-06,
+          -1.1612991947988342e-05,
+          1.9791778231839912e-07,
+          0.9999999999318114
+        ],
+        "aabb_min": [
+          0.5678863993516333,
+          0.13822603467732775,
+          0.4339890208481491
+        ],
+        "aabb_max": [
+          0.6118874387010388,
+          0.18222615901853312,
+          0.477990149704875
+        ],
+        "linear_velocity": [
+          -3.409244915597471e-07,
+          -2.5224256344479555e-07,
+          1.4739772787042416e-07
+        ],
+        "angular_velocity": [
+          1.1465794318490217e-05,
+          -1.5496953235128884e-05,
+          1.7636633284364466e-11
+        ]
+      },
+      "item_b": {
+        "category": "block",
+        "color": "yellow",
+        "position": [
+          0.5900096839870484,
+          -0.15997125986819916,
+          0.4559895885025502
+        ],
+        "orientation": [
+          1.1344907935600377e-06,
+          -1.1498107616022636e-05,
+          -1.73764651655675e-05,
+          0.9999999997822825
+        ],
+        "aabb_min": [
+          0.5680084135246554,
+          -0.18197207432870202,
+          0.4339890326661704
+        ],
+        "aabb_max": [
+          0.6120109544494415,
+          -0.1379704454076963,
+          0.47799014433893006
+        ],
+        "linear_velocity": [
+          -2.906953395534661e-15,
+          5.263711797709345e-15,
+          -8.0629947163402e-15
+        ],
+        "angular_velocity": [
+          -2.2055374871919453e-13,
+          -1.7525576845573661e-13,
+          -4.803872338443783e-14
+        ]
+      }
+    },
+    "end_effector": [
+      0.5899492502212524,
+      0.15959197282791138,
+      0.8299464583396912
+    ],
+    "held_object": null,
+    "robot_joints": [
+      {
+        "position": 0.012188134494704114,
+        "velocity": 1.8561541192951836e-16
+      },
+      {
+        "position": 0.16132796624821896,
+        "velocity": -2.9178048865929895e-15
+      },
+      {
+        "position": 0.27448396151406673,
+        "velocity": 3.2552086026704785e-15
+      },
+      {
+        "position": -1.6530267887131145,
+        "velocity": 2.6367796834847468e-14
+      },
+      {
+        "position": -0.0448087267932856,
+        "velocity": 8.187894806610529e-16
+      },
+      {
+        "position": 1.8082187536482996,
+        "velocity": -2.3037127760971998e-14
+      },
+      {
+        "position": 1.0792354919532818,
+        "velocity": -2.5607987952369626e-14
+      },
+      {
+        "position": 0.040000000000000015,
+        "velocity": -6.657001339060997e-16
+      },
+      {
+        "position": 0.03999999068430717,
+        "velocity": -7.663140955127545e-16
+      }
+    ],
+    "task": {
+      "buffers": [
+        "buffer_front",
+        "buffer_back"
+      ],
+      "item_a": "item_a",
+      "item_b": "item_b",
+      "left": "slot_left",
+      "right": "slot_right",
+      "template_id": "buffer_exchange",
+      "version": "six_tasks_dev_v1",
+      "dag": {
+        "edges": [
+          [
+            "park_a",
+            "move_b_left"
+          ],
+          [
+            "move_b_left",
+            "move_a_right"
+          ]
+        ],
+        "nodes": [
+          "park_a",
+          "move_b_left",
+          "move_a_right"
+        ]
+      },
+      "preference_slots": {
+        "buffer_pad": {
+          "candidate_ids": [
+            "buffer_back",
+            "buffer_front"
+          ],
+          "kind": "preference",
+          "description": "Which temporary pad should be used for the exchange?"
+        }
+      },
+      "initial_choices": {}
+    },
+    "containers": {
+      "slot_left": {
+        "xy": [
+          0.59,
+          -0.16
+        ],
+        "half": [
+          0.045,
+          0.045
+        ],
+        "inner": [
+          0.033,
+          0.033
+        ],
+        "floor": 0.434,
+        "rim": 0.509,
+        "contents": [
+          "item_b"
+        ],
+        "contents_observed": true
+      },
+      "slot_right": {
+        "xy": [
+          0.59,
+          0.16
+        ],
+        "half": [
+          0.045,
+          0.045
+        ],
+        "inner": [
+          0.033,
+          0.033
+        ],
+        "floor": 0.434,
+        "rim": 0.509,
+        "contents": [
+          "item_a"
+        ],
+        "contents_observed": true
+      }
+    },
+    "zones": {
+      "buffer_front": {
+        "half_xy": [
+          0.065,
+          0.065
+        ],
+        "id": "buffer_front",
+        "xy": [
+          0.35,
+          -0.22
+        ],
+        "contents": []
+      },
+      "buffer_back": {
+        "half_xy": [
+          0.065,
+          0.065
+        ],
+        "id": "buffer_back",
+        "xy": [
+          0.35,
+          0.22
+        ],
+        "contents": []
+      }
+    },
+    "inspections": [],
+    "reports": [],
+    "sensor": null,
+    "affordances": {
+      "move": {
+        "item_a": [
+          "slot_left",
+          "slot_right",
+          "buffer_front",
+          "buffer_back"
+        ],
+        "item_b": [
+          "slot_left",
+          "slot_right",
+          "buffer_front",
+          "buffer_back"
+        ]
+      },
+      "cover": [],
+      "inspect": []
+    }
+  },
+  "execution_log": [
+    {
+      "kind": "placement_started",
+      "object_id": "item_a",
+      "target_id": "buffer_back",
+      "step": 240
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_a",
+      "step": 240,
+      "end_effector": [
+        0.428022563457489,
+        3.169046749462723e-06,
+        0.859183669090271
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_a",
+      "step": 1135,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.0037654093838007307,
+      "closest_hand_distance_m": 0.03569429496113417
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_a",
+      "step": 1195,
+      "end_effector": [
+        0.589979350566864,
+        -0.15998879075050354,
+        0.5129863023757935
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_a",
+      "step": 1643,
+      "end_effector": [
+        0.5899062156677246,
+        -0.159974604845047,
+        0.825352668762207
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_a",
+      "step": 2278,
+      "end_effector": [
+        0.3524259924888611,
+        0.21619708836078644,
+        0.8299563527107239
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_a",
+      "step": 2932
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_a",
+      "step": 3582,
+      "end_effector": [
+        0.349972128868103,
+        0.22006282210350037,
+        0.8262206315994263
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "item_a",
+      "target_id": "buffer_back",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3822,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_b",
+      "target_id": "slot_left",
+      "step": 3822
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_b",
+      "step": 3822,
+      "end_effector": [
+        0.3499515950679779,
+        0.220049649477005,
+        0.8299915194511414
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_b",
+      "step": 4738,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.0037648386607772397,
+      "closest_hand_distance_m": 0.035713246715475495
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_b",
+      "step": 4798,
+      "end_effector": [
+        0.5899656414985657,
+        0.16002227365970612,
+        0.5129836797714233
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_b",
+      "step": 5246,
+      "end_effector": [
+        0.5899075269699097,
+        0.15997697412967682,
+        0.8253560066223145
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_b",
+      "step": 5698,
+      "end_effector": [
+        0.5899035334587097,
+        -0.15538166463375092,
+        0.8298965096473694
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_b",
+      "step": 6324
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_b",
+      "step": 6951,
+      "end_effector": [
+        0.5898647904396057,
+        -0.15995638072490692,
+        0.8261723518371582
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "item_b",
+      "target_id": "slot_left",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3822,
+      "end_step": 7191,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_a",
+      "target_id": "slot_right",
+      "step": 7191
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_a",
+      "step": 7191,
+      "end_effector": [
+        0.5898473262786865,
+        -0.15995162725448608,
+        0.8299444317817688
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_a",
+      "step": 8379,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.005106724867126656,
+      "closest_hand_distance_m": 0.023081131555958
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_a",
+      "step": 8439,
+      "end_effector": [
+        0.3499148190021515,
+        0.21936258673667908,
+        0.4831501841545105
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_a",
+      "step": 8929,
+      "end_effector": [
+        0.3499618470668793,
+        0.21976962685585022,
+        0.8254097700119019
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_a",
+      "step": 9279,
+      "end_effector": [
+        0.5853992104530334,
+        0.16070862114429474,
+        0.8298414349555969
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_a",
+      "step": 9937
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_a",
+      "step": 10591,
+      "end_effector": [
+        0.5899672508239746,
+        0.15959566831588745,
+        0.8261759281158447
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "item_a",
+      "target_id": "slot_right",
+      "success": true,
+      "reason": "placed",
+      "start_step": 7191,
+      "end_step": 10831,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "configuration": {
+    "deepseek_model": "deepseek-flash",
+    "jev_model": "jev-latest",
+    "jev_threshold": 0.5,
+    "timeout_s": 40,
+    "max_retries": 1,
+    "max_tokens": 500,
+    "thinking": "disabled",
+    "response_format": "json_object"
+  },
+  "manifest_sha256": "31aa948cee2512d867ab0cc65d415bfe53991457dccfb519708554038abe6c75"
+}

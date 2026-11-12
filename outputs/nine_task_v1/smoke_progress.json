@@ -1,0 +1,62 @@
+{
+  "rows": [
+    {
+      "episode_id": "n9_dev_00_1__llm_gate",
+      "sample_id": "n9_dev_00_1",
+      "template": "pack_and_cover",
+      "method": "llm_gate",
+      "success": true,
+      "burden": 3,
+      "actions": 3,
+      "termination": "done",
+      "attempts": 10,
+      "error": null
+    },
+    {
+      "episode_id": "n9_dev_06_1__jev_gate",
+      "sample_id": "n9_dev_06_1",
+      "template": "buffer_exchange",
+      "method": "jev_gate",
+      "success": true,
+      "burden": 1,
+      "actions": 3,
+      "termination": "done",
+      "attempts": 10,
+      "error": null
+    },
+    {
+      "episode_id": "n9_dev_02_1__llm_noask",
+      "sample_id": "n9_dev_02_1",
+      "template": "find_and_approach",
+      "method": "llm_noask",
+      "success": true,
+      "burden": 0,
+      "actions": 6,
+      "termination": "done",
+      "attempts": 7,
+      "error": null
+    }
+  ],
+  "session": {
+    "attempts": 27,
+    "episodes": 3,
+    "backends": {
+      "jev": {
+        "consecutive_errors": 0,
+        "blocked": false
+      },
+      "deepseek": {
+        "consecutive_errors": 0,
+        "blocked": false
+      }
+    },
+    "policy": "nine_task_pilot_v1",
+    "max_attempts": 900,
+    "max_episodes": 57,
+    "episode_ids": [
+      "n9_dev_00_1__llm_gate",
+      "n9_dev_02_1__llm_noask",
+      "n9_dev_06_1__jev_gate"
+    ]
+  }
+}

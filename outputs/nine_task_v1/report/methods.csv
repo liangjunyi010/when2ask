@@ -1,0 +1,4 @@
+method,episodes,scored_episodes,successes,success_rate,burden_total,burden_mean,api_latency_s,api_attempts,retries,schema_errors,api_errors,physical_failures,deepseek_input_tokens,deepseek_output_tokens,jev_input_tokens,jev_output_tokens,deepseek_unknown_input_tokens,deepseek_unknown_output_tokens,jev_unknown_input_tokens,jev_unknown_output_tokens
+llm_noask,18,18,13,0.7222222222222222,0,0.0,78.39339562618989,86,8,8,0,0,235535,3396,,,0,0,0,0
+llm_gate,18,18,16,0.8888888888888888,10,0.5555555555555556,166.35367607790977,192,6,6,0,0,446252,4650,,,0,0,0,0
+jev_gate,18,18,16,0.8888888888888888,7,0.3888888888888889,112.25780879083322,186,4,4,0,0,245895,3928,278894,2184,0,0,0,0

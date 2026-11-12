@@ -1,0 +1,2086 @@
+{
+  "experiment_id": "nine_task_pilot_v1",
+  "evidence_kind": "real_api_real_pybullet",
+  "partition": "test",
+  "sample_id": "n9_test_07_1",
+  "group_id": "patrol_return:layout_69e34482248c111b",
+  "template_id": "patrol_return",
+  "method": "llm_gate",
+  "scene_seed": 264118201,
+  "instruction": "Physically inspect living_cabinet and the user-selected extra_station (study_desk or study_shelf), then return to the starting pose area at [0,0] and stop. Inspection requires reaching the station and facing its equipment. Do not count a user answer as an inspection. You can inspect the known living_cabinet before clarifying extra_station.",
+  "unknown_slots": 1,
+  "turns": [
+    {
+      "round": 0,
+      "public_payload": {
+        "instruction": "Physically inspect living_cabinet and the user-selected extra_station (study_desk or study_shelf), then return to the starting pose area at [0,0] and stop. Inspection requires reaching the station and facing its equipment. Do not count a user answer as an inspection. You can inspect the known living_cabinet before clarifying extra_station.",
+        "observation": {
+          "simulation_step": 240,
+          "robot_pose": [
+            0.0,
+            0.0,
+            3.1416
+          ],
+          "current_room": "living_room",
+          "known_map": {
+            "version": "three_room_station_layout_v9",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "fixture_xy": [
+                  -3.56,
+                  2.15
+                ],
+                "name": "Kitchen counter",
+                "room": "kitchen",
+                "xy": [
+                  -3.56,
+                  1.23
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "fixture_xy": [
+                  -4.44,
+                  -2.15
+                ],
+                "name": "Kitchen shelf",
+                "room": "kitchen",
+                "xy": [
+                  -4.44,
+                  -1.23
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "fixture_xy": [
+                  0.44,
+                  2.15
+                ],
+                "name": "Living room cabinet",
+                "room": "living_room",
+                "xy": [
+                  0.44,
+                  1.23
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "fixture_xy": [
+                  -0.44,
+                  -2.15
+                ],
+                "name": "Living room table",
+                "room": "living_room",
+                "xy": [
+                  -0.44,
+                  -1.23
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "fixture_xy": [
+                  4.44,
+                  2.15
+                ],
+                "name": "Study desk",
+                "room": "study",
+                "xy": [
+                  4.44,
+                  1.23
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "fixture_xy": [
+                  3.56,
+                  -2.15
+                ],
+                "name": "Study shelf",
+                "room": "study",
+                "xy": [
+                  3.56,
+                  -1.23
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "inspect_then_return": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "robot_actions": 12
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {},
+          "robot_stopped": true,
+          "distance_travelled_m": 0.0,
+          "route_distances_m": {
+            "kitchen_counter": 5.306,
+            "kitchen_shelf": 5.306,
+            "living_cabinet": 1.306,
+            "living_table": 1.306,
+            "study_desk": 5.306,
+            "study_shelf": 5.306
+          },
+          "task": {
+            "home_radius_m": 0.22,
+            "home_xy": [
+              0,
+              0
+            ],
+            "required_station": "living_cabinet",
+            "template_id": "patrol_return",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "inspect_known",
+                  "return_home"
+                ],
+                [
+                  "inspect_selected",
+                  "return_home"
+                ]
+              ],
+              "nodes": [
+                "inspect_known",
+                "inspect_selected",
+                "return_home"
+              ]
+            },
+            "preference_slots": {
+              "extra_station": {
+                "candidate_ids": [
+                  "study_shelf",
+                  "study_desk"
+                ],
+                "kind": "preference",
+                "description": "Which additional study-room inspection station should be visited?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "inspection_evidence": [],
+          "return_events": [],
+          "affordances": {
+            "inspect_station": [
+              "kitchen_counter",
+              "kitchen_shelf",
+              "living_cabinet",
+              "living_table",
+              "study_desk",
+              "study_shelf"
+            ],
+            "return_home": true
+          }
+        },
+        "history": []
+      },
+      "payload_sha256": "f77a94a7fe3e02deee6de5b28ce2fe69895b1a909efa92ac53f1346423183690",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "inspect_station",
+        "location_id": "living_cabinet"
+      },
+      "physical_result": {
+        "skill": "inspect_station",
+        "object_id": "mobile_robot",
+        "target_id": "living_cabinet",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 1808,
+        "distance_m": 1.5447,
+        "target_detected": false
+      }
+    },
+    {
+      "round": 1,
+      "public_payload": {
+        "instruction": "Physically inspect living_cabinet and the user-selected extra_station (study_desk or study_shelf), then return to the starting pose area at [0,0] and stop. Inspection requires reaching the station and facing its equipment. Do not count a user answer as an inspection. You can inspect the known living_cabinet before clarifying extra_station.",
+        "observation": {
+          "simulation_step": 1808,
+          "robot_pose": [
+            0.3444,
+            1.2502,
+            1.4509
+          ],
+          "current_room": "living_room",
+          "known_map": {
+            "version": "three_room_station_layout_v9",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "fixture_xy": [
+                  -3.56,
+                  2.15
+                ],
+                "name": "Kitchen counter",
+                "room": "kitchen",
+                "xy": [
+                  -3.56,
+                  1.23
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "fixture_xy": [
+                  -4.44,
+                  -2.15
+                ],
+                "name": "Kitchen shelf",
+                "room": "kitchen",
+                "xy": [
+                  -4.44,
+                  -1.23
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "fixture_xy": [
+                  0.44,
+                  2.15
+                ],
+                "name": "Living room cabinet",
+                "room": "living_room",
+                "xy": [
+                  0.44,
+                  1.23
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "fixture_xy": [
+                  -0.44,
+                  -2.15
+                ],
+                "name": "Living room table",
+                "room": "living_room",
+                "xy": [
+                  -0.44,
+                  -1.23
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "fixture_xy": [
+                  4.44,
+                  2.15
+                ],
+                "name": "Study desk",
+                "room": "study",
+                "xy": [
+                  4.44,
+                  1.23
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "fixture_xy": [
+                  3.56,
+                  -2.15
+                ],
+                "name": "Study shelf",
+                "room": "study",
+                "xy": [
+                  3.56,
+                  -1.23
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "inspect_then_return": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "robot_actions": 12
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {
+            "living_cabinet": {
+              "observed_step": 1808,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            }
+          },
+          "robot_stopped": true,
+          "distance_travelled_m": 1.5447,
+          "route_distances_m": {
+            "kitchen_counter": 6.603,
+            "kitchen_shelf": 6.603,
+            "living_cabinet": 0.098,
+            "living_table": 2.601,
+            "study_desk": 6.603,
+            "study_shelf": 6.603
+          },
+          "task": {
+            "home_radius_m": 0.22,
+            "home_xy": [
+              0,
+              0
+            ],
+            "required_station": "living_cabinet",
+            "template_id": "patrol_return",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "inspect_known",
+                  "return_home"
+                ],
+                [
+                  "inspect_selected",
+                  "return_home"
+                ]
+              ],
+              "nodes": [
+                "inspect_known",
+                "inspect_selected",
+                "return_home"
+              ]
+            },
+            "preference_slots": {
+              "extra_station": {
+                "candidate_ids": [
+                  "study_shelf",
+                  "study_desk"
+                ],
+                "kind": "preference",
+                "description": "Which additional study-room inspection station should be visited?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "inspection_evidence": [
+            {
+              "step": 1808,
+              "location_id": "living_cabinet",
+              "robot_pose": [
+                0.34441878867118847,
+                1.2501879884925124,
+                1.45094115965638
+              ],
+              "distance_m": 0.09768993212433279,
+              "yaw_error": 0.11985516713851663,
+              "fixture_distance_m": 0.6356475194934961,
+              "ray_hit_body": 27,
+              "ray_hit_point": [
+                0.43513579250271617,
+                2.1,
+                0.7680632929044626
+              ],
+              "ray_endpoint": [
+                0.44,
+                2.15,
+                0.74
+              ],
+              "success": true
+            }
+          ],
+          "return_events": [],
+          "affordances": {
+            "inspect_station": [
+              "kitchen_counter",
+              "kitchen_shelf",
+              "living_cabinet",
+              "living_table",
+              "study_desk",
+              "study_shelf"
+            ],
+            "return_home": true
+          }
+        },
+        "history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "inspect_station",
+              "object_id": "mobile_robot",
+              "target_id": "living_cabinet",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 240,
+              "end_step": 1808,
+              "distance_m": 1.5447,
+              "target_detected": false
+            }
+          }
+        ]
+      },
+      "payload_sha256": "6730bc75bdc91ba7faf9dabb59a9547487af5351a3044488807a1243d61a67ff",
+      "gate": {
+        "called": true,
+        "decision": "ASK",
+        "p_ask": null
+      },
+      "question": {
+        "type": "select",
+        "text": "Which study-room station should I inspect as the extra station: study_desk or study_shelf?",
+        "requests": [
+          {
+            "role": "extra_station",
+            "candidate_ids": [
+              "study_shelf",
+              "study_desk"
+            ]
+          }
+        ]
+      },
+      "user_answer": {
+        "choices": {
+          "extra_station": "study_desk"
+        }
+      },
+      "ask_check": {
+        "before_step": 1808,
+        "after_step": 1808,
+        "state_unchanged": true,
+        "charged_slots": 1
+      }
+    },
+    {
+      "round": 2,
+      "public_payload": {
+        "instruction": "Physically inspect living_cabinet and the user-selected extra_station (study_desk or study_shelf), then return to the starting pose area at [0,0] and stop. Inspection requires reaching the station and facing its equipment. Do not count a user answer as an inspection. You can inspect the known living_cabinet before clarifying extra_station.",
+        "observation": {
+          "simulation_step": 1808,
+          "robot_pose": [
+            0.3444,
+            1.2502,
+            1.4509
+          ],
+          "current_room": "living_room",
+          "known_map": {
+            "version": "three_room_station_layout_v9",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "fixture_xy": [
+                  -3.56,
+                  2.15
+                ],
+                "name": "Kitchen counter",
+                "room": "kitchen",
+                "xy": [
+                  -3.56,
+                  1.23
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "fixture_xy": [
+                  -4.44,
+                  -2.15
+                ],
+                "name": "Kitchen shelf",
+                "room": "kitchen",
+                "xy": [
+                  -4.44,
+                  -1.23
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "fixture_xy": [
+                  0.44,
+                  2.15
+                ],
+                "name": "Living room cabinet",
+                "room": "living_room",
+                "xy": [
+                  0.44,
+                  1.23
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "fixture_xy": [
+                  -0.44,
+                  -2.15
+                ],
+                "name": "Living room table",
+                "room": "living_room",
+                "xy": [
+                  -0.44,
+                  -1.23
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "fixture_xy": [
+                  4.44,
+                  2.15
+                ],
+                "name": "Study desk",
+                "room": "study",
+                "xy": [
+                  4.44,
+                  1.23
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "fixture_xy": [
+                  3.56,
+                  -2.15
+                ],
+                "name": "Study shelf",
+                "room": "study",
+                "xy": [
+                  3.56,
+                  -1.23
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "inspect_then_return": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "robot_actions": 12
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {
+            "living_cabinet": {
+              "observed_step": 1808,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            }
+          },
+          "robot_stopped": true,
+          "distance_travelled_m": 1.5447,
+          "route_distances_m": {
+            "kitchen_counter": 6.603,
+            "kitchen_shelf": 6.603,
+            "living_cabinet": 0.098,
+            "living_table": 2.601,
+            "study_desk": 6.603,
+            "study_shelf": 6.603
+          },
+          "task": {
+            "home_radius_m": 0.22,
+            "home_xy": [
+              0,
+              0
+            ],
+            "required_station": "living_cabinet",
+            "template_id": "patrol_return",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "inspect_known",
+                  "return_home"
+                ],
+                [
+                  "inspect_selected",
+                  "return_home"
+                ]
+              ],
+              "nodes": [
+                "inspect_known",
+                "inspect_selected",
+                "return_home"
+              ]
+            },
+            "preference_slots": {
+              "extra_station": {
+                "candidate_ids": [
+                  "study_shelf",
+                  "study_desk"
+                ],
+                "kind": "preference",
+                "description": "Which additional study-room inspection station should be visited?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "inspection_evidence": [
+            {
+              "step": 1808,
+              "location_id": "living_cabinet",
+              "robot_pose": [
+                0.34441878867118847,
+                1.2501879884925124,
+                1.45094115965638
+              ],
+              "distance_m": 0.09768993212433279,
+              "yaw_error": 0.11985516713851663,
+              "fixture_distance_m": 0.6356475194934961,
+              "ray_hit_body": 27,
+              "ray_hit_point": [
+                0.43513579250271617,
+                2.1,
+                0.7680632929044626
+              ],
+              "ray_endpoint": [
+                0.44,
+                2.15,
+                0.74
+              ],
+              "success": true
+            }
+          ],
+          "return_events": [],
+          "affordances": {
+            "inspect_station": [
+              "kitchen_counter",
+              "kitchen_shelf",
+              "living_cabinet",
+              "living_table",
+              "study_desk",
+              "study_shelf"
+            ],
+            "return_home": true
+          }
+        },
+        "history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "inspect_station",
+              "object_id": "mobile_robot",
+              "target_id": "living_cabinet",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 240,
+              "end_step": 1808,
+              "distance_m": 1.5447,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which study-room station should I inspect as the extra station: study_desk or study_shelf?",
+              "requests": [
+                {
+                  "role": "extra_station",
+                  "candidate_ids": [
+                    "study_shelf",
+                    "study_desk"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "extra_station": "study_desk"
+              }
+            }
+          }
+        ]
+      },
+      "payload_sha256": "1483568117ac9c02ae1a3c76afae10ca83c7947cf1bf75893b1165a0bd01376b",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "inspect_station",
+        "location_id": "study_desk"
+      },
+      "physical_result": {
+        "skill": "inspect_station",
+        "object_id": "mobile_robot",
+        "target_id": "study_desk",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 1808,
+        "end_step": 5817,
+        "distance_m": 7.4597,
+        "target_detected": false
+      }
+    },
+    {
+      "round": 3,
+      "public_payload": {
+        "instruction": "Physically inspect living_cabinet and the user-selected extra_station (study_desk or study_shelf), then return to the starting pose area at [0,0] and stop. Inspection requires reaching the station and facing its equipment. Do not count a user answer as an inspection. You can inspect the known living_cabinet before clarifying extra_station.",
+        "observation": {
+          "simulation_step": 5817,
+          "robot_pose": [
+            4.4005,
+            1.2333,
+            1.4511
+          ],
+          "current_room": "study",
+          "known_map": {
+            "version": "three_room_station_layout_v9",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "fixture_xy": [
+                  -3.56,
+                  2.15
+                ],
+                "name": "Kitchen counter",
+                "room": "kitchen",
+                "xy": [
+                  -3.56,
+                  1.23
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "fixture_xy": [
+                  -4.44,
+                  -2.15
+                ],
+                "name": "Kitchen shelf",
+                "room": "kitchen",
+                "xy": [
+                  -4.44,
+                  -1.23
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "fixture_xy": [
+                  0.44,
+                  2.15
+                ],
+                "name": "Living room cabinet",
+                "room": "living_room",
+                "xy": [
+                  0.44,
+                  1.23
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "fixture_xy": [
+                  -0.44,
+                  -2.15
+                ],
+                "name": "Living room table",
+                "room": "living_room",
+                "xy": [
+                  -0.44,
+                  -1.23
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "fixture_xy": [
+                  4.44,
+                  2.15
+                ],
+                "name": "Study desk",
+                "room": "study",
+                "xy": [
+                  4.44,
+                  1.23
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "fixture_xy": [
+                  3.56,
+                  -2.15
+                ],
+                "name": "Study shelf",
+                "room": "study",
+                "xy": [
+                  3.56,
+                  -1.23
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "inspect_then_return": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "robot_actions": 12
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {
+            "living_cabinet": {
+              "observed_step": 1808,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "study_desk": {
+              "observed_step": 5817,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            }
+          },
+          "robot_stopped": true,
+          "distance_travelled_m": 9.0044,
+          "route_distances_m": {
+            "kitchen_counter": 10.603,
+            "kitchen_shelf": 10.603,
+            "living_cabinet": 6.603,
+            "living_table": 6.603,
+            "study_desk": 0.04,
+            "study_shelf": 2.603
+          },
+          "task": {
+            "home_radius_m": 0.22,
+            "home_xy": [
+              0,
+              0
+            ],
+            "required_station": "living_cabinet",
+            "template_id": "patrol_return",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "inspect_known",
+                  "return_home"
+                ],
+                [
+                  "inspect_selected",
+                  "return_home"
+                ]
+              ],
+              "nodes": [
+                "inspect_known",
+                "inspect_selected",
+                "return_home"
+              ]
+            },
+            "preference_slots": {
+              "extra_station": {
+                "candidate_ids": [
+                  "study_shelf",
+                  "study_desk"
+                ],
+                "kind": "preference",
+                "description": "Which additional study-room inspection station should be visited?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "inspection_evidence": [
+            {
+              "step": 1808,
+              "location_id": "living_cabinet",
+              "robot_pose": [
+                0.34441878867118847,
+                1.2501879884925124,
+                1.45094115965638
+              ],
+              "distance_m": 0.09768993212433279,
+              "yaw_error": 0.11985516713851663,
+              "fixture_distance_m": 0.6356475194934961,
+              "ray_hit_body": 27,
+              "ray_hit_point": [
+                0.43513579250271617,
+                2.1,
+                0.7680632929044626
+              ],
+              "ray_endpoint": [
+                0.44,
+                2.15,
+                0.74
+              ],
+              "success": true
+            },
+            {
+              "step": 5817,
+              "location_id": "study_desk",
+              "robot_pose": [
+                4.400530650087878,
+                1.2332500631523686,
+                1.4511267110327501
+              ],
+              "distance_m": 0.03960293540862815,
+              "yaw_error": 0.11966961576214619,
+              "fixture_distance_m": 0.648193212478852,
+              "ray_hit_body": 29,
+              "ray_hit_point": [
+                4.4402033469365225,
+                2.0999999999999996,
+                0.7672286620156782
+              ],
+              "ray_endpoint": [
+                4.44,
+                2.15,
+                0.74
+              ],
+              "success": true
+            }
+          ],
+          "return_events": [],
+          "affordances": {
+            "inspect_station": [
+              "kitchen_counter",
+              "kitchen_shelf",
+              "living_cabinet",
+              "living_table",
+              "study_desk",
+              "study_shelf"
+            ],
+            "return_home": true
+          }
+        },
+        "history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "inspect_station",
+              "object_id": "mobile_robot",
+              "target_id": "living_cabinet",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 240,
+              "end_step": 1808,
+              "distance_m": 1.5447,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which study-room station should I inspect as the extra station: study_desk or study_shelf?",
+              "requests": [
+                {
+                  "role": "extra_station",
+                  "candidate_ids": [
+                    "study_shelf",
+                    "study_desk"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "extra_station": "study_desk"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "inspect_station",
+              "object_id": "mobile_robot",
+              "target_id": "study_desk",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 1808,
+              "end_step": 5817,
+              "distance_m": 7.4597,
+              "target_detected": false
+            }
+          }
+        ]
+      },
+      "payload_sha256": "a75d19c98c3b22bf3df02adbf8af297bff143137e242998cb9c7a012a45a2755",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "return_home"
+      },
+      "physical_result": {
+        "skill": "return_home",
+        "object_id": "mobile_robot",
+        "target_id": "home",
+        "success": true,
+        "reason": "returned",
+        "start_step": 5817,
+        "end_step": 8670
+      }
+    },
+    {
+      "round": 4,
+      "public_payload": {
+        "instruction": "Physically inspect living_cabinet and the user-selected extra_station (study_desk or study_shelf), then return to the starting pose area at [0,0] and stop. Inspection requires reaching the station and facing its equipment. Do not count a user answer as an inspection. You can inspect the known living_cabinet before clarifying extra_station.",
+        "observation": {
+          "simulation_step": 8670,
+          "robot_pose": [
+            0.1184,
+            -0.0902,
+            2.8234
+          ],
+          "current_room": "living_room",
+          "known_map": {
+            "version": "three_room_station_layout_v9",
+            "rooms": {
+              "kitchen": [
+                -4.0,
+                0.0
+              ],
+              "living_room": [
+                0.0,
+                0.0
+              ],
+              "study": [
+                4.0,
+                0.0
+              ]
+            },
+            "doorways": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "locations": {
+              "kitchen_counter": {
+                "fixture_xy": [
+                  -3.56,
+                  2.15
+                ],
+                "name": "Kitchen counter",
+                "room": "kitchen",
+                "xy": [
+                  -3.56,
+                  1.23
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "kitchen_shelf": {
+                "fixture_xy": [
+                  -4.44,
+                  -2.15
+                ],
+                "name": "Kitchen shelf",
+                "room": "kitchen",
+                "xy": [
+                  -4.44,
+                  -1.23
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "living_cabinet": {
+                "fixture_xy": [
+                  0.44,
+                  2.15
+                ],
+                "name": "Living room cabinet",
+                "room": "living_room",
+                "xy": [
+                  0.44,
+                  1.23
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "living_table": {
+                "fixture_xy": [
+                  -0.44,
+                  -2.15
+                ],
+                "name": "Living room table",
+                "room": "living_room",
+                "xy": [
+                  -0.44,
+                  -1.23
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "study_desk": {
+                "fixture_xy": [
+                  4.44,
+                  2.15
+                ],
+                "name": "Study desk",
+                "room": "study",
+                "xy": [
+                  4.44,
+                  1.23
+                ],
+                "yaw": 1.5707963267948966
+              },
+              "study_shelf": {
+                "fixture_xy": [
+                  3.56,
+                  -2.15
+                ],
+                "name": "Study shelf",
+                "room": "study",
+                "xy": [
+                  3.56,
+                  -1.23
+                ],
+                "yaw": -1.5707963267948966
+              }
+            },
+            "sensing": {
+              "range_m": 1.65,
+              "horizontal_fov_degrees": 90,
+              "requires_line_of_sight": true
+            },
+            "goal": {
+              "inspect_then_return": true
+            },
+            "limits": {
+              "distance_m": 36,
+              "robot_actions": 12
+            },
+            "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+          },
+          "checked_locations": {
+            "living_cabinet": {
+              "observed_step": 1808,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            },
+            "study_desk": {
+              "observed_step": 5817,
+              "target_detected": false,
+              "scope": "local_station_inspection"
+            }
+          },
+          "robot_stopped": true,
+          "distance_travelled_m": 14.6522,
+          "route_distances_m": {
+            "kitchen_counter": 5.455,
+            "kitchen_shelf": 5.455,
+            "living_cabinet": 1.359,
+            "living_table": 1.269,
+            "study_desk": 5.455,
+            "study_shelf": 5.455
+          },
+          "task": {
+            "home_radius_m": 0.22,
+            "home_xy": [
+              0,
+              0
+            ],
+            "required_station": "living_cabinet",
+            "template_id": "patrol_return",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "inspect_known",
+                  "return_home"
+                ],
+                [
+                  "inspect_selected",
+                  "return_home"
+                ]
+              ],
+              "nodes": [
+                "inspect_known",
+                "inspect_selected",
+                "return_home"
+              ]
+            },
+            "preference_slots": {
+              "extra_station": {
+                "candidate_ids": [
+                  "study_shelf",
+                  "study_desk"
+                ],
+                "kind": "preference",
+                "description": "Which additional study-room inspection station should be visited?"
+              }
+            },
+            "initial_choices": {}
+          },
+          "inspection_evidence": [
+            {
+              "step": 1808,
+              "location_id": "living_cabinet",
+              "robot_pose": [
+                0.34441878867118847,
+                1.2501879884925124,
+                1.45094115965638
+              ],
+              "distance_m": 0.09768993212433279,
+              "yaw_error": 0.11985516713851663,
+              "fixture_distance_m": 0.6356475194934961,
+              "ray_hit_body": 27,
+              "ray_hit_point": [
+                0.43513579250271617,
+                2.1,
+                0.7680632929044626
+              ],
+              "ray_endpoint": [
+                0.44,
+                2.15,
+                0.74
+              ],
+              "success": true
+            },
+            {
+              "step": 5817,
+              "location_id": "study_desk",
+              "robot_pose": [
+                4.400530650087878,
+                1.2332500631523686,
+                1.4511267110327501
+              ],
+              "distance_m": 0.03960293540862815,
+              "yaw_error": 0.11966961576214619,
+              "fixture_distance_m": 0.648193212478852,
+              "ray_hit_body": 29,
+              "ray_hit_point": [
+                4.4402033469365225,
+                2.0999999999999996,
+                0.7672286620156782
+              ],
+              "ray_endpoint": [
+                4.44,
+                2.15,
+                0.74
+              ],
+              "success": true
+            }
+          ],
+          "return_events": [
+            {
+              "step": 8670,
+              "robot_pose": [
+                0.11835485212269369,
+                -0.09020051402287932,
+                2.823419337021944
+              ]
+            }
+          ],
+          "affordances": {
+            "inspect_station": [
+              "kitchen_counter",
+              "kitchen_shelf",
+              "living_cabinet",
+              "living_table",
+              "study_desk",
+              "study_shelf"
+            ],
+            "return_home": true
+          }
+        },
+        "history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "inspect_station",
+              "object_id": "mobile_robot",
+              "target_id": "living_cabinet",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 240,
+              "end_step": 1808,
+              "distance_m": 1.5447,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which study-room station should I inspect as the extra station: study_desk or study_shelf?",
+              "requests": [
+                {
+                  "role": "extra_station",
+                  "candidate_ids": [
+                    "study_shelf",
+                    "study_desk"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "extra_station": "study_desk"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "inspect_station",
+              "object_id": "mobile_robot",
+              "target_id": "study_desk",
+              "success": true,
+              "reason": "inspected",
+              "start_step": 1808,
+              "end_step": 5817,
+              "distance_m": 7.4597,
+              "target_detected": false
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "return_home",
+              "object_id": "mobile_robot",
+              "target_id": "home",
+              "success": true,
+              "reason": "returned",
+              "start_step": 5817,
+              "end_step": 8670
+            }
+          }
+        ]
+      },
+      "payload_sha256": "41d191d53cf238b1c9ffadaff16a9b675f2b12b9582973e9137e731e6a2465aa",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "DONE"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "skill": "inspect_station",
+      "object_id": "mobile_robot",
+      "target_id": "living_cabinet",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 240,
+      "end_step": 1808,
+      "distance_m": 1.5447,
+      "target_detected": false
+    },
+    {
+      "skill": "inspect_station",
+      "object_id": "mobile_robot",
+      "target_id": "study_desk",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 1808,
+      "end_step": 5817,
+      "distance_m": 7.4597,
+      "target_detected": false
+    },
+    {
+      "skill": "return_home",
+      "object_id": "mobile_robot",
+      "target_id": "home",
+      "success": true,
+      "reason": "returned",
+      "start_step": 5817,
+      "end_step": 8670
+    }
+  ],
+  "public_history": [
+    {
+      "kind": "action",
+      "result": {
+        "skill": "inspect_station",
+        "object_id": "mobile_robot",
+        "target_id": "living_cabinet",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 240,
+        "end_step": 1808,
+        "distance_m": 1.5447,
+        "target_detected": false
+      }
+    },
+    {
+      "kind": "ask",
+      "question": {
+        "type": "select",
+        "text": "Which study-room station should I inspect as the extra station: study_desk or study_shelf?",
+        "requests": [
+          {
+            "role": "extra_station",
+            "candidate_ids": [
+              "study_shelf",
+              "study_desk"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "user_answer",
+      "response": {
+        "choices": {
+          "extra_station": "study_desk"
+        }
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "inspect_station",
+        "object_id": "mobile_robot",
+        "target_id": "study_desk",
+        "success": true,
+        "reason": "inspected",
+        "start_step": 1808,
+        "end_step": 5817,
+        "distance_m": 7.4597,
+        "target_detected": false
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "return_home",
+        "object_id": "mobile_robot",
+        "target_id": "home",
+        "success": true,
+        "reason": "returned",
+        "start_step": 5817,
+        "end_step": 8670
+      }
+    }
+  ],
+  "evaluation": {
+    "task_success": true,
+    "termination_reason": "done",
+    "conditions": {
+      "required_stations_physically_inspected": true,
+      "returned_to_start": true,
+      "inspections_before_return": true,
+      "robot_stopped": true,
+      "no_wall_penetration": true,
+      "distance_budget_respected": true
+    },
+    "clarification_burden": 1,
+    "action_count": 3,
+    "simulation_steps": 8670,
+    "details": {
+      "required_stations": [
+        "living_cabinet",
+        "study_desk"
+      ],
+      "inspection_evidence": [
+        {
+          "step": 1808,
+          "location_id": "living_cabinet",
+          "robot_pose": [
+            0.34441878867118847,
+            1.2501879884925124,
+            1.45094115965638
+          ],
+          "distance_m": 0.09768993212433279,
+          "yaw_error": 0.11985516713851663,
+          "fixture_distance_m": 0.6356475194934961,
+          "ray_hit_body": 27,
+          "ray_hit_point": [
+            0.43513579250271617,
+            2.1,
+            0.7680632929044626
+          ],
+          "ray_endpoint": [
+            0.44,
+            2.15,
+            0.74
+          ],
+          "success": true
+        },
+        {
+          "step": 5817,
+          "location_id": "study_desk",
+          "robot_pose": [
+            4.400530650087878,
+            1.2332500631523686,
+            1.4511267110327501
+          ],
+          "distance_m": 0.03960293540862815,
+          "yaw_error": 0.11966961576214619,
+          "fixture_distance_m": 0.648193212478852,
+          "ray_hit_body": 29,
+          "ray_hit_point": [
+            4.4402033469365225,
+            2.0999999999999996,
+            0.7672286620156782
+          ],
+          "ray_endpoint": [
+            4.44,
+            2.15,
+            0.74
+          ],
+          "success": true
+        }
+      ],
+      "final_pose": [
+        0.11835485212269369,
+        -0.09020051402287932,
+        2.823419337021944
+      ],
+      "distance_m": 14.652168677997729
+    },
+    "evaluator_version": "task6_patrol_v1_criteria_map_adapter_v9"
+  },
+  "termination_reason": "done",
+  "error": null,
+  "cost": {
+    "deepseek": {
+      "attempts": 10,
+      "input_tokens": 18629,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 129,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 8518.801000958774,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 10,
+    "api_latency_ms": 8518.801000958774,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "wall_time_s": 9.202699249988655,
+  "final_observation": {
+    "simulation_step": 8670,
+    "robot_pose": [
+      0.1184,
+      -0.0902,
+      2.8234
+    ],
+    "current_room": "living_room",
+    "known_map": {
+      "version": "three_room_station_layout_v9",
+      "rooms": {
+        "kitchen": [
+          -4.0,
+          0.0
+        ],
+        "living_room": [
+          0.0,
+          0.0
+        ],
+        "study": [
+          4.0,
+          0.0
+        ]
+      },
+      "doorways": [
+        [
+          -2,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "locations": {
+        "kitchen_counter": {
+          "fixture_xy": [
+            -3.56,
+            2.15
+          ],
+          "name": "Kitchen counter",
+          "room": "kitchen",
+          "xy": [
+            -3.56,
+            1.23
+          ],
+          "yaw": 1.5707963267948966
+        },
+        "kitchen_shelf": {
+          "fixture_xy": [
+            -4.44,
+            -2.15
+          ],
+          "name": "Kitchen shelf",
+          "room": "kitchen",
+          "xy": [
+            -4.44,
+            -1.23
+          ],
+          "yaw": -1.5707963267948966
+        },
+        "living_cabinet": {
+          "fixture_xy": [
+            0.44,
+            2.15
+          ],
+          "name": "Living room cabinet",
+          "room": "living_room",
+          "xy": [
+            0.44,
+            1.23
+          ],
+          "yaw": 1.5707963267948966
+        },
+        "living_table": {
+          "fixture_xy": [
+            -0.44,
+            -2.15
+          ],
+          "name": "Living room table",
+          "room": "living_room",
+          "xy": [
+            -0.44,
+            -1.23
+          ],
+          "yaw": -1.5707963267948966
+        },
+        "study_desk": {
+          "fixture_xy": [
+            4.44,
+            2.15
+          ],
+          "name": "Study desk",
+          "room": "study",
+          "xy": [
+            4.44,
+            1.23
+          ],
+          "yaw": 1.5707963267948966
+        },
+        "study_shelf": {
+          "fixture_xy": [
+            3.56,
+            -2.15
+          ],
+          "name": "Study shelf",
+          "room": "study",
+          "xy": [
+            3.56,
+            -1.23
+          ],
+          "yaw": -1.5707963267948966
+        }
+      },
+      "sensing": {
+        "range_m": 1.65,
+        "horizontal_fov_degrees": 90,
+        "requires_line_of_sight": true
+      },
+      "goal": {
+        "inspect_then_return": true
+      },
+      "limits": {
+        "distance_m": 36,
+        "robot_actions": 12
+      },
+      "search_scope": "Six declared open-surface inspection stations; a negative observation covers the inspected station, not an entire room."
+    },
+    "checked_locations": {
+      "living_cabinet": {
+        "observed_step": 1808,
+        "target_detected": false,
+        "scope": "local_station_inspection"
+      },
+      "study_desk": {
+        "observed_step": 5817,
+        "target_detected": false,
+        "scope": "local_station_inspection"
+      }
+    },
+    "robot_stopped": true,
+    "distance_travelled_m": 14.6522,
+    "route_distances_m": {
+      "kitchen_counter": 5.455,
+      "kitchen_shelf": 5.455,
+      "living_cabinet": 1.359,
+      "living_table": 1.269,
+      "study_desk": 5.455,
+      "study_shelf": 5.455
+    },
+    "task": {
+      "home_radius_m": 0.22,
+      "home_xy": [
+        0,
+        0
+      ],
+      "required_station": "living_cabinet",
+      "template_id": "patrol_return",
+      "version": "six_tasks_dev_v1",
+      "dag": {
+        "edges": [
+          [
+            "inspect_known",
+            "return_home"
+          ],
+          [
+            "inspect_selected",
+            "return_home"
+          ]
+        ],
+        "nodes": [
+          "inspect_known",
+          "inspect_selected",
+          "return_home"
+        ]
+      },
+      "preference_slots": {
+        "extra_station": {
+          "candidate_ids": [
+            "study_shelf",
+            "study_desk"
+          ],
+          "kind": "preference",
+          "description": "Which additional study-room inspection station should be visited?"
+        }
+      },
+      "initial_choices": {}
+    },
+    "inspection_evidence": [
+      {
+        "step": 1808,
+        "location_id": "living_cabinet",
+        "robot_pose": [
+          0.34441878867118847,
+          1.2501879884925124,
+          1.45094115965638
+        ],
+        "distance_m": 0.09768993212433279,
+        "yaw_error": 0.11985516713851663,
+        "fixture_distance_m": 0.6356475194934961,
+        "ray_hit_body": 27,
+        "ray_hit_point": [
+          0.43513579250271617,
+          2.1,
+          0.7680632929044626
+        ],
+        "ray_endpoint": [
+          0.44,
+          2.15,
+          0.74
+        ],
+        "success": true
+      },
+      {
+        "step": 5817,
+        "location_id": "study_desk",
+        "robot_pose": [
+          4.400530650087878,
+          1.2332500631523686,
+          1.4511267110327501
+        ],
+        "distance_m": 0.03960293540862815,
+        "yaw_error": 0.11966961576214619,
+        "fixture_distance_m": 0.648193212478852,
+        "ray_hit_body": 29,
+        "ray_hit_point": [
+          4.4402033469365225,
+          2.0999999999999996,
+          0.7672286620156782
+        ],
+        "ray_endpoint": [
+          4.44,
+          2.15,
+          0.74
+        ],
+        "success": true
+      }
+    ],
+    "return_events": [
+      {
+        "step": 8670,
+        "robot_pose": [
+          0.11835485212269369,
+          -0.09020051402287932,
+          2.823419337021944
+        ]
+      }
+    ],
+    "affordances": {
+      "inspect_station": [
+        "kitchen_counter",
+        "kitchen_shelf",
+        "living_cabinet",
+        "living_table",
+        "study_desk",
+        "study_shelf"
+      ],
+      "return_home": true
+    }
+  },
+  "execution_log": [
+    {
+      "kind": "phase",
+      "step": 240,
+      "phase": "navigate",
+      "location_id": "living_cabinet"
+    },
+    {
+      "kind": "phase",
+      "step": 1339,
+      "phase": "inspect",
+      "location_id": "living_cabinet"
+    },
+    {
+      "kind": "station_inspected",
+      "step": 1808,
+      "phase": "inspect",
+      "location_id": "living_cabinet",
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 1808,
+      "phase": "idle",
+      "location_id": "living_cabinet"
+    },
+    {
+      "kind": "skill_result",
+      "step": 1808,
+      "phase": "idle",
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "living_cabinet",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 240,
+      "end_step": 1808,
+      "distance_m": 1.5447,
+      "target_detected": false
+    },
+    {
+      "kind": "patrol_inspection",
+      "step": 1808,
+      "phase": "idle",
+      "location_id": "living_cabinet",
+      "robot_pose": [
+        0.34441878867118847,
+        1.2501879884925124,
+        1.45094115965638
+      ],
+      "distance_m": 0.09768993212433279,
+      "yaw_error": 0.11985516713851663,
+      "fixture_distance_m": 0.6356475194934961,
+      "ray_hit_body": 27,
+      "ray_hit_point": [
+        0.43513579250271617,
+        2.1,
+        0.7680632929044626
+      ],
+      "ray_endpoint": [
+        0.44,
+        2.15,
+        0.74
+      ],
+      "success": true
+    },
+    {
+      "kind": "phase",
+      "step": 1808,
+      "phase": "navigate",
+      "location_id": "study_desk"
+    },
+    {
+      "kind": "phase",
+      "step": 5351,
+      "phase": "inspect",
+      "location_id": "study_desk"
+    },
+    {
+      "kind": "station_inspected",
+      "step": 5817,
+      "phase": "inspect",
+      "location_id": "study_desk",
+      "target_detected": false
+    },
+    {
+      "kind": "phase",
+      "step": 5817,
+      "phase": "idle",
+      "location_id": "study_desk"
+    },
+    {
+      "kind": "skill_result",
+      "step": 5817,
+      "phase": "idle",
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "study_desk",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 1808,
+      "end_step": 5817,
+      "distance_m": 7.4597,
+      "target_detected": false
+    },
+    {
+      "kind": "patrol_inspection",
+      "step": 5817,
+      "phase": "idle",
+      "location_id": "study_desk",
+      "robot_pose": [
+        4.400530650087878,
+        1.2332500631523686,
+        1.4511267110327501
+      ],
+      "distance_m": 0.03960293540862815,
+      "yaw_error": 0.11966961576214619,
+      "fixture_distance_m": 0.648193212478852,
+      "ray_hit_body": 29,
+      "ray_hit_point": [
+        4.4402033469365225,
+        2.0999999999999996,
+        0.7672286620156782
+      ],
+      "ray_endpoint": [
+        4.44,
+        2.15,
+        0.74
+      ],
+      "success": true
+    },
+    {
+      "kind": "skill_result",
+      "step": 8670,
+      "phase": "return_home",
+      "skill": "return_home",
+      "object_id": "mobile_robot",
+      "target_id": "home",
+      "success": true,
+      "reason": "returned",
+      "start_step": 5817,
+      "end_step": 8670
+    }
+  ],
+  "configuration": {
+    "deepseek_model": "deepseek-flash",
+    "jev_model": "jev-latest",
+    "jev_threshold": 0.5,
+    "timeout_s": 40,
+    "max_retries": 1,
+    "max_tokens": 500,
+    "thinking": "disabled",
+    "response_format": "json_object"
+  },
+  "manifest_sha256": "31aa948cee2512d867ab0cc65d415bfe53991457dccfb519708554038abe6c75"
+}

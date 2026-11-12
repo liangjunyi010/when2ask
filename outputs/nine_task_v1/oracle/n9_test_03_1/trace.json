@@ -1,0 +1,2108 @@
+{
+  "evidence_kind": "deterministic_oracle_real_pybullet",
+  "sample_id": "n9_test_03_1",
+  "group_id": "category_sorting:layout_7d9cdf531a4c8fb3",
+  "partition": "test",
+  "template_id": "category_sorting",
+  "initial_observation": {
+    "simulation_step": 240,
+    "objects": {
+      "bin_a": {
+        "category": "container",
+        "color": "orange",
+        "position": [
+          0.59,
+          -0.29,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.505,
+          -0.375,
+          0.42
+        ],
+        "aabb_max": [
+          0.6749999999999999,
+          -0.20499999999999996,
+          0.534
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "bin_b": {
+        "category": "container",
+        "color": "orange",
+        "position": [
+          0.61,
+          0.0,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.525,
+          -0.085,
+          0.42
+        ],
+        "aabb_max": [
+          0.695,
+          0.085,
+          0.534
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "bin_c": {
+        "category": "container",
+        "color": "orange",
+        "position": [
+          0.59,
+          0.29,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.505,
+          0.20499999999999996,
+          0.42
+        ],
+        "aabb_max": [
+          0.6749999999999999,
+          0.375,
+          0.534
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "cup_2": {
+        "category": "cup",
+        "color": "blue",
+        "position": [
+          0.4113954437193353,
+          -0.18089012738623556,
+          0.44998926653163446
+        ],
+        "orientation": [
+          2.9273225713388493e-05,
+          5.143546055565257e-05,
+          1.4576641767863143e-05,
+          0.9999999981424965
+        ],
+        "aabb_min": [
+          0.38430951746419156,
+          -0.20797472409669385,
+          0.4199848952108122
+        ],
+        "aabb_max": [
+          0.438481369974479,
+          -0.15380553067577726,
+          0.4799936378524567
+        ],
+        "linear_velocity": [
+          -4.653142963703528e-05,
+          1.880313661308863e-05,
+          -4.039297213477566e-05
+        ],
+        "angular_velocity": [
+          -0.0006982517174709251,
+          -0.0015207932359942626,
+          7.064571253213258e-05
+        ]
+      },
+      "block_2": {
+        "category": "block",
+        "color": "yellow",
+        "position": [
+          0.399998960336081,
+          0.06000014093420676,
+          0.4419891464415871
+        ],
+        "orientation": [
+          1.732079602627677e-06,
+          -2.376801132824651e-05,
+          -1.2601541855865574e-06,
+          0.9999999997152468
+        ],
+        "aabb_min": [
+          0.37799785912344036,
+          0.03800000927562846,
+          0.419988024461353
+        ],
+        "aabb_max": [
+          0.42200006154872166,
+          0.08200027259278506,
+          0.4639902684218212
+        ],
+        "linear_velocity": [
+          -1.1635870996877165e-12,
+          8.857958762820952e-13,
+          -1.2032250196192251e-12
+        ],
+        "angular_velocity": [
+          -3.268353414387508e-11,
+          -6.212715797125732e-11,
+          -1.1098027676252224e-11
+        ]
+      },
+      "block_1": {
+        "category": "block",
+        "color": "green",
+        "position": [
+          0.319998960336081,
+          -0.059999859065793235,
+          0.4419891464415871
+        ],
+        "orientation": [
+          1.7320796026275477e-06,
+          -2.3768011328246094e-05,
+          -1.2601541855865476e-06,
+          0.9999999997152468
+        ],
+        "aabb_min": [
+          0.29799785912344035,
+          -0.08199999072437153,
+          0.419988024461353
+        ],
+        "aabb_max": [
+          0.34200006154872165,
+          -0.03799972740721493,
+          0.4639902684218212
+        ],
+        "linear_velocity": [
+          -1.1635871006376309e-12,
+          8.857958762170954e-13,
+          -1.2032250196192251e-12
+        ],
+        "angular_velocity": [
+          -3.2683534140676276e-11,
+          -6.212715801478482e-11,
+          -1.1098027676660343e-11
+        ]
+      },
+      "cup_1": {
+        "category": "cup",
+        "color": "red",
+        "position": [
+          0.3231107549161213,
+          -0.29694216248333843,
+          0.4499893008357916
+        ],
+        "orientation": [
+          3.96000153398305e-05,
+          1.5761455829334738e-05,
+          -1.5922927880977556e-05,
+          0.9999999989649379
+        ],
+        "aabb_min": [
+          0.2960268960013353,
+          -0.3240274516254887,
+          0.4199863023198802
+        ],
+        "aabb_max": [
+          0.3501946138309073,
+          -0.2698568733411882,
+          0.47999229935170296
+        ],
+        "linear_velocity": [
+          -1.1626092537731824e-05,
+          3.160387277215683e-05,
+          -2.4522366767407155e-06
+        ],
+        "angular_velocity": [
+          -0.0010490257949574565,
+          -0.00040980901358455375,
+          -2.256431426340351e-05
+        ]
+      },
+      "puck_1": {
+        "category": "puck",
+        "color": "purple",
+        "position": [
+          0.3200026027918743,
+          0.21000282580495977,
+          0.44198927835006807
+        ],
+        "orientation": [
+          -6.234885746934529e-05,
+          5.266373046848971e-05,
+          2.7260222385411374e-06,
+          0.9999999966658601
+        ],
+        "aabb_min": [
+          0.2980001656281263,
+          0.18799996281979214,
+          0.41998421808813136
+        ],
+        "aabb_max": [
+          0.3420050399556223,
+          0.2320056887901274,
+          0.4639943386120048
+        ],
+        "linear_velocity": [
+          1.3318144164594916e-11,
+          -1.2745986080258366e-11,
+          -2.123301534595612e-15
+        ],
+        "angular_velocity": [
+          -2.6709818377681186e-12,
+          -1.893407099665254e-12,
+          4.6481867556265657e-10
+        ]
+      },
+      "puck_2": {
+        "category": "puck",
+        "color": "cyan",
+        "position": [
+          0.40000141708320286,
+          0.3400008155863494,
+          0.44198953874465885
+        ],
+        "orientation": [
+          -2.4759508129883095e-05,
+          1.183229309407399e-05,
+          1.6257024339620438e-05,
+          0.9999999994913363
+        ],
+        "aabb_min": [
+          0.3780001811758457,
+          0.31799901090195054,
+          0.41998792872929247
+        ],
+        "aabb_max": [
+          0.42200265299056,
+          0.3620026202707483,
+          0.46399114876002523
+        ],
+        "linear_velocity": [
+          1.1027482970490644e-12,
+          -9.428754008117842e-13,
+          -6.168676680573526e-15
+        ],
+        "angular_velocity": [
+          -4.5002896545038427e-13,
+          -7.484254323127331e-13,
+          3.636760814869716e-11
+        ]
+      }
+    },
+    "end_effector": [
+      0.428022563457489,
+      3.169046749462723e-06,
+      0.859183669090271
+    ],
+    "held_object": null,
+    "robot_joints": [
+      {
+        "position": 1.0696532630007442e-05,
+        "velocity": 1.1492543028346347e-17
+      },
+      {
+        "position": -0.449997729886078,
+        "velocity": 5.492134524942571e-15
+      },
+      {
+        "position": -9.03501810404587e-22,
+        "velocity": 0.0
+      },
+      {
+        "position": -2.249999902417897,
+        "velocity": 4.657385588302532e-14
+      },
+      {
+        "position": -7.849520546658477e-06,
+        "velocity": -6.938893903907228e-18
+      },
+      {
+        "position": 1.8499867933658418,
+        "velocity": -2.1926904736346842e-14
+      },
+      {
+        "position": 0.7854036028562704,
+        "velocity": 1.2405874938448136e-14
+      },
+      {
+        "position": 0.03999881643475243,
+        "velocity": -6.804452834519026e-16
+      },
+      {
+        "position": 0.040001211924621284,
+        "velocity": 7.671814572507429e-16
+      }
+    ],
+    "task": {
+      "categories": [
+        "cup",
+        "block",
+        "puck"
+      ],
+      "cup_bin": "bin_a",
+      "other_bins": [
+        "bin_b",
+        "bin_c"
+      ],
+      "template_id": "category_sorting",
+      "version": "six_tasks_dev_v1",
+      "dag": {
+        "edges": [],
+        "nodes": [
+          "sort_cups",
+          "sort_blocks",
+          "sort_pucks"
+        ]
+      },
+      "preference_slots": {
+        "block_bin": {
+          "candidate_ids": [
+            "bin_c",
+            "bin_b"
+          ],
+          "kind": "preference",
+          "description": "Which bin should contain the blocks? Pucks use the remaining bin."
+        }
+      },
+      "initial_choices": {
+        "block_bin": "bin_b"
+      }
+    },
+    "containers": {
+      "bin_a": {
+        "xy": [
+          0.59,
+          -0.29
+        ],
+        "half": [
+          0.085,
+          0.085
+        ],
+        "inner": [
+          0.07300000000000001,
+          0.07300000000000001
+        ],
+        "floor": 0.434,
+        "rim": 0.534,
+        "contents": [],
+        "contents_observed": true
+      },
+      "bin_b": {
+        "xy": [
+          0.61,
+          0
+        ],
+        "half": [
+          0.085,
+          0.085
+        ],
+        "inner": [
+          0.07300000000000001,
+          0.07300000000000001
+        ],
+        "floor": 0.434,
+        "rim": 0.534,
+        "contents": [],
+        "contents_observed": true
+      },
+      "bin_c": {
+        "xy": [
+          0.59,
+          0.29
+        ],
+        "half": [
+          0.085,
+          0.085
+        ],
+        "inner": [
+          0.07300000000000001,
+          0.07300000000000001
+        ],
+        "floor": 0.434,
+        "rim": 0.534,
+        "contents": [],
+        "contents_observed": true
+      }
+    },
+    "zones": {},
+    "inspections": [],
+    "reports": [],
+    "sensor": null,
+    "affordances": {
+      "move": {
+        "cup_2": [
+          "bin_a",
+          "bin_b",
+          "bin_c"
+        ],
+        "block_2": [
+          "bin_a",
+          "bin_b",
+          "bin_c"
+        ],
+        "block_1": [
+          "bin_a",
+          "bin_b",
+          "bin_c"
+        ],
+        "cup_1": [
+          "bin_a",
+          "bin_b",
+          "bin_c"
+        ],
+        "puck_1": [
+          "bin_a",
+          "bin_b",
+          "bin_c"
+        ],
+        "puck_2": [
+          "bin_a",
+          "bin_b",
+          "bin_c"
+        ]
+      },
+      "cover": [],
+      "inspect": []
+    }
+  },
+  "final_observation": {
+    "simulation_step": 21123,
+    "objects": {
+      "bin_a": {
+        "category": "container",
+        "color": "orange",
+        "position": [
+          0.59,
+          -0.29,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.505,
+          -0.375,
+          0.42
+        ],
+        "aabb_max": [
+          0.6749999999999999,
+          -0.20499999999999996,
+          0.534
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "bin_b": {
+        "category": "container",
+        "color": "orange",
+        "position": [
+          0.61,
+          0.0,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.525,
+          -0.085,
+          0.42
+        ],
+        "aabb_max": [
+          0.695,
+          0.085,
+          0.534
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "bin_c": {
+        "category": "container",
+        "color": "orange",
+        "position": [
+          0.59,
+          0.29,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.505,
+          0.20499999999999996,
+          0.42
+        ],
+        "aabb_max": [
+          0.6749999999999999,
+          0.375,
+          0.534
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "cup_2": {
+        "category": "cup",
+        "color": "blue",
+        "position": [
+          0.5550395632590267,
+          -0.2898149687348845,
+          0.46398868242260866
+        ],
+        "orientation": [
+          -3.527194175019319e-06,
+          -6.367281255099052e-05,
+          0.003432180449756261,
+          0.9999941080179884
+        ],
+        "aabb_min": [
+          0.5277684297809745,
+          -0.31708247990179256,
+          0.4339850316789329
+        ],
+        "aabb_max": [
+          0.5823106967370789,
+          -0.2625474575679764,
+          0.49399233316628444
+        ],
+        "linear_velocity": [
+          2.5827072491136015e-07,
+          1.7540191190122304e-06,
+          1.3549439348281567e-12
+        ],
+        "angular_velocity": [
+          -1.3879752185758225e-10,
+          5.5479301014095916e-11,
+          6.664157135326124e-05
+        ]
+      },
+      "block_2": {
+        "category": "block",
+        "color": "yellow",
+        "position": [
+          0.575021315735324,
+          6.18581494678813e-05,
+          0.45598959582403076
+        ],
+        "orientation": [
+          1.082068532247142e-06,
+          -1.1289247318599458e-05,
+          -6.933073273554802e-06,
+          0.9999999999116572
+        ],
+        "aabb_min": [
+          0.553020513961148,
+          -0.021938494511698704,
+          0.43398905148867883
+        ],
+        "aabb_max": [
+          0.5970221175095,
+          0.022062210810634465,
+          0.4779901401593827
+        ],
+        "linear_velocity": [
+          -1.1668168358433108e-14,
+          1.5633709167304416e-14,
+          -1.5078216453190407e-14
+        ],
+        "angular_velocity": [
+          -6.351244191543414e-13,
+          -6.673441740750509e-13,
+          -1.5623836862598225e-13
+        ]
+      },
+      "block_1": {
+        "category": "block",
+        "color": "green",
+        "position": [
+          0.6450110069170705,
+          7.185087469793629e-05,
+          0.45598967287457864
+        ],
+        "orientation": [
+          2.266240620355579e-06,
+          -8.792005690829947e-06,
+          3.2828224702232534e-05,
+          0.9999999994199362
+        ],
+        "aabb_min": [
+          0.6230091756801507,
+          -0.021929693245953768,
+          0.4339891863247945
+        ],
+        "aabb_max": [
+          0.6670128381539903,
+          0.022073394995349643,
+          0.4779901594243628
+        ],
+        "linear_velocity": [
+          5.849251666519012e-22,
+          -2.1455438248435137e-22,
+          5.5441762292218755e-15
+        ],
+        "angular_velocity": [
+          6.519567462264055e-21,
+          2.389533925258106e-20,
+          -2.0020399528291315e-21
+        ]
+      },
+      "cup_1": {
+        "category": "cup",
+        "color": "red",
+        "position": [
+          0.6248139396569721,
+          -0.290141084165447,
+          0.4639899077043782
+        ],
+        "orientation": [
+          1.9591749514175072e-05,
+          -3.800486451809202e-05,
+          -0.0014948327835404118,
+          0.9999988818227463
+        ],
+        "aabb_min": [
+          0.5976487617682523,
+          -0.31730515224076544,
+          0.43398678665786244
+        ],
+        "aabb_max": [
+          0.6519791175456918,
+          -0.2629770160901285,
+          0.49399302875089396
+        ],
+        "linear_velocity": [
+          2.6880812719017157e-07,
+          -1.8465931022034946e-06,
+          1.6104048650156244e-11
+        ],
+        "angular_velocity": [
+          -1.7750310020839046e-10,
+          -2.0742706909000843e-09,
+          -5.185501684606076e-05
+        ]
+      },
+      "puck_1": {
+        "category": "puck",
+        "color": "purple",
+        "position": [
+          0.5550338452944586,
+          0.2899623197281826,
+          0.45598937778643805
+        ],
+        "orientation": [
+          2.0552823284516948e-05,
+          1.1510055455285925e-05,
+          -0.0006483756344244112,
+          0.9999997895270462
+        ],
+        "aabb_min": [
+          0.5330048294091796,
+          0.2679329050800709,
+          0.4339879667865092
+        ],
+        "aabb_max": [
+          0.5770628611797377,
+          0.3119917343762943,
+          0.4779907887863669
+        ],
+        "linear_velocity": [
+          1.0600894226662268e-06,
+          1.2257782487604872e-06,
+          -1.5452500390367163e-12
+        ],
+        "angular_velocity": [
+          3.679519374319686e-10,
+          -7.091270396258905e-10,
+          -6.557434333553138e-05
+        ]
+      },
+      "puck_2": {
+        "category": "puck",
+        "color": "cyan",
+        "position": [
+          0.6247804730993687,
+          0.29009784688068624,
+          0.45598968526974765
+        ],
+        "orientation": [
+          -4.6402739949234745e-05,
+          -1.3115072862625791e-05,
+          1.1951536208416249e-05,
+          0.9999999987659707
+        ],
+        "aabb_min": [
+          0.6027793701847997,
+          0.2680952793736843,
+          0.4339870666058017
+        ],
+        "aabb_max": [
+          0.6467815760139377,
+          0.31210041438768815,
+          0.4779923039336936
+        ],
+        "linear_velocity": [
+          5.0735680871410996e-06,
+          1.233634391021302e-06,
+          2.159736278706248e-11
+        ],
+        "angular_velocity": [
+          -4.463045499515175e-09,
+          -5.164959454108518e-09,
+          0.000190022051824391
+        ]
+      }
+    },
+    "end_effector": [
+      0.6243991851806641,
+      0.2898143529891968,
+      0.8297478556632996
+    ],
+    "held_object": null,
+    "robot_joints": [
+      {
+        "position": 0.23526269952288448,
+        "velocity": 2.8380076066980564e-15
+      },
+      {
+        "position": 0.4530183622923225,
+        "velocity": 6.189493362285248e-15
+      },
+      {
+        "position": 0.27417126483358806,
+        "velocity": -5.68295410730002e-15
+      },
+      {
+        "position": -1.2430895789802494,
+        "velocity": 2.0594637106796654e-14
+      },
+      {
+        "position": -0.11950819885237608,
+        "velocity": -1.2836953722228372e-15
+      },
+      {
+        "position": 1.6806848626665278,
+        "velocity": -2.6482288584261937e-14
+      },
+      {
+        "position": 1.2815142515384894,
+        "velocity": -2.6329632918375978e-14
+      },
+      {
+        "position": 0.040000000000000015,
+        "velocity": -6.66350655209591e-16
+      },
+      {
+        "position": 0.03999995522940788,
+        "velocity": -7.268491364342822e-16
+      }
+    ],
+    "task": {
+      "categories": [
+        "cup",
+        "block",
+        "puck"
+      ],
+      "cup_bin": "bin_a",
+      "other_bins": [
+        "bin_b",
+        "bin_c"
+      ],
+      "template_id": "category_sorting",
+      "version": "six_tasks_dev_v1",
+      "dag": {
+        "edges": [],
+        "nodes": [
+          "sort_cups",
+          "sort_blocks",
+          "sort_pucks"
+        ]
+      },
+      "preference_slots": {
+        "block_bin": {
+          "candidate_ids": [
+            "bin_c",
+            "bin_b"
+          ],
+          "kind": "preference",
+          "description": "Which bin should contain the blocks? Pucks use the remaining bin."
+        }
+      },
+      "initial_choices": {
+        "block_bin": "bin_b"
+      }
+    },
+    "containers": {
+      "bin_a": {
+        "xy": [
+          0.59,
+          -0.29
+        ],
+        "half": [
+          0.085,
+          0.085
+        ],
+        "inner": [
+          0.07300000000000001,
+          0.07300000000000001
+        ],
+        "floor": 0.434,
+        "rim": 0.534,
+        "contents": [
+          "cup_2",
+          "cup_1"
+        ],
+        "contents_observed": true
+      },
+      "bin_b": {
+        "xy": [
+          0.61,
+          0
+        ],
+        "half": [
+          0.085,
+          0.085
+        ],
+        "inner": [
+          0.07300000000000001,
+          0.07300000000000001
+        ],
+        "floor": 0.434,
+        "rim": 0.534,
+        "contents": [
+          "block_2",
+          "block_1"
+        ],
+        "contents_observed": true
+      },
+      "bin_c": {
+        "xy": [
+          0.59,
+          0.29
+        ],
+        "half": [
+          0.085,
+          0.085
+        ],
+        "inner": [
+          0.07300000000000001,
+          0.07300000000000001
+        ],
+        "floor": 0.434,
+        "rim": 0.534,
+        "contents": [
+          "puck_1",
+          "puck_2"
+        ],
+        "contents_observed": true
+      }
+    },
+    "zones": {},
+    "inspections": [],
+    "reports": [],
+    "sensor": null,
+    "affordances": {
+      "move": {
+        "cup_2": [
+          "bin_a",
+          "bin_b",
+          "bin_c"
+        ],
+        "block_2": [
+          "bin_a",
+          "bin_b",
+          "bin_c"
+        ],
+        "block_1": [
+          "bin_a",
+          "bin_b",
+          "bin_c"
+        ],
+        "cup_1": [
+          "bin_a",
+          "bin_b",
+          "bin_c"
+        ],
+        "puck_1": [
+          "bin_a",
+          "bin_b",
+          "bin_c"
+        ],
+        "puck_2": [
+          "bin_a",
+          "bin_b",
+          "bin_c"
+        ]
+      },
+      "cover": [],
+      "inspect": []
+    }
+  },
+  "proposed_actions": [
+    {
+      "kind": "move",
+      "object_id": "cup_2",
+      "target_id": "bin_a"
+    },
+    {
+      "kind": "move",
+      "object_id": "block_2",
+      "target_id": "bin_b"
+    },
+    {
+      "kind": "move",
+      "object_id": "block_1",
+      "target_id": "bin_b"
+    },
+    {
+      "kind": "move",
+      "object_id": "cup_1",
+      "target_id": "bin_a"
+    },
+    {
+      "kind": "move",
+      "object_id": "puck_1",
+      "target_id": "bin_c"
+    },
+    {
+      "kind": "move",
+      "object_id": "puck_2",
+      "target_id": "bin_c"
+    }
+  ],
+  "actions": [
+    {
+      "skill": "move",
+      "object_id": "cup_2",
+      "target_id": "bin_a",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3391,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "block_2",
+      "target_id": "bin_b",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3391,
+      "end_step": 6877,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "block_1",
+      "target_id": "bin_b",
+      "success": true,
+      "reason": "placed",
+      "start_step": 6877,
+      "end_step": 10429,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "cup_1",
+      "target_id": "bin_a",
+      "success": true,
+      "reason": "placed",
+      "start_step": 10429,
+      "end_step": 14028,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "puck_1",
+      "target_id": "bin_c",
+      "success": true,
+      "reason": "placed",
+      "start_step": 14028,
+      "end_step": 17814,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "puck_2",
+      "target_id": "bin_c",
+      "success": true,
+      "reason": "placed",
+      "start_step": 17814,
+      "end_step": 21123,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "execution_log": [
+    {
+      "kind": "placement_started",
+      "object_id": "cup_2",
+      "target_id": "bin_a",
+      "step": 240
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "cup_2",
+      "step": 240,
+      "end_effector": [
+        0.428022563457489,
+        3.169046749462723e-06,
+        0.859183669090271
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "cup_2",
+      "step": 1110,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.0038962395440881046,
+      "closest_hand_distance_m": 0.018942838476721312
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "cup_2",
+      "step": 1170,
+      "end_effector": [
+        0.4113759398460388,
+        -0.18083426356315613,
+        0.49810516834259033
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "cup_2",
+      "step": 1639,
+      "end_effector": [
+        0.411418616771698,
+        -0.18089258670806885,
+        0.8254103660583496
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "cup_2",
+      "step": 1894,
+      "end_effector": [
+        0.5510434508323669,
+        -0.2869354784488678,
+        0.8297556638717651
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "cup_2",
+      "step": 2522
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "cup_2",
+      "step": 3151,
+      "end_effector": [
+        0.5548980236053467,
+        -0.28978821635246277,
+        0.8261628150939941
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "cup_2",
+      "target_id": "bin_a",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3391,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "block_2",
+      "target_id": "bin_b",
+      "step": 3391
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "block_2",
+      "step": 3391,
+      "end_effector": [
+        0.5548825860023499,
+        -0.2897818088531494,
+        0.8299307823181152
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "block_2",
+      "step": 4507,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.003829866006526273,
+      "closest_hand_distance_m": 0.022514145015743184
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "block_2",
+      "step": 4567,
+      "end_effector": [
+        0.39998725056648254,
+        0.05992992967367172,
+        0.48203787207603455
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "block_2",
+      "step": 5059,
+      "end_effector": [
+        0.4000241458415985,
+        0.06000522896647453,
+        0.8254139423370361
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "block_2",
+      "step": 5321,
+      "end_effector": [
+        0.5706508159637451,
+        0.0014697458827868104,
+        0.8298582434654236
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "block_2",
+      "step": 5981
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "block_2",
+      "step": 6637,
+      "end_effector": [
+        0.5750455856323242,
+        -2.4803737687761895e-05,
+        0.8261961340904236
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "block_2",
+      "target_id": "bin_b",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3391,
+      "end_step": 6877,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "block_1",
+      "target_id": "bin_b",
+      "step": 6877
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "block_1",
+      "step": 6877,
+      "end_effector": [
+        0.5750246047973633,
+        -2.455212415952701e-05,
+        0.8299663662910461
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "block_1",
+      "step": 7861,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.00512445138583577,
+      "closest_hand_distance_m": 0.023134500586115846
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "block_1",
+      "step": 7921,
+      "end_effector": [
+        0.31975531578063965,
+        -0.05958975479006767,
+        0.48341941833496094
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "block_1",
+      "step": 8411,
+      "end_effector": [
+        0.3200222849845886,
+        -0.060002729296684265,
+        0.8254178166389465
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "block_1",
+      "step": 8878,
+      "end_effector": [
+        0.639933168888092,
+        -0.0004062331863678992,
+        0.829759955406189
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "block_1",
+      "step": 9535
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "block_1",
+      "step": 10189,
+      "end_effector": [
+        0.6446667313575745,
+        0.0004261805152054876,
+        0.826137363910675
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "block_1",
+      "target_id": "bin_b",
+      "success": true,
+      "reason": "placed",
+      "start_step": 6877,
+      "end_step": 10429,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "cup_1",
+      "target_id": "bin_a",
+      "step": 10429
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "cup_1",
+      "step": 10429,
+      "end_effector": [
+        0.6446512341499329,
+        0.00042610595119185746,
+        0.8299062252044678
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "cup_1",
+      "step": 11578,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.0043311837487548886,
+      "closest_hand_distance_m": 0.019182456300295442
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "cup_1",
+      "step": 11638,
+      "end_effector": [
+        0.32322928309440613,
+        -0.2966119349002838,
+        0.498480886220932
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "cup_1",
+      "step": 12107,
+      "end_effector": [
+        0.32316821813583374,
+        -0.296947717666626,
+        0.825416624546051
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "cup_1",
+      "step": 12534,
+      "end_effector": [
+        0.6192775368690491,
+        -0.2894451320171356,
+        0.8294445276260376
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "cup_1",
+      "step": 13160
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "cup_1",
+      "step": 13788,
+      "end_effector": [
+        0.6244041323661804,
+        -0.28957077860832214,
+        0.8259825706481934
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "cup_1",
+      "target_id": "bin_a",
+      "success": true,
+      "reason": "placed",
+      "start_step": 10429,
+      "end_step": 14028,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "puck_1",
+      "target_id": "bin_c",
+      "step": 14028
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "puck_1",
+      "step": 14028,
+      "end_effector": [
+        0.6243906617164612,
+        -0.2895636260509491,
+        0.829748809337616
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "puck_1",
+      "step": 15365,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.00580182810730319,
+      "closest_hand_distance_m": 0.023485326852342468
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "puck_1",
+      "step": 15425,
+      "end_effector": [
+        0.31995469331741333,
+        0.20944471657276154,
+        0.48387137055397034
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "puck_1",
+      "step": 15914,
+      "end_effector": [
+        0.320024698972702,
+        0.21001242101192474,
+        0.8254125118255615
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "puck_1",
+      "step": 16265,
+      "end_effector": [
+        0.5503097176551819,
+        0.28775733709335327,
+        0.8297968506813049
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "puck_1",
+      "step": 16921
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "puck_1",
+      "step": 17574,
+      "end_effector": [
+        0.5548402667045593,
+        0.28928977251052856,
+        0.8261606097221375
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "puck_1",
+      "target_id": "bin_c",
+      "success": true,
+      "reason": "placed",
+      "start_step": 14028,
+      "end_step": 17814,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "puck_2",
+      "target_id": "bin_c",
+      "step": 17814
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "puck_2",
+      "step": 17814,
+      "end_effector": [
+        0.5548248887062073,
+        0.28928303718566895,
+        0.8299310803413391
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "puck_2",
+      "step": 18690,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.003798880906427291,
+      "closest_hand_distance_m": 0.022613405261296897
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "puck_2",
+      "step": 18750,
+      "end_effector": [
+        0.4001059830188751,
+        0.3398895263671875,
+        0.48201560974121094
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "puck_2",
+      "step": 19242,
+      "end_effector": [
+        0.39999887347221375,
+        0.33998754620552063,
+        0.8253996968269348
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "puck_2",
+      "step": 19568,
+      "end_effector": [
+        0.6194892525672913,
+        0.29062560200691223,
+        0.8294629454612732
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "puck_2",
+      "step": 20227
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "puck_2",
+      "step": 20883,
+      "end_effector": [
+        0.6244126558303833,
+        0.2898215651512146,
+        0.825981080532074
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "puck_2",
+      "target_id": "bin_c",
+      "success": true,
+      "reason": "placed",
+      "start_step": 17814,
+      "end_step": 21123,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "checkpoints": [
+    {
+      "step": 240,
+      "action": "initial",
+      "contents": {
+        "bin_a": [],
+        "bin_b": [],
+        "bin_c": []
+      },
+      "zones": {},
+      "released": true,
+      "positions": {
+        "cup_2": [
+          0.4113954437193353,
+          -0.18089012738623556,
+          0.44998926653163446
+        ],
+        "block_2": [
+          0.399998960336081,
+          0.06000014093420676,
+          0.4419891464415871
+        ],
+        "block_1": [
+          0.319998960336081,
+          -0.059999859065793235,
+          0.4419891464415871
+        ],
+        "cup_1": [
+          0.3231107549161213,
+          -0.29694216248333843,
+          0.4499893008357916
+        ],
+        "puck_1": [
+          0.3200026027918743,
+          0.21000282580495977,
+          0.44198927835006807
+        ],
+        "puck_2": [
+          0.40000141708320286,
+          0.3400008155863494,
+          0.44198953874465885
+        ]
+      }
+    },
+    {
+      "step": 3391,
+      "action": {
+        "kind": "move",
+        "object_id": "cup_2",
+        "target_id": "bin_a"
+      },
+      "contents": {
+        "bin_a": [
+          "cup_2"
+        ],
+        "bin_b": [],
+        "bin_c": []
+      },
+      "zones": {},
+      "released": true,
+      "positions": {
+        "cup_2": [
+          0.5549858088210843,
+          -0.28997366535113667,
+          0.4639887441607739
+        ],
+        "block_2": [
+          0.39999896032086335,
+          0.06000014094583865,
+          0.44198914642576903
+        ],
+        "block_1": [
+          0.31999896032086333,
+          -0.059999859054161345,
+          0.44198914642576903
+        ],
+        "cup_1": [
+          0.32312203151677926,
+          -0.29694237688944664,
+          0.4499894738283115
+        ],
+        "puck_1": [
+          0.32000260296678995,
+          0.21000282563765296,
+          0.44198927835002416
+        ],
+        "puck_2": [
+          0.40000141709772086,
+          0.3400008155739304,
+          0.4419895387446512
+        ]
+      }
+    },
+    {
+      "step": 6877,
+      "action": {
+        "kind": "move",
+        "object_id": "block_2",
+        "target_id": "bin_b"
+      },
+      "contents": {
+        "bin_a": [
+          "cup_2"
+        ],
+        "bin_b": [
+          "block_2"
+        ],
+        "bin_c": []
+      },
+      "zones": {},
+      "released": true,
+      "positions": {
+        "cup_2": [
+          0.5550020219620747,
+          -0.2899350865372596,
+          0.4639887446725343
+        ],
+        "block_2": [
+          0.575021315735324,
+          6.185814853998293e-05,
+          0.45598959582483917
+        ],
+        "block_1": [
+          0.3199989603040278,
+          -0.059999859041292805,
+          0.44198914640826453
+        ],
+        "cup_1": [
+          0.323134149380138,
+          -0.29694175431682746,
+          0.4499893103928034
+        ],
+        "puck_1": [
+          0.3200026031603018,
+          0.21000282545255886,
+          0.44198927834997553
+        ],
+        "puck_2": [
+          0.40000141711378234,
+          0.34000081556019107,
+          0.4419895387446427
+        ]
+      }
+    },
+    {
+      "step": 10429,
+      "action": {
+        "kind": "move",
+        "object_id": "block_1",
+        "target_id": "bin_b"
+      },
+      "contents": {
+        "bin_a": [
+          "cup_2"
+        ],
+        "bin_b": [
+          "block_2",
+          "block_1"
+        ],
+        "bin_c": []
+      },
+      "zones": {},
+      "released": true,
+      "positions": {
+        "cup_2": [
+          0.5550186423379637,
+          -0.2898954024459655,
+          0.46398874519541905
+        ],
+        "block_2": [
+          0.575021315735324,
+          6.185814877133693e-05,
+          0.4559895958246376
+        ],
+        "block_1": [
+          0.6450110069170705,
+          7.185087469793629e-05,
+          0.45598967287457864
+        ],
+        "cup_1": [
+          0.3231465693878448,
+          -0.29694120234818483,
+          0.4499893086352129
+        ],
+        "puck_1": [
+          0.32000260335747743,
+          0.21000282526396039,
+          0.4419892783499261
+        ],
+        "puck_2": [
+          0.4000014171301479,
+          0.3400008155461916,
+          0.4419895387446341
+        ]
+      }
+    },
+    {
+      "step": 14028,
+      "action": {
+        "kind": "move",
+        "object_id": "cup_1",
+        "target_id": "bin_a"
+      },
+      "contents": {
+        "bin_a": [
+          "cup_2",
+          "cup_1"
+        ],
+        "bin_b": [
+          "block_2",
+          "block_1"
+        ],
+        "bin_c": []
+      },
+      "zones": {},
+      "released": true,
+      "positions": {
+        "cup_2": [
+          0.5550319469952115,
+          -0.28986625344962014,
+          0.4639886824075279
+        ],
+        "block_2": [
+          0.575021315735324,
+          6.18581490057522e-05,
+          0.4559895958244334
+        ],
+        "block_1": [
+          0.6450110069170705,
+          7.185087469793629e-05,
+          0.45598967287457864
+        ],
+        "cup_1": [
+          0.6248060627482032,
+          -0.2900865972943306,
+          0.4639899072399513
+        ],
+        "puck_1": [
+          0.32000260355726207,
+          0.21000282507286638,
+          0.4419892783498759
+        ],
+        "puck_2": [
+          0.40000141714673004,
+          0.3400008155320069,
+          0.4419895387446254
+        ]
+      }
+    },
+    {
+      "step": 17814,
+      "action": {
+        "kind": "move",
+        "object_id": "puck_1",
+        "target_id": "bin_c"
+      },
+      "contents": {
+        "bin_a": [
+          "cup_2",
+          "cup_1"
+        ],
+        "bin_b": [
+          "block_2",
+          "block_1"
+        ],
+        "bin_c": [
+          "puck_1"
+        ]
+      },
+      "zones": {},
+      "released": true,
+      "positions": {
+        "cup_2": [
+          0.5550360063715214,
+          -0.2898390282389451,
+          0.4639886824040642
+        ],
+        "block_2": [
+          0.575021315735324,
+          6.185814925234742e-05,
+          0.45598959582421855
+        ],
+        "block_1": [
+          0.6450110069170705,
+          7.185087469793629e-05,
+          0.45598967287457864
+        ],
+        "cup_1": [
+          0.6248102486323139,
+          -0.2901156467030137,
+          0.46398990748266405
+        ],
+        "puck_1": [
+          0.5550006778730299,
+          0.28995807104857063,
+          0.4559895246491184
+        ],
+        "puck_2": [
+          0.40000141716417376,
+          0.34000081551708516,
+          0.44198953874461616
+        ]
+      }
+    },
+    {
+      "step": 21123,
+      "action": {
+        "kind": "move",
+        "object_id": "puck_2",
+        "target_id": "bin_c"
+      },
+      "contents": {
+        "bin_a": [
+          "cup_2",
+          "cup_1"
+        ],
+        "bin_b": [
+          "block_2",
+          "block_1"
+        ],
+        "bin_c": [
+          "puck_1",
+          "puck_2"
+        ]
+      },
+      "zones": {},
+      "released": true,
+      "positions": {
+        "cup_2": [
+          0.5550395632590267,
+          -0.2898149687348845,
+          0.46398868242260866
+        ],
+        "block_2": [
+          0.575021315735324,
+          6.18581494678813e-05,
+          0.45598959582403076
+        ],
+        "block_1": [
+          0.6450110069170705,
+          7.185087469793629e-05,
+          0.45598967287457864
+        ],
+        "cup_1": [
+          0.6248139396569721,
+          -0.290141084165447,
+          0.4639899077043782
+        ],
+        "puck_1": [
+          0.5550338452944586,
+          0.2899623197281826,
+          0.45598937778643805
+        ],
+        "puck_2": [
+          0.6247804730993687,
+          0.29009784688068624,
+          0.45598968526974765
+        ]
+      }
+    }
+  ],
+  "evaluation": {
+    "task_success": true,
+    "termination_reason": "offline_physical_oracle",
+    "conditions": {
+      "all_items_in_category_bins": true,
+      "categories_not_mixed": true,
+      "robot_released": true,
+      "all_movable_objects_stable": true
+    },
+    "details": {
+      "expected_category_bins": {
+        "cup": "bin_a",
+        "block": "bin_b",
+        "puck": "bin_c"
+      },
+      "containment": {
+        "cup_2": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.5277684297809745,
+            -0.31708247990179256,
+            0.4339850316789329
+          ],
+          "aabb_max": [
+            0.5823106967370789,
+            -0.2625474575679764,
+            0.49399233316628444
+          ]
+        },
+        "block_2": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.553020513961148,
+            -0.021938494511698704,
+            0.43398905148867883
+          ],
+          "aabb_max": [
+            0.5970221175095,
+            0.022062210810634465,
+            0.4779901401593827
+          ]
+        },
+        "block_1": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.6230091756801507,
+            -0.021929693245953768,
+            0.4339891863247945
+          ],
+          "aabb_max": [
+            0.6670128381539903,
+            0.022073394995349643,
+            0.4779901594243628
+          ]
+        },
+        "cup_1": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.5976487617682523,
+            -0.31730515224076544,
+            0.43398678665786244
+          ],
+          "aabb_max": [
+            0.6519791175456918,
+            -0.2629770160901285,
+            0.49399302875089396
+          ]
+        },
+        "puck_1": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.5330048294091796,
+            0.2679329050800709,
+            0.4339879667865092
+          ],
+          "aabb_max": [
+            0.5770628611797377,
+            0.3119917343762943,
+            0.4779907887863669
+          ]
+        },
+        "puck_2": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.6027793701847997,
+            0.2680952793736843,
+            0.4339870666058017
+          ],
+          "aabb_max": [
+            0.6467815760139377,
+            0.31210041438768815,
+            0.4779923039336936
+          ]
+        }
+      },
+      "robot_contact_counts": {
+        "cup_2": 0,
+        "block_2": 0,
+        "block_1": 0,
+        "cup_1": 0,
+        "puck_1": 0,
+        "puck_2": 0
+      }
+    },
+    "clarification_burden": 0,
+    "action_count": 6,
+    "successful_action_count": 6,
+    "simulation_steps": 21123,
+    "evaluator_version": "task6_geometry_contact_evidence_v1"
+  },
+  "api_attempts": 0
+}

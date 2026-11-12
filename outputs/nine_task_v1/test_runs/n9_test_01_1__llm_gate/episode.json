@@ -1,0 +1,1511 @@
+{
+  "experiment_id": "nine_task_pilot_v1",
+  "evidence_kind": "real_api_real_pybullet",
+  "partition": "test",
+  "sample_id": "n9_test_01_1",
+  "group_id": "place_into_selected_containers:layout_0903f32543842774",
+  "template_id": "place_into_selected_containers",
+  "method": "llm_gate",
+  "scene_seed": 886537730,
+  "instruction": "Place the preferred cup and block into separate containers: the cup uses its preferred destination, and the block must use the remaining container. The cup_destination preference chooses the cup's container and also determines the block's other container. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup_destination, use item_c34d157f53.",
+  "unknown_slots": 2,
+  "turns": [
+    {
+      "round": 0,
+      "public_payload": {
+        "instruction": "Place the preferred cup and block into separate containers: the cup uses its preferred destination, and the block must use the remaining container. The cup_destination preference chooses the cup's container and also determines the block's other container. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup_destination, use item_c34d157f53.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_b3dac890ff",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.32798,
+                0.23779,
+                0.44199
+              ],
+              "aabb_min": [
+                0.30598,
+                0.21579,
+                0.41999
+              ],
+              "aabb_max": [
+                0.34998,
+                0.25979,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_2baed8a3d0",
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.605,
+                0.165,
+                0.42
+              ],
+              "aabb_min": [
+                0.515,
+                0.085,
+                0.42
+              ],
+              "aabb_max": [
+                0.695,
+                0.245,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_0c3ab75c3a",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.38125,
+                -0.11939,
+                0.44999
+              ],
+              "aabb_min": [
+                0.35416,
+                -0.14647,
+                0.41999
+              ],
+              "aabb_max": [
+                0.40833,
+                -0.09231,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_c34d157f53",
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.575,
+                -0.195,
+                0.42
+              ],
+              "aabb_min": [
+                0.485,
+                -0.275,
+                0.42
+              ],
+              "aabb_max": [
+                0.665,
+                -0.115,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_24b7f067b8",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.32866,
+                -0.26108,
+                0.44999
+              ],
+              "aabb_min": [
+                0.30157,
+                -0.28816,
+                0.41999
+              ],
+              "aabb_max": [
+                0.35574,
+                -0.23399,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_99c15debc1",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.33378,
+                0.03525,
+                0.44199
+              ],
+              "aabb_min": [
+                0.31178,
+                0.01325,
+                0.41999
+              ],
+              "aabb_max": [
+                0.35578,
+                0.05725,
+                0.46399
+              ]
+            }
+          ],
+          "simulation_step": 240,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_c34d157f53": [],
+              "item_2baed8a3d0": []
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_b3dac890ff",
+              "item_0c3ab75c3a",
+              "item_24b7f067b8",
+              "item_99c15debc1"
+            ]
+          }
+        },
+        "history": []
+      },
+      "payload_sha256": "d27e066aab80cdcdfb26cd550f087ad88293a1417d51040a10ed9a1e679ff4f6",
+      "gate": {
+        "called": true,
+        "decision": "ASK",
+        "p_ask": null
+      },
+      "question": {
+        "type": "select",
+        "text": "Which cup and block should be used?",
+        "requests": [
+          {
+            "role": "cup",
+            "candidate_ids": [
+              "item_0c3ab75c3a",
+              "item_24b7f067b8"
+            ]
+          },
+          {
+            "role": "block",
+            "candidate_ids": [
+              "item_b3dac890ff",
+              "item_99c15debc1"
+            ]
+          }
+        ]
+      },
+      "user_answer": {
+        "choices": {
+          "block": "item_b3dac890ff",
+          "cup": "item_0c3ab75c3a"
+        }
+      },
+      "ask_check": {
+        "before_step": 240,
+        "after_step": 240,
+        "state_unchanged": true,
+        "charged_slots": 2
+      }
+    },
+    {
+      "round": 1,
+      "public_payload": {
+        "instruction": "Place the preferred cup and block into separate containers: the cup uses its preferred destination, and the block must use the remaining container. The cup_destination preference chooses the cup's container and also determines the block's other container. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup_destination, use item_c34d157f53.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_b3dac890ff",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.32798,
+                0.23779,
+                0.44199
+              ],
+              "aabb_min": [
+                0.30598,
+                0.21579,
+                0.41999
+              ],
+              "aabb_max": [
+                0.34998,
+                0.25979,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_2baed8a3d0",
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.605,
+                0.165,
+                0.42
+              ],
+              "aabb_min": [
+                0.515,
+                0.085,
+                0.42
+              ],
+              "aabb_max": [
+                0.695,
+                0.245,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_0c3ab75c3a",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.38125,
+                -0.11939,
+                0.44999
+              ],
+              "aabb_min": [
+                0.35416,
+                -0.14647,
+                0.41999
+              ],
+              "aabb_max": [
+                0.40833,
+                -0.09231,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_c34d157f53",
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.575,
+                -0.195,
+                0.42
+              ],
+              "aabb_min": [
+                0.485,
+                -0.275,
+                0.42
+              ],
+              "aabb_max": [
+                0.665,
+                -0.115,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_24b7f067b8",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.32866,
+                -0.26108,
+                0.44999
+              ],
+              "aabb_min": [
+                0.30157,
+                -0.28816,
+                0.41999
+              ],
+              "aabb_max": [
+                0.35574,
+                -0.23399,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_99c15debc1",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.33378,
+                0.03525,
+                0.44199
+              ],
+              "aabb_min": [
+                0.31178,
+                0.01325,
+                0.41999
+              ],
+              "aabb_max": [
+                0.35578,
+                0.05725,
+                0.46399
+              ]
+            }
+          ],
+          "simulation_step": 240,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_c34d157f53": [],
+              "item_2baed8a3d0": []
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_b3dac890ff",
+              "item_0c3ab75c3a",
+              "item_24b7f067b8",
+              "item_99c15debc1"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which cup and block should be used?",
+              "requests": [
+                {
+                  "role": "cup",
+                  "candidate_ids": [
+                    "item_0c3ab75c3a",
+                    "item_24b7f067b8"
+                  ]
+                },
+                {
+                  "role": "block",
+                  "candidate_ids": [
+                    "item_b3dac890ff",
+                    "item_99c15debc1"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "block": "item_b3dac890ff",
+                "cup": "item_0c3ab75c3a"
+              }
+            }
+          }
+        ]
+      },
+      "payload_sha256": "89b30fd7540c535ac0bc40476b99e76335602464084d0f58f0589b929781949e",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_0c3ab75c3a",
+        "target_id": "item_c34d157f53",
+        "relation": "inside"
+      },
+      "physical_result": {
+        "skill": "pick_place",
+        "object_id": "item_0c3ab75c3a",
+        "target_id": "item_c34d157f53",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3350,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 2,
+      "public_payload": {
+        "instruction": "Place the preferred cup and block into separate containers: the cup uses its preferred destination, and the block must use the remaining container. The cup_destination preference chooses the cup's container and also determines the block's other container. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup_destination, use item_c34d157f53.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_b3dac890ff",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.32798,
+                0.23779,
+                0.44199
+              ],
+              "aabb_min": [
+                0.30598,
+                0.21579,
+                0.41999
+              ],
+              "aabb_max": [
+                0.34998,
+                0.25979,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_2baed8a3d0",
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.605,
+                0.165,
+                0.42
+              ],
+              "aabb_min": [
+                0.515,
+                0.085,
+                0.42
+              ],
+              "aabb_max": [
+                0.695,
+                0.245,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_0c3ab75c3a",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.55001,
+                -0.21498,
+                0.46399
+              ],
+              "aabb_min": [
+                0.52292,
+                -0.24208,
+                0.43399
+              ],
+              "aabb_max": [
+                0.57711,
+                -0.18788,
+                0.49399
+              ]
+            },
+            {
+              "object_id": "item_c34d157f53",
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.575,
+                -0.195,
+                0.42
+              ],
+              "aabb_min": [
+                0.485,
+                -0.275,
+                0.42
+              ],
+              "aabb_max": [
+                0.665,
+                -0.115,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_24b7f067b8",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.32867,
+                -0.26108,
+                0.44999
+              ],
+              "aabb_min": [
+                0.30157,
+                -0.28817,
+                0.41999
+              ],
+              "aabb_max": [
+                0.35576,
+                -0.23399,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_99c15debc1",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.33378,
+                0.03525,
+                0.44199
+              ],
+              "aabb_min": [
+                0.31178,
+                0.01325,
+                0.41999
+              ],
+              "aabb_max": [
+                0.35578,
+                0.05725,
+                0.46399
+              ]
+            }
+          ],
+          "simulation_step": 3350,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_c34d157f53": [
+                "item_0c3ab75c3a"
+              ],
+              "item_2baed8a3d0": []
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_b3dac890ff",
+              "item_24b7f067b8",
+              "item_99c15debc1"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which cup and block should be used?",
+              "requests": [
+                {
+                  "role": "cup",
+                  "candidate_ids": [
+                    "item_0c3ab75c3a",
+                    "item_24b7f067b8"
+                  ]
+                },
+                {
+                  "role": "block",
+                  "candidate_ids": [
+                    "item_b3dac890ff",
+                    "item_99c15debc1"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "block": "item_b3dac890ff",
+                "cup": "item_0c3ab75c3a"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_0c3ab75c3a",
+              "target_id": "item_c34d157f53",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3350,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "payload_sha256": "c967f15fbaf2462b26ccd8d179542a85fcab1cb45465e6d95104f9348a5b2a81",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_b3dac890ff",
+        "target_id": "item_2baed8a3d0",
+        "relation": "inside"
+      },
+      "physical_result": {
+        "skill": "pick_place",
+        "object_id": "item_b3dac890ff",
+        "target_id": "item_2baed8a3d0",
+        "success": true,
+        "reason": "placed",
+        "start_step": 3350,
+        "end_step": 7133,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 3,
+      "public_payload": {
+        "instruction": "Place the preferred cup and block into separate containers: the cup uses its preferred destination, and the block must use the remaining container. The cup_destination preference chooses the cup's container and also determines the block's other container. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup_destination, use item_c34d157f53.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_b3dac890ff",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.63004,
+                0.18506,
+                0.45599
+              ],
+              "aabb_min": [
+                0.60804,
+                0.16306,
+                0.43399
+              ],
+              "aabb_max": [
+                0.65204,
+                0.20706,
+                0.47799
+              ]
+            },
+            {
+              "object_id": "item_2baed8a3d0",
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.605,
+                0.165,
+                0.42
+              ],
+              "aabb_min": [
+                0.515,
+                0.085,
+                0.42
+              ],
+              "aabb_max": [
+                0.695,
+                0.245,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_0c3ab75c3a",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.55006,
+                -0.21498,
+                0.46399
+              ],
+              "aabb_min": [
+                0.52294,
+                -0.24211,
+                0.43399
+              ],
+              "aabb_max": [
+                0.57719,
+                -0.18786,
+                0.49399
+              ]
+            },
+            {
+              "object_id": "item_c34d157f53",
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.575,
+                -0.195,
+                0.42
+              ],
+              "aabb_min": [
+                0.485,
+                -0.275,
+                0.42
+              ],
+              "aabb_max": [
+                0.665,
+                -0.115,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_24b7f067b8",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.32868,
+                -0.26108,
+                0.44999
+              ],
+              "aabb_min": [
+                0.30158,
+                -0.28818,
+                0.41999
+              ],
+              "aabb_max": [
+                0.35578,
+                -0.23398,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_99c15debc1",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.33378,
+                0.03525,
+                0.44199
+              ],
+              "aabb_min": [
+                0.31178,
+                0.01325,
+                0.41999
+              ],
+              "aabb_max": [
+                0.35578,
+                0.05725,
+                0.46399
+              ]
+            }
+          ],
+          "simulation_step": 7133,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_c34d157f53": [
+                "item_0c3ab75c3a"
+              ],
+              "item_2baed8a3d0": [
+                "item_b3dac890ff"
+              ]
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_24b7f067b8",
+              "item_99c15debc1"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which cup and block should be used?",
+              "requests": [
+                {
+                  "role": "cup",
+                  "candidate_ids": [
+                    "item_0c3ab75c3a",
+                    "item_24b7f067b8"
+                  ]
+                },
+                {
+                  "role": "block",
+                  "candidate_ids": [
+                    "item_b3dac890ff",
+                    "item_99c15debc1"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "block": "item_b3dac890ff",
+                "cup": "item_0c3ab75c3a"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_0c3ab75c3a",
+              "target_id": "item_c34d157f53",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3350,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_b3dac890ff",
+              "target_id": "item_2baed8a3d0",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3350,
+              "end_step": 7133,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "payload_sha256": "86f0ec35098a4ee90fbb005523cc55800011c88ebaa65375ae0436913f76300d",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "DONE",
+        "object_id": null,
+        "target_id": null,
+        "relation": "inside"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "skill": "pick_place",
+      "object_id": "item_0c3ab75c3a",
+      "target_id": "item_c34d157f53",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3350,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "pick_place",
+      "object_id": "item_b3dac890ff",
+      "target_id": "item_2baed8a3d0",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3350,
+      "end_step": 7133,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "public_history": [
+    {
+      "kind": "ask",
+      "question": {
+        "type": "select",
+        "text": "Which cup and block should be used?",
+        "requests": [
+          {
+            "role": "cup",
+            "candidate_ids": [
+              "item_0c3ab75c3a",
+              "item_24b7f067b8"
+            ]
+          },
+          {
+            "role": "block",
+            "candidate_ids": [
+              "item_b3dac890ff",
+              "item_99c15debc1"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "user_answer",
+      "response": {
+        "choices": {
+          "block": "item_b3dac890ff",
+          "cup": "item_0c3ab75c3a"
+        }
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_0c3ab75c3a",
+        "target_id": "item_c34d157f53",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3350,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_b3dac890ff",
+        "target_id": "item_2baed8a3d0",
+        "success": true,
+        "reason": "placed",
+        "start_step": 3350,
+        "end_step": 7133,
+        "grasp_mode": "constraint"
+      }
+    }
+  ],
+  "evaluation": {
+    "task_success": true,
+    "termination_reason": "done",
+    "execution_termination": "done",
+    "execution_completed": true,
+    "evaluator_version": "full_aabb_contact_dag_v3.1",
+    "conditions": {
+      "correct_cup_in_selected_container": true,
+      "correct_block_in_other_container": true,
+      "unselected_objects_outside": true,
+      "robot_released": true,
+      "declared_dag_order": true
+    },
+    "details": {
+      "expected_objects": {
+        "cup": "item_0c3ab75c3a",
+        "block": "item_b3dac890ff"
+      },
+      "expected_targets": {
+        "cup": "item_c34d157f53",
+        "block": "item_2baed8a3d0"
+      },
+      "containment": {
+        "cup": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.5229402294102826,
+            -0.24210708213159313,
+            0.4339852065576927
+          ],
+          "aabb_max": [
+            0.5771857153899985,
+            -0.18785615520208923,
+            0.4939911207504635
+          ]
+        },
+        "block": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.6080399263142452,
+            0.16305785902551828,
+            0.433989079295165
+          ],
+          "aabb_max": [
+            0.6520428598577289,
+            0.20705992569439474,
+            0.47799013778645955
+          ]
+        }
+      },
+      "unselected": {
+        "item_24b7f067b8": {
+          "item_c34d157f53": {
+            "outside": true,
+            "footprint_disjoint": true,
+            "stable": true
+          },
+          "item_2baed8a3d0": {
+            "outside": true,
+            "footprint_disjoint": true,
+            "stable": true
+          }
+        },
+        "item_99c15debc1": {
+          "item_c34d157f53": {
+            "outside": true,
+            "footprint_disjoint": true,
+            "stable": true
+          },
+          "item_2baed8a3d0": {
+            "outside": true,
+            "footprint_disjoint": true,
+            "stable": true
+          }
+        }
+      },
+      "robot_contact_counts": {
+        "item_0c3ab75c3a": 0,
+        "item_b3dac890ff": 0
+      },
+      "declared_dag": {
+        "placement_events_present": true,
+        "precedence_checks": {},
+        "satisfied": true
+      }
+    },
+    "clarification_burden": 2,
+    "action_count": 2,
+    "successful_action_count": 2,
+    "simulation_steps": 7133
+  },
+  "termination_reason": "done",
+  "error": null,
+  "cost": {
+    "deepseek": {
+      "attempts": 8,
+      "input_tokens": 11118,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 182,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 7043.249457987258,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 8,
+    "api_latency_ms": 7043.249457987258,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "wall_time_s": 9.021329832990887,
+  "final_observation": {
+    "simulation_step": 7133,
+    "objects": {
+      "item_b3dac890ff": {
+        "category": "block",
+        "color": "yellow",
+        "position": [
+          0.6300413930859871,
+          0.1850588923599565,
+          0.4559896085408123
+        ],
+        "orientation": [
+          1.0887448378756245e-06,
+          -1.0939465562992668e-05,
+          -2.2396864669628135e-05,
+          0.9999999996887615
+        ],
+        "aabb_min": [
+          0.6080399263142452,
+          0.16305785902551828,
+          0.433989079295165
+        ],
+        "aabb_max": [
+          0.6520428598577289,
+          0.20705992569439474,
+          0.47799013778645955
+        ],
+        "linear_velocity": [
+          -9.989794253099675e-14,
+          7.637658818489591e-14,
+          -1.0144662887512368e-13
+        ],
+        "angular_velocity": [
+          -2.8209673704971946e-12,
+          -5.3358186517437196e-12,
+          -9.549800164110097e-13
+        ]
+      },
+      "item_2baed8a3d0": {
+        "category": "container",
+        "color": "purple",
+        "position": [
+          0.605,
+          0.165,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.515,
+          0.085,
+          0.42
+        ],
+        "aabb_max": [
+          0.695,
+          0.245,
+          0.524
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "item_0c3ab75c3a": {
+        "category": "cup",
+        "color": "red",
+        "position": [
+          0.5500629724001406,
+          -0.21498161866684118,
+          0.4639881636540781
+        ],
+        "orientation": [
+          5.000785183094336e-05,
+          -4.62397816865566e-06,
+          -0.0007466702944838348,
+          0.9999997199806132
+        ],
+        "aabb_min": [
+          0.5229402294102826,
+          -0.24210708213159313,
+          0.4339852065576927
+        ],
+        "aabb_max": [
+          0.5771857153899985,
+          -0.18785615520208923,
+          0.4939911207504635
+        ],
+        "linear_velocity": [
+          3.1167506891328666e-06,
+          -5.1451746980968386e-08,
+          7.975932414527875e-12
+        ],
+        "angular_velocity": [
+          -3.555995616214241e-10,
+          -6.441958328234214e-10,
+          -0.00011978241070168753
+        ]
+      },
+      "item_c34d157f53": {
+        "category": "container",
+        "color": "orange",
+        "position": [
+          0.575,
+          -0.195,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.485,
+          -0.275,
+          0.42
+        ],
+        "aabb_max": [
+          0.6649999999999999,
+          -0.115,
+          0.524
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "item_24b7f067b8": {
+        "category": "cup",
+        "color": "blue",
+        "position": [
+          0.328677399490424,
+          -0.2610799527808492,
+          0.4499892783144493
+        ],
+        "orientation": [
+          4.5964888605834066e-05,
+          2.562736311960212e-05,
+          -0.0003074008084893296,
+          0.9999999513676039
+        ],
+        "aabb_min": [
+          0.301577166891124,
+          -0.2881814067456004,
+          0.4199854004121909
+        ],
+        "aabb_max": [
+          0.355777632089724,
+          -0.23397849881609806,
+          0.4799931562167077
+        ],
+        "linear_velocity": [
+          -8.949183640449037e-06,
+          1.667261884591881e-05,
+          2.335319105289946e-06
+        ],
+        "angular_velocity": [
+          -0.0005541088852739534,
+          -0.00031272963844229044,
+          -1.2835152613000755e-05
+        ]
+      },
+      "item_99c15debc1": {
+        "category": "block",
+        "color": "green",
+        "position": [
+          0.3337767524961964,
+          0.035245317440140346,
+          0.4419891464069789
+        ],
+        "orientation": [
+          1.7316101189801507e-06,
+          -2.3768903752619267e-05,
+          -1.2603135900601137e-06,
+          0.9999999997152261
+        ],
+        "aabb_min": [
+          0.3117756512372768,
+          0.013245185795206112,
+          0.41998802440813704
+        ],
+        "aabb_max": [
+          0.35577785375511606,
+          0.057245449085074576,
+          0.46399026840582075
+        ],
+        "linear_velocity": [
+          -1.1642436698836769e-12,
+          8.862938294998788e-13,
+          -1.204362998219466e-12
+        ],
+        "angular_velocity": [
+          -3.270189125467753e-11,
+          -6.21622019556157e-11,
+          -1.1104277402326427e-11
+        ]
+      }
+    },
+    "end_effector": [
+      0.6298407316207886,
+      0.18454374372959137,
+      0.8298799991607666
+    ],
+    "held_object": null,
+    "robot_joints": [
+      {
+        "position": 0.11846946018134914,
+        "velocity": 1.403391292065237e-15
+      },
+      {
+        "position": 0.31830017011959383,
+        "velocity": 6.1374516580059435e-15
+      },
+      {
+        "position": 0.2027805008421105,
+        "velocity": 2.319325287380991e-15
+      },
+      {
+        "position": -1.434410143730346,
+        "velocity": 2.6506574712925612e-14
+      },
+      {
+        "position": -0.06405499308293529,
+        "velocity": 1.5265566588595902e-15
+      },
+      {
+        "position": 1.7463315393102408,
+        "velocity": -2.0344836926255994e-14
+      },
+      {
+        "position": 1.1079274025423254,
+        "velocity": -2.5653090762745023e-14
+      },
+      {
+        "position": 0.040000000000000015,
+        "velocity": -6.661338147750939e-16
+      },
+      {
+        "position": 0.039999984457981766,
+        "velocity": -7.199102425303749e-16
+      }
+    ],
+    "spatial_relations": {
+      "inside_containers": {
+        "item_c34d157f53": [
+          "item_0c3ab75c3a"
+        ],
+        "item_2baed8a3d0": [
+          "item_b3dac890ff"
+        ]
+      },
+      "covering_containers": {},
+      "outside_all_containers": [
+        "item_24b7f067b8",
+        "item_99c15debc1"
+      ]
+    }
+  },
+  "execution_log": [
+    {
+      "kind": "placement_started",
+      "object_id": "item_0c3ab75c3a",
+      "target_id": "item_c34d157f53",
+      "step": 240,
+      "contents_before": {
+        "item_c34d157f53": [],
+        "item_2baed8a3d0": []
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_0c3ab75c3a",
+      "step": 240,
+      "end_effector": [
+        0.428022563457489,
+        3.169046749462723e-06,
+        0.859183669090271
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_0c3ab75c3a",
+      "step": 1051,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.0040697781363130585,
+      "closest_hand_distance_m": 0.01903147174323177
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_0c3ab75c3a",
+      "step": 1111,
+      "end_effector": [
+        0.38118746876716614,
+        -0.11927129328250885,
+        0.4982742369174957
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_0c3ab75c3a",
+      "step": 1580,
+      "end_effector": [
+        0.38127580285072327,
+        -0.11939600110054016,
+        0.8254150748252869
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_0c3ab75c3a",
+      "step": 1854,
+      "end_effector": [
+        0.5458433628082275,
+        -0.21247999370098114,
+        0.8298372030258179
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_0c3ab75c3a",
+      "step": 2482
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_0c3ab75c3a",
+      "step": 3110,
+      "end_effector": [
+        0.5499473214149475,
+        -0.2147642970085144,
+        0.8261891007423401
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_0c3ab75c3a",
+      "target_id": "item_c34d157f53",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3350,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_b3dac890ff",
+      "target_id": "item_2baed8a3d0",
+      "step": 3350,
+      "contents_before": {
+        "item_c34d157f53": [
+          "item_0c3ab75c3a"
+        ],
+        "item_2baed8a3d0": []
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_b3dac890ff",
+      "step": 3350,
+      "end_effector": [
+        0.5499278903007507,
+        -0.21475887298583984,
+        0.8299615979194641
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_b3dac890ff",
+      "step": 4598,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.005096016271618026,
+      "closest_hand_distance_m": 0.02306891342386072
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_b3dac890ff",
+      "step": 4658,
+      "end_effector": [
+        0.32798582315444946,
+        0.23738959431648254,
+        0.4831562042236328
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_b3dac890ff",
+      "step": 5148,
+      "end_effector": [
+        0.3280036449432373,
+        0.2378031462430954,
+        0.8254106044769287
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_b3dac890ff",
+      "step": 5582,
+      "end_effector": [
+        0.6250792145729065,
+        0.18528994917869568,
+        0.829714298248291
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_b3dac890ff",
+      "step": 6239
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_b3dac890ff",
+      "step": 6893,
+      "end_effector": [
+        0.6298548579216003,
+        0.1845475733280182,
+        0.8261094689369202
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_b3dac890ff",
+      "target_id": "item_2baed8a3d0",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3350,
+      "end_step": 7133,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "configuration": {
+    "deepseek_model": "deepseek-flash",
+    "jev_model": "jev-latest",
+    "jev_threshold": 0.5,
+    "timeout_s": 40,
+    "max_retries": 1,
+    "max_tokens": 500,
+    "thinking": "disabled",
+    "response_format": "json_object"
+  },
+  "manifest_sha256": "31aa948cee2512d867ab0cc65d415bfe53991457dccfb519708554038abe6c75"
+}

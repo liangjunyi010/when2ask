@@ -1,0 +1,156 @@
+{
+  "task_success": true,
+  "termination_reason": "done",
+  "conditions": {
+    "items_exchanged": true,
+    "selected_buffer_physically_used": true,
+    "other_buffer_unused": true,
+    "buffers_empty_at_end": true,
+    "capacity_respected": true,
+    "buffer_exchange_order": true,
+    "robot_released": true,
+    "all_movable_objects_stable": true
+  },
+  "details": {
+    "selected_buffer": "buffer_back",
+    "checkpoints": [
+      {
+        "step": 240,
+        "action": "initial",
+        "contents": {
+          "slot_left": [
+            "item_a"
+          ],
+          "slot_right": [
+            "item_b"
+          ]
+        },
+        "zones": {
+          "buffer_front": [],
+          "buffer_back": []
+        },
+        "released": true,
+        "positions": {
+          "item_a": [
+            0.5899995236741692,
+            -0.1599998490701332,
+            0.45598958971592707
+          ],
+          "item_b": [
+            0.5899995236741692,
+            0.1600001509298668,
+            0.45598958971592707
+          ]
+        }
+      },
+      {
+        "step": 3822,
+        "action": {
+          "kind": "move",
+          "object_id": "item_a",
+          "target_id": "buffer_back"
+        },
+        "contents": {
+          "slot_left": [],
+          "slot_right": [
+            "item_b"
+          ]
+        },
+        "zones": {
+          "buffer_front": [],
+          "buffer_back": [
+            "item_a"
+          ]
+        },
+        "released": true,
+        "positions": {
+          "item_a": [
+            0.3499406455906646,
+            0.2197650563204462,
+            0.4419891362814344
+          ],
+          "item_b": [
+            0.5899995236741692,
+            0.16000015092996622,
+            0.4559895897158759
+          ]
+        }
+      },
+      {
+        "step": 7191,
+        "action": {
+          "kind": "move",
+          "object_id": "item_b",
+          "target_id": "slot_left"
+        },
+        "contents": {
+          "slot_left": [
+            "item_b"
+          ],
+          "slot_right": []
+        },
+        "zones": {
+          "buffer_front": [],
+          "buffer_back": [
+            "item_a"
+          ]
+        },
+        "released": true,
+        "positions": {
+          "item_a": [
+            0.3499406455906646,
+            0.2197650563204462,
+            0.4419891362814344
+          ],
+          "item_b": [
+            0.5900096839870484,
+            -0.1599712598683002,
+            0.45598958850260646
+          ]
+        }
+      },
+      {
+        "step": 10831,
+        "action": {
+          "kind": "move",
+          "object_id": "item_a",
+          "target_id": "slot_right"
+        },
+        "contents": {
+          "slot_left": [
+            "item_b"
+          ],
+          "slot_right": [
+            "item_a"
+          ]
+        },
+        "zones": {
+          "buffer_front": [],
+          "buffer_back": []
+        },
+        "released": true,
+        "positions": {
+          "item_a": [
+            0.589886919026336,
+            0.16022609684793043,
+            0.45598958527651207
+          ],
+          "item_b": [
+            0.5900096839870484,
+            -0.15997125986819916,
+            0.4559895885025502
+          ]
+        }
+      }
+    ],
+    "robot_contact_counts": {
+      "item_a": 0,
+      "item_b": 0
+    }
+  },
+  "clarification_burden": 1,
+  "action_count": 3,
+  "successful_action_count": 3,
+  "simulation_steps": 10831,
+  "evaluator_version": "task6_geometry_contact_evidence_v1"
+}

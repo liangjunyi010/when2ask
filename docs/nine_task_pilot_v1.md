@@ -88,3 +88,84 @@ online calls, source positions were kept farther from the Panda base, navigation
 inspection poses were moved closer to fixtures, and find/patrol station layouts
 were separated. The revised complete physical oracle passed 36/36 without relaxing
 any geometric/contact/sensing threshold or resetting object final poses.
+
+## Completed real evaluation
+
+All 54 paired Test episodes and all three separate Dev smoke episodes completed.
+Total authenticated requests: **491/900**, including **464 Test + 27 smoke**.
+Both APIs returned the expected versions: `deepseek-flash`, `jev-1.14.0`.
+All usage fields were present. There were **18 schema-error attempts**, repaired
+within the bounded retry policy and included in tokens/latency; **zero API errors**.
+No episode was replaced or rerun. All executed skills returned success, but nine
+episodes failed the independent final-task evaluation. Skill success therefore
+does not imply correct object choice, correct final contents, or task completion.
+
+| Method | Success | Total slots requested | Mean slots | Cumulative API latency |
+|---|---:|---:|---:|---:|
+| LLM-NoAsk | 13/18 | 0 | 0.000 | 78.39 s |
+| LLM-Gate | 16/18 | 10 | 0.556 | 166.35 s |
+| Jev-Gate, threshold 0.5 | 16/18 | 7 | 0.389 | 112.26 s |
+
+Backend tokens are reported separately in the generated CSV/JSON. For methods
+which never call Jev, null Jev token totals mean **not used**, not missing usage;
+their unknown-usage attempt counts are zero. No dollar-cost claim is made.
+
+Post-hoc Gate-only diagnostics: DeepSeek Gate had 93 attempts / 74.01 s cumulative,
+795.80 ms per attempt; Jev Gate had 91 attempts / 27.89 s cumulative, 306.53 ms per
+attempt. These are different realized state trajectories, not a controlled
+same-payload latency benchmark. Full-agent times include the shared planner,
+questions, DONE and repairs. They are not robot-motion duration or mean episode
+latency. The raw data can be recomputed with
+`.venv/bin/python scripts/nine_task_diagnostics.py`.
+
+### What broader coverage exposed
+
+- **Timing failure, packing:** on `n9_test_00_0`, the instruction requires the block
+  before the known cup, but the block preference is unknown. Both gates continued,
+  the planner guessed the wrong block, then finished. This is not physical control
+  failure and is not evidence that every gate decision is correct.
+- **Planner cycle, selected containers:** on `n9_test_01_0`, both gates asked for the
+  missing destination and obtained the same correct reply. The shared planner
+  alternated placing/removing the selected block until the 12-action limit.
+  The same cycle occurred with both Gate backends.
+- **Useful work before asking:** both gates sorted the two known cups before
+  clarifying the category mapping, replenished the cup deficit before requesting
+  block quota, and opened storage before requesting the retrieval selection.
+- **Observable facts:** both gates completed reveal/inspect without asking for the
+  hidden printed code. All navigation methods completed the two search tasks
+  without asking. These cases do not demonstrate a navigation clarification benefit.
+- **Guessing can succeed:** NoAsk succeeded in both buffer cases, including the
+  undisclosed pad case. Jev also completed an unknown patrol choice and a two-unknown
+  container task without asking. Lower observed burden therefore includes successful
+  guesses; it cannot alone prove better clarification timing.
+- **NoAsk failures have different causes:** category sorting used a wrong category
+  mapping; retrieval selected the wrong item; restocking overfilled the cup shelf
+  despite physically successful moves. They should not all be labelled the same
+  preference-selection error.
+
+These are descriptive, post-hoc explanations from the full traces, not a newly
+defined timing score, a threshold selection, or additional model experiments.
+Any repairs should be developed on a separately versioned Dev set, followed by a
+new frozen evaluation. This Test batch stays unchanged.
+
+## Verification and delivery
+
+- Existing baseline: 364 passed. Added 27 offline tests; complete suite:
+  **391 passed** in 100.46 seconds.
+- Evidence audit verified all 18 samples have all three methods, NoAsk never calls
+  Gate/Question, Gate attempts precede planning, all 14 ASK turns freeze simulation,
+  burden matches distinct requested slots, and each success matches all physical
+  conditions. Unknown API usage: zero attempts.
+- Before README documentation was updated, all **3,285** previously tracked files
+  matched their starting SHA-256 bytes, including frozen data, configs, defaults,
+  historical results and the user's pre-existing edited PPT. The PPT is unstaged.
+- Real Chromium rendering: nine task rows, 18 case sections, all 54 actual final
+  scene images loaded; no JavaScript errors, no failed requests and no horizontal
+  overflow at 1366px. Screenshots and validation JSON are in the new report folder.
+
+To open the evidence gallery without any API calls:
+
+```bash
+.venv/bin/python -m http.server 8904 --bind 127.0.0.1 --directory outputs/nine_task_v1
+# http://127.0.0.1:8904/report/
+```
