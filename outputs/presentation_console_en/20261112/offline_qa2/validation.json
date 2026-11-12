@@ -1,0 +1,240 @@
+{
+  "manifest": {
+    "mode": "scripted_public_policy_and_real_physics",
+    "url": "http://127.0.0.1:8902/",
+    "profile": "gate_dev_v7",
+    "templates": [
+      "buffer_exchange",
+      "occlusion_inspection"
+    ],
+    "max_new_online_episodes": 0,
+    "max_new_authenticated_requests": 0,
+    "whole_episode_retries": 0
+  },
+  "started_at": "2026-11-12T02:16:44.068Z",
+  "budget_before": {
+    "attempts": 0,
+    "episodes": 0,
+    "backends": {},
+    "policy": "phase2",
+    "max_attempts": 96,
+    "max_episodes": 6
+  },
+  "tasks": [
+    {
+      "id": "eb63a63e3dba4713",
+      "template": "buffer_exchange",
+      "method": "scripted_ask",
+      "success": true,
+      "burden": 1,
+      "ask_turns": 1,
+      "worker_pid": 42988
+    },
+    {
+      "id": "b8360e8a63594fa6",
+      "template": "occlusion_inspection",
+      "method": "scripted_ask",
+      "success": true,
+      "burden": 0,
+      "ask_turns": 0,
+      "worker_pid": 42989
+    },
+    {
+      "id": "c812baf4f759462b",
+      "template": "occlusion_inspection",
+      "method": "scripted_noask",
+      "success": true,
+      "burden": 0,
+      "ask_turns": 0,
+      "worker_pid": 43013
+    }
+  ],
+  "manual_answers": [
+    {
+      "task_id": "eb63a63e3dba4713",
+      "question_id": "6739d34cd062488b",
+      "text": "buffer front",
+      "role": "buffer_pad",
+      "candidate": "buffer_front",
+      "physics_frozen": true,
+      "other_world_finished_during_wait": true
+    }
+  ],
+  "scripted_physics_successes": 3,
+  "budget_after": {
+    "attempts": 0,
+    "episodes": 0,
+    "backends": {},
+    "policy": "phase2",
+    "max_attempts": 96,
+    "max_episodes": 6
+  },
+  "replay_checkpoints": [
+    {
+      "frame_index": 0,
+      "simulation_step": 240,
+      "round": 0,
+      "stage": "decision",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.11
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      },
+      "image": "assets/frames-00.webp",
+      "active": [
+        "n-gate",
+        "n-planner"
+      ]
+    },
+    {
+      "frame_index": 20,
+      "simulation_step": 1656,
+      "round": 0,
+      "stage": "execution",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.11
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      },
+      "image": "assets/frames-00.webp",
+      "active": [
+        "n-gate",
+        "n-planner",
+        "n-physics"
+      ]
+    },
+    {
+      "frame_index": 49,
+      "simulation_step": 3620,
+      "round": 1,
+      "stage": "question",
+      "gate": {
+        "called": true,
+        "decision": "ASK",
+        "p_ask": 0.62
+      },
+      "action": null,
+      "image": "assets/frames-01.webp",
+      "active": [
+        "n-gate",
+        "n-question"
+      ]
+    },
+    {
+      "frame_index": 50,
+      "simulation_step": 3620,
+      "round": 1,
+      "stage": "answer",
+      "gate": {
+        "called": true,
+        "decision": "ASK",
+        "p_ask": 0.62
+      },
+      "action": null,
+      "image": "assets/frames-01.webp",
+      "active": [
+        "n-gate",
+        "n-question",
+        "n-user"
+      ]
+    },
+    {
+      "frame_index": 75,
+      "simulation_step": 5400,
+      "round": 2,
+      "stage": "execution",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.04
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "stored_block",
+        "target_id": "delivery_pad"
+      },
+      "image": "assets/frames-02.webp",
+      "active": [
+        "n-gate",
+        "n-planner",
+        "n-physics"
+      ]
+    },
+    {
+      "frame_index": 106,
+      "simulation_step": 7514,
+      "round": 3,
+      "stage": "rejection",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.05
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "box"
+      },
+      "image": "assets/frames-03.webp",
+      "active": [
+        "n-gate",
+        "n-planner",
+        "n-physics"
+      ]
+    },
+    {
+      "frame_index": 130,
+      "simulation_step": 9216,
+      "round": 4,
+      "stage": "execution",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.11
+      },
+      "action": {
+        "kind": "cover",
+        "object_id": "storage_lid"
+      },
+      "image": "assets/frames-04.webp",
+      "active": [
+        "n-gate",
+        "n-planner",
+        "n-physics"
+      ]
+    },
+    {
+      "frame_index": 163,
+      "simulation_step": 11453,
+      "round": 5,
+      "stage": "evaluation",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.1
+      },
+      "action": {
+        "kind": "DONE"
+      },
+      "image": "assets/frames-05.webp",
+      "active": [
+        "n-gate",
+        "n-eval"
+      ]
+    }
+  ],
+  "decoded_recorded_videos": 9,
+  "passed": false,
+  "error": "AssertionError [ERR_ASSERTION]: live mobile overflow",
+  "finished_at": "2026-11-12T02:17:13.488Z"
+}

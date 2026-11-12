@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><title>When2Ask · Robot Command Center</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/hub.css"></head>
+<body><nav class="hub-nav" aria-label="Presentation navigation"><a class="hub-brand" href="#live">W<span>?</span> <b>When2Ask</b></a><div class="hub-links"><button data-view="live" aria-selected="true">Live Demo</button><button data-view="benchmark">Benchmark Results</button><button data-view="replay">Recorded Replay</button></div><div class="hub-actions"><button id="mission-controls" hidden>Mission Controls</button><button id="presentation-toggle" aria-pressed="false">Presentation View</button><button id="fullscreen" aria-label="Toggle full screen">Full Screen</button></div></nav><div id="live-page">
+<aside class="rail" aria-label="Navigation"><a class="logo" href="#" aria-label="When2Ask home">W<span>?</span></a><button class="rail-button active" id="nav-wall" title="Live robot wall" aria-label="Live robot wall">▦</button><button class="rail-button" id="nav-compare" title="Method comparison" aria-label="Method comparison">⇄</button><button class="rail-button" id="nav-queue" title="Clarification queue" aria-label="Clarification queue">?</button><span class="rail-bottom">LOCAL<br>01</span></aside>
+<main>
+<header><div class="brand"><span class="eyebrow">WHEN2ASK <span>/</span> ROBOT OPERATIONS</span><h1>Robot Command Center<span class="title-dot">.</span></h1><p>Dispatch tasks. Watch real execution. Clarify when needed.</p></div><div class="header-status"><span class="local-label">LOCAL EXECUTION</span><span id="connection" class="connection off">Connecting…</span><span id="worker-info">Connecting to execution workers</span></div></header>
+<section class="stats" aria-label="Live system overview">
+<div class="stat"><span class="stat-icon blue">▦</span><div><span>ACTIVE WORLDS</span><strong id="active-count">0</strong><small id="capacity-label">Independent PyBullet worlds</small></div></div>
+<div class="stat"><span class="stat-icon amber">?</span><div><span>AWAITING CLARIFICATION</span><strong id="waiting-count">0</strong><small>Only the asking robot is paused</small></div></div>
+<div class="stat"><span class="stat-icon green">✓</span><div><span>SESSION OUTCOMES</span><strong id="score-count">—</strong><small id="score-note">Completed missions in this session</small></div></div>
+<div class="stat"><span class="stat-icon cyan">↗</span><div><span>LIVE API BUDGET</span><strong id="api-count">—</strong><small id="budget">Separate interactive Dev budget</small></div><progress id="budget-meter" value="0" max="60" aria-label="API attempts used"></progress></div>
+</section>
+<section class="launcher panel">
+<div class="section-kicker"><span class="tiny-dot"></span> DISPATCH A MISSION <span class="muted">/ Fresh world and history</span></div>
+<form id="launch">
+<label>TASK TEMPLATE<select id="template"><option value="pack_and_cover">Pack &amp; Cover · Pack and cover</option><option value="place_into_selected_containers">Two Containers · Two selected containers</option><option value="find_and_approach">Find &amp; Approach · Three-room search</option></select></label>
+<label id="navigation-case-field" hidden>DEV SCENARIO<select id="navigation-case"><option value="case_a">Case A · fixed world</option><option value="case_b" selected>Case B · fixed world</option><option value="case_c">Case C · fixed world</option></select></label>
+<label id="scenario-field">DEV SCENARIO<select id="scenario"><option value="">Free Dev demonstration</option></select></label>
+<label><span id="unknown-label">UNKNOWN PREFERENCES</span><select id="unknown"><option value="0">0 · All disclosed</option><option value="1">1 · One unknown</option><option value="2" selected>2 · Two unknown</option><option value="3">3 · All unknown</option></select></label>
+<label>PLANNER PROFILE<select id="planner-profile"><option value="default_v1" selected>Original / Default v1</option><option value="grounded_dev_v5" disabled>Grounded Dev v5 · Independent Dev profile</option><option value="memory_dev_v6" disabled>Memory Dev v6 · Public location memory</option><option value="gate_dev_v7" disabled>Gate Dev v7 (recommended)</option></select></label>
+<label>DECISION METHOD<select id="method"><optgroup label="Live model APIs"><option value="llm_noask">LLM-NoAsk</option><option value="llm_gate">LLM-Gate · DeepSeek</option><option value="jev_gate">Jev-Gate · Jev + DeepSeek</option></optgroup><optgroup label="Offline policy / real physics"><option value="scripted_ask" selected>Scripted ASK · No model API</option><option value="scripted_noask">Scripted NoAsk · No model API</option></optgroup></select></label>
+<label>USER RESPONSE<select id="answer-mode"><option value="auto">Auto · User Simulator</option><option value="manual">Human · I will answer</option></select></label>
+<button id="start" type="submit" class="primary">＋ Start Mission</button><button id="compare-start" type="button" class="compare-button">⇄ Compare Three Methods</button>
+</form>
+<section id="scenario-preview" class="scenario-preview" hidden><div><span class="section-kicker">PUBLIC TASK DAG</span><h3 id="scenario-title"></h3><p id="scenario-focus"></p><p id="scenario-counts"></p></div><div id="scenario-dag" aria-label="Public task dependencies"></div></section>
+<p class="interaction-help">Human replies appear only after an actual ASK. NoAsk never asks. Use the queue to answer, or open a mission for its instruction, conversation and final Ground Truth.</p><div class="launch-info"><span id="method-note">Scripted policies execute real physics without model API calls.</span><span id="compare-note">Three live methods · Same Dev scene · Automatic replies</span></div>
+</section>
+<div id="notice" role="status" hidden></div>
+<div class="workspace"><div class="operations">
+<div class="workspace-head"><div class="tabs"><button id="wall-tab" class="tab active">LIVE ROBOT WALL <span id="task-count">0</span></button><button id="compare-tab" class="tab">METHOD COMPARISON <span id="comparison-count">0</span></button></div><button id="restore" class="text-button" hidden>Show hidden missions</button></div>
+<div id="comparison-toolbar" class="comparison-toolbar panel" hidden><label>PAIRED RUN<select id="comparison-select" aria-label="Choose comparison"></select></label><div><strong id="comparison-title">Same scene. Three decisions.</strong><p id="comparison-description"></p></div><button id="show-all" class="text-button">Show all missions</button></div>
+<section id="mission-brief" class="panel" hidden></section><section id="tasks" class="tasks" aria-label="Live robot cameras"><div id="empty" class="empty panel"><span class="empty-orbit">◎</span><h2>Your robot fleet is ready.</h2><p>Choose a task to start Panda or Husky, or compare the three live methods.<br>Every panoramic view comes from an independent physics worker.</p><span class="empty-tag">REAL PYBULLET · NO TEST SET CALLS</span></div></section>
+<section id="comparison-panel" class="panel results-panel" hidden>
+<div class="panel-heading"><div><span class="section-kicker">PAIRED METHOD RESULTS</span><h2>Same task. Three clarification policies.</h2></div><div class="exports"><a id="comparison-json" target="_blank" rel="noopener">JSON ↗</a><a id="comparison-csv">CSV ↓</a></div></div>
+<div class="table-scroll"><table><thead><tr><th>Method</th><th>Task success</th><th>Burden</th><th>ASK</th><th>Actions</th><th>Distance</th><th>Inspected</th><th>API latency</th><th>Wall time</th><th>DeepSeek in / out</th><th>Jev in / out</th></tr></thead><tbody id="comparison-rows"></tbody></table></div>
+<p class="result-note">This is one paired interactive Dev run. API latency is cumulative; wall time includes queueing and physics. Backend tokens are reported separately. This session is not a benchmark ranking.</p>
+</section>
+<section id="inspector" class="panel inspector" hidden>
+<div class="panel-heading"><div><span class="section-kicker">MISSION TRACE</span><h2 id="inspector-title">Execution follows evidence.</h2></div><span id="inspector-round" class="mono muted"></span></div>
+<div id="flow" class="flow" aria-label="Actual task stage"></div>
+<div class="trace-grid"><div class="gate-panel"><div class="gate-heading"><span>CLARIFICATION GATE</span><strong id="gate-decision">—</strong></div><div id="probability" hidden><div class="probability-label"><span>Jev p(ASK)</span><strong id="p-value"></strong></div><progress id="p-meter" max="1" value="0" aria-label="Real Jev probability"></progress><span id="threshold-label" class="muted"></span></div><p id="gate-description"></p><div id="inspector-answer" class="answer-summary"></div></div><ol id="trace-list" class="trace-list" aria-label="Recorded task events"></ol></div>
+</section>
+</div>
+<aside class="clarification-panel panel" aria-label="Unified clarification queue">
+<div class="panel-heading"><div><span class="section-kicker amber-text">HUMAN IN THE LOOP</span><h2>Clarification Queue</h2></div><span id="queue-count" class="queue-count">0</span></div>
+<p class="queue-intro">Answer one robot while the others continue.</p><div id="queue-list" class="queue-list"></div>
+<div id="queue-empty" class="queue-empty"><span>Ⅱ</span><strong>No pending questions</strong><p id="queue-reason">Select a mission to see its response mode and Gate status.</p></div>
+<div id="answer-desk"></div><div class="queue-foot"><span class="tiny-dot green-dot"></span> Each answer is routed by mission and question ID.</div>
+</aside></div>
+<footer><span>WHEN2ASK / CLARIFICATION TIMING FOR ROBOTIC EXECUTION</span><span>PyBullet Panda / Husky · DeepSeek Planner · Jev Noul Gate</span></footer>
+</main>
+<dialog id="focus"><div class="focus-head"><div><span class="section-kicker">LIVE PANORAMIC VIEW</span><h2 id="focus-title"></h2></div><button id="focus-close" class="text-button" aria-label="Close expanded view">Close ×</button></div><img id="focus-image" alt="Expanded live panoramic robot view"><div id="focus-meta" class="mono"></div></dialog>
+<dialog id="task-review"><div class="focus-head"><div><span class="section-kicker">EPISODE DETAILS / Original episode</span><h2 id="review-title"></h2></div><button id="review-close" class="text-button">Close ×</button></div><div id="review-body"></div></dialog>
+</div><section id="benchmark-page" class="hub-page" hidden></section><section id="replay-page" class="hub-page" hidden></section><script src="/english.js"></script><script src="/app.js"></script><script src="/hub.js"></script></body></html>

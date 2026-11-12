@@ -1,0 +1,128 @@
+{
+  "passed": true,
+  "comparison": "a72087a6a936411d",
+  "all_english": true,
+  "presentation_filter_switching": true,
+  "instruction_conversation_ground_truth": true,
+  "benchmark_separate_from_session": true,
+  "decoded": [
+    {
+      "case": "t8_r2_test_0_04_3",
+      "videos": [
+        {
+          "width": 0,
+          "height": 0,
+          "duration": null
+        },
+        {
+          "width": 0,
+          "height": 0,
+          "duration": null
+        },
+        {
+          "width": 0,
+          "height": 0,
+          "duration": null
+        }
+      ]
+    },
+    {
+      "case": "t8_r2_test_1_04_1",
+      "videos": [
+        {
+          "width": 960,
+          "height": 720,
+          "duration": 48
+        },
+        {
+          "width": 960,
+          "height": 720,
+          "duration": 51.3
+        },
+        {
+          "width": 960,
+          "height": 720,
+          "duration": 50.7
+        }
+      ]
+    },
+    {
+      "case": "t8_r2_test_2_04_3",
+      "videos": [
+        {
+          "width": 960,
+          "height": 720,
+          "duration": 15.9
+        },
+        {
+          "width": 960,
+          "height": 720,
+          "duration": 15.9
+        },
+        {
+          "width": 960,
+          "height": 720,
+          "duration": 15.9
+        }
+      ]
+    }
+  ],
+  "layouts": [
+    {
+      "width": 1920,
+      "view": "live",
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "view": "benchmark",
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "view": "replay",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "view": "live",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "view": "benchmark",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "view": "replay",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "view": "live",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "view": "benchmark",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "view": "replay",
+      "overflow": false
+    }
+  ],
+  "replay_controls": {
+    "pause": true,
+    "restart": true,
+    "speeds": [
+      1,
+      2,
+      3
+    ]
+  },
+  "errors": [],
+  "new_authenticated_requests": 0
+}

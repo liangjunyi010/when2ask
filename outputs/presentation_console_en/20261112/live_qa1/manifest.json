@@ -1,0 +1,11 @@
+{
+  "mode": "live_models_and_real_physics",
+  "url": "http://127.0.0.1:8902/",
+  "profile": "gate_dev_v7",
+  "templates": [
+    "retrieve_restore"
+  ],
+  "max_new_online_episodes": 3,
+  "max_new_authenticated_requests": 96,
+  "whole_episode_retries": 0
+}

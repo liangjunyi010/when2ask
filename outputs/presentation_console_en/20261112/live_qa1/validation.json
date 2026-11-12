@@ -1,0 +1,335 @@
+{
+  "manifest": {
+    "mode": "live_models_and_real_physics",
+    "url": "http://127.0.0.1:8902/",
+    "profile": "gate_dev_v7",
+    "templates": [
+      "retrieve_restore"
+    ],
+    "max_new_online_episodes": 3,
+    "max_new_authenticated_requests": 96,
+    "whole_episode_retries": 0
+  },
+  "started_at": "2026-11-12T02:20:45.928Z",
+  "budget_before": {
+    "attempts": 0,
+    "episodes": 0,
+    "backends": {},
+    "policy": "phase2",
+    "max_attempts": 96,
+    "max_episodes": 6
+  },
+  "comparison_id": "a72087a6a936411d",
+  "tasks": [
+    {
+      "id": "c668f0273f0146aa",
+      "template": "retrieve_restore",
+      "method": "llm_noask",
+      "success": false,
+      "burden": 0,
+      "ask_turns": 0,
+      "actions": 3,
+      "worker_pid": 43673,
+      "cost": {
+        "deepseek": {
+          "attempts": 4,
+          "input_tokens": 12567,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 408,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 5903.397542017046,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 4,
+        "api_latency_ms": 5903.397542017046,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      },
+      "error": null,
+      "returned_models": [
+        "deepseek-flash"
+      ]
+    },
+    {
+      "id": "4447506e09984dbc",
+      "template": "retrieve_restore",
+      "method": "llm_gate",
+      "success": true,
+      "burden": 1,
+      "ask_turns": 1,
+      "actions": 3,
+      "worker_pid": 43675,
+      "cost": {
+        "deepseek": {
+          "attempts": 10,
+          "input_tokens": 24205,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 481,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 11038.156248017913,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 0,
+          "input_tokens": null,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": null,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": null,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 10,
+        "api_latency_ms": 11038.156248017913,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      },
+      "error": null,
+      "returned_models": [
+        "deepseek-flash"
+      ]
+    },
+    {
+      "id": "d917d67a0472427a",
+      "template": "retrieve_restore",
+      "method": "jev_gate",
+      "success": true,
+      "burden": 1,
+      "ask_turns": 1,
+      "actions": 3,
+      "worker_pid": 43676,
+      "cost": {
+        "deepseek": {
+          "attempts": 5,
+          "input_tokens": 15587,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 474,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 6125.916207995033,
+          "unknown_latency_ms_attempts": 0
+        },
+        "jev": {
+          "attempts": 5,
+          "input_tokens": 11749,
+          "unknown_input_tokens_attempts": 0,
+          "output_tokens": 120,
+          "unknown_output_tokens_attempts": 0,
+          "latency_ms": 1528.3610010228585,
+          "unknown_latency_ms_attempts": 0
+        },
+        "api_attempts": 10,
+        "api_latency_ms": 7654.277209017891,
+        "retries": 0,
+        "schema_errors": 0,
+        "api_errors": 0
+      },
+      "error": null,
+      "returned_models": [
+        "deepseek-flash",
+        "jev-1.14.0"
+      ]
+    }
+  ],
+  "budget_after": {
+    "attempts": 24,
+    "episodes": 3,
+    "backends": {
+      "jev": {
+        "consecutive_errors": 0,
+        "blocked": false
+      },
+      "deepseek": {
+        "consecutive_errors": 0,
+        "blocked": false
+      }
+    },
+    "policy": "phase2",
+    "max_attempts": 96,
+    "max_episodes": 6,
+    "episode_ids": [
+      "c668f0273f0146aa",
+      "4447506e09984dbc",
+      "d917d67a0472427a"
+    ]
+  },
+  "replay_checkpoints": [
+    {
+      "frame_index": 0,
+      "simulation_step": 240,
+      "round": 0,
+      "stage": "decision",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.11
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      },
+      "image": "assets/frames-00.webp",
+      "active": [
+        "n-gate",
+        "n-planner"
+      ]
+    },
+    {
+      "frame_index": 20,
+      "simulation_step": 1656,
+      "round": 0,
+      "stage": "execution",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.11
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "lid_pad"
+      },
+      "image": "assets/frames-00.webp",
+      "active": [
+        "n-gate",
+        "n-planner",
+        "n-physics"
+      ]
+    },
+    {
+      "frame_index": 49,
+      "simulation_step": 3620,
+      "round": 1,
+      "stage": "question",
+      "gate": {
+        "called": true,
+        "decision": "ASK",
+        "p_ask": 0.62
+      },
+      "action": null,
+      "image": "assets/frames-01.webp",
+      "active": [
+        "n-gate",
+        "n-question"
+      ]
+    },
+    {
+      "frame_index": 50,
+      "simulation_step": 3620,
+      "round": 1,
+      "stage": "answer",
+      "gate": {
+        "called": true,
+        "decision": "ASK",
+        "p_ask": 0.62
+      },
+      "action": null,
+      "image": "assets/frames-01.webp",
+      "active": [
+        "n-gate",
+        "n-question",
+        "n-user"
+      ]
+    },
+    {
+      "frame_index": 75,
+      "simulation_step": 5400,
+      "round": 2,
+      "stage": "execution",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.04
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "stored_block",
+        "target_id": "delivery_pad"
+      },
+      "image": "assets/frames-02.webp",
+      "active": [
+        "n-gate",
+        "n-planner",
+        "n-physics"
+      ]
+    },
+    {
+      "frame_index": 106,
+      "simulation_step": 7514,
+      "round": 3,
+      "stage": "rejection",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.05
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "storage_lid",
+        "target_id": "box"
+      },
+      "image": "assets/frames-03.webp",
+      "active": [
+        "n-gate",
+        "n-planner",
+        "n-physics"
+      ]
+    },
+    {
+      "frame_index": 130,
+      "simulation_step": 9216,
+      "round": 4,
+      "stage": "execution",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.11
+      },
+      "action": {
+        "kind": "cover",
+        "object_id": "storage_lid"
+      },
+      "image": "assets/frames-04.webp",
+      "active": [
+        "n-gate",
+        "n-planner",
+        "n-physics"
+      ]
+    },
+    {
+      "frame_index": 163,
+      "simulation_step": 11453,
+      "round": 5,
+      "stage": "evaluation",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.1
+      },
+      "action": {
+        "kind": "DONE"
+      },
+      "image": "assets/frames-05.webp",
+      "active": [
+        "n-gate",
+        "n-eval"
+      ]
+    }
+  ],
+  "decoded_recorded_videos": 9,
+  "mobile_no_overflow": true,
+  "console_errors": [],
+  "expected_invalid_answer_responses": [],
+  "passed": true,
+  "finished_at": "2026-11-12T02:21:18.400Z"
+}
