@@ -1,0 +1,54 @@
+{
+  "kind": "read_only_post_run_diagnostics",
+  "methods": [
+    {
+      "method": "llm_noask",
+      "deepseek_cache_hit_tokens": 22528,
+      "deepseek_cache_miss_tokens": 2733,
+      "deepseek_input_cache_hit_fraction": 0.8918095087288705,
+      "public_order_first_ask_reference_matches": null,
+      "cases": 4,
+      "hypothetical_all_input_cache_miss_usd": 0.003975149999999999
+    },
+    {
+      "method": "llm_gate",
+      "deepseek_cache_hit_tokens": 46462,
+      "deepseek_cache_miss_tokens": 12517,
+      "deepseek_input_cache_hit_fraction": 0.7877719188185626,
+      "public_order_first_ask_reference_matches": 3,
+      "cases": 4,
+      "hypothetical_all_input_cache_miss_usd": 0.009203849999999998
+    },
+    {
+      "method": "jev_gate",
+      "deepseek_cache_hit_tokens": 27264,
+      "deepseek_cache_miss_tokens": 3243,
+      "deepseek_input_cache_hit_fraction": 0.8936965286655522,
+      "public_order_first_ask_reference_matches": 4,
+      "cases": 4,
+      "hypothetical_all_input_cache_miss_usd": 0.006486912000000001
+    },
+    {
+      "method": "llm_unified",
+      "deepseek_cache_hit_tokens": 28544,
+      "deepseek_cache_miss_tokens": 19164,
+      "deepseek_input_cache_hit_fraction": 0.5983063637125849,
+      "public_order_first_ask_reference_matches": 3,
+      "cases": 4,
+      "hypothetical_all_input_cache_miss_usd": 0.007454399999999998
+    }
+  ],
+  "cache_scenario_warning": "Hypothetical repricing of observed token counts with all DeepSeek input uncached. NOT an additional run, invoice, latency measurement or main observed-cost result.",
+  "timing_reference_scope": "Four explicit Dev cases only; references existed before this run. Same burden and task success can coexist with different first-ASK timing.",
+  "unified_vs_llm_gate": {
+    "api_time_change_percent": -43.712146360693126,
+    "estimated_usd_change_percent": 37.25862870776635
+  },
+  "findings": [
+    "Unified and LLM-Gate ask before the known cup in the independent-order case; Jev performs the supported cup first. All three still complete the task with burden two.",
+    "NoAsk fails the unknown-destination two-container case. All robot skills succeed, but its guessed final destinations disagree with fixed GT.",
+    "Actual cache mix differs. Longer combined prompt and more cache-miss input make Unified more expensive in this run despite fewer requests and fewer total DeepSeek tokens than separate LLM-Gate.",
+    "The observed Jev Gate-stage cost exceeds the heavily cached DeepSeek Gate-stage estimate in this run. Neither Jev nor Unified is guaranteed cheaper.",
+    "No repetition, reprompting, threshold changes or selective episode exclusion follows these results."
+  ]
+}

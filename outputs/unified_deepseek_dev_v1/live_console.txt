@@ -1,0 +1,185 @@
+pybullet build time: Oct 23 2026 14:27:32
+{"episode_id": "td1_pack_block_first__llm_gate", "success": true, "burden": 1, "actions": 3, "termination": "done", "error": null}
+{"episode_id": "td1_pack_block_first__jev_gate", "success": true, "burden": 1, "actions": 3, "termination": "done", "error": null}
+{"episode_id": "td1_pack_block_first__llm_noask", "success": true, "burden": 0, "actions": 3, "termination": "done", "error": null}
+{"episode_id": "td1_pack_block_first__llm_unified", "success": true, "burden": 1, "actions": 3, "termination": "done", "error": null}
+{"episode_id": "td1_pack_continue_known_cup__jev_gate", "success": true, "burden": 2, "actions": 3, "termination": "done", "error": null}
+{"episode_id": "td1_pack_continue_known_cup__llm_noask", "success": true, "burden": 0, "actions": 3, "termination": "done", "error": null}
+{"episode_id": "td1_pack_continue_known_cup__llm_unified", "success": true, "burden": 2, "actions": 3, "termination": "done", "error": null}
+{"episode_id": "td1_pack_continue_known_cup__llm_gate", "success": true, "burden": 2, "actions": 3, "termination": "done", "error": null}
+{"episode_id": "td1_containers_block_first__llm_noask", "success": false, "burden": 0, "actions": 2, "termination": "done", "error": null}
+{"episode_id": "td1_containers_block_first__llm_unified", "success": true, "burden": 1, "actions": 2, "termination": "done", "error": null}
+{"episode_id": "td1_containers_block_first__llm_gate", "success": true, "burden": 1, "actions": 2, "termination": "done", "error": null}
+{"episode_id": "td1_containers_block_first__jev_gate", "success": true, "burden": 1, "actions": 2, "termination": "done", "error": null}
+{"episode_id": "td1_containers_all_known__llm_unified", "success": true, "burden": 0, "actions": 2, "termination": "done", "error": null}
+{"episode_id": "td1_containers_all_known__llm_gate", "success": true, "burden": 0, "actions": 2, "termination": "done", "error": null}
+{"episode_id": "td1_containers_all_known__jev_gate", "success": true, "burden": 0, "actions": 2, "termination": "done", "error": null}
+{"episode_id": "td1_containers_all_known__llm_noask", "success": true, "burden": 0, "actions": 2, "termination": "done", "error": null}
+{
+  "completed": [
+    {
+      "episode_id": "td1_pack_block_first__llm_gate",
+      "success": true,
+      "burden": 1,
+      "actions": 3,
+      "termination": "done",
+      "error": null
+    },
+    {
+      "episode_id": "td1_pack_block_first__jev_gate",
+      "success": true,
+      "burden": 1,
+      "actions": 3,
+      "termination": "done",
+      "error": null
+    },
+    {
+      "episode_id": "td1_pack_block_first__llm_noask",
+      "success": true,
+      "burden": 0,
+      "actions": 3,
+      "termination": "done",
+      "error": null
+    },
+    {
+      "episode_id": "td1_pack_block_first__llm_unified",
+      "success": true,
+      "burden": 1,
+      "actions": 3,
+      "termination": "done",
+      "error": null
+    },
+    {
+      "episode_id": "td1_pack_continue_known_cup__jev_gate",
+      "success": true,
+      "burden": 2,
+      "actions": 3,
+      "termination": "done",
+      "error": null
+    },
+    {
+      "episode_id": "td1_pack_continue_known_cup__llm_noask",
+      "success": true,
+      "burden": 0,
+      "actions": 3,
+      "termination": "done",
+      "error": null
+    },
+    {
+      "episode_id": "td1_pack_continue_known_cup__llm_unified",
+      "success": true,
+      "burden": 2,
+      "actions": 3,
+      "termination": "done",
+      "error": null
+    },
+    {
+      "episode_id": "td1_pack_continue_known_cup__llm_gate",
+      "success": true,
+      "burden": 2,
+      "actions": 3,
+      "termination": "done",
+      "error": null
+    },
+    {
+      "episode_id": "td1_containers_block_first__llm_noask",
+      "success": false,
+      "burden": 0,
+      "actions": 2,
+      "termination": "done",
+      "error": null
+    },
+    {
+      "episode_id": "td1_containers_block_first__llm_unified",
+      "success": true,
+      "burden": 1,
+      "actions": 2,
+      "termination": "done",
+      "error": null
+    },
+    {
+      "episode_id": "td1_containers_block_first__llm_gate",
+      "success": true,
+      "burden": 1,
+      "actions": 2,
+      "termination": "done",
+      "error": null
+    },
+    {
+      "episode_id": "td1_containers_block_first__jev_gate",
+      "success": true,
+      "burden": 1,
+      "actions": 2,
+      "termination": "done",
+      "error": null
+    },
+    {
+      "episode_id": "td1_containers_all_known__llm_unified",
+      "success": true,
+      "burden": 0,
+      "actions": 2,
+      "termination": "done",
+      "error": null
+    },
+    {
+      "episode_id": "td1_containers_all_known__llm_gate",
+      "success": true,
+      "burden": 0,
+      "actions": 2,
+      "termination": "done",
+      "error": null
+    },
+    {
+      "episode_id": "td1_containers_all_known__jev_gate",
+      "success": true,
+      "burden": 0,
+      "actions": 2,
+      "termination": "done",
+      "error": null
+    },
+    {
+      "episode_id": "td1_containers_all_known__llm_noask",
+      "success": true,
+      "burden": 0,
+      "actions": 2,
+      "termination": "done",
+      "error": null
+    }
+  ],
+  "skipped": [],
+  "session": {
+    "attempts": 99,
+    "episodes": 16,
+    "backends": {
+      "deepseek": {
+        "consecutive_errors": 0,
+        "blocked": false
+      },
+      "jev": {
+        "consecutive_errors": 0,
+        "blocked": false
+      }
+    },
+    "policy": "phase3_dev",
+    "max_attempts": 320,
+    "max_episodes": 16,
+    "episode_ids": [
+      "td1_pack_block_first__llm_gate",
+      "td1_pack_block_first__jev_gate",
+      "td1_pack_block_first__llm_noask",
+      "td1_pack_block_first__llm_unified",
+      "td1_pack_continue_known_cup__jev_gate",
+      "td1_pack_continue_known_cup__llm_noask",
+      "td1_pack_continue_known_cup__llm_unified",
+      "td1_pack_continue_known_cup__llm_gate",
+      "td1_containers_block_first__llm_noask",
+      "td1_containers_block_first__llm_unified",
+      "td1_containers_block_first__llm_gate",
+      "td1_containers_block_first__jev_gate",
+      "td1_containers_all_known__llm_unified",
+      "td1_containers_all_known__llm_gate",
+      "td1_containers_all_known__jev_gate",
+      "td1_containers_all_known__llm_noask"
+    ]
+  }
+}
