@@ -1,0 +1,19 @@
+{
+  "http_status": 200,
+  "url": "http://127.0.0.1:8907/report/",
+  "main_method_rows": 4,
+  "main_headers": [
+    "Method",
+    "Success rate ↑",
+    "Mean API time ↓",
+    "Mean estimated USD ↓",
+    "Unnecessary ASK rate ↓"
+  ],
+  "cases": 27,
+  "images": 109,
+  "all_images_loaded": true,
+  "details_interaction": true,
+  "javascript_errors": [],
+  "failed_requests": [],
+  "no_horizontal_overflow_1366": true
+}

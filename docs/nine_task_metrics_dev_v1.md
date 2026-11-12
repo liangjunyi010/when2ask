@@ -86,3 +86,69 @@ and audit are offline. Data: `data/nine_task_metrics_dev_v1/samples.json`. Raw
 evidence, protocol, standalone English report and figures:
 `outputs/nine_task_metrics_dev_v1/`. Existing defaults, frozen configurations,
 datasets and experiment outputs stay byte-for-byte unchanged.
+
+## Completed real experiment (2026-11-12)
+
+All **108/108** planned real API + PyBullet episodes completed, with **724/1,600**
+authenticated requests. No backend/API errors and no missing usage. There were
+**21 schema/affordance errors and 21 repair retries**, all included in the metrics.
+Fresh physical oracle **27/27**; offline pytest **464 passed** (428 existing +36 new).
+Returned models: `deepseek-flash`, `jev-1.14.0`. No post-outcome policy changes.
+
+| Method | Success rate | Mean API time | Mean estimated USD | Task-level FPR |
+|---|---:|---:|---:|---:|
+| llm_noask | 21/27 (77.8%) | 4.05s | $0.000718 | N/A (cannot ask) |
+| llm_gate | 27/27 (100.0%) | 8.24s | $0.001977 | 0.0% (0/18) |
+| jev_gate | 26/27 (96.3%) | 5.73s | $0.001062 | 0.0% (0/18) |
+| llm_unified | 26/27 (96.3%) | 4.35s | $0.001394 | 0.0% (0/18) |
+
+Times and costs above are **per-episode averages over 27 cases**, not totals.
+The 18-case FPR denominator is identical for each asking method; there were no
+censored core negatives. NoAsk is deliberately not credited with a zero Gate FPR.
+Public rates were checked on [DeepSeek](https://api-docs.deepseek.com/quick_start/pricing/)
+and [TypeSafe](https://docs.typesafe.ai/models). Every request occurred outside
+DeepSeek peak hours; actual cache hit/miss counts drive each request estimate.
+This is not an invoice or an assertion that one backend is universally cheaper.
+
+### Interpretation and failure evidence
+
+- All three asking methods have zero observed false alarms on 18 fully disclosed tasks. This small explicit-information negative set does not distinguish their false-alarm behavior.
+- NoAsk has four failures in undisclosed-preference controls and two in fully disclosed inventory tasks. These cannot all be attributed to missing clarification.
+- The quota=3 fully disclosed inventory task ends early for NoAsk, Jev-Gate and Unified. Separate LLM-Gate adds the missing block and succeeds.
+- An identical recorded DeepSeek action request returned DONE for NoAsk and a block-placement action for LLM-Gate. Cause is unobserved; success differences are not solely evidence of better gating.
+- The retrieval skill rejected move(lid,box) before advancing physics; the model subsequently used cover and completed. The failure is retained and final success is based on real final conditions.
+- The frozen global random order is not block balanced over time. Cache mix and provider timing are observed confounders; costs are estimates, no universal cheapest/fastest or statistical claim.
+- All 21 schema/affordance repair attempts are charged in latency, tokens and cost. No API outages, missing usage or censored core negatives occurred.
+
+The quota=3 example is `md1_04_1`. Three methods placed one extra block and
+stopped at two; LLM-Gate placed the remaining block. The identical action-request
+comparison is preserved with both responses, timestamps, source paths and hash
+in `report/diagnostics.json`. This illustrates why one small run cannot isolate
+all success differences to the Gate, even though pairing and public inputs are
+controlled. No extra calls were made to select a preferred result.
+
+### Reproducible artifacts and verification
+
+- Source commit before paid calls: `137271ec79199fbc4f26a8efe684685c6509843a`.
+- `manifest.json`: locked model/prompt/source/data hashes, launch order and budgets.
+- `episodes/`: all108 raw episodes, API request/response JSONL, evaluator JSON,
+  actual initial/final PNGs and physics execution logs.
+- `report/index.html`: standalone English results, exactly four main metrics,
+  all nine per-task tables and expandable 27-case four-method evidence.
+- `report/summary.json`, `methods.csv`, `episodes.csv`, `per_template.csv`,
+  `attempt_costs.csv`, `paired_differences.csv`: computed from new raw logs only.
+- `scripts/nine_task_metrics_diagnostics.py`: read-only failure/cache/request
+  analysis and presentation-only chart rendering. Run after `report` to
+  reproduce the final annotated page; it does not change metrics or policies.
+- Chromium validated at1920×1080 and1366×768: all109 images loaded, no JS errors,
+  no horizontal overflow, main table has exactly method + four metric columns.
+- `evidence_validation.json`: all108 pairs complete, all20 ASK turns kept physics
+  frozen,118 Unified rounds each used one logical model invocation, labels absent
+  from requests, final scores match independent conditions. All **4,267**
+  pre-existing protected file bytes remain unchanged.
+
+Next work should predeclare more varied fully specified instructions and answer
+reuse cases if false-alarm discrimination is needed. Zero observed FPR here is
+a result to retain, not a reason to alter the frozen threshold or manufacture
+false alarms. A larger study should balance method launch positions within time
+blocks and keep repetitions grouped by independent base layout.

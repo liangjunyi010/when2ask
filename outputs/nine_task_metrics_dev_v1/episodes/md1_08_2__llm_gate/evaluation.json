@@ -1,0 +1,68 @@
+{
+  "task_success": true,
+  "termination_reason": "done",
+  "conditions": {
+    "screen_parked": true,
+    "label_physically_observed": true,
+    "line_of_sight_clear_now": true,
+    "correct_report_after_inspection": true,
+    "label_not_moved": true,
+    "robot_released": true,
+    "all_movable_objects_stable": true
+  },
+  "details": {
+    "actual_code": "beta",
+    "camera": {
+      "visible": true,
+      "range_m": 0.677,
+      "ray_hit_body": 9,
+      "eye": [
+        0.57,
+        0.12,
+        1.1
+      ],
+      "target": [
+        0.57,
+        0.12,
+        0.423
+      ],
+      "sensor": "fixed_camera_range_and_bullet_ray_los"
+    },
+    "inspections": [
+      {
+        "step": 3855,
+        "camera": {
+          "visible": true,
+          "range_m": 0.677,
+          "ray_hit_body": 9,
+          "eye": [
+            0.57,
+            0.12,
+            1.1
+          ],
+          "target": [
+            0.57,
+            0.12,
+            0.423
+          ],
+          "sensor": "fixed_camera_range_and_bullet_ray_los"
+        },
+        "code": "beta"
+      }
+    ],
+    "reports": [
+      {
+        "step": 3855,
+        "code": "beta"
+      }
+    ],
+    "robot_contact_counts": {
+      "opaque_screen": 0
+    }
+  },
+  "clarification_burden": 0,
+  "action_count": 3,
+  "successful_action_count": 3,
+  "simulation_steps": 3855,
+  "evaluator_version": "task6_geometry_contact_evidence_v1"
+}

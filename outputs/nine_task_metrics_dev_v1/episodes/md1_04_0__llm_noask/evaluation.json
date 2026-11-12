@@ -1,0 +1,39 @@
+{
+  "task_success": false,
+  "termination_reason": "done",
+  "conditions": {
+    "exact_cup_inventory": false,
+    "exact_block_inventory": true,
+    "original_stock_untouched": true,
+    "surplus_stock_untouched": true,
+    "robot_released": true,
+    "all_movable_objects_stable": true
+  },
+  "details": {
+    "actual_inventory": {
+      "cup_shelf": [
+        "spare_cup_1",
+        "stocked_cup",
+        "spare_cup_2"
+      ],
+      "block_shelf": [
+        "spare_block_1",
+        "stocked_block"
+      ]
+    },
+    "target_block_count": 2,
+    "robot_contact_counts": {
+      "spare_cup_1": 0,
+      "spare_block_2": 0,
+      "spare_block_1": 0,
+      "stocked_block": 0,
+      "stocked_cup": 0,
+      "spare_cup_2": 0
+    }
+  },
+  "clarification_burden": 0,
+  "action_count": 3,
+  "successful_action_count": 3,
+  "simulation_steps": 11096,
+  "evaluator_version": "task6_geometry_contact_evidence_v1"
+}

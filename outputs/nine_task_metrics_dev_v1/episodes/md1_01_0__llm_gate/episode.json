@@ -1,0 +1,1507 @@
+{
+  "sample_id": "md1_01_0",
+  "method": "llm_gate",
+  "episode_id": "md1_01_0__llm_gate",
+  "study_version": "nine_task_metrics_dev_v1",
+  "partition": "dev",
+  "group_id": "place_into_selected_containers:layout_f7ad74b444a9241c",
+  "template_id": "place_into_selected_containers",
+  "evidence_kind": "real_api_real_pybullet",
+  "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e. For the cup_destination, use item_df14409786.",
+  "turns": [
+    {
+      "round": 0,
+      "public_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e. For the cup_destination, use item_df14409786.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red"
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green"
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow"
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange"
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue"
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple"
+            }
+          ],
+          "simulation_step": 240,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [],
+              "item_df14409786": []
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_f885e71481",
+              "item_3d73bd37fd",
+              "item_e2988fee7e"
+            ]
+          }
+        },
+        "history": [],
+        "public_facts": {
+          "version": "tabletop_contract_dev_v1",
+          "task_type": "two_containers",
+          "order": {
+            "order": "independent",
+            "nodes": [
+              "place_cup",
+              "place_block"
+            ],
+            "edges": [],
+            "provenance": "Explicit user instruction and public task contract, not a private DAG annotation"
+          },
+          "role_candidates": {
+            "cup": [
+              "item_beba60fd7b",
+              "item_e2988fee7e"
+            ],
+            "block": [
+              "item_f885e71481",
+              "item_3d73bd37fd"
+            ],
+            "cup_destination": [
+              "item_11a9324217",
+              "item_df14409786"
+            ]
+          },
+          "confirmed_choices": {
+            "block": "item_f885e71481",
+            "cup": "item_e2988fee7e",
+            "cup_destination": "item_df14409786"
+          },
+          "confirmed_choice_sources": {
+            "cup": "initial_instruction",
+            "block": "initial_instruction",
+            "cup_destination": "initial_instruction"
+          },
+          "unresolved_roles": [],
+          "own_unconfirmed_choices": {},
+          "working_selection": {
+            "cup": "item_e2988fee7e",
+            "block": "item_f885e71481",
+            "cup_destination": "item_df14409786"
+          },
+          "working_destinations": {
+            "cup": "item_df14409786",
+            "block": "item_11a9324217"
+          },
+          "destination_provenance": "Known cup_destination implies the block uses the OTHER container; otherwise an own working guess. Never hidden truth.",
+          "public_labels": {
+            "item_beba60fd7b": "red cup",
+            "item_f885e71481": "green block",
+            "item_3d73bd37fd": "yellow block",
+            "item_11a9324217": "orange container",
+            "item_e2988fee7e": "blue cup",
+            "item_df14409786": "purple container"
+          },
+          "observation_scope": "Current measured containment/coverage and full public history. Actions and guesses are not preference disclosures.",
+          "constraints": {
+            "unselected_outside_all_containers": true,
+            "release_everything": true
+          },
+          "limitation": "Facts and stated final relations only: no Gate decision, next action, task score, completion verdict, private registry or oracle trajectory."
+        }
+      },
+      "payload_sha256": "23708225ea11368a42966737a4a140231910f9d7244ed7b939a46524aa7f0d0c",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "gate_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e. For the cup_destination, use item_df14409786.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red"
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green"
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow"
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange"
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue"
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple"
+            }
+          ],
+          "simulation_step": 240,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [],
+              "item_df14409786": []
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_f885e71481",
+              "item_3d73bd37fd",
+              "item_e2988fee7e"
+            ]
+          }
+        },
+        "history": [],
+        "public_facts": {
+          "version": "tabletop_contract_dev_v1",
+          "task_type": "two_containers",
+          "order": {
+            "order": "independent",
+            "nodes": [
+              "place_cup",
+              "place_block"
+            ],
+            "edges": [],
+            "provenance": "Explicit user instruction and public task contract, not a private DAG annotation"
+          },
+          "role_candidates": {
+            "cup": [
+              "item_beba60fd7b",
+              "item_e2988fee7e"
+            ],
+            "block": [
+              "item_f885e71481",
+              "item_3d73bd37fd"
+            ],
+            "cup_destination": [
+              "item_11a9324217",
+              "item_df14409786"
+            ]
+          },
+          "confirmed_choices": {
+            "block": "item_f885e71481",
+            "cup": "item_e2988fee7e",
+            "cup_destination": "item_df14409786"
+          },
+          "confirmed_choice_sources": {
+            "cup": "initial_instruction",
+            "block": "initial_instruction",
+            "cup_destination": "initial_instruction"
+          },
+          "unresolved_roles": [],
+          "own_unconfirmed_choices": {},
+          "working_selection": {
+            "cup": "item_e2988fee7e",
+            "block": "item_f885e71481",
+            "cup_destination": "item_df14409786"
+          },
+          "working_destinations": {
+            "cup": "item_df14409786",
+            "block": "item_11a9324217"
+          },
+          "destination_provenance": "Known cup_destination implies the block uses the OTHER container; otherwise an own working guess. Never hidden truth.",
+          "public_labels": {
+            "item_beba60fd7b": "red cup",
+            "item_f885e71481": "green block",
+            "item_3d73bd37fd": "yellow block",
+            "item_11a9324217": "orange container",
+            "item_e2988fee7e": "blue cup",
+            "item_df14409786": "purple container"
+          },
+          "observation_scope": "Current measured containment/coverage and full public history. Actions and guesses are not preference disclosures.",
+          "constraints": {
+            "unselected_outside_all_containers": true,
+            "release_everything": true
+          },
+          "limitation": "Facts and stated final relations only: no Gate decision, next action, task score, completion verdict, private registry or oracle trajectory."
+        }
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_e2988fee7e",
+        "target_id": "item_df14409786",
+        "relation": "inside"
+      },
+      "physical_result": {
+        "skill": "pick_place",
+        "object_id": "item_e2988fee7e",
+        "target_id": "item_df14409786",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3982,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 1,
+      "public_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e. For the cup_destination, use item_df14409786.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red"
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green"
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow"
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange"
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue"
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple"
+            }
+          ],
+          "simulation_step": 3982,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [],
+              "item_df14409786": [
+                "item_e2988fee7e"
+              ]
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_f885e71481",
+              "item_3d73bd37fd"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_e2988fee7e",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3982,
+              "grasp_mode": "constraint"
+            }
+          }
+        ],
+        "public_facts": {
+          "version": "tabletop_contract_dev_v1",
+          "task_type": "two_containers",
+          "order": {
+            "order": "independent",
+            "nodes": [
+              "place_cup",
+              "place_block"
+            ],
+            "edges": [],
+            "provenance": "Explicit user instruction and public task contract, not a private DAG annotation"
+          },
+          "role_candidates": {
+            "cup": [
+              "item_beba60fd7b",
+              "item_e2988fee7e"
+            ],
+            "block": [
+              "item_f885e71481",
+              "item_3d73bd37fd"
+            ],
+            "cup_destination": [
+              "item_11a9324217",
+              "item_df14409786"
+            ]
+          },
+          "confirmed_choices": {
+            "block": "item_f885e71481",
+            "cup": "item_e2988fee7e",
+            "cup_destination": "item_df14409786"
+          },
+          "confirmed_choice_sources": {
+            "cup": "initial_instruction",
+            "block": "initial_instruction",
+            "cup_destination": "initial_instruction"
+          },
+          "unresolved_roles": [],
+          "own_unconfirmed_choices": {},
+          "working_selection": {
+            "cup": "item_e2988fee7e",
+            "block": "item_f885e71481",
+            "cup_destination": "item_df14409786"
+          },
+          "working_destinations": {
+            "cup": "item_df14409786",
+            "block": "item_11a9324217"
+          },
+          "destination_provenance": "Known cup_destination implies the block uses the OTHER container; otherwise an own working guess. Never hidden truth.",
+          "public_labels": {
+            "item_beba60fd7b": "red cup",
+            "item_f885e71481": "green block",
+            "item_3d73bd37fd": "yellow block",
+            "item_11a9324217": "orange container",
+            "item_e2988fee7e": "blue cup",
+            "item_df14409786": "purple container"
+          },
+          "observation_scope": "Current measured containment/coverage and full public history. Actions and guesses are not preference disclosures.",
+          "constraints": {
+            "unselected_outside_all_containers": true,
+            "release_everything": true
+          },
+          "limitation": "Facts and stated final relations only: no Gate decision, next action, task score, completion verdict, private registry or oracle trajectory."
+        }
+      },
+      "payload_sha256": "b97e810f667c1d349d3efb6bb0740e9d7aa853f5a29103ca19a2fede6c45e198",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "gate_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e. For the cup_destination, use item_df14409786.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red"
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green"
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow"
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange"
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue"
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple"
+            }
+          ],
+          "simulation_step": 3982,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [],
+              "item_df14409786": [
+                "item_e2988fee7e"
+              ]
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_f885e71481",
+              "item_3d73bd37fd"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_e2988fee7e",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3982,
+              "grasp_mode": "constraint"
+            }
+          }
+        ],
+        "public_facts": {
+          "version": "tabletop_contract_dev_v1",
+          "task_type": "two_containers",
+          "order": {
+            "order": "independent",
+            "nodes": [
+              "place_cup",
+              "place_block"
+            ],
+            "edges": [],
+            "provenance": "Explicit user instruction and public task contract, not a private DAG annotation"
+          },
+          "role_candidates": {
+            "cup": [
+              "item_beba60fd7b",
+              "item_e2988fee7e"
+            ],
+            "block": [
+              "item_f885e71481",
+              "item_3d73bd37fd"
+            ],
+            "cup_destination": [
+              "item_11a9324217",
+              "item_df14409786"
+            ]
+          },
+          "confirmed_choices": {
+            "block": "item_f885e71481",
+            "cup": "item_e2988fee7e",
+            "cup_destination": "item_df14409786"
+          },
+          "confirmed_choice_sources": {
+            "cup": "initial_instruction",
+            "block": "initial_instruction",
+            "cup_destination": "initial_instruction"
+          },
+          "unresolved_roles": [],
+          "own_unconfirmed_choices": {},
+          "working_selection": {
+            "cup": "item_e2988fee7e",
+            "block": "item_f885e71481",
+            "cup_destination": "item_df14409786"
+          },
+          "working_destinations": {
+            "cup": "item_df14409786",
+            "block": "item_11a9324217"
+          },
+          "destination_provenance": "Known cup_destination implies the block uses the OTHER container; otherwise an own working guess. Never hidden truth.",
+          "public_labels": {
+            "item_beba60fd7b": "red cup",
+            "item_f885e71481": "green block",
+            "item_3d73bd37fd": "yellow block",
+            "item_11a9324217": "orange container",
+            "item_e2988fee7e": "blue cup",
+            "item_df14409786": "purple container"
+          },
+          "observation_scope": "Current measured containment/coverage and full public history. Actions and guesses are not preference disclosures.",
+          "constraints": {
+            "unselected_outside_all_containers": true,
+            "release_everything": true
+          },
+          "limitation": "Facts and stated final relations only: no Gate decision, next action, task score, completion verdict, private registry or oracle trajectory."
+        }
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_11a9324217",
+        "relation": "inside"
+      },
+      "physical_result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_11a9324217",
+        "success": true,
+        "reason": "placed",
+        "start_step": 3982,
+        "end_step": 7568,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 2,
+      "public_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e. For the cup_destination, use item_df14409786.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red"
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green"
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow"
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange"
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue"
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple"
+            }
+          ],
+          "simulation_step": 7568,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [
+                "item_f885e71481"
+              ],
+              "item_df14409786": [
+                "item_e2988fee7e"
+              ]
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_3d73bd37fd"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_e2988fee7e",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3982,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_11a9324217",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3982,
+              "end_step": 7568,
+              "grasp_mode": "constraint"
+            }
+          }
+        ],
+        "public_facts": {
+          "version": "tabletop_contract_dev_v1",
+          "task_type": "two_containers",
+          "order": {
+            "order": "independent",
+            "nodes": [
+              "place_cup",
+              "place_block"
+            ],
+            "edges": [],
+            "provenance": "Explicit user instruction and public task contract, not a private DAG annotation"
+          },
+          "role_candidates": {
+            "cup": [
+              "item_beba60fd7b",
+              "item_e2988fee7e"
+            ],
+            "block": [
+              "item_f885e71481",
+              "item_3d73bd37fd"
+            ],
+            "cup_destination": [
+              "item_11a9324217",
+              "item_df14409786"
+            ]
+          },
+          "confirmed_choices": {
+            "block": "item_f885e71481",
+            "cup": "item_e2988fee7e",
+            "cup_destination": "item_df14409786"
+          },
+          "confirmed_choice_sources": {
+            "cup": "initial_instruction",
+            "block": "initial_instruction",
+            "cup_destination": "initial_instruction"
+          },
+          "unresolved_roles": [],
+          "own_unconfirmed_choices": {},
+          "working_selection": {
+            "cup": "item_e2988fee7e",
+            "block": "item_f885e71481",
+            "cup_destination": "item_df14409786"
+          },
+          "working_destinations": {
+            "cup": "item_df14409786",
+            "block": "item_11a9324217"
+          },
+          "destination_provenance": "Known cup_destination implies the block uses the OTHER container; otherwise an own working guess. Never hidden truth.",
+          "public_labels": {
+            "item_beba60fd7b": "red cup",
+            "item_f885e71481": "green block",
+            "item_3d73bd37fd": "yellow block",
+            "item_11a9324217": "orange container",
+            "item_e2988fee7e": "blue cup",
+            "item_df14409786": "purple container"
+          },
+          "observation_scope": "Current measured containment/coverage and full public history. Actions and guesses are not preference disclosures.",
+          "constraints": {
+            "unselected_outside_all_containers": true,
+            "release_everything": true
+          },
+          "limitation": "Facts and stated final relations only: no Gate decision, next action, task score, completion verdict, private registry or oracle trajectory."
+        }
+      },
+      "payload_sha256": "f440b9c2e7a383564c3112550f7bb8d07269546f8d03556765e6266a431583e5",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "gate_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e. For the cup_destination, use item_df14409786.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red"
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green"
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow"
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange"
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue"
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple"
+            }
+          ],
+          "simulation_step": 7568,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [
+                "item_f885e71481"
+              ],
+              "item_df14409786": [
+                "item_e2988fee7e"
+              ]
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_3d73bd37fd"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_e2988fee7e",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3982,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_11a9324217",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3982,
+              "end_step": 7568,
+              "grasp_mode": "constraint"
+            }
+          }
+        ],
+        "public_facts": {
+          "version": "tabletop_contract_dev_v1",
+          "task_type": "two_containers",
+          "order": {
+            "order": "independent",
+            "nodes": [
+              "place_cup",
+              "place_block"
+            ],
+            "edges": [],
+            "provenance": "Explicit user instruction and public task contract, not a private DAG annotation"
+          },
+          "role_candidates": {
+            "cup": [
+              "item_beba60fd7b",
+              "item_e2988fee7e"
+            ],
+            "block": [
+              "item_f885e71481",
+              "item_3d73bd37fd"
+            ],
+            "cup_destination": [
+              "item_11a9324217",
+              "item_df14409786"
+            ]
+          },
+          "confirmed_choices": {
+            "block": "item_f885e71481",
+            "cup": "item_e2988fee7e",
+            "cup_destination": "item_df14409786"
+          },
+          "confirmed_choice_sources": {
+            "cup": "initial_instruction",
+            "block": "initial_instruction",
+            "cup_destination": "initial_instruction"
+          },
+          "unresolved_roles": [],
+          "own_unconfirmed_choices": {},
+          "working_selection": {
+            "cup": "item_e2988fee7e",
+            "block": "item_f885e71481",
+            "cup_destination": "item_df14409786"
+          },
+          "working_destinations": {
+            "cup": "item_df14409786",
+            "block": "item_11a9324217"
+          },
+          "destination_provenance": "Known cup_destination implies the block uses the OTHER container; otherwise an own working guess. Never hidden truth.",
+          "public_labels": {
+            "item_beba60fd7b": "red cup",
+            "item_f885e71481": "green block",
+            "item_3d73bd37fd": "yellow block",
+            "item_11a9324217": "orange container",
+            "item_e2988fee7e": "blue cup",
+            "item_df14409786": "purple container"
+          },
+          "observation_scope": "Current measured containment/coverage and full public history. Actions and guesses are not preference disclosures.",
+          "constraints": {
+            "unselected_outside_all_containers": true,
+            "release_everything": true
+          },
+          "limitation": "Facts and stated final relations only: no Gate decision, next action, task score, completion verdict, private registry or oracle trajectory."
+        }
+      },
+      "action": {
+        "kind": "DONE",
+        "object_id": null,
+        "target_id": null,
+        "relation": "inside"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "skill": "pick_place",
+      "object_id": "item_e2988fee7e",
+      "target_id": "item_df14409786",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3982,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "item_11a9324217",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3982,
+      "end_step": 7568,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "public_history": [
+    {
+      "kind": "action",
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_e2988fee7e",
+        "target_id": "item_df14409786",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3982,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_11a9324217",
+        "success": true,
+        "reason": "placed",
+        "start_step": 3982,
+        "end_step": 7568,
+        "grasp_mode": "constraint"
+      }
+    }
+  ],
+  "evaluation": {
+    "task_success": true,
+    "termination_reason": "done",
+    "execution_termination": "done",
+    "execution_completed": true,
+    "evaluator_version": "full_aabb_contact_dag_v3.1",
+    "conditions": {
+      "correct_cup_in_selected_container": true,
+      "correct_block_in_other_container": true,
+      "unselected_objects_outside": true,
+      "robot_released": true,
+      "declared_dag_order": true
+    },
+    "details": {
+      "expected_objects": {
+        "cup": "item_e2988fee7e",
+        "block": "item_f885e71481"
+      },
+      "expected_targets": {
+        "cup": "item_df14409786",
+        "block": "item_11a9324217"
+      },
+      "containment": {
+        "cup": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.5128560677450479,
+            0.05785695678079133,
+            0.43398476249108486
+          ],
+          "aabb_max": [
+            0.5670833664853526,
+            0.11208262630818838,
+            0.4939956191132453
+          ]
+        },
+        "block": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.5380063423317997,
+            -0.2568882816670328,
+            0.43398903098903024
+          ],
+          "aabb_max": [
+            0.5820092945888117,
+            -0.21288621741645644,
+            0.47799015334881684
+          ]
+        }
+      },
+      "unselected": {
+        "item_beba60fd7b": {
+          "item_11a9324217": {
+            "outside": true,
+            "footprint_disjoint": true,
+            "stable": true
+          },
+          "item_df14409786": {
+            "outside": true,
+            "footprint_disjoint": true,
+            "stable": true
+          }
+        },
+        "item_3d73bd37fd": {
+          "item_11a9324217": {
+            "outside": true,
+            "footprint_disjoint": true,
+            "stable": true
+          },
+          "item_df14409786": {
+            "outside": true,
+            "footprint_disjoint": true,
+            "stable": true
+          }
+        }
+      },
+      "robot_contact_counts": {
+        "item_e2988fee7e": 0,
+        "item_f885e71481": 0
+      },
+      "declared_dag": {
+        "placement_events_present": true,
+        "precedence_checks": {},
+        "satisfied": true
+      }
+    },
+    "clarification_burden": 0,
+    "action_count": 2,
+    "successful_action_count": 2,
+    "simulation_steps": 7568
+  },
+  "termination_reason": "done",
+  "error": null,
+  "cost": {
+    "deepseek": {
+      "attempts": 6,
+      "input_tokens": 9942,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 90,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 4852.9720840160735,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 6,
+    "api_latency_ms": 4852.9720840160735,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "wall_time_s": 6.8874059170193505,
+  "final_observation": {
+    "simulation_step": 7568,
+    "objects": {
+      "item_beba60fd7b": {
+        "category": "cup",
+        "color": "red",
+        "position": [
+          0.34341400106223136,
+          -0.17667782640585933,
+          0.4499897030121072
+        ],
+        "orientation": [
+          2.9696546472627693e-05,
+          -4.4809814314551313e-05,
+          -0.00019814057608741925,
+          0.9999999789252536
+        ],
+        "aabb_min": [
+          0.3163185315140426,
+          -0.20377238847737533,
+          0.4199856674532867
+        ],
+        "aabb_max": [
+          0.3705094706104201,
+          -0.14958326433434332,
+          0.47999373857092775
+        ],
+        "linear_velocity": [
+          -0.00011714348182246374,
+          -7.596270429769528e-05,
+          5.344729997509845e-05
+        ],
+        "angular_velocity": [
+          0.0024983942218211705,
+          -0.0038989717760075024,
+          -2.5067986867169214e-05
+        ]
+      },
+      "item_f885e71481": {
+        "category": "block",
+        "color": "green",
+        "position": [
+          0.5600078184603057,
+          -0.2348872495417446,
+          0.45598959216892354
+        ],
+        "orientation": [
+          1.3315406520211243e-06,
+          -1.1422903373921355e-05,
+          2.2126106071541044e-05,
+          0.9999999996890898
+        ],
+        "aabb_min": [
+          0.5380063423317997,
+          -0.2568882816670328,
+          0.43398903098903024
+        ],
+        "aabb_max": [
+          0.5820092945888117,
+          -0.21288621741645644,
+          0.47799015334881684
+        ],
+        "linear_velocity": [
+          1.1022655557592992e-21,
+          -1.2867963005533214e-22,
+          -4.801714581503802e-15
+        ],
+        "angular_velocity": [
+          9.159347546914084e-21,
+          4.7163575626930235e-20,
+          -3.7381522993696675e-21
+        ]
+      },
+      "item_3d73bd37fd": {
+        "category": "block",
+        "color": "yellow",
+        "position": [
+          0.28932918609620595,
+          0.18135209673364733,
+          0.44198914640479414
+        ],
+        "orientation": [
+          1.731580482196554e-06,
+          -2.376896008817386e-05,
+          -1.2603236526887634e-06,
+          0.9999999997152248
+        ],
+        "aabb_min": [
+          0.2673280848343649,
+          0.1593519650895744,
+          0.4199880244047776
+        ],
+        "aabb_max": [
+          0.311330287358047,
+          0.20335222837772027,
+          0.46399026840481067
+        ],
+        "linear_velocity": [
+          -1.1642851167742655e-12,
+          8.863252640287008e-13,
+          -1.2069859001151428e-12
+        ],
+        "angular_velocity": [
+          -3.27030500745409e-11,
+          -6.21644141716569e-11,
+          -1.1104671946928431e-11
+        ]
+      },
+      "item_11a9324217": {
+        "category": "container",
+        "color": "orange",
+        "position": [
+          0.535,
+          -0.255,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.44500000000000006,
+          -0.335,
+          0.42
+        ],
+        "aabb_max": [
+          0.625,
+          -0.175,
+          0.524
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "item_e2988fee7e": {
+        "category": "cup",
+        "color": "blue",
+        "position": [
+          0.5399697171152003,
+          0.08496979154448986,
+          0.4639901908021651
+        ],
+        "orientation": [
+          4.330337677396517e-05,
+          -5.69291179085838e-05,
+          0.0005206196470161377,
+          0.9999998619195286
+        ],
+        "aabb_min": [
+          0.5128560677450479,
+          0.05785695678079133,
+          0.43398476249108486
+        ],
+        "aabb_max": [
+          0.5670833664853526,
+          0.11208262630818838,
+          0.4939956191132453
+        ],
+        "linear_velocity": [
+          -1.9502888326926615e-06,
+          8.763968674290816e-08,
+          -5.680317327616535e-13
+        ],
+        "angular_velocity": [
+          2.6820386825482402e-11,
+          1.366344182200722e-10,
+          4.184663276263386e-05
+        ]
+      },
+      "item_df14409786": {
+        "category": "container",
+        "color": "purple",
+        "position": [
+          0.565,
+          0.105,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.475,
+          0.024999999999999994,
+          0.42
+        ],
+        "aabb_max": [
+          0.6549999999999999,
+          0.185,
+          0.524
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "end_effector": [
+      0.5596246123313904,
+      -0.23469483852386475,
+      0.829949676990509
+    ],
+    "held_object": null,
+    "robot_joints": [
+      {
+        "position": -0.09489146738492475,
+        "velocity": -1.650589387391932e-15
+      },
+      {
+        "position": 0.14889987850083855,
+        "velocity": -2.9351521213527576e-15
+      },
+      {
+        "position": -0.32655536527318885,
+        "velocity": -4.9188084161322365e-15
+      },
+      {
+        "position": -1.6717871761606122,
+        "velocity": 2.0261570199409107e-14
+      },
+      {
+        "position": 0.04903202656319042,
+        "velocity": -6.314393452555578e-16
+      },
+      {
+        "position": 1.8126783349054154,
+        "velocity": -2.378652830259398e-14
+      },
+      {
+        "position": 0.3555550527733744,
+        "velocity": 5.6066262743570405e-15
+      },
+      {
+        "position": 0.0400000002130934,
+        "velocity": 5.212844045310305e-16
+      },
+      {
+        "position": 0.040000000000000015,
+        "velocity": -6.661338147750939e-16
+      }
+    ],
+    "spatial_relations": {
+      "inside_containers": {
+        "item_11a9324217": [
+          "item_f885e71481"
+        ],
+        "item_df14409786": [
+          "item_e2988fee7e"
+        ]
+      },
+      "covering_containers": {},
+      "outside_all_containers": [
+        "item_beba60fd7b",
+        "item_3d73bd37fd"
+      ]
+    }
+  },
+  "execution_log": [
+    {
+      "kind": "placement_started",
+      "object_id": "item_e2988fee7e",
+      "target_id": "item_df14409786",
+      "step": 240,
+      "contents_before": {
+        "item_11a9324217": [],
+        "item_df14409786": []
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_e2988fee7e",
+      "step": 240,
+      "end_effector": [
+        0.428022563457489,
+        3.169046749462723e-06,
+        0.859183669090271
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_e2988fee7e",
+      "step": 1291,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.0052353456086641215,
+      "closest_hand_distance_m": 0.019649676632314407
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_e2988fee7e",
+      "step": 1351,
+      "end_effector": [
+        0.2921034097671509,
+        -0.3195566236972809,
+        0.499246746301651
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_e2988fee7e",
+      "step": 1818,
+      "end_effector": [
+        0.29217779636383057,
+        -0.3200857639312744,
+        0.8254083395004272
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_e2988fee7e",
+      "step": 2490,
+      "end_effector": [
+        0.537519097328186,
+        0.08166814595460892,
+        0.8299388885498047
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_e2988fee7e",
+      "step": 3116
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_e2988fee7e",
+      "step": 3742,
+      "end_effector": [
+        0.539921224117279,
+        0.08559384942054749,
+        0.8262050151824951
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_e2988fee7e",
+      "target_id": "item_df14409786",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3982,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_f885e71481",
+      "target_id": "item_11a9324217",
+      "step": 3982,
+      "contents_before": {
+        "item_11a9324217": [],
+        "item_df14409786": [
+          "item_e2988fee7e"
+        ]
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_f885e71481",
+      "step": 3982,
+      "end_effector": [
+        0.5398989915847778,
+        0.08559084683656693,
+        0.829979658126831
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_f885e71481",
+      "step": 4980,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004975130550197705,
+      "closest_hand_distance_m": 0.023184619595339247
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_f885e71481",
+      "step": 5040,
+      "end_effector": [
+        0.2874850034713745,
+        -0.02247287705540657,
+        0.48331594467163086
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_f885e71481",
+      "step": 5530,
+      "end_effector": [
+        0.2879250645637512,
+        -0.02268635667860508,
+        0.8254187703132629
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_f885e71481",
+      "step": 6017,
+      "end_effector": [
+        0.5558751821517944,
+        -0.2318367213010788,
+        0.8298521637916565
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_f885e71481",
+      "step": 6674
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_f885e71481",
+      "step": 7328,
+      "end_effector": [
+        0.5596421957015991,
+        -0.23470035195350647,
+        0.8261806964874268
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "item_11a9324217",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3982,
+      "end_step": 7568,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "configuration": {
+    "deepseek_model": "deepseek-flash",
+    "jev_model": "jev-latest",
+    "jev_threshold": 0.5,
+    "timeout_s": 40,
+    "max_retries": 1,
+    "max_tokens": 500,
+    "thinking": "disabled",
+    "response_format": "json_object"
+  }
+}

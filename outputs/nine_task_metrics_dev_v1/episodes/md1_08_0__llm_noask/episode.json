@@ -1,0 +1,1673 @@
+{
+  "sample_id": "md1_08_0",
+  "method": "llm_noask",
+  "episode_id": "md1_08_0__llm_noask",
+  "study_version": "nine_task_metrics_dev_v1",
+  "partition": "dev",
+  "group_id": "occlusion_inspection:layout_c26cb5292452f790",
+  "template_id": "occlusion_inspection",
+  "evidence_kind": "real_api_real_pybullet",
+  "instruction": "Move the opaque screen onto screen_pad, use the fixed inspection camera to inspect the label underneath, and report its actual code. Leave the label in place and the screen on its pad. The code is a fixed world fact, not a preference. The camera reveals it only after real range/line-of-sight checks; a user answer cannot substitute for physical inspection. No need to ask for a code that can be observed after clearing the screen. The user specifies inspection_code=alpha.",
+  "turns": [
+    {
+      "round": 0,
+      "public_payload": {
+        "instruction": "Move the opaque screen onto screen_pad, use the fixed inspection camera to inspect the label underneath, and report its actual code. Leave the label in place and the screen on its pad. The code is a fixed world fact, not a preference. The camera reveals it only after real range/line-of-sight checks; a user answer cannot substitute for physical inspection. No need to ask for a code that can be observed after clearing the screen. The user specifies inspection_code=alpha.",
+        "observation": {
+          "simulation_step": 240,
+          "objects": {
+            "opaque_screen": {
+              "category": "screen",
+              "color": "gray",
+              "position": [
+                0.5700000221988945,
+                1.215156220803169e-07,
+                0.5499884001389858
+              ],
+              "aabb_min": [
+                0.41599996464552486,
+                -0.1339999640843733,
+                0.54398562478797
+              ],
+              "aabb_max": [
+                0.7240000797522641,
+                0.1340002071156175,
+                0.5559911754900015
+              ]
+            }
+          },
+          "end_effector": [
+            0.428022563457489,
+            3.169046749462723e-06,
+            0.859183669090271
+          ],
+          "held_object": null,
+          "robot_joints": [
+            {
+              "position": 1.0696532630007442e-05,
+              "velocity": 1.1492543028346347e-17
+            },
+            {
+              "position": -0.449997729886078,
+              "velocity": 5.492134524942571e-15
+            },
+            {
+              "position": -9.03501810404587e-22,
+              "velocity": 0.0
+            },
+            {
+              "position": -2.249999902417897,
+              "velocity": 4.657385588302532e-14
+            },
+            {
+              "position": -7.849520546658477e-06,
+              "velocity": -6.938893903907228e-18
+            },
+            {
+              "position": 1.8499867933658418,
+              "velocity": -2.1926904736346842e-14
+            },
+            {
+              "position": 0.7854036028562704,
+              "velocity": 1.2405874938448136e-14
+            },
+            {
+              "position": 0.03999881643475243,
+              "velocity": -6.804452834519026e-16
+            },
+            {
+              "position": 0.040001211924621284,
+              "velocity": 7.671814572507429e-16
+            }
+          ],
+          "task": {
+            "inspection_target": "label_fixture",
+            "screen": "opaque_screen",
+            "screen_pad": "screen_pad",
+            "template_id": "occlusion_inspection",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "clear_screen",
+                  "inspect_label"
+                ],
+                [
+                  "inspect_label",
+                  "report_code"
+                ]
+              ],
+              "nodes": [
+                "clear_screen",
+                "inspect_label",
+                "report_code"
+              ]
+            },
+            "preference_slots": {
+              "inspection_code": {
+                "candidate_ids": [
+                  "alpha",
+                  "beta"
+                ],
+                "kind": "world_fact",
+                "description": "What is the printed inspection code? Fixed world fact; physical verification still required."
+              }
+            },
+            "initial_choices": {
+              "inspection_code": "alpha"
+            }
+          },
+          "containers": {},
+          "zones": {
+            "screen_pad": {
+              "half_xy": [
+                0.16,
+                0.14
+              ],
+              "id": "screen_pad",
+              "xy": [
+                0.3,
+                0.33
+              ],
+              "contents": []
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": {
+            "label_visible": false,
+            "model": "fixed_camera_range_and_bullet_ray_los"
+          },
+          "affordances": {
+            "move": {
+              "opaque_screen": [
+                "screen_pad"
+              ]
+            },
+            "cover": [],
+            "inspect": [
+              "label_fixture"
+            ]
+          }
+        },
+        "history": [],
+        "public_summary": {
+          "version": "memory_dev_v6",
+          "current_regions": {
+            "screen_pad": {
+              "contents": [],
+              "observed": true
+            }
+          },
+          "observed_locations": {
+            "opaque_screen": []
+          },
+          "object_memory": {
+            "opaque_screen": {
+              "status": "observed_now",
+              "regions": [],
+              "observed_step": 240,
+              "source": "visible_geometry_unassigned",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            }
+          },
+          "goal_requirements": {
+            "screen": "opaque_screen",
+            "screen_pad": "screen_pad",
+            "inspection_target": "label_fixture",
+            "physical_inspection_before_report": true,
+            "report_measured_code": true
+          },
+          "required_final_relations": [],
+          "lid_geometry": null,
+          "confirmed_choices": {
+            "inspection_code": "alpha"
+          },
+          "own_working_choices": {},
+          "preference_candidates": {},
+          "unresolved_roles": [],
+          "observed_region_visits": [],
+          "latest_action_by_object": {},
+          "action_history_coverage": {
+            "total": 0,
+            "failed": 0
+          },
+          "memory_scope": {
+            "prior_public_snapshots": 0,
+            "current_step": 240,
+            "note": "Memory records past public observations, never fresh sight through a lid. Region sensor membership and current grasp visibility are different. Unknown is not absent. New measured state overrides memory; unseen memories after failed/disturbing actions are invalidated."
+          },
+          "limitation": "These are public facts, not task scores, an oracle, prescribed actions or a completion verdict. The model must assess the goal; the independent evaluator uses actual final geometry/contact."
+        }
+      },
+      "payload_sha256": "c64f8138cb60b603b1ce3995008b56f866147b0009429c7f988a2a68d3453ab6",
+      "gate": {
+        "called": false,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "model_plan": {
+        "working_choices": {},
+        "completion_assessment": {
+          "ready_for_done": false,
+          "reason": "Screen is not yet on screen_pad and label is not visible (label_visible=false). Must move opaque_screen to screen_pad, then physically inspect label_fixture, then report the measured code."
+        },
+        "remaining_plan": [
+          {
+            "kind": "move",
+            "object_id": "opaque_screen",
+            "target_id": "screen_pad"
+          },
+          {
+            "kind": "inspect",
+            "target_id": "label_fixture"
+          },
+          {
+            "kind": "report",
+            "code": "alpha"
+          },
+          {
+            "kind": "DONE"
+          }
+        ]
+      },
+      "action": {
+        "kind": "move",
+        "object_id": "opaque_screen",
+        "target_id": "screen_pad"
+      },
+      "physical_result": {
+        "skill": "move",
+        "object_id": "opaque_screen",
+        "target_id": "screen_pad",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3687,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 1,
+      "public_payload": {
+        "instruction": "Move the opaque screen onto screen_pad, use the fixed inspection camera to inspect the label underneath, and report its actual code. Leave the label in place and the screen on its pad. The code is a fixed world fact, not a preference. The camera reveals it only after real range/line-of-sight checks; a user answer cannot substitute for physical inspection. No need to ask for a code that can be observed after clearing the screen. The user specifies inspection_code=alpha.",
+        "observation": {
+          "simulation_step": 3687,
+          "objects": {
+            "opaque_screen": {
+              "category": "screen",
+              "color": "gray",
+              "position": [
+                0.3001712268424892,
+                0.3299726456377493,
+                0.425988894635709
+              ],
+              "aabb_min": [
+                0.1461539694381709,
+                0.1959528626860469,
+                0.41998762949514273
+              ],
+              "aabb_max": [
+                0.45418848424680747,
+                0.4639924285894517,
+                0.43199015977627525
+              ]
+            },
+            "label_fixture": {
+              "category": "label",
+              "color": "white",
+              "position": [
+                0.57,
+                0.0,
+                0.423
+              ],
+              "aabb_min": [
+                0.5299999999999999,
+                -0.025,
+                0.421
+              ],
+              "aabb_max": [
+                0.61,
+                0.025,
+                0.425
+              ]
+            }
+          },
+          "end_effector": [
+            0.29996731877326965,
+            0.3299996852874756,
+            0.8299928903579712
+          ],
+          "held_object": null,
+          "robot_joints": [
+            {
+              "position": 0.33583882121463726,
+              "velocity": -6.0958182945825e-15
+            },
+            {
+              "position": -0.39724194075123864,
+              "velocity": -5.592748486549226e-15
+            },
+            {
+              "position": 0.43054263463209946,
+              "velocity": -6.394190732450511e-15
+            },
+            {
+              "position": -2.2277811722640717,
+              "velocity": 4.649058915617843e-14
+            },
+            {
+              "position": 0.16924894804198884,
+              "velocity": -2.5647886592317093e-15
+            },
+            {
+              "position": 1.8595842929740765,
+              "velocity": -2.0622392682412283e-14
+            },
+            {
+              "position": 1.4732129047335276,
+              "velocity": 2.17430240478933e-14
+            },
+            {
+              "position": 0.03999956278852216,
+              "velocity": -7.75855074630627e-16
+            },
+            {
+              "position": 0.040000508920810154,
+              "velocity": 7.576404781328705e-16
+            }
+          ],
+          "task": {
+            "inspection_target": "label_fixture",
+            "screen": "opaque_screen",
+            "screen_pad": "screen_pad",
+            "template_id": "occlusion_inspection",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "clear_screen",
+                  "inspect_label"
+                ],
+                [
+                  "inspect_label",
+                  "report_code"
+                ]
+              ],
+              "nodes": [
+                "clear_screen",
+                "inspect_label",
+                "report_code"
+              ]
+            },
+            "preference_slots": {
+              "inspection_code": {
+                "candidate_ids": [
+                  "alpha",
+                  "beta"
+                ],
+                "kind": "world_fact",
+                "description": "What is the printed inspection code? Fixed world fact; physical verification still required."
+              }
+            },
+            "initial_choices": {
+              "inspection_code": "alpha"
+            }
+          },
+          "containers": {},
+          "zones": {
+            "screen_pad": {
+              "half_xy": [
+                0.16,
+                0.14
+              ],
+              "id": "screen_pad",
+              "xy": [
+                0.3,
+                0.33
+              ],
+              "contents": [
+                "opaque_screen"
+              ]
+            }
+          },
+          "inspections": [],
+          "reports": [],
+          "sensor": {
+            "label_visible": true,
+            "model": "fixed_camera_range_and_bullet_ray_los"
+          },
+          "affordances": {
+            "move": {
+              "opaque_screen": [
+                "screen_pad"
+              ]
+            },
+            "cover": [],
+            "inspect": [
+              "label_fixture"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "move",
+              "object_id": "opaque_screen",
+              "target_id": "screen_pad",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3687,
+              "grasp_mode": "constraint"
+            }
+          }
+        ],
+        "public_summary": {
+          "version": "memory_dev_v6",
+          "current_regions": {
+            "screen_pad": {
+              "contents": [
+                "opaque_screen"
+              ],
+              "observed": true
+            }
+          },
+          "observed_locations": {
+            "opaque_screen": [
+              "screen_pad"
+            ]
+          },
+          "object_memory": {
+            "opaque_screen": {
+              "status": "observed_now",
+              "regions": [
+                "screen_pad"
+              ],
+              "observed_step": 3687,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            }
+          },
+          "goal_requirements": {
+            "screen": "opaque_screen",
+            "screen_pad": "screen_pad",
+            "inspection_target": "label_fixture",
+            "physical_inspection_before_report": true,
+            "report_measured_code": true
+          },
+          "required_final_relations": [],
+          "lid_geometry": null,
+          "confirmed_choices": {
+            "inspection_code": "alpha"
+          },
+          "own_working_choices": {},
+          "preference_candidates": {},
+          "unresolved_roles": [],
+          "observed_region_visits": [
+            {
+              "object_id": "opaque_screen",
+              "region_id": "screen_pad",
+              "first_observed_step": 3687,
+              "last_observed_step": 3687
+            }
+          ],
+          "latest_action_by_object": {
+            "opaque_screen": {
+              "skill": "move",
+              "object_id": "opaque_screen",
+              "target_id": "screen_pad",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3687
+            }
+          },
+          "action_history_coverage": {
+            "total": 1,
+            "failed": 0
+          },
+          "memory_scope": {
+            "prior_public_snapshots": 1,
+            "current_step": 3687,
+            "note": "Memory records past public observations, never fresh sight through a lid. Region sensor membership and current grasp visibility are different. Unknown is not absent. New measured state overrides memory; unseen memories after failed/disturbing actions are invalidated."
+          },
+          "limitation": "These are public facts, not task scores, an oracle, prescribed actions or a completion verdict. The model must assess the goal; the independent evaluator uses actual final geometry/contact."
+        }
+      },
+      "payload_sha256": "871222e07ac4c0d6b173d1adfdef988da74c3b3ad68e9e79f78aaf53f6b61f19",
+      "gate": {
+        "called": false,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "model_plan": {
+        "working_choices": {},
+        "completion_assessment": {
+          "ready_for_done": false,
+          "reason": "Screen is already on screen_pad and label is visible to the fixed camera, but no physical inspection has been recorded yet. Need to inspect label_fixture, then report the measured code."
+        },
+        "remaining_plan": [
+          {
+            "kind": "inspect",
+            "target_id": "label_fixture"
+          }
+        ]
+      },
+      "action": {
+        "kind": "inspect",
+        "target_id": "label_fixture"
+      },
+      "physical_result": {
+        "skill": "inspect",
+        "object_id": "label_fixture",
+        "target_id": "inspection_camera",
+        "success": true,
+        "reason": "physically_observed",
+        "start_step": 3687,
+        "end_step": 3807
+      }
+    },
+    {
+      "round": 2,
+      "public_payload": {
+        "instruction": "Move the opaque screen onto screen_pad, use the fixed inspection camera to inspect the label underneath, and report its actual code. Leave the label in place and the screen on its pad. The code is a fixed world fact, not a preference. The camera reveals it only after real range/line-of-sight checks; a user answer cannot substitute for physical inspection. No need to ask for a code that can be observed after clearing the screen. The user specifies inspection_code=alpha.",
+        "observation": {
+          "simulation_step": 3807,
+          "objects": {
+            "opaque_screen": {
+              "category": "screen",
+              "color": "gray",
+              "position": [
+                0.30017362602344055,
+                0.3299744608802153,
+                0.42598889060027756
+              ],
+              "aabb_min": [
+                0.14615434016712245,
+                0.19595234800777972,
+                0.4199876403909281
+              ],
+              "aabb_max": [
+                0.45419291187975863,
+                0.4639965737526509,
+                0.431990140809627
+              ]
+            },
+            "label_fixture": {
+              "category": "label",
+              "color": "white",
+              "position": [
+                0.57,
+                0.0,
+                0.423
+              ],
+              "aabb_min": [
+                0.5299999999999999,
+                -0.025,
+                0.421
+              ],
+              "aabb_max": [
+                0.61,
+                0.025,
+                0.425
+              ]
+            }
+          },
+          "end_effector": [
+            0.29996731877326965,
+            0.3299996852874756,
+            0.8299928903579712
+          ],
+          "held_object": null,
+          "robot_joints": [
+            {
+              "position": 0.33583882121463726,
+              "velocity": -6.085409953726639e-15
+            },
+            {
+              "position": -0.39724194075123864,
+              "velocity": -5.599687380453133e-15
+            },
+            {
+              "position": 0.43054263463209946,
+              "velocity": -6.394190732450511e-15
+            },
+            {
+              "position": -2.2277811722640717,
+              "velocity": 4.649058915617843e-14
+            },
+            {
+              "position": 0.16924894804198884,
+              "velocity": -2.5370330836160804e-15
+            },
+            {
+              "position": 1.8595842929740765,
+              "velocity": -2.0566881531181025e-14
+            },
+            {
+              "position": 1.4732129047335276,
+              "velocity": 2.1730880983561462e-14
+            },
+            {
+              "position": 0.03999956278852216,
+              "velocity": -7.732529894166618e-16
+            },
+            {
+              "position": 0.040000508920810154,
+              "velocity": 7.554720737878995e-16
+            }
+          ],
+          "task": {
+            "inspection_target": "label_fixture",
+            "screen": "opaque_screen",
+            "screen_pad": "screen_pad",
+            "template_id": "occlusion_inspection",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "clear_screen",
+                  "inspect_label"
+                ],
+                [
+                  "inspect_label",
+                  "report_code"
+                ]
+              ],
+              "nodes": [
+                "clear_screen",
+                "inspect_label",
+                "report_code"
+              ]
+            },
+            "preference_slots": {
+              "inspection_code": {
+                "candidate_ids": [
+                  "alpha",
+                  "beta"
+                ],
+                "kind": "world_fact",
+                "description": "What is the printed inspection code? Fixed world fact; physical verification still required."
+              }
+            },
+            "initial_choices": {
+              "inspection_code": "alpha"
+            }
+          },
+          "containers": {},
+          "zones": {
+            "screen_pad": {
+              "half_xy": [
+                0.16,
+                0.14
+              ],
+              "id": "screen_pad",
+              "xy": [
+                0.3,
+                0.33
+              ],
+              "contents": [
+                "opaque_screen"
+              ]
+            }
+          },
+          "inspections": [
+            {
+              "step": 3807,
+              "camera": {
+                "visible": true,
+                "range_m": 0.677,
+                "ray_hit_body": 9,
+                "eye": [
+                  0.57,
+                  0.0,
+                  1.1
+                ],
+                "target": [
+                  0.57,
+                  0.0,
+                  0.423
+                ],
+                "sensor": "fixed_camera_range_and_bullet_ray_los"
+              },
+              "code": "alpha"
+            }
+          ],
+          "reports": [],
+          "sensor": {
+            "label_visible": true,
+            "model": "fixed_camera_range_and_bullet_ray_los"
+          },
+          "affordances": {
+            "move": {
+              "opaque_screen": [
+                "screen_pad"
+              ]
+            },
+            "cover": [],
+            "inspect": [
+              "label_fixture"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "inspect",
+              "object_id": "label_fixture",
+              "target_id": "inspection_camera",
+              "success": true,
+              "reason": "physically_observed",
+              "start_step": 3687,
+              "end_step": 3807
+            }
+          }
+        ],
+        "public_summary": {
+          "version": "memory_dev_v6",
+          "current_regions": {
+            "screen_pad": {
+              "contents": [
+                "opaque_screen"
+              ],
+              "observed": true
+            }
+          },
+          "observed_locations": {
+            "opaque_screen": [
+              "screen_pad"
+            ]
+          },
+          "object_memory": {
+            "opaque_screen": {
+              "status": "observed_now",
+              "regions": [
+                "screen_pad"
+              ],
+              "observed_step": 3807,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            }
+          },
+          "goal_requirements": {
+            "screen": "opaque_screen",
+            "screen_pad": "screen_pad",
+            "inspection_target": "label_fixture",
+            "physical_inspection_before_report": true,
+            "report_measured_code": true
+          },
+          "required_final_relations": [],
+          "lid_geometry": null,
+          "confirmed_choices": {
+            "inspection_code": "alpha"
+          },
+          "own_working_choices": {},
+          "preference_candidates": {},
+          "unresolved_roles": [],
+          "observed_region_visits": [
+            {
+              "object_id": "opaque_screen",
+              "region_id": "screen_pad",
+              "first_observed_step": 3687,
+              "last_observed_step": 3807
+            }
+          ],
+          "latest_action_by_object": {
+            "opaque_screen": {
+              "skill": "move",
+              "object_id": "opaque_screen",
+              "target_id": "screen_pad",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3687
+            },
+            "label_fixture": {
+              "skill": "inspect",
+              "object_id": "label_fixture",
+              "target_id": "inspection_camera",
+              "success": true,
+              "reason": "physically_observed",
+              "start_step": 3687,
+              "end_step": 3807
+            }
+          },
+          "action_history_coverage": {
+            "total": 2,
+            "failed": 0
+          },
+          "memory_scope": {
+            "prior_public_snapshots": 2,
+            "current_step": 3807,
+            "note": "Memory records past public observations, never fresh sight through a lid. Region sensor membership and current grasp visibility are different. Unknown is not absent. New measured state overrides memory; unseen memories after failed/disturbing actions are invalidated."
+          },
+          "limitation": "These are public facts, not task scores, an oracle, prescribed actions or a completion verdict. The model must assess the goal; the independent evaluator uses actual final geometry/contact."
+        }
+      },
+      "payload_sha256": "92061cce3748d1622e5a20f9890602e0e2c1e87624715d35b799481b4a8f8716",
+      "gate": {
+        "called": false,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "model_plan": {
+        "working_choices": {},
+        "completion_assessment": {
+          "ready_for_done": false,
+          "reason": "Screen is on screen_pad and label was physically inspected at step 3807 with measured code alpha. Report of the measured code is still pending."
+        },
+        "remaining_plan": [
+          {
+            "kind": "report",
+            "code": "alpha"
+          },
+          {
+            "kind": "DONE"
+          }
+        ]
+      },
+      "action": {
+        "kind": "report",
+        "code": "alpha"
+      },
+      "physical_result": {
+        "skill": "report",
+        "object_id": "alpha",
+        "target_id": "operator",
+        "success": true,
+        "reason": "report_submitted",
+        "start_step": 3807,
+        "end_step": 3807
+      }
+    },
+    {
+      "round": 3,
+      "public_payload": {
+        "instruction": "Move the opaque screen onto screen_pad, use the fixed inspection camera to inspect the label underneath, and report its actual code. Leave the label in place and the screen on its pad. The code is a fixed world fact, not a preference. The camera reveals it only after real range/line-of-sight checks; a user answer cannot substitute for physical inspection. No need to ask for a code that can be observed after clearing the screen. The user specifies inspection_code=alpha.",
+        "observation": {
+          "simulation_step": 3807,
+          "objects": {
+            "opaque_screen": {
+              "category": "screen",
+              "color": "gray",
+              "position": [
+                0.30017362602344055,
+                0.3299744608802153,
+                0.42598889060027756
+              ],
+              "aabb_min": [
+                0.14615434016712245,
+                0.19595234800777972,
+                0.4199876403909281
+              ],
+              "aabb_max": [
+                0.45419291187975863,
+                0.4639965737526509,
+                0.431990140809627
+              ]
+            },
+            "label_fixture": {
+              "category": "label",
+              "color": "white",
+              "position": [
+                0.57,
+                0.0,
+                0.423
+              ],
+              "aabb_min": [
+                0.5299999999999999,
+                -0.025,
+                0.421
+              ],
+              "aabb_max": [
+                0.61,
+                0.025,
+                0.425
+              ]
+            }
+          },
+          "end_effector": [
+            0.29996731877326965,
+            0.3299996852874756,
+            0.8299928903579712
+          ],
+          "held_object": null,
+          "robot_joints": [
+            {
+              "position": 0.33583882121463726,
+              "velocity": -6.085409953726639e-15
+            },
+            {
+              "position": -0.39724194075123864,
+              "velocity": -5.599687380453133e-15
+            },
+            {
+              "position": 0.43054263463209946,
+              "velocity": -6.394190732450511e-15
+            },
+            {
+              "position": -2.2277811722640717,
+              "velocity": 4.649058915617843e-14
+            },
+            {
+              "position": 0.16924894804198884,
+              "velocity": -2.5370330836160804e-15
+            },
+            {
+              "position": 1.8595842929740765,
+              "velocity": -2.0566881531181025e-14
+            },
+            {
+              "position": 1.4732129047335276,
+              "velocity": 2.1730880983561462e-14
+            },
+            {
+              "position": 0.03999956278852216,
+              "velocity": -7.732529894166618e-16
+            },
+            {
+              "position": 0.040000508920810154,
+              "velocity": 7.554720737878995e-16
+            }
+          ],
+          "task": {
+            "inspection_target": "label_fixture",
+            "screen": "opaque_screen",
+            "screen_pad": "screen_pad",
+            "template_id": "occlusion_inspection",
+            "version": "six_tasks_dev_v1",
+            "dag": {
+              "edges": [
+                [
+                  "clear_screen",
+                  "inspect_label"
+                ],
+                [
+                  "inspect_label",
+                  "report_code"
+                ]
+              ],
+              "nodes": [
+                "clear_screen",
+                "inspect_label",
+                "report_code"
+              ]
+            },
+            "preference_slots": {
+              "inspection_code": {
+                "candidate_ids": [
+                  "alpha",
+                  "beta"
+                ],
+                "kind": "world_fact",
+                "description": "What is the printed inspection code? Fixed world fact; physical verification still required."
+              }
+            },
+            "initial_choices": {
+              "inspection_code": "alpha"
+            }
+          },
+          "containers": {},
+          "zones": {
+            "screen_pad": {
+              "half_xy": [
+                0.16,
+                0.14
+              ],
+              "id": "screen_pad",
+              "xy": [
+                0.3,
+                0.33
+              ],
+              "contents": [
+                "opaque_screen"
+              ]
+            }
+          },
+          "inspections": [
+            {
+              "step": 3807,
+              "camera": {
+                "visible": true,
+                "range_m": 0.677,
+                "ray_hit_body": 9,
+                "eye": [
+                  0.57,
+                  0.0,
+                  1.1
+                ],
+                "target": [
+                  0.57,
+                  0.0,
+                  0.423
+                ],
+                "sensor": "fixed_camera_range_and_bullet_ray_los"
+              },
+              "code": "alpha"
+            }
+          ],
+          "reports": [
+            {
+              "step": 3807,
+              "code": "alpha"
+            }
+          ],
+          "sensor": {
+            "label_visible": true,
+            "model": "fixed_camera_range_and_bullet_ray_los"
+          },
+          "affordances": {
+            "move": {
+              "opaque_screen": [
+                "screen_pad"
+              ]
+            },
+            "cover": [],
+            "inspect": [
+              "label_fixture"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "action",
+            "result": {
+              "skill": "report",
+              "object_id": "alpha",
+              "target_id": "operator",
+              "success": true,
+              "reason": "report_submitted",
+              "start_step": 3807,
+              "end_step": 3807
+            }
+          }
+        ],
+        "public_summary": {
+          "version": "memory_dev_v6",
+          "current_regions": {
+            "screen_pad": {
+              "contents": [
+                "opaque_screen"
+              ],
+              "observed": true
+            }
+          },
+          "observed_locations": {
+            "opaque_screen": [
+              "screen_pad"
+            ]
+          },
+          "object_memory": {
+            "opaque_screen": {
+              "status": "observed_now",
+              "regions": [
+                "screen_pad"
+              ],
+              "observed_step": 3807,
+              "source": "public_region_contents",
+              "geometry_visible": true,
+              "currently_graspable": true,
+              "invalidated_after_step": null
+            }
+          },
+          "goal_requirements": {
+            "screen": "opaque_screen",
+            "screen_pad": "screen_pad",
+            "inspection_target": "label_fixture",
+            "physical_inspection_before_report": true,
+            "report_measured_code": true
+          },
+          "required_final_relations": [],
+          "lid_geometry": null,
+          "confirmed_choices": {
+            "inspection_code": "alpha"
+          },
+          "own_working_choices": {},
+          "preference_candidates": {},
+          "unresolved_roles": [],
+          "observed_region_visits": [
+            {
+              "object_id": "opaque_screen",
+              "region_id": "screen_pad",
+              "first_observed_step": 3687,
+              "last_observed_step": 3807
+            }
+          ],
+          "latest_action_by_object": {
+            "opaque_screen": {
+              "skill": "move",
+              "object_id": "opaque_screen",
+              "target_id": "screen_pad",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3687
+            },
+            "label_fixture": {
+              "skill": "inspect",
+              "object_id": "label_fixture",
+              "target_id": "inspection_camera",
+              "success": true,
+              "reason": "physically_observed",
+              "start_step": 3687,
+              "end_step": 3807
+            },
+            "alpha": {
+              "skill": "report",
+              "object_id": "alpha",
+              "target_id": "operator",
+              "success": true,
+              "reason": "report_submitted",
+              "start_step": 3807,
+              "end_step": 3807
+            }
+          },
+          "action_history_coverage": {
+            "total": 3,
+            "failed": 0
+          },
+          "memory_scope": {
+            "prior_public_snapshots": 3,
+            "current_step": 3807,
+            "note": "Memory records past public observations, never fresh sight through a lid. Region sensor membership and current grasp visibility are different. Unknown is not absent. New measured state overrides memory; unseen memories after failed/disturbing actions are invalidated."
+          },
+          "limitation": "These are public facts, not task scores, an oracle, prescribed actions or a completion verdict. The model must assess the goal; the independent evaluator uses actual final geometry/contact."
+        }
+      },
+      "payload_sha256": "7e9fd4f826e887bbd518cef86ca918c70316f2877c954d4f9143312b7a55930c",
+      "gate": {
+        "called": false,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "model_plan": {
+        "working_choices": {},
+        "completion_assessment": {
+          "ready_for_done": true,
+          "reason": "Screen is on screen_pad, label was physically inspected by the fixed camera (code alpha), and the measured code alpha has been reported. All DAG nodes satisfied."
+        },
+        "remaining_plan": [
+          {
+            "kind": "DONE"
+          }
+        ]
+      },
+      "action": {
+        "kind": "DONE"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "skill": "move",
+      "object_id": "opaque_screen",
+      "target_id": "screen_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3687,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "inspect",
+      "object_id": "label_fixture",
+      "target_id": "inspection_camera",
+      "success": true,
+      "reason": "physically_observed",
+      "start_step": 3687,
+      "end_step": 3807
+    },
+    {
+      "skill": "report",
+      "object_id": "alpha",
+      "target_id": "operator",
+      "success": true,
+      "reason": "report_submitted",
+      "start_step": 3807,
+      "end_step": 3807
+    }
+  ],
+  "public_history": [
+    {
+      "kind": "action",
+      "result": {
+        "skill": "move",
+        "object_id": "opaque_screen",
+        "target_id": "screen_pad",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3687,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "inspect",
+        "object_id": "label_fixture",
+        "target_id": "inspection_camera",
+        "success": true,
+        "reason": "physically_observed",
+        "start_step": 3687,
+        "end_step": 3807
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "report",
+        "object_id": "alpha",
+        "target_id": "operator",
+        "success": true,
+        "reason": "report_submitted",
+        "start_step": 3807,
+        "end_step": 3807
+      }
+    }
+  ],
+  "evaluation": {
+    "task_success": true,
+    "termination_reason": "done",
+    "conditions": {
+      "screen_parked": true,
+      "label_physically_observed": true,
+      "line_of_sight_clear_now": true,
+      "correct_report_after_inspection": true,
+      "label_not_moved": true,
+      "robot_released": true,
+      "all_movable_objects_stable": true
+    },
+    "details": {
+      "actual_code": "alpha",
+      "camera": {
+        "visible": true,
+        "range_m": 0.677,
+        "ray_hit_body": 9,
+        "eye": [
+          0.57,
+          0.0,
+          1.1
+        ],
+        "target": [
+          0.57,
+          0.0,
+          0.423
+        ],
+        "sensor": "fixed_camera_range_and_bullet_ray_los"
+      },
+      "inspections": [
+        {
+          "step": 3807,
+          "camera": {
+            "visible": true,
+            "range_m": 0.677,
+            "ray_hit_body": 9,
+            "eye": [
+              0.57,
+              0.0,
+              1.1
+            ],
+            "target": [
+              0.57,
+              0.0,
+              0.423
+            ],
+            "sensor": "fixed_camera_range_and_bullet_ray_los"
+          },
+          "code": "alpha"
+        }
+      ],
+      "reports": [
+        {
+          "step": 3807,
+          "code": "alpha"
+        }
+      ],
+      "robot_contact_counts": {
+        "opaque_screen": 0
+      }
+    },
+    "clarification_burden": 0,
+    "action_count": 3,
+    "successful_action_count": 3,
+    "simulation_steps": 3807,
+    "evaluator_version": "task6_geometry_contact_evidence_v1"
+  },
+  "termination_reason": "done",
+  "error": null,
+  "cost": {
+    "deepseek": {
+      "attempts": 4,
+      "input_tokens": 10514,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 346,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 4581.843792984728,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 4,
+    "api_latency_ms": 4581.843792984728,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "wall_time_s": 5.235006250004517,
+  "final_observation": {
+    "simulation_step": 3807,
+    "objects": {
+      "opaque_screen": {
+        "category": "screen",
+        "color": "gray",
+        "position": [
+          0.30017362602344055,
+          0.3299744608802153,
+          0.42598889060027756
+        ],
+        "orientation": [
+          1.6921001913223826e-07,
+          -3.911654970399139e-06,
+          -7.179294311370602e-05,
+          0.9999999974152218
+        ],
+        "aabb_min": [
+          0.14615434016712245,
+          0.19595234800777972,
+          0.4199876403909281
+        ],
+        "aabb_max": [
+          0.45419291187975863,
+          0.4639965737526509,
+          0.431990140809627
+        ],
+        "linear_velocity": [
+          5.506293223880815e-06,
+          4.2460255295158755e-06,
+          -8.86962028545657e-08
+        ],
+        "angular_velocity": [
+          -1.5635136028333825e-05,
+          1.0119757967182186e-06,
+          -3.464524494135079e-05
+        ]
+      },
+      "label_fixture": {
+        "category": "label",
+        "color": "white",
+        "position": [
+          0.57,
+          0.0,
+          0.423
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.5299999999999999,
+          -0.025,
+          0.421
+        ],
+        "aabb_max": [
+          0.61,
+          0.025,
+          0.425
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "end_effector": [
+      0.29996731877326965,
+      0.3299996852874756,
+      0.8299928903579712
+    ],
+    "held_object": null,
+    "robot_joints": [
+      {
+        "position": 0.33583882121463726,
+        "velocity": -6.085409953726639e-15
+      },
+      {
+        "position": -0.39724194075123864,
+        "velocity": -5.599687380453133e-15
+      },
+      {
+        "position": 0.43054263463209946,
+        "velocity": -6.394190732450511e-15
+      },
+      {
+        "position": -2.2277811722640717,
+        "velocity": 4.649058915617843e-14
+      },
+      {
+        "position": 0.16924894804198884,
+        "velocity": -2.5370330836160804e-15
+      },
+      {
+        "position": 1.8595842929740765,
+        "velocity": -2.0566881531181025e-14
+      },
+      {
+        "position": 1.4732129047335276,
+        "velocity": 2.1730880983561462e-14
+      },
+      {
+        "position": 0.03999956278852216,
+        "velocity": -7.732529894166618e-16
+      },
+      {
+        "position": 0.040000508920810154,
+        "velocity": 7.554720737878995e-16
+      }
+    ],
+    "task": {
+      "inspection_target": "label_fixture",
+      "screen": "opaque_screen",
+      "screen_pad": "screen_pad",
+      "template_id": "occlusion_inspection",
+      "version": "six_tasks_dev_v1",
+      "dag": {
+        "edges": [
+          [
+            "clear_screen",
+            "inspect_label"
+          ],
+          [
+            "inspect_label",
+            "report_code"
+          ]
+        ],
+        "nodes": [
+          "clear_screen",
+          "inspect_label",
+          "report_code"
+        ]
+      },
+      "preference_slots": {
+        "inspection_code": {
+          "candidate_ids": [
+            "alpha",
+            "beta"
+          ],
+          "kind": "world_fact",
+          "description": "What is the printed inspection code? Fixed world fact; physical verification still required."
+        }
+      },
+      "initial_choices": {
+        "inspection_code": "alpha"
+      }
+    },
+    "containers": {},
+    "zones": {
+      "screen_pad": {
+        "half_xy": [
+          0.16,
+          0.14
+        ],
+        "id": "screen_pad",
+        "xy": [
+          0.3,
+          0.33
+        ],
+        "contents": [
+          "opaque_screen"
+        ]
+      }
+    },
+    "inspections": [
+      {
+        "step": 3807,
+        "camera": {
+          "visible": true,
+          "range_m": 0.677,
+          "ray_hit_body": 9,
+          "eye": [
+            0.57,
+            0.0,
+            1.1
+          ],
+          "target": [
+            0.57,
+            0.0,
+            0.423
+          ],
+          "sensor": "fixed_camera_range_and_bullet_ray_los"
+        },
+        "code": "alpha"
+      }
+    ],
+    "reports": [
+      {
+        "step": 3807,
+        "code": "alpha"
+      }
+    ],
+    "sensor": {
+      "label_visible": true,
+      "model": "fixed_camera_range_and_bullet_ray_los"
+    },
+    "affordances": {
+      "move": {
+        "opaque_screen": [
+          "screen_pad"
+        ]
+      },
+      "cover": [],
+      "inspect": [
+        "label_fixture"
+      ]
+    }
+  },
+  "execution_log": [
+    {
+      "kind": "placement_started",
+      "object_id": "opaque_screen",
+      "target_id": "screen_pad",
+      "step": 240
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "opaque_screen",
+      "step": 240,
+      "end_effector": [
+        0.428022563457489,
+        3.169046749462723e-06,
+        0.859183669090271
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "opaque_screen",
+      "step": 937,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.0037710387278868645,
+      "closest_hand_distance_m": 0.013523488895759639
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "opaque_screen",
+      "step": 997,
+      "end_effector": [
+        0.5699881315231323,
+        -2.1529116565943696e-05,
+        0.5739959478378296
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "opaque_screen",
+      "step": 1359,
+      "end_effector": [
+        0.5699682831764221,
+        3.890144853357924e-06,
+        0.8253816962242126
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "opaque_screen",
+      "step": 1961,
+      "end_effector": [
+        0.3029024004936218,
+        0.32647109031677246,
+        0.8299497961997986
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "opaque_screen",
+      "step": 2713
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "opaque_screen",
+      "step": 3447,
+      "end_effector": [
+        0.29998570680618286,
+        0.3300183117389679,
+        0.8262206315994263
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "opaque_screen",
+      "target_id": "screen_pad",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3687,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "physical_inspection",
+      "step": 3807,
+      "camera": {
+        "visible": true,
+        "range_m": 0.677,
+        "ray_hit_body": 9,
+        "eye": [
+          0.57,
+          0.0,
+          1.1
+        ],
+        "target": [
+          0.57,
+          0.0,
+          0.423
+        ],
+        "sensor": "fixed_camera_range_and_bullet_ray_los"
+      },
+      "code": "alpha"
+    },
+    {
+      "kind": "report",
+      "step": 3807,
+      "code": "alpha"
+    }
+  ],
+  "configuration": {
+    "deepseek_model": "deepseek-flash",
+    "jev_model": "jev-latest",
+    "jev_threshold": 0.5,
+    "timeout_s": 40,
+    "max_retries": 1,
+    "max_tokens": 500,
+    "thinking": "disabled",
+    "response_format": "json_object"
+  }
+}

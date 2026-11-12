@@ -1,0 +1,295 @@
+{
+  "kind": "post_run_read_only_diagnostics",
+  "failures": [
+    {
+      "episode_id": "md1_00_2__llm_noask",
+      "instruction": "Pack exactly one cup and one block into the box, then cover it with one lid. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use item_4279293ffb.",
+      "failed_conditions": [
+        "correct_block_inside",
+        "unselected_objects_outside",
+        "packing_before_cover",
+        "declared_dag_order"
+      ],
+      "actions": [
+        {
+          "kind": "pick_place",
+          "object_id": "item_f3bebb1357",
+          "target_id": "box",
+          "relation": "inside"
+        },
+        {
+          "kind": "pick_place",
+          "object_id": "item_4279293ffb",
+          "target_id": "box",
+          "relation": "inside"
+        },
+        {
+          "kind": "cover",
+          "object_id": "item_3e7f89a2cc",
+          "target_id": "box",
+          "relation": "covers"
+        },
+        {
+          "kind": "DONE",
+          "object_id": null,
+          "target_id": null,
+          "relation": "inside"
+        }
+      ],
+      "termination": "done"
+    },
+    {
+      "episode_id": "md1_01_2__llm_noask",
+      "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use item_ff0920a6ac. For the block, use item_aba6946104.",
+      "failed_conditions": [
+        "correct_cup_in_selected_container",
+        "correct_block_in_other_container",
+        "declared_dag_order"
+      ],
+      "actions": [
+        {
+          "kind": "pick_place",
+          "object_id": "item_aba6946104",
+          "target_id": "item_93134932d1",
+          "relation": "inside"
+        },
+        {
+          "kind": "pick_place",
+          "object_id": "item_ff0920a6ac",
+          "target_id": "item_34bc43c027",
+          "relation": "inside"
+        },
+        {
+          "kind": "DONE",
+          "object_id": null,
+          "target_id": null,
+          "relation": "inside"
+        }
+      ],
+      "termination": "done"
+    },
+    {
+      "episode_id": "md1_04_0__llm_noask",
+      "instruction": "Restock the cup shelf to exactly 2 cups. Restock the block shelf to the user's block_quota, either 2 or 3 blocks. Count current physical contents first and add only the deficit. Do not move already stocked items or surplus spare stock. Cup replenishment is fully specified even before the block quota is known. The user specifies block_quota=2.",
+      "failed_conditions": [
+        "exact_cup_inventory"
+      ],
+      "actions": [
+        {
+          "kind": "move",
+          "object_id": "spare_cup_1",
+          "target_id": "cup_shelf"
+        },
+        {
+          "kind": "move",
+          "object_id": "spare_block_1",
+          "target_id": "block_shelf"
+        },
+        {
+          "kind": "move",
+          "object_id": "spare_cup_2",
+          "target_id": "cup_shelf"
+        },
+        {
+          "kind": "DONE"
+        }
+      ],
+      "termination": "done"
+    },
+    {
+      "episode_id": "md1_04_1__jev_gate",
+      "instruction": "Restock the cup shelf to exactly 2 cups. Restock the block shelf to the user's block_quota, either 2 or 3 blocks. Count current physical contents first and add only the deficit. Do not move already stocked items or surplus spare stock. Cup replenishment is fully specified even before the block quota is known. The user specifies block_quota=3.",
+      "failed_conditions": [
+        "exact_block_inventory"
+      ],
+      "actions": [
+        {
+          "kind": "move",
+          "object_id": "spare_cup_2",
+          "target_id": "cup_shelf"
+        },
+        {
+          "kind": "move",
+          "object_id": "spare_block_1",
+          "target_id": "block_shelf"
+        },
+        {
+          "kind": "DONE"
+        }
+      ],
+      "termination": "done"
+    },
+    {
+      "episode_id": "md1_04_1__llm_noask",
+      "instruction": "Restock the cup shelf to exactly 2 cups. Restock the block shelf to the user's block_quota, either 2 or 3 blocks. Count current physical contents first and add only the deficit. Do not move already stocked items or surplus spare stock. Cup replenishment is fully specified even before the block quota is known. The user specifies block_quota=3.",
+      "failed_conditions": [
+        "exact_block_inventory"
+      ],
+      "actions": [
+        {
+          "kind": "move",
+          "object_id": "spare_cup_2",
+          "target_id": "cup_shelf"
+        },
+        {
+          "kind": "move",
+          "object_id": "spare_block_1",
+          "target_id": "block_shelf"
+        },
+        {
+          "kind": "DONE"
+        }
+      ],
+      "termination": "done"
+    },
+    {
+      "episode_id": "md1_04_1__llm_unified",
+      "instruction": "Restock the cup shelf to exactly 2 cups. Restock the block shelf to the user's block_quota, either 2 or 3 blocks. Count current physical contents first and add only the deficit. Do not move already stocked items or surplus spare stock. Cup replenishment is fully specified even before the block quota is known. The user specifies block_quota=3.",
+      "failed_conditions": [
+        "exact_block_inventory"
+      ],
+      "actions": [
+        {
+          "kind": "move",
+          "object_id": "spare_cup_2",
+          "target_id": "cup_shelf"
+        },
+        {
+          "kind": "move",
+          "object_id": "spare_block_1",
+          "target_id": "block_shelf"
+        },
+        {
+          "kind": "DONE"
+        }
+      ],
+      "termination": "done"
+    },
+    {
+      "episode_id": "md1_04_2__llm_noask",
+      "instruction": "Restock the cup shelf to exactly 2 cups. Restock the block shelf to the user's block_quota, either 2 or 3 blocks. Count current physical contents first and add only the deficit. Do not move already stocked items or surplus spare stock. Cup replenishment is fully specified even before the block quota is known.",
+      "failed_conditions": [
+        "exact_block_inventory"
+      ],
+      "actions": [
+        {
+          "kind": "move",
+          "object_id": "spare_cup_2",
+          "target_id": "cup_shelf"
+        },
+        {
+          "kind": "move",
+          "object_id": "spare_block_1",
+          "target_id": "block_shelf"
+        },
+        {
+          "kind": "DONE"
+        }
+      ],
+      "termination": "done"
+    },
+    {
+      "episode_id": "md1_06_2__llm_noask",
+      "instruction": "Exchange item_a in slot_left and item_b in slot_right. Each slot holds at most one item. Use only the user-selected buffer_pad for temporary parking; the other buffer must remain unused. Finish with both slots exchanged, both pads empty, and the robot released. The required buffer_pad is unspecified.",
+      "failed_conditions": [
+        "selected_buffer_physically_used",
+        "other_buffer_unused",
+        "buffer_exchange_order"
+      ],
+      "actions": [
+        {
+          "kind": "move",
+          "object_id": "item_a",
+          "target_id": "buffer_front"
+        },
+        {
+          "kind": "move",
+          "object_id": "item_b",
+          "target_id": "slot_left"
+        },
+        {
+          "kind": "move",
+          "object_id": "item_a",
+          "target_id": "slot_right"
+        },
+        {
+          "kind": "DONE"
+        }
+      ],
+      "termination": "done"
+    }
+  ],
+  "skill_rejections": [
+    {
+      "episode_id": "md1_05_1__llm_gate",
+      "result": {
+        "skill": "move",
+        "object_id": "storage_lid",
+        "target_id": "box",
+        "success": false,
+        "reason": "use_surface_for_large_panel",
+        "start_step": 7218,
+        "end_step": 7218,
+        "grasp_mode": "constraint"
+      },
+      "final_task_success": true
+    }
+  ],
+  "schema_errors": {
+    "Use one public affordance with its exact action schema; no extra keys or hidden IDs": 21
+  },
+  "matched_request_different_response": [
+    {
+      "noask_round": 2,
+      "llm_gate_round": 2,
+      "request_dicts_equal": true,
+      "request_bytes_equal": true,
+      "request_sha256": "66cb5f5c920dc0f05711425e67b3cceb0ccacf806beb3430752d67ca446012ee",
+      "noask_output": "{\"kind\":\"DONE\"}",
+      "llm_gate_output": "{\"kind\":\"move\",\"object_id\":\"spare_block_2\",\"target_id\":\"block_shelf\"}",
+      "noask_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+      "llm_gate_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+      "noask_source": "episodes/md1_04_1__llm_noask/api_attempts.jsonl",
+      "llm_gate_source": "episodes/md1_04_1__llm_gate/api_attempts.jsonl"
+    }
+  ],
+  "deepseek_cache": [
+    {
+      "method": "llm_noask",
+      "cache_hit_tokens": 214775,
+      "cache_miss_tokens": 105371,
+      "hit_fraction": 0.67086579248218
+    },
+    {
+      "method": "llm_gate",
+      "cache_hit_tokens": 284416,
+      "cache_miss_tokens": 324971,
+      "hit_fraction": 0.4667247578304099
+    },
+    {
+      "method": "jev_gate",
+      "cache_hit_tokens": 276599,
+      "cache_miss_tokens": 60710,
+      "hit_fraction": 0.8200166612809027
+    },
+    {
+      "method": "llm_unified",
+      "cache_hit_tokens": 161408,
+      "cache_miss_tokens": 226736,
+      "hit_fraction": 0.41584566552619645
+    }
+  ],
+  "time_range_utc": [
+    "2026-11-12T13:17:19.730322+00:00",
+    "2026-11-12T13:22:15.320689+00:00"
+  ],
+  "interpretation": [
+    "All three asking methods have zero observed false alarms on 18 fully disclosed tasks. This small explicit-information negative set does not distinguish their false-alarm behavior.",
+    "NoAsk has four failures in undisclosed-preference controls and two in fully disclosed inventory tasks. These cannot all be attributed to missing clarification.",
+    "The quota=3 fully disclosed inventory task ends early for NoAsk, Jev-Gate and Unified. Separate LLM-Gate adds the missing block and succeeds.",
+    "An identical recorded DeepSeek action request returned DONE for NoAsk and a block-placement action for LLM-Gate. Cause is unobserved; success differences are not solely evidence of better gating.",
+    "The retrieval skill rejected move(lid,box) before advancing physics; the model subsequently used cover and completed. The failure is retained and final success is based on real final conditions.",
+    "The frozen global random order is not block balanced over time. Cache mix and provider timing are observed confounders; costs are estimates, no universal cheapest/fastest or statistical claim.",
+    "All 21 schema/affordance repair attempts are charged in latency, tokens and cost. No API outages, missing usage or censored core negatives occurred."
+  ]
+}
