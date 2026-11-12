@@ -1,0 +1,29 @@
+{
+  "status": "pass",
+  "slides": 11,
+  "aspect_ratio": "16:9",
+  "source_attachment_unchanged": true,
+  "first_five_slides_and_dependencies_byte_identical": 56,
+  "editable_cross_model_table": true,
+  "unrun_model_cells_empty": [
+    "GPT-5.6",
+    "GLM 5.2"
+  ],
+  "editable_charts_verified_against_metrics": 3,
+  "embedded_video_matches_recorded_file": true,
+  "native_autoplay_verified": true,
+  "native_rendered_slides_visually_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "pptx_sha256": "49876c278d465f3ebe3ae27eaf0985e8f4f7b5153f6bcbf0db491f8c2393eb66"
+}

@@ -1,0 +1,16 @@
+{
+  "artifact_ref": "artifact_XLbiG-a8IKGrAQHRix7EVH1yw2MyLkjq",
+  "edited_slides": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "fallback_reason": "The slide authoring API has no embedded video operation. Deliver a PowerPoint package with native MP4 timing while preserving the supplied opening slides byte-for-byte.",
+  "pending_model_rows": [
+    "GPT-5.6",
+    "GLM 5.2"
+  ]
+}

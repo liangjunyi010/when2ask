@@ -1,0 +1,38 @@
+{
+  "rows": [
+    {
+      "method": "llm_noask",
+      "success": 0.7777777777777778,
+      "time": 0.49196312917448,
+      "cost": 0.3634652380903667,
+      "fpr": null
+    },
+    {
+      "method": "llm_gate",
+      "success": 1.0,
+      "time": 1.0,
+      "cost": 1.0,
+      "fpr": 0.0
+    },
+    {
+      "method": "jev_gate",
+      "success": 0.9629629629629629,
+      "time": 0.6950540388779823,
+      "cost": 0.5370561897109997,
+      "fpr": 0.0
+    },
+    {
+      "method": "llm_unified",
+      "success": 0.9629629629629629,
+      "time": 0.5285875710399227,
+      "cost": 0.7054113352960746,
+      "fpr": 0.0
+    }
+  ],
+  "source": "outputs/nine_task_metrics_dev_v1/report/summary.json",
+  "normalization": "Time and estimated USD: LLM-Gate = 100%",
+  "is_held_out_test": false,
+  "cases_per_method": 27,
+  "layout_groups": 18,
+  "core_negative_cases": 18
+}

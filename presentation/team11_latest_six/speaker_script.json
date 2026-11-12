@@ -1,0 +1,49 @@
+{
+  "updated_slides": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "target_seconds": 290,
+  "slides": [
+    {
+      "slide": 6,
+      "target_seconds": 55,
+      "script": "We now support nine types of robotic tasks. These include packing, sorting, restocking, exchanging objects, retrieving an item and restoring the scene. We also include navigation and inspection. The distinction matters: some missing information is a user preference, so the robot needs an answer. Other missing information is a world fact that the robot can discover by searching or inspecting. We create cases with complete instructions as well as missing information, separate related layouts into groups, and check feasibility by executing a physical solution.",
+      "notes": "We now support nine types of robotic tasks. These include packing, sorting, restocking, exchanging objects, retrieving an item and restoring the scene. We also include navigation and inspection. The distinction matters: some missing information is a user preference, so the robot needs an answer. Other missing information is a world fact that the robot can discover by searching or inspecting. We create cases with complete instructions as well as missing information, separate related layouts into groups, and check feasibility by executing a physical solution.\n\nEvidence and scope (not spoken): Nine-task Dev data: data/nine_task_metrics_dev_v1/samples.json. Current paired evaluation: 27 cases per method, 18 base-layout groups, 108 episodes. All 27 physical oracle cases passed. Core negative cases: 18; navigation hints optional and inspection facts discoverable, not all missing-information controls require ASK."
+    },
+    {
+      "slide": 7,
+      "target_seconds": 60,
+      "script": "Here are the three gate-based policies. NoAsk always continues, so the DeepSeek planner must act using the information it already has. LLM-Gate first asks DeepSeek whether a question is needed. Jev-Gate uses the Jev probability with a threshold of one half. Both gates then use the same DeepSeek question or action planner. A user answer updates the public history, while an action changes the physical observation. We also test a fourth baseline, Single-call DeepSeek, which chooses a question, an action or DONE in one request.",
+      "notes": "Here are the three gate-based policies. NoAsk always continues, so the DeepSeek planner must act using the information it already has. LLM-Gate first asks DeepSeek whether a question is needed. Jev-Gate uses the Jev probability with a threshold of one half. Both gates then use the same DeepSeek question or action planner. A user answer updates the public history, while an action changes the physical observation. We also test a fourth baseline, Single-call DeepSeek, which chooses a question, an action or DONE in one request.\n\nEvidence and scope (not spoken): Method code: src/when2ask/metrics_dev_agents.py. Same shared planning components within task family; threshold 0.5. Single-call uses one logical DeepSeek invocation per round, with charged retries. Public state only. DONE originates in action planning, not a Gate."
+    },
+    {
+      "slide": 8,
+      "target_seconds": 35,
+      "script": "This table is our cross-model evaluation setup. Each model will use the same LLM-Gate workflow, serving as both the decision gate and the planner. Only the DeepSeek row is currently measured. Its success rate is one hundred percent in this development pilot, and we normalize its API time and estimated cost to one hundred percent for future comparison. The other rows remain blank until those experiments are completed. We do not infer a ranking from missing results.",
+      "notes": "This table is our cross-model evaluation setup. Each model will use the same LLM-Gate workflow, serving as both the decision gate and the planner. Only the DeepSeek row is currently measured. Its success rate is one hundred percent in this development pilot, and we normalize its API time and estimated cost to one hundred percent for future comparison. The other rows remain blank until those experiments are completed. We do not infer a ranking from missing results.\n\nEvidence and scope (not spoken): Measured row: outputs/nine_task_metrics_dev_v1/report/methods.csv, llm_gate: success 27/27; mean cumulative API time 8.237091538443497 s; mean estimated USD 0.0019767517777777776; FPR 0/18. All displayed time/cost percentages use this row as denominator. GPT-5.6 and GLM 5.2 are user-provided planned labels; no calls or claimed outcomes for them. Confirm provider versions before future evaluation."
+    },
+    {
+      "slide": 9,
+      "target_seconds": 55,
+      "script": "This is the completed four-method comparison. NoAsk reached about seventy-eight percent success. LLM-Gate reached one hundred percent, while Jev-Gate and Single-call DeepSeek reached about ninety-six percent. Relative to the separate LLM-Gate, Jev used about thirty percent less API time and forty-six percent lower estimated API cost. Single-call DeepSeek was faster than Jev here, but had a higher estimated cost. No unnecessary questions appeared in the fully specified cases. This is a small development pilot, so it cannot establish that false alarms never occur or that one method is always best.",
+      "notes": "This is the completed four-method comparison. NoAsk reached about seventy-eight percent success. LLM-Gate reached one hundred percent, while Jev-Gate and Single-call DeepSeek reached about ninety-six percent. Relative to the separate LLM-Gate, Jev used about thirty percent less API time and forty-six percent lower estimated API cost. Single-call DeepSeek was faster than Jev here, but had a higher estimated cost. No unnecessary questions appeared in the fully specified cases. This is a small development pilot, so it cannot establish that false alarms never occur or that one method is always best.\n\nEvidence and scope (not spoken): Raw report: outputs/nine_task_metrics_dev_v1/report/summary.json. Success 21/27,27/27,26/27,26/27. Mean API seconds 4.0523453285,8.2370915384,5.7252237424,4.3540242087. Mean estimated USD .00071848056,.00197675178,.00106162678,.00139442311. FPR N/A,0/18,0/18,0/18. All actual attempts/repairs included. Cache/provider timing and a matched request with differing output limit causal gate claims. Published prices captured before the run: https://api-docs.deepseek.com/quick_start/pricing/ and https://docs.typesafe.ai/models . USD is an estimate, not an invoice. Cases paired within existing Dev groups; not held-out Test."
+    },
+    {
+      "slide": 10,
+      "target_seconds": 50,
+      "script": "This is our robot command center. We choose a task, a decision method, and automatic or human replies. Here, I launch four different tasks, each running in its own PyBullet world. The cameras show what each robot is doing. When information is missing, questions appear in the queue on the right. I type my answer here. Only the asking robot pauses; the others keep working. After submission, that robot continues. We can therefore supervise several tasks from one screen, stepping in when needed. The final status comes from physical checks, rather than the model simply claiming success. All four tasks complete in this recorded, time-compressed demonstration.",
+      "notes": "This is our robot command center. We choose a task, a decision method, and automatic or human replies. Here, I launch four different tasks, each running in its own PyBullet world. The cameras show what each robot is doing. When information is missing, questions appear in the queue on the right. I type my answer here. Only the asking robot pauses; the others keep working. After submission, that robot continues. We can therefore supervise several tasks from one screen, stepping in when needed. The final status comes from physical checks, rather than the model simply claiming success. All four tasks complete in this recorded, time-compressed demonstration.\n\nEvidence and scope (not spoken): Actual media: presentation/command_center_demo_v1/media/When2Ask_Command_Center_50s.mp4. Four different tasks; three typed operator answers; 38 real authenticated calls; four independent physical successes. Whole-viewport footage retimed together. Single-computer interactive demonstration, not a benchmark comparison. Play embedded video once on slide entry."
+    },
+    {
+      "slide": 11,
+      "target_seconds": 35,
+      "script": "Our main contribution is a benchmark that tests when robotic agents should ask, continue or gather information themselves. We implemented nine task types, real physical execution, and a shared evaluation system. The Jev gate showed lower observed inference time and estimated cost than the separate LLM gate, with a small success-rate trade-off. Our main limitations are the small development sample, fixed skills and simulated robots. Next, we will expand independent layouts, repeat the comparisons and complete the cross-model evaluation. Thank you.",
+      "notes": "Our main contribution is a benchmark that tests when robotic agents should ask, continue or gather information themselves. We implemented nine task types, real physical execution, and a shared evaluation system. The Jev gate showed lower observed inference time and estimated cost than the separate LLM gate, with a small success-rate trade-off. Our main limitations are the small development sample, fixed skills and simulated robots. Next, we will expand independent layouts, repeat the comparisons and complete the cross-model evaluation. Thank you.\n\nEvidence and scope (not spoken): This slide summarizes the new nine-task Dev pilot only, not earlier frozen Test studies. No invented cross-model scores. Keep existing frozen datasets/configurations unchanged."
+    }
+  ]
+}
