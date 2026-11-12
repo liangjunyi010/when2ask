@@ -1,0 +1,574 @@
+{
+  "study_version": "unified_deepseek_dev_v1",
+  "partition": "dev_only",
+  "cases": [
+    {
+      "condition": "pack_block_first",
+      "source_dev_sample": "n9_dev_00_0",
+      "sample": {
+        "sample_id": "td1_pack_block_first",
+        "template_id": "pack_and_cover",
+        "group_id": "pack_and_cover:layout_f51e1d9a70ee3db9",
+        "layout_family_id": "layout_f51e1d9a70ee3db9",
+        "partition": "dev",
+        "scene_seed": 1218518662,
+        "u0": "Pack exactly one cup and one block into the box, then cover it with one lid. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use item_0a80a3fd1c. For the lid, use item_031e7ce7db.",
+        "slots": {
+          "block_choice": {
+            "candidate_ids": [
+              "item_1b9c137805",
+              "item_c652936e31"
+            ],
+            "public_role": "block"
+          },
+          "cup_choice": {
+            "candidate_ids": [
+              "item_b2cc759407",
+              "item_0a80a3fd1c"
+            ],
+            "public_role": "cup"
+          },
+          "lid_choice": {
+            "candidate_ids": [
+              "item_031e7ce7db",
+              "item_b414f8ccab"
+            ],
+            "public_role": "lid"
+          }
+        },
+        "theta_star": {
+          "block_choice": "item_1b9c137805",
+          "cup_choice": "item_0a80a3fd1c",
+          "lid_choice": "item_031e7ce7db"
+        },
+        "initial_disclosed_slots": [
+          "cup_choice",
+          "lid_choice"
+        ],
+        "dag": {
+          "nodes": [
+            "place_cup",
+            "place_block",
+            "cover"
+          ],
+          "edges": [
+            [
+              "place_cup",
+              "cover"
+            ],
+            [
+              "place_block",
+              "cover"
+            ],
+            [
+              "place_block",
+              "place_cup"
+            ]
+          ],
+          "order": "block_first"
+        },
+        "physical_scene": {
+          "containers": [
+            {
+              "color": "brown",
+              "half_xy": [
+                0.14,
+                0.12
+              ],
+              "id": "box",
+              "rgba": [
+                0.63,
+                0.4,
+                0.2,
+                1
+              ],
+              "wall_height": 0.11,
+              "xy": [
+                0.555,
+                0.02
+              ]
+            }
+          ],
+          "geometry_version": "panda_diverse_v3.1",
+          "jitter_max_m": 0.004,
+          "object_id_map": {
+            "black_lid": "item_b414f8ccab",
+            "blue_cup": "item_0a80a3fd1c",
+            "box": "box",
+            "green_block": "item_c652936e31",
+            "red_cup": "item_b2cc759407",
+            "white_lid": "item_031e7ce7db",
+            "yellow_block": "item_1b9c137805"
+          },
+          "object_order": [
+            "item_031e7ce7db",
+            "item_b2cc759407",
+            "box",
+            "item_1b9c137805",
+            "item_0a80a3fd1c",
+            "item_c652936e31",
+            "item_b414f8ccab"
+          ],
+          "schema_version": 3,
+          "sources": {
+            "black_lid": [
+              0.3,
+              0.33
+            ],
+            "blue_cup": [
+              0.31,
+              -0.3
+            ],
+            "green_block": [
+              0.29,
+              -0.085
+            ],
+            "red_cup": [
+              0.375,
+              -0.18
+            ],
+            "white_lid": [
+              0.61,
+              -0.4
+            ],
+            "yellow_block": [
+              0.29,
+              0.085
+            ]
+          },
+          "template_id": "pack_and_cover"
+        },
+        "public_goal": {},
+        "schema_version": 9,
+        "dataset_version": "nine_task_pilot_v1",
+        "version": "six_tasks_dev_v1"
+      }
+    },
+    {
+      "condition": "pack_continue_known_cup",
+      "source_dev_sample": "n9_dev_00_1",
+      "sample": {
+        "sample_id": "td1_pack_continue_known_cup",
+        "template_id": "pack_and_cover",
+        "group_id": "pack_and_cover:layout_0488e063e148932c",
+        "layout_family_id": "layout_0488e063e148932c",
+        "partition": "dev",
+        "scene_seed": 1496611995,
+        "u0": "Put one selected cup and one selected block in the box; cover it only after both are packed. Either object may be placed first. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use item_abdc798eba.",
+        "slots": {
+          "block_choice": {
+            "candidate_ids": [
+              "item_c6f84d05cf",
+              "item_f3bebb1357"
+            ],
+            "public_role": "block"
+          },
+          "cup_choice": {
+            "candidate_ids": [
+              "item_abdc798eba",
+              "item_4279293ffb"
+            ],
+            "public_role": "cup"
+          },
+          "lid_choice": {
+            "candidate_ids": [
+              "item_5027e744a3",
+              "item_3e7f89a2cc"
+            ],
+            "public_role": "lid"
+          }
+        },
+        "theta_star": {
+          "block_choice": "item_f3bebb1357",
+          "cup_choice": "item_abdc798eba",
+          "lid_choice": "item_3e7f89a2cc"
+        },
+        "initial_disclosed_slots": [
+          "cup_choice"
+        ],
+        "dag": {
+          "nodes": [
+            "place_cup",
+            "place_block",
+            "cover"
+          ],
+          "edges": [
+            [
+              "place_cup",
+              "cover"
+            ],
+            [
+              "place_block",
+              "cover"
+            ]
+          ],
+          "order": "independent"
+        },
+        "physical_scene": {
+          "containers": [
+            {
+              "color": "brown",
+              "half_xy": [
+                0.14,
+                0.12
+              ],
+              "id": "box",
+              "rgba": [
+                0.63,
+                0.4,
+                0.2,
+                1
+              ],
+              "wall_height": 0.11,
+              "xy": [
+                0.555,
+                0.14
+              ]
+            }
+          ],
+          "geometry_version": "panda_diverse_v3.1",
+          "jitter_max_m": 0.004,
+          "object_id_map": {
+            "black_lid": "item_5027e744a3",
+            "blue_cup": "item_4279293ffb",
+            "box": "box",
+            "green_block": "item_c6f84d05cf",
+            "red_cup": "item_abdc798eba",
+            "white_lid": "item_3e7f89a2cc",
+            "yellow_block": "item_f3bebb1357"
+          },
+          "object_order": [
+            "item_f3bebb1357",
+            "item_c6f84d05cf",
+            "box",
+            "item_abdc798eba",
+            "item_3e7f89a2cc",
+            "item_5027e744a3",
+            "item_4279293ffb"
+          ],
+          "schema_version": 3,
+          "sources": {
+            "black_lid": [
+              0.3,
+              0.45
+            ],
+            "blue_cup": [
+              0.31,
+              -0.18
+            ],
+            "green_block": [
+              0.29,
+              0.035
+            ],
+            "red_cup": [
+              0.375,
+              -0.06
+            ],
+            "white_lid": [
+              0.61,
+              -0.28
+            ],
+            "yellow_block": [
+              0.29,
+              0.205
+            ]
+          },
+          "template_id": "pack_and_cover"
+        },
+        "public_goal": {},
+        "schema_version": 9,
+        "dataset_version": "nine_task_pilot_v1",
+        "version": "six_tasks_dev_v1"
+      }
+    },
+    {
+      "condition": "containers_block_first",
+      "source_dev_sample": "n9_dev_01_0",
+      "sample": {
+        "sample_id": "td1_containers_block_first",
+        "template_id": "place_into_selected_containers",
+        "group_id": "place_into_selected_containers:layout_f7ad74b444a9241c",
+        "layout_family_id": "layout_f7ad74b444a9241c",
+        "partition": "dev",
+        "scene_seed": 641442940,
+        "u0": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e.",
+        "slots": {
+          "block_choice": {
+            "candidate_ids": [
+              "item_f885e71481",
+              "item_3d73bd37fd"
+            ],
+            "public_role": "block"
+          },
+          "cup_choice": {
+            "candidate_ids": [
+              "item_beba60fd7b",
+              "item_e2988fee7e"
+            ],
+            "public_role": "cup"
+          },
+          "cup_destination_choice": {
+            "candidate_ids": [
+              "item_11a9324217",
+              "item_df14409786"
+            ],
+            "public_role": "cup_destination"
+          }
+        },
+        "theta_star": {
+          "block_choice": "item_f885e71481",
+          "cup_choice": "item_e2988fee7e",
+          "cup_destination_choice": "item_11a9324217"
+        },
+        "initial_disclosed_slots": [
+          "block_choice",
+          "cup_choice"
+        ],
+        "dag": {
+          "nodes": [
+            "place_cup",
+            "place_block"
+          ],
+          "edges": [
+            [
+              "place_block",
+              "place_cup"
+            ]
+          ],
+          "order": "block_first"
+        },
+        "physical_scene": {
+          "containers": [
+            {
+              "color": "orange",
+              "half_xy": [
+                0.09,
+                0.08
+              ],
+              "id": "container_a",
+              "rgba": [
+                0.95,
+                0.45,
+                0.12,
+                1
+              ],
+              "wall_height": 0.09,
+              "xy": [
+                0.535,
+                -0.255
+              ]
+            },
+            {
+              "color": "purple",
+              "half_xy": [
+                0.09,
+                0.08
+              ],
+              "id": "container_b",
+              "rgba": [
+                0.55,
+                0.25,
+                0.8,
+                1
+              ],
+              "wall_height": 0.09,
+              "xy": [
+                0.565,
+                0.105
+              ]
+            }
+          ],
+          "geometry_version": "panda_diverse_v3.1",
+          "jitter_max_m": 0.004,
+          "object_id_map": {
+            "blue_cup": "item_e2988fee7e",
+            "container_a": "item_11a9324217",
+            "container_b": "item_df14409786",
+            "green_block": "item_f885e71481",
+            "red_cup": "item_beba60fd7b",
+            "yellow_block": "item_3d73bd37fd"
+          },
+          "object_order": [
+            "item_beba60fd7b",
+            "item_f885e71481",
+            "item_3d73bd37fd",
+            "item_11a9324217",
+            "item_e2988fee7e",
+            "item_df14409786"
+          ],
+          "schema_version": 3,
+          "sources": {
+            "blue_cup": [
+              0.29,
+              -0.32
+            ],
+            "green_block": [
+              0.29,
+              -0.025
+            ],
+            "red_cup": [
+              0.34,
+              -0.18
+            ],
+            "yellow_block": [
+              0.29,
+              0.18
+            ]
+          },
+          "template_id": "place_into_selected_containers"
+        },
+        "public_goal": {},
+        "schema_version": 9,
+        "dataset_version": "nine_task_pilot_v1",
+        "version": "six_tasks_dev_v1"
+      }
+    },
+    {
+      "condition": "containers_all_known",
+      "source_dev_sample": "n9_dev_01_1",
+      "sample": {
+        "sample_id": "td1_containers_all_known",
+        "template_id": "place_into_selected_containers",
+        "group_id": "place_into_selected_containers:layout_a531f36623a026a3",
+        "layout_family_id": "layout_a531f36623a026a3",
+        "partition": "dev",
+        "scene_seed": 1866396094,
+        "u0": "Place the preferred cup and block into separate containers: the cup uses its preferred destination, and the block must use the remaining container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the cup before the block. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_aba6946104. For the cup, use item_ff0920a6ac. For the cup_destination, use item_34bc43c027.",
+        "slots": {
+          "block_choice": {
+            "candidate_ids": [
+              "item_3b3b0f9e74",
+              "item_aba6946104"
+            ],
+            "public_role": "block"
+          },
+          "cup_choice": {
+            "candidate_ids": [
+              "item_ff0920a6ac",
+              "item_ff53c67ac5"
+            ],
+            "public_role": "cup"
+          },
+          "cup_destination_choice": {
+            "candidate_ids": [
+              "item_93134932d1",
+              "item_34bc43c027"
+            ],
+            "public_role": "cup_destination"
+          }
+        },
+        "theta_star": {
+          "block_choice": "item_aba6946104",
+          "cup_choice": "item_ff0920a6ac",
+          "cup_destination_choice": "item_34bc43c027"
+        },
+        "initial_disclosed_slots": [
+          "block_choice",
+          "cup_choice",
+          "cup_destination_choice"
+        ],
+        "dag": {
+          "nodes": [
+            "place_cup",
+            "place_block"
+          ],
+          "edges": [
+            [
+              "place_cup",
+              "place_block"
+            ]
+          ],
+          "order": "cup_first"
+        },
+        "physical_scene": {
+          "containers": [
+            {
+              "color": "orange",
+              "half_xy": [
+                0.09,
+                0.08
+              ],
+              "id": "container_a",
+              "rgba": [
+                0.95,
+                0.45,
+                0.12,
+                1
+              ],
+              "wall_height": 0.09,
+              "xy": [
+                0.535,
+                -0.135
+              ]
+            },
+            {
+              "color": "purple",
+              "half_xy": [
+                0.09,
+                0.08
+              ],
+              "id": "container_b",
+              "rgba": [
+                0.55,
+                0.25,
+                0.8,
+                1
+              ],
+              "wall_height": 0.09,
+              "xy": [
+                0.565,
+                0.225
+              ]
+            }
+          ],
+          "geometry_version": "panda_diverse_v3.1",
+          "jitter_max_m": 0.004,
+          "object_id_map": {
+            "blue_cup": "item_ff53c67ac5",
+            "container_a": "item_93134932d1",
+            "container_b": "item_34bc43c027",
+            "green_block": "item_3b3b0f9e74",
+            "red_cup": "item_ff0920a6ac",
+            "yellow_block": "item_aba6946104"
+          },
+          "object_order": [
+            "item_93134932d1",
+            "item_ff53c67ac5",
+            "item_3b3b0f9e74",
+            "item_ff0920a6ac",
+            "item_aba6946104",
+            "item_34bc43c027"
+          ],
+          "schema_version": 3,
+          "sources": {
+            "blue_cup": [
+              0.29,
+              -0.2
+            ],
+            "green_block": [
+              0.29,
+              0.095
+            ],
+            "red_cup": [
+              0.34,
+              -0.06
+            ],
+            "yellow_block": [
+              0.29,
+              0.3
+            ]
+          },
+          "template_id": "place_into_selected_containers"
+        },
+        "public_goal": {},
+        "schema_version": 9,
+        "dataset_version": "nine_task_pilot_v1",
+        "version": "six_tasks_dev_v1"
+      }
+    }
+  ],
+  "policy": "Same four previously developed Dev cases, not new held-out data. No historical episode contributes to current outcome tables.",
+  "known_scope": "Earlier nine-task Test failures inform the repair motivation only; all paid diagnostics and paired runs use these Dev cases.",
+  "source_data": "data/tabletop_contract_dev_v1/samples.json",
+  "source_data_sha256": "bc23a70504f1bdcd23ce315b58150d39f50b103c35fa2b5a20ad1cad5d376b57"
+}
