@@ -1,0 +1,94 @@
+{
+  "passed": true,
+  "source_clone_commit": "958f2d0bdda62068e1fc164f045d8a3e88e375b6",
+  "cloned_from_private_github": true,
+  "new_virtual_environment": true,
+  "credentials_copied": false,
+  "installation": "documented scripts/setup_env.sh plus local editable install; PyBullet compiled successfully",
+  "python": "3.11.16",
+  "packages": {
+    "pybullet": "3.2.7",
+    "numpy": "2.4.6",
+    "pillow": "13.0.0",
+    "pytest": "9.1.1"
+  },
+  "offline_doctor": {
+    "live": false,
+    "credentials": {
+      "deepseek": false,
+      "jev": false
+    },
+    "env_mode": null,
+    "configuration": {
+      "deepseek_model": "deepseek-flash",
+      "jev_model": "jev-latest",
+      "jev_threshold": 0.5,
+      "timeout_s": 40,
+      "max_retries": 1,
+      "max_tokens": 500,
+      "thinking": "disabled",
+      "response_format": "json_object"
+    },
+    "packages": {
+      "pybullet": "3.2.7",
+      "numpy": "2.4.6",
+      "pillow": "13.0.0",
+      "pytest": "9.1.1"
+    }
+  },
+  "pybullet_direct_steps": 60,
+  "tiny_renderer_verified": true,
+  "clean_disconnect_verified": true,
+  "pytest": {
+    "total": 364,
+    "passed": 363,
+    "skipped": 1,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 96.66,
+    "skip_reason": "Fresh clone intentionally has no .env credentials"
+  },
+  "runtime_source_files_compared": 197,
+  "source_tree_sha256": "accc35cda0c3d47e6ab425b4027b82bfbdc29923ce4acda53de922c8bcd66592",
+  "console": {
+    "passed": true,
+    "mode": "offline scripted policies; real-physics workers available",
+    "new_model_api_calls": 0,
+    "source_commit": "958f2d0bdda62068e1fc164f045d8a3e88e375b6",
+    "credentials_present": false,
+    "checks": [
+      {
+        "endpoint": "/app.js",
+        "status": 200,
+        "bytes": 38175
+      },
+      {
+        "endpoint": "/hub.js",
+        "status": 200,
+        "bytes": 10755
+      },
+      {
+        "endpoint": "/evidence/summary.json",
+        "status": 200,
+        "bytes": 7257
+      },
+      {
+        "endpoint": "/replay/",
+        "status": 200,
+        "bytes": 7572
+      },
+      {
+        "endpoint": "/replay/timeline.json",
+        "status": 200,
+        "bytes": 154260
+      },
+      {
+        "endpoint": "/evidence/videos/t8_r2_test_1_04_1__jev_gate.mp4",
+        "status": 206,
+        "bytes": 1024
+      }
+    ]
+  },
+  "supplemental_assets_remote_sha256_verified": true,
+  "new_model_api_calls": 0
+}

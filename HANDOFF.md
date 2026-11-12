@@ -30,6 +30,7 @@ The validated platform is macOS Apple Silicon with Python 3.11. The runtime is a
 
 ```bash
 bash scripts/setup_env.sh
+.venv/bin/python -m pip install --no-deps --no-build-isolation -e .
 .venv/bin/python -m when2ask doctor
 .venv/bin/python -m pytest -q
 .venv/bin/python presentation_console.py --port 8902
@@ -45,7 +46,7 @@ The original standalone robot demo also works offline:
 .venv/bin/python demo.py --mode ask --gui
 ```
 
-Environment creation installs packages only in this project's `.venv`. No virtual environment from another machine is shipped. Node/Playwright is only needed for browser automation, and the bundled Artifact Tool is only needed to rerun the presentation authoring scripts. Neither is required to run the Python console or view the committed PowerPoint.
+Environment creation installs packages only in this project's `.venv`. The editable install makes subsequent source edits visible to the Python CLI. No virtual environment from another machine is shipped. Node/Playwright is only needed for browser automation, and the bundled Artifact Tool is only needed to rerun the presentation authoring scripts. Neither is required to run the Python console or view the committed PowerPoint.
 
 ## Live models are opt-in
 
@@ -114,3 +115,7 @@ The previously uncommitted local Milestone deck is also preserved byte-for-byte 
 ## Suggested first contribution
 
 Create a new feature branch from this handoff, run the offline tests and console, then inspect one saved failure alongside its public state/action history. Keep any fixes opt-in until a fresh Dev check is complete. Open a PR against `codex/team11-handoff`; do not force-push, rewrite historical results or automatically merge the existing stacked PRs.
+
+## Fresh-clone verification
+
+A new private GitHub clone and a new Python 3.11 virtual environment successfully installed through the documented setup script. PyBullet was actually compiled, then verified in DIRECT mode with 60 simulation steps, TinyRenderer and clean disconnect. All offline tests ran: **363 passed, 1 skipped** (the credential-locality check intentionally skips when `.env` is absent). The English console served its frontend, saved Benchmark JSON, synchronized replay and byte-range MP4 from this credential-free clone. No model API calls were made. See `handoff/checks/clone_validation.json`.
