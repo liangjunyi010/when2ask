@@ -1,0 +1,28 @@
+{
+  "title_slide": {
+    "team": 11,
+    "members": [
+      "Liang Junyi",
+      "Yang Haocheng"
+    ]
+  },
+  "problem_and_motivation": [
+    2
+  ],
+  "approach_and_implementation": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "results_and_demonstration": [
+    7,
+    8,
+    9
+  ],
+  "discussion_and_conclusions": [
+    10
+  ],
+  "presentation_seconds": 570,
+  "buffer_seconds": 30
+}
