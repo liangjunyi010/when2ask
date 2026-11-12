@@ -1,0 +1,251 @@
+{
+  "sample_id": "md1_04_0",
+  "group_id": "inventory_restock:layout_c56988c232d717ad",
+  "partition": "dev",
+  "evidence_kind": "real_pybullet_oracle",
+  "proposed_actions": [
+    {
+      "kind": "move",
+      "object_id": "spare_cup_1",
+      "target_id": "cup_shelf"
+    },
+    {
+      "kind": "move",
+      "object_id": "spare_block_2",
+      "target_id": "block_shelf"
+    }
+  ],
+  "actions": [
+    {
+      "skill": "move",
+      "object_id": "spare_cup_1",
+      "target_id": "cup_shelf",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3813,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "spare_block_2",
+      "target_id": "block_shelf",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3813,
+      "end_step": 7650,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "execution_log": [
+    {
+      "kind": "placement_started",
+      "object_id": "spare_cup_1",
+      "target_id": "cup_shelf",
+      "step": 240
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "spare_cup_1",
+      "step": 240,
+      "end_effector": [
+        0.428022563457489,
+        3.169046749462723e-06,
+        0.859183669090271
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "spare_cup_1",
+      "step": 1323,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004618586211429957,
+      "closest_hand_distance_m": 0.01931687244985706
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "spare_cup_1",
+      "step": 1383,
+      "end_effector": [
+        0.2899613082408905,
+        -0.350626677274704,
+        0.49869629740715027
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "spare_cup_1",
+      "step": 1851,
+      "end_effector": [
+        0.2899808883666992,
+        -0.35095009207725525,
+        0.8254092335700989
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "spare_cup_1",
+      "step": 2319,
+      "end_effector": [
+        0.6002059578895569,
+        -0.2508518397808075,
+        0.8297471404075623
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "spare_cup_1",
+      "step": 2946
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "spare_cup_1",
+      "step": 3573,
+      "end_effector": [
+        0.6047850847244263,
+        -0.24951209127902985,
+        0.8261072635650635
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "spare_cup_1",
+      "target_id": "cup_shelf",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3813,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "spare_block_2",
+      "target_id": "block_shelf",
+      "step": 3813
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "spare_block_2",
+      "step": 3813,
+      "end_effector": [
+        0.6047717928886414,
+        -0.24950745701789856,
+        0.8298815488815308
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "spare_block_2",
+      "step": 5104,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.005734271691392866,
+      "closest_hand_distance_m": 0.023164167798908182
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "spare_block_2",
+      "step": 5164,
+      "end_effector": [
+        0.289789080619812,
+        0.18921330571174622,
+        0.48474186658859253
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "spare_block_2",
+      "step": 5652,
+      "end_effector": [
+        0.2900182008743286,
+        0.19000938534736633,
+        0.8254162669181824
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "spare_block_2",
+      "step": 6105,
+      "end_effector": [
+        0.6000734567642212,
+        0.13004381954669952,
+        0.8298453688621521
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "spare_block_2",
+      "step": 6759
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "spare_block_2",
+      "step": 7410,
+      "end_effector": [
+        0.6046952605247498,
+        0.1291772872209549,
+        0.826168954372406
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "spare_block_2",
+      "target_id": "block_shelf",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3813,
+      "end_step": 7650,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "evaluation": {
+    "task_success": true,
+    "termination_reason": "offline_oracle",
+    "conditions": {
+      "exact_cup_inventory": true,
+      "exact_block_inventory": true,
+      "original_stock_untouched": true,
+      "surplus_stock_untouched": true,
+      "robot_released": true,
+      "all_movable_objects_stable": true
+    },
+    "details": {
+      "actual_inventory": {
+        "cup_shelf": [
+          "spare_cup_1",
+          "stocked_cup"
+        ],
+        "block_shelf": [
+          "spare_block_2",
+          "stocked_block"
+        ]
+      },
+      "target_block_count": 2,
+      "robot_contact_counts": {
+        "spare_cup_1": 0,
+        "spare_block_2": 0,
+        "spare_block_1": 0,
+        "stocked_block": 0,
+        "stocked_cup": 0,
+        "spare_cup_2": 0
+      }
+    },
+    "clarification_burden": 0,
+    "action_count": 2,
+    "successful_action_count": 2,
+    "simulation_steps": 7650,
+    "evaluator_version": "task6_geometry_contact_evidence_v1"
+  },
+  "api_attempts": 0
+}

@@ -1,0 +1,432 @@
+{
+  "sample_id": "md1_00_2",
+  "group_id": "pack_and_cover:layout_0488e063e148932c",
+  "partition": "dev",
+  "evidence_kind": "real_pybullet_oracle",
+  "proposed_actions": [
+    {
+      "kind": "pick_place",
+      "object_id": "item_c6f84d05cf",
+      "target_id": "box",
+      "relation": "inside"
+    },
+    {
+      "kind": "pick_place",
+      "object_id": "item_4279293ffb",
+      "target_id": "box",
+      "relation": "inside"
+    },
+    {
+      "kind": "cover",
+      "object_id": "item_3e7f89a2cc",
+      "target_id": "box"
+    }
+  ],
+  "actions": [
+    {
+      "skill": "pick_place",
+      "object_id": "item_c6f84d05cf",
+      "target_id": "box",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3685,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "pick_place",
+      "object_id": "item_4279293ffb",
+      "target_id": "box",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3685,
+      "end_step": 7368,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "cover",
+      "object_id": "item_3e7f89a2cc",
+      "target_id": "box",
+      "success": true,
+      "reason": "covered",
+      "start_step": 7368,
+      "end_step": 11021,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "execution_log": [
+    {
+      "kind": "placement_started",
+      "object_id": "item_c6f84d05cf",
+      "target_id": "box",
+      "step": 240,
+      "contents_before": {
+        "box": []
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_c6f84d05cf",
+      "step": 240,
+      "end_effector": [
+        0.428022563457489,
+        3.169046749462723e-06,
+        0.859183669090271
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_c6f84d05cf",
+      "step": 1096,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004825814187214313,
+      "closest_hand_distance_m": 0.02310503333492521
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_c6f84d05cf",
+      "step": 1156,
+      "end_effector": [
+        0.28685709834098816,
+        0.03137657791376114,
+        0.4831193685531616
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_c6f84d05cf",
+      "step": 1646,
+      "end_effector": [
+        0.28720444440841675,
+        0.031578194350004196,
+        0.8254170417785645
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_c6f84d05cf",
+      "step": 2141,
+      "end_effector": [
+        0.6023163795471191,
+        0.17283464968204498,
+        0.8298072814941406
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_c6f84d05cf",
+      "step": 2799
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_c6f84d05cf",
+      "step": 3445,
+      "end_effector": [
+        0.6067138910293579,
+        0.17474819719791412,
+        0.8261536359786987
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_c6f84d05cf",
+      "target_id": "box",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3685,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_4279293ffb",
+      "target_id": "box",
+      "step": 3685,
+      "contents_before": {
+        "box": [
+          "item_c6f84d05cf"
+        ]
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_4279293ffb",
+      "step": 3685,
+      "end_effector": [
+        0.6066772937774658,
+        0.1747412085533142,
+        0.8299261927604675
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_4279293ffb",
+      "step": 4863,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.005887295266598455,
+      "closest_hand_distance_m": 0.020033791300102056
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_4279293ffb",
+      "step": 4923,
+      "end_effector": [
+        0.30681663751602173,
+        -0.17982974648475647,
+        0.5001753568649292
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_4279293ffb",
+      "step": 5389,
+      "end_effector": [
+        0.30739209055900574,
+        -0.18056608736515045,
+        0.8254140019416809
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_4279293ffb",
+      "step": 5879,
+      "end_effector": [
+        0.4999350607395172,
+        0.10205286741256714,
+        0.8299309611320496
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_4279293ffb",
+      "step": 6503
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_4279293ffb",
+      "step": 7128,
+      "end_effector": [
+        0.5025314688682556,
+        0.10586556792259216,
+        0.8262159824371338
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_4279293ffb",
+      "target_id": "box",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3685,
+      "end_step": 7368,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "cover_started",
+      "step": 7368,
+      "contents_before": [
+        "item_c6f84d05cf",
+        "item_4279293ffb"
+      ],
+      "released_before": true,
+      "lid_id": "item_3e7f89a2cc"
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_3e7f89a2cc",
+      "step": 7368,
+      "end_effector": [
+        0.5025081038475037,
+        0.10586228966712952,
+        0.8299863338470459
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_3e7f89a2cc",
+      "step": 8559,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.0037711670682442342,
+      "closest_hand_distance_m": 0.013522508511023934
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_3e7f89a2cc",
+      "step": 8619,
+      "end_effector": [
+        0.6071345806121826,
+        -0.2805091142654419,
+        0.4499967694282532
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_3e7f89a2cc",
+      "step": 9156,
+      "end_effector": [
+        0.6068426966667175,
+        -0.2803686559200287,
+        0.8252346515655518
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_3e7f89a2cc",
+      "step": 9755,
+      "end_effector": [
+        0.5555112361907959,
+        0.1355288028717041,
+        0.8299354910850525
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_3e7f89a2cc",
+      "step": 10259
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_3e7f89a2cc",
+      "step": 10781,
+      "end_effector": [
+        0.5549190640449524,
+        0.14003658294677734,
+        0.8261942267417908
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "cover",
+      "object_id": "item_3e7f89a2cc",
+      "target_id": "box",
+      "success": true,
+      "reason": "covered",
+      "start_step": 7368,
+      "end_step": 11021,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "evaluation": {
+    "task_success": true,
+    "termination_reason": "offline_oracle",
+    "execution_termination": "offline_oracle",
+    "conditions": {
+      "correct_cup_inside": true,
+      "correct_block_inside": true,
+      "correct_lid_covers": true,
+      "unselected_objects_outside": true,
+      "robot_released": true,
+      "packing_before_cover": true,
+      "declared_dag_order": true
+    },
+    "execution_completed": false,
+    "details": {
+      "expected_objects": {
+        "cup": "item_4279293ffb",
+        "block": "item_c6f84d05cf",
+        "lid": "item_3e7f89a2cc"
+      },
+      "cup": {
+        "inside": true,
+        "full_xy_inside": true,
+        "full_z_inside": true,
+        "supported_by_box": true,
+        "stable": true,
+        "aabb_min": [
+          0.47593421277912407,
+          0.07798176435753874,
+          0.43398382465559426
+        ],
+        "aabb_max": [
+          0.5301673972088424,
+          0.13220950378589622,
+          0.4939964690141293
+        ]
+      },
+      "block": {
+        "inside": true,
+        "full_xy_inside": true,
+        "full_z_inside": true,
+        "supported_by_box": true,
+        "stable": true,
+        "aabb_min": [
+          0.5874562759511756,
+          0.1532835007828485,
+          0.43398907203567
+        ],
+        "aabb_max": [
+          0.6314573607943909,
+          0.1972836942825774,
+          0.477990132798724
+        ]
+      },
+      "lid": {
+        "covered": true,
+        "all_mouth_corners_covered": true,
+        "height_ok": true,
+        "flat": true,
+        "normal_z": 0.9999999997953528,
+        "rim_supported": true,
+        "support_contact_count": 12,
+        "stable": true
+      },
+      "unselected": {
+        "item_f3bebb1357": {
+          "outside": true,
+          "footprint_disjoint": true,
+          "stable": true
+        },
+        "item_abdc798eba": {
+          "outside": true,
+          "footprint_disjoint": true,
+          "stable": true
+        },
+        "item_5027e744a3": {
+          "outside": true,
+          "footprint_disjoint": true,
+          "stable": true
+        }
+      },
+      "robot_contact_counts": {
+        "item_4279293ffb": 0,
+        "item_3e7f89a2cc": 0,
+        "item_c6f84d05cf": 0
+      },
+      "cover_order_checks": [
+        true
+      ],
+      "declared_dag": {
+        "placement_events_present": true,
+        "precedence_checks": {
+          "place_block->place_cup": true
+        },
+        "satisfied": true
+      }
+    },
+    "clarification_burden": 0,
+    "action_count": 3,
+    "successful_action_count": 3,
+    "simulation_steps": 11021,
+    "evaluator_version": "full_aabb_contact_dag_v3.1"
+  },
+  "api_attempts": 0
+}

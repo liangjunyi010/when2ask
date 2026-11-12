@@ -1,0 +1,747 @@
+{
+  "sample_id": "md1_03_0",
+  "group_id": "category_sorting:layout_902f037f0c01e540",
+  "partition": "dev",
+  "evidence_kind": "real_pybullet_oracle",
+  "proposed_actions": [
+    {
+      "kind": "move",
+      "object_id": "cup_1",
+      "target_id": "bin_a"
+    },
+    {
+      "kind": "move",
+      "object_id": "block_2",
+      "target_id": "bin_c"
+    },
+    {
+      "kind": "move",
+      "object_id": "block_1",
+      "target_id": "bin_c"
+    },
+    {
+      "kind": "move",
+      "object_id": "puck_1",
+      "target_id": "bin_b"
+    },
+    {
+      "kind": "move",
+      "object_id": "cup_2",
+      "target_id": "bin_a"
+    },
+    {
+      "kind": "move",
+      "object_id": "puck_2",
+      "target_id": "bin_b"
+    }
+  ],
+  "actions": [
+    {
+      "skill": "move",
+      "object_id": "cup_1",
+      "target_id": "bin_a",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3683,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "block_2",
+      "target_id": "bin_c",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3683,
+      "end_step": 7299,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "block_1",
+      "target_id": "bin_c",
+      "success": true,
+      "reason": "placed",
+      "start_step": 7299,
+      "end_step": 11220,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "puck_1",
+      "target_id": "bin_b",
+      "success": true,
+      "reason": "placed",
+      "start_step": 11220,
+      "end_step": 14824,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "cup_2",
+      "target_id": "bin_a",
+      "success": true,
+      "reason": "placed",
+      "start_step": 14824,
+      "end_step": 18120,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "move",
+      "object_id": "puck_2",
+      "target_id": "bin_b",
+      "success": true,
+      "reason": "placed",
+      "start_step": 18120,
+      "end_step": 22248,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "execution_log": [
+    {
+      "kind": "placement_started",
+      "object_id": "cup_1",
+      "target_id": "bin_a",
+      "step": 240
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "cup_1",
+      "step": 240,
+      "end_effector": [
+        0.428022563457489,
+        3.169046749462723e-06,
+        0.859183669090271
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "cup_1",
+      "step": 1333,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004630123570435911,
+      "closest_hand_distance_m": 0.01932301520315622
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "cup_1",
+      "step": 1393,
+      "end_effector": [
+        0.28328830003738403,
+        -0.35812926292419434,
+        0.49870267510414124
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "cup_1",
+      "step": 1861,
+      "end_effector": [
+        0.2833028733730316,
+        -0.3584551215171814,
+        0.8254093527793884
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "cup_1",
+      "step": 2189,
+      "end_effector": [
+        0.5101496577262878,
+        -0.3496157228946686,
+        0.8298068046569824
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "cup_1",
+      "step": 2816
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "cup_1",
+      "step": 3443,
+      "end_effector": [
+        0.5149059891700745,
+        -0.34952229261398315,
+        0.8261580467224121
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "cup_1",
+      "target_id": "bin_a",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3683,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "block_2",
+      "target_id": "bin_c",
+      "step": 3683
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "block_2",
+      "step": 3683,
+      "end_effector": [
+        0.5148912668228149,
+        -0.34951505064964294,
+        0.8299322724342346
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "block_2",
+      "step": 4799,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.003994383845492981,
+      "closest_hand_distance_m": 0.022656469067465816
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "block_2",
+      "step": 4859,
+      "end_effector": [
+        0.3599533438682556,
+        6.323098932625726e-05,
+        0.48219525814056396
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "block_2",
+      "step": 5351,
+      "end_effector": [
+        0.36002787947654724,
+        7.585423986711248e-07,
+        0.8254197239875793
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "block_2",
+      "step": 5743,
+      "end_effector": [
+        0.5124140977859497,
+        0.22625595331192017,
+        0.8298935294151306
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "block_2",
+      "step": 6403
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "block_2",
+      "step": 7059,
+      "end_effector": [
+        0.5150260925292969,
+        0.2300773710012436,
+        0.8262023329734802
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "block_2",
+      "target_id": "bin_c",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3683,
+      "end_step": 7299,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "block_1",
+      "target_id": "bin_c",
+      "step": 7299
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "block_1",
+      "step": 7299,
+      "end_effector": [
+        0.5150073766708374,
+        0.2300710678100586,
+        0.829971432685852
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "block_1",
+      "step": 8482,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.005943248430301042,
+      "closest_hand_distance_m": 0.022983979755068364
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "block_1",
+      "step": 8542,
+      "end_effector": [
+        0.278503954410553,
+        -0.11903450638055801,
+        0.48682311177253723
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "block_1",
+      "step": 9027,
+      "end_effector": [
+        0.27999988198280334,
+        -0.12000846117734909,
+        0.8254168629646301
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "block_1",
+      "step": 9683,
+      "end_effector": [
+        0.5801949501037598,
+        0.22744421660900116,
+        0.8298379182815552
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "block_1",
+      "step": 10333
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "block_1",
+      "step": 10980,
+      "end_effector": [
+        0.5833327770233154,
+        0.2309521734714508,
+        0.8261577486991882
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "block_1",
+      "target_id": "bin_c",
+      "success": true,
+      "reason": "placed",
+      "start_step": 7299,
+      "end_step": 11220,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "puck_1",
+      "target_id": "bin_b",
+      "step": 11220
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "puck_1",
+      "step": 11220,
+      "end_effector": [
+        0.5833166837692261,
+        0.23094671964645386,
+        0.8299306631088257
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "puck_1",
+      "step": 12265,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.005729489395102491,
+      "closest_hand_distance_m": 0.02320978884874958
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "puck_1",
+      "step": 12325,
+      "end_effector": [
+        0.2794320285320282,
+        0.14918595552444458,
+        0.4852047562599182
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "puck_1",
+      "step": 12812,
+      "end_effector": [
+        0.2800130844116211,
+        0.15000708401203156,
+        0.825413703918457
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "puck_1",
+      "step": 13279,
+      "end_effector": [
+        0.5308560729026794,
+        -0.05795615166425705,
+        0.8299242258071899
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "puck_1",
+      "step": 13933
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "puck_1",
+      "step": 14584,
+      "end_effector": [
+        0.534420371055603,
+        -0.06089647114276886,
+        0.8262133002281189
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "puck_1",
+      "target_id": "bin_b",
+      "success": true,
+      "reason": "placed",
+      "start_step": 11220,
+      "end_step": 14824,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "cup_2",
+      "target_id": "bin_a",
+      "step": 14824
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "cup_2",
+      "step": 14824,
+      "end_effector": [
+        0.5343977808952332,
+        -0.06089569255709648,
+        0.8299816250801086
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "cup_2",
+      "step": 15757,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004465737902620076,
+      "closest_hand_distance_m": 0.01925255836407589
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "cup_2",
+      "step": 15817,
+      "end_effector": [
+        0.37158453464508057,
+        -0.23662559688091278,
+        0.49859821796417236
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "cup_2",
+      "step": 16285,
+      "end_effector": [
+        0.371574729681015,
+        -0.23703373968601227,
+        0.825408399105072
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "cup_2",
+      "step": 16626,
+      "end_effector": [
+        0.5797131657600403,
+        -0.34698840975761414,
+        0.8294477462768555
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "cup_2",
+      "step": 17252
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "cup_2",
+      "step": 17880,
+      "end_effector": [
+        0.58440762758255,
+        -0.34950020909309387,
+        0.8260179758071899
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "cup_2",
+      "target_id": "bin_a",
+      "success": true,
+      "reason": "placed",
+      "start_step": 14824,
+      "end_step": 18120,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "puck_2",
+      "target_id": "bin_b",
+      "step": 18120
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "puck_2",
+      "step": 18120,
+      "end_effector": [
+        0.5843961238861084,
+        -0.349492609500885,
+        0.8297827243804932
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "puck_2",
+      "step": 19548,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.003862190348968126,
+      "closest_hand_distance_m": 0.022600461841415925
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "puck_2",
+      "step": 19608,
+      "end_effector": [
+        0.3600260317325592,
+        0.27994394302368164,
+        0.4820694029331207
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "puck_2",
+      "step": 20100,
+      "end_effector": [
+        0.36001741886138916,
+        0.280010461807251,
+        0.8254110217094421
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "puck_2",
+      "step": 20692,
+      "end_effector": [
+        0.6021869778633118,
+        -0.05634196102619171,
+        0.8298769593238831
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "puck_2",
+      "step": 21352
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "puck_2",
+      "step": 22008,
+      "end_effector": [
+        0.6049299240112305,
+        -0.06006072461605072,
+        0.8261790871620178
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "move",
+      "object_id": "puck_2",
+      "target_id": "bin_b",
+      "success": true,
+      "reason": "placed",
+      "start_step": 18120,
+      "end_step": 22248,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "evaluation": {
+    "task_success": true,
+    "termination_reason": "offline_oracle",
+    "conditions": {
+      "all_items_in_category_bins": true,
+      "categories_not_mixed": true,
+      "robot_released": true,
+      "all_movable_objects_stable": true
+    },
+    "details": {
+      "expected_category_bins": {
+        "cup": "bin_a",
+        "block": "bin_c",
+        "puck": "bin_b"
+      },
+      "containment": {
+        "cup_1": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.4877694187361649,
+            -0.37712675847355814,
+            0.4339848994739254
+          ],
+          "aabb_max": [
+            0.5420839378226474,
+            -0.32281841265076316,
+            0.49399286502821615
+          ]
+        },
+        "block_2": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.49303694979104307,
+            0.20804415852584196,
+            0.43398903530350713
+          ],
+          "aabb_max": [
+            0.537038879622154,
+            0.25204516502699936,
+            0.4779901391943984
+          ]
+        },
+        "block_1": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.5632494235118711,
+            0.20801221167605935,
+            0.4339892048730814
+          ],
+          "aabb_max": [
+            0.6072551822442828,
+            0.2520173192916038,
+            0.4779901524516103
+          ]
+        },
+        "puck_1": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.5130500128194901,
+            -0.08224174430709495,
+            0.4339878563696718
+          ],
+          "aabb_max": [
+            0.5573388231653533,
+            -0.037952490371147646,
+            0.4779915508477571
+          ]
+        },
+        "cup_2": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.5576258483301342,
+            -0.3773482430592972,
+            0.4339871146147592
+          ],
+          "aabb_max": [
+            0.6119746683179981,
+            -0.32300511657362924,
+            0.49399256722334245
+          ]
+        },
+        "puck_2": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.5829354436919354,
+            -0.08198537672149313,
+            0.4339880517048324
+          ],
+          "aabb_max": [
+            0.6269569610502246,
+            -0.037962718753237645,
+            0.4779915996429717
+          ]
+        }
+      },
+      "robot_contact_counts": {
+        "cup_1": 0,
+        "block_2": 0,
+        "block_1": 0,
+        "puck_1": 0,
+        "cup_2": 0,
+        "puck_2": 0
+      }
+    },
+    "clarification_burden": 0,
+    "action_count": 6,
+    "successful_action_count": 6,
+    "simulation_steps": 22248,
+    "evaluator_version": "task6_geometry_contact_evidence_v1"
+  },
+  "api_attempts": 0
+}

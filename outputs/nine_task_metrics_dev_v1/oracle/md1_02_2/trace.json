@@ -1,0 +1,108 @@
+{
+  "sample_id": "md1_02_2",
+  "group_id": "find_and_approach:layout_a02898fe68f6b3f7",
+  "partition": "dev",
+  "evidence_kind": "real_pybullet_oracle",
+  "proposed_actions": [
+    {
+      "kind": "search",
+      "location_id": "study_shelf"
+    }
+  ],
+  "actions": [
+    {
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "study_shelf",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 240,
+      "end_step": 3825,
+      "distance_m": 5.8574,
+      "target_detected": true
+    }
+  ],
+  "execution_log": [
+    {
+      "kind": "phase",
+      "step": 240,
+      "phase": "navigate",
+      "location_id": "study_shelf"
+    },
+    {
+      "kind": "target_detected",
+      "step": 2688,
+      "phase": "navigate",
+      "location_id": "study_shelf"
+    },
+    {
+      "kind": "phase",
+      "step": 3286,
+      "phase": "inspect",
+      "location_id": "study_shelf"
+    },
+    {
+      "kind": "station_inspected",
+      "step": 3825,
+      "phase": "inspect",
+      "location_id": "study_shelf",
+      "target_detected": true
+    },
+    {
+      "kind": "phase",
+      "step": 3825,
+      "phase": "idle",
+      "location_id": "study_shelf"
+    },
+    {
+      "kind": "skill_result",
+      "step": 3825,
+      "phase": "idle",
+      "skill": "search",
+      "object_id": "mobile_robot",
+      "target_id": "study_shelf",
+      "success": true,
+      "reason": "inspected",
+      "start_step": 240,
+      "end_step": 3825,
+      "distance_m": 5.8574,
+      "target_detected": true
+    }
+  ],
+  "evaluation": {
+    "task_success": true,
+    "termination_reason": "offline_oracle",
+    "conditions": {
+      "target_locally_detected": true,
+      "physically_within_approach_radius": true,
+      "robot_stopped": true,
+      "no_wall_penetration": true,
+      "distance_budget_respected": true
+    },
+    "clarification_burden": 0,
+    "action_count": 1,
+    "successful_action_count": 1,
+    "details": {
+      "actual_target_position": [
+        3.7003433582483627,
+        -2.1500743427213993,
+        0.7150774283807452
+      ],
+      "actual_target_location": "study_shelf",
+      "final_robot_pose": [
+        3.806656072572194,
+        -1.2659582354526098,
+        -1.6907698235783302
+      ],
+      "final_distance_m": 0.8904850837375201,
+      "distance_travelled_m": 5.857404645118148,
+      "checked_locations": [
+        "study_shelf"
+      ],
+      "detection_model": "range_1.65m_fov90_ray_los",
+      "pickup_or_delivery": false
+    },
+    "evaluator_version": "navigation_geometry_los_v1"
+  },
+  "api_attempts": 0
+}

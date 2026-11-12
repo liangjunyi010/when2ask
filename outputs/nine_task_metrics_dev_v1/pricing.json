@@ -1,0 +1,33 @@
+{
+  "checked_date": "2026-11-12",
+  "currency": "USD",
+  "unit": "per 1,000,000 tokens",
+  "estimate_not_invoice": true,
+  "sources": {
+    "deepseek": "https://api-docs.deepseek.com/quick_start/pricing/",
+    "jev": "https://docs.typesafe.ai/models"
+  },
+  "deepseek": {
+    "configured_model": "deepseek-flash",
+    "documented_version": "DeepSeek-V4.1-Flash-1017",
+    "off_peak": {
+      "cache_hit_per_million": 0.003,
+      "cache_miss_per_million": 0.15,
+      "output_per_million": 0.6
+    },
+    "peak": {
+      "cache_hit_per_million": 0.006,
+      "cache_miss_per_million": 0.3,
+      "output_per_million": 1.2
+    },
+    "peak_hours_utc": "Weekdays [01:00,04:00) and [06:00,10:00), excluding Chinese public holidays",
+    "holiday_assumption": "No special holiday adjustment inside weekday peak windows; irrelevant outside peak windows. Report as estimate, not provider invoice."
+  },
+  "jev": {
+    "model": "jev-1.14.0",
+    "input_per_million": 0.042,
+    "output_per_million": 0
+  },
+  "unknown_policy": "No cache split or usage => null cost; never fabricate zero. Jev output is actually priced free.",
+  "verification": "Official DeepSeek and TypeSafe pricing pages re-read for this independent study before online execution."
+}

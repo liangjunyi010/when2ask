@@ -1,0 +1,328 @@
+{
+  "sample_id": "md1_01_2",
+  "group_id": "place_into_selected_containers:layout_a531f36623a026a3",
+  "partition": "dev",
+  "evidence_kind": "real_pybullet_oracle",
+  "proposed_actions": [
+    {
+      "kind": "pick_place",
+      "object_id": "item_aba6946104",
+      "target_id": "item_34bc43c027",
+      "relation": "inside"
+    },
+    {
+      "kind": "pick_place",
+      "object_id": "item_ff0920a6ac",
+      "target_id": "item_93134932d1",
+      "relation": "inside"
+    }
+  ],
+  "actions": [
+    {
+      "skill": "pick_place",
+      "object_id": "item_aba6946104",
+      "target_id": "item_34bc43c027",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3837,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "pick_place",
+      "object_id": "item_ff0920a6ac",
+      "target_id": "item_93134932d1",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3837,
+      "end_step": 7235,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "execution_log": [
+    {
+      "kind": "placement_started",
+      "object_id": "item_aba6946104",
+      "target_id": "item_34bc43c027",
+      "step": 240,
+      "contents_before": {
+        "item_93134932d1": [],
+        "item_34bc43c027": []
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_aba6946104",
+      "step": 240,
+      "end_effector": [
+        0.428022563457489,
+        3.169046749462723e-06,
+        0.859183669090271
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_aba6946104",
+      "step": 1302,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.0058820712256779685,
+      "closest_hand_distance_m": 0.02346273840148176
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_aba6946104",
+      "step": 1362,
+      "end_effector": [
+        0.286710649728775,
+        0.3015221953392029,
+        0.4837895929813385
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_aba6946104",
+      "step": 1851,
+      "end_effector": [
+        0.28667446970939636,
+        0.3020939230918884,
+        0.8254104256629944
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_aba6946104",
+      "step": 2288,
+      "end_effector": [
+        0.5852678418159485,
+        0.24518869817256927,
+        0.8297916650772095
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_aba6946104",
+      "step": 2944
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_aba6946104",
+      "step": 3597,
+      "end_effector": [
+        0.5899572968482971,
+        0.24438020586967468,
+        0.8261428475379944
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_aba6946104",
+      "target_id": "item_34bc43c027",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3837,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_ff0920a6ac",
+      "target_id": "item_93134932d1",
+      "step": 3837,
+      "contents_before": {
+        "item_93134932d1": [],
+        "item_34bc43c027": [
+          "item_aba6946104"
+        ]
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_ff0920a6ac",
+      "step": 3837,
+      "end_effector": [
+        0.5899423956871033,
+        0.2443750947713852,
+        0.8299126625061035
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_ff0920a6ac",
+      "step": 4939,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.003947423696701961,
+      "closest_hand_distance_m": 0.019001181920961917
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_ff0920a6ac",
+      "step": 4999,
+      "end_effector": [
+        0.34237971901893616,
+        -0.06259045749902725,
+        0.49815937876701355
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_ff0920a6ac",
+      "step": 5468,
+      "end_effector": [
+        0.3424426317214966,
+        -0.06266304105520248,
+        0.8254153728485107
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_ff0920a6ac",
+      "step": 5739,
+      "end_effector": [
+        0.5059664249420166,
+        -0.15268702805042267,
+        0.8298930525779724
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_ff0920a6ac",
+      "step": 6367
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_ff0920a6ac",
+      "step": 6995,
+      "end_effector": [
+        0.5100196003913879,
+        -0.15491144359111786,
+        0.8262092471122742
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_ff0920a6ac",
+      "target_id": "item_93134932d1",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3837,
+      "end_step": 7235,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "evaluation": {
+    "task_success": true,
+    "termination_reason": "offline_oracle",
+    "execution_termination": "offline_oracle",
+    "execution_completed": false,
+    "evaluator_version": "full_aabb_contact_dag_v3.1",
+    "conditions": {
+      "correct_cup_in_selected_container": true,
+      "correct_block_in_other_container": true,
+      "unselected_objects_outside": true,
+      "robot_released": true,
+      "declared_dag_order": true
+    },
+    "details": {
+      "expected_objects": {
+        "cup": "item_ff0920a6ac",
+        "block": "item_aba6946104"
+      },
+      "expected_targets": {
+        "cup": "item_93134932d1",
+        "block": "item_34bc43c027"
+      },
+      "containment": {
+        "cup": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.4828972524104816,
+            -0.18208598175213234,
+            0.43398580755273874
+          ],
+          "aabb_max": [
+            0.5370750710012685,
+            -0.12790567661046534,
+            0.49399309761542654
+          ]
+        },
+        "block": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.5680473692889695,
+            0.2230755100252348,
+            0.43398902193604433
+          ],
+          "aabb_max": [
+            0.6120517294921991,
+            0.26707893365652224,
+            0.47799014099030396
+          ]
+        }
+      },
+      "unselected": {
+        "item_ff53c67ac5": {
+          "item_93134932d1": {
+            "outside": true,
+            "footprint_disjoint": true,
+            "stable": true
+          },
+          "item_34bc43c027": {
+            "outside": true,
+            "footprint_disjoint": true,
+            "stable": true
+          }
+        },
+        "item_3b3b0f9e74": {
+          "item_93134932d1": {
+            "outside": true,
+            "footprint_disjoint": true,
+            "stable": true
+          },
+          "item_34bc43c027": {
+            "outside": true,
+            "footprint_disjoint": true,
+            "stable": true
+          }
+        }
+      },
+      "robot_contact_counts": {
+        "item_aba6946104": 0,
+        "item_ff0920a6ac": 0
+      },
+      "declared_dag": {
+        "placement_events_present": true,
+        "precedence_checks": {
+          "place_block->place_cup": true
+        },
+        "satisfied": true
+      }
+    },
+    "clarification_burden": 0,
+    "action_count": 2,
+    "successful_action_count": 2,
+    "simulation_steps": 7235
+  },
+  "api_attempts": 0
+}
