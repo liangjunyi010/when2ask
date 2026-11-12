@@ -1,0 +1,143 @@
+{
+  "evidence": "Read-only analysis of historical Test; NOT a new held-out test or any API replay.",
+  "cases": [
+    {
+      "source": "outputs/nine_task_v1/test_runs/n9_test_00_0__llm_gate/episode.json",
+      "source_sha256": "51f994df03bd354b3d3c2a68e37a5fdc7706d787e36e37af54b2221ad8d32ecd",
+      "sample_id": "n9_test_00_0",
+      "method": "llm_gate",
+      "instruction": "Pack exactly one cup and one block into the box, then cover it with one lid. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the lid, use item_5f929be596. For the cup, use item_e0770b7f63.",
+      "initial_gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "physical_action_failures": 0,
+      "termination": "done",
+      "confirmed_initial_choices": {
+        "lid": "item_5f929be596",
+        "cup": "item_e0770b7f63"
+      },
+      "public_order": "block_before_cup",
+      "unknown_required_role": "block",
+      "observed_problem": "Both gates continued before an unresolved required predecessor; the planner guessed a wrong block. No motion failure.",
+      "interpretation": "Model decision error under the explicit original contract. Lack of a concise known/unknown/order view is a repair hypothesis, not proof of internal model reasoning."
+    },
+    {
+      "source": "outputs/nine_task_v1/test_runs/n9_test_00_0__jev_gate/episode.json",
+      "source_sha256": "48d406671f2126b678ad26caf01cbe4d2e2341ffe3d863ba584a2f3915bf0dc8",
+      "sample_id": "n9_test_00_0",
+      "method": "jev_gate",
+      "instruction": "Pack exactly one cup and one block into the box, then cover it with one lid. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the lid, use item_5f929be596. For the cup, use item_e0770b7f63.",
+      "initial_gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": 0.04
+      },
+      "physical_action_failures": 0,
+      "termination": "done",
+      "confirmed_initial_choices": {
+        "lid": "item_5f929be596",
+        "cup": "item_e0770b7f63"
+      },
+      "public_order": "block_before_cup",
+      "unknown_required_role": "block",
+      "observed_problem": "Both gates continued before an unresolved required predecessor; the planner guessed a wrong block. No motion failure.",
+      "interpretation": "Model decision error under the explicit original contract. Lack of a concise known/unknown/order view is a repair hypothesis, not proof of internal model reasoning."
+    },
+    {
+      "source": "outputs/nine_task_v1/test_runs/n9_test_01_0__llm_gate/episode.json",
+      "source_sha256": "7cd710ce6a754fbf3fb1eb8221a7ccef8a52f01e31d9f5ceca7260a9ccb24e0a",
+      "sample_id": "n9_test_01_0",
+      "method": "llm_gate",
+      "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_45854dd339. For the cup, use item_1d910e756c.",
+      "initial_gate": {
+        "called": true,
+        "decision": "ASK",
+        "p_ask": null
+      },
+      "physical_action_failures": 0,
+      "termination": "robot_action_limit",
+      "correct_answer_present": {
+        "kind": "user_answer",
+        "response": {
+          "choices": {
+            "cup_destination": "item_b28a4cc622"
+          }
+        }
+      },
+      "previous_successful_placement": {
+        "skill": "pick_place",
+        "object_id": "item_45854dd339",
+        "target_id": "item_136dcc3439",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3630,
+        "grasp_mode": "constraint"
+      },
+      "measured_containment_before_removal": {
+        "item_136dcc3439": [
+          "item_45854dd339"
+        ],
+        "item_b28a4cc622": []
+      },
+      "undo_action": {
+        "kind": "pick_place",
+        "object_id": "item_45854dd339",
+        "target_id": "table",
+        "relation": "on"
+      },
+      "observed_problem": "Answer, successful block action and measured partial goal are present; planner removes the already-correct block and cycles.",
+      "interpretation": "No evidence of missing public history or physical failure; candidate causes are role/destination binding and failure to preserve a partial goal. Internal reasoning is unobserved."
+    },
+    {
+      "source": "outputs/nine_task_v1/test_runs/n9_test_01_0__jev_gate/episode.json",
+      "source_sha256": "b88e17f80695d68136d0d0fd13f8dfe2417adf529d67fd8623ae6e2b2a5261bd",
+      "sample_id": "n9_test_01_0",
+      "method": "jev_gate",
+      "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_45854dd339. For the cup, use item_1d910e756c.",
+      "initial_gate": {
+        "called": true,
+        "decision": "ASK",
+        "p_ask": 0.95
+      },
+      "physical_action_failures": 0,
+      "termination": "robot_action_limit",
+      "correct_answer_present": {
+        "kind": "user_answer",
+        "response": {
+          "choices": {
+            "cup_destination": "item_b28a4cc622"
+          }
+        }
+      },
+      "previous_successful_placement": {
+        "skill": "pick_place",
+        "object_id": "item_45854dd339",
+        "target_id": "item_136dcc3439",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3630,
+        "grasp_mode": "constraint"
+      },
+      "measured_containment_before_removal": {
+        "item_136dcc3439": [
+          "item_45854dd339"
+        ],
+        "item_b28a4cc622": []
+      },
+      "undo_action": {
+        "kind": "pick_place",
+        "object_id": "item_45854dd339",
+        "target_id": "table",
+        "relation": "on"
+      },
+      "observed_problem": "Answer, successful block action and measured partial goal are present; planner removes the already-correct block and cycles.",
+      "interpretation": "No evidence of missing public history or physical failure; candidate causes are role/destination binding and failure to preserve a partial goal. Internal reasoning is unobserved."
+    }
+  ],
+  "prior_demo_difference": "Phase2 pack demo has a known cup with no block-before-cup edge. The current packing failure adds a blocked known later subgoal. Phase3 selected-container video places cup first in an independent-order task; current failure is block-first and destination-dependent.",
+  "confounds": "Previous success on a layout/goal ordering never proves robust performance for new aliases, disclosures and DAG constraints."
+}

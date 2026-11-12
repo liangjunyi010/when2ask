@@ -123,3 +123,98 @@ tier where all methods fail may be informative, but an entire suite with zero
 success has a floor effect and cannot distinguish Gate quality through success
 alone. Report task success, ask timing diagnostics, burden, planning/physical
 failure classes and backend costs separately.
+
+## Actual results
+
+All four Dev variants passed real physical oracle. The fixed-state diagnostic
+completed 56 real calls, followed by all 24 paired physical episodes. The session
+used **258/450 authenticated attempts**, with zero API errors, schema errors,
+retries or missing usage. Actual returned models were `deepseek-flash` and
+`jev-1.14.0`. The complete offline suite passed **410 tests** (19 new).
+
+### Representation versus prompt
+
+| Public view / prompt | LLM Gate reference matches | Jev Gate reference matches | Planner next-action reference |
+|---|---:|---:|---:|
+| Raw / original | 3/6 | 4/6 | 1/2 |
+| Public facts / original | 5/6 | 5/6 | 1/2 |
+| Raw / clarified contract | 3/6 | 4/6 | 2/2 |
+| Public facts / clarified contract | 6/6 | 6/6 | 2/2 |
+
+The blocked unknown-block state gives a concrete distinction: original Jev p=0.05,
+raw+contract p=0.18 (both CONTINUE); facts+original p=0.69 and combined p=0.72 (ASK).
+Both LLM Gate variants with facts asked in this fixed-state check. The evidence
+supports sensitivity to public representation, not a claim that the old prompt
+omitted the order rule or that the threshold needed lowering.
+
+For the post-block container state, original and facts-only Planner calls both
+selected removal to the table. Both clarified-contract calls selected the remaining
+cup placement. The added progress-preservation contract addressed this diagnostic
+without choosing an action in Python.
+
+### Full physical Dev regressions
+
+| Profile | Method | Task success | Slots requested | First-ASK reference matches | Total API latency |
+|---|---|---:|---:|---:|---:|
+| Original | NoAsk | 3/4 | 0 | N/A | 12.13 s |
+| Original | LLM-Gate | 3/4 | 6 | 1/4 | 44.52 s |
+| Original | Jev-Gate | 3/4 | 3 | 2/4 | 29.12 s |
+| Combined Dev repair | NoAsk | 3/4 | 0 | N/A | 12.10 s |
+| Combined Dev repair | LLM-Gate | 4/4 | 4 | 3/4 | 28.00 s |
+| Combined Dev repair | Jev-Gate | 4/4 | 4 | 4/4 | 19.42 s |
+
+Both original Gates reproduced the block-placement/removal cycle: 12 successful
+physical moves, then budget termination and final task failure. Both repaired Gate
+episodes completed the same container Dev case using exactly two placements. All
+Gate profiles share the same Planner within a profile; the improvement is not a
+Jev-only planner advantage.
+
+The original packing Dev case happened to guess the correct unknown block and
+therefore passed the final task evaluator despite missing the required clarification.
+This is an important reason to keep task success and timing diagnostics separate.
+NoAsk still guesses the wrong destination in one container case and scores 3/4 under
+both profiles; no failure was imposed by method name.
+
+### Residual model behavior
+
+The repaired LLM-Gate asked too early in the independent-order known-cup full run.
+Its fixed-state call returned CONTINUE, while the full run returned ASK on the
+**same request bytes**, model and reported system fingerprint. Exact request hash,
+responses and source references are in `observed_response_variation.json`. These
+two observed outputs were inconsistent; their internal/backend cause is unknown.
+There was no rerun to select a preferred response. Hence task success 4/4 does not
+mean every clarification decision is correct or perfectly repeatable.
+
+The nine-task runner also deliberately used different established task-family
+factories: the two original tabletop tasks used `study_agents` v3.1, while the
+three recently repaired manipulation tasks used memory Dev v6 / Gate Dev v7.
+Those earlier buffer/retrieval fixes were not automatically active in the two
+original task families. This new module is opt-in and leaves both factories intact.
+
+## Verification and artifacts
+
+- `outputs/tabletop_contract_dev_v1/report/`: generated JSON/CSV, English HTML,
+  figure and detailed per-case outcomes. The report never replaces old benchmark
+  results. Tokens stay separated by backend and include probes/repairs where stated.
+- `evidence_validation.json`: all eight case/profile pairs have all three methods;
+  NoAsk never calls Gate/Question; Gate precedes Planner; all 11 ASK turns freeze
+  physics; burden and physical conditions match raw records. No private reference,
+  sample ID or evaluator label entered an API payload.
+- `protected_before.json`: all 3,840 previously tracked files matched starting
+  bytes before README documentation was updated, including frozen source/config,
+  old experiment records and the user's edited PPT. Only a new README entry is
+  intentionally added; the PPT remains unstaged.
+- All old and new tests passed: 410 in 98.12 seconds. This includes explicit tests
+  that a low Jev score still yields CONTINUE and an incorrect but schema-valid
+  Planner action is executed verbatim, so no rule wrapper can fake a model repair.
+
+Open the read-only results without paid calls:
+
+```bash
+.venv/bin/python -m http.server 8905 --bind 127.0.0.1 --directory outputs/tabletop_contract_dev_v1
+# http://127.0.0.1:8905/report/
+```
+
+The repair is available through the independent CLI/factory; default live-console
+behavior is intentionally not switched. A later optional console profile or a
+fresh held-out evaluation must identify this Dev version explicitly.

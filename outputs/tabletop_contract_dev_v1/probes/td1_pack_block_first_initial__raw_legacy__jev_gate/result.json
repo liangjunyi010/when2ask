@@ -1,0 +1,206 @@
+{
+  "id": "td1_pack_block_first_initial__raw_legacy__jev_gate",
+  "stage": "gate",
+  "state_id": "td1_pack_block_first_initial",
+  "profile": "raw_legacy",
+  "method": "jev_gate",
+  "reference": "ASK",
+  "output": {
+    "decision": "CONTINUE",
+    "p_ask": 0.05
+  },
+  "match": false,
+  "error": null,
+  "cost": {
+    "deepseek": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 1,
+      "input_tokens": 1821,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 24,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 302.130500000203,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 1,
+    "api_latency_ms": 302.130500000203,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "public_payload": {
+    "instruction": "Pack exactly one cup and one block into the box, then cover it with one lid. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the cup, use item_0a80a3fd1c. For the lid, use item_031e7ce7db.",
+    "observation": {
+      "objects": [
+        {
+          "object_id": "item_031e7ce7db",
+          "category": "lid",
+          "color": "white",
+          "position": [
+            0.60951,
+            -0.40266,
+            0.42599
+          ],
+          "aabb_min": [
+            0.45551,
+            -0.53666,
+            0.41999
+          ],
+          "aabb_max": [
+            0.76351,
+            -0.26865,
+            0.43199
+          ]
+        },
+        {
+          "object_id": "item_b2cc759407",
+          "category": "cup",
+          "color": "red",
+          "position": [
+            0.3744,
+            -0.17978,
+            0.44999
+          ],
+          "aabb_min": [
+            0.34731,
+            -0.20686,
+            0.41998
+          ],
+          "aabb_max": [
+            0.40148,
+            -0.15269,
+            0.47999
+          ]
+        },
+        {
+          "object_id": "box",
+          "category": "container",
+          "color": "brown",
+          "position": [
+            0.555,
+            0.02,
+            0.42
+          ],
+          "aabb_min": [
+            0.415,
+            -0.1,
+            0.42
+          ],
+          "aabb_max": [
+            0.695,
+            0.14,
+            0.544
+          ]
+        },
+        {
+          "object_id": "item_1b9c137805",
+          "category": "block",
+          "color": "yellow",
+          "position": [
+            0.28683,
+            0.08584,
+            0.44199
+          ],
+          "aabb_min": [
+            0.26483,
+            0.06384,
+            0.41999
+          ],
+          "aabb_max": [
+            0.30883,
+            0.10784,
+            0.46399
+          ]
+        },
+        {
+          "object_id": "item_0a80a3fd1c",
+          "category": "cup",
+          "color": "blue",
+          "position": [
+            0.30841,
+            -0.29794,
+            0.44999
+          ],
+          "aabb_min": [
+            0.28133,
+            -0.32503,
+            0.41999
+          ],
+          "aabb_max": [
+            0.3355,
+            -0.27086,
+            0.47999
+          ]
+        },
+        {
+          "object_id": "item_c652936e31",
+          "category": "block",
+          "color": "green",
+          "position": [
+            0.28911,
+            -0.08306,
+            0.44199
+          ],
+          "aabb_min": [
+            0.26711,
+            -0.10506,
+            0.41999
+          ],
+          "aabb_max": [
+            0.31111,
+            -0.06106,
+            0.46399
+          ]
+        },
+        {
+          "object_id": "item_b414f8ccab",
+          "category": "lid",
+          "color": "black",
+          "position": [
+            0.30364,
+            0.3291,
+            0.42599
+          ],
+          "aabb_min": [
+            0.14964,
+            0.19509,
+            0.41999
+          ],
+          "aabb_max": [
+            0.45764,
+            0.4631,
+            0.43199
+          ]
+        }
+      ],
+      "simulation_step": 240,
+      "held_object": null,
+      "spatial_relations": {
+        "inside_containers": {
+          "box": []
+        },
+        "covering_containers": {
+          "box": []
+        },
+        "outside_all_containers": [
+          "item_031e7ce7db",
+          "item_b2cc759407",
+          "item_1b9c137805",
+          "item_0a80a3fd1c",
+          "item_c652936e31",
+          "item_b414f8ccab"
+        ]
+      }
+    },
+    "history": []
+  },
+  "evidence_kind": "real_api_fixed_dev_state_probe"
+}

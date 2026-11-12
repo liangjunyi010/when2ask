@@ -1,0 +1,101 @@
+{
+  "task_success": true,
+  "termination_reason": "done",
+  "execution_termination": "done",
+  "execution_completed": true,
+  "evaluator_version": "full_aabb_contact_dag_v3.1",
+  "conditions": {
+    "correct_cup_in_selected_container": true,
+    "correct_block_in_other_container": true,
+    "unselected_objects_outside": true,
+    "robot_released": true,
+    "declared_dag_order": true
+  },
+  "details": {
+    "expected_objects": {
+      "cup": "item_ff0920a6ac",
+      "block": "item_aba6946104"
+    },
+    "expected_targets": {
+      "cup": "item_34bc43c027",
+      "block": "item_93134932d1"
+    },
+    "containment": {
+      "cup": {
+        "inside": true,
+        "full_xy_inside": true,
+        "full_z_inside": true,
+        "supported_by_box": true,
+        "stable": true,
+        "aabb_min": [
+          0.5129166187577379,
+          0.17781758799769148,
+          0.43398545410494604
+        ],
+        "aabb_max": [
+          0.5672135155055371,
+          0.23212269977853722,
+          0.4939929282007227
+        ]
+      },
+      "block": {
+        "inside": true,
+        "full_xy_inside": true,
+        "full_z_inside": true,
+        "supported_by_box": true,
+        "stable": true,
+        "aabb_min": [
+          0.5380606838000991,
+          -0.1369165255536913,
+          0.43398906141154653
+        ],
+        "aabb_max": [
+          0.5820621817780979,
+          -0.0929159107621152,
+          0.4779901406311549
+        ]
+      }
+    },
+    "unselected": {
+      "item_ff53c67ac5": {
+        "item_93134932d1": {
+          "outside": true,
+          "footprint_disjoint": true,
+          "stable": true
+        },
+        "item_34bc43c027": {
+          "outside": true,
+          "footprint_disjoint": true,
+          "stable": true
+        }
+      },
+      "item_3b3b0f9e74": {
+        "item_93134932d1": {
+          "outside": true,
+          "footprint_disjoint": true,
+          "stable": true
+        },
+        "item_34bc43c027": {
+          "outside": true,
+          "footprint_disjoint": true,
+          "stable": true
+        }
+      }
+    },
+    "robot_contact_counts": {
+      "item_ff0920a6ac": 0,
+      "item_aba6946104": 0
+    },
+    "declared_dag": {
+      "placement_events_present": true,
+      "precedence_checks": {
+        "place_cup->place_block": true
+      },
+      "satisfied": true
+    }
+  },
+  "clarification_burden": 0,
+  "action_count": 2,
+  "successful_action_count": 2,
+  "simulation_steps": 7321
+}

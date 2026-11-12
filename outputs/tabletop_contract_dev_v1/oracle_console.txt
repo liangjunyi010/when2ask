@@ -1,0 +1,23 @@
+pybullet build time: Oct 23 2026 14:27:32
+{
+  "successes": 4,
+  "total": 4,
+  "rows": [
+    {
+      "sample_id": "td1_pack_block_first",
+      "success": true
+    },
+    {
+      "sample_id": "td1_pack_continue_known_cup",
+      "success": true
+    },
+    {
+      "sample_id": "td1_containers_block_first",
+      "success": true
+    },
+    {
+      "sample_id": "td1_containers_all_known",
+      "success": true
+    }
+  ]
+}

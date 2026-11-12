@@ -1,0 +1,183 @@
+{
+  "id": "td1_containers_block_first_initial__raw_contract__llm_gate",
+  "stage": "gate",
+  "state_id": "td1_containers_block_first_initial",
+  "profile": "raw_contract",
+  "method": "llm_gate",
+  "reference": "ASK",
+  "output": {
+    "decision": "ASK",
+    "p_ask": null
+  },
+  "match": true,
+  "error": null,
+  "cost": {
+    "deepseek": {
+      "attempts": 1,
+      "input_tokens": 1366,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 5,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 1138.4237080055755,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 1,
+    "api_latency_ms": 1138.4237080055755,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "public_payload": {
+    "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e.",
+    "observation": {
+      "objects": [
+        {
+          "object_id": "item_beba60fd7b",
+          "category": "cup",
+          "color": "red",
+          "position": [
+            0.34342,
+            -0.17666,
+            0.44999
+          ],
+          "aabb_min": [
+            0.31633,
+            -0.20375,
+            0.41999
+          ],
+          "aabb_max": [
+            0.3705,
+            -0.14958,
+            0.47999
+          ]
+        },
+        {
+          "object_id": "item_f885e71481",
+          "category": "block",
+          "color": "green",
+          "position": [
+            0.28791,
+            -0.02268,
+            0.44199
+          ],
+          "aabb_min": [
+            0.2659,
+            -0.04468,
+            0.41999
+          ],
+          "aabb_max": [
+            0.30991,
+            -0.00068,
+            0.46399
+          ]
+        },
+        {
+          "object_id": "item_3d73bd37fd",
+          "category": "block",
+          "color": "yellow",
+          "position": [
+            0.28933,
+            0.18135,
+            0.44199
+          ],
+          "aabb_min": [
+            0.26733,
+            0.15935,
+            0.41999
+          ],
+          "aabb_max": [
+            0.31133,
+            0.20335,
+            0.46399
+          ]
+        },
+        {
+          "object_id": "item_11a9324217",
+          "category": "container",
+          "color": "orange",
+          "position": [
+            0.535,
+            -0.255,
+            0.42
+          ],
+          "aabb_min": [
+            0.445,
+            -0.335,
+            0.42
+          ],
+          "aabb_max": [
+            0.625,
+            -0.175,
+            0.524
+          ]
+        },
+        {
+          "object_id": "item_e2988fee7e",
+          "category": "cup",
+          "color": "blue",
+          "position": [
+            0.29216,
+            -0.32008,
+            0.44999
+          ],
+          "aabb_min": [
+            0.26508,
+            -0.34717,
+            0.41999
+          ],
+          "aabb_max": [
+            0.31924,
+            -0.29299,
+            0.47999
+          ]
+        },
+        {
+          "object_id": "item_df14409786",
+          "category": "container",
+          "color": "purple",
+          "position": [
+            0.565,
+            0.105,
+            0.42
+          ],
+          "aabb_min": [
+            0.475,
+            0.025,
+            0.42
+          ],
+          "aabb_max": [
+            0.655,
+            0.185,
+            0.524
+          ]
+        }
+      ],
+      "simulation_step": 240,
+      "held_object": null,
+      "spatial_relations": {
+        "inside_containers": {
+          "item_11a9324217": [],
+          "item_df14409786": []
+        },
+        "covering_containers": {},
+        "outside_all_containers": [
+          "item_beba60fd7b",
+          "item_f885e71481",
+          "item_3d73bd37fd",
+          "item_e2988fee7e"
+        ]
+      }
+    },
+    "history": []
+  },
+  "evidence_kind": "real_api_fixed_dev_state_probe"
+}

@@ -1,0 +1,5533 @@
+{
+  "sample_id": "td1_containers_block_first",
+  "profile": "raw_legacy",
+  "method": "llm_gate",
+  "episode_id": "td1_containers_block_first__raw_legacy__llm_gate",
+  "study_version": "tabletop_contract_dev_v1",
+  "evidence_kind": "real_api_real_pybullet_dev_regression",
+  "partition": "dev",
+  "group_id": "place_into_selected_containers:layout_f7ad74b444a9241c",
+  "template_id": "place_into_selected_containers",
+  "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e.",
+  "turns": [
+    {
+      "round": 0,
+      "public_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.34342,
+                -0.17666,
+                0.44999
+              ],
+              "aabb_min": [
+                0.31633,
+                -0.20375,
+                0.41999
+              ],
+              "aabb_max": [
+                0.3705,
+                -0.14958,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.28791,
+                -0.02268,
+                0.44199
+              ],
+              "aabb_min": [
+                0.2659,
+                -0.04468,
+                0.41999
+              ],
+              "aabb_max": [
+                0.30991,
+                -0.00068,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.28933,
+                0.18135,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26733,
+                0.15935,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31133,
+                0.20335,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.535,
+                -0.255,
+                0.42
+              ],
+              "aabb_min": [
+                0.445,
+                -0.335,
+                0.42
+              ],
+              "aabb_max": [
+                0.625,
+                -0.175,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.29216,
+                -0.32008,
+                0.44999
+              ],
+              "aabb_min": [
+                0.26508,
+                -0.34717,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31924,
+                -0.29299,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.565,
+                0.105,
+                0.42
+              ],
+              "aabb_min": [
+                0.475,
+                0.025,
+                0.42
+              ],
+              "aabb_max": [
+                0.655,
+                0.185,
+                0.524
+              ]
+            }
+          ],
+          "simulation_step": 240,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [],
+              "item_df14409786": []
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_f885e71481",
+              "item_3d73bd37fd",
+              "item_e2988fee7e"
+            ]
+          }
+        },
+        "history": []
+      },
+      "payload_sha256": "606c947236999d3f9c993225b69f4a941a2affd268d9f6ec18c84e5048f5235a",
+      "gate": {
+        "called": true,
+        "decision": "ASK",
+        "p_ask": null
+      },
+      "question": {
+        "type": "select",
+        "text": "Which container should the blue cup go in?",
+        "requests": [
+          {
+            "role": "cup_destination",
+            "candidate_ids": [
+              "item_11a9324217",
+              "item_df14409786"
+            ]
+          }
+        ]
+      },
+      "user_answer": {
+        "choices": {
+          "cup_destination": "item_11a9324217"
+        }
+      },
+      "ask_check": {
+        "before_step": 240,
+        "after_step": 240,
+        "state_unchanged": true,
+        "charged_slots": 1
+      }
+    },
+    {
+      "round": 1,
+      "public_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.34342,
+                -0.17666,
+                0.44999
+              ],
+              "aabb_min": [
+                0.31633,
+                -0.20375,
+                0.41999
+              ],
+              "aabb_max": [
+                0.3705,
+                -0.14958,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.28791,
+                -0.02268,
+                0.44199
+              ],
+              "aabb_min": [
+                0.2659,
+                -0.04468,
+                0.41999
+              ],
+              "aabb_max": [
+                0.30991,
+                -0.00068,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.28933,
+                0.18135,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26733,
+                0.15935,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31133,
+                0.20335,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.535,
+                -0.255,
+                0.42
+              ],
+              "aabb_min": [
+                0.445,
+                -0.335,
+                0.42
+              ],
+              "aabb_max": [
+                0.625,
+                -0.175,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.29216,
+                -0.32008,
+                0.44999
+              ],
+              "aabb_min": [
+                0.26508,
+                -0.34717,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31924,
+                -0.29299,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.565,
+                0.105,
+                0.42
+              ],
+              "aabb_min": [
+                0.475,
+                0.025,
+                0.42
+              ],
+              "aabb_max": [
+                0.655,
+                0.185,
+                0.524
+              ]
+            }
+          ],
+          "simulation_step": 240,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [],
+              "item_df14409786": []
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_f885e71481",
+              "item_3d73bd37fd",
+              "item_e2988fee7e"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which container should the blue cup go in?",
+              "requests": [
+                {
+                  "role": "cup_destination",
+                  "candidate_ids": [
+                    "item_11a9324217",
+                    "item_df14409786"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "cup_destination": "item_11a9324217"
+              }
+            }
+          }
+        ]
+      },
+      "payload_sha256": "6a3768e6a4b0e194dbb9b6d0724c95a6bdac325f9dc34f3d2330a6482511f365",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_df14409786",
+        "relation": "inside"
+      },
+      "physical_result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_df14409786",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3672,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 2,
+      "public_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.34342,
+                -0.17667,
+                0.44999
+              ],
+              "aabb_min": [
+                0.31633,
+                -0.20376,
+                0.41999
+              ],
+              "aabb_max": [
+                0.37051,
+                -0.14958,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.59,
+                0.12505,
+                0.45599
+              ],
+              "aabb_min": [
+                0.568,
+                0.10305,
+                0.43399
+              ],
+              "aabb_max": [
+                0.612,
+                0.14705,
+                0.47799
+              ]
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.28933,
+                0.18135,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26733,
+                0.15935,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31133,
+                0.20335,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.535,
+                -0.255,
+                0.42
+              ],
+              "aabb_min": [
+                0.445,
+                -0.335,
+                0.42
+              ],
+              "aabb_max": [
+                0.625,
+                -0.175,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.29217,
+                -0.32008,
+                0.44999
+              ],
+              "aabb_min": [
+                0.26508,
+                -0.34717,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31926,
+                -0.29298,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.565,
+                0.105,
+                0.42
+              ],
+              "aabb_min": [
+                0.475,
+                0.025,
+                0.42
+              ],
+              "aabb_max": [
+                0.655,
+                0.185,
+                0.524
+              ]
+            }
+          ],
+          "simulation_step": 3672,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [],
+              "item_df14409786": [
+                "item_f885e71481"
+              ]
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_3d73bd37fd",
+              "item_e2988fee7e"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which container should the blue cup go in?",
+              "requests": [
+                {
+                  "role": "cup_destination",
+                  "candidate_ids": [
+                    "item_11a9324217",
+                    "item_df14409786"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "cup_destination": "item_11a9324217"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3672,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "payload_sha256": "065928a48eb380165d50d0c17bdd7bb34858e141e014e8216095c71567204e0a",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "table",
+        "relation": "on"
+      },
+      "physical_result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "table",
+        "success": true,
+        "reason": "placed",
+        "start_step": 3672,
+        "end_step": 6945,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 3,
+      "public_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.34341,
+                -0.17668,
+                0.44999
+              ],
+              "aabb_min": [
+                0.31632,
+                -0.20377,
+                0.41999
+              ],
+              "aabb_max": [
+                0.37051,
+                -0.14958,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.28777,
+                -0.0227,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26577,
+                -0.0447,
+                0.41999
+              ],
+              "aabb_max": [
+                0.30977,
+                -0.0007,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.28933,
+                0.18135,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26733,
+                0.15935,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31133,
+                0.20335,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.535,
+                -0.255,
+                0.42
+              ],
+              "aabb_min": [
+                0.445,
+                -0.335,
+                0.42
+              ],
+              "aabb_max": [
+                0.625,
+                -0.175,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.29218,
+                -0.32008,
+                0.44999
+              ],
+              "aabb_min": [
+                0.26508,
+                -0.34718,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31928,
+                -0.29297,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.565,
+                0.105,
+                0.42
+              ],
+              "aabb_min": [
+                0.475,
+                0.025,
+                0.42
+              ],
+              "aabb_max": [
+                0.655,
+                0.185,
+                0.524
+              ]
+            }
+          ],
+          "simulation_step": 6945,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [],
+              "item_df14409786": []
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_f885e71481",
+              "item_3d73bd37fd",
+              "item_e2988fee7e"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which container should the blue cup go in?",
+              "requests": [
+                {
+                  "role": "cup_destination",
+                  "candidate_ids": [
+                    "item_11a9324217",
+                    "item_df14409786"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "cup_destination": "item_11a9324217"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3672,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3672,
+              "end_step": 6945,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "payload_sha256": "1c33fa74034cffafa6194ee182bf49ebffddd2081a9c23168bd49fe6d33171d8",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_df14409786",
+        "relation": "inside"
+      },
+      "physical_result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_df14409786",
+        "success": true,
+        "reason": "placed",
+        "start_step": 6945,
+        "end_step": 10324,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 4,
+      "public_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.34341,
+                -0.17668,
+                0.44999
+              ],
+              "aabb_min": [
+                0.31631,
+                -0.20378,
+                0.41999
+              ],
+              "aabb_max": [
+                0.37051,
+                -0.14959,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.59,
+                0.12505,
+                0.45599
+              ],
+              "aabb_min": [
+                0.568,
+                0.10305,
+                0.43399
+              ],
+              "aabb_max": [
+                0.612,
+                0.14705,
+                0.47799
+              ]
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.28933,
+                0.18135,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26733,
+                0.15935,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31133,
+                0.20335,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.535,
+                -0.255,
+                0.42
+              ],
+              "aabb_min": [
+                0.445,
+                -0.335,
+                0.42
+              ],
+              "aabb_max": [
+                0.625,
+                -0.175,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.29219,
+                -0.32008,
+                0.44999
+              ],
+              "aabb_min": [
+                0.26508,
+                -0.34719,
+                0.41999
+              ],
+              "aabb_max": [
+                0.3193,
+                -0.29296,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.565,
+                0.105,
+                0.42
+              ],
+              "aabb_min": [
+                0.475,
+                0.025,
+                0.42
+              ],
+              "aabb_max": [
+                0.655,
+                0.185,
+                0.524
+              ]
+            }
+          ],
+          "simulation_step": 10324,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [],
+              "item_df14409786": [
+                "item_f885e71481"
+              ]
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_3d73bd37fd",
+              "item_e2988fee7e"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which container should the blue cup go in?",
+              "requests": [
+                {
+                  "role": "cup_destination",
+                  "candidate_ids": [
+                    "item_11a9324217",
+                    "item_df14409786"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "cup_destination": "item_11a9324217"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3672,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3672,
+              "end_step": 6945,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 6945,
+              "end_step": 10324,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "payload_sha256": "74881b4233d5f3d4a0ac78a37941834df96d5cb5a2b85624162e24449c7150fd",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "table",
+        "relation": "on"
+      },
+      "physical_result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "table",
+        "success": true,
+        "reason": "placed",
+        "start_step": 10324,
+        "end_step": 13597,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 5,
+      "public_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.34341,
+                -0.17669,
+                0.44999
+              ],
+              "aabb_min": [
+                0.31631,
+                -0.20379,
+                0.41999
+              ],
+              "aabb_max": [
+                0.37052,
+                -0.14959,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.28777,
+                -0.02269,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26577,
+                -0.0447,
+                0.41999
+              ],
+              "aabb_max": [
+                0.30978,
+                -0.00069,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.28933,
+                0.18135,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26733,
+                0.15935,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31133,
+                0.20335,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.535,
+                -0.255,
+                0.42
+              ],
+              "aabb_min": [
+                0.445,
+                -0.335,
+                0.42
+              ],
+              "aabb_max": [
+                0.625,
+                -0.175,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.2922,
+                -0.32008,
+                0.44999
+              ],
+              "aabb_min": [
+                0.26508,
+                -0.3472,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31932,
+                -0.29296,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.565,
+                0.105,
+                0.42
+              ],
+              "aabb_min": [
+                0.475,
+                0.025,
+                0.42
+              ],
+              "aabb_max": [
+                0.655,
+                0.185,
+                0.524
+              ]
+            }
+          ],
+          "simulation_step": 13597,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [],
+              "item_df14409786": []
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_f885e71481",
+              "item_3d73bd37fd",
+              "item_e2988fee7e"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which container should the blue cup go in?",
+              "requests": [
+                {
+                  "role": "cup_destination",
+                  "candidate_ids": [
+                    "item_11a9324217",
+                    "item_df14409786"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "cup_destination": "item_11a9324217"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3672,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3672,
+              "end_step": 6945,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 6945,
+              "end_step": 10324,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 10324,
+              "end_step": 13597,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "payload_sha256": "9b342e382265da03b7b56fa848f88437438018ba66bc8a059c44d457113268da",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_df14409786",
+        "relation": "inside"
+      },
+      "physical_result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_df14409786",
+        "success": true,
+        "reason": "placed",
+        "start_step": 13597,
+        "end_step": 16976,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 6,
+      "public_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.34341,
+                -0.1767,
+                0.44999
+              ],
+              "aabb_min": [
+                0.3163,
+                -0.2038,
+                0.41999
+              ],
+              "aabb_max": [
+                0.37052,
+                -0.14959,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.59,
+                0.12505,
+                0.45599
+              ],
+              "aabb_min": [
+                0.568,
+                0.10304,
+                0.43399
+              ],
+              "aabb_max": [
+                0.612,
+                0.14705,
+                0.47799
+              ]
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.28933,
+                0.18135,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26733,
+                0.15935,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31133,
+                0.20335,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.535,
+                -0.255,
+                0.42
+              ],
+              "aabb_min": [
+                0.445,
+                -0.335,
+                0.42
+              ],
+              "aabb_max": [
+                0.625,
+                -0.175,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.29221,
+                -0.32008,
+                0.44999
+              ],
+              "aabb_min": [
+                0.26508,
+                -0.34721,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31934,
+                -0.29295,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.565,
+                0.105,
+                0.42
+              ],
+              "aabb_min": [
+                0.475,
+                0.025,
+                0.42
+              ],
+              "aabb_max": [
+                0.655,
+                0.185,
+                0.524
+              ]
+            }
+          ],
+          "simulation_step": 16976,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [],
+              "item_df14409786": [
+                "item_f885e71481"
+              ]
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_3d73bd37fd",
+              "item_e2988fee7e"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which container should the blue cup go in?",
+              "requests": [
+                {
+                  "role": "cup_destination",
+                  "candidate_ids": [
+                    "item_11a9324217",
+                    "item_df14409786"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "cup_destination": "item_11a9324217"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3672,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3672,
+              "end_step": 6945,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 6945,
+              "end_step": 10324,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 10324,
+              "end_step": 13597,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 13597,
+              "end_step": 16976,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "payload_sha256": "c545337ce2cd1125bf96255421672892c70d8c1817550f7b93f594346a0f3d9f",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "table",
+        "relation": "on"
+      },
+      "physical_result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "table",
+        "success": true,
+        "reason": "placed",
+        "start_step": 16976,
+        "end_step": 20249,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 7,
+      "public_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.34341,
+                -0.1767,
+                0.44999
+              ],
+              "aabb_min": [
+                0.3163,
+                -0.20382,
+                0.41999
+              ],
+              "aabb_max": [
+                0.37052,
+                -0.14959,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.28778,
+                -0.02269,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26577,
+                -0.04469,
+                0.41999
+              ],
+              "aabb_max": [
+                0.30978,
+                -0.00068,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.28933,
+                0.18135,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26733,
+                0.15935,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31133,
+                0.20335,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.535,
+                -0.255,
+                0.42
+              ],
+              "aabb_min": [
+                0.445,
+                -0.335,
+                0.42
+              ],
+              "aabb_max": [
+                0.625,
+                -0.175,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.29222,
+                -0.32008,
+                0.44999
+              ],
+              "aabb_min": [
+                0.26508,
+                -0.34722,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31936,
+                -0.29294,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.565,
+                0.105,
+                0.42
+              ],
+              "aabb_min": [
+                0.475,
+                0.025,
+                0.42
+              ],
+              "aabb_max": [
+                0.655,
+                0.185,
+                0.524
+              ]
+            }
+          ],
+          "simulation_step": 20249,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [],
+              "item_df14409786": []
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_f885e71481",
+              "item_3d73bd37fd",
+              "item_e2988fee7e"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which container should the blue cup go in?",
+              "requests": [
+                {
+                  "role": "cup_destination",
+                  "candidate_ids": [
+                    "item_11a9324217",
+                    "item_df14409786"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "cup_destination": "item_11a9324217"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3672,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3672,
+              "end_step": 6945,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 6945,
+              "end_step": 10324,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 10324,
+              "end_step": 13597,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 13597,
+              "end_step": 16976,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 16976,
+              "end_step": 20249,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "payload_sha256": "7b65440dc8f076c30f6400e190bfff947cfe4fd1e1585932e16ddd15cea62741",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_df14409786",
+        "relation": "inside"
+      },
+      "physical_result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_df14409786",
+        "success": true,
+        "reason": "placed",
+        "start_step": 20249,
+        "end_step": 23628,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 8,
+      "public_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.34341,
+                -0.17671,
+                0.44999
+              ],
+              "aabb_min": [
+                0.31629,
+                -0.20383,
+                0.41999
+              ],
+              "aabb_max": [
+                0.37053,
+                -0.14959,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.59,
+                0.12504,
+                0.45599
+              ],
+              "aabb_min": [
+                0.56799,
+                0.10304,
+                0.43399
+              ],
+              "aabb_max": [
+                0.612,
+                0.14705,
+                0.47799
+              ]
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.28933,
+                0.18135,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26733,
+                0.15935,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31133,
+                0.20335,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.535,
+                -0.255,
+                0.42
+              ],
+              "aabb_min": [
+                0.445,
+                -0.335,
+                0.42
+              ],
+              "aabb_max": [
+                0.625,
+                -0.175,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.29223,
+                -0.32008,
+                0.44999
+              ],
+              "aabb_min": [
+                0.26508,
+                -0.34723,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31937,
+                -0.29293,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.565,
+                0.105,
+                0.42
+              ],
+              "aabb_min": [
+                0.475,
+                0.025,
+                0.42
+              ],
+              "aabb_max": [
+                0.655,
+                0.185,
+                0.524
+              ]
+            }
+          ],
+          "simulation_step": 23628,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [],
+              "item_df14409786": [
+                "item_f885e71481"
+              ]
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_3d73bd37fd",
+              "item_e2988fee7e"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which container should the blue cup go in?",
+              "requests": [
+                {
+                  "role": "cup_destination",
+                  "candidate_ids": [
+                    "item_11a9324217",
+                    "item_df14409786"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "cup_destination": "item_11a9324217"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3672,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3672,
+              "end_step": 6945,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 6945,
+              "end_step": 10324,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 10324,
+              "end_step": 13597,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 13597,
+              "end_step": 16976,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 16976,
+              "end_step": 20249,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 20249,
+              "end_step": 23628,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "payload_sha256": "6fe7d044b6ba5e518430e03d585a9db6eaf02bd167c22ee6bd0b51c7097daa74",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_11a9324217",
+        "relation": "inside"
+      },
+      "physical_result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_11a9324217",
+        "success": true,
+        "reason": "placed",
+        "start_step": 23628,
+        "end_step": 26886,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 9,
+      "public_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.34341,
+                -0.17672,
+                0.44999
+              ],
+              "aabb_min": [
+                0.31629,
+                -0.20384,
+                0.41999
+              ],
+              "aabb_max": [
+                0.37053,
+                -0.1496,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.55998,
+                -0.23501,
+                0.45599
+              ],
+              "aabb_min": [
+                0.53798,
+                -0.25701,
+                0.43399
+              ],
+              "aabb_max": [
+                0.58199,
+                -0.213,
+                0.47799
+              ]
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.28933,
+                0.18135,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26733,
+                0.15935,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31133,
+                0.20335,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.535,
+                -0.255,
+                0.42
+              ],
+              "aabb_min": [
+                0.445,
+                -0.335,
+                0.42
+              ],
+              "aabb_max": [
+                0.625,
+                -0.175,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.29224,
+                -0.32008,
+                0.44999
+              ],
+              "aabb_min": [
+                0.26508,
+                -0.34723,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31939,
+                -0.29292,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.565,
+                0.105,
+                0.42
+              ],
+              "aabb_min": [
+                0.475,
+                0.025,
+                0.42
+              ],
+              "aabb_max": [
+                0.655,
+                0.185,
+                0.524
+              ]
+            }
+          ],
+          "simulation_step": 26886,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [
+                "item_f885e71481"
+              ],
+              "item_df14409786": []
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_3d73bd37fd",
+              "item_e2988fee7e"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which container should the blue cup go in?",
+              "requests": [
+                {
+                  "role": "cup_destination",
+                  "candidate_ids": [
+                    "item_11a9324217",
+                    "item_df14409786"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "cup_destination": "item_11a9324217"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3672,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3672,
+              "end_step": 6945,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 6945,
+              "end_step": 10324,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 10324,
+              "end_step": 13597,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 13597,
+              "end_step": 16976,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 16976,
+              "end_step": 20249,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 20249,
+              "end_step": 23628,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_11a9324217",
+              "success": true,
+              "reason": "placed",
+              "start_step": 23628,
+              "end_step": 26886,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "payload_sha256": "31f13933b12df7d477c04f13c77cec5e0284d567678a5ec9613c7486ba481e12",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_e2988fee7e",
+        "target_id": "item_11a9324217",
+        "relation": "inside"
+      },
+      "physical_result": {
+        "skill": "pick_place",
+        "object_id": "item_e2988fee7e",
+        "target_id": "item_11a9324217",
+        "success": true,
+        "reason": "placed",
+        "start_step": 26886,
+        "end_step": 30202,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 10,
+      "public_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.34341,
+                -0.17672,
+                0.44999
+              ],
+              "aabb_min": [
+                0.31628,
+                -0.20385,
+                0.41999
+              ],
+              "aabb_max": [
+                0.37054,
+                -0.1496,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.55998,
+                -0.23501,
+                0.45599
+              ],
+              "aabb_min": [
+                0.53798,
+                -0.25701,
+                0.43399
+              ],
+              "aabb_max": [
+                0.58199,
+                -0.213,
+                0.47799
+              ]
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.28933,
+                0.18135,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26733,
+                0.15935,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31133,
+                0.20335,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.535,
+                -0.255,
+                0.42
+              ],
+              "aabb_min": [
+                0.445,
+                -0.335,
+                0.42
+              ],
+              "aabb_max": [
+                0.625,
+                -0.175,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.50982,
+                -0.27507,
+                0.46399
+              ],
+              "aabb_min": [
+                0.48266,
+                -0.30223,
+                0.43399
+              ],
+              "aabb_max": [
+                0.53698,
+                -0.24791,
+                0.49399
+              ]
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.565,
+                0.105,
+                0.42
+              ],
+              "aabb_min": [
+                0.475,
+                0.025,
+                0.42
+              ],
+              "aabb_max": [
+                0.655,
+                0.185,
+                0.524
+              ]
+            }
+          ],
+          "simulation_step": 30202,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [
+                "item_f885e71481",
+                "item_e2988fee7e"
+              ],
+              "item_df14409786": []
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_3d73bd37fd"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which container should the blue cup go in?",
+              "requests": [
+                {
+                  "role": "cup_destination",
+                  "candidate_ids": [
+                    "item_11a9324217",
+                    "item_df14409786"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "cup_destination": "item_11a9324217"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3672,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3672,
+              "end_step": 6945,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 6945,
+              "end_step": 10324,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 10324,
+              "end_step": 13597,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 13597,
+              "end_step": 16976,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 16976,
+              "end_step": 20249,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 20249,
+              "end_step": 23628,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_11a9324217",
+              "success": true,
+              "reason": "placed",
+              "start_step": 23628,
+              "end_step": 26886,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_e2988fee7e",
+              "target_id": "item_11a9324217",
+              "success": true,
+              "reason": "placed",
+              "start_step": 26886,
+              "end_step": 30202,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "payload_sha256": "8ecd473ca85e411babdccffd5d92d4acf5982d8f56d8ec0882e69cc8f44fe2d4",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_df14409786",
+        "relation": "inside"
+      },
+      "physical_result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_df14409786",
+        "success": true,
+        "reason": "placed",
+        "start_step": 30202,
+        "end_step": 33459,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 11,
+      "public_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.34341,
+                -0.17673,
+                0.44999
+              ],
+              "aabb_min": [
+                0.31627,
+                -0.20386,
+                0.41999
+              ],
+              "aabb_max": [
+                0.37054,
+                -0.1496,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.58994,
+                0.12504,
+                0.45599
+              ],
+              "aabb_min": [
+                0.56793,
+                0.10303,
+                0.43399
+              ],
+              "aabb_max": [
+                0.61195,
+                0.14705,
+                0.47799
+              ]
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.28933,
+                0.18135,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26733,
+                0.15935,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31133,
+                0.20335,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.535,
+                -0.255,
+                0.42
+              ],
+              "aabb_min": [
+                0.445,
+                -0.335,
+                0.42
+              ],
+              "aabb_max": [
+                0.625,
+                -0.175,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.50987,
+                -0.27504,
+                0.46399
+              ],
+              "aabb_min": [
+                0.48266,
+                -0.30226,
+                0.43399
+              ],
+              "aabb_max": [
+                0.53708,
+                -0.24783,
+                0.49399
+              ]
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.565,
+                0.105,
+                0.42
+              ],
+              "aabb_min": [
+                0.475,
+                0.025,
+                0.42
+              ],
+              "aabb_max": [
+                0.655,
+                0.185,
+                0.524
+              ]
+            }
+          ],
+          "simulation_step": 33459,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [
+                "item_e2988fee7e"
+              ],
+              "item_df14409786": [
+                "item_f885e71481"
+              ]
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_3d73bd37fd"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which container should the blue cup go in?",
+              "requests": [
+                {
+                  "role": "cup_destination",
+                  "candidate_ids": [
+                    "item_11a9324217",
+                    "item_df14409786"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "cup_destination": "item_11a9324217"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3672,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3672,
+              "end_step": 6945,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 6945,
+              "end_step": 10324,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 10324,
+              "end_step": 13597,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 13597,
+              "end_step": 16976,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 16976,
+              "end_step": 20249,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 20249,
+              "end_step": 23628,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_11a9324217",
+              "success": true,
+              "reason": "placed",
+              "start_step": 23628,
+              "end_step": 26886,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_e2988fee7e",
+              "target_id": "item_11a9324217",
+              "success": true,
+              "reason": "placed",
+              "start_step": 26886,
+              "end_step": 30202,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 30202,
+              "end_step": 33459,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "payload_sha256": "817b899fba0760e22b24faaec8e262a918969050e22a6cdc8089ae2ffaae2af5",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_11a9324217",
+        "relation": "inside"
+      },
+      "physical_result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_11a9324217",
+        "success": true,
+        "reason": "placed",
+        "start_step": 33459,
+        "end_step": 36717,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 12,
+      "public_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.34341,
+                -0.17674,
+                0.44999
+              ],
+              "aabb_min": [
+                0.31627,
+                -0.20387,
+                0.41999
+              ],
+              "aabb_max": [
+                0.37054,
+                -0.1496,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.55998,
+                -0.235,
+                0.45599
+              ],
+              "aabb_min": [
+                0.53797,
+                -0.25702,
+                0.43399
+              ],
+              "aabb_max": [
+                0.58199,
+                -0.21299,
+                0.47799
+              ]
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.28933,
+                0.18135,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26733,
+                0.15935,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31133,
+                0.20335,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.535,
+                -0.255,
+                0.42
+              ],
+              "aabb_min": [
+                0.445,
+                -0.335,
+                0.42
+              ],
+              "aabb_max": [
+                0.625,
+                -0.175,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.50992,
+                -0.27502,
+                0.46399
+              ],
+              "aabb_min": [
+                0.48265,
+                -0.30228,
+                0.43399
+              ],
+              "aabb_max": [
+                0.53718,
+                -0.24775,
+                0.49399
+              ]
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.565,
+                0.105,
+                0.42
+              ],
+              "aabb_min": [
+                0.475,
+                0.025,
+                0.42
+              ],
+              "aabb_max": [
+                0.655,
+                0.185,
+                0.524
+              ]
+            }
+          ],
+          "simulation_step": 36717,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [
+                "item_f885e71481",
+                "item_e2988fee7e"
+              ],
+              "item_df14409786": []
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_3d73bd37fd"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which container should the blue cup go in?",
+              "requests": [
+                {
+                  "role": "cup_destination",
+                  "candidate_ids": [
+                    "item_11a9324217",
+                    "item_df14409786"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "cup_destination": "item_11a9324217"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3672,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3672,
+              "end_step": 6945,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 6945,
+              "end_step": 10324,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 10324,
+              "end_step": 13597,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 13597,
+              "end_step": 16976,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 16976,
+              "end_step": 20249,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 20249,
+              "end_step": 23628,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_11a9324217",
+              "success": true,
+              "reason": "placed",
+              "start_step": 23628,
+              "end_step": 26886,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_e2988fee7e",
+              "target_id": "item_11a9324217",
+              "success": true,
+              "reason": "placed",
+              "start_step": 26886,
+              "end_step": 30202,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 30202,
+              "end_step": 33459,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_11a9324217",
+              "success": true,
+              "reason": "placed",
+              "start_step": 33459,
+              "end_step": 36717,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "payload_sha256": "4cfaa341fd651218cb2de670d5f27a4cd9ea15476c6222076ecdd91af6dc6661",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_df14409786",
+        "relation": "inside"
+      },
+      "physical_result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_df14409786",
+        "success": true,
+        "reason": "placed",
+        "start_step": 36717,
+        "end_step": 39974,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "round": 13,
+      "public_payload": {
+        "instruction": "Put one selected cup in its preferred container and one selected block in the OTHER container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the block before the cup. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_f885e71481. For the cup, use item_e2988fee7e.",
+        "observation": {
+          "objects": [
+            {
+              "object_id": "item_beba60fd7b",
+              "category": "cup",
+              "color": "red",
+              "position": [
+                0.34341,
+                -0.17675,
+                0.44999
+              ],
+              "aabb_min": [
+                0.31626,
+                -0.20389,
+                0.41999
+              ],
+              "aabb_max": [
+                0.37055,
+                -0.1496,
+                0.47999
+              ]
+            },
+            {
+              "object_id": "item_f885e71481",
+              "category": "block",
+              "color": "green",
+              "position": [
+                0.58988,
+                0.12498,
+                0.45599
+              ],
+              "aabb_min": [
+                0.56787,
+                0.10296,
+                0.43399
+              ],
+              "aabb_max": [
+                0.6119,
+                0.14699,
+                0.47799
+              ]
+            },
+            {
+              "object_id": "item_3d73bd37fd",
+              "category": "block",
+              "color": "yellow",
+              "position": [
+                0.28933,
+                0.18135,
+                0.44199
+              ],
+              "aabb_min": [
+                0.26733,
+                0.15935,
+                0.41999
+              ],
+              "aabb_max": [
+                0.31133,
+                0.20335,
+                0.46399
+              ]
+            },
+            {
+              "object_id": "item_11a9324217",
+              "category": "container",
+              "color": "orange",
+              "position": [
+                0.535,
+                -0.255,
+                0.42
+              ],
+              "aabb_min": [
+                0.445,
+                -0.335,
+                0.42
+              ],
+              "aabb_max": [
+                0.625,
+                -0.175,
+                0.524
+              ]
+            },
+            {
+              "object_id": "item_e2988fee7e",
+              "category": "cup",
+              "color": "blue",
+              "position": [
+                0.50996,
+                -0.27502,
+                0.46399
+              ],
+              "aabb_min": [
+                0.48274,
+                -0.30224,
+                0.43399
+              ],
+              "aabb_max": [
+                0.53717,
+                -0.2478,
+                0.49399
+              ]
+            },
+            {
+              "object_id": "item_df14409786",
+              "category": "container",
+              "color": "purple",
+              "position": [
+                0.565,
+                0.105,
+                0.42
+              ],
+              "aabb_min": [
+                0.475,
+                0.025,
+                0.42
+              ],
+              "aabb_max": [
+                0.655,
+                0.185,
+                0.524
+              ]
+            }
+          ],
+          "simulation_step": 39974,
+          "held_object": null,
+          "spatial_relations": {
+            "inside_containers": {
+              "item_11a9324217": [
+                "item_e2988fee7e"
+              ],
+              "item_df14409786": [
+                "item_f885e71481"
+              ]
+            },
+            "covering_containers": {},
+            "outside_all_containers": [
+              "item_beba60fd7b",
+              "item_3d73bd37fd"
+            ]
+          }
+        },
+        "history": [
+          {
+            "kind": "ask",
+            "question": {
+              "type": "select",
+              "text": "Which container should the blue cup go in?",
+              "requests": [
+                {
+                  "role": "cup_destination",
+                  "candidate_ids": [
+                    "item_11a9324217",
+                    "item_df14409786"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "user_answer",
+            "response": {
+              "choices": {
+                "cup_destination": "item_11a9324217"
+              }
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 240,
+              "end_step": 3672,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 3672,
+              "end_step": 6945,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 6945,
+              "end_step": 10324,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 10324,
+              "end_step": 13597,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 13597,
+              "end_step": 16976,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "table",
+              "success": true,
+              "reason": "placed",
+              "start_step": 16976,
+              "end_step": 20249,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 20249,
+              "end_step": 23628,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_11a9324217",
+              "success": true,
+              "reason": "placed",
+              "start_step": 23628,
+              "end_step": 26886,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_e2988fee7e",
+              "target_id": "item_11a9324217",
+              "success": true,
+              "reason": "placed",
+              "start_step": 26886,
+              "end_step": 30202,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 30202,
+              "end_step": 33459,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_11a9324217",
+              "success": true,
+              "reason": "placed",
+              "start_step": 33459,
+              "end_step": 36717,
+              "grasp_mode": "constraint"
+            }
+          },
+          {
+            "kind": "action",
+            "result": {
+              "skill": "pick_place",
+              "object_id": "item_f885e71481",
+              "target_id": "item_df14409786",
+              "success": true,
+              "reason": "placed",
+              "start_step": 36717,
+              "end_step": 39974,
+              "grasp_mode": "constraint"
+            }
+          }
+        ]
+      },
+      "payload_sha256": "69e4ac17e409b9f07627ac99e74b06cd982f9b6f16623bdedd3a34944cc2e984",
+      "gate": {
+        "called": true,
+        "decision": "CONTINUE",
+        "p_ask": null
+      },
+      "action": {
+        "kind": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_11a9324217",
+        "relation": "inside"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "item_df14409786",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3672,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "table",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3672,
+      "end_step": 6945,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "item_df14409786",
+      "success": true,
+      "reason": "placed",
+      "start_step": 6945,
+      "end_step": 10324,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "table",
+      "success": true,
+      "reason": "placed",
+      "start_step": 10324,
+      "end_step": 13597,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "item_df14409786",
+      "success": true,
+      "reason": "placed",
+      "start_step": 13597,
+      "end_step": 16976,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "table",
+      "success": true,
+      "reason": "placed",
+      "start_step": 16976,
+      "end_step": 20249,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "item_df14409786",
+      "success": true,
+      "reason": "placed",
+      "start_step": 20249,
+      "end_step": 23628,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "item_11a9324217",
+      "success": true,
+      "reason": "placed",
+      "start_step": 23628,
+      "end_step": 26886,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "pick_place",
+      "object_id": "item_e2988fee7e",
+      "target_id": "item_11a9324217",
+      "success": true,
+      "reason": "placed",
+      "start_step": 26886,
+      "end_step": 30202,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "item_df14409786",
+      "success": true,
+      "reason": "placed",
+      "start_step": 30202,
+      "end_step": 33459,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "item_11a9324217",
+      "success": true,
+      "reason": "placed",
+      "start_step": 33459,
+      "end_step": 36717,
+      "grasp_mode": "constraint"
+    },
+    {
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "item_df14409786",
+      "success": true,
+      "reason": "placed",
+      "start_step": 36717,
+      "end_step": 39974,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "public_history": [
+    {
+      "kind": "ask",
+      "question": {
+        "type": "select",
+        "text": "Which container should the blue cup go in?",
+        "requests": [
+          {
+            "role": "cup_destination",
+            "candidate_ids": [
+              "item_11a9324217",
+              "item_df14409786"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "user_answer",
+      "response": {
+        "choices": {
+          "cup_destination": "item_11a9324217"
+        }
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_df14409786",
+        "success": true,
+        "reason": "placed",
+        "start_step": 240,
+        "end_step": 3672,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "table",
+        "success": true,
+        "reason": "placed",
+        "start_step": 3672,
+        "end_step": 6945,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_df14409786",
+        "success": true,
+        "reason": "placed",
+        "start_step": 6945,
+        "end_step": 10324,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "table",
+        "success": true,
+        "reason": "placed",
+        "start_step": 10324,
+        "end_step": 13597,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_df14409786",
+        "success": true,
+        "reason": "placed",
+        "start_step": 13597,
+        "end_step": 16976,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "table",
+        "success": true,
+        "reason": "placed",
+        "start_step": 16976,
+        "end_step": 20249,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_df14409786",
+        "success": true,
+        "reason": "placed",
+        "start_step": 20249,
+        "end_step": 23628,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_11a9324217",
+        "success": true,
+        "reason": "placed",
+        "start_step": 23628,
+        "end_step": 26886,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_e2988fee7e",
+        "target_id": "item_11a9324217",
+        "success": true,
+        "reason": "placed",
+        "start_step": 26886,
+        "end_step": 30202,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_df14409786",
+        "success": true,
+        "reason": "placed",
+        "start_step": 30202,
+        "end_step": 33459,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_11a9324217",
+        "success": true,
+        "reason": "placed",
+        "start_step": 33459,
+        "end_step": 36717,
+        "grasp_mode": "constraint"
+      }
+    },
+    {
+      "kind": "action",
+      "result": {
+        "skill": "pick_place",
+        "object_id": "item_f885e71481",
+        "target_id": "item_df14409786",
+        "success": true,
+        "reason": "placed",
+        "start_step": 36717,
+        "end_step": 39974,
+        "grasp_mode": "constraint"
+      }
+    }
+  ],
+  "evaluation": {
+    "task_success": false,
+    "termination_reason": "robot_action_limit",
+    "execution_termination": "robot_action_limit",
+    "execution_completed": false,
+    "evaluator_version": "full_aabb_contact_dag_v3.1",
+    "conditions": {
+      "correct_cup_in_selected_container": true,
+      "correct_block_in_other_container": true,
+      "unselected_objects_outside": true,
+      "robot_released": true,
+      "declared_dag_order": false
+    },
+    "details": {
+      "expected_objects": {
+        "cup": "item_e2988fee7e",
+        "block": "item_f885e71481"
+      },
+      "expected_targets": {
+        "cup": "item_11a9324217",
+        "block": "item_df14409786"
+      },
+      "containment": {
+        "cup": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.4827447540042329,
+            -0.30223646195070786,
+            0.4339863665837778
+          ],
+          "aabb_max": [
+            0.53717498227445,
+            -0.24780102215950794,
+            0.49399258476401914
+          ]
+        },
+        "block": {
+          "inside": true,
+          "full_xy_inside": true,
+          "full_z_inside": true,
+          "supported_by_box": true,
+          "stable": true,
+          "aabb_min": [
+            0.5678672574366475,
+            0.10295974975219585,
+            0.43398801830189
+          ],
+          "aabb_max": [
+            0.6118996099958955,
+            0.14699040040557235,
+            0.4779903533855561
+          ]
+        }
+      },
+      "unselected": {
+        "item_beba60fd7b": {
+          "item_11a9324217": {
+            "outside": true,
+            "footprint_disjoint": true,
+            "stable": true
+          },
+          "item_df14409786": {
+            "outside": true,
+            "footprint_disjoint": true,
+            "stable": true
+          }
+        },
+        "item_3d73bd37fd": {
+          "item_11a9324217": {
+            "outside": true,
+            "footprint_disjoint": true,
+            "stable": true
+          },
+          "item_df14409786": {
+            "outside": true,
+            "footprint_disjoint": true,
+            "stable": true
+          }
+        }
+      },
+      "robot_contact_counts": {
+        "item_f885e71481": 0,
+        "item_e2988fee7e": 0
+      },
+      "declared_dag": {
+        "placement_events_present": true,
+        "precedence_checks": {
+          "place_block->place_cup": false
+        },
+        "satisfied": false
+      }
+    },
+    "clarification_burden": 1,
+    "action_count": 12,
+    "successful_action_count": 12,
+    "simulation_steps": 39974
+  },
+  "termination_reason": "robot_action_limit",
+  "error": null,
+  "cost": {
+    "deepseek": {
+      "attempts": 28,
+      "input_tokens": 48288,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 530,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 23276.345374935772,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 28,
+    "api_latency_ms": 23276.345374935772,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "wall_time_s": 33.36003179100226,
+  "final_observation": {
+    "simulation_step": 39974,
+    "objects": {
+      "item_beba60fd7b": {
+        "category": "cup",
+        "color": "red",
+        "position": [
+          0.3434055221904275,
+          -0.1767450581648863,
+          0.4499894559843929
+        ],
+        "orientation": [
+          2.6578070027473104e-05,
+          -3.988389573748605e-05,
+          -0.0010517266145449984,
+          0.9999994457868511
+        ],
+        "aabb_min": [
+          0.3162641709336712,
+          -0.20388560704128428,
+          0.4199858555135705
+        ],
+        "aabb_max": [
+          0.37054687344718384,
+          -0.14960450928848834,
+          0.4799930564552153
+        ],
+        "linear_velocity": [
+          2.9908372408059047e-05,
+          1.9547107901414614e-05,
+          -4.897827005891087e-06
+        ],
+        "angular_velocity": [
+          -0.000659525121941877,
+          0.0009997337252147366,
+          -5.451387507817615e-06
+        ]
+      },
+      "item_f885e71481": {
+        "category": "block",
+        "color": "green",
+        "position": [
+          0.5898834337162715,
+          0.1249750750788841,
+          0.45598918584372305
+        ],
+        "orientation": [
+          3.598772718485511e-06,
+          -2.2930143215992294e-05,
+          -0.0003448308731525366,
+          0.9999999402764613
+        ],
+        "aabb_min": [
+          0.5678672574366475,
+          0.10295974975219585,
+          0.43398801830189
+        ],
+        "aabb_max": [
+          0.6118996099958955,
+          0.14699040040557235,
+          0.4779903533855561
+        ],
+        "linear_velocity": [
+          -1.689487714559784e-12,
+          1.4927649202780276e-12,
+          -1.7902415661019688e-12
+        ],
+        "angular_velocity": [
+          -5.687081496309205e-11,
+          -9.157148562974283e-11,
+          -1.749207329371909e-11
+        ]
+      },
+      "item_3d73bd37fd": {
+        "category": "block",
+        "color": "yellow",
+        "position": [
+          0.2893291859387469,
+          0.1813520968532738,
+          0.44198914624182334
+        ],
+        "orientation": [
+          1.7293696881869417e-06,
+          -2.3773162535493258e-05,
+          -1.2610742900692638e-06,
+          0.9999999997151279
+        ],
+        "aabb_min": [
+          0.26732808445897704,
+          0.15935196527345052,
+          0.41998802415418146
+        ],
+        "aabb_max": [
+          0.31133028741851676,
+          0.20335222843309708,
+          0.4639902683294652
+        ],
+        "linear_velocity": [
+          -1.1673769106457616e-12,
+          8.886701109332079e-13,
+          -1.2095324741778768e-12
+        ],
+        "angular_velocity": [
+          -3.2789492798774514e-11,
+          -6.232943651730755e-11,
+          -1.1134101962452363e-11
+        ]
+      },
+      "item_11a9324217": {
+        "category": "container",
+        "color": "orange",
+        "position": [
+          0.535,
+          -0.255,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.44500000000000006,
+          -0.335,
+          0.42
+        ],
+        "aabb_max": [
+          0.625,
+          -0.175,
+          0.524
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "item_e2988fee7e": {
+        "category": "cup",
+        "color": "blue",
+        "position": [
+          0.5099598681393415,
+          -0.2750187420551079,
+          0.4639894756738985
+        ],
+        "orientation": [
+          -5.054180285606736e-05,
+          6.969522341974029e-06,
+          -0.0024548462762470826,
+          0.9999969855588126
+        ],
+        "aabb_min": [
+          0.4827447540042329,
+          -0.30223646195070786,
+          0.4339863665837778
+        ],
+        "aabb_max": [
+          0.53717498227445,
+          -0.24780102215950794,
+          0.49399258476401914
+        ],
+        "linear_velocity": [
+          4.600342885114311e-06,
+          -5.630254256762174e-07,
+          9.14811282282102e-12
+        ],
+        "angular_velocity": [
+          -7.369272912286996e-11,
+          1.3451823192115294e-10,
+          0.00018007279867858606
+        ]
+      },
+      "item_df14409786": {
+        "category": "container",
+        "color": "purple",
+        "position": [
+          0.565,
+          0.105,
+          0.42
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "aabb_min": [
+          0.475,
+          0.024999999999999994,
+          0.42
+        ],
+        "aabb_max": [
+          0.6549999999999999,
+          0.185,
+          0.524
+        ],
+        "linear_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "end_effector": [
+      0.5900883078575134,
+      0.12486101686954498,
+      0.8299539089202881
+    ],
+    "held_object": null,
+    "robot_joints": [
+      {
+        "position": 0.05694586254985614,
+        "velocity": 6.557254739192331e-16
+      },
+      {
+        "position": 0.1311446859445295,
+        "velocity": -2.869232629265639e-15
+      },
+      {
+        "position": 0.16229450120761887,
+        "velocity": -2.5292268279741847e-15
+      },
+      {
+        "position": -1.6878489866942943,
+        "velocity": 2.4438784329561258e-14
+      },
+      {
+        "position": -0.02178989299644996,
+        "velocity": 3.608224830031759e-16
+      },
+      {
+        "position": 1.8172623174909024,
+        "velocity": -2.4494295480792516e-14
+      },
+      {
+        "position": 1.008596208983936,
+        "velocity": -2.5580232376753997e-14
+      },
+      {
+        "position": 0.039999983069922584,
+        "velocity": -6.934557095217286e-16
+      },
+      {
+        "position": 0.039999996523744016,
+        "velocity": -6.973588373426765e-16
+      }
+    ],
+    "spatial_relations": {
+      "inside_containers": {
+        "item_11a9324217": [
+          "item_e2988fee7e"
+        ],
+        "item_df14409786": [
+          "item_f885e71481"
+        ]
+      },
+      "covering_containers": {},
+      "outside_all_containers": [
+        "item_beba60fd7b",
+        "item_3d73bd37fd"
+      ]
+    }
+  },
+  "execution_log": [
+    {
+      "kind": "placement_started",
+      "object_id": "item_f885e71481",
+      "target_id": "item_df14409786",
+      "step": 240,
+      "contents_before": {
+        "item_11a9324217": [],
+        "item_df14409786": []
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_f885e71481",
+      "step": 240,
+      "end_effector": [
+        0.428022563457489,
+        3.169046749462723e-06,
+        0.859183669090271
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_f885e71481",
+      "step": 1093,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004629979982868448,
+      "closest_hand_distance_m": 0.023015482426677107
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_f885e71481",
+      "step": 1153,
+      "end_effector": [
+        0.287693053483963,
+        -0.02254568412899971,
+        0.48285961151123047
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_f885e71481",
+      "step": 1644,
+      "end_effector": [
+        0.2879289984703064,
+        -0.022686045616865158,
+        0.8254228830337524
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_f885e71481",
+      "step": 2119,
+      "end_effector": [
+        0.5856080651283264,
+        0.12310725450515747,
+        0.8298722505569458
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_f885e71481",
+      "step": 2777
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_f885e71481",
+      "step": 3432,
+      "end_effector": [
+        0.5898343920707703,
+        0.125132218003273,
+        0.8261862397193909
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "item_df14409786",
+      "success": true,
+      "reason": "placed",
+      "start_step": 240,
+      "end_step": 3672,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_f885e71481",
+      "target_id": "table",
+      "step": 3672,
+      "contents_before": {
+        "item_11a9324217": [],
+        "item_df14409786": [
+          "item_f885e71481"
+        ]
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_f885e71481",
+      "step": 3672,
+      "end_effector": [
+        0.5898152589797974,
+        0.12512919306755066,
+        0.8299541473388672
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_f885e71481",
+      "step": 4418,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004334434899444239,
+      "closest_hand_distance_m": 0.033272330354673835
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_f885e71481",
+      "step": 4478,
+      "end_effector": [
+        0.589993417263031,
+        0.12505942583084106,
+        0.5129953026771545
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_f885e71481",
+      "step": 4926,
+      "end_effector": [
+        0.5899244546890259,
+        0.1250363141298294,
+        0.8253639936447144
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_f885e71481",
+      "step": 5401,
+      "end_effector": [
+        0.2923036813735962,
+        -0.020718496292829514,
+        0.8299829363822937
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_f885e71481",
+      "step": 6055
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_f885e71481",
+      "step": 6705,
+      "end_effector": [
+        0.2882002890110016,
+        -0.022695589810609818,
+        0.8262271881103516
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "table",
+      "success": true,
+      "reason": "placed",
+      "start_step": 3672,
+      "end_step": 6945,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_f885e71481",
+      "target_id": "item_df14409786",
+      "step": 6945,
+      "contents_before": {
+        "item_11a9324217": [],
+        "item_df14409786": []
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_f885e71481",
+      "step": 6945,
+      "end_effector": [
+        0.2881779372692108,
+        -0.02269262820482254,
+        0.8299925923347473
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_f885e71481",
+      "step": 7744,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004622135929264151,
+      "closest_hand_distance_m": 0.023019938447800224
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_f885e71481",
+      "step": 7804,
+      "end_effector": [
+        0.2875664234161377,
+        -0.02256610244512558,
+        0.48284366726875305
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_f885e71481",
+      "step": 8295,
+      "end_effector": [
+        0.28779593110084534,
+        -0.022702349349856377,
+        0.8254226446151733
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_f885e71481",
+      "step": 8770,
+      "end_effector": [
+        0.5855494737625122,
+        0.12309254705905914,
+        0.8298722505569458
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_f885e71481",
+      "step": 9429
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_f885e71481",
+      "step": 10084,
+      "end_effector": [
+        0.5897769927978516,
+        0.12511758506298065,
+        0.8261853456497192
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "item_df14409786",
+      "success": true,
+      "reason": "placed",
+      "start_step": 6945,
+      "end_step": 10324,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_f885e71481",
+      "target_id": "table",
+      "step": 10324,
+      "contents_before": {
+        "item_11a9324217": [],
+        "item_df14409786": [
+          "item_f885e71481"
+        ]
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_f885e71481",
+      "step": 10324,
+      "end_effector": [
+        0.5897578597068787,
+        0.12511469423770905,
+        0.8299541473388672
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_f885e71481",
+      "step": 11070,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004328494994145284,
+      "closest_hand_distance_m": 0.03328594965459724
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_f885e71481",
+      "step": 11130,
+      "end_effector": [
+        0.5899932384490967,
+        0.1250580996274948,
+        0.5129952430725098
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_f885e71481",
+      "step": 11578,
+      "end_effector": [
+        0.5899243354797363,
+        0.12503476440906525,
+        0.8253639936447144
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_f885e71481",
+      "step": 12053,
+      "end_effector": [
+        0.2923004627227783,
+        -0.020712412893772125,
+        0.8299829363822937
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_f885e71481",
+      "step": 12707
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_f885e71481",
+      "step": 13357,
+      "end_effector": [
+        0.28819704055786133,
+        -0.022689329460263252,
+        0.8262271285057068
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "table",
+      "success": true,
+      "reason": "placed",
+      "start_step": 10324,
+      "end_step": 13597,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_f885e71481",
+      "target_id": "item_df14409786",
+      "step": 13597,
+      "contents_before": {
+        "item_11a9324217": [],
+        "item_df14409786": []
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_f885e71481",
+      "step": 13597,
+      "end_effector": [
+        0.28817465901374817,
+        -0.02268640697002411,
+        0.8299925923347473
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_f885e71481",
+      "step": 14396,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004608376595475121,
+      "closest_hand_distance_m": 0.023013620699465914
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_f885e71481",
+      "step": 14456,
+      "end_effector": [
+        0.2875760495662689,
+        -0.022564735263586044,
+        0.48282527923583984
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_f885e71481",
+      "step": 14947,
+      "end_effector": [
+        0.2877975404262543,
+        -0.022696983069181442,
+        0.8254224061965942
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_f885e71481",
+      "step": 15422,
+      "end_effector": [
+        0.5855560302734375,
+        0.1230883076786995,
+        0.829872190952301
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_f885e71481",
+      "step": 16081
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_f885e71481",
+      "step": 16736,
+      "end_effector": [
+        0.5897838473320007,
+        0.12511321902275085,
+        0.8261851668357849
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "item_df14409786",
+      "success": true,
+      "reason": "placed",
+      "start_step": 13597,
+      "end_step": 16976,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_f885e71481",
+      "target_id": "table",
+      "step": 16976,
+      "contents_before": {
+        "item_11a9324217": [],
+        "item_df14409786": [
+          "item_f885e71481"
+        ]
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_f885e71481",
+      "step": 16976,
+      "end_effector": [
+        0.5897647142410278,
+        0.12511023879051208,
+        0.8299541473388672
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_f885e71481",
+      "step": 17722,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004333490225579901,
+      "closest_hand_distance_m": 0.033290424497668274
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_f885e71481",
+      "step": 17782,
+      "end_effector": [
+        0.5899932980537415,
+        0.12505653500556946,
+        0.5129952430725098
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_f885e71481",
+      "step": 18230,
+      "end_effector": [
+        0.5899243950843811,
+        0.12503434717655182,
+        0.8253639936447144
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_f885e71481",
+      "step": 18705,
+      "end_effector": [
+        0.29230350255966187,
+        -0.020706025883555412,
+        0.8299828767776489
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_f885e71481",
+      "step": 19359
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_f885e71481",
+      "step": 20009,
+      "end_effector": [
+        0.28820013999938965,
+        -0.022682785987854004,
+        0.8262271285057068
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "table",
+      "success": true,
+      "reason": "placed",
+      "start_step": 16976,
+      "end_step": 20249,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_f885e71481",
+      "target_id": "item_df14409786",
+      "step": 20249,
+      "contents_before": {
+        "item_11a9324217": [],
+        "item_df14409786": []
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_f885e71481",
+      "step": 20249,
+      "end_effector": [
+        0.2881777286529541,
+        -0.022679897025227547,
+        0.8299925923347473
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_f885e71481",
+      "step": 21048,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004596323487468871,
+      "closest_hand_distance_m": 0.023008243870790604
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_f885e71481",
+      "step": 21108,
+      "end_effector": [
+        0.2875846028327942,
+        -0.022561868652701378,
+        0.4828091561794281
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_f885e71481",
+      "step": 21599,
+      "end_effector": [
+        0.2877991497516632,
+        -0.022690489888191223,
+        0.8254222273826599
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_f885e71481",
+      "step": 22074,
+      "end_effector": [
+        0.5855617523193359,
+        0.12308444827795029,
+        0.8298721313476562
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_f885e71481",
+      "step": 22733
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_f885e71481",
+      "step": 23388,
+      "end_effector": [
+        0.5897899270057678,
+        0.12510916590690613,
+        0.8261849284172058
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "item_df14409786",
+      "success": true,
+      "reason": "placed",
+      "start_step": 20249,
+      "end_step": 23628,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_f885e71481",
+      "target_id": "item_11a9324217",
+      "step": 23628,
+      "contents_before": {
+        "item_11a9324217": [],
+        "item_df14409786": [
+          "item_f885e71481"
+        ]
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_f885e71481",
+      "step": 23628,
+      "end_effector": [
+        0.5897706747055054,
+        0.12510620057582855,
+        0.8299541473388672
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_f885e71481",
+      "step": 24374,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004333009238643339,
+      "closest_hand_distance_m": 0.03329073063352119
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_f885e71481",
+      "step": 24434,
+      "end_effector": [
+        0.5899931788444519,
+        0.12505432963371277,
+        0.5129953026771545
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_f885e71481",
+      "step": 24882,
+      "end_effector": [
+        0.5899240970611572,
+        0.1250314712524414,
+        0.8253639936447144
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_f885e71481",
+      "step": 25393,
+      "end_effector": [
+        0.5606055855751038,
+        -0.23042228817939758,
+        0.8298993110656738
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_f885e71481",
+      "step": 26019
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_f885e71481",
+      "step": 26646,
+      "end_effector": [
+        0.5602160692214966,
+        -0.23496289551258087,
+        0.8261812329292297
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "item_11a9324217",
+      "success": true,
+      "reason": "placed",
+      "start_step": 23628,
+      "end_step": 26886,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_e2988fee7e",
+      "target_id": "item_11a9324217",
+      "step": 26886,
+      "contents_before": {
+        "item_11a9324217": [
+          "item_f885e71481"
+        ],
+        "item_df14409786": []
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_e2988fee7e",
+      "step": 26886,
+      "end_effector": [
+        0.5601986646652222,
+        -0.23495620489120483,
+        0.8299505114555359
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_e2988fee7e",
+      "step": 27864,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004196409884845728,
+      "closest_hand_distance_m": 0.019135430525622783
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_e2988fee7e",
+      "step": 27924,
+      "end_effector": [
+        0.2923241853713989,
+        -0.3198305368423462,
+        0.49837276339530945
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_e2988fee7e",
+      "step": 28393,
+      "end_effector": [
+        0.2922574281692505,
+        -0.32008612155914307,
+        0.825415313243866
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_e2988fee7e",
+      "step": 28707,
+      "end_effector": [
+        0.505341649055481,
+        -0.2757766544818878,
+        0.8298745155334473
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_e2988fee7e",
+      "step": 29334
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_e2988fee7e",
+      "step": 29962,
+      "end_effector": [
+        0.5098890066146851,
+        -0.2748437523841858,
+        0.8261966705322266
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_e2988fee7e",
+      "target_id": "item_11a9324217",
+      "success": true,
+      "reason": "placed",
+      "start_step": 26886,
+      "end_step": 30202,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_f885e71481",
+      "target_id": "item_df14409786",
+      "step": 30202,
+      "contents_before": {
+        "item_11a9324217": [
+          "item_f885e71481",
+          "item_e2988fee7e"
+        ],
+        "item_df14409786": []
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_f885e71481",
+      "step": 30202,
+      "end_effector": [
+        0.5098698139190674,
+        -0.2748352885246277,
+        0.8299679160118103
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_f885e71481",
+      "step": 30948,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004216011842259341,
+      "closest_hand_distance_m": 0.033017272695089715
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_f885e71481",
+      "step": 31008,
+      "end_effector": [
+        0.5599812865257263,
+        -0.23503786325454712,
+        0.5130031108856201
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_f885e71481",
+      "step": 31456,
+      "end_effector": [
+        0.5599029660224915,
+        -0.23497235774993896,
+        0.8253568410873413
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_f885e71481",
+      "step": 31966,
+      "end_effector": [
+        0.5896801352500916,
+        0.12037760019302368,
+        0.8299052715301514
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_f885e71481",
+      "step": 32592
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_f885e71481",
+      "step": 33219,
+      "end_effector": [
+        0.5900433659553528,
+        0.12492195516824722,
+        0.8261855244636536
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "item_df14409786",
+      "success": true,
+      "reason": "placed",
+      "start_step": 30202,
+      "end_step": 33459,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_f885e71481",
+      "target_id": "item_11a9324217",
+      "step": 33459,
+      "contents_before": {
+        "item_11a9324217": [
+          "item_e2988fee7e"
+        ],
+        "item_df14409786": [
+          "item_f885e71481"
+        ]
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_f885e71481",
+      "step": 33459,
+      "end_effector": [
+        0.5900242328643799,
+        0.12491901218891144,
+        0.8299539685249329
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_f885e71481",
+      "step": 34205,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004332193401654532,
+      "closest_hand_distance_m": 0.033290789777918835
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_f885e71481",
+      "step": 34265,
+      "end_effector": [
+        0.589934766292572,
+        0.12505283951759338,
+        0.5129954218864441
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_f885e71481",
+      "step": 34713,
+      "end_effector": [
+        0.589865505695343,
+        0.1250292956829071,
+        0.8253640532493591
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_f885e71481",
+      "step": 35224,
+      "end_effector": [
+        0.5606045126914978,
+        -0.23042254149913788,
+        0.8298995494842529
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_f885e71481",
+      "step": 35850
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_f885e71481",
+      "step": 36477,
+      "end_effector": [
+        0.5602152347564697,
+        -0.23496323823928833,
+        0.8261809349060059
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "item_11a9324217",
+      "success": true,
+      "reason": "placed",
+      "start_step": 33459,
+      "end_step": 36717,
+      "grasp_mode": "constraint"
+    },
+    {
+      "kind": "placement_started",
+      "object_id": "item_f885e71481",
+      "target_id": "item_df14409786",
+      "step": 36717,
+      "contents_before": {
+        "item_11a9324217": [
+          "item_f885e71481",
+          "item_e2988fee7e"
+        ],
+        "item_df14409786": []
+      },
+      "released_before": true
+    },
+    {
+      "kind": "phase",
+      "phase": "approach",
+      "object_id": "item_f885e71481",
+      "step": 36717,
+      "end_effector": [
+        0.5601978302001953,
+        -0.2349565625190735,
+        0.8299502730369568
+      ]
+    },
+    {
+      "kind": "grasp",
+      "object_id": "item_f885e71481",
+      "step": 37463,
+      "grasp_mode": "constraint",
+      "grip_error_m": 0.004365950302866148,
+      "closest_hand_distance_m": 0.03330510904755154
+    },
+    {
+      "kind": "phase",
+      "phase": "lift",
+      "object_id": "item_f885e71481",
+      "step": 37523,
+      "end_effector": [
+        0.5600007176399231,
+        -0.23500558733940125,
+        0.5130059719085693
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "transport",
+      "object_id": "item_f885e71481",
+      "step": 37971,
+      "end_effector": [
+        0.5599023103713989,
+        -0.23497037589550018,
+        0.8253569006919861
+      ]
+    },
+    {
+      "kind": "phase",
+      "phase": "lower",
+      "object_id": "item_f885e71481",
+      "step": 38481,
+      "end_effector": [
+        0.5897433757781982,
+        0.12032036483287811,
+        0.8299052119255066
+      ]
+    },
+    {
+      "kind": "release",
+      "object_id": "item_f885e71481",
+      "step": 39107
+    },
+    {
+      "kind": "phase",
+      "phase": "settle",
+      "object_id": "item_f885e71481",
+      "step": 39734,
+      "end_effector": [
+        0.5901075005531311,
+        0.12486393749713898,
+        0.8261860013008118
+      ]
+    },
+    {
+      "kind": "skill_result",
+      "skill": "pick_place",
+      "object_id": "item_f885e71481",
+      "target_id": "item_df14409786",
+      "success": true,
+      "reason": "placed",
+      "start_step": 36717,
+      "end_step": 39974,
+      "grasp_mode": "constraint"
+    }
+  ],
+  "configuration": {
+    "deepseek_model": "deepseek-flash",
+    "jev_model": "jev-latest",
+    "jev_threshold": 0.5,
+    "timeout_s": 40,
+    "max_retries": 1,
+    "max_tokens": 500,
+    "thinking": "disabled",
+    "response_format": "json_object"
+  }
+}

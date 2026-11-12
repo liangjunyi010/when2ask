@@ -1,0 +1,7 @@
+profile,method,episodes,successes,burden_total,burden_mean,first_ask_reference_matches,api_attempts,schema_errors,api_errors,retries,api_latency_s,redundant_role_requests,repeated_role_requests,deepseek_input_tokens,deepseek_output_tokens,jev_input_tokens,jev_output_tokens
+raw_legacy,llm_noask,4,3,0,0.0,0,14,0,0,0,12.13109412396443,0,0,20409,310,,
+raw_legacy,llm_gate,4,3,6,1.5,1,54,0,0,0,44.52100820982014,3,0,85537,956,,
+raw_legacy,jev_gate,4,3,3,0.75,2,52,0,0,0,29.11573949587182,0,0,43287,732,56990,624
+facts_contract,llm_noask,4,3,0,0.0,0,14,0,0,0,12.10421150008915,0,0,25261,310,,
+facts_contract,llm_gate,4,4,4,1.0,3,34,0,0,0,28.001019794901367,0,0,58955,592,,
+facts_contract,jev_gate,4,4,4,1.0,4,34,0,0,0,19.420602833037265,0,0,30495,479,38599,408

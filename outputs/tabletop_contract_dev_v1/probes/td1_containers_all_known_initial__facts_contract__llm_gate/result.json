@@ -1,0 +1,161 @@
+{
+  "id": "td1_containers_all_known_initial__facts_contract__llm_gate",
+  "stage": "gate",
+  "state_id": "td1_containers_all_known_initial",
+  "profile": "facts_contract",
+  "method": "llm_gate",
+  "reference": "CONTINUE",
+  "output": {
+    "decision": "CONTINUE",
+    "p_ask": null
+  },
+  "match": true,
+  "error": null,
+  "cost": {
+    "deepseek": {
+      "attempts": 1,
+      "input_tokens": 1540,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": 7,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": 576.8359579960816,
+      "unknown_latency_ms_attempts": 0
+    },
+    "jev": {
+      "attempts": 0,
+      "input_tokens": null,
+      "unknown_input_tokens_attempts": 0,
+      "output_tokens": null,
+      "unknown_output_tokens_attempts": 0,
+      "latency_ms": null,
+      "unknown_latency_ms_attempts": 0
+    },
+    "api_attempts": 1,
+    "api_latency_ms": 576.8359579960816,
+    "retries": 0,
+    "schema_errors": 0,
+    "api_errors": 0
+  },
+  "public_payload": {
+    "instruction": "Place the preferred cup and block into separate containers: the cup uses its preferred destination, and the block must use the remaining container. The cup_destination preference chooses the cup's container and also determines the block's other container. Place the cup before the block. Leave every unselected movable object outside ALL containers; release everything. Each named preference has one fixed user choice; an undisclosed preference is unknown. For the block, use item_aba6946104. For the cup, use item_ff0920a6ac. For the cup_destination, use item_34bc43c027.",
+    "observation": {
+      "objects": [
+        {
+          "object_id": "item_93134932d1",
+          "category": "container",
+          "color": "orange"
+        },
+        {
+          "object_id": "item_ff53c67ac5",
+          "category": "cup",
+          "color": "blue"
+        },
+        {
+          "object_id": "item_3b3b0f9e74",
+          "category": "block",
+          "color": "green"
+        },
+        {
+          "object_id": "item_ff0920a6ac",
+          "category": "cup",
+          "color": "red"
+        },
+        {
+          "object_id": "item_aba6946104",
+          "category": "block",
+          "color": "yellow"
+        },
+        {
+          "object_id": "item_34bc43c027",
+          "category": "container",
+          "color": "purple"
+        }
+      ],
+      "simulation_step": 240,
+      "held_object": null,
+      "spatial_relations": {
+        "inside_containers": {
+          "item_93134932d1": [],
+          "item_34bc43c027": []
+        },
+        "covering_containers": {},
+        "outside_all_containers": [
+          "item_ff53c67ac5",
+          "item_3b3b0f9e74",
+          "item_ff0920a6ac",
+          "item_aba6946104"
+        ]
+      }
+    },
+    "history": [],
+    "public_facts": {
+      "version": "tabletop_contract_dev_v1",
+      "task_type": "two_containers",
+      "order": {
+        "order": "cup_first",
+        "nodes": [
+          "place_cup",
+          "place_block"
+        ],
+        "edges": [
+          [
+            "place_cup",
+            "place_block"
+          ]
+        ],
+        "provenance": "Explicit user instruction and public task contract, not a private DAG annotation"
+      },
+      "role_candidates": {
+        "cup": [
+          "item_ff53c67ac5",
+          "item_ff0920a6ac"
+        ],
+        "block": [
+          "item_3b3b0f9e74",
+          "item_aba6946104"
+        ],
+        "cup_destination": [
+          "item_93134932d1",
+          "item_34bc43c027"
+        ]
+      },
+      "confirmed_choices": {
+        "block": "item_aba6946104",
+        "cup": "item_ff0920a6ac",
+        "cup_destination": "item_34bc43c027"
+      },
+      "confirmed_choice_sources": {
+        "cup": "initial_instruction",
+        "block": "initial_instruction",
+        "cup_destination": "initial_instruction"
+      },
+      "unresolved_roles": [],
+      "own_unconfirmed_choices": {},
+      "working_selection": {
+        "cup": "item_ff0920a6ac",
+        "block": "item_aba6946104",
+        "cup_destination": "item_34bc43c027"
+      },
+      "working_destinations": {
+        "cup": "item_34bc43c027",
+        "block": "item_93134932d1"
+      },
+      "destination_provenance": "Known cup_destination implies the block uses the OTHER container; otherwise an own working guess. Never hidden truth.",
+      "public_labels": {
+        "item_93134932d1": "orange container",
+        "item_ff53c67ac5": "blue cup",
+        "item_3b3b0f9e74": "green block",
+        "item_ff0920a6ac": "red cup",
+        "item_aba6946104": "yellow block",
+        "item_34bc43c027": "purple container"
+      },
+      "observation_scope": "Current measured containment/coverage and full public history. Actions and guesses are not preference disclosures.",
+      "constraints": {
+        "unselected_outside_all_containers": true,
+        "release_everything": true
+      },
+      "limitation": "Facts and stated final relations only: no Gate decision, next action, task score, completion verdict, private registry or oracle trajectory."
+    }
+  },
+  "evidence_kind": "real_api_fixed_dev_state_probe"
+}
