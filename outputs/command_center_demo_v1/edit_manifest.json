@@ -1,0 +1,146 @@
+{
+  "source": "presentation/command_center_demo_v1/.build/full_live_capture.webm",
+  "source_sha256": "44bc9c99780bbca79ae7a36c91367a8cc5f721eec7d722eb1c4367b27fb7e561",
+  "retiming": "Whole viewport retimed together, chronological and continuous; three operator answers are real. Only pre-load frames are trimmed.",
+  "capture": "Playwright Chromium 1920x1080 at 25 fps",
+  "segments": [
+    {
+      "label": "Empty command center",
+      "source_start_s": 0.834,
+      "source_end_s": 3.136,
+      "target_frames": 60,
+      "display_start_s": 0,
+      "display_end_s": 2.0,
+      "speed": 1.151,
+      "encoded_frames": 60
+    },
+    {
+      "label": "Select and dispatch four missions",
+      "source_start_s": 3.136,
+      "source_end_s": 26.316,
+      "target_frames": 360,
+      "display_start_s": 2.0,
+      "display_end_s": 14.0,
+      "speed": 1.9316666666666666,
+      "encoded_frames": 360
+    },
+    {
+      "label": "Queue selection",
+      "source_start_s": 26.316,
+      "source_end_s": 27.199,
+      "target_frames": 18,
+      "display_start_s": 14.0,
+      "display_end_s": 14.6,
+      "speed": 1.4716666666666711,
+      "encoded_frames": 18
+    },
+    {
+      "label": "Read, type and submit answer 1",
+      "source_start_s": 27.199,
+      "source_end_s": 35.697,
+      "target_frames": 180,
+      "display_start_s": 14.6,
+      "display_end_s": 20.6,
+      "speed": 1.4163333333333334,
+      "encoded_frames": 180
+    },
+    {
+      "label": "Queue selection",
+      "source_start_s": 35.697,
+      "source_end_s": 36.548,
+      "target_frames": 18,
+      "display_start_s": 20.6,
+      "display_end_s": 21.200000000000003,
+      "speed": 1.418333333333332,
+      "encoded_frames": 18
+    },
+    {
+      "label": "Read, type and submit answer 2",
+      "source_start_s": 36.548,
+      "source_end_s": 43.745,
+      "target_frames": 165,
+      "display_start_s": 21.200000000000003,
+      "display_end_s": 26.700000000000003,
+      "speed": 1.3085454545454538,
+      "encoded_frames": 165
+    },
+    {
+      "label": "Queue selection",
+      "source_start_s": 43.745,
+      "source_end_s": 44.599,
+      "target_frames": 18,
+      "display_start_s": 26.700000000000003,
+      "display_end_s": 27.300000000000004,
+      "speed": 1.423333333333332,
+      "encoded_frames": 18
+    },
+    {
+      "label": "Read, type and submit answer 3",
+      "source_start_s": 44.599,
+      "source_end_s": 52.077,
+      "target_frames": 165,
+      "display_start_s": 27.300000000000004,
+      "display_end_s": 32.800000000000004,
+      "speed": 1.359636363636364,
+      "encoded_frames": 165
+    },
+    {
+      "label": "Robots finish their tasks",
+      "source_start_s": 52.077,
+      "source_end_s": 77.728,
+      "target_frames": 396,
+      "display_start_s": 32.800000000000004,
+      "display_end_s": 46.0,
+      "speed": 1.9432575757575756,
+      "encoded_frames": 396
+    },
+    {
+      "label": "Four independently evaluated successes",
+      "source_start_s": 77.728,
+      "source_end_s": 86.24,
+      "target_frames": 120,
+      "display_start_s": 46.0,
+      "display_end_s": 50.0,
+      "speed": 2.128,
+      "encoded_frames": 120
+    }
+  ],
+  "highlight": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "pix_fmt": "yuv420p",
+        "avg_frame_rate": "30/1",
+        "nb_frames": "1500"
+      }
+    ],
+    "format": {
+      "duration": "50.000000",
+      "size": "4352544"
+    }
+  },
+  "full": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "pix_fmt": "yuv420p",
+        "avg_frame_rate": "25/1",
+        "nb_frames": "2156"
+      }
+    ],
+    "format": {
+      "duration": "86.240000",
+      "size": "4554533"
+    }
+  },
+  "audio": "Silent for live presenter narration",
+  "highlight_sha256": "58d00ac8e3fe5129b7d4facd6ab046293e62823614f1f3b2c737fdc7c4c39c5a"
+}

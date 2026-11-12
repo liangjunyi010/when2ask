@@ -1,0 +1,268 @@
+{
+  "started_at": "2026-11-12T14:38:02.307Z",
+  "events": [
+    {
+      "capture_ms": 834,
+      "kind": "empty_ready"
+    },
+    {
+      "capture_ms": 3136,
+      "kind": "configure_start",
+      "index": 0,
+      "template": "retrieve_restore",
+      "method": "llm_gate",
+      "profile": "gate_dev_v7",
+      "unknown": "1",
+      "answer": "manual"
+    },
+    {
+      "capture_ms": 7813,
+      "kind": "mission_launched",
+      "index": 0,
+      "task_id": "aecb9c1178574807",
+      "template": "retrieve_restore",
+      "method": "llm_gate",
+      "profile": "gate_dev_v7",
+      "unknown": "1",
+      "answer": "manual",
+      "instruction": "Open the storage box by parking its lid on lid_pad. Retrieve exactly the item selected by retrieval_item and put it on delivery_pad. Then replace the lid to close the box. Leave the unselected item inside. The selected item is initially unspecified. Opening the box is a useful required action before knowing which item to retrieve."
+    },
+    {
+      "capture_ms": 9218,
+      "kind": "configure_start",
+      "index": 1,
+      "template": "buffer_exchange",
+      "method": "jev_gate",
+      "profile": "gate_dev_v7",
+      "unknown": "1",
+      "answer": "manual"
+    },
+    {
+      "capture_ms": 13868,
+      "kind": "mission_launched",
+      "index": 1,
+      "task_id": "6a0883c4f8b14dd4",
+      "template": "buffer_exchange",
+      "method": "jev_gate",
+      "profile": "gate_dev_v7",
+      "unknown": "1",
+      "answer": "manual",
+      "instruction": "Exchange item_a in slot_left and item_b in slot_right. Each slot holds at most one item. Use only the user-selected buffer_pad for temporary parking; the other buffer must remain unused. Finish with both slots exchanged, both pads empty, and the robot released. The required buffer_pad is unspecified."
+    },
+    {
+      "capture_ms": 15270,
+      "kind": "configure_start",
+      "index": 2,
+      "template": "category_sorting",
+      "method": "jev_gate",
+      "profile": "default_v1",
+      "unknown": "1",
+      "answer": "manual"
+    },
+    {
+      "capture_ms": 19946,
+      "kind": "mission_launched",
+      "index": 2,
+      "task_id": "51866674a2b94b3b",
+      "template": "category_sorting",
+      "method": "jev_gate",
+      "profile": "default_v1",
+      "unknown": "1",
+      "answer": "manual",
+      "instruction": "Sort all six objects into three category bins. Cups go in bin_a. Ask for the user's block_bin choice if needed; pucks use the OTHER bin among bin_b and bin_c. Do not mix categories. Release every object. You can sort the known cups before needing the missing rule."
+    },
+    {
+      "capture_ms": 21349,
+      "kind": "configure_start",
+      "index": 3,
+      "template": "find_and_approach",
+      "method": "llm_noask",
+      "profile": "default_v1",
+      "unknown": "0",
+      "answer": "auto"
+    },
+    {
+      "capture_ms": 24913,
+      "kind": "mission_launched",
+      "index": 3,
+      "task_id": "3b33a0c9d54e4b5f",
+      "template": "find_and_approach",
+      "method": "llm_noask",
+      "profile": "default_v1",
+      "unknown": "0",
+      "answer": "auto",
+      "instruction": "Find the kitchen knife and approach it within 1.2 metres. Do not pick it up or deliver it. You know the room map and six inspection stations, but unseen object locations are not observations. A kitchen counter or shelf is a plausible semantic prior for a kitchen knife, not a guaranteed location. You may search stations and ask the user for a location hint. A search can make useful progress by revealing absence. A user location claim does not itself count as detecting the object. The user has specified target_location=living_cabinet."
+    },
+    {
+      "capture_ms": 26316,
+      "kind": "all_dispatched"
+    },
+    {
+      "capture_ms": 27199,
+      "kind": "answer_focus",
+      "task_id": "6a0883c4f8b14dd4",
+      "question_id": "80eb2c710b7a4e1d",
+      "question": "Which temporary buffer pad should I use for the exchange: buffer_front or buffer_back?",
+      "step": 240,
+      "frame_sha": "4e0910a6c0a720fcb2c22c7225e88b636200daee965524befcd12dd0e88ea19b"
+    },
+    {
+      "capture_ms": 33322,
+      "kind": "answer_typed",
+      "task_id": "6a0883c4f8b14dd4",
+      "question_id": "80eb2c710b7a4e1d",
+      "text": "buffer front",
+      "choices": [
+        {
+          "role": "buffer_pad",
+          "candidate_id": "buffer_front"
+        }
+      ],
+      "physics_frozen": true
+    },
+    {
+      "capture_ms": 34197,
+      "kind": "answer_submitted",
+      "task_id": "6a0883c4f8b14dd4",
+      "question_id": "80eb2c710b7a4e1d",
+      "text": "buffer front"
+    },
+    {
+      "capture_ms": 36548,
+      "kind": "answer_focus",
+      "task_id": "aecb9c1178574807",
+      "question_id": "cf0f4ff15d334d9b",
+      "question": "Which item should I retrieve from the box: the blue cup or the green block?",
+      "step": 3702,
+      "frame_sha": "ad44c5165125473db4fff2aae5b1d523b5577184bc1aa33913e71117b6a2da23"
+    },
+    {
+      "capture_ms": 41406,
+      "kind": "answer_typed",
+      "task_id": "aecb9c1178574807",
+      "question_id": "cf0f4ff15d334d9b",
+      "text": "blue cup / stored_cup",
+      "choices": [
+        {
+          "role": "retrieval_item",
+          "candidate_id": "stored_cup"
+        }
+      ],
+      "physics_frozen": true
+    },
+    {
+      "capture_ms": 42245,
+      "kind": "answer_submitted",
+      "task_id": "aecb9c1178574807",
+      "question_id": "cf0f4ff15d334d9b",
+      "text": "blue cup / stored_cup"
+    },
+    {
+      "capture_ms": 44599,
+      "kind": "answer_focus",
+      "task_id": "51866674a2b94b3b",
+      "question_id": "7da6af9c921349fd",
+      "question": "Which bin should the blocks go in? Pucks will use the other bin.",
+      "step": 6861,
+      "frame_sha": "e10a819bf2bd9635071d1b7dd5d4d905e851397c7c598595713d0083f8de5389"
+    },
+    {
+      "capture_ms": 49727,
+      "kind": "answer_typed",
+      "task_id": "51866674a2b94b3b",
+      "question_id": "7da6af9c921349fd",
+      "text": "orange container / bin_b",
+      "choices": [
+        {
+          "role": "block_bin",
+          "candidate_id": "bin_b"
+        }
+      ],
+      "physics_frozen": true
+    },
+    {
+      "capture_ms": 50577,
+      "kind": "answer_submitted",
+      "task_id": "51866674a2b94b3b",
+      "question_id": "7da6af9c921349fd",
+      "text": "orange container / bin_b"
+    },
+    {
+      "capture_ms": 77728,
+      "kind": "all_terminal",
+      "tasks": [
+        {
+          "id": "aecb9c1178574807",
+          "template": "retrieve_restore",
+          "method": "llm_gate",
+          "success": true,
+          "error": null,
+          "ask_turns": 1,
+          "robot_actions": 3
+        },
+        {
+          "id": "6a0883c4f8b14dd4",
+          "template": "buffer_exchange",
+          "method": "jev_gate",
+          "success": true,
+          "error": null,
+          "ask_turns": 1,
+          "robot_actions": 3
+        },
+        {
+          "id": "51866674a2b94b3b",
+          "template": "category_sorting",
+          "method": "jev_gate",
+          "success": true,
+          "error": null,
+          "ask_turns": 1,
+          "robot_actions": 6
+        },
+        {
+          "id": "3b33a0c9d54e4b5f",
+          "template": "find_and_approach",
+          "method": "llm_noask",
+          "success": true,
+          "error": null,
+          "ask_turns": 0,
+          "robot_actions": 1
+        }
+      ]
+    },
+    {
+      "capture_ms": 84511,
+      "kind": "end"
+    }
+  ],
+  "errors": [],
+  "jobs": [
+    {
+      "template": "retrieve_restore",
+      "method": "llm_gate",
+      "profile": "gate_dev_v7",
+      "unknown": "1",
+      "answer": "manual"
+    },
+    {
+      "template": "buffer_exchange",
+      "method": "jev_gate",
+      "profile": "gate_dev_v7",
+      "unknown": "1",
+      "answer": "manual"
+    },
+    {
+      "template": "category_sorting",
+      "method": "jev_gate",
+      "profile": "default_v1",
+      "unknown": "1",
+      "answer": "manual"
+    },
+    {
+      "template": "find_and_approach",
+      "method": "llm_noask",
+      "profile": "default_v1",
+      "unknown": "0",
+      "answer": "auto"
+    }
+  ]
+}

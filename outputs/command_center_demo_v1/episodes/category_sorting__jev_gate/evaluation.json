@@ -1,0 +1,134 @@
+{
+  "task_success": true,
+  "termination_reason": "done",
+  "conditions": {
+    "all_items_in_category_bins": true,
+    "categories_not_mixed": true,
+    "robot_released": true,
+    "all_movable_objects_stable": true
+  },
+  "details": {
+    "expected_category_bins": {
+      "cup": "bin_a",
+      "block": "bin_b",
+      "puck": "bin_c"
+    },
+    "containment": {
+      "cup_1": {
+        "inside": true,
+        "full_xy_inside": true,
+        "full_z_inside": true,
+        "supported_by_box": true,
+        "stable": true,
+        "aabb_min": [
+          0.4873204966205914,
+          -0.31722757451803113,
+          0.4339661321915018
+        ],
+        "aabb_max": [
+          0.5422109795899824,
+          -0.26234410897258914,
+          0.49399591669411
+        ]
+      },
+      "cup_2": {
+        "inside": true,
+        "full_xy_inside": true,
+        "full_z_inside": true,
+        "supported_by_box": true,
+        "stable": true,
+        "aabb_min": [
+          0.5578987224577872,
+          -0.3171061558171852,
+          0.4339899320903202
+        ],
+        "aabb_max": [
+          0.6121070771453843,
+          -0.26289780677176583,
+          0.4939900395134489
+        ]
+      },
+      "block_1": {
+        "inside": true,
+        "full_xy_inside": true,
+        "full_z_inside": true,
+        "supported_by_box": true,
+        "stable": true,
+        "aabb_min": [
+          0.5130292147684848,
+          -0.02184962028567459,
+          0.43398909855918133
+        ],
+        "aabb_max": [
+          0.5570319190138416,
+          0.022152253653555908,
+          0.4779901412072983
+        ]
+      },
+      "block_2": {
+        "inside": true,
+        "full_xy_inside": true,
+        "full_z_inside": true,
+        "supported_by_box": true,
+        "stable": true,
+        "aabb_min": [
+          0.5830182931657495,
+          -0.02198537110878389,
+          0.43398907102571654
+        ],
+        "aabb_max": [
+          0.6270200381731992,
+          0.022015458246047028,
+          0.47799012492988074
+        ]
+      },
+      "puck_1": {
+        "inside": true,
+        "full_xy_inside": true,
+        "full_z_inside": true,
+        "supported_by_box": true,
+        "stable": true,
+        "aabb_min": [
+          0.49350432356336726,
+          0.26841859916009586,
+          0.43398156318539005
+        ],
+        "aabb_max": [
+          0.5375852034129117,
+          0.31249430554797036,
+          0.4779972827580724
+        ]
+      },
+      "puck_2": {
+        "inside": true,
+        "full_xy_inside": true,
+        "full_z_inside": true,
+        "supported_by_box": true,
+        "stable": true,
+        "aabb_min": [
+          0.5629022688509187,
+          0.26800149946242857,
+          0.4339845216498765
+        ],
+        "aabb_max": [
+          0.6069104307120183,
+          0.3120139328284901,
+          0.477991690815676
+        ]
+      }
+    },
+    "robot_contact_counts": {
+      "cup_1": 0,
+      "cup_2": 0,
+      "block_1": 0,
+      "block_2": 0,
+      "puck_1": 0,
+      "puck_2": 0
+    }
+  },
+  "clarification_burden": 1,
+  "action_count": 6,
+  "successful_action_count": 6,
+  "simulation_steps": 20681,
+  "evaluator_version": "task6_geometry_contact_evidence_v1"
+}

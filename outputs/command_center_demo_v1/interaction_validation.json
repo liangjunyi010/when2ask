@@ -1,0 +1,54 @@
+{
+  "episode_count": 4,
+  "all_actual_physical_scores_success": true,
+  "human_answers": 3,
+  "pause_checks": [
+    {
+      "task_id": "6a0883c4f8b14dd4",
+      "question_id": "80eb2c710b7a4e1d",
+      "samples": 10,
+      "simulation_steps": [
+        240
+      ],
+      "frame_hashes_unchanged": true,
+      "other_worlds_progressing": [
+        "3b33a0c9d54e4b5f",
+        "51866674a2b94b3b"
+      ]
+    },
+    {
+      "task_id": "aecb9c1178574807",
+      "question_id": "cf0f4ff15d334d9b",
+      "samples": 8,
+      "simulation_steps": [
+        3702
+      ],
+      "frame_hashes_unchanged": true,
+      "other_worlds_progressing": [
+        "6a0883c4f8b14dd4"
+      ]
+    },
+    {
+      "task_id": "51866674a2b94b3b",
+      "question_id": "7da6af9c921349fd",
+      "samples": 8,
+      "simulation_steps": [
+        6861
+      ],
+      "frame_hashes_unchanged": true,
+      "other_worlds_progressing": [
+        "6a0883c4f8b14dd4",
+        "aecb9c1178574807"
+      ]
+    }
+  ],
+  "authenticated_attempts": 38,
+  "statuses": {
+    "ok": 38
+  },
+  "returned_models": [
+    "deepseek-flash",
+    "jev-1.14.0"
+  ],
+  "original_defaults_changed": false
+}

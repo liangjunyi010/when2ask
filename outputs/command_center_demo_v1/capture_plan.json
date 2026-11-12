@@ -1,0 +1,38 @@
+{
+  "jobs": [
+    {
+      "template": "retrieve_restore",
+      "method": "llm_gate",
+      "profile": "gate_dev_v7",
+      "unknown": "1",
+      "answer": "manual"
+    },
+    {
+      "template": "buffer_exchange",
+      "method": "jev_gate",
+      "profile": "gate_dev_v7",
+      "unknown": "1",
+      "answer": "manual"
+    },
+    {
+      "template": "category_sorting",
+      "method": "jev_gate",
+      "profile": "default_v1",
+      "unknown": "1",
+      "answer": "manual"
+    },
+    {
+      "template": "find_and_approach",
+      "method": "llm_noask",
+      "profile": "default_v1",
+      "unknown": "0",
+      "answer": "auto"
+    }
+  ],
+  "max_episodes": 4,
+  "max_authenticated_requests": 160,
+  "threshold": 0.5,
+  "answer_protocol": "operator typed public candidate names; interactive intent, not a benchmark",
+  "recording": "actual Chromium whole-page video; no mocked API/physics",
+  "version": "command_center_demo_v1"
+}

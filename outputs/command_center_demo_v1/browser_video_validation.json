@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "duration": 50,
+    "width": 1920,
+    "height": 1080,
+    "readyState": 4
+  },
+  "seek_points": [
+    0,
+    10,
+    16,
+    19,
+    36,
+    48
+  ],
+  "full_1x_playback": {
+    "ended": true,
+    "currentTime": 50,
+    "error": null,
+    "quality": {
+      "totalVideoFrames": 2083,
+      "droppedVideoFrames": 9
+    }
+  },
+  "javascript_errors": [],
+  "failed_requests": []
+}
