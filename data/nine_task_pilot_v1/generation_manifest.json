@@ -1,0 +1,135 @@
+{
+  "dataset_version": "nine_task_pilot_v1",
+  "seed": 42781119,
+  "policy": "Four new physical layouts/task; two Dev and two Test. No model outcomes used in generation. Every Test case paired across all three methods.",
+  "grouping": "Category/shape-matched physical geometry; ignore IDs, colours, answers, list order and printed code. Never split variants of one base layout.",
+  "limitations": "Small coverage pilot: two Test groups per task. Mobile layouts vary stations/furniture but share the three-room wall topology. Legacy canonical IDs retained in six skill families.",
+  "dataset_hashes": {
+    "dev": "2d0d0ac3879d3c14a70e45ff39fc115e8c1fb9dea087a602c907eefafaba36e6",
+    "test": "17274c188dc45e11087a32ac43f4d4942fe329ef58b6accc98ffcbe1dd156a4a"
+  },
+  "audit": {
+    "samples": 36,
+    "groups": 36,
+    "distribution": {
+      "pack_and_cover": {
+        "dev": 2,
+        "test": 2,
+        "unknown_counts": {
+          "0": 1,
+          "3": 1,
+          "1": 1,
+          "2": 1
+        },
+        "truth_rank_counts": {
+          "0": 7,
+          "1": 5
+        }
+      },
+      "place_into_selected_containers": {
+        "dev": 2,
+        "test": 2,
+        "unknown_counts": {
+          "0": 1,
+          "3": 1,
+          "1": 1,
+          "2": 1
+        },
+        "truth_rank_counts": {
+          "1": 5,
+          "0": 7
+        }
+      },
+      "find_and_approach": {
+        "dev": 2,
+        "test": 2,
+        "unknown_counts": {
+          "0": 2,
+          "1": 2
+        },
+        "truth_rank_counts": {
+          "0": 1,
+          "5": 1,
+          "3": 1,
+          "4": 1
+        }
+      },
+      "category_sorting": {
+        "dev": 2,
+        "test": 2,
+        "unknown_counts": {
+          "0": 2,
+          "1": 2
+        },
+        "truth_rank_counts": {
+          "1": 2,
+          "0": 2
+        }
+      },
+      "inventory_restock": {
+        "dev": 2,
+        "test": 2,
+        "unknown_counts": {
+          "0": 2,
+          "1": 2
+        },
+        "truth_rank_counts": {
+          "0": 2,
+          "1": 2
+        }
+      },
+      "retrieve_restore": {
+        "dev": 2,
+        "test": 2,
+        "unknown_counts": {
+          "0": 2,
+          "1": 2
+        },
+        "truth_rank_counts": {
+          "1": 2,
+          "0": 2
+        }
+      },
+      "buffer_exchange": {
+        "dev": 2,
+        "test": 2,
+        "unknown_counts": {
+          "0": 2,
+          "1": 2
+        },
+        "truth_rank_counts": {
+          "0": 2,
+          "1": 2
+        }
+      },
+      "patrol_return": {
+        "dev": 2,
+        "test": 2,
+        "unknown_counts": {
+          "0": 2,
+          "1": 2
+        },
+        "truth_rank_counts": {
+          "1": 2,
+          "0": 2
+        }
+      },
+      "occlusion_inspection": {
+        "dev": 2,
+        "test": 2,
+        "unknown_counts": {
+          "0": 2,
+          "1": 2
+        },
+        "truth_rank_counts": {
+          "0": 2,
+          "1": 2
+        }
+      }
+    },
+    "minimum_cross_partition_separation_m": 0.03999999999999998,
+    "minimum_required_m": 0.035,
+    "group_isolation": true,
+    "historical_groups_excluded": true
+  }
+}
