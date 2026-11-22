@@ -1,35 +1,12 @@
-import pytest
 import urllib.request
 
-from when2ask.environment import Environment
-from when2ask.runner import run_episode
-from when2ask.task import PrivateTaskSpec
+import pybullet
+import pytest
 
 
 @pytest.fixture(autouse=True)
-def offline_tests_never_send_network(monkeypatch):
+def no_network_or_physics(monkeypatch):
     def blocked(*args, **kwargs):
-        raise AssertionError("Offline pytest must never contact a live API")
-    monkeypatch.setattr(urllib.request, "urlopen", blocked)
-
-
-@pytest.fixture
-def env():
-    with Environment(seed=0) as world:
-        yield world
-
-
-@pytest.fixture(scope="session")
-def ask_episode(tmp_path_factory):
-    return run_episode("ask", output_dir=tmp_path_factory.mktemp("ask"), quiet=True)
-
-
-@pytest.fixture(scope="session")
-def noask_episode(tmp_path_factory):
-    return run_episode("noask", output_dir=tmp_path_factory.mktemp("noask"), quiet=True)
-
-
-@pytest.fixture(scope="session")
-def matched_noask_episode(tmp_path_factory):
-    return run_episode("noask", output_dir=tmp_path_factory.mktemp("matched_noask"), quiet=True,
-                       private_spec=PrivateTaskSpec(block_choice="yellow_block"))
+        raise AssertionError('Contract tests do not call models or run physics')
+    monkeypatch.setattr(urllib.request, 'urlopen', blocked)
+    monkeypatch.setattr(pybullet, 'connect', blocked)

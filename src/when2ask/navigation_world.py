@@ -18,6 +18,7 @@ class NavigationWorld:
 
     def __init__(self,sample):
         self.sample=sample
+        self.distance_budget_m=sample.scene().get("distance_budget_m",180.)
         self.client=p.connect(p.DIRECT)
         p.setAdditionalSearchPath(pybullet_data.getDataPath(),physicsClientId=self.client)
         p.setGravity(0,0,-9.81,physicsClientId=self.client)
@@ -103,7 +104,7 @@ class NavigationWorld:
 
     def observation(self):
         pose=self.pose();v,w=p.getBaseVelocity(self.robot,physicsClientId=self.client)
-        return dict(simulation_step=self.step_count,robot_pose=[round(v,4) for v in pose],
+        return dict(physics_step=self.step_count,robot_pose=[round(v,4) for v in pose],
             current_room=room_at(pose[:2]),known_map=public_map(),checked_locations=self.checked.copy(),
             target_observation=self.last_seen.copy() if self.last_seen else None,target_visible_now=self.visible_now,
             distance_to_observed_target_m=round(math.dist(pose[:2],self.last_seen['position'][:2]),4) if self.last_seen else None,
@@ -122,7 +123,7 @@ class NavigationWorld:
             if orienting and (final_yaw is None or abs(error)<.12):return True
             velocity=min(.85,1.5*distance)*max(0,math.cos(error)) if not orienting and abs(error)<.45 else 0
             self.motors(velocity,max(-1.8,min(1.8,2.5*error)));self.step()
-            if self.distance_m>36:return False
+            if self.distance_m>self.distance_budget_m:return False
         return False
 
     def search(self,location):
@@ -148,20 +149,6 @@ class NavigationWorld:
         self.event('skill_result',**result)
         return result
 
-    def evaluate(self,burden,actions,termination):
-        pose=self.pose();target=self.target_pose();v,w=p.getBaseVelocity(self.robot,physicsClientId=self.client)
-        penetrations=[c[8] for wall in self.walls for c in p.getContactPoints(self.robot,wall,physicsClientId=self.client) if c[8]<-.02]
-        conditions=dict(target_locally_detected=any(e['kind']=='target_detected' for e in self.events),
-            physically_within_approach_radius=math.dist(pose[:2],target[:2])<=1.2,
-            robot_stopped=math.hypot(v[0],v[1])<.08 and abs(w[2])<.12,
-            no_wall_penetration=not penetrations,distance_budget_respected=self.distance_m<=36)
-        return dict(task_success=all(conditions.values()),termination_reason=termination,conditions=conditions,
-            clarification_burden=burden,action_count=len(actions),successful_action_count=sum(a['success'] for a in actions),
-            details=dict(actual_target_position=target,actual_target_location=self.sample.target_location,
-                final_robot_pose=pose,final_distance_m=math.dist(pose[:2],target[:2]),distance_travelled_m=self.distance_m,
-                checked_locations=list(self.checked),detection_model='range_1.65m_fov90_ray_los',pickup_or_delivery=False),
-            evaluator_version='navigation_geometry_los_v1')
-
     def render(self,width=960,height=540):
         view=p.computeViewMatrix([2,-6,10],[0,0,0],[0,0,1]);proj=p.computeProjectionMatrixFOV(58,width/height,.1,60)
         rgba=p.getCameraImage(width,height,view,proj,renderer=p.ER_TINY_RENDERER,shadow=0,physicsClientId=self.client)[2]
@@ -181,7 +168,7 @@ class NavigationWorld:
         rgb=p.getCameraImage(240,150,localview,p.computeProjectionMatrixFOV(75,240/150,.05,20),renderer=p.ER_TINY_RENDERER,shadow=0,physicsClientId=self.client)[2]
         image.paste(Image.fromarray(np.asarray(rgb,dtype=np.uint8)[:,:,:3]),(width-252,48))
         draw.rectangle((width-252,48,width-12,69),fill=(10,25,42));draw.text((width-244,52),'ROBOT CAMERA',fill='white')
-        draw.rectangle((0,height-28,width,height),fill=(10,25,42));draw.text((12,height-21),f'step {self.step_count} | {self.phase} | travelled {self.distance_m:.2f}m | inspected {len(self.checked)}/6',fill='white')
+        draw.rectangle((0,height-28,width,height),fill=(10,25,42));draw.text((12,height-21),f'step {self.step_count} | {self.phase} | travelled {self.distance_m:.2f}m | inspected {len(self.checked)}/{len(LOCATIONS)}',fill='white')
         return image
 
     def close(self):

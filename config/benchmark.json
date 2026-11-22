@@ -1,0 +1,161 @@
+{
+  "version": "when2ask_dag_v3",
+  "seed": 54782026,
+  "threshold": 0.5,
+  "max_oracle_attempts_per_case": 20,
+  "limits": {
+    "rounds": 60,
+    "api_attempts": 180,
+    "user_api_attempts": 120,
+    "physical_actions": 60
+  },
+  "families": {
+    "pack_and_cover": {
+      "count": 105,
+      "fully_specified": 31,
+      "nodes": [
+        6,
+        10
+      ],
+      "uncertain": [
+        2,
+        3
+      ]
+    },
+    "place_into_selected_containers": {
+      "count": 97,
+      "fully_specified": 27,
+      "nodes": [
+        5,
+        9
+      ],
+      "uncertain": [
+        1,
+        3
+      ]
+    },
+    "category_sorting": {
+      "count": 108,
+      "fully_specified": 34,
+      "nodes": [
+        7,
+        10
+      ],
+      "uncertain": [
+        1,
+        2
+      ]
+    },
+    "inventory_restock": {
+      "count": 102,
+      "fully_specified": 29,
+      "nodes": [
+        6,
+        10
+      ],
+      "uncertain": [
+        1,
+        2
+      ]
+    },
+    "retrieve_restore": {
+      "count": 94,
+      "fully_specified": 23,
+      "nodes": [
+        5,
+        7
+      ],
+      "uncertain": [
+        1,
+        2
+      ]
+    },
+    "buffer_exchange": {
+      "count": 99,
+      "fully_specified": 28,
+      "nodes": [
+        6,
+        9
+      ],
+      "uncertain": [
+        1,
+        2
+      ]
+    },
+    "find_and_approach": {
+      "count": 104,
+      "fully_specified": 36,
+      "nodes": [
+        5,
+        8
+      ],
+      "uncertain": [
+        1,
+        2
+      ]
+    },
+    "patrol_return": {
+      "count": 91,
+      "fully_specified": 26,
+      "nodes": [
+        6,
+        10
+      ],
+      "uncertain": [
+        1,
+        2
+      ]
+    },
+    "occlusion_inspection": {
+      "count": 100,
+      "fully_specified": 32,
+      "nodes": [
+        5,
+        7
+      ],
+      "uncertain": [
+        1,
+        2
+      ]
+    }
+  },
+  "jobs": [
+    {
+      "name": "deepseek_noask",
+      "model": "deepseek",
+      "method": "noask"
+    },
+    {
+      "name": "deepseek_llm_gate",
+      "model": "deepseek",
+      "method": "llm_gate"
+    },
+    {
+      "name": "deepseek_jev_gate",
+      "model": "deepseek",
+      "method": "jev_gate"
+    },
+    {
+      "name": "gpt_llm_gate",
+      "model": "gpt",
+      "method": "llm_gate"
+    },
+    {
+      "name": "glm_llm_gate",
+      "model": "glm",
+      "method": "llm_gate"
+    }
+  ],
+  "execution": {
+    "distance_budget_m": 180.0
+  },
+  "accounting": {
+    "cost_scope": "agent",
+    "user_cost_reported_separately": true
+  },
+  "request": {
+    "retries": 1,
+    "timeout_s": 60,
+    "max_output_tokens": 512
+  }
+}

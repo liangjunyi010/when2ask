@@ -21,4 +21,4 @@ if [ "$(uname -s)" = Darwin ]; then
 fi
 "${installer[@]}" --no-build-isolation 'pybullet==3.2.7'
 "${installer[@]}" --no-build-isolation --editable '.[test,figures]'
-.venv/bin/python script/verify_direct.py
+.venv/bin/python script/benchmark.py doctor

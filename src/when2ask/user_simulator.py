@@ -1,42 +1,26 @@
-"""Structured oracle: returns exactly the requested preference slots."""
-from .task import PrivateTaskSpec, SLOT_OPTIONS
+"""LLM user with fixed private intent and scoped answers."""
+
+USER_PROMPT = """You are the user who gave the robot its instruction.
+Your complete intent is fixed for this episode. Answer the current question using that intent.
+Return JSON with exactly one field, choices. Include exactly the requested_slots and their values.
+Do not reveal any unrequested choice. Do not suggest actions or discuss the evaluator.
+Example format: {"choices": {"requested_slot": "candidate_id"}}."""
 
 
-class UserSimulator:
-    def __init__(self, private_spec: PrivateTaskSpec):
-        self.__private_spec = private_spec
-
-    def answer(self, slots: tuple[str, ...] | list[str]):
-        if not slots or any(slot not in SLOT_OPTIONS for slot in slots):
-            raise ValueError("Ask one or more recognized preference slots")
-        return {slot: getattr(self.__private_spec, slot) for slot in slots}
-
-
-class PreferenceResolver:
-    """Private routing from PUBLIC role/candidate descriptions to one slot.
-
-    Constructed by the runner only. Neither registry nor theta is passed to a model.
-    """
-    def __init__(self, slots, theta):
-        self._slots, self._theta = slots, theta
-
-    def resolve(self, question):
-        roles = question.roles()
-        routing = {}
-        for role in roles:
-            matches = [slot for slot, registry in self._slots.items() if registry["public_role"] == role]
-            if len(matches) != 1:
-                raise ValueError("Public role does not resolve to exactly one task preference")
-            routing[role] = matches[0]
-        return routing
+class LlmUser:
+    def __init__(self, client, sample):
+        self.client, self.sample = client, sample
 
     def answer(self, question):
-        routing = self.resolve(question)
-        # Access only the requested keys. In particular no copying/iterating theta.
-        if question.type in ("select", "all_preferences"):
-            response = {"choices": {role: self._theta[slot] for role, slot in sorted(routing.items())}}
-        else:
-            response = {"confirmations": [dict(role=r["role"], candidate_id=r["candidate_id"],
-                          confirmed=self._theta[routing[r["role"]]] == r["candidate_id"])
-                          for r in question.requests]}
-        return response, len(set(routing.values()))
+        requested = question["slots"]
+        def validate(value):
+            if not isinstance(value, dict) or set(value) != {"choices"} or not isinstance(value["choices"], dict):
+                raise ValueError("User reply must contain only choices")
+            if set(value["choices"]) != set(requested):
+                raise ValueError("User reply must address only the requested slots")
+            if any(v != self.sample.theta_star[s] for s, v in value["choices"].items()):
+                raise ValueError("User reply must preserve the user's fixed intent")
+            return value
+        private = dict(initial_instruction=self.sample.u0, complete_intent=self.sample.theta_star,
+                       available_choices=self.sample.slots, question=question["text"], requested_slots=requested)
+        return self.client.request("user", "user_answer", USER_PROMPT, private, validate, actor="user_simulator")

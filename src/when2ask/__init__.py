@@ -1,1 +1,1 @@
-"""When2Ask: a small, model-free robotics execution baseline."""
+"""When2Ask: clarification timing for robotic tasks."""

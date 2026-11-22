@@ -212,7 +212,7 @@ class Environment:
                                linear_velocity=list(linear), angular_velocity=list(angular))
         joints = p.getJointStates(self.robot, self.ARM_JOINTS + self.FINGERS,
                                   physicsClientId=self.client)
-        return dict(simulation_step=self.step_count, objects=result,
+        return dict(physics_step=self.step_count, objects=result,
                     end_effector=list(self.ee_pose()[0]), held_object=self.held_object,
                     robot_joints=[dict(position=s[0], velocity=s[1]) for s in joints])
 

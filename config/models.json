@@ -1,0 +1,52 @@
+{
+  "deepseek": {
+    "label": "DeepSeek Flash",
+    "model_env": "DEEPSEEK_MODEL",
+    "url_env": "DEEPSEEK_BASE_URL",
+    "key_env": "DEEPSEEK_API_KEY",
+    "protocol": "chat",
+    "options": {
+      "temperature": 0,
+      "thinking": {
+        "type": "disabled"
+      }
+    }
+  },
+  "gpt": {
+    "label": "GPT-5.6",
+    "model_env": "GPT_MODEL",
+    "url_env": "GPT_BASE_URL",
+    "key_env": "GPT_API_KEY",
+    "protocol": "chat",
+    "options": {},
+    "token_limit_field": "max_completion_tokens"
+  },
+  "glm": {
+    "label": "GLM 5.2",
+    "model_env": "GLM_MODEL",
+    "url_env": "GLM_BASE_URL",
+    "key_env": "GLM_API_KEY",
+    "protocol": "chat",
+    "options": {
+      "temperature": 0
+    }
+  },
+  "jev": {
+    "label": "Jev",
+    "model_env": "JEV_MODEL",
+    "url_env": "TYPESAFE_BASE_URL",
+    "key_env": "TYPESAFE_API_KEY",
+    "protocol": "noul",
+    "options": {}
+  },
+  "user": {
+    "label": "User simulator",
+    "model_env": "USER_MODEL",
+    "url_env": "USER_BASE_URL",
+    "key_env": "USER_API_KEY",
+    "protocol": "chat",
+    "options": {
+      "temperature": 0
+    }
+  }
+}
