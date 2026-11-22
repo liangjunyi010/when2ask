@@ -23,7 +23,7 @@ def run_episode(mode="ask", seed=0, output_dir=None, *, gui=False, record=False,
     if mode not in aliases:
         raise ValueError("Mode must be ask or noask")
     canonical = aliases[mode]
-    out = Path(output_dir or f"outputs/{'ask' if canonical == 'scripted_ask' else 'noask'}_demo")
+    out = Path(output_dir or f"result/{'ask' if canonical == 'scripted_ask' else 'noask'}_demo")
     out.mkdir(parents=True, exist_ok=True)
     spec = private_spec or PrivateTaskSpec()
     agent = ScriptedAgent(canonical)

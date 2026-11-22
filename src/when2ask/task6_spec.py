@@ -7,12 +7,12 @@ from .config import ROOT
 
 VERSION = 'six_tasks_dev_v1'
 TITLES = {
-    'category_sorting': 'Category Sorting · 分类整理',
-    'inventory_restock': 'Inventory Restock · 库存补货',
-    'retrieve_restore': 'Retrieve & Restore · 开盒取物复原',
-    'buffer_exchange': 'Buffered Exchange · 缓冲区交换',
-    'patrol_return': 'Patrol & Return · 多点巡检返航',
-    'occlusion_inspection': 'Reveal & Inspect · 移开遮挡检查',
+    'category_sorting': 'Category Sorting',
+    'inventory_restock': 'Inventory Restock',
+    'retrieve_restore': 'Retrieve & Restore',
+    'buffer_exchange': 'Buffered Exchange',
+    'patrol_return': 'Patrol & Return',
+    'occlusion_inspection': 'Reveal & Inspect',
 }
 SOURCES = ('task6_spec.py', 'task6_world.py', 'task6_protocol.py', 'task6_evaluator.py',
            'task6_worker.py', 'environment.py', 'skills.py', 'diverse_world.py', 'navigation_world.py', 'navigation_map.py')

@@ -134,7 +134,7 @@ def report():
     lines+=['','## Interpretation limits','']+['- '+note for note in notes]
     lines+=['','## Every episode','', '| Case | Method | Success | Burden | Actions | First ASK after actions | Termination |','|---|---|---|---|---|---|---|']
     for r in rows:lines.append('| '+' | '.join(str(r[k]) for k in ('sample_id','method','success','burden','actions','first_ask_after_actions','termination'))+' |')
-    lines+=['','Recompute: `.venv/bin/python scripts/unified_deepseek_dev.py report`. Full raw JSON/JSONL is under `../episodes/`.']
+    lines+=['','Recompute: `.venv/bin/python script/unified_deepseek_dev.py report`. Full raw JSON/JSONL is under `../episodes/`.']
     (dest/'README.md').write_text('\n'.join(lines)+'\n')
     import matplotlib
     matplotlib.use('Agg')

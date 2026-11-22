@@ -17,7 +17,7 @@ from .three_task_data import geometry, distance
 
 VERSION = 'nine_task_pilot_v1'
 DATA = ROOT / 'data' / VERSION
-OUT = ROOT / 'outputs' / 'nine_task_v1'
+OUT = ROOT / 'result' / 'nine_task_v1'
 TEMPLATES = ('pack_and_cover', 'place_into_selected_containers', 'find_and_approach', *TITLES)
 STUDY = TEMPLATES[:2]
 MOBILE = ('find_and_approach', 'patrol_return')

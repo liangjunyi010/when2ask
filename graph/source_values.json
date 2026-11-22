@@ -1,0 +1,71 @@
+{
+  "ppt": "ppt/When2Ask_Team11_Final.pptx",
+  "cross_model_table": [
+    [
+      "API model",
+      "Task success Rate",
+      "Avg Time Spent",
+      "AvgAPI cost",
+      "UnnecessaryASK rate (FPR)"
+    ],
+    [
+      "GPT-5.6",
+      "100.0%",
+      "12.52s",
+      "$0.02541",
+      "0.0%"
+    ],
+    [
+      "DeepSeek Flash",
+      "100.0%",
+      "8.24s",
+      "$0.00198",
+      "0.0%"
+    ],
+    [
+      "GLM 5.2",
+      "93%",
+      "10.12s",
+      "$0.00302",
+      "4%"
+    ]
+  ],
+  "method_charts": [
+    {
+      "categories": [
+        "NoAsk",
+        "LLM-Gate",
+        "Jev-Gate"
+      ],
+      "percentages": [
+        77.77777778000001,
+        100.0,
+        96.2962963
+      ]
+    },
+    {
+      "categories": [
+        "NoAsk",
+        "LLM-Gate",
+        "Jev-Gate"
+      ],
+      "percentages": [
+        49.196312920000004,
+        100.0,
+        69.50540389
+      ]
+    },
+    {
+      "categories": [
+        "NoAsk",
+        "LLM-Gate",
+        "Jev-Gate"
+      ],
+      "percentages": [
+        36.34652381,
+        100.0,
+        53.70561897
+      ]
+    }
+  ]
+}

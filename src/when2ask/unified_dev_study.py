@@ -20,7 +20,7 @@ from .tabletop_dev_public import facts_payload
 from .user_simulator import PreferenceResolver
 from .unified_dev_agent import VERSION, SYSTEM_PROMPT, UnifiedPolicy, prompt_hash
 
-OUT = ROOT / 'outputs' / VERSION
+OUT = ROOT / 'result' / VERSION
 DATA = ROOT / 'data' / VERSION
 METHODS = ('llm_noask', 'llm_gate', 'jev_gate', 'llm_unified')
 MAX_REQUESTS, MAX_EPISODES = 320, 16
@@ -100,7 +100,7 @@ def freeze():
     jobs = [dict(sample_id=s.sample_id, method=order[(j+i)%4],
                  episode_id=s.sample_id+'__'+order[(j+i)%4])
             for i,s in enumerate(cases) for j in range(4)]
-    sources = list((ROOT/'src/when2ask').glob('*.py')) + [ROOT/'scripts/unified_deepseek_dev.py']
+    sources = list((ROOT/'src/when2ask').glob('*.py')) + [ROOT/'script/unified_deepseek_dev.py']
     value = dict(study_version=VERSION, status='LOCKED_BEFORE_NEW_AUTHENTICATED_CALLS',
         code_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
         source_hashes={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources},

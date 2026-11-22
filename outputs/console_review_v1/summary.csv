@@ -1,4 +1,0 @@
-template,method,success,ask_turns,burden,api_attempts,api_latency_s,early_ask_before_any_action
-pack_and_cover,llm_gate,True,1,2,10,9.06151879299432,True
-place_into_selected_containers,jev_gate,True,1,1,8,4.877452457963955,False
-find_and_approach,llm_noask,True,0,0,4,3.965567957959138,False

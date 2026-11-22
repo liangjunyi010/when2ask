@@ -1,4 +1,6 @@
 """Independent nine-task Dev cases with explicit, model-hidden FPR strata."""
+import os
+from pathlib import Path
 import copy
 import hashlib
 import json
@@ -11,7 +13,7 @@ from .navigation_task import NavigationSample
 
 VERSION='nine_task_metrics_dev_v1'
 DATA=ROOT/'data'/VERSION
-OUT=ROOT/'outputs'/VERSION
+OUT=Path(os.environ.get('WHEN2ASK_RUN_DIR', str(ROOT/'result'/VERSION))).resolve()
 
 
 def create_rows():

@@ -21,7 +21,7 @@ def doctor(live=False, session_dir=None):
     if not live:
         print(json.dumps(report, indent=2))
         return report
-    directory = Path(session_dir or ROOT / "outputs/phase2_live")
+    directory = Path(session_dir or ROOT / "result/phase2_live")
     ledger = SessionLedger(directory)
     audit = Audit("api_smoke", config, ledger, directory / "api_smoke_attempts.jsonl", limit=200)
     clients = dict(deepseek=DeepSeekClient(config, audit), jev=JevClient(config, audit))

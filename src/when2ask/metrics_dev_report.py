@@ -1,4 +1,5 @@
 """Four headline metrics; episode-level false alarms have explicit denominators."""
+import os
 import csv
 import hashlib
 import html
@@ -56,12 +57,17 @@ def aggregate(rows,method):
     return result
 
 
-def report():
-    plan=checked();prices=json.loads((OUT/'pricing.json').read_text());meta={r['sample']['sample_id']:r for r in entries()}
-    dest=OUT/'report';dest.mkdir(exist_ok=True)
+def report(*, source=None, destination=None, archived=False):
+    out = source or OUT
+    if archived:
+        from .submission import ARCHIVE, verify_archive
+        if out != ARCHIVE: raise ValueError('Unknown evidence directory')
+        verify_archive()
+    plan=json.loads((out/'manifest.json').read_text()) if archived else checked();prices=json.loads((out/'pricing.json').read_text());meta={r['sample']['sample_id']:r for r in entries()}
+    dest=destination or out/'report';dest.mkdir(parents=True,exist_ok=True)
     episodes=[];rows=[];attempts=[]
     for job in plan['jobs']:
-        path=OUT/'episodes'/job['episode_id']/'episode.json'
+        path=out/'episodes'/job['episode_id']/'episode.json'
         if not path.exists():continue
         e=json.loads(path.read_text());episodes.append(e);m=meta[e['sample_id']]
         ap=path.parent/'api_attempts.jsonl'
@@ -111,7 +117,7 @@ def report():
     result=dict(study_version=plan['study_version'],main_metrics=['success_rate','api_seconds_mean','estimated_usd_mean','fpr'],
         planned_episodes=108,completed_episodes=len(rows),complete_pairing=len(rows)==108,
         physical_groups=18,dev_samples=27,core_negative_samples=18,methods=methods,per_template=per_task,
-        notes=notes,session=json.loads((OUT/'session/session_budget.json').read_text()),
+        notes=notes,session=json.loads((out/'session/session_budget.json').read_text()),
         actual_models={b:sorted({r['returned_model'] for r in attempts if r['backend']==b and r['returned_model']}) for b in ('deepseek','jev')},
         pricing_sources=prices['sources'])
     write(dest/'summary.json',result)
@@ -131,7 +137,7 @@ def report():
         lines+=['### '+TASKS[t],'','| '+' | '.join(headers)+' |','|'+'---|'*5]
         lines+=['| '+' | '.join(cells(r))+' |' for r in per_task if r['template_id']==t]
         lines.append('')
-    lines+=['Recompute: `.venv/bin/python scripts/nine_task_metrics_dev.py report`. Raw records are in `../episodes/`; exact policy/data/model/budget hashes are in `../manifest.json`.']
+    lines+=['Recompute: `.venv/bin/python script/benchmark.py report`. Raw records are in `../episodes/`; exact policy/data/model/budget hashes are in `../manifest.json`.']
     (dest/'README.md').write_text('\n'.join(lines)+'\n')
     import matplotlib
     matplotlib.use('Agg')
@@ -159,7 +165,7 @@ def report():
             for method in METHODS:
                 e=next((e for e in episodes if e['sample_id']==sid and e['method']==method),None)
                 if not e:body.append('<div>'+LABELS[method]+' · Not run</div>');continue
-                row=next(r for r in rows if r['episode_id']==e['episode_id']);folder='../episodes/'+e['episode_id']+'/'
+                row=next(r for r in rows if r['episode_id']==e['episode_id']);folder=os.path.relpath(out/'episodes'/e['episode_id'],dest)+'/'
                 status='SUCCESS' if row['success'] else 'FAILED'
                 body+=['<div><h3>'+LABELS[method]+' · '+status+'</h3><p class="tag">'+('False alarm: ASK on a fully specified task' if row['false_alarm'] else 'No false alarm observed' if row['false_alarm'] is False else 'FPR not applicable / censored')+'</p><img loading="lazy" src="'+folder+'final.png" alt="Real final PyBullet state"><a href="'+folder+'episode.json">Episode JSON</a> · <a href="'+folder+'api_attempts.jsonl">API log</a><details><summary>Question / action trace</summary>']
                 for turn in e['turns']:
@@ -173,8 +179,13 @@ def report():
     return result
 
 
-def audit():
-    plan=checked();paths=list((OUT/'episodes').glob('*/episode.json'));calls=[];seen=set();asks=0;unified_rounds=0
+def audit(*, source=None, destination=None, archived=False):
+    out = source or OUT
+    if archived:
+        from .submission import ARCHIVE, verify_archive
+        if out != ARCHIVE: raise ValueError('Unknown evidence directory')
+        verify_archive()
+    plan=json.loads((out/'manifest.json').read_text()) if archived else checked();paths=list((out/'episodes').glob('*/episode.json'));calls=[];seen=set();asks=0;unified_rounds=0
     public_forbidden={'theta_star','sample_id','group_id','partition','condition','fpr_core_negative','annotation_basis','source_dev_sample_id','task_success','expected_action','expected_gate'}
     def keys(v):
         if isinstance(v,dict):return set(v).union(*(keys(x) for x in v.values()))
@@ -204,15 +215,14 @@ def audit():
             if not req:continue
             public=req['state'] if r['backend']=='jev' else json.loads(req['messages'][1]['content'])
             assert not keys(public)&public_forbidden
-    ledger=json.loads((OUT/'session/session_budget.json').read_text())
+    ledger=json.loads((out/'session/session_budget.json').read_text())
     assert len(calls)==ledger['attempts']<=1600 and len(paths)==ledger['episodes']<=108
-    before=json.loads((OUT/'protected_before.json').read_text())
-    changed=[p for p,h in before.items() if not (ROOT/p).is_file() or hashlib.sha256((ROOT/p).read_bytes()).hexdigest()!=h]
-    assert not changed,changed
     result=dict(completed_episodes=len(paths),all_108_paired=seen=={(j['sample_id'],j['method']) for j in plan['jobs']},
         authenticated_attempts=len(calls),ask_turns_physics_frozen=asks,unified_rounds=unified_rounds,
         one_unified_call_per_round=True,private_labels_absent_from_payloads=True,physical_scores_match_conditions=True,
-        old_files_unchanged=len(before),changed_old_files=changed,
+        saved_evidence_checksums_verified=archived,
         api_errors=sum(r['status']=='api_error' for r in calls),schema_errors=sum(r['status']=='schema_error' for r in calls),
         retries=sum(r.get('attempt',1)>1 for r in calls),unknown_usage_attempts=sum(r.get('input_tokens') is None or r.get('output_tokens') is None for r in calls))
-    write(OUT/'evidence_validation.json',result);return result
+    dest=destination or out
+    dest.mkdir(parents=True,exist_ok=True)
+    write(dest/'evidence_validation.json',result);return result

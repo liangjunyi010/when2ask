@@ -52,13 +52,13 @@ def run_sample(sample, method, output_dir=None, *, live=False, config=None,
         raise ValueError("Online safety ceiling: 20 rounds / 64 API attempts")
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
     episode_id = f"{sample.sample_id}__{method}__{stamp}"
-    out = Path(output_dir or ROOT / "outputs/phase2_live/episodes" / episode_id)
+    out = Path(output_dir or ROOT / "result/phase2_live/episodes" / episode_id)
     if (out / "episode.json").exists() or (out / "api_attempts.jsonl").exists():
         raise FileExistsError("Refusing to overwrite an existing episode/audit; choose a fresh output directory")
     out.mkdir(parents=True, exist_ok=True)
     if live:
-        session = session or (SessionLedger(ROOT / "outputs/phase3_live", 600, 40, policy="phase3_dev")
-                              if version3 else SessionLedger(ROOT / "outputs/phase2_live"))
+        session = session or (SessionLedger(ROOT / "result/phase3_live", 600, 40, policy="phase3_dev")
+                              if version3 else SessionLedger(ROOT / "result/phase2_live"))
         session.start_episode(episode_id)
     audit = Audit(episode_id, config, session if live else None, out / "api_attempts.jsonl",
                   limits.max_api_attempts)

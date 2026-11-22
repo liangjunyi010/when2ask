@@ -1,4 +1,0 @@
-method,task_success,burden,physical_skills,deepseek_input_tokens,deepseek_output_tokens,jev_input_tokens,jev_output_tokens,api_latency_s,api_attempts,retries,returned_models
-llm_noask,False,0,3,6071,89,,,3.278843916981714,4,0,deepseek-flash
-llm_gate,True,2,3,15551,201,,,7.4451447509927675,10,0,deepseek-flash
-jev_gate,False,0,3,6071,89,7859,96,4.870743791019777,8,0,deepseek-flash; jev-1.14.0

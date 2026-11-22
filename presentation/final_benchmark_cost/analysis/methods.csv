@@ -1,4 +1,0 @@
-method,scored_episodes,independent_groups,successes,mean_burden,api_attempts,api_latency_s,deepseek_input_tokens,deepseek_cache_hit_tokens,deepseek_cache_miss_tokens,deepseek_output_tokens,jev_input_tokens,jev_output_tokens,estimated_deepseek_usd,estimated_jev_usd,estimated_total_usd,hypothetical_all_peak_usd
-llm_noask,12,12,10,0.0,48,57.90658562499448,143551,91900,51651,4830,,,0.01092135,,0.01092135,0.0218427
-llm_gate,12,12,12,0.3333333333333333,106,105.40838682891626,238767,140288,98479,5442,,,0.018457914,,0.018457914,0.036915828
-jev_gate,12,12,12,0.3333333333333333,108,78.56056749305571,161546,98428,63118,5219,116101,1296,0.012894384,0.004876242,0.017770626,0.03066501

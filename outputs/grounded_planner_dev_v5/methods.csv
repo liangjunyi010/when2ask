@@ -1,4 +1,0 @@
-method,episodes,successes,burden,actions,latency_s,attempts,deepseek_input_tokens,deepseek_output_tokens,jev_input_tokens,jev_output_tokens
-llm_noask,3,1,0,18,24.649117417986417,21,52049,2540,,
-llm_gate,3,2,2,18,45.67564329000743,46,108202,2796,,
-jev_gate,3,2,2,22,42.43959899999754,54,69581,3127,87463,648

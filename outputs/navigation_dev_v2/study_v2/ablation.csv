@@ -1,9 +1,0 @@
-backend,contract,payload,states,valid,asks,reference_matches,mean_nominal_regret_s,attempts,api_latency_s
-deepseek,cost_exclusive,raw,6,6,0,2,5.5607871605833425,6,3.755824916937854
-deepseek,cost_exclusive,summary,6,6,0,2,5.5607871605833425,6,4.584784123988356
-deepseek,overlap_control,raw,6,6,0,2,5.5607871605833425,6,4.480836876027752
-deepseek,overlap_control,summary,6,6,0,2,5.5607871605833425,6,4.681865874910727
-jev,cost_exclusive,raw,6,6,0,2,5.5607871605833425,6,1.9050479169818573
-jev,cost_exclusive,summary,6,6,0,2,5.5607871605833425,6,1.7847599589731544
-jev,overlap_control,raw,6,6,0,2,5.5607871605833425,6,20.91632708295947
-jev,overlap_control,summary,6,6,0,2,5.5607871605833425,6,1.9477037499891594

@@ -78,7 +78,7 @@ def freeze():
     if (OUT/'manifest.json').exists():raise FileExistsError('Never overwrite a locked study')
     validation=json.loads((OUT/'oracle/summary.json').read_text())
     if validation['successes']!=27:raise ValueError('Require 27/27 actual physical oracle passes')
-    paths=list((ROOT/'src/when2ask').glob('*.py'))+[ROOT/'scripts/nine_task_metrics_dev.py']
+    paths=list((ROOT/'src/when2ask').glob('*.py'))+[ROOT/'script/benchmark.py']
     jobs=[dict(sample_id=s.sample_id,method=m,episode_id=s.sample_id+'__'+m) for s in load() for m in METHODS]
     random.Random(42781123).shuffle(jobs)
     from . import tabletop_dev_agents,task6_agents,navigation_agents,gate_ready_dev

@@ -1,7 +1,0 @@
-case_id,method,known,truth,profile,physical_swap_complete,task_success,burden,actions,physical_failures,regressive_actions,api_attempts,api_latency_s,deepseek_input_tokens,deepseek_output_tokens,jev_input_tokens,jev_output_tokens,schema_errors,termination
-known_back_v1_noask,llm_noask,True,buffer_back,s0p0,True,True,0,3,0,0,5,3.973930375997952,11950,71,,,1,done
-known_back_v4_noask,llm_noask,True,buffer_back,grounded_plan_compact,True,True,0,3,0,0,4,4.727505500997722,8937,330,,,0,done
-unknown_back_v4_jev,jev_gate,False,buffer_back,grounded_plan_compact,True,True,1,3,0,0,10,7.194592083002135,11289,374,16638,120,0,done
-unknown_back_v4_llm,llm_gate,False,buffer_back,grounded_plan_compact,True,True,1,3,0,0,10,10.25443204200019,22355,407,,,0,done
-unknown_back_v4_noask,llm_noask,False,buffer_back,grounded_plan_compact,True,False,0,3,0,0,4,5.086637542000972,8921,330,,,0,done
-unknown_front_v4_noask,llm_noask,False,buffer_front,grounded_plan_compact,True,True,0,3,0,0,4,4.698044583998126,8921,330,,,0,done

@@ -1,4 +1,0 @@
-method,scored,planned,successes,success_rate,group_wilson95,burden_total,burden_mean,actions,physical_failures,api_attempts,api_latency_s,early_asks_exploratory,missed_asks_exploratory,schema_errors,retries,deepseek_input_tokens,deepseek_output_tokens,jev_input_tokens,jev_output_tokens
-llm_noask,12,12,10,0.8333333333333334,"[0.5519636426153274, 0.9530358523851776]",0,0.0,36,0,48,57.90658562499448,0,0,0,0,143551,4830,,
-llm_gate,12,12,12,1.0,"[0.7574992425007574, 1]",4,0.3333333333333333,37,1,106,105.40838682891626,2,0,0,0,238767,5442,,
-jev_gate,12,12,12,1.0,"[0.7574992425007574, 1]",4,0.3333333333333333,38,2,108,78.56056749305571,0,0,0,0,161546,5219,116101,1296

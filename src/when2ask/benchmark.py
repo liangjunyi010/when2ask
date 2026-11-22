@@ -180,7 +180,7 @@ def oracle_validate(split, root=ROOT):
     all_samples = [s for name in ("validation", "pilot") if dataset_path(name, root).exists()
                    for s in load_samples(name, root)]
     group_info = check_groups(all_samples, root)
-    base = root / "outputs/phase2/oracle" / split
+    base = root / "result/phase2/oracle" / split
     base.mkdir(parents=True, exist_ok=True)
     rows = []
     for sample in samples:

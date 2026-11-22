@@ -1,6 +1,0 @@
-{
-  "authenticated_requests": 6,
-  "episodes": 3,
-  "reason": "Concurrent HTTP-200 schema errors tripped legacy global backend-health breaker before repairs. All three aborted episodes retained. Original r1 plan unchanged in ../live_plan.json.",
-  "amendment": "Dev-only schema-aware backend health; explicit public preference/world-fact lists and empty-world-fact-choice rule; no default/source physics/evaluator changes. New r2 nine-episode paired series; cumulative request ceiling remains150."
-}

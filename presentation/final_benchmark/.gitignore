@@ -1,5 +1,0 @@
-.build/
-.chart-data-*/
-web/frames/
-web/capture/
-*.tmp
